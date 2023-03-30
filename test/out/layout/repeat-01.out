@@ -1,0 +1,86 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/repeat-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/repeat-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/repeat-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/layout/repeat-01.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "lang") (Literal (String "ar")) ])
+, SoftBreak
+, Text "\1605\1602\1583\1605\1577"
+, Space
+, Code
+    "test/typ/layout/repeat-01.typ"
+    ( line 4 , column 8 )
+    (FuncCall
+       (Ident (Identifier "box"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 1.0 Fr))
+       , NormalArg
+           (FuncCall (Ident (Identifier "repeat")) [ BlockArg [ Text "." ] ])
+       ])
+, Space
+, Text "15"
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  text(body: [
+مقدمة ], 
+       lang: "ar"), 
+  box(body: repeat(body: text(body: [.], 
+                              lang: "ar")), 
+      width: 1.0fr), 
+  text(body: [ 15], 
+       lang: "ar"), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "\1605\1602\1583\1605\1577"
+      , Space
+      , Span ( "" , [ "box" ] , [] ) []
+      , Space
+      , Str "15"
+      ]
+  ]

@@ -1,0 +1,333 @@
+--- parse tree ---
+[ Code
+    "test/typ/meta/outline-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/meta/outline-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/meta/outline-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/meta/outline-00.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ NormalArg (Literal (String "a7"))
+       , KeyValArg (Identifier "margin") (Literal (Numeric 20.0 Pt))
+       , KeyValArg (Identifier "numbering") (Literal (String "1"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/meta/outline-00.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "heading"))
+       [ KeyValArg (Identifier "numbering") (Literal (String "(1/a)")) ])
+, SoftBreak
+, Code
+    "test/typ/meta/outline-00.typ"
+    ( line 4 , column 2 )
+    (Show
+       (Just
+          (FuncCall
+             (FieldAccess
+                (Ident (Identifier "where")) (Ident (Identifier "heading")))
+             [ KeyValArg (Identifier "level") (Literal (Int 1)) ]))
+       (Set
+          (Ident (Identifier "text"))
+          [ NormalArg (Literal (Numeric 12.0 Pt)) ]))
+, SoftBreak
+, Code
+    "test/typ/meta/outline-00.typ"
+    ( line 5 , column 2 )
+    (Show
+       (Just
+          (FuncCall
+             (FieldAccess
+                (Ident (Identifier "where")) (Ident (Identifier "heading")))
+             [ KeyValArg (Identifier "level") (Literal (Int 2)) ]))
+       (Set
+          (Ident (Identifier "text"))
+          [ NormalArg (Literal (Numeric 10.0 Pt)) ]))
+, ParBreak
+, Code
+    "test/typ/meta/outline-00.typ"
+    ( line 7 , column 2 )
+    (FuncCall (Ident (Identifier "outline")) [])
+, ParBreak
+, Heading 1 [ Text "Einleitung" ]
+, Code
+    "test/typ/meta/outline-00.typ"
+    ( line 10 , column 2 )
+    (FuncCall
+       (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 12)) ])
+, ParBreak
+, Heading 1 [ Text "Analyse" ]
+, Code
+    "test/typ/meta/outline-00.typ"
+    ( line 13 , column 2 )
+    (FuncCall
+       (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 10)) ])
+, ParBreak
+, Code
+    "test/typ/meta/outline-00.typ"
+    ( line 15 , column 2 )
+    (Block
+       (Content
+          [ SoftBreak
+          , Code
+              "test/typ/meta/outline-00.typ"
+              ( line 16 , column 4 )
+              (Set
+                 (Ident (Identifier "heading"))
+                 [ KeyValArg (Identifier "outlined") (Literal (Boolean False)) ])
+          , SoftBreak
+          , Heading 2 [ Text "Methodik" ]
+          , Code
+              "test/typ/meta/outline-00.typ"
+              ( line 18 , column 4 )
+              (FuncCall
+                 (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 6)) ])
+          , ParBreak
+          ]))
+, ParBreak
+, Heading 2 [ Text "Verarbeitung" ]
+, Code
+    "test/typ/meta/outline-00.typ"
+    ( line 22 , column 2 )
+    (FuncCall
+       (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 4)) ])
+, ParBreak
+, Heading 2 [ Text "Programmierung" ]
+, RawBlock "rust" "fn main() {\n  panic!(\"in the disco\");\n}\n"
+, ParBreak
+, Heading 4 [ Text "Deep" , Space , Text "Stuff" ]
+, Text "Ok"
+, Space
+, Ellipsis
+, ParBreak
+, Code
+    "test/typ/meta/outline-00.typ"
+    ( line 34 , column 2 )
+    (Set
+       (Ident (Identifier "heading"))
+       [ KeyValArg (Identifier "numbering") (Literal (String "(I)")) ])
+, ParBreak
+, Heading
+    1
+    [ Code
+        "test/typ/meta/outline-00.typ"
+        ( line 36 , column 4 )
+        (FuncCall
+           (Ident (Identifier "text"))
+           [ NormalArg (Ident (Identifier "blue"))
+           , BlockArg [ Text "Zusammen" ]
+           ])
+    , Text "fassung"
+    ]
+, Code
+    "test/typ/meta/outline-00.typ"
+    ( line 37 , column 2 )
+    (FuncCall
+       (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 10)) ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  [
+], 
+  [
+], 
+  parbreak(), 
+  outline(), 
+  parbreak(), 
+  heading(body: [Einleitung], 
+          level: 1, 
+          numbering: "(1/a)"), 
+  [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor], 
+  parbreak(), 
+  heading(body: [Analyse], 
+          level: 1, 
+          numbering: "(1/a)"), 
+  [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do], 
+  parbreak(), 
+  [
+], 
+  [
+], 
+  heading(body: [Methodik], 
+          level: 2, 
+          numbering: "(1/a)", 
+          outlined: false), 
+  [Lorem ipsum dolor sit amet, consectetur], 
+  parbreak(), 
+  parbreak(), 
+  heading(body: [Verarbeitung], 
+          level: 2, 
+          numbering: "(1/a)", 
+          outlined: false), 
+  [Lorem ipsum dolor sit], 
+  parbreak(), 
+  heading(body: [Programmierung], 
+          level: 2, 
+          numbering: "(1/a)", 
+          outlined: false), 
+  raw(block: true, 
+      lang: "rust", 
+      text: "fn main() {\n  panic!(\"in the disco\");\n}\n"), 
+  parbreak(), 
+  heading(body: [Deep Stuff], 
+          level: 4, 
+          numbering: "(1/a)", 
+          outlined: false), 
+  [Ok …], 
+  parbreak(), 
+  parbreak(), 
+  heading(body: { text(body: [Zusammen], 
+                       color: rgb(0%,45%,85%,100%)), 
+                  [fassung] }, 
+          level: 1, 
+          numbering: "(I)", 
+          outlined: false), 
+  [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Header 1 ( "" , [] , [] ) [ Str "Einleitung" ]
+  , Para
+      [ Str "Lorem"
+      , Space
+      , Str "ipsum"
+      , Space
+      , Str "dolor"
+      , Space
+      , Str "sit"
+      , Space
+      , Str "amet,"
+      , Space
+      , Str "consectetur"
+      , Space
+      , Str "adipiscing"
+      , Space
+      , Str "elit,"
+      , Space
+      , Str "sed"
+      , Space
+      , Str "do"
+      , Space
+      , Str "eiusmod"
+      , Space
+      , Str "tempor"
+      ]
+  , Header 1 ( "" , [] , [] ) [ Str "Analyse" ]
+  , Para
+      [ Str "Lorem"
+      , Space
+      , Str "ipsum"
+      , Space
+      , Str "dolor"
+      , Space
+      , Str "sit"
+      , Space
+      , Str "amet,"
+      , Space
+      , Str "consectetur"
+      , Space
+      , Str "adipiscing"
+      , Space
+      , Str "elit,"
+      , Space
+      , Str "sed"
+      , Space
+      , Str "do"
+      ]
+  , Para []
+  , Header 2 ( "" , [] , [] ) [ Str "Methodik" ]
+  , Para
+      [ Str "Lorem"
+      , Space
+      , Str "ipsum"
+      , Space
+      , Str "dolor"
+      , Space
+      , Str "sit"
+      , Space
+      , Str "amet,"
+      , Space
+      , Str "consectetur"
+      ]
+  , Header 2 ( "" , [] , [] ) [ Str "Verarbeitung" ]
+  , Para
+      [ Str "Lorem"
+      , Space
+      , Str "ipsum"
+      , Space
+      , Str "dolor"
+      , Space
+      , Str "sit"
+      ]
+  , Header 2 ( "" , [] , [] ) [ Str "Programmierung" ]
+  , CodeBlock
+      ( "" , [ "rust" ] , [] )
+      "fn main() {\n  panic!(\"in the disco\");\n}\n"
+  , Header 4 ( "" , [] , [] ) [ Str "Deep" , Space , Str "Stuff" ]
+  , Para [ Str "Ok" , Space , Str "\8230" ]
+  , Header 1 ( "" , [] , [] ) [ Str "Zusammenfassung" ]
+  , Para
+      [ Str "Lorem"
+      , Space
+      , Str "ipsum"
+      , Space
+      , Str "dolor"
+      , Space
+      , Str "sit"
+      , Space
+      , Str "amet,"
+      , Space
+      , Str "consectetur"
+      , Space
+      , Str "adipiscing"
+      , Space
+      , Str "elit,"
+      , Space
+      , Str "sed"
+      , Space
+      , Str "do"
+      ]
+  ]

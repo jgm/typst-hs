@@ -1,0 +1,152 @@
+--- parse tree ---
+[ Code
+    "test/typ/meta/bibliography-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/meta/bibliography-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/meta/bibliography-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/meta/bibliography-01.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 200.0 Pt)) ])
+, SoftBreak
+, Heading 1 [ Text "Details" ]
+, Text "See"
+, Space
+, Text "also"
+, Space
+, Code
+    "test/typ/meta/bibliography-01.typ"
+    ( line 4 , column 11 )
+    (FuncCall
+       (Ident (Identifier "cite"))
+       [ NormalArg (Literal (String "arrgh"))
+       , NormalArg (Literal (String "distress"))
+       , NormalArg
+           (Block (Content [ Text "p" , Text "." , Space , Text "22" ]))
+       ])
+, Text ","
+, Space
+, Ref
+    "arrgh"
+    (Block (Content [ Text "p" , Text "." , Space , Text "4" ]))
+, Text ","
+, Space
+, Text "and"
+, Space
+, Ref
+    "distress"
+    (Block (Content [ Text "p" , Text "." , Space , Text "5" ]))
+, Text "."
+, SoftBreak
+, Code
+    "test/typ/meta/bibliography-01.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "bibliography"))
+       [ NormalArg (Literal (String "/works.bib")) ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  heading(body: [Details], 
+          level: 1), 
+  [See also ], 
+  cite(keys: ("arrgh", 
+              "distress", 
+              [p. 22]), 
+       supplement: none), 
+  [, ], 
+  ref(supplement: [p. 4], 
+      target: ), 
+  [, and ], 
+  ref(supplement: [p. 5], 
+      target: ), 
+  [.
+], 
+  bibliography(path: "/works.bib"), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Header 1 ( "" , [] , [] ) [ Str "Details" ]
+  , Para
+      [ Str "See"
+      , Space
+      , Str "also"
+      , Space
+      , Cite
+          [ Citation
+              { citationId = "arrgh"
+              , citationPrefix = []
+              , citationSuffix = []
+              , citationMode = NormalCitation
+              , citationNoteNum = 0
+              , citationHash = 0
+              }
+          , Citation
+              { citationId = "distress"
+              , citationPrefix = []
+              , citationSuffix = []
+              , citationMode = NormalCitation
+              , citationNoteNum = 0
+              , citationHash = 0
+              }
+          , Citation
+              { citationId = "p. 22"
+              , citationPrefix = []
+              , citationSuffix = []
+              , citationMode = NormalCitation
+              , citationNoteNum = 0
+              , citationHash = 0
+              }
+          ]
+          [ Str "[arrgh,distress,p." , Space , Str "22]" ]
+      , Str ","
+      , Space
+      , Str ","
+      , Space
+      , Str "and"
+      , Space
+      , Str "."
+      ]
+  ]

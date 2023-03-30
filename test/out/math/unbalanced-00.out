@@ -1,0 +1,142 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/unbalanced-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/unbalanced-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/unbalanced-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Equation
+    True
+    [ MFrac
+        (Text "1")
+        (MGroup
+           (Just "(")
+           Nothing
+           [ Text "2" , MGroup (Just "(") (Just ")") [ Text "x" ] ])
+    ]
+, SoftBreak
+, Equation
+    True
+    [ MAttach
+        (Just
+           (MGroup
+              (Just "(")
+              Nothing
+              [ Text "2"
+              , Text "y"
+              , MGroup (Just "(") (Just ")") [ Text "x" ]
+              , MGroup (Just "(") (Just ")") []
+              ]))
+        Nothing
+        (Text "1")
+    ]
+, SoftBreak
+, Equation
+    True
+    [ MFrac
+        (Text "1")
+        (MGroup
+           (Just "(")
+           Nothing
+           [ Text "2"
+           , Text "y"
+           , MGroup (Just "(") (Just ")") [ Text "x" ]
+           , MGroup
+               (Just "(")
+               (Just ")")
+               [ MGroup
+                   Nothing
+                   Nothing
+                   [ Text "2" , MGroup (Just "(") (Just ")") [ Text "3" ] ]
+               ]
+           ])
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  math.equation(block: true, 
+                body: math.frac(denom: { [(], 
+                                         [2], 
+                                         math.lr(body: { [(], 
+                                                         [x], 
+                                                         [)] }) }, 
+                                num: [1]), 
+                numbering: none), 
+  [
+], 
+  math.equation(block: true, 
+                body: math.attach(b: { [(], 
+                                       [2], 
+                                       [y], 
+                                       math.lr(body: { [(], 
+                                                       [x], 
+                                                       [)] }), 
+                                       math.lr(body: { [(], 
+                                                       [)] }) }, 
+                                  base: [1], 
+                                  t: none), 
+                numbering: none), 
+  [
+], 
+  math.equation(block: true, 
+                body: math.frac(denom: { [(], 
+                                         [2], 
+                                         [y], 
+                                         math.lr(body: { [(], 
+                                                         [x], 
+                                                         [)] }), 
+                                         math.lr(body: { [(], 
+                                                         [2], 
+                                                         math.lr(body: { [(], 
+                                                                         [3], 
+                                                                         [)] }), 
+                                                         [)] }) }, 
+                                num: [1]), 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math DisplayMath "\\frac{1}{(2(x)}"
+      , SoftBreak
+      , Math DisplayMath "1_{(2y(x)\\left( {} \\right)}"
+      , SoftBreak
+      , Math DisplayMath "\\frac{1}{(2y(x)\\left( {2(3)} \\right)}"
+      ]
+  ]

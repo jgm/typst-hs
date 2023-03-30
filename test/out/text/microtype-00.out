@@ -1,0 +1,298 @@
+--- parse tree ---
+[ Code
+    "test/typ/text/microtype-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/text/microtype-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/text/microtype-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/text/microtype-00.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 130.0 Pt))
+       , KeyValArg (Identifier "margin") (Literal (Numeric 15.0 Pt))
+       ])
+, SoftBreak
+, Code
+    "test/typ/text/microtype-00.typ"
+    ( line 4 , column 2 )
+    (Set
+       (Ident (Identifier "par"))
+       [ KeyValArg (Identifier "justify") (Literal (Boolean True))
+       , KeyValArg (Identifier "linebreaks") (Literal (String "simple"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/text/microtype-00.typ"
+    ( line 5 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "size") (Literal (Numeric 9.0 Pt)) ])
+, SoftBreak
+, Code
+    "test/typ/text/microtype-00.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "rect"))
+       [ KeyValArg (Identifier "inset") (Literal (Numeric 0.0 Pt))
+       , KeyValArg
+           (Identifier "fill")
+           (FuncCall
+              (Ident (Identifier "rgb"))
+              [ NormalArg (Literal (Int 0))
+              , NormalArg (Literal (Int 0))
+              , NormalArg (Literal (Int 0))
+              , NormalArg (Literal (Int 0))
+              ])
+       , KeyValArg (Identifier "width") (Literal (Numeric 100.0 Percent))
+       , BlockArg
+           [ SoftBreak
+           , Text "This"
+           , Space
+           , Text "is"
+           , Space
+           , Text "a"
+           , Space
+           , Text "little"
+           , Space
+           , Text "bit"
+           , Space
+           , Text "of"
+           , Space
+           , Text "text"
+           , Space
+           , Text "that"
+           , Space
+           , Text "builds"
+           , Space
+           , Text "up"
+           , Space
+           , Text "to"
+           , SoftBreak
+           , Text "hang"
+           , Text "-"
+           , Text "ing"
+           , Space
+           , Text "hyphens"
+           , Space
+           , Text "and"
+           , Space
+           , Text "dash"
+           , EmDash
+           , Text "es"
+           , Space
+           , Text "and"
+           , Space
+           , Text "then,"
+           , Space
+           , Text "you"
+           , Space
+           , Text "know,"
+           , SoftBreak
+           , Text "some"
+           , Space
+           , Text "punctuation"
+           , Space
+           , Text "in"
+           , Space
+           , Text "the"
+           , Space
+           , Text "margin"
+           , Text "."
+           , ParBreak
+           ]
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/text/microtype-00.typ"
+    ( line 13 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "lang") (Literal (String "he"))
+       , KeyValArg
+           (Identifier "font")
+           (Array
+              [ Literal (String "PT Sans")
+              , Literal (String "Noto Serif Hebrew")
+              ])
+       ])
+, SoftBreak
+, Text "\1489\1504\1497\1497\1492"
+, Space
+, Text "\1504\1499\1493\1504\1492"
+, Space
+, Text "\1513\1500"
+, Space
+, Text "\1502\1513\1508\1496\1497\1501"
+, Space
+, Text "\1488\1512\1493\1499\1497\1501"
+, Space
+, Text "\1491\1493\1512\1513\1514"
+, Space
+, Text "\1497\1491\1506"
+, Space
+, Text "\1489\1513\1508\1492"
+, Text "."
+, Space
+, Text "\1488\1494"
+, Space
+, Text "\1489\1493\1488\1493"
+, Space
+, Text "\1504\1491\1489\1512"
+, Space
+, Text "\1506\1500"
+, Space
+, Text "\1502\1494\1490"
+, Space
+, Text "\1492\1488\1493\1493\1497\1512"
+, Text "."
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  [
+], 
+  text(body: [
+], size: 9.0pt), 
+  rect(body: { text(body: [
+This is a little bit of text that builds up to
+hang-ing hyphens and dash—es and then, you know,
+some punctuation in the margin.], 
+                    size: 9.0pt), 
+               parbreak() }, 
+       fill: rgb(0%,0%,0%,0%), 
+       inset: 0.0pt, 
+       width: 100%), 
+  parbreak(), 
+  text(body: [
+בנייה נכונה של משפטים ארוכים דורשת ידע בשפה. אז בואו נדבר על מזג האוויר.], 
+       font: ("PT Sans", 
+              "Noto Serif Hebrew"), 
+       lang: "he", 
+       size: 9.0pt), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Div
+      ( "" , [ "rect" ] , [] )
+      [ Para
+          [ Str "This"
+          , Space
+          , Str "is"
+          , Space
+          , Str "a"
+          , Space
+          , Str "little"
+          , Space
+          , Str "bit"
+          , Space
+          , Str "of"
+          , Space
+          , Str "text"
+          , Space
+          , Str "that"
+          , Space
+          , Str "builds"
+          , Space
+          , Str "up"
+          , Space
+          , Str "to"
+          , SoftBreak
+          , Str "hang-ing"
+          , Space
+          , Str "hyphens"
+          , Space
+          , Str "and"
+          , Space
+          , Str "dash\8212es"
+          , Space
+          , Str "and"
+          , Space
+          , Str "then,"
+          , Space
+          , Str "you"
+          , Space
+          , Str "know,"
+          , SoftBreak
+          , Str "some"
+          , Space
+          , Str "punctuation"
+          , Space
+          , Str "in"
+          , Space
+          , Str "the"
+          , Space
+          , Str "margin."
+          ]
+      ]
+  , Para
+      [ Str "\1489\1504\1497\1497\1492"
+      , Space
+      , Str "\1504\1499\1493\1504\1492"
+      , Space
+      , Str "\1513\1500"
+      , Space
+      , Str "\1502\1513\1508\1496\1497\1501"
+      , Space
+      , Str "\1488\1512\1493\1499\1497\1501"
+      , Space
+      , Str "\1491\1493\1512\1513\1514"
+      , Space
+      , Str "\1497\1491\1506"
+      , Space
+      , Str "\1489\1513\1508\1492."
+      , Space
+      , Str "\1488\1494"
+      , Space
+      , Str "\1489\1493\1488\1493"
+      , Space
+      , Str "\1504\1491\1489\1512"
+      , Space
+      , Str "\1506\1500"
+      , Space
+      , Str "\1502\1494\1490"
+      , Space
+      , Str "\1492\1488\1493\1493\1497\1512."
+      ]
+  ]

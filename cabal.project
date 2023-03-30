@@ -1,0 +1,5 @@
+packages: .
+source-repository-package
+  type: git
+  location: https://github.com/jgm/texmath
+  tag: c7b9b8b7b1f474f0835354b7da0ec97affd09f7f

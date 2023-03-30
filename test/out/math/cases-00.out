@@ -1,0 +1,163 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/cases-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/cases-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/cases-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Equation
+    True
+    [ MGroup
+        Nothing
+        Nothing
+        [ Text "f"
+        , MGroup (Just "(") (Just ")") [ Text "x" , Text "," , Text "y" ]
+        ]
+    , Text ":"
+    , Text "="
+    , Code
+        "test/typ/math/cases-00.typ"
+        ( line 2 , column 14 )
+        (FuncCall
+           (Ident (Identifier "cases"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Text "1"
+                     , Code
+                         "test/typ/math/cases-00.typ"
+                         ( line 3 , column 5 )
+                         (Ident (Identifier "quad"))
+                     , MAlignPoint
+                     , Text "if "
+                     , MFrac
+                         (MGroup
+                            (Just "(")
+                            (Just ")")
+                            [ Text "x"
+                            , Code
+                                "test/typ/math/cases-00.typ"
+                                ( line 3 , column 19 )
+                                (Ident (Identifier "dot"))
+                            , Text "y"
+                            ])
+                         (Text "2")
+                     , Text "\8804"
+                     , Text "0"
+                     ]))
+           , NormalArg
+               (Block
+                  (Content
+                     [ Text "2"
+                     , MAlignPoint
+                     , Text "if "
+                     , Text "x"
+                     , Code
+                         "test/typ/math/cases-00.typ"
+                         ( line 4 , column 13 )
+                         (Ident (Identifier "divides"))
+                     , Text "2"
+                     ]))
+           , NormalArg
+               (Block
+                  (Content
+                     [ Text "3"
+                     , MAlignPoint
+                     , Text "if "
+                     , Text "x"
+                     , Code
+                         "test/typ/math/cases-00.typ"
+                         ( line 5 , column 13 )
+                         (Ident (Identifier "in"))
+                     , Code
+                         "test/typ/math/cases-00.typ"
+                         ( line 5 , column 16 )
+                         (Ident (Identifier "NN"))
+                     ]))
+           , NormalArg
+               (Block (Content [ Text "4" , MAlignPoint , Text "else" ]))
+           ])
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  math.equation(block: true, 
+                body: { [f], 
+                        math.lr(body: { [(], 
+                                        [x], 
+                                        [,], 
+                                        [y], 
+                                        [)] }), 
+                        [:], 
+                        [=], 
+                        math.cases(children: ({ [1], 
+                                                [ ], 
+                                                math.alignpoint(), 
+                                                [if ], 
+                                                math.frac(denom: [2], 
+                                                          num: { [x], 
+                                                                 [⋅], 
+                                                                 [y] }), 
+                                                [≤], 
+                                                [0] }, 
+                                              { [2], 
+                                                math.alignpoint(), 
+                                                [if ], 
+                                                [x], 
+                                                [∣], 
+                                                [2] }, 
+                                              { [3], 
+                                                math.alignpoint(), 
+                                                [if ], 
+                                                [x], 
+                                                [∈], 
+                                                [ℕ] }, 
+                                              { [4], 
+                                                math.alignpoint(), 
+                                                [else] })) }, 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math
+          DisplayMath
+          "f\\left( {x,y} \\right): = \\begin{cases}\n1\\quad & \\text{if }\\frac{x \\cdot y}{2} \\leq 0 \\\\\n2 & \\text{if }x \\mid 2 \\\\\n3 & \\text{if }x \\in {\\mathbb{N}} \\\\\n4 & \\text{else}\n\\end{cases}"
+      ]
+  ]

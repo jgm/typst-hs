@@ -1,0 +1,144 @@
+--- parse tree ---
+[ Code
+    "test/typ/text/raw-04.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/text/raw-04.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/text/raw-04.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, SoftBreak
+, Comment
+, Text "The"
+, Space
+, Text "keyword"
+, Space
+, RawBlock "rust" "let"
+, Text "."
+, ParBreak
+, Comment
+, Text "("
+, RawInline ""
+, Text ")"
+, Space
+, HardBreak
+, Text "("
+, RawInline " untrimmed "
+, Text ")"
+, Space
+, HardBreak
+, Text "("
+, RawBlock "" "trimmed` "
+, Text ")"
+, Space
+, HardBreak
+, Text "("
+, RawBlock "" "trimmed "
+, Text ")"
+, Space
+, HardBreak
+, Text "("
+, RawBlock "" "trimmed"
+, Text ")"
+, Space
+, HardBreak
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  [The keyword ], 
+  raw(block: true, 
+      lang: "rust", 
+      text: "let"), 
+  [.], 
+  parbreak(), 
+  [(], 
+  raw(block: false, 
+      lang: none, 
+      text: ""), 
+  [) ], 
+  linebreak(), 
+  [(], 
+  raw(block: false, 
+      lang: none, 
+      text: " untrimmed "), 
+  [) ], 
+  linebreak(), 
+  [(], 
+  raw(block: true, 
+      lang: none, 
+      text: "trimmed` "), 
+  [) ], 
+  linebreak(), 
+  [(], 
+  raw(block: true, 
+      lang: none, 
+      text: "trimmed "), 
+  [) ], 
+  linebreak(), 
+  [(], 
+  raw(block: true, 
+      lang: none, 
+      text: "trimmed"), 
+  [) ], 
+  linebreak(), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para [ Str "The" , Space , Str "keyword" ]
+  , CodeBlock ( "" , [ "rust" ] , [] ) "let"
+  , Para [ Str "." ]
+  , Para
+      [ Str "("
+      , Code ( "" , [] , [] ) ""
+      , Str ")"
+      , LineBreak
+      , Str "("
+      , Code ( "" , [] , [] ) " untrimmed "
+      , Str ")"
+      , LineBreak
+      , Str "("
+      ]
+  , CodeBlock ( "" , [] , [] ) "trimmed` "
+  , Para [ Str ")" , LineBreak , Str "(" ]
+  , CodeBlock ( "" , [] , [] ) "trimmed "
+  , Para [ Str ")" , LineBreak , Str "(" ]
+  , CodeBlock ( "" , [] , [] ) "trimmed"
+  , Para [ Str ")" , LineBreak ]
+  ]

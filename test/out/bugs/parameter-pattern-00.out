@@ -1,0 +1,73 @@
+--- parse tree ---
+[ Code
+    "test/typ/bugs/parameter-pattern-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/bugs/parameter-pattern-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/bugs/parameter-pattern-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/bugs/parameter-pattern-00.typ"
+    ( line 2 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "map"))
+                 (FuncCall
+                    (FieldAccess
+                       (Ident (Identifier "zip"))
+                       (Array [ Literal (Int 1) , Literal (Int 2) , Literal (Int 3) ]))
+                    [ NormalArg
+                        (Array [ Literal (Int 1) , Literal (Int 2) , Literal (Int 3) ])
+                    ]))
+              [ NormalArg
+                  (FuncExpr
+                     [ DestructuringParam
+                         [ Simple Nothing , Simple (Just (Identifier "x")) ]
+                     ]
+                     (Ident (Identifier "x")))
+              ])
+       , NormalArg
+           (Array [ Literal (Int 1) , Literal (Int 2) , Literal (Int 3) ])
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], [✅], parbreak() }
+--- pandoc ---
+Pandoc Meta { unMeta = fromList [] } [ Para [ Str "\9989" ] ]

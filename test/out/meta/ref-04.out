@@ -1,0 +1,167 @@
+--- parse tree ---
+[ Code
+    "test/typ/meta/ref-04.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/meta/ref-04.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/meta/ref-04.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/meta/ref-04.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "heading"))
+       [ KeyValArg
+           (Identifier "numbering")
+           (FuncExpr
+              [ SinkParam (Just (Identifier "nums")) ]
+              (Block
+                 (CodeBlock
+                    [ FuncCall
+                        (FieldAccess
+                           (Ident (Identifier "join"))
+                           (FuncCall
+                              (FieldAccess
+                                 (Ident (Identifier "map"))
+                                 (FuncCall
+                                    (FieldAccess
+                                       (Ident (Identifier "pos")) (Ident (Identifier "nums")))
+                                    []))
+                              [ NormalArg (Ident (Identifier "str")) ]))
+                        [ NormalArg (Literal (String ".")) ]
+                    ])))
+       , KeyValArg
+           (Identifier "supplement") (Block (Content [ Text "Chapt" ]))
+       ])
+, ParBreak
+, Code
+    "test/typ/meta/ref-04.typ"
+    ( line 6 , column 2 )
+    (Show
+       (Just (Ident (Identifier "ref")))
+       (FuncExpr
+          [ NormalParam (Identifier "it") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( And
+                          (Not
+                             (Equals
+                                (FieldAccess
+                                   (Ident (Identifier "element")) (Ident (Identifier "it")))
+                                (Literal None)))
+                          (Equals
+                             (FuncCall
+                                (FieldAccess
+                                   (Ident (Identifier "func"))
+                                   (FieldAccess
+                                      (Ident (Identifier "element")) (Ident (Identifier "it"))))
+                                [])
+                             (Ident (Identifier "heading")))
+                      , Block
+                          (CodeBlock
+                             [ Let
+                                 (BasicBind (Just (Identifier "element")))
+                                 (FieldAccess
+                                    (Ident (Identifier "element")) (Ident (Identifier "it")))
+                             , Literal (String "[")
+                             , FuncCall
+                                 (Ident (Identifier "emph"))
+                                 [ NormalArg
+                                     (FieldAccess
+                                        (Ident (Identifier "supplement"))
+                                        (Ident (Identifier "element")))
+                                 ]
+                             , Literal (String "-")
+                             , FuncCall
+                                 (Ident (Identifier "numbering"))
+                                 [ NormalArg
+                                     (FieldAccess
+                                        (Ident (Identifier "numbering"))
+                                        (Ident (Identifier "element")))
+                                 , SpreadArg
+                                     (FuncCall
+                                        (FieldAccess
+                                           (Ident (Identifier "at"))
+                                           (FuncCall
+                                              (Ident (Identifier "counter"))
+                                              [ NormalArg (Ident (Identifier "heading")) ]))
+                                        [ NormalArg
+                                            (FuncCall
+                                               (FieldAccess
+                                                  (Ident (Identifier "location"))
+                                                  (Ident (Identifier "element")))
+                                               [])
+                                        ])
+                                 ]
+                             , Literal (String "]")
+                             ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block (CodeBlock [ Ident (Identifier "it") ])
+                      )
+                    ]
+                ]))))
+, ParBreak
+, Heading
+    1
+    [ Text "Introduction"
+    , Space
+    , Code
+        "test/typ/meta/ref-04.typ" ( line 19 , column 16 ) (Label "intro")
+    ]
+, Heading
+    1
+    [ Text "Summary"
+    , Space
+    , Code
+        "test/typ/meta/ref-04.typ" ( line 21 , column 11 ) (Label "sum")
+    ]
+, Heading
+    2
+    [ Text "Subsection"
+    , Space
+    , Code
+        "test/typ/meta/ref-04.typ" ( line 23 , column 15 ) (Label "sub")
+    ]
+, Ref "intro" (Literal Auto)
+, ParBreak
+, Ref "sum" (Literal Auto)
+, ParBreak
+, Ref "sub" (Literal Auto)
+, ParBreak
+]
+"test/typ/meta/ref-04.typ" (line 6, column 2):
+Content does not have a method "element" or FieldAccess requires a dictionary

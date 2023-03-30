@@ -1,0 +1,120 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/content-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/content-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/content-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/math/content-00.typ"
+    ( line 3 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "monkey")))
+       (FuncCall
+          (Ident (Identifier "move"))
+          [ KeyValArg (Identifier "dy") (Literal (Numeric 0.2 Em))
+          , NormalArg
+              (FuncCall
+                 (Ident (Identifier "image"))
+                 [ NormalArg (Literal (String "test/assets/files/monkey.svg"))
+                 , KeyValArg (Identifier "height") (Literal (Numeric 1.0 Em))
+                 ])
+          ]))
+, SoftBreak
+, Equation
+    True
+    [ MAttach
+        (Just
+           (MGroup
+              Nothing
+              Nothing
+              [ Text "i"
+              , Text "="
+              , Code
+                  "test/typ/math/content-00.typ"
+                  ( line 4 , column 11 )
+                  (FieldAccess
+                     (Ident (Identifier "apple")) (Ident (Identifier "emoji")))
+              ]))
+        (Just
+           (Code
+              "test/typ/math/content-00.typ"
+              ( line 4 , column 25 )
+              (FieldAccess
+                 (Ident (Identifier "red"))
+                 (FieldAccess
+                    (Ident (Identifier "apple")) (Ident (Identifier "emoji"))))))
+        (Code
+           "test/typ/math/content-00.typ"
+           ( line 4 , column 3 )
+           (Ident (Identifier "sum")))
+    , Text "i"
+    , Text "+"
+    , MFrac
+        (Code
+           "test/typ/math/content-00.typ"
+           ( line 4 , column 45 )
+           (Ident (Identifier "monkey")))
+        (Text "2")
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  math.equation(block: true, 
+                body: { math.attach(b: { [i], 
+                                         [=], 
+                                         [🍏] }, 
+                                    base: [∑], 
+                                    t: [🍎]), 
+                        [i], 
+                        [+], 
+                        math.frac(denom: [2], 
+                                  num: move(body: image(height: 1.0em, 
+                                                        path: "test/assets/files/monkey.svg"), 
+                                            dy: 0.2em)) }, 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math DisplayMath "\\sum_{i = \127823}^{\127822}i + \\frac{}{2}" ]
+  ]

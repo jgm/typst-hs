@@ -1,0 +1,82 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/enum-numbering-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/enum-numbering-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/enum-numbering-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/layout/enum-numbering-01.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "enum"))
+       [ KeyValArg (Identifier "numbering") (Literal (String "1.a."))
+       , KeyValArg (Identifier "full") (Literal (Boolean True))
+       ])
+, SoftBreak
+, EnumListItem
+    Nothing
+    [ Text "First"
+    , SoftBreak
+    , EnumListItem Nothing [ Text "Nested" , ParBreak ]
+    ]
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  enum(children: ({ [First
+], 
+                    enum(children: ({ [Nested], 
+                                      parbreak() }), 
+                         full: true, 
+                         numbering: "1.a.") }), 
+       full: true, 
+       numbering: "1.a.") }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , OrderedList
+      ( 1 , DefaultStyle , DefaultDelim )
+      [ [ Para [ Str "First" ]
+        , OrderedList
+            ( 1 , DefaultStyle , DefaultDelim ) [ [ Para [ Str "Nested" ] ] ]
+        ]
+      ]
+  ]

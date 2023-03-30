@@ -1,0 +1,121 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/style-05.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/style-05.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/style-05.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/math/style-05.typ"
+    ( line 3 , column 2 )
+    (Show
+       (Just
+          (FieldAccess
+             (Ident (Identifier "equation")) (Ident (Identifier "math"))))
+       (Set
+          (Ident (Identifier "text"))
+          [ KeyValArg (Identifier "font") (Literal (String "Fira Math")) ]))
+, SoftBreak
+, Equation
+    True
+    [ Text "v"
+    , Text ":"
+    , Text "="
+    , Code
+        "test/typ/math/style-05.typ"
+        ( line 4 , column 8 )
+        (FuncCall
+           (Ident (Identifier "vec"))
+           [ NormalArg (Block (Content [ Text "1" , Text "+" , Text "2" ]))
+           , NormalArg (Block (Content [ Text "2" , Text "-" , Text "4" ]))
+           , NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/style-05.typ"
+                         ( line 4 , column 26 )
+                         (FuncCall
+                            (Ident (Identifier "sqrt"))
+                            [ NormalArg (Block (Content [ Text "3" ])) ])
+                     ]))
+           , NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/style-05.typ"
+                         ( line 4 , column 35 )
+                         (FuncCall
+                            (Ident (Identifier "arrow"))
+                            [ NormalArg (Block (Content [ Text "x" ])) ])
+                     ]))
+           ])
+    , Text "+"
+    , Text "1"
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  math.equation(block: true, 
+                body: { [v], 
+                        [:], 
+                        [=], 
+                        math.vec(children: ({ [1], 
+                                              [+], 
+                                              [2] }, 
+                                            { [2], 
+                                              [-], 
+                                              [4] }, 
+                                            math.sqrt(radicand: [3]), 
+                                            math.accent(accent: →, 
+                                                        base: [x]))), 
+                        [+], 
+                        [1] }, 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math
+          DisplayMath
+          "v: = \\begin{pmatrix}\n1 + 2 \\\\\n2 - 4 \\\\\n\\sqrt{3} \\\\\n\\overset{\\rightarrow}{x}\n\\end{pmatrix} + 1"
+      ]
+  ]

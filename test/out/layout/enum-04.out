@@ -1,0 +1,92 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/enum-04.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/enum-04.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/enum-04.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Text "1"
+, Text "."
+, Text "2"
+, Space
+, HardBreak
+, Text "This"
+, Space
+, Text "is"
+, Space
+, Text "0"
+, Text "."
+, Space
+, HardBreak
+, Text "See"
+, Space
+, Text "0"
+, Text "."
+, Text "3"
+, Text "."
+, Space
+, HardBreak
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [1.2 ], 
+  linebreak(), 
+  [This is 0. ], 
+  linebreak(), 
+  [See 0.3. ], 
+  linebreak(), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "1.2"
+      , LineBreak
+      , Str "This"
+      , Space
+      , Str "is"
+      , Space
+      , Str "0."
+      , LineBreak
+      , Str "See"
+      , Space
+      , Str "0.3."
+      , LineBreak
+      ]
+  ]

@@ -1,0 +1,301 @@
+--- parse tree ---
+[ Code
+    "test/typ/meta/query-figure-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/meta/query-figure-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/meta/query-figure-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/meta/query-figure-00.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "paper") (Literal (String "a7"))
+       , KeyValArg (Identifier "numbering") (Literal (String "1 / 1"))
+       , KeyValArg
+           (Identifier "margin")
+           (Dict
+              [ ( Identifier "bottom" , Literal (Numeric 1.0 Cm) )
+              , ( Identifier "rest" , Literal (Numeric 0.5 Cm) )
+              ])
+       ])
+, ParBreak
+, Code
+    "test/typ/meta/query-figure-00.typ"
+    ( line 8 , column 2 )
+    (Set
+       (Ident (Identifier "figure"))
+       [ KeyValArg (Identifier "numbering") (Literal (String "I")) ])
+, SoftBreak
+, Code
+    "test/typ/meta/query-figure-00.typ"
+    ( line 9 , column 2 )
+    (Show
+       (Just (Ident (Identifier "figure")))
+       (Set
+          (Ident (Identifier "image"))
+          [ KeyValArg (Identifier "width") (Literal (Numeric 80.0 Percent))
+          ]))
+, ParBreak
+, Heading
+    1 [ Text "List" , Space , Text "of" , Space , Text "Figures" ]
+, Code
+    "test/typ/meta/query-figure-00.typ"
+    ( line 12 , column 2 )
+    (FuncCall
+       (Ident (Identifier "locate"))
+       [ NormalArg
+           (FuncExpr
+              [ NormalParam (Identifier "it") ]
+              (Block
+                 (CodeBlock
+                    [ Let
+                        (BasicBind (Just (Identifier "elements")))
+                        (FuncCall
+                           (Ident (Identifier "query"))
+                           [ NormalArg
+                               (FuncCall
+                                  (FieldAccess
+                                     (Ident (Identifier "after"))
+                                     (FuncCall
+                                        (Ident (Identifier "selector"))
+                                        [ NormalArg (Ident (Identifier "figure")) ]))
+                                  [ NormalArg (Ident (Identifier "it")) ])
+                           , NormalArg (Ident (Identifier "it"))
+                           ])
+                    , For
+                        (BasicBind (Just (Identifier "it")))
+                        (Ident (Identifier "elements"))
+                        (Block
+                           (Content
+                              [ SoftBreak
+                              , Text "Figure"
+                              , SoftBreak
+                              , Code
+                                  "test/typ/meta/query-figure-00.typ"
+                                  ( line 16 , column 6 )
+                                  (FuncCall
+                                     (Ident (Identifier "numbering"))
+                                     [ NormalArg
+                                         (FieldAccess
+                                            (Ident (Identifier "numbering"))
+                                            (Ident (Identifier "it")))
+                                     , SpreadArg
+                                         (FuncCall
+                                            (FieldAccess
+                                               (Ident (Identifier "at"))
+                                               (FuncCall
+                                                  (Ident (Identifier "counter"))
+                                                  [ NormalArg (Ident (Identifier "figure")) ]))
+                                            [ NormalArg
+                                                (FuncCall
+                                                   (FieldAccess
+                                                      (Ident (Identifier "location"))
+                                                      (Ident (Identifier "it")))
+                                                   [])
+                                            ])
+                                     ])
+                              , Text ":"
+                              , SoftBreak
+                              , Code
+                                  "test/typ/meta/query-figure-00.typ"
+                                  ( line 18 , column 6 )
+                                  (FieldAccess
+                                     (Ident (Identifier "caption")) (Ident (Identifier "it")))
+                              , SoftBreak
+                              , Code
+                                  "test/typ/meta/query-figure-00.typ"
+                                  ( line 19 , column 6 )
+                                  (FuncCall
+                                     (Ident (Identifier "box"))
+                                     [ KeyValArg (Identifier "width") (Literal (Numeric 1.0 Fr))
+                                     , NormalArg
+                                         (FuncCall
+                                            (Ident (Identifier "repeat")) [ BlockArg [ Text "." ] ])
+                                     ])
+                              , SoftBreak
+                              , Code
+                                  "test/typ/meta/query-figure-00.typ"
+                                  ( line 20 , column 6 )
+                                  (FuncCall
+                                     (FieldAccess
+                                        (Ident (Identifier "first"))
+                                        (FuncCall
+                                           (FieldAccess
+                                              (Ident (Identifier "at"))
+                                              (FuncCall
+                                                 (Ident (Identifier "counter"))
+                                                 [ NormalArg (Ident (Identifier "page")) ]))
+                                           [ NormalArg
+                                               (FuncCall
+                                                  (FieldAccess
+                                                     (Ident (Identifier "location"))
+                                                     (Ident (Identifier "it")))
+                                                  [])
+                                           ]))
+                                     [])
+                              , Space
+                              , HardBreak
+                              ]))
+                    ])))
+       ])
+, ParBreak
+, Code
+    "test/typ/meta/query-figure-00.typ"
+    ( line 24 , column 2 )
+    (FuncCall
+       (Ident (Identifier "figure"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "image"))
+              [ NormalArg (Literal (String "test/assets/files/glacier.jpg")) ])
+       , KeyValArg
+           (Identifier "caption")
+           (Block (Content [ Text "Glacier" , Space , Text "melting" ]))
+       ])
+, ParBreak
+, Code
+    "test/typ/meta/query-figure-00.typ"
+    ( line 29 , column 2 )
+    (FuncCall
+       (Ident (Identifier "figure"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "rect"))
+              [ BlockArg
+                  [ Text "Just"
+                  , Space
+                  , Text "some"
+                  , Space
+                  , Text "stand"
+                  , Text "-"
+                  , Text "in"
+                  , Space
+                  , Text "text"
+                  ]
+              ])
+       , KeyValArg (Identifier "kind") (Ident (Identifier "image"))
+       , KeyValArg (Identifier "supplement") (Literal (String "Figure"))
+       , KeyValArg
+           (Identifier "caption")
+           (Block
+              (Content
+                 [ Text "Stand" , Text "-" , Text "in" , Space , Text "text" ]))
+       ])
+, ParBreak
+, Code
+    "test/typ/meta/query-figure-00.typ"
+    ( line 36 , column 2 )
+    (FuncCall
+       (Ident (Identifier "figure"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "image"))
+              [ NormalArg (Literal (String "test/assets/files/tiger.jpg")) ])
+       , KeyValArg
+           (Identifier "caption")
+           (Block (Content [ Text "Tiger" , Space , Text "world" ]))
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  parbreak(), 
+  [
+], 
+  parbreak(), 
+  heading(body: [List of Figures], 
+          level: 1), 
+  locate(func: ), 
+  parbreak(), 
+  figure(body: image(path: "test/assets/files/glacier.jpg"), 
+         caption: [Glacier melting], 
+         numbering: "I"), 
+  parbreak(), 
+  figure(body: rect(body: [Just some stand-in text]), 
+         caption: [Stand-in text], 
+         kind: , 
+         numbering: "I", 
+         supplement: "Figure"), 
+  parbreak(), 
+  figure(body: image(path: "test/assets/files/tiger.jpg"), 
+         caption: [Tiger world], 
+         numbering: "I"), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para []
+  , Header
+      1
+      ( "" , [] , [] )
+      [ Str "List" , Space , Str "of" , Space , Str "Figures" ]
+  , Para []
+  , Figure
+      ( "" , [] , [] )
+      (Caption
+         Nothing [ Para [ Str "Glacier" , Space , Str "melting" ] ])
+      [ Para
+          [ Image
+              ( "" , [] , [] ) [] ( "test/assets/files/glacier.jpg" , "" )
+          ]
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Para [ Str "Stand-in" , Space , Str "text" ] ])
+      [ Div
+          ( "" , [ "rect" ] , [] )
+          [ Para
+              [ Str "Just"
+              , Space
+              , Str "some"
+              , Space
+              , Str "stand-in"
+              , Space
+              , Str "text"
+              ]
+          ]
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption Nothing [ Para [ Str "Tiger" , Space , Str "world" ] ])
+      [ Para
+          [ Image ( "" , [] , [] ) [] ( "test/assets/files/tiger.jpg" , "" )
+          ]
+      ]
+  ]

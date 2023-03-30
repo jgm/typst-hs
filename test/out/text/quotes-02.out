@@ -1,0 +1,138 @@
+--- parse tree ---
+[ Code
+    "test/typ/text/quotes-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/text/quotes-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/text/quotes-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Text "The"
+, Space
+, Text "5"
+, Quote '\''
+, Text "11"
+, Quote '"'
+, Space
+, Quote '\''
+, Text "quick"
+, Quote '\''
+, Space
+, Text "brown"
+, Space
+, Text "fox"
+, Space
+, Text "jumps"
+, Space
+, Text "over"
+, Space
+, Text "the"
+, Space
+, Quote '"'
+, Text "lazy"
+, Quote '"'
+, Space
+, Text "dog"
+, Quote '\''
+, Text "s"
+, Space
+, Text "ear"
+, Text "."
+, ParBreak
+, Text "He"
+, Space
+, Text "said"
+, Space
+, Quote '"'
+, Text "I"
+, Quote '\''
+, Text "m"
+, Space
+, Text "a"
+, Space
+, Text "big"
+, Space
+, Text "fella"
+, Text "."
+, Quote '"'
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [The 5’11” ‘quick” brown fox jumps over the “lazy” dog’s ear.], 
+  parbreak(), 
+  [He said “I’m a big fella.”], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "The"
+      , Space
+      , Str "5\8217\&11\8221"
+      , Space
+      , Str "\8216quick\8221"
+      , Space
+      , Str "brown"
+      , Space
+      , Str "fox"
+      , Space
+      , Str "jumps"
+      , Space
+      , Str "over"
+      , Space
+      , Str "the"
+      , Space
+      , Str "\8220lazy\8221"
+      , Space
+      , Str "dog\8217s"
+      , Space
+      , Str "ear."
+      ]
+  , Para
+      [ Str "He"
+      , Space
+      , Str "said"
+      , Space
+      , Str "\8220I\8217m"
+      , Space
+      , Str "a"
+      , Space
+      , Str "big"
+      , Space
+      , Str "fella.\8221"
+      ]
+  ]

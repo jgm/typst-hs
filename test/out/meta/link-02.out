@@ -1,0 +1,89 @@
+--- parse tree ---
+[ Code
+    "test/typ/meta/link-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/meta/link-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/meta/link-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Url "https://[::1]:8080/"
+, Space
+, HardBreak
+, Url "https://example.com/(paren)"
+, Space
+, HardBreak
+, Url "https://example.com/#(((nested)))"
+, Space
+, HardBreak
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  link(body: [https://[::1]:8080/], 
+       dest: "https://[::1]:8080/"), 
+  [ ], 
+  linebreak(), 
+  link(body: [https://example.com/(paren)], 
+       dest: "https://example.com/(paren)"), 
+  [ ], 
+  linebreak(), 
+  link(body: [https://example.com/#(((nested)))], 
+       dest: "https://example.com/#(((nested)))"), 
+  [ ], 
+  linebreak(), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Link
+          ( "" , [] , [] )
+          [ Str "https://[::1]:8080/" ]
+          ( "https://[::1]:8080/" , "" )
+      , LineBreak
+      , Link
+          ( "" , [] , [] )
+          [ Str "https://example.com/(paren)" ]
+          ( "https://example.com/(paren)" , "" )
+      , LineBreak
+      , Link
+          ( "" , [] , [] )
+          [ Str "https://example.com/#(((nested)))" ]
+          ( "https://example.com/#(((nested)))" , "" )
+      , LineBreak
+      ]
+  ]

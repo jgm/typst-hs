@@ -1,0 +1,97 @@
+--- parse tree ---
+[ Code
+    "test/typ/bugs/columns-1-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/bugs/columns-1-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/bugs/columns-1-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/bugs/columns-1-00.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "height") (Literal (Numeric 70.0 Pt)) ])
+, ParBreak
+, Text "Hallo"
+, SoftBreak
+, Code
+    "test/typ/bugs/columns-1-00.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "columns"))
+       [ NormalArg (Literal (Int 2))
+       , BlockArg
+           [ SoftBreak
+           , Heading 1 [ Text "A" ]
+           , Text "Text"
+           , SoftBreak
+           , Heading 1 [ Text "B" ]
+           , Text "Text"
+           , ParBreak
+           ]
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  parbreak(), 
+  [Hallo
+], 
+  columns(body: { [
+], 
+                  heading(body: [A], level: 1), 
+                  [Text
+], 
+                  heading(body: [B], level: 1), 
+                  [Text], 
+                  parbreak() }, 
+          count: 2), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para [ Str "Hallo" ]
+  , Div
+      ( "" , [ "columns-flow" ] , [ ( "count" , "2" ) ] )
+      [ Para []
+      , Header 1 ( "" , [] , [] ) [ Str "A" ]
+      , Para [ Str "Text" ]
+      , Header 1 ( "" , [] , [] ) [ Str "B" ]
+      , Para [ Str "Text" ]
+      ]
+  ]

@@ -1,0 +1,149 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/style-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/style-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/style-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Equation
+    False
+    [ Text "h"
+    , Text ","
+    , Code
+        "test/typ/math/style-02.typ"
+        ( line 3 , column 5 )
+        (FuncCall
+           (Ident (Identifier "bb"))
+           [ NormalArg (Block (Content [ Text "N" ])) ])
+    , Text ","
+    , Code
+        "test/typ/math/style-02.typ"
+        ( line 3 , column 12 )
+        (FuncCall
+           (Ident (Identifier "cal"))
+           [ NormalArg (Block (Content [ Text "R" ])) ])
+    , Text ","
+    , Code
+        "test/typ/math/style-02.typ"
+        ( line 3 , column 20 )
+        (Ident (Identifier "Theta"))
+    , Text ","
+    , Code
+        "test/typ/math/style-02.typ"
+        ( line 3 , column 27 )
+        (FuncCall
+           (Ident (Identifier "italic"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/style-02.typ"
+                         ( line 3 , column 34 )
+                         (Ident (Identifier "Theta"))
+                     ]))
+           ])
+    , Text ","
+    , Code
+        "test/typ/math/style-02.typ"
+        ( line 3 , column 42 )
+        (FuncCall
+           (Ident (Identifier "sans"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/style-02.typ"
+                         ( line 3 , column 47 )
+                         (Ident (Identifier "Theta"))
+                     ]))
+           ])
+    , Text ","
+    , Code
+        "test/typ/math/style-02.typ"
+        ( line 3 , column 55 )
+        (FuncCall
+           (Ident (Identifier "sans"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/style-02.typ"
+                         ( line 3 , column 60 )
+                         (FuncCall
+                            (Ident (Identifier "italic"))
+                            [ NormalArg
+                                (Block
+                                   (Content
+                                      [ Code
+                                          "test/typ/math/style-02.typ"
+                                          ( line 3 , column 67 )
+                                          (Ident (Identifier "Theta"))
+                                      ]))
+                            ])
+                     ]))
+           ])
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  math.equation(block: false, 
+                body: { [h], 
+                        [,], 
+                        math.bb(body: [N]), 
+                        [,], 
+                        math.cal(body: [R]), 
+                        [,], 
+                        [Θ], 
+                        [,], 
+                        math.italic(body: [Θ]), 
+                        [,], 
+                        math.sans(body: [Θ]), 
+                        [,], 
+                        math.sans(body: math.italic(body: [Θ])) }, 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math
+          InlineMath
+          "h,\\mathbb{N},\\mathcal{R},\\Theta,\\mathit{\\Theta},\\mathsf{\\Theta},\\mathsf{\\mathit{\\Theta}}"
+      ]
+  ]

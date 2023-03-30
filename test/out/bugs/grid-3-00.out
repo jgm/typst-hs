@@ -1,0 +1,82 @@
+--- parse tree ---
+[ Code
+    "test/typ/bugs/grid-3-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/bugs/grid-3-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/bugs/grid-3-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/bugs/grid-3-00.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "height") (Literal (Numeric 70.0 Pt)) ])
+, SoftBreak
+, Code
+    "test/typ/bugs/grid-3-00.typ"
+    ( line 3 , column 2 )
+    (FuncCall
+       (Ident (Identifier "v")) [ NormalArg (Literal (Numeric 40.0 Pt)) ])
+, SoftBreak
+, Text "The"
+, Space
+, Text "following"
+, Text ":"
+, SoftBreak
+, EnumListItem Nothing [ Text "A" ]
+, SoftBreak
+, EnumListItem Nothing [ Text "B" , ParBreak ]
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  v(amount: 40.0pt), 
+  [
+The following:
+], 
+  enum(children: ([A], 
+                  { [B], parbreak() })) }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para [ Str "The" , Space , Str "following:" ]
+  , OrderedList
+      ( 1 , DefaultStyle , DefaultDelim )
+      [ [ Para [ Str "A" ] ] , [ Para [ Str "B" ] ] ]
+  ]

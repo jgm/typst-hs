@@ -1,0 +1,208 @@
+--- parse tree ---
+[ Code
+    "test/typ/meta/counter-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/meta/counter-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/meta/counter-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/meta/counter-02.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "heading"))
+       [ KeyValArg (Identifier "numbering") (Literal (String "1.a.")) ])
+, SoftBreak
+, Code
+    "test/typ/meta/counter-02.typ"
+    ( line 4 , column 2 )
+    (Show
+       (Just (Ident (Identifier "heading")))
+       (Set
+          (Ident (Identifier "text"))
+          [ NormalArg (Literal (Numeric 10.0 Pt)) ]))
+, SoftBreak
+, Code
+    "test/typ/meta/counter-02.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (FieldAccess
+          (Ident (Identifier "step"))
+          (FuncCall
+             (Ident (Identifier "counter"))
+             [ NormalArg (Ident (Identifier "heading")) ]))
+       [])
+, ParBreak
+, Heading 1 [ Text "Alpha" ]
+, Text "In"
+, Space
+, Code
+    "test/typ/meta/counter-02.typ"
+    ( line 8 , column 5 )
+    (FuncCall
+       (FieldAccess
+          (Ident (Identifier "display"))
+          (FuncCall
+             (Ident (Identifier "counter"))
+             [ NormalArg (Ident (Identifier "heading")) ]))
+       [])
+, SoftBreak
+, Heading 2 [ Text "Beta" ]
+, Code
+    "test/typ/meta/counter-02.typ"
+    ( line 11 , column 2 )
+    (Set
+       (Ident (Identifier "heading"))
+       [ KeyValArg (Identifier "numbering") (Literal None) ])
+, SoftBreak
+, Heading 1 [ Text "Gamma" ]
+, Code
+    "test/typ/meta/counter-02.typ"
+    ( line 13 , column 2 )
+    (FuncCall
+       (Ident (Identifier "heading"))
+       [ KeyValArg (Identifier "numbering") (Literal (String "I."))
+       , BlockArg [ Text "Delta" ]
+       ])
+, ParBreak
+, Text "At"
+, Space
+, Text "Beta,"
+, Space
+, Text "it"
+, Space
+, Text "was"
+, Space
+, Code
+    "test/typ/meta/counter-02.typ"
+    ( line 15 , column 18 )
+    (FuncCall
+       (Ident (Identifier "locate"))
+       [ NormalArg
+           (FuncExpr
+              [ NormalParam (Identifier "loc") ]
+              (Block
+                 (CodeBlock
+                    [ Let
+                        (BasicBind (Just (Identifier "it")))
+                        (FuncCall
+                           (FieldAccess
+                              (Ident (Identifier "find"))
+                              (FuncCall
+                                 (Ident (Identifier "query"))
+                                 [ NormalArg (Ident (Identifier "heading"))
+                                 , NormalArg (Ident (Identifier "loc"))
+                                 ]))
+                           [ NormalArg
+                               (FuncExpr
+                                  [ NormalParam (Identifier "it") ]
+                                  (Equals
+                                     (FieldAccess
+                                        (Ident (Identifier "body")) (Ident (Identifier "it")))
+                                     (Block (Content [ Text "Beta" ]))))
+                           ])
+                    , FuncCall
+                        (Ident (Identifier "numbering"))
+                        [ NormalArg
+                            (FieldAccess
+                               (Ident (Identifier "numbering")) (Ident (Identifier "it")))
+                        , SpreadArg
+                            (FuncCall
+                               (FieldAccess
+                                  (Ident (Identifier "at"))
+                                  (FuncCall
+                                     (Ident (Identifier "counter"))
+                                     [ NormalArg (Ident (Identifier "heading")) ]))
+                               [ NormalArg
+                                   (FuncCall
+                                      (FieldAccess
+                                         (Ident (Identifier "location")) (Ident (Identifier "it")))
+                                      [])
+                               ])
+                        ]
+                    ])))
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  [
+], 
+  parbreak(), 
+  heading(body: [Alpha], 
+          level: 1, 
+          numbering: "1.a."), 
+  [In ], 
+  [1], 
+  [
+], 
+  heading(body: [Beta], 
+          level: 2, 
+          numbering: "1.a."), 
+  [
+], 
+  heading(body: [Gamma], 
+          level: 1, 
+          numbering: none), 
+  heading(body: [Delta], 
+          numbering: "I."), 
+  parbreak(), 
+  [At Beta, it was ], 
+  locate(func: ), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Header 1 ( "" , [] , [] ) [ Str "Alpha" ]
+  , Para [ Str "In" , Space , Str "1" ]
+  , Header 2 ( "" , [] , [] ) [ Str "Beta" ]
+  , Para []
+  , Header 1 ( "" , [] , [] ) [ Str "Gamma" ]
+  , Header 1 ( "" , [] , [] ) [ Str "Delta" ]
+  , Para
+      [ Str "At"
+      , Space
+      , Str "Beta,"
+      , Space
+      , Str "it"
+      , Space
+      , Str "was"
+      ]
+  ]

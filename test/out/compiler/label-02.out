@@ -1,0 +1,119 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/label-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/label-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/label-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compiler/label-02.typ"
+    ( line 3 , column 2 )
+    (Show
+       (Just (Literal (String "t")))
+       (FuncExpr
+          [ NormalParam (Identifier "it") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( And
+                          (FuncCall
+                             (FieldAccess (Ident (Identifier "has")) (Ident (Identifier "it")))
+                             [ NormalArg (Literal (String "label")) ])
+                          (Equals
+                             (FieldAccess
+                                (Ident (Identifier "label")) (Ident (Identifier "it")))
+                             (Label "last"))
+                      , Set
+                          (Ident (Identifier "text"))
+                          [ NormalArg (Ident (Identifier "blue")) ]
+                      )
+                    ]
+                , Ident (Identifier "it")
+                ]))))
+, ParBreak
+, Text "This"
+, Space
+, Text "is"
+, Space
+, Text "a"
+, Space
+, Text "thing"
+, Space
+, Code
+    "test/typ/compiler/label-02.typ"
+    ( line 8 , column 18 )
+    (Block
+       (Content
+          [ Text "that"
+          , Space
+          , Code
+              "test/typ/compiler/label-02.typ"
+              ( line 8 , column 24 )
+              (Label "last")
+          ]))
+, Space
+, Text "happened"
+, Text "."
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  parbreak(), 
+  [This is a thing ], 
+  [that ], 
+  [], 
+  [ happened.], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para
+      [ Str "This"
+      , Space
+      , Str "is"
+      , Space
+      , Str "a"
+      , Space
+      , Str "thing"
+      , Space
+      , Str "that"
+      , Space
+      , Str "happened."
+      ]
+  ]

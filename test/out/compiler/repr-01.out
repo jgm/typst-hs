@@ -1,0 +1,196 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/repr-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/repr-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/repr-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compiler/repr-01.typ"
+    ( line 3 , column 2 )
+    (Literal (Int 1))
+, Space
+, HardBreak
+, Code
+    "test/typ/compiler/repr-01.typ"
+    ( line 4 , column 2 )
+    (Literal (Float 1.0e-4))
+, Space
+, HardBreak
+, Code
+    "test/typ/compiler/repr-01.typ"
+    ( line 5 , column 2 )
+    (Literal (Float 3.15))
+, Space
+, HardBreak
+, Code
+    "test/typ/compiler/repr-01.typ"
+    ( line 6 , column 2 )
+    (Literal (Float 1.0e-10))
+, Space
+, HardBreak
+, Code
+    "test/typ/compiler/repr-01.typ"
+    ( line 7 , column 2 )
+    (Literal (Numeric 50.368 Percent))
+, HardBreak
+, Code
+    "test/typ/compiler/repr-01.typ"
+    ( line 8 , column 2 )
+    (Literal (Numeric 1.2345e-6 Pt))
+, HardBreak
+, Code
+    "test/typ/compiler/repr-01.typ"
+    ( line 9 , column 2 )
+    (Literal (Numeric 4.5 Cm))
+, HardBreak
+, Code
+    "test/typ/compiler/repr-01.typ"
+    ( line 10 , column 2 )
+    (Literal (Numeric 120.0 Pt))
+, HardBreak
+, Code
+    "test/typ/compiler/repr-01.typ"
+    ( line 11 , column 2 )
+    (Literal (Numeric 2.5 Rad))
+, HardBreak
+, Code
+    "test/typ/compiler/repr-01.typ"
+    ( line 12 , column 2 )
+    (Literal (Numeric 45.0 Deg))
+, HardBreak
+, Code
+    "test/typ/compiler/repr-01.typ"
+    ( line 13 , column 2 )
+    (Literal (Numeric 1.7 Em))
+, HardBreak
+, Code
+    "test/typ/compiler/repr-01.typ"
+    ( line 14 , column 2 )
+    (Plus (Literal (Numeric 1.0 Cm)) (Literal (Numeric 0.0 Em)))
+, Space
+, HardBreak
+, Code
+    "test/typ/compiler/repr-01.typ"
+    ( line 15 , column 2 )
+    (Plus (Literal (Numeric 2.0 Em)) (Literal (Numeric 10.0 Pt)))
+, Space
+, HardBreak
+, Code
+    "test/typ/compiler/repr-01.typ"
+    ( line 16 , column 2 )
+    (Literal (Numeric 2.3 Fr))
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [1], 
+  [ ], 
+  linebreak(), 
+  [1.0e-4], 
+  [ ], 
+  linebreak(), 
+  [3.15], 
+  [ ], 
+  linebreak(), 
+  [1.0e-10], 
+  [ ], 
+  linebreak(), 
+  [50%], 
+  linebreak(), 
+  [1.2345e-6pt], 
+  linebreak(), 
+  [4.5cm], 
+  linebreak(), 
+  [120.0pt], 
+  linebreak(), 
+  [143.2394487827058deg], 
+  linebreak(), 
+  [45.0deg], 
+  linebreak(), 
+  [1.7em], 
+  linebreak(), 
+  [1.0cm + 0.0em], 
+  [ ], 
+  linebreak(), 
+  [2.0em + 10.0pt], 
+  [ ], 
+  linebreak(), 
+  [2.3fr], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "1"
+      , LineBreak
+      , Str "1.0e-4"
+      , LineBreak
+      , Str "3.15"
+      , LineBreak
+      , Str "1.0e-10"
+      , LineBreak
+      , Str "50%"
+      , LineBreak
+      , Str "1.2345e-6pt"
+      , LineBreak
+      , Str "4.5cm"
+      , LineBreak
+      , Str "120.0pt"
+      , LineBreak
+      , Str "143.2394487827058deg"
+      , LineBreak
+      , Str "45.0deg"
+      , LineBreak
+      , Str "1.7em"
+      , LineBreak
+      , Str "1.0cm"
+      , Space
+      , Str "+"
+      , Space
+      , Str "0.0em"
+      , LineBreak
+      , Str "2.0em"
+      , Space
+      , Str "+"
+      , Space
+      , Str "10.0pt"
+      , LineBreak
+      , Str "2.3fr"
+      ]
+  ]

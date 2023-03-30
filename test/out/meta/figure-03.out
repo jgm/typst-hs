@@ -1,0 +1,152 @@
+--- parse tree ---
+[ Code
+    "test/typ/meta/figure-03.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/meta/figure-03.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/meta/figure-03.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/meta/figure-03.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "height") (Literal (Numeric 6.0 Em)) ])
+, SoftBreak
+, Code
+    "test/typ/meta/figure-03.typ"
+    ( line 4 , column 2 )
+    (Show
+       (Just (Ident (Identifier "figure")))
+       (Set
+          (Ident (Identifier "block"))
+          [ KeyValArg (Identifier "breakable") (Literal (Boolean True)) ]))
+, ParBreak
+, Code
+    "test/typ/meta/figure-03.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "figure"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "table"))
+              [ BlockArg [ Text "a" ]
+              , BlockArg [ Text "b" ]
+              , BlockArg [ Text "c" ]
+              , BlockArg [ Text "d" ]
+              , BlockArg [ Text "e" ]
+              ])
+       , KeyValArg
+           (Identifier "caption")
+           (Block (Content [ Text "A" , Space , Text "table" ]))
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  parbreak(), 
+  figure(body: table(children: ([a], 
+                                [b], 
+                                [c], 
+                                [d], 
+                                [e])), 
+         caption: [A table]), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Table
+      ( "" , [] , [] )
+      (Caption Nothing [ Para [ Str "A" , Space , Str "table" ] ])
+      [ ( AlignDefault , ColWidthDefault ) ]
+      (TableHead ( "" , [] , [] ) [])
+      [ TableBody
+          ( "" , [] , [] )
+          (RowHeadColumns 0)
+          []
+          [ Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "a" ] ]
+              ]
+          , Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "b" ] ]
+              ]
+          , Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "c" ] ]
+              ]
+          , Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "d" ] ]
+              ]
+          , Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "e" ] ]
+              ]
+          ]
+      ]
+      (TableFoot ( "" , [] , [] ) [])
+  ]

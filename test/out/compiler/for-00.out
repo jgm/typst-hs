@@ -1,0 +1,319 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/for-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/for-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/for-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compiler/for-00.typ"
+    ( line 5 , column 2 )
+    (For
+       (BasicBind (Just (Identifier "x")))
+       (Array [])
+       (Block (Content [ Text "Nope" ])))
+, ParBreak
+, Comment
+, Comment
+, Code
+    "test/typ/compiler/for-00.typ"
+    ( line 9 , column 2 )
+    (For
+       (DestructuringBind
+          [ Simple (Just (Identifier "k"))
+          , Simple (Just (Identifier "v"))
+          ])
+       (Dict
+          [ ( Identifier "Name" , Literal (String "Typst") )
+          , ( Identifier "Age" , Literal (Int 2) )
+          ])
+       (Block
+          (Content
+             [ SoftBreak
+             , Code
+                 "test/typ/compiler/for-00.typ"
+                 ( line 10 , column 4 )
+                 (Ident (Identifier "k"))
+             , Text ":"
+             , Space
+             , Code
+                 "test/typ/compiler/for-00.typ"
+                 ( line 10 , column 8 )
+                 (Ident (Identifier "v"))
+             , Text "."
+             , ParBreak
+             ])))
+, ParBreak
+, Comment
+, Comment
+, Code
+    "test/typ/compiler/for-00.typ"
+    ( line 15 , column 2 )
+    (Block
+       (CodeBlock
+          [ Literal (String "[")
+          , For
+              (BasicBind (Just (Identifier "v")))
+              (Array
+                 [ Literal (Int 1)
+                 , Literal (Int 2)
+                 , Literal (Int 3)
+                 , Literal (Int 4)
+                 ])
+              (Block
+                 (CodeBlock
+                    [ If
+                        [ ( GreaterThan (Ident (Identifier "v")) (Literal (Int 1))
+                          , Block (Content [ Text "," , Space ])
+                          )
+                        ]
+                    , Block
+                        (Content
+                           [ Code
+                               "test/typ/compiler/for-00.typ"
+                               ( line 19 , column 7 )
+                               (Ident (Identifier "v"))
+                           ])
+                    , If
+                        [ ( Equals (Ident (Identifier "v")) (Literal (Int 1))
+                          , Block (Content [ Text "st" ])
+                          )
+                        ]
+                    , If
+                        [ ( Equals (Ident (Identifier "v")) (Literal (Int 2))
+                          , Block (Content [ Text "nd" ])
+                          )
+                        ]
+                    , If
+                        [ ( Equals (Ident (Identifier "v")) (Literal (Int 3))
+                          , Block (Content [ Text "rd" ])
+                          )
+                        ]
+                    , If
+                        [ ( GreaterThanOrEqual (Ident (Identifier "v")) (Literal (Int 4))
+                          , Block (Content [ Text "th" ])
+                          )
+                        ]
+                    ]))
+          , Literal (String "]")
+          ]))
+, ParBreak
+, Comment
+, Comment
+, Code
+    "test/typ/compiler/for-00.typ"
+    ( line 30 , column 2 )
+    (For
+       (BasicBind (Just (Identifier "v")))
+       (Array
+          [ Literal (Int 1)
+          , Literal (Int 2)
+          , Literal (Int 3)
+          , Literal (Int 4)
+          , Literal (Int 5)
+          , Literal (Int 6)
+          , Literal (Int 7)
+          ])
+       (Block
+          (Content
+             [ Code
+                 "test/typ/compiler/for-00.typ"
+                 ( line 30 , column 35 )
+                 (If
+                    [ ( And
+                          (GreaterThanOrEqual (Ident (Identifier "v")) (Literal (Int 2)))
+                          (LessThanOrEqual (Ident (Identifier "v")) (Literal (Int 5)))
+                      , Block
+                          (CodeBlock
+                             [ FuncCall
+                                 (Ident (Identifier "repr")) [ NormalArg (Ident (Identifier "v")) ]
+                             ])
+                      )
+                    ])
+             ])))
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/for-00.typ"
+    ( line 33 , column 2 )
+    (LetFunc
+       (Identifier "f1")
+       [ SinkParam (Just (Identifier "args")) ]
+       (FuncCall
+          (FieldAccess
+             (Ident (Identifier "map"))
+             (FuncCall
+                (FieldAccess
+                   (Ident (Identifier "pos")) (Ident (Identifier "args")))
+                []))
+          [ NormalArg (Ident (Identifier "repr")) ]))
+, SoftBreak
+, Code
+    "test/typ/compiler/for-00.typ"
+    ( line 34 , column 2 )
+    (LetFunc
+       (Identifier "f2")
+       [ SinkParam (Just (Identifier "args")) ]
+       (FuncCall
+          (FieldAccess
+             (Ident (Identifier "map"))
+             (FuncCall
+                (FieldAccess
+                   (Ident (Identifier "pairs"))
+                   (FuncCall
+                      (FieldAccess
+                         (Ident (Identifier "named")) (Ident (Identifier "args")))
+                      []))
+                []))
+          [ NormalArg
+              (FuncExpr
+                 [ NormalParam (Identifier "p") ]
+                 (Plus
+                    (Plus
+                       (FuncCall
+                          (Ident (Identifier "repr"))
+                          [ NormalArg
+                              (FuncCall
+                                 (FieldAccess (Ident (Identifier "first")) (Ident (Identifier "p")))
+                                 [])
+                          ])
+                       (Literal (String ": ")))
+                    (FuncCall
+                       (Ident (Identifier "repr"))
+                       [ NormalArg
+                           (FuncCall
+                              (FieldAccess (Ident (Identifier "last")) (Ident (Identifier "p")))
+                              [])
+                       ])))
+          ]))
+, SoftBreak
+, Code
+    "test/typ/compiler/for-00.typ"
+    ( line 35 , column 2 )
+    (LetFunc
+       (Identifier "f")
+       [ SinkParam (Just (Identifier "args")) ]
+       (FuncCall
+          (FieldAccess
+             (Ident (Identifier "join"))
+             (Plus
+                (FuncCall
+                   (Ident (Identifier "f1"))
+                   [ SpreadArg (Ident (Identifier "args")) ])
+                (FuncCall
+                   (Ident (Identifier "f2"))
+                   [ SpreadArg (Ident (Identifier "args")) ])))
+          [ NormalArg (Literal (String ", ")) ]))
+, SoftBreak
+, Code
+    "test/typ/compiler/for-00.typ"
+    ( line 36 , column 2 )
+    (FuncCall
+       (Ident (Identifier "f"))
+       [ NormalArg (Literal (Int 1))
+       , KeyValArg (Identifier "a") (Literal (Int 2))
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  parbreak(), 
+  [
+], 
+  [Name], 
+  [: ], 
+  [Typst], 
+  [.], 
+  parbreak(), 
+  [
+], 
+  [Age], 
+  [: ], 
+  [2], 
+  [.], 
+  parbreak(), 
+  parbreak(), 
+  [[], 
+  [1], 
+  [st], 
+  [, ], 
+  [2], 
+  [nd], 
+  [, ], 
+  [3], 
+  [rd], 
+  [, ], 
+  [4], 
+  [th], 
+  []], 
+  parbreak(), 
+  [2], 
+  [3], 
+  [4], 
+  [5], 
+  parbreak(), 
+  [
+], 
+  [
+], 
+  [
+], 
+  [1, "a": 2], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para [ Str "Name:" , Space , Str "Typst." ]
+  , Para [ Str "Age:" , Space , Str "2." ]
+  , Para
+      [ Str "[1st,"
+      , Space
+      , Str "2nd,"
+      , Space
+      , Str "3rd,"
+      , Space
+      , Str "4th]"
+      ]
+  , Para [ Str "2345" ]
+  , Para [ Str "1," , Space , Str "\"a\":" , Space , Str "2" ]
+  ]

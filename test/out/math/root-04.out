@@ -1,0 +1,128 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/root-04.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/root-04.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/root-04.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Equation
+    True
+    [ Code
+        "test/typ/math/root-04.typ"
+        ( line 3 , column 3 )
+        (FuncCall
+           (Ident (Identifier "root"))
+           [ NormalArg (Block (Content [ Text "2" ]))
+           , NormalArg (Block (Content [ Text "x" ]))
+           ])
+    , Code
+        "test/typ/math/root-04.typ"
+        ( line 3 , column 14 )
+        (Ident (Identifier "quad"))
+    , Code
+        "test/typ/math/root-04.typ"
+        ( line 4 , column 3 )
+        (FuncCall
+           (Ident (Identifier "root"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ MFrac
+                         (Text "3") (MGroup Nothing Nothing [ MFrac (Text "2") (Text "1") ])
+                     ]))
+           , NormalArg (Block (Content [ Text "x" ]))
+           ])
+    , Code
+        "test/typ/math/root-04.typ"
+        ( line 4 , column 20 )
+        (Ident (Identifier "quad"))
+    , Code
+        "test/typ/math/root-04.typ"
+        ( line 5 , column 3 )
+        (FuncCall
+           (Ident (Identifier "root"))
+           [ NormalArg (Block (Content [ MFrac (Text "1") (Text "11") ]))
+           , NormalArg (Block (Content [ Text "x" ]))
+           ])
+    , Code
+        "test/typ/math/root-04.typ"
+        ( line 5 , column 17 )
+        (Ident (Identifier "quad"))
+    , Code
+        "test/typ/math/root-04.typ"
+        ( line 6 , column 3 )
+        (FuncCall
+           (Ident (Identifier "root"))
+           [ NormalArg
+               (Block
+                  (Content [ MFrac (MFrac (Text "1") (Text "2")) (Text "3") ]))
+           , NormalArg (Block (Content [ Text "1" ]))
+           ])
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  math.equation(block: true, 
+                body: { math.root(index: [2], 
+                                  radicand: [x]), 
+                        [ ], 
+                        math.root(index: math.frac(denom: math.frac(denom: [1], 
+                                                                    num: [2]), 
+                                                   num: [3]), 
+                                  radicand: [x]), 
+                        [ ], 
+                        math.root(index: math.frac(denom: [11], 
+                                                   num: [1]), 
+                                  radicand: [x]), 
+                        [ ], 
+                        math.root(index: math.frac(denom: [3], 
+                                                   num: math.frac(denom: [2], 
+                                                                  num: [1])), 
+                                  radicand: [1]) }, 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math
+          DisplayMath
+          "\\sqrt[2]{x}\\quad\\sqrt[\\frac{3}{\\frac{2}{1}}]{x}\\quad\\sqrt[\\frac{1}{11}]{x}\\quad\\sqrt[\\frac{\\frac{1}{2}}{3}]{1}"
+      ]
+  ]

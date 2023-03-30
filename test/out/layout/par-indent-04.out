@@ -1,0 +1,140 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/par-indent-04.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/par-indent-04.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/par-indent-04.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/layout/par-indent-04.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "par"))
+       [ KeyValArg
+           (Identifier "hanging-indent") (Literal (Numeric 2.0 Em))
+       ])
+, SoftBreak
+, Code
+    "test/typ/layout/par-indent-04.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "dir") (Ident (Identifier "rtl")) ])
+, SoftBreak
+, Text "\1604\1570\1606"
+, Space
+, Text "\1608\1602\1583"
+, Space
+, Text "\1571\1592\1604\1605"
+, Space
+, Text "\1575\1604\1604\1610\1604"
+, Space
+, Text "\1608\1576\1583\1571\1578"
+, Space
+, Text "\1575\1604\1606\1580\1608\1605"
+, SoftBreak
+, Text "\1578\1606\1590\1582"
+, Space
+, Text "\1608\1580\1607"
+, Space
+, Text "\1575\1604\1591\1576\1610\1593\1577"
+, Space
+, Text "\1575\1604\1578\1610"
+, Space
+, Text "\1571\1593\1618\1610\1614\1578\1618"
+, Space
+, Text "\1605\1606"
+, Space
+, Text "\1591\1608\1604"
+, Space
+, Text "\1605\1575"
+, Space
+, Text "\1575\1606\1576\1593\1579\1578"
+, Space
+, Text "\1601\1610"
+, Space
+, Text "\1575\1604\1606\1607\1575\1585"
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  text(body: [
+لآن وقد أظلم الليل وبدأت النجوم
+تنضخ وجه الطبيعة التي أعْيَتْ من طول ما انبعثت في النهار], 
+       dir: rtl), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "\1604\1570\1606"
+      , Space
+      , Str "\1608\1602\1583"
+      , Space
+      , Str "\1571\1592\1604\1605"
+      , Space
+      , Str "\1575\1604\1604\1610\1604"
+      , Space
+      , Str "\1608\1576\1583\1571\1578"
+      , Space
+      , Str "\1575\1604\1606\1580\1608\1605"
+      , SoftBreak
+      , Str "\1578\1606\1590\1582"
+      , Space
+      , Str "\1608\1580\1607"
+      , Space
+      , Str "\1575\1604\1591\1576\1610\1593\1577"
+      , Space
+      , Str "\1575\1604\1578\1610"
+      , Space
+      , Str "\1571\1593\1618\1610\1614\1578\1618"
+      , Space
+      , Str "\1605\1606"
+      , Space
+      , Str "\1591\1608\1604"
+      , Space
+      , Str "\1605\1575"
+      , Space
+      , Str "\1575\1606\1576\1593\1579\1578"
+      , Space
+      , Str "\1601\1610"
+      , Space
+      , Str "\1575\1604\1606\1607\1575\1585"
+      ]
+  ]

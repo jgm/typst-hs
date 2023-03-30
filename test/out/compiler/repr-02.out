@@ -1,0 +1,185 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/repr-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/repr-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/repr-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compiler/repr-02.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ NormalArg (Literal (Numeric 0.8 Em)) ])
+, SoftBreak
+, Code
+    "test/typ/compiler/repr-02.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "rgb"))
+       [ NormalArg (Literal (String "f7a205")) ])
+, Space
+, HardBreak
+, Code
+    "test/typ/compiler/repr-02.typ"
+    ( line 5 , column 2 )
+    (Plus
+       (Literal (Numeric 2.0 Pt))
+       (FuncCall
+          (Ident (Identifier "rgb"))
+          [ NormalArg (Literal (String "f7a205")) ]))
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/repr-02.typ"
+    ( line 8 , column 2 )
+    (FuncCall
+       (Ident (Identifier "raw"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "repr")) [ NormalArg (Literal (String "hi")) ])
+       , KeyValArg (Identifier "lang") (Literal (String "typc"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/repr-02.typ"
+    ( line 9 , column 2 )
+    (FuncCall
+       (Ident (Identifier "repr"))
+       [ NormalArg (Literal (String "a\n[]\"\128640string")) ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/repr-02.typ"
+    ( line 12 , column 2 )
+    (FuncCall
+       (Ident (Identifier "raw"))
+       [ KeyValArg (Identifier "lang") (Literal (String "typc"))
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "repr")) [ BlockArg [ Strong [ Text "Hey" ] ] ])
+       ])
+, ParBreak
+, Comment
+, Text "Nothing"
+, SoftBreak
+, Code
+    "test/typ/compiler/repr-02.typ"
+    ( line 16 , column 2 )
+    (LetFunc
+       (Identifier "f")
+       [ NormalParam (Identifier "x") ]
+       (Ident (Identifier "x")))
+, SoftBreak
+, Code
+    "test/typ/compiler/repr-02.typ"
+    ( line 17 , column 2 )
+    (Ident (Identifier "f"))
+, SoftBreak
+, Code
+    "test/typ/compiler/repr-02.typ"
+    ( line 18 , column 2 )
+    (Ident (Identifier "rect"))
+, SoftBreak
+, Code
+    "test/typ/compiler/repr-02.typ"
+    ( line 19 , column 2 )
+    (FuncExpr [] (Literal None))
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  text(body: [
+], size: 0.8em), 
+  text(body: [rgb(96%,63%,1%,100%)], 
+       size: 0.8em), 
+  text(body: [ ], size: 0.8em), 
+  linebreak(), 
+  text(body: [(thickness: 2.0pt,
+ color: rgb(96%,63%,1%,100%))], 
+       size: 0.8em), 
+  parbreak(), 
+  raw(lang: "typc", 
+      text: "\"hi\""), 
+  text(body: [
+], size: 0.8em), 
+  text(body: ["a\n[]\"🚀string"], 
+       size: 0.8em), 
+  parbreak(), 
+  raw(lang: "typc", 
+      text: "strong(body: text(body: [Hey], \n                  size: 0.8em))"), 
+  parbreak(), 
+  text(body: [Nothing
+], 
+       size: 0.8em), 
+  text(body: [
+], size: 0.8em), 
+  text(body: [], size: 0.8em), 
+  text(body: [
+], size: 0.8em), 
+  text(body: [], size: 0.8em), 
+  text(body: [
+], size: 0.8em), 
+  text(body: [], size: 0.8em), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "rgb(96%,63%,1%,100%)"
+      , LineBreak
+      , Str "(thickness:"
+      , Space
+      , Str "2.0pt,"
+      , SoftBreak
+      , Str "color:"
+      , Space
+      , Str "rgb(96%,63%,1%,100%))"
+      ]
+  , Para
+      [ Code ( "" , [] , [] ) "\"hi\""
+      , SoftBreak
+      , Str "\"a\\n[]\\\"\128640string\""
+      ]
+  , Para
+      [ Code
+          ( "" , [] , [] )
+          "strong(body: text(body: [Hey], \n                  size: 0.8em))"
+      ]
+  , Para [ Str "Nothing" ]
+  ]

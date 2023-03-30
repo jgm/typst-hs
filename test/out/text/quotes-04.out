@@ -1,0 +1,137 @@
+--- parse tree ---
+[ Code
+    "test/typ/text/quotes-04.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/text/quotes-04.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/text/quotes-04.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Text "He"
+, Quote '\''
+, Text "s"
+, Space
+, Text "told"
+, Space
+, Text "some"
+, Space
+, Text "books"
+, Space
+, Text "contain"
+, Space
+, Text "questionable"
+, Space
+, Quote '"'
+, Text "example"
+, Space
+, Text "text"
+, Quote '"'
+, Text "."
+, ParBreak
+, Code
+    "test/typ/text/quotes-04.typ"
+    ( line 5 , column 2 )
+    (Set
+       (Ident (Identifier "smartquote"))
+       [ KeyValArg (Identifier "enabled") (Literal (Boolean False)) ])
+, SoftBreak
+, Text "He"
+, Quote '\''
+, Text "s"
+, Space
+, Text "told"
+, Space
+, Text "some"
+, Space
+, Text "books"
+, Space
+, Text "contain"
+, Space
+, Text "questionable"
+, Space
+, Quote '"'
+, Text "example"
+, Space
+, Text "text"
+, Quote '"'
+, Text "."
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [He’s told some books contain questionable “example text”.], 
+  parbreak(), 
+  [
+He’s told some books contain questionable “example text”.], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "He\8217s"
+      , Space
+      , Str "told"
+      , Space
+      , Str "some"
+      , Space
+      , Str "books"
+      , Space
+      , Str "contain"
+      , Space
+      , Str "questionable"
+      , Space
+      , Str "\8220example"
+      , Space
+      , Str "text\8221."
+      ]
+  , Para
+      [ Str "He\8217s"
+      , Space
+      , Str "told"
+      , Space
+      , Str "some"
+      , Space
+      , Str "books"
+      , Space
+      , Str "contain"
+      , Space
+      , Str "questionable"
+      , Space
+      , Str "\8220example"
+      , Space
+      , Str "text\8221."
+      ]
+  ]

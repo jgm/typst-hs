@@ -1,0 +1,101 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/array-13.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/array-13.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/array-13.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compiler/array-13.typ"
+    ( line 3 , column 2 )
+    (Block
+       (CodeBlock
+          [ Let
+              (BasicBind (Just (Identifier "tasks")))
+              (Dict
+                 [ ( Identifier "a"
+                   , Array [ Literal (Int 1) , Literal (Int 2) , Literal (Int 3) ]
+                   )
+                 , ( Identifier "b"
+                   , Array [ Literal (Int 4) , Literal (Int 5) , Literal (Int 6) ]
+                   )
+                 ])
+          , FuncCall
+              (Ident (Identifier "test"))
+              [ NormalArg
+                  (FuncCall
+                     (FieldAccess
+                        (Ident (Identifier "pop"))
+                        (FuncCall
+                           (FieldAccess
+                              (Ident (Identifier "at")) (Ident (Identifier "tasks")))
+                           [ NormalArg (Literal (String "a")) ]))
+                     [])
+              , NormalArg (Literal (Int 3))
+              ]
+          , FuncCall
+              (FieldAccess
+                 (Ident (Identifier "push"))
+                 (FieldAccess
+                    (Ident (Identifier "b")) (Ident (Identifier "tasks"))))
+              [ NormalArg (Literal (Int 7)) ]
+          , FuncCall
+              (Ident (Identifier "test"))
+              [ NormalArg
+                  (FieldAccess (Ident (Identifier "a")) (Ident (Identifier "tasks")))
+              , NormalArg (Array [ Literal (Int 1) , Literal (Int 2) ])
+              ]
+          , FuncCall
+              (Ident (Identifier "test"))
+              [ NormalArg
+                  (FuncCall
+                     (FieldAccess
+                        (Ident (Identifier "at")) (Ident (Identifier "tasks")))
+                     [ NormalArg (Literal (String "b")) ])
+              , NormalArg
+                  (Array
+                     [ Literal (Int 4)
+                     , Literal (Int 5)
+                     , Literal (Int 6)
+                     , Literal (Int 7)
+                     ])
+              ]
+          ]))
+, ParBreak
+]
+"test/typ/compiler/array-13.typ" (line 3, column 2):
+named argument default not defined or Cannot update expression FuncCall (FieldAccess (Ident (Identifier "at")) (Ident (Identifier "tasks"))) [NormalArg (Literal (String "a"))]

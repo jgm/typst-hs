@@ -1,0 +1,163 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/terms-04.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/terms-04.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/terms-04.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/layout/terms-04.typ"
+    ( line 3 , column 2 )
+    (Show
+       (Just (Ident (Identifier "terms")))
+       (FuncExpr
+          [ NormalParam (Identifier "it") ]
+          (FuncCall
+             (Ident (Identifier "table"))
+             [ KeyValArg (Identifier "columns") (Literal (Int 2))
+             , KeyValArg (Identifier "inset") (Literal (Numeric 3.0 Pt))
+             , SpreadArg
+                 (FuncCall
+                    (FieldAccess
+                       (Ident (Identifier "flatten"))
+                       (FuncCall
+                          (FieldAccess
+                             (Ident (Identifier "map"))
+                             (FieldAccess
+                                (Ident (Identifier "children")) (Ident (Identifier "it"))))
+                          [ NormalArg
+                              (FuncExpr
+                                 [ NormalParam (Identifier "v") ]
+                                 (Array
+                                    [ FuncCall
+                                        (Ident (Identifier "emph"))
+                                        [ NormalArg
+                                            (FieldAccess
+                                               (Ident (Identifier "term")) (Ident (Identifier "v")))
+                                        ]
+                                    , FieldAccess
+                                        (Ident (Identifier "description")) (Ident (Identifier "v"))
+                                    ]))
+                          ]))
+                    [])
+             ])))
+, ParBreak
+, DescListItem [ Text "A" ] [ Text "One" , Space , Text "letter" ]
+, SoftBreak
+, DescListItem
+    [ Text "BB" ] [ Text "Two" , Space , Text "letters" ]
+, SoftBreak
+, DescListItem
+    [ Text "CCC" ] [ Text "Three" , Space , Text "letters" , ParBreak ]
+]
+--- evaluated ---
+{ [
+], 
+  parbreak(), 
+  table(children: (emph(body: [A]), 
+                   [One letter], 
+                   emph(body: [BB]), 
+                   [Two letters], 
+                   emph(body: [CCC]), 
+                   { [Three letters], 
+                     parbreak() }), 
+        columns: 2, 
+        inset: 3.0pt) }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Table
+      ( "" , [] , [] )
+      (Caption Nothing [])
+      [ ( AlignDefault , ColWidthDefault )
+      , ( AlignDefault , ColWidthDefault )
+      ]
+      (TableHead ( "" , [] , [] ) [])
+      [ TableBody
+          ( "" , [] , [] )
+          (RowHeadColumns 0)
+          []
+          [ Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Emph [ Str "A" ] ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "One" , Space , Str "letter" ] ]
+              ]
+          , Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Emph [ Str "BB" ] ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "Two" , Space , Str "letters" ] ]
+              ]
+          , Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Emph [ Str "CCC" ] ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "Three" , Space , Str "letters" ] ]
+              ]
+          ]
+      ]
+      (TableFoot ( "" , [] , [] ) [])
+  ]

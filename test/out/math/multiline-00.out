@@ -1,0 +1,109 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/multiline-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/multiline-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/multiline-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Equation
+    True
+    [ Text "x"
+    , MAlignPoint
+    , Text "="
+    , Text "x"
+    , Text "+"
+    , Text "y"
+    , HardBreak
+    , MAlignPoint
+    , Text "="
+    , Text "x"
+    , Text "+"
+    , Text "2"
+    , Text "z"
+    , HardBreak
+    , MAlignPoint
+    , Text "="
+    , Code
+        "test/typ/math/multiline-00.typ"
+        ( line 5 , column 8 )
+        (Ident (Identifier "sum"))
+    , Text "x"
+    , Code
+        "test/typ/math/multiline-00.typ"
+        ( line 5 , column 14 )
+        (Ident (Identifier "dot"))
+    , Text "2"
+    , Text "z"
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  math.equation(block: true, 
+                body: { [x], 
+                        math.alignpoint(), 
+                        [=], 
+                        [x], 
+                        [+], 
+                        [y], 
+                        linebreak(), 
+                        math.alignpoint(), 
+                        [=], 
+                        [x], 
+                        [+], 
+                        [2], 
+                        [z], 
+                        linebreak(), 
+                        math.alignpoint(), 
+                        [=], 
+                        [∑], 
+                        [x], 
+                        [⋅], 
+                        [2], 
+                        [z] }, 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math
+          DisplayMath
+          "\\begin{aligned}\nx & = x + y \\\\\n & = x + 2z \\\\\n & = \\sum x \\cdot 2z\n\\end{aligned}"
+      ]
+  ]

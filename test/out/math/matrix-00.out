@@ -1,0 +1,163 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/matrix-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/matrix-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/matrix-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/math/matrix-00.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "align"))
+       [ NormalArg (Ident (Identifier "center")) ])
+, SoftBreak
+, Equation
+    False
+    [ Code
+        "test/typ/math/matrix-00.typ"
+        ( line 4 , column 2 )
+        (FuncCall (Ident (Identifier "mat")) [])
+    , Code
+        "test/typ/math/matrix-00.typ"
+        ( line 4 , column 8 )
+        (Ident (Identifier "dot"))
+    , Code
+        "test/typ/math/matrix-00.typ"
+        ( line 5 , column 2 )
+        (FuncCall
+           (Ident (Identifier "mat"))
+           [ ArrayArg [ [ MGroup Nothing Nothing [] ] ] ])
+    , Code
+        "test/typ/math/matrix-00.typ"
+        ( line 5 , column 9 )
+        (Ident (Identifier "dot"))
+    , Code
+        "test/typ/math/matrix-00.typ"
+        ( line 6 , column 2 )
+        (FuncCall
+           (Ident (Identifier "mat"))
+           [ NormalArg (Block (Content [ Text "1" ]))
+           , NormalArg (Block (Content [ Text "2" ]))
+           ])
+    , Code
+        "test/typ/math/matrix-00.typ"
+        ( line 6 , column 12 )
+        (Ident (Identifier "dot"))
+    , Code
+        "test/typ/math/matrix-00.typ"
+        ( line 7 , column 2 )
+        (FuncCall
+           (Ident (Identifier "mat"))
+           [ ArrayArg [ [ Text "1" , Text "2" ] ] ])
+    , HardBreak
+    , Code
+        "test/typ/math/matrix-00.typ"
+        ( line 8 , column 2 )
+        (FuncCall
+           (Ident (Identifier "mat"))
+           [ ArrayArg [ [ Text "1" ] , [ Text "2" ] ] ])
+    , Code
+        "test/typ/math/matrix-00.typ"
+        ( line 8 , column 12 )
+        (Ident (Identifier "dot"))
+    , Code
+        "test/typ/math/matrix-00.typ"
+        ( line 9 , column 2 )
+        (FuncCall
+           (Ident (Identifier "mat"))
+           [ ArrayArg [ [ Text "1" , Text "2" ] , [ Text "3" , Text "4" ] ] ])
+    , Code
+        "test/typ/math/matrix-00.typ"
+        ( line 9 , column 18 )
+        (Ident (Identifier "dot"))
+    , Code
+        "test/typ/math/matrix-00.typ"
+        ( line 10 , column 2 )
+        (FuncCall
+           (Ident (Identifier "mat"))
+           [ ArrayArg
+               [ [ MGroup
+                     Nothing Nothing [ Text "1" , Text "+" , MAlignPoint , Text "2" ]
+                 , MFrac (Text "1") (Text "2")
+                 ]
+               , [ MGroup Nothing Nothing [ MAlignPoint , Text "3" ] , Text "4" ]
+               ]
+           ])
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  math.equation(block: false, 
+                body: { math.mat(rows: ()), 
+                        [⋅], 
+                        math.mat(rows: (({  }))), 
+                        [⋅], 
+                        math.mat(rows: (([1], [2]))), 
+                        [⋅], 
+                        math.mat(rows: (([1], [2]))), 
+                        linebreak(), 
+                        math.mat(rows: (([1]), 
+                                        ([2]))), 
+                        [⋅], 
+                        math.mat(rows: (([1], [2]), 
+                                        ([3], [4]))), 
+                        [⋅], 
+                        math.mat(rows: (({ [1], 
+                                           [+], 
+                                           math.alignpoint(), 
+                                           [2] }, 
+                                         math.frac(denom: [2], 
+                                                   num: [1])), 
+                                        ({ math.alignpoint(), 
+                                           [3] }, 
+                                         [4]))) }, 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math
+          InlineMath
+          "\\begin{array}{r}\n\\begin{pmatrix}\n\\end{pmatrix} \\cdot \\begin{pmatrix}\n\n\\end{pmatrix} \\cdot \\begin{pmatrix}\n1 & 2\n\\end{pmatrix} \\cdot \\begin{pmatrix}\n1 & 2\n\\end{pmatrix} \\\\\n\\begin{pmatrix}\n1 \\\\\n2\n\\end{pmatrix} \\cdot \\begin{pmatrix}\n1 & 2 \\\\\n3 & 4\n\\end{pmatrix} \\cdot \\begin{pmatrix}\n\\begin{aligned}\n1 + & 2\n\\end{aligned} & \\frac{1}{2} \\\\\n\\begin{aligned}\n & 3\n\\end{aligned} & 4\n\\end{pmatrix}\n\\end{array}"
+      ]
+  ]

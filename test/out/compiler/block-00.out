@@ -1,0 +1,104 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/block-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/block-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/block-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compiler/block-00.typ"
+    ( line 5 , column 2 )
+    (Block
+       (CodeBlock
+          [ Let
+              (BasicBind (Just (Identifier "parts")))
+              (Array [ Literal (String "my fri") , Literal (String "end.") ])
+          , Block (Content [ Text "Hello," , Space ])
+          , For
+              (BasicBind (Just (Identifier "s")))
+              (Ident (Identifier "parts"))
+              (Block
+                 (Content
+                    [ Code
+                        "test/typ/compiler/block-00.typ"
+                        ( line 8 , column 20 )
+                        (Ident (Identifier "s"))
+                    ]))
+          ]))
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/block-00.typ"
+    ( line 12 , column 2 )
+    (Block
+       (CodeBlock
+          [ Block (Content [ Text "How" ])
+          , If
+              [ ( Literal (Boolean True)
+                , Block (CodeBlock [ Literal (String " are") ])
+                )
+              ]
+          , Block (Content [ Space ])
+          , If
+              [ ( Literal (Boolean False) , Block (Content [ Text "Nope" ]) ) ]
+          , Plus (Block (Content [ Text "you" ])) (Literal (String "?"))
+          ]))
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  [Hello, ], 
+  [my fri], 
+  [end.], 
+  parbreak(), 
+  [How], 
+  [ are], 
+  [ ], 
+  [you], 
+  [?], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para [ Str "Hello," , Space , Str "my" , Space , Str "friend." ]
+  , Para [ Str "How" , Space , Str "are" , Space , Str "you?" ]
+  ]

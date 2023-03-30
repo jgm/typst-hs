@@ -1,0 +1,91 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/break-continue-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/break-continue-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/break-continue-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, SoftBreak
+, Code
+    "test/typ/compiler/break-continue-01.typ"
+    ( line 4 , column 2 )
+    (Let (BasicBind (Just (Identifier "i"))) (Literal (Int 0)))
+, SoftBreak
+, Code
+    "test/typ/compiler/break-continue-01.typ"
+    ( line 5 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "x")))
+       (While
+          (Literal (Boolean True))
+          (Block
+             (CodeBlock
+                [ Assign
+                    (Ident (Identifier "i"))
+                    (Plus (Ident (Identifier "i")) (Literal (Int 1)))
+                , FuncCall
+                    (Ident (Identifier "str")) [ NormalArg (Ident (Identifier "i")) ]
+                , If
+                    [ ( GreaterThanOrEqual (Ident (Identifier "i")) (Literal (Int 5))
+                      , Block (CodeBlock [ Literal (String ".") , Break ])
+                      )
+                    ]
+                ]))))
+, ParBreak
+, Code
+    "test/typ/compiler/break-continue-01.typ"
+    ( line 14 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg (Ident (Identifier "x"))
+       , NormalArg (Literal (String "12345."))
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  [
+], 
+  parbreak(), 
+  [✅], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] } [ Para [] , Para [ Str "\9989" ] ]

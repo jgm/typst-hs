@@ -1,0 +1,146 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/grid-1-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/grid-1-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/grid-1-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/layout/grid-1-02.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "height") (Literal (Numeric 3.0 Cm))
+       , KeyValArg (Identifier "margin") (Literal (Numeric 0.0 Pt))
+       ])
+, SoftBreak
+, Code
+    "test/typ/layout/grid-1-02.typ"
+    ( line 3 , column 2 )
+    (FuncCall
+       (Ident (Identifier "grid"))
+       [ KeyValArg
+           (Identifier "columns") (Array [ Literal (Numeric 1.0 Fr) ])
+       , KeyValArg
+           (Identifier "rows")
+           (Array
+              [ Literal (Numeric 1.0 Fr)
+              , Literal Auto
+              , Literal (Numeric 2.0 Fr)
+              ])
+       , NormalArg (Block (Content []))
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "align"))
+              [ NormalArg (Ident (Identifier "center"))
+              , BlockArg
+                  [ Text "A"
+                  , Space
+                  , Text "bit"
+                  , Space
+                  , Text "more"
+                  , Space
+                  , Text "to"
+                  , Space
+                  , Text "the"
+                  , Space
+                  , Text "top"
+                  ]
+              ])
+       , NormalArg (Block (Content []))
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  grid(children: ({  }, 
+                  align(alignment: center, 
+                        body: [A bit more to the top]), 
+                  {  }), 
+       columns: (1.0fr), 
+       rows: (1.0fr, auto, 2.0fr)), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Table
+      ( "" , [] , [] )
+      (Caption Nothing [])
+      [ ( AlignDefault , ColWidthDefault ) ]
+      (TableHead ( "" , [] , [] ) [])
+      [ TableBody
+          ( "" , [] , [] )
+          (RowHeadColumns 0)
+          []
+          [ Row
+              ( "" , [] , [] )
+              [ Cell ( "" , [] , [] ) AlignDefault (RowSpan 1) (ColSpan 1) [] ]
+          , Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Div
+                      ( "" , [] , [ ( "align" , "center" ) ] )
+                      [ Para
+                          [ Str "A"
+                          , Space
+                          , Str "bit"
+                          , Space
+                          , Str "more"
+                          , Space
+                          , Str "to"
+                          , Space
+                          , Str "the"
+                          , Space
+                          , Str "top"
+                          ]
+                      ]
+                  ]
+              ]
+          , Row
+              ( "" , [] , [] )
+              [ Cell ( "" , [] , [] ) AlignDefault (RowSpan 1) (ColSpan 1) [] ]
+          ]
+      ]
+      (TableFoot ( "" , [] , [] ) [])
+  ]

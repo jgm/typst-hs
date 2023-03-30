@@ -1,0 +1,215 @@
+--- parse tree ---
+[ Code
+    "test/typ/meta/state-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/meta/state-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/meta/state-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/meta/state-01.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 200.0 Pt)) ])
+, SoftBreak
+, Code
+    "test/typ/meta/state-01.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ NormalArg (Literal (Numeric 8.0 Pt)) ])
+, ParBreak
+, Code
+    "test/typ/meta/state-01.typ"
+    ( line 5 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "ls")))
+       (FuncCall
+          (Ident (Identifier "state"))
+          [ NormalArg (Literal (String "lorem"))
+          , NormalArg
+              (FuncCall
+                 (FieldAccess
+                    (Ident (Identifier "split"))
+                    (FuncCall
+                       (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 1000)) ]))
+                 [ NormalArg (Literal (String ".")) ])
+          ]))
+, SoftBreak
+, Code
+    "test/typ/meta/state-01.typ"
+    ( line 6 , column 2 )
+    (LetFunc
+       (Identifier "loremum")
+       [ NormalParam (Identifier "count") ]
+       (Block
+          (CodeBlock
+             [ FuncCall
+                 (FieldAccess
+                    (Ident (Identifier "display")) (Ident (Identifier "ls")))
+                 [ NormalArg
+                     (FuncExpr
+                        [ NormalParam (Identifier "list") ]
+                        (Plus
+                           (FuncCall
+                              (FieldAccess
+                                 (Ident (Identifier "trim"))
+                                 (FuncCall
+                                    (FieldAccess
+                                       (Ident (Identifier "join"))
+                                       (FuncCall
+                                          (FieldAccess
+                                             (Ident (Identifier "slice"))
+                                             (Ident (Identifier "list")))
+                                          [ NormalArg (Literal (Int 0))
+                                          , NormalArg (Ident (Identifier "count"))
+                                          ]))
+                                    [ NormalArg (Literal (String ".")) ]))
+                              [])
+                           (Literal (String "."))))
+                 ]
+             , FuncCall
+                 (FieldAccess
+                    (Ident (Identifier "update")) (Ident (Identifier "ls")))
+                 [ NormalArg
+                     (FuncExpr
+                        [ NormalParam (Identifier "list") ]
+                        (FuncCall
+                           (FieldAccess
+                              (Ident (Identifier "slice")) (Ident (Identifier "list")))
+                           [ NormalArg (Ident (Identifier "count")) ]))
+                 ]
+             ])))
+, ParBreak
+, Code
+    "test/typ/meta/state-01.typ"
+    ( line 11 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "fs")))
+       (FuncCall
+          (Ident (Identifier "state"))
+          [ NormalArg (Literal (String "fader"))
+          , NormalArg (Ident (Identifier "red"))
+          ]))
+, SoftBreak
+, Code
+    "test/typ/meta/state-01.typ"
+    ( line 12 , column 2 )
+    (LetFunc
+       (Identifier "trait")
+       [ NormalParam (Identifier "title") ]
+       (FuncCall
+          (Ident (Identifier "block"))
+          [ BlockArg
+              [ SoftBreak
+              , Code
+                  "test/typ/meta/state-01.typ"
+                  ( line 13 , column 4 )
+                  (FuncCall
+                     (FieldAccess
+                        (Ident (Identifier "display")) (Ident (Identifier "fs")))
+                     [ NormalArg
+                         (FuncExpr
+                            [ NormalParam (Identifier "color") ]
+                            (FuncCall
+                               (Ident (Identifier "text"))
+                               [ KeyValArg (Identifier "fill") (Ident (Identifier "color"))
+                               , BlockArg
+                                   [ SoftBreak
+                                   , Strong
+                                       [ Code
+                                           "test/typ/meta/state-01.typ"
+                                           ( line 14 , column 7 )
+                                           (Ident (Identifier "title"))
+                                       , Text ":"
+                                       ]
+                                   , Space
+                                   , Code
+                                       "test/typ/meta/state-01.typ"
+                                       ( line 14 , column 16 )
+                                       (FuncCall
+                                          (Ident (Identifier "loremum"))
+                                          [ NormalArg (Literal (Int 1)) ])
+                                   , ParBreak
+                                   ]
+                               ]))
+                     ])
+              , SoftBreak
+              , Code
+                  "test/typ/meta/state-01.typ"
+                  ( line 16 , column 4 )
+                  (FuncCall
+                     (FieldAccess
+                        (Ident (Identifier "update")) (Ident (Identifier "fs")))
+                     [ NormalArg
+                         (FuncExpr
+                            [ NormalParam (Identifier "color") ]
+                            (FuncCall
+                               (FieldAccess
+                                  (Ident (Identifier "lighten")) (Ident (Identifier "color")))
+                               [ NormalArg (Literal (Numeric 30.0 Percent)) ]))
+                     ])
+              , ParBreak
+              ]
+          ]))
+, ParBreak
+, Code
+    "test/typ/meta/state-01.typ"
+    ( line 19 , column 2 )
+    (FuncCall
+       (Ident (Identifier "trait")) [ BlockArg [ Text "Boldness" ] ])
+, SoftBreak
+, Code
+    "test/typ/meta/state-01.typ"
+    ( line 20 , column 2 )
+    (FuncCall
+       (Ident (Identifier "trait")) [ BlockArg [ Text "Adventure" ] ])
+, SoftBreak
+, Code
+    "test/typ/meta/state-01.typ"
+    ( line 21 , column 2 )
+    (FuncCall
+       (Ident (Identifier "trait")) [ BlockArg [ Text "Fear" ] ])
+, SoftBreak
+, Code
+    "test/typ/meta/state-01.typ"
+    ( line 22 , column 2 )
+    (FuncCall
+       (Ident (Identifier "trait")) [ BlockArg [ Text "Anger" ] ])
+, ParBreak
+]
+"test/typ/meta/state-01.typ" (line 13, column 4):
+Content does not have a method "display" or FieldAccess requires a dictionary

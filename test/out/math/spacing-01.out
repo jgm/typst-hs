@@ -1,0 +1,135 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/spacing-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/spacing-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/spacing-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Equation
+    False
+    [ Text "f"
+    , MGroup (Just "(") (Just ")") [ Text "x" ]
+    , Text ","
+    , MGroup
+        Nothing
+        Nothing
+        [ Text "f" , MGroup (Just "(") (Just ")") [ Text "x" ] ]
+    ]
+, Space
+, HardBreak
+, Equation
+    False
+    [ MGroup (Just "[") (Just "]") [ Text "a" , Text "|" , Text "b" ]
+    , Text ","
+    , MGroup
+        (Just "[")
+        (Just "]")
+        [ Text "a"
+        , MGroup Nothing Nothing [ Nbsp , Text "|" , Nbsp ]
+        , Text "b"
+        ]
+    ]
+, Space
+, HardBreak
+, Equation
+    False
+    [ Text "a"
+    , Text "is"
+    , Text "b"
+    , Text ","
+    , Text "a"
+    , Text " is "
+    , Text "b"
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  math.equation(block: false, 
+                body: { [f], 
+                        math.lr(body: { [(], 
+                                        [x], 
+                                        [)] }), 
+                        [,], 
+                        [f], 
+                        math.lr(body: { [(], 
+                                        [x], 
+                                        [)] }) }, 
+                numbering: none), 
+  [ ], 
+  linebreak(), 
+  math.equation(block: false, 
+                body: { math.lr(body: { [[], 
+                                        [a], 
+                                        [|], 
+                                        [b], 
+                                        []] }), 
+                        [,], 
+                        math.lr(body: { [[], 
+                                        [a], 
+                                        [ ], 
+                                        [|], 
+                                        [ ], 
+                                        [b], 
+                                        []] }) }, 
+                numbering: none), 
+  [ ], 
+  linebreak(), 
+  math.equation(block: false, 
+                body: { [a], 
+                        [is], 
+                        [b], 
+                        [,], 
+                        [a], 
+                        [ is ], 
+                        [b] }, 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math InlineMath "f(x),f(x)"
+      , LineBreak
+      , Math
+          InlineMath
+          "\\left\\lbrack {a|b} \\right\\rbrack,\\left\\lbrack {a~|~b} \\right\\rbrack"
+      , LineBreak
+      , Math InlineMath "a\\text{is}b,a\\text{ is }b"
+      ]
+  ]

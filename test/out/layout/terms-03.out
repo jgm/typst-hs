@@ -1,0 +1,139 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/terms-03.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/terms-03.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/terms-03.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/layout/terms-03.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ NormalArg (Literal (Numeric 8.0 Pt)) ])
+, SoftBreak
+, DescListItem
+    [ Text "First" , Space , Text "list" ]
+    [ Code
+        "test/typ/layout/terms-03.typ"
+        ( line 4 , column 16 )
+        (FuncCall
+           (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 6)) ])
+    , SoftBreak
+    ]
+, SoftBreak
+, Code
+    "test/typ/layout/terms-03.typ"
+    ( line 6 , column 2 )
+    (Set
+       (Ident (Identifier "terms"))
+       [ KeyValArg
+           (Identifier "hanging-indent") (Literal (Numeric 30.0 Pt))
+       ])
+, SoftBreak
+, DescListItem
+    [ Text "Second" , Space , Text "list" ]
+    [ Code
+        "test/typ/layout/terms-03.typ"
+        ( line 7 , column 17 )
+        (FuncCall
+           (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 5)) ])
+    , ParBreak
+    ]
+]
+--- evaluated ---
+{ [
+], 
+  text(body: [
+], size: 8.0pt), 
+  terms(children: ((text(body: [First list], 
+                         size: 8.0pt), 
+                    { text(body: [Lorem ipsum dolor sit amet, consectetur], 
+                           size: 8.0pt), 
+                      text(body: [
+], 
+                           size: 8.0pt) }))), 
+  text(body: [
+], size: 8.0pt), 
+  terms(children: ((text(body: [Second list], 
+                         size: 8.0pt), 
+                    { text(body: [Lorem ipsum dolor sit amet,], 
+                           size: 8.0pt), 
+                      parbreak() })), 
+        hanging-indent: 30.0pt) }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , DefinitionList
+      [ ( [ Str "First" , Space , Str "list" ]
+        , [ [ Para
+                [ Str "Lorem"
+                , Space
+                , Str "ipsum"
+                , Space
+                , Str "dolor"
+                , Space
+                , Str "sit"
+                , Space
+                , Str "amet,"
+                , Space
+                , Str "consectetur"
+                ]
+            ]
+          ]
+        )
+      ]
+  , Para []
+  , DefinitionList
+      [ ( [ Str "Second" , Space , Str "list" ]
+        , [ [ Para
+                [ Str "Lorem"
+                , Space
+                , Str "ipsum"
+                , Space
+                , Str "dolor"
+                , Space
+                , Str "sit"
+                , Space
+                , Str "amet,"
+                ]
+            ]
+          ]
+        )
+      ]
+  ]

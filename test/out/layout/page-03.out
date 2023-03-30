@@ -1,0 +1,103 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/page-03.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/page-03.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/page-03.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/layout/page-03.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 80.0 Pt))
+       , KeyValArg (Identifier "height") (Literal (Numeric 40.0 Pt))
+       , KeyValArg (Identifier "fill") (Ident (Identifier "eastern"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/layout/page-03.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "text"))
+       [ NormalArg (Literal (Numeric 15.0 Pt))
+       , KeyValArg (Identifier "font") (Literal (String "Roboto"))
+       , KeyValArg (Identifier "fill") (Ident (Identifier "white"))
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "smallcaps")) [ BlockArg [ Text "Typst" ] ])
+       ])
+, SoftBreak
+, Code
+    "test/typ/layout/page-03.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 40.0 Pt))
+       , KeyValArg (Identifier "fill") (Literal None)
+       , KeyValArg
+           (Identifier "margin")
+           (Dict
+              [ ( Identifier "top" , Literal (Numeric 10.0 Pt) )
+              , ( Identifier "rest" , Literal Auto )
+              ])
+       , BlockArg [ Text "Hi" ]
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  text(body: smallcaps(body: [Typst]), 
+       fill: rgb(100%,100%,100%,100%), 
+       font: "Roboto", 
+       size: 15.0pt), 
+  [
+], 
+  page(body: [Hi], 
+       fill: none, 
+       height: 40.0pt, 
+       margin: (top: 10.0pt,
+                rest: auto), 
+       width: 40.0pt), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para [ SmallCaps [ Str "Typst" ] ] ]

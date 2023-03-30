@@ -1,0 +1,89 @@
+--- parse tree ---
+[ Code
+    "test/typ/visualize/shape-aspect-03.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/visualize/shape-aspect-03.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/visualize/shape-aspect-03.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/visualize/shape-aspect-03.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 20.0 Pt))
+       , KeyValArg (Identifier "height") (Literal (Numeric 10.0 Pt))
+       , KeyValArg (Identifier "margin") (Literal (Numeric 0.0 Pt))
+       ])
+, SoftBreak
+, Code
+    "test/typ/visualize/shape-aspect-03.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "stack"))
+       [ KeyValArg (Identifier "dir") (Ident (Identifier "ltr"))
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "square"))
+              [ KeyValArg (Identifier "fill") (Ident (Identifier "red")) ])
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "square"))
+              [ KeyValArg (Identifier "fill") (Ident (Identifier "green")) ])
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  stack(children: (square(body: none, 
+                          fill: rgb(100%,25%,21%,100%)), 
+                   square(body: none, 
+                          fill: rgb(18%,80%,25%,100%))), 
+        dir: ltr), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Div
+      ( "" , [] , [ ( "stack" , "ltr" ) ] )
+      [ Div ( "" , [] , [] ) [ Div ( "" , [ "square" ] , [] ) [] ]
+      , Div ( "" , [] , [] ) [ Div ( "" , [ "square" ] , [] ) [] ]
+      ]
+  ]

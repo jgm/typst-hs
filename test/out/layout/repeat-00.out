@@ -1,0 +1,204 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/repeat-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/repeat-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/repeat-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/layout/repeat-00.typ"
+    ( line 3 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "sections")))
+       (Array
+          [ Array [ Literal (String "Introduction") , Literal (Int 1) ]
+          , Array [ Literal (String "Approach") , Literal (Int 1) ]
+          , Array [ Literal (String "Evaluation") , Literal (Int 3) ]
+          , Array [ Literal (String "Discussion") , Literal (Int 15) ]
+          , Array [ Literal (String "Related Work") , Literal (Int 16) ]
+          , Array [ Literal (String "Conclusion") , Literal (Int 253) ]
+          ]))
+, ParBreak
+, Code
+    "test/typ/layout/repeat-00.typ"
+    ( line 12 , column 2 )
+    (For
+       (BasicBind (Just (Identifier "section")))
+       (Ident (Identifier "sections"))
+       (Block
+          (Content
+             [ SoftBreak
+             , Code
+                 "test/typ/layout/repeat-00.typ"
+                 ( line 13 , column 4 )
+                 (FuncCall
+                    (FieldAccess
+                       (Ident (Identifier "at")) (Ident (Identifier "section")))
+                    [ NormalArg (Literal (Int 0)) ])
+             , Space
+             , Code
+                 "test/typ/layout/repeat-00.typ"
+                 ( line 13 , column 19 )
+                 (FuncCall
+                    (Ident (Identifier "box"))
+                    [ KeyValArg (Identifier "width") (Literal (Numeric 1.0 Fr))
+                    , NormalArg
+                        (FuncCall (Ident (Identifier "repeat")) [ BlockArg [ Text "." ] ])
+                    ])
+             , Space
+             , Code
+                 "test/typ/layout/repeat-00.typ"
+                 ( line 13 , column 47 )
+                 (FuncCall
+                    (FieldAccess
+                       (Ident (Identifier "at")) (Ident (Identifier "section")))
+                    [ NormalArg (Literal (Int 1)) ])
+             , Space
+             , HardBreak
+             ])))
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  parbreak(), 
+  [
+], 
+  [Introduction], 
+  [ ], 
+  box(body: repeat(body: [.]), 
+      width: 1.0fr), 
+  [ ], 
+  [1], 
+  [ ], 
+  linebreak(), 
+  [
+], 
+  [Approach], 
+  [ ], 
+  box(body: repeat(body: [.]), 
+      width: 1.0fr), 
+  [ ], 
+  [1], 
+  [ ], 
+  linebreak(), 
+  [
+], 
+  [Evaluation], 
+  [ ], 
+  box(body: repeat(body: [.]), 
+      width: 1.0fr), 
+  [ ], 
+  [3], 
+  [ ], 
+  linebreak(), 
+  [
+], 
+  [Discussion], 
+  [ ], 
+  box(body: repeat(body: [.]), 
+      width: 1.0fr), 
+  [ ], 
+  [15], 
+  [ ], 
+  linebreak(), 
+  [
+], 
+  [Related Work], 
+  [ ], 
+  box(body: repeat(body: [.]), 
+      width: 1.0fr), 
+  [ ], 
+  [16], 
+  [ ], 
+  linebreak(), 
+  [
+], 
+  [Conclusion], 
+  [ ], 
+  box(body: repeat(body: [.]), 
+      width: 1.0fr), 
+  [ ], 
+  [253], 
+  [ ], 
+  linebreak(), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para
+      [ Str "Introduction"
+      , Space
+      , Span ( "" , [ "box" ] , [] ) []
+      , Space
+      , Str "1"
+      , LineBreak
+      , Str "Approach"
+      , Space
+      , Span ( "" , [ "box" ] , [] ) []
+      , Space
+      , Str "1"
+      , LineBreak
+      , Str "Evaluation"
+      , Space
+      , Span ( "" , [ "box" ] , [] ) []
+      , Space
+      , Str "3"
+      , LineBreak
+      , Str "Discussion"
+      , Space
+      , Span ( "" , [ "box" ] , [] ) []
+      , Space
+      , Str "15"
+      , LineBreak
+      , Str "Related"
+      , Space
+      , Str "Work"
+      , Space
+      , Span ( "" , [ "box" ] , [] ) []
+      , Space
+      , Str "16"
+      , LineBreak
+      , Str "Conclusion"
+      , Space
+      , Span ( "" , [ "box" ] , [] ) []
+      , Space
+      , Str "253"
+      , LineBreak
+      ]
+  ]

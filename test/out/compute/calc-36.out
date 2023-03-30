@@ -1,0 +1,252 @@
+--- parse tree ---
+[ Code
+    "test/typ/compute/calc-36.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compute/calc-36.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compute/calc-36.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compute/calc-36.typ"
+    ( line 3 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "range")) [ NormalArg (Literal (Int 4)) ])
+       , NormalArg
+           (Array
+              [ Literal (Int 0)
+              , Literal (Int 1)
+              , Literal (Int 2)
+              , Literal (Int 3)
+              ])
+       ])
+, SoftBreak
+, Code
+    "test/typ/compute/calc-36.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "range"))
+              [ NormalArg (Literal (Int 1)) , NormalArg (Literal (Int 4)) ])
+       , NormalArg
+           (Array [ Literal (Int 1) , Literal (Int 2) , Literal (Int 3) ])
+       ])
+, SoftBreak
+, Code
+    "test/typ/compute/calc-36.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "range"))
+              [ NormalArg (Negated (Literal (Int 4)))
+              , NormalArg (Literal (Int 2))
+              ])
+       , NormalArg
+           (Array
+              [ Negated (Literal (Int 4))
+              , Negated (Literal (Int 3))
+              , Negated (Literal (Int 2))
+              , Negated (Literal (Int 1))
+              , Literal (Int 0)
+              , Literal (Int 1)
+              ])
+       ])
+, SoftBreak
+, Code
+    "test/typ/compute/calc-36.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "range"))
+              [ NormalArg (Literal (Int 10)) , NormalArg (Literal (Int 5)) ])
+       , NormalArg (Array [])
+       ])
+, SoftBreak
+, Code
+    "test/typ/compute/calc-36.typ"
+    ( line 7 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "range"))
+              [ NormalArg (Literal (Int 10))
+              , KeyValArg (Identifier "step") (Literal (Int 3))
+              ])
+       , NormalArg
+           (Array
+              [ Literal (Int 0)
+              , Literal (Int 3)
+              , Literal (Int 6)
+              , Literal (Int 9)
+              ])
+       ])
+, SoftBreak
+, Code
+    "test/typ/compute/calc-36.typ"
+    ( line 8 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "range"))
+              [ NormalArg (Literal (Int 1))
+              , NormalArg (Literal (Int 4))
+              , KeyValArg (Identifier "step") (Literal (Int 1))
+              ])
+       , NormalArg
+           (Array [ Literal (Int 1) , Literal (Int 2) , Literal (Int 3) ])
+       ])
+, SoftBreak
+, Code
+    "test/typ/compute/calc-36.typ"
+    ( line 9 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "range"))
+              [ NormalArg (Literal (Int 1))
+              , NormalArg (Literal (Int 8))
+              , KeyValArg (Identifier "step") (Literal (Int 2))
+              ])
+       , NormalArg
+           (Array
+              [ Literal (Int 1)
+              , Literal (Int 3)
+              , Literal (Int 5)
+              , Literal (Int 7)
+              ])
+       ])
+, SoftBreak
+, Code
+    "test/typ/compute/calc-36.typ"
+    ( line 10 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "range"))
+              [ NormalArg (Literal (Int 5))
+              , NormalArg (Literal (Int 2))
+              , KeyValArg (Identifier "step") (Negated (Literal (Int 1)))
+              ])
+       , NormalArg
+           (Array [ Literal (Int 5) , Literal (Int 4) , Literal (Int 3) ])
+       ])
+, SoftBreak
+, Code
+    "test/typ/compute/calc-36.typ"
+    ( line 11 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "range"))
+              [ NormalArg (Literal (Int 10))
+              , NormalArg (Literal (Int 0))
+              , KeyValArg (Identifier "step") (Negated (Literal (Int 3)))
+              ])
+       , NormalArg
+           (Array
+              [ Literal (Int 10)
+              , Literal (Int 7)
+              , Literal (Int 4)
+              , Literal (Int 1)
+              ])
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      ]
+  ]

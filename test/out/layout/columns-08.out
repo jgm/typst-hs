@@ -1,0 +1,216 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/columns-08.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/columns-08.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/columns-08.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/layout/columns-08.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 7.05 Cm))
+       , KeyValArg (Identifier "columns") (Literal (Int 2))
+       ])
+, ParBreak
+, Text "There"
+, Space
+, Text "can"
+, Space
+, Text "be"
+, Space
+, Text "as"
+, Space
+, Text "much"
+, Space
+, Text "content"
+, Space
+, Text "as"
+, Space
+, Text "you"
+, Space
+, Text "want"
+, Space
+, Text "in"
+, Space
+, Text "the"
+, Space
+, Text "left"
+, Space
+, Text "column"
+, SoftBreak
+, Text "and"
+, Space
+, Text "the"
+, Space
+, Text "document"
+, Space
+, Text "will"
+, Space
+, Text "grow"
+, Space
+, Text "with"
+, Space
+, Text "it"
+, Text "."
+, ParBreak
+, Code
+    "test/typ/layout/columns-08.typ"
+    ( line 8 , column 2 )
+    (FuncCall
+       (Ident (Identifier "rect"))
+       [ KeyValArg (Identifier "fill") (Ident (Identifier "green"))
+       , KeyValArg (Identifier "width") (Literal (Numeric 100.0 Percent))
+       , KeyValArg (Identifier "height") (Literal (Numeric 30.0 Pt))
+       ])
+, ParBreak
+, Text "Only"
+, Space
+, Text "an"
+, Space
+, Text "explicit"
+, Space
+, Code
+    "test/typ/layout/columns-08.typ"
+    ( line 10 , column 19 )
+    (FuncCall (Ident (Identifier "colbreak")) [])
+, Space
+, RawInline "#colbreak()"
+, Space
+, Text "can"
+, Space
+, Text "put"
+, Space
+, Text "content"
+, Space
+, Text "in"
+, Space
+, Text "the"
+, SoftBreak
+, Text "second"
+, Space
+, Text "column"
+, Text "."
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  parbreak(), 
+  [There can be as much content as you want in the left column
+and the document will grow with it.], 
+  parbreak(), 
+  rect(body: none, 
+       fill: rgb(18%,80%,25%,100%), 
+       height: 30.0pt, 
+       width: 100%), 
+  parbreak(), 
+  [Only an explicit ], 
+  colbreak(), 
+  [ ], 
+  raw(block: false, 
+      lang: none, 
+      text: "#colbreak()"), 
+  [ can put content in the
+second column.], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para
+      [ Str "There"
+      , Space
+      , Str "can"
+      , Space
+      , Str "be"
+      , Space
+      , Str "as"
+      , Space
+      , Str "much"
+      , Space
+      , Str "content"
+      , Space
+      , Str "as"
+      , Space
+      , Str "you"
+      , Space
+      , Str "want"
+      , Space
+      , Str "in"
+      , Space
+      , Str "the"
+      , Space
+      , Str "left"
+      , Space
+      , Str "column"
+      , SoftBreak
+      , Str "and"
+      , Space
+      , Str "the"
+      , Space
+      , Str "document"
+      , Space
+      , Str "will"
+      , Space
+      , Str "grow"
+      , Space
+      , Str "with"
+      , Space
+      , Str "it."
+      ]
+  , Div ( "" , [ "rect" ] , [] ) []
+  , Para [ Str "Only" , Space , Str "an" , Space , Str "explicit" ]
+  , Para
+      [ Code ( "" , [] , [] ) "#colbreak()"
+      , Space
+      , Str "can"
+      , Space
+      , Str "put"
+      , Space
+      , Str "content"
+      , Space
+      , Str "in"
+      , Space
+      , Str "the"
+      , SoftBreak
+      , Str "second"
+      , Space
+      , Str "column."
+      ]
+  ]

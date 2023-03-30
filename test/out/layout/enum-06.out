@@ -1,0 +1,97 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/enum-06.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/enum-06.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/enum-06.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, EnumListItem (Just 1) [ Text "first" ]
+, SoftBreak
+, EnumListItem Nothing [ Text "second" ]
+, SoftBreak
+, EnumListItem (Just 5) [ Text "fifth" , SoftBreak ]
+, SoftBreak
+, Code
+    "test/typ/layout/enum-06.typ"
+    ( line 7 , column 2 )
+    (FuncCall
+       (Ident (Identifier "enum"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "item")) (Ident (Identifier "enum")))
+              [ NormalArg (Literal (Int 1)) , BlockArg [ Text "First" ] ])
+       , NormalArg (Block (Content [ Text "Second" ]))
+       , NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "item")) (Ident (Identifier "enum")))
+              [ NormalArg (Literal (Int 5)) , BlockArg [ Text "Fifth" ] ])
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  enum(children: ([first], 
+                  [second], 
+                  [fifth
+]), 
+       start: 1), 
+  enum(children: (enum.item(body: [First], 
+                            number: 1), 
+                  [Second], 
+                  enum.item(body: [Fifth], 
+                            number: 5))), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , OrderedList
+      ( 1 , DefaultStyle , DefaultDelim )
+      [ [ Para [ Str "first" ] ]
+      , [ Para [ Str "second" ] ]
+      , [ Para [ Str "fifth" ] ]
+      ]
+  , OrderedList
+      ( 1 , DefaultStyle , DefaultDelim )
+      [ [ Para [ Str "First" ] ]
+      , [ Para [ Str "Second" ] ]
+      , [ Para [ Str "Fifth" ] ]
+      ]
+  ]

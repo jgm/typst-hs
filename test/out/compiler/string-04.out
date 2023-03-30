@@ -1,0 +1,144 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/string-04.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/string-04.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/string-04.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compiler/string-04.typ"
+    ( line 3 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess (Ident (Identifier "at")) (Literal (String "Hello")))
+              [ NormalArg (Literal (Int 1)) ])
+       , NormalArg (Literal (String "e"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/string-04.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess (Ident (Identifier "at")) (Literal (String "Hello")))
+              [ NormalArg (Literal (Int 4)) ])
+       , NormalArg (Literal (String "o"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/string-04.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess (Ident (Identifier "at")) (Literal (String "Hello")))
+              [ NormalArg (Negated (Literal (Int 1))) ])
+       , NormalArg (Literal (String "o"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/string-04.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess (Ident (Identifier "at")) (Literal (String "Hello")))
+              [ NormalArg (Negated (Literal (Int 2))) ])
+       , NormalArg (Literal (String "l"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/string-04.typ"
+    ( line 7 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "at"))
+                 (Literal (String "Hey: \127987\65039\8205\127752 there!")))
+              [ NormalArg (Literal (Int 5)) ])
+       , NormalArg (Literal (String "\127987\65039\8205\127752"))
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [❌(], 
+  ["🏳"], 
+  [ /= ], 
+  ["🏳️‍🌈"], 
+  [)], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\10060(\"\127987\""
+      , Space
+      , Str "/="
+      , Space
+      , Str "\"\127987\65039\8205\127752\")"
+      ]
+  ]

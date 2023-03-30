@@ -1,0 +1,103 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/if-03.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/if-03.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/if-03.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Comment
+, SoftBreak
+, Code
+    "test/typ/compiler/if-03.typ"
+    ( line 5 , column 2 )
+    (Block
+       (CodeBlock
+          [ Let (BasicBind (Just (Identifier "x"))) (Literal (Int 1))
+          , Let (BasicBind (Just (Identifier "y"))) (Literal (Int 2))
+          , Let (BasicBind (Just (Identifier "z"))) (Literal None)
+          , Assign
+              (Binding (BasicBind (Just (Identifier "z"))))
+              (If
+                 [ ( LessThan (Ident (Identifier "x")) (Ident (Identifier "y"))
+                   , Block (CodeBlock [ Literal (String "ok") ])
+                   )
+                 ])
+          , FuncCall
+              (Ident (Identifier "test"))
+              [ NormalArg (Ident (Identifier "z"))
+              , NormalArg (Literal (String "ok"))
+              ]
+          , Assign
+              (Binding (BasicBind (Just (Identifier "z"))))
+              (If
+                 [ ( GreaterThan (Ident (Identifier "x")) (Ident (Identifier "y"))
+                   , Block (CodeBlock [ Literal (String "bad") ])
+                   )
+                 , ( Literal (Boolean True)
+                   , Block (CodeBlock [ Literal (String "ok") ])
+                   )
+                 ])
+          , FuncCall
+              (Ident (Identifier "test"))
+              [ NormalArg (Ident (Identifier "z"))
+              , NormalArg (Literal (String "ok"))
+              ]
+          , Assign
+              (Binding (BasicBind (Just (Identifier "z"))))
+              (If
+                 [ ( GreaterThan (Ident (Identifier "x")) (Ident (Identifier "y"))
+                   , Block (CodeBlock [ Literal (String "bad") ])
+                   )
+                 ])
+          , FuncCall
+              (Ident (Identifier "test"))
+              [ NormalArg (Ident (Identifier "z")) , NormalArg (Literal None) ]
+          ]))
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  [✅], 
+  [✅], 
+  [✅], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] } [ Para [ Str "\9989\9989\9989" ] ]

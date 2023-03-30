@@ -1,0 +1,180 @@
+--- parse tree ---
+[ Code
+    "test/typ/meta/query-before-after-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/meta/query-before-after-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/meta/query-before-after-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/meta/query-before-after-00.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "paper") (Literal (String "a7"))
+       , KeyValArg (Identifier "numbering") (Literal (String "1 / 1"))
+       , KeyValArg
+           (Identifier "margin")
+           (Dict
+              [ ( Identifier "bottom" , Literal (Numeric 1.0 Cm) )
+              , ( Identifier "rest" , Literal (Numeric 0.5 Cm) )
+              ])
+       ])
+, ParBreak
+, Code
+    "test/typ/meta/query-before-after-00.typ"
+    ( line 8 , column 2 )
+    (Show
+       (Just
+          (FuncCall
+             (FieldAccess
+                (Ident (Identifier "where")) (Ident (Identifier "heading")))
+             [ KeyValArg (Identifier "level") (Literal (Int 1))
+             , KeyValArg (Identifier "outlined") (Literal (Boolean True))
+             ]))
+       (FuncExpr
+          [ NormalParam (Identifier "it") ]
+          (Block
+             (Content
+                [ SoftBreak
+                , Code
+                    "test/typ/meta/query-before-after-00.typ"
+                    ( line 9 , column 4 )
+                    (Ident (Identifier "it"))
+                , ParBreak
+                , Code
+                    "test/typ/meta/query-before-after-00.typ"
+                    ( line 11 , column 4 )
+                    (Set
+                       (Ident (Identifier "text"))
+                       [ KeyValArg (Identifier "size") (Literal (Numeric 12.0 Pt))
+                       , KeyValArg (Identifier "weight") (Literal (String "regular"))
+                       ])
+                , SoftBreak
+                , Code
+                    "test/typ/meta/query-before-after-00.typ"
+                    ( line 12 , column 4 )
+                    (FuncCall
+                       (Ident (Identifier "outline"))
+                       [ KeyValArg
+                           (Identifier "title") (Literal (String "Chapter outline"))
+                       , KeyValArg (Identifier "indent") (Literal (Boolean True))
+                       , KeyValArg
+                           (Identifier "target")
+                           (FuncCall
+                              (FieldAccess
+                                 (Ident (Identifier "before"))
+                                 (FuncCall
+                                    (FieldAccess
+                                       (Ident (Identifier "after"))
+                                       (FuncCall
+                                          (FieldAccess
+                                             (Ident (Identifier "or"))
+                                             (FuncCall
+                                                (FieldAccess
+                                                   (Ident (Identifier "where"))
+                                                   (Ident (Identifier "heading")))
+                                                [ KeyValArg (Identifier "level") (Literal (Int 1))
+                                                ]))
+                                          [ NormalArg
+                                              (FuncCall
+                                                 (FieldAccess
+                                                    (Ident (Identifier "where"))
+                                                    (Ident (Identifier "heading")))
+                                                 [ KeyValArg (Identifier "level") (Literal (Int 2))
+                                                 ])
+                                          ]))
+                                    [ NormalArg
+                                        (FuncCall
+                                           (FieldAccess
+                                              (Ident (Identifier "location"))
+                                              (Ident (Identifier "it")))
+                                           [])
+                                    , KeyValArg (Identifier "inclusive") (Literal (Boolean True))
+                                    ]))
+                              [ NormalArg
+                                  (FuncCall
+                                     (FieldAccess
+                                        (Ident (Identifier "after"))
+                                        (FuncCall
+                                           (FieldAccess
+                                              (Ident (Identifier "where"))
+                                              (Ident (Identifier "heading")))
+                                           [ KeyValArg (Identifier "level") (Literal (Int 1))
+                                           , KeyValArg
+                                               (Identifier "outlined") (Literal (Boolean True))
+                                           ]))
+                                     [ NormalArg
+                                         (FuncCall
+                                            (FieldAccess
+                                               (Ident (Identifier "location"))
+                                               (Ident (Identifier "it")))
+                                            [])
+                                     , KeyValArg (Identifier "inclusive") (Literal (Boolean False))
+                                     ])
+                              , KeyValArg (Identifier "inclusive") (Literal (Boolean False))
+                              ])
+                       ])
+                , ParBreak
+                ]))))
+, ParBreak
+, Code
+    "test/typ/meta/query-before-after-00.typ"
+    ( line 28 , column 2 )
+    (Set
+       (Ident (Identifier "heading"))
+       [ KeyValArg (Identifier "outlined") (Literal (Boolean True))
+       , KeyValArg (Identifier "numbering") (Literal (String "1."))
+       ])
+, ParBreak
+, Heading 1 [ Text "Section" , Space , Text "1" ]
+, Heading 2 [ Text "Subsection" , Space , Text "1" ]
+, Heading 2 [ Text "Subsection" , Space , Text "2" ]
+, Heading 3 [ Text "Subsubsection" , Space , Text "1" ]
+, Heading 3 [ Text "Subsubsection" , Space , Text "2" ]
+, Heading 2 [ Text "Subsection" , Space , Text "3" ]
+, Heading 1 [ Text "Section" , Space , Text "2" ]
+, Heading 2 [ Text "Subsection" , Space , Text "1" ]
+, Heading 2 [ Text "Subsection" , Space , Text "2" ]
+, Heading 1 [ Text "Section" , Space , Text "3" ]
+, Heading 2 [ Text "Subsection" , Space , Text "1" ]
+, Heading 2 [ Text "Subsection" , Space , Text "2" ]
+, Heading 3 [ Text "Subsubsection" , Space , Text "1" ]
+, Heading 3 [ Text "Subsubsection" , Space , Text "2" ]
+, Heading 3 [ Text "Subsubsection" , Space , Text "3" ]
+, Heading 2 [ Text "Subsection" , Space , Text "3" ]
+]
+"test/typ/meta/query-before-after-00.typ" (line 12, column 4):
+Method "location" is not yet implemented or FieldAccess requires a dictionary

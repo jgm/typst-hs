@@ -1,0 +1,330 @@
+--- parse tree ---
+[ Code
+    "test/typ/visualize/shape-rect-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/visualize/shape-rect-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/visualize/shape-rect-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/visualize/shape-rect-01.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 150.0 Pt)) ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/visualize/shape-rect-01.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "rect"))
+       [ KeyValArg (Identifier "fill") (Ident (Identifier "green"))
+       , BlockArg [ Text "Textbox" ]
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/visualize/shape-rect-01.typ"
+    ( line 8 , column 2 )
+    (FuncCall
+       (Ident (Identifier "block"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "rect"))
+              [ KeyValArg (Identifier "height") (Literal (Numeric 15.0 Pt))
+              , KeyValArg
+                  (Identifier "fill")
+                  (FuncCall
+                     (Ident (Identifier "rgb"))
+                     [ NormalArg (Literal (String "46b3c2")) ])
+              , KeyValArg
+                  (Identifier "stroke")
+                  (Plus
+                     (Literal (Numeric 2.0 Pt))
+                     (FuncCall
+                        (Ident (Identifier "rgb"))
+                        [ NormalArg (Literal (String "234994")) ]))
+              ])
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/visualize/shape-rect-01.typ"
+    ( line 15 , column 2 )
+    (FuncCall
+       (Ident (Identifier "rect"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 2.0 Cm))
+       , KeyValArg
+           (Identifier "fill")
+           (FuncCall
+              (Ident (Identifier "rgb"))
+              [ NormalArg (Literal (String "9650d6")) ])
+       , BlockArg
+           [ Text "Fixed" , Space , Text "and" , Space , Text "padded" ]
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/visualize/shape-rect-01.typ"
+    ( line 18 , column 2 )
+    (FuncCall
+       (Ident (Identifier "rect"))
+       [ KeyValArg (Identifier "height") (Literal (Numeric 1.0 Cm))
+       , KeyValArg (Identifier "width") (Literal (Numeric 100.0 Percent))
+       , KeyValArg
+           (Identifier "fill")
+           (FuncCall
+              (Ident (Identifier "rgb"))
+              [ NormalArg (Literal (String "734ced")) ])
+       , BlockArg [ Text "Topleft" ]
+       ])
+, ParBreak
+, Comment
+, Text "{"
+, Code
+    "test/typ/visualize/shape-rect-01.typ"
+    ( line 21 , column 3 )
+    (FuncCall
+       (Ident (Identifier "box"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "rect"))
+              [ KeyValArg (Identifier "width") (Literal (Numeric 0.5 In))
+              , KeyValArg (Identifier "height") (Literal (Numeric 7.0 Pt))
+              , KeyValArg
+                  (Identifier "fill")
+                  (FuncCall
+                     (Ident (Identifier "rgb"))
+                     [ NormalArg (Literal (String "d6cd67")) ])
+              ])
+       ])
+, SoftBreak
+, Code
+    "test/typ/visualize/shape-rect-01.typ"
+    ( line 22 , column 3 )
+    (FuncCall
+       (Ident (Identifier "box"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "rect"))
+              [ KeyValArg (Identifier "width") (Literal (Numeric 0.5 In))
+              , KeyValArg (Identifier "height") (Literal (Numeric 7.0 Pt))
+              , KeyValArg
+                  (Identifier "fill")
+                  (FuncCall
+                     (Ident (Identifier "rgb"))
+                     [ NormalArg (Literal (String "edd466")) ])
+              ])
+       ])
+, SoftBreak
+, Code
+    "test/typ/visualize/shape-rect-01.typ"
+    ( line 23 , column 3 )
+    (FuncCall
+       (Ident (Identifier "box"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "rect"))
+              [ KeyValArg (Identifier "width") (Literal (Numeric 0.5 In))
+              , KeyValArg (Identifier "height") (Literal (Numeric 7.0 Pt))
+              , KeyValArg
+                  (Identifier "fill")
+                  (FuncCall
+                     (Ident (Identifier "rgb"))
+                     [ NormalArg (Literal (String "e3be62")) ])
+              ])
+       ])
+, Text "}"
+, ParBreak
+, Comment
+, Code
+    "test/typ/visualize/shape-rect-01.typ"
+    ( line 26 , column 2 )
+    (FuncCall
+       (Ident (Identifier "stack"))
+       [ KeyValArg (Identifier "dir") (Ident (Identifier "ltr"))
+       , KeyValArg (Identifier "spacing") (Literal (Numeric 1.0 Fr))
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "rect"))
+              [ KeyValArg (Identifier "width") (Literal (Numeric 2.0 Cm))
+              , KeyValArg (Identifier "radius") (Literal (Numeric 60.0 Percent))
+              ])
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "rect"))
+              [ KeyValArg (Identifier "width") (Literal (Numeric 1.0 Cm))
+              , KeyValArg
+                  (Identifier "radius")
+                  (Dict
+                     [ ( Identifier "left" , Literal (Numeric 10.0 Pt) )
+                     , ( Identifier "right" , Literal (Numeric 5.0 Pt) )
+                     ])
+              ])
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "rect"))
+              [ KeyValArg (Identifier "width") (Literal (Numeric 1.25 Cm))
+              , KeyValArg
+                  (Identifier "radius")
+                  (Dict
+                     [ ( Identifier "top-left" , Literal (Numeric 2.0 Pt) )
+                     , ( Identifier "top-right" , Literal (Numeric 5.0 Pt) )
+                     , ( Identifier "bottom-right" , Literal (Numeric 8.0 Pt) )
+                     , ( Identifier "bottom-left" , Literal (Numeric 11.0 Pt) )
+                     ])
+              ])
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/visualize/shape-rect-01.typ"
+    ( line 40 , column 2 )
+    (Set
+       (Ident (Identifier "rect"))
+       [ KeyValArg
+           (Identifier "stroke")
+           (Dict [ ( Identifier "right" , Ident (Identifier "red") ) ])
+       ])
+, SoftBreak
+, Code
+    "test/typ/visualize/shape-rect-01.typ"
+    ( line 41 , column 2 )
+    (FuncCall
+       (Ident (Identifier "rect"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 100.0 Percent))
+       , KeyValArg (Identifier "fill") (Ident (Identifier "lime"))
+       , KeyValArg
+           (Identifier "stroke")
+           (Dict
+              [ ( Identifier "x" , Literal (Numeric 5.0 Pt) )
+              , ( Identifier "y" , Literal (Numeric 1.0 Pt) )
+              ])
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  parbreak(), 
+  rect(body: [Textbox], 
+       fill: rgb(18%,80%,25%,100%)), 
+  parbreak(), 
+  block(body: rect(body: none, 
+                   fill: rgb(27%,70%,76%,100%), 
+                   height: 15.0pt, 
+                   stroke: (thickness: 2.0pt,
+                            color: rgb(13%,28%,58%,100%)))), 
+  parbreak(), 
+  rect(body: [Fixed and padded], 
+       fill: rgb(58%,31%,83%,100%), 
+       width: 2.0cm), 
+  parbreak(), 
+  rect(body: [Topleft], 
+       fill: rgb(45%,29%,92%,100%), 
+       height: 1.0cm, 
+       width: 100%), 
+  parbreak(), 
+  [{], 
+  box(body: rect(body: none, 
+                 fill: rgb(83%,80%,40%,100%), 
+                 height: 7.0pt, 
+                 width: 0.5in)), 
+  [
+], 
+  box(body: rect(body: none, 
+                 fill: rgb(92%,83%,40%,100%), 
+                 height: 7.0pt, 
+                 width: 0.5in)), 
+  [
+], 
+  box(body: rect(body: none, 
+                 fill: rgb(89%,74%,38%,100%), 
+                 height: 7.0pt, 
+                 width: 0.5in)), 
+  [}], 
+  parbreak(), 
+  stack(children: (rect(body: none, 
+                        radius: 60%, 
+                        width: 2.0cm), 
+                   rect(body: none, 
+                        radius: (left: 10.0pt,
+                                 right: 5.0pt), 
+                        width: 1.0cm), 
+                   rect(body: none, 
+                        radius: (top-left: 2.0pt,
+                                 top-right: 5.0pt,
+                                 bottom-right: 8.0pt,
+                                 bottom-left: 11.0pt), 
+                        width: 1.25cm)), 
+        dir: ltr, 
+        spacing: 1.0fr), 
+  parbreak(), 
+  [
+], 
+  rect(body: none, 
+       fill: rgb(0%,100%,43%,100%), 
+       stroke: (x: 5.0pt, y: 1.0pt), 
+       width: 100%), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Div ( "" , [ "rect" ] , [] ) [ Para [ Str "Textbox" ] ]
+  , Div ( "" , [] , [] ) [ Div ( "" , [ "rect" ] , [] ) [] ]
+  , Div
+      ( "" , [ "rect" ] , [] )
+      [ Para [ Str "Fixed" , Space , Str "and" , Space , Str "padded" ] ]
+  , Div ( "" , [ "rect" ] , [] ) [ Para [ Str "Topleft" ] ]
+  , Para
+      [ Str "{"
+      , Span ( "" , [ "box" ] , [] ) []
+      , SoftBreak
+      , Span ( "" , [ "box" ] , [] ) []
+      , SoftBreak
+      , Span ( "" , [ "box" ] , [] ) []
+      , Str "}"
+      ]
+  , Div
+      ( "" , [] , [ ( "stack" , "ltr" ) ] )
+      [ Div ( "" , [] , [] ) [ Div ( "" , [ "rect" ] , [] ) [] ]
+      , Div ( "" , [] , [] ) [ Div ( "" , [ "rect" ] , [] ) [] ]
+      , Div ( "" , [] , [] ) [ Div ( "" , [ "rect" ] , [] ) [] ]
+      ]
+  , Para []
+  , Div ( "" , [ "rect" ] , [] ) []
+  ]

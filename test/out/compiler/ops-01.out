@@ -1,0 +1,273 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/ops-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/ops-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/ops-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compiler/ops-01.typ"
+    ( line 5 , column 2 )
+    (For
+       (BasicBind (Just (Identifier "v")))
+       (Array
+          [ Literal (Int 1)
+          , Literal (Float 3.14)
+          , Literal (Numeric 12.0 Pt)
+          , Literal (Numeric 45.0 Deg)
+          , Literal (Numeric 90.0 Percent)
+          , Plus (Literal (Numeric 13.0 Percent)) (Literal (Numeric 10.0 Pt))
+          , Literal (Numeric 6.3 Fr)
+          ])
+       (Block
+          (CodeBlock
+             [ FuncCall
+                 (Ident (Identifier "test"))
+                 [ NormalArg (Ident (Identifier "v"))
+                 , NormalArg (Ident (Identifier "v"))
+                 ]
+             , FuncCall
+                 (Ident (Identifier "test"))
+                 [ NormalArg (Negated (Ident (Identifier "v")))
+                 , NormalArg
+                     (Times (Negated (Literal (Int 1))) (Ident (Identifier "v")))
+                 ]
+             , FuncCall
+                 (Ident (Identifier "test"))
+                 [ NormalArg (Negated (Negated (Ident (Identifier "v"))))
+                 , NormalArg (Ident (Identifier "v"))
+                 ]
+             , FuncCall
+                 (Ident (Identifier "test"))
+                 [ NormalArg (Negated (Negated (Negated (Ident (Identifier "v")))))
+                 , NormalArg (Negated (Ident (Identifier "v")))
+                 ]
+             ])))
+, ParBreak
+, Code
+    "test/typ/compiler/ops-01.typ"
+    ( line 17 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg (Negated (Plus (Literal (Int 4)) (Literal (Int 2))))
+       , NormalArg (Minus (Literal (Int 6)) (Literal (Int 12)))
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/ops-01.typ"
+    ( line 20 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg (Plus (Literal (Int 2)) (Literal (Int 4)))
+       , NormalArg (Literal (Int 6))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/ops-01.typ"
+    ( line 21 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg (Plus (Literal (String "a")) (Literal (String "b")))
+       , NormalArg (Literal (String "ab"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/ops-01.typ"
+    ( line 22 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Plus
+              (Literal (String "a"))
+              (If
+                 [ ( Literal (Boolean False)
+                   , Block (CodeBlock [ Literal (String "b") ])
+                   )
+                 ]))
+       , NormalArg (Literal (String "a"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/ops-01.typ"
+    ( line 23 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Plus
+              (Literal (String "a"))
+              (If
+                 [ ( Literal (Boolean True)
+                   , Block (CodeBlock [ Literal (String "b") ])
+                   )
+                 ]))
+       , NormalArg (Literal (String "ab"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/ops-01.typ"
+    ( line 24 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Plus
+              (Times (Literal (Int 13)) (Literal (String "a")))
+              (Literal (String "bbbbbb")))
+       , NormalArg (Literal (String "aaaaaaaaaaaaabbbbbb"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/ops-01.typ"
+    ( line 25 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Plus
+              (Array [ Literal (Int 1) , Literal (Int 2) ])
+              (Array [ Literal (Int 3) , Literal (Int 4) ]))
+       , NormalArg
+           (Array
+              [ Literal (Int 1)
+              , Literal (Int 2)
+              , Literal (Int 3)
+              , Literal (Int 4)
+              ])
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/ops-01.typ"
+    ( line 26 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Plus
+              (Dict [ ( Identifier "a" , Literal (Int 1) ) ])
+              (Dict
+                 [ ( Identifier "b" , Literal (Int 2) )
+                 , ( Identifier "c" , Literal (Int 3) )
+                 ]))
+       , NormalArg
+           (Dict
+              [ ( Identifier "a" , Literal (Int 1) )
+              , ( Identifier "b" , Literal (Int 2) )
+              , ( Identifier "c" , Literal (Int 3) )
+              ])
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  parbreak(), 
+  [✅], 
+  parbreak(), 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str
+          "\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989"
+      ]
+  , Para [ Str "\9989" ]
+  , Para
+      [ Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      ]
+  ]

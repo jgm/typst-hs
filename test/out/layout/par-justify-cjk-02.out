@@ -1,0 +1,135 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/par-justify-cjk-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/par-justify-cjk-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/par-justify-cjk-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/layout/par-justify-cjk-02.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal Auto) ])
+, SoftBreak
+, Code
+    "test/typ/layout/par-justify-cjk-02.typ"
+    ( line 4 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "lang") (Literal (String "zh"))
+       , KeyValArg
+           (Identifier "font") (Literal (String "Noto Serif CJK SC"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/layout/par-justify-cjk-02.typ"
+    ( line 5 , column 2 )
+    (Set
+       (Ident (Identifier "par"))
+       [ KeyValArg (Identifier "justify") (Literal (Boolean True)) ])
+, SoftBreak
+, Code
+    "test/typ/layout/par-justify-cjk-02.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "rect"))
+       [ KeyValArg (Identifier "inset") (Literal (Numeric 0.0 Pt))
+       , KeyValArg (Identifier "width") (Literal (Numeric 80.0 Pt))
+       , KeyValArg
+           (Identifier "fill")
+           (FuncCall
+              (Ident (Identifier "rgb")) [ NormalArg (Literal (String "eee")) ])
+       , BlockArg
+           [ SoftBreak
+           , Text "\8220\24341\21495\27979\35797\8221\65292\36824\65292"
+           , ParBreak
+           , Text
+               "\12298\20070\21517\12299\12298\27979\35797\12299\19979\19968\34892"
+           , ParBreak
+           , Text "\12298\20070\21517\12299\12298\27979\35797\12299\12290"
+           , ParBreak
+           ]
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  text(body: [
+], 
+       font: "Noto Serif CJK SC", 
+       lang: "zh"), 
+  text(body: [
+], 
+       font: "Noto Serif CJK SC", 
+       lang: "zh"), 
+  rect(body: { text(body: [
+“引号测试”，还，], 
+                    font: "Noto Serif CJK SC", 
+                    lang: "zh"), 
+               parbreak(), 
+               text(body: [《书名》《测试》下一行], 
+                    font: "Noto Serif CJK SC", 
+                    lang: "zh"), 
+               parbreak(), 
+               text(body: [《书名》《测试》。], 
+                    font: "Noto Serif CJK SC", 
+                    lang: "zh"), 
+               parbreak() }, 
+       fill: rgb(5%,5%,5%,100%), 
+       inset: 0.0pt, 
+       width: 80.0pt), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Div
+      ( "" , [ "rect" ] , [] )
+      [ Para
+          [ Str "\8220\24341\21495\27979\35797\8221\65292\36824\65292" ]
+      , Para
+          [ Str
+              "\12298\20070\21517\12299\12298\27979\35797\12299\19979\19968\34892"
+          ]
+      , Para
+          [ Str "\12298\20070\21517\12299\12298\27979\35797\12299\12290" ]
+      ]
+  ]

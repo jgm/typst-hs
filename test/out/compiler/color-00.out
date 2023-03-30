@@ -1,0 +1,273 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/color-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/color-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/color-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compiler/color-00.typ"
+    ( line 3 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "c")))
+       (FuncCall
+          (Ident (Identifier "cmyk"))
+          [ NormalArg (Literal (Numeric 50.0 Percent))
+          , NormalArg (Literal (Numeric 64.0 Percent))
+          , NormalArg (Literal (Numeric 16.0 Percent))
+          , NormalArg (Literal (Numeric 17.0 Percent))
+          ]))
+, SoftBreak
+, Code
+    "test/typ/compiler/color-00.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "stack"))
+       [ KeyValArg (Identifier "dir") (Ident (Identifier "ltr"))
+       , KeyValArg (Identifier "spacing") (Literal (Numeric 1.0 Fr))
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "rect"))
+              [ KeyValArg (Identifier "width") (Literal (Numeric 1.0 Cm))
+              , KeyValArg
+                  (Identifier "fill")
+                  (FuncCall
+                     (Ident (Identifier "cmyk"))
+                     [ NormalArg (Literal (Numeric 69.0 Percent))
+                     , NormalArg (Literal (Numeric 11.0 Percent))
+                     , NormalArg (Literal (Numeric 69.0 Percent))
+                     , NormalArg (Literal (Numeric 41.0 Percent))
+                     ])
+              ])
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "rect"))
+              [ KeyValArg (Identifier "width") (Literal (Numeric 1.0 Cm))
+              , KeyValArg (Identifier "fill") (Ident (Identifier "c"))
+              ])
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "rect"))
+              [ KeyValArg (Identifier "width") (Literal (Numeric 1.0 Cm))
+              , KeyValArg
+                  (Identifier "fill")
+                  (FuncCall
+                     (FieldAccess
+                        (Ident (Identifier "negate")) (Ident (Identifier "c")))
+                     [])
+              ])
+       ])
+, ParBreak
+, Code
+    "test/typ/compiler/color-00.typ"
+    ( line 12 , column 2 )
+    (For
+       (BasicBind (Just (Identifier "x")))
+       (FuncCall
+          (Ident (Identifier "range"))
+          [ NormalArg (Literal (Int 0)) , NormalArg (Literal (Int 11)) ])
+       (Block
+          (CodeBlock
+             [ FuncCall
+                 (Ident (Identifier "box"))
+                 [ NormalArg
+                     (FuncCall
+                        (Ident (Identifier "square"))
+                        [ KeyValArg (Identifier "size") (Literal (Numeric 9.0 Pt))
+                        , KeyValArg
+                            (Identifier "fill")
+                            (FuncCall
+                               (FieldAccess
+                                  (Ident (Identifier "lighten")) (Ident (Identifier "c")))
+                               [ NormalArg
+                                   (Times (Ident (Identifier "x")) (Literal (Numeric 10.0 Percent)))
+                               ])
+                        ])
+                 ]
+             ])))
+, SoftBreak
+, Code
+    "test/typ/compiler/color-00.typ"
+    ( line 15 , column 2 )
+    (For
+       (BasicBind (Just (Identifier "x")))
+       (FuncCall
+          (Ident (Identifier "range"))
+          [ NormalArg (Literal (Int 0)) , NormalArg (Literal (Int 11)) ])
+       (Block
+          (CodeBlock
+             [ FuncCall
+                 (Ident (Identifier "box"))
+                 [ NormalArg
+                     (FuncCall
+                        (Ident (Identifier "square"))
+                        [ KeyValArg (Identifier "size") (Literal (Numeric 9.0 Pt))
+                        , KeyValArg
+                            (Identifier "fill")
+                            (FuncCall
+                               (FieldAccess
+                                  (Ident (Identifier "darken")) (Ident (Identifier "c")))
+                               [ NormalArg
+                                   (Times (Ident (Identifier "x")) (Literal (Numeric 10.0 Percent)))
+                               ])
+                        ])
+                 ]
+             ])))
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  stack(children: (rect(body: none, 
+                        fill: cmyk(69%,11%,69%,41%), 
+                        width: 1.0cm), 
+                   rect(body: none, 
+                        fill: cmyk(50%,64%,16%,17%), 
+                        width: 1.0cm), 
+                   rect(body: none, 
+                        fill: cmyk(50%,36%,84%,17%), 
+                        width: 1.0cm)), 
+        dir: ltr, 
+        spacing: 1.0fr), 
+  parbreak(), 
+  box(body: square(body: none, 
+                   fill: cmyk(50%,64%,16%,17%), 
+                   size: 9.0pt)), 
+  box(body: square(body: none, 
+                   fill: cmyk(55%,67%,24%,25%), 
+                   size: 9.0pt)), 
+  box(body: square(body: none, 
+                   fill: cmyk(60%,71%,32%,33%), 
+                   size: 9.0pt)), 
+  box(body: square(body: none, 
+                   fill: cmyk(65%,74%,41%,41%), 
+                   size: 9.0pt)), 
+  box(body: square(body: none, 
+                   fill: cmyk(70%,78%,49%,50%), 
+                   size: 9.0pt)), 
+  box(body: square(body: none, 
+                   fill: cmyk(75%,82%,58%,58%), 
+                   size: 9.0pt)), 
+  box(body: square(body: none, 
+                   fill: cmyk(80%,85%,66%,66%), 
+                   size: 9.0pt)), 
+  box(body: square(body: none, 
+                   fill: cmyk(85%,89%,74%,75%), 
+                   size: 9.0pt)), 
+  box(body: square(body: none, 
+                   fill: cmyk(90%,92%,83%,83%), 
+                   size: 9.0pt)), 
+  box(body: square(body: none, 
+                   fill: cmyk(95%,96%,91%,91%), 
+                   size: 9.0pt)), 
+  box(body: square(body: none, 
+                   fill: cmyk(100%,100%,100%,100%), 
+                   size: 9.0pt)), 
+  [
+], 
+  box(body: square(body: none, 
+                   fill: cmyk(50%,64%,16%,17%), 
+                   size: 9.0pt)), 
+  box(body: square(body: none, 
+                   fill: cmyk(45%,57%,14%,15%), 
+                   size: 9.0pt)), 
+  box(body: square(body: none, 
+                   fill: cmyk(40%,51%,12%,13%), 
+                   size: 9.0pt)), 
+  box(body: square(body: none, 
+                   fill: cmyk(35%,44%,11%,11%), 
+                   size: 9.0pt)), 
+  box(body: square(body: none, 
+                   fill: cmyk(30%,38%,9%,10%), 
+                   size: 9.0pt)), 
+  box(body: square(body: none, 
+                   fill: cmyk(25%,32%,8%,8%), 
+                   size: 9.0pt)), 
+  box(body: square(body: none, 
+                   fill: cmyk(20%,25%,6%,6%), 
+                   size: 9.0pt)), 
+  box(body: square(body: none, 
+                   fill: cmyk(15%,19%,4%,5%), 
+                   size: 9.0pt)), 
+  box(body: square(body: none, 
+                   fill: cmyk(10%,12%,3%,3%), 
+                   size: 9.0pt)), 
+  box(body: square(body: none, 
+                   fill: cmyk(5%,6%,1%,1%), 
+                   size: 9.0pt)), 
+  box(body: square(body: none, 
+                   fill: cmyk(0%,0%,0%,0%), 
+                   size: 9.0pt)), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Div
+      ( "" , [] , [ ( "stack" , "ltr" ) ] )
+      [ Div ( "" , [] , [] ) [ Div ( "" , [ "rect" ] , [] ) [] ]
+      , Div ( "" , [] , [] ) [ Div ( "" , [ "rect" ] , [] ) [] ]
+      , Div ( "" , [] , [] ) [ Div ( "" , [ "rect" ] , [] ) [] ]
+      ]
+  , Para
+      [ Span ( "" , [ "box" ] , [] ) []
+      , Span ( "" , [ "box" ] , [] ) []
+      , Span ( "" , [ "box" ] , [] ) []
+      , Span ( "" , [ "box" ] , [] ) []
+      , Span ( "" , [ "box" ] , [] ) []
+      , Span ( "" , [ "box" ] , [] ) []
+      , Span ( "" , [ "box" ] , [] ) []
+      , Span ( "" , [ "box" ] , [] ) []
+      , Span ( "" , [ "box" ] , [] ) []
+      , Span ( "" , [ "box" ] , [] ) []
+      , Span ( "" , [ "box" ] , [] ) []
+      , SoftBreak
+      , Span ( "" , [ "box" ] , [] ) []
+      , Span ( "" , [ "box" ] , [] ) []
+      , Span ( "" , [ "box" ] , [] ) []
+      , Span ( "" , [ "box" ] , [] ) []
+      , Span ( "" , [ "box" ] , [] ) []
+      , Span ( "" , [ "box" ] , [] ) []
+      , Span ( "" , [ "box" ] , [] ) []
+      , Span ( "" , [ "box" ] , [] ) []
+      , Span ( "" , [ "box" ] , [] ) []
+      , Span ( "" , [ "box" ] , [] ) []
+      , Span ( "" , [ "box" ] , [] ) []
+      ]
+  ]

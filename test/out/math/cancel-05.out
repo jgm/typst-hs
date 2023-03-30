@@ -1,0 +1,142 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/cancel-05.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/cancel-05.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/cancel-05.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Equation
+    False
+    [ Text "x"
+    , Text "+"
+    , Code
+        "test/typ/math/cancel-05.typ"
+        ( line 3 , column 6 )
+        (FuncCall
+           (Ident (Identifier "cancel"))
+           [ NormalArg (Block (Content [ Text "y" ]))
+           , KeyValArg (Identifier "rotation") (Literal (Numeric 90.0 Deg))
+           ])
+    , Text "-"
+    , Code
+        "test/typ/math/cancel-05.typ"
+        ( line 3 , column 36 )
+        (FuncCall
+           (Ident (Identifier "cancel"))
+           [ NormalArg (Block (Content [ Text "z" ]))
+           , KeyValArg (Identifier "rotation") (Literal (Numeric 135.0 Deg))
+           ])
+    ]
+, SoftBreak
+, Equation
+    True
+    [ Text "e"
+    , Text "+"
+    , Code
+        "test/typ/math/cancel-05.typ"
+        ( line 4 , column 7 )
+        (FuncCall
+           (Ident (Identifier "cancel"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ MFrac
+                         (MGroup (Just "(") (Just ")") [ Text "j" , Text "+" , Text "e" ])
+                         (MGroup Nothing Nothing [ Text "f" , Text "+" , Text "e" ])
+                     ]))
+           ])
+    , Text "-"
+    , Code
+        "test/typ/math/cancel-05.typ"
+        ( line 4 , column 33 )
+        (FuncCall
+           (Ident (Identifier "cancel"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ MFrac
+                         (MGroup (Just "(") (Just ")") [ Text "j" , Text "+" , Text "e" ])
+                         (MGroup Nothing Nothing [ Text "f" , Text "+" , Text "e" ])
+                     ]))
+           , KeyValArg (Identifier "rotation") (Literal (Numeric 30.0 Deg))
+           ])
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  math.equation(block: false, 
+                body: { [x], 
+                        [+], 
+                        math.cancel(body: [y], 
+                                    rotation: 90.0deg), 
+                        [-], 
+                        math.cancel(body: [z], 
+                                    rotation: 135.0deg) }, 
+                numbering: none), 
+  [
+], 
+  math.equation(block: true, 
+                body: { [e], 
+                        [+], 
+                        math.cancel(body: math.frac(denom: { [f], 
+                                                             [+], 
+                                                             [e] }, 
+                                                    num: { [j], 
+                                                           [+], 
+                                                           [e] })), 
+                        [-], 
+                        math.cancel(body: math.frac(denom: { [f], 
+                                                             [+], 
+                                                             [e] }, 
+                                                    num: { [j], 
+                                                           [+], 
+                                                           [e] }), 
+                                    rotation: 30.0deg) }, 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math InlineMath "x + y - z"
+      , SoftBreak
+      , Math
+          DisplayMath "e + \\frac{j + e}{f + e} - \\frac{j + e}{f + e}"
+      ]
+  ]

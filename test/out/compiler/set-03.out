@@ -1,0 +1,72 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/set-03.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/set-03.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/set-03.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compiler/set-03.typ"
+    ( line 3 , column 2 )
+    (Block
+       (CodeBlock
+          [ If
+              [ ( Literal (Boolean True)
+                , Block
+                    (CodeBlock
+                       [ Set
+                           (Ident (Identifier "text"))
+                           [ NormalArg (Ident (Identifier "blue")) ]
+                       , Block (Content [ Text "Blue" , Space ])
+                       ])
+                )
+              ]
+          , Block (Content [ Text "Not" , Space , Text "blue" ])
+          ]))
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  text(body: [Blue ], 
+       color: rgb(0%,45%,85%,100%)), 
+  [Not blue], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para [ Str "Blue" , Space , Str "Not" , Space , Str "blue" ] ]

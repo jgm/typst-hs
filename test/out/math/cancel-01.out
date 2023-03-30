@@ -1,0 +1,192 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/cancel-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/cancel-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/cancel-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/math/cancel-01.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal Auto) ])
+, SoftBreak
+, Equation
+    True
+    [ Text "a"
+    , Text "+"
+    , Text "b"
+    , Text "+"
+    , Code
+        "test/typ/math/cancel-01.typ"
+        ( line 4 , column 11 )
+        (FuncCall
+           (Ident (Identifier "cancel"))
+           [ NormalArg (Block (Content [ Text "b" , Text "+" , Text "c" ])) ])
+    , Text "-"
+    , Code
+        "test/typ/math/cancel-01.typ"
+        ( line 4 , column 27 )
+        (FuncCall
+           (Ident (Identifier "cancel"))
+           [ NormalArg (Block (Content [ Text "b" ])) ])
+    , Text "-"
+    , Code
+        "test/typ/math/cancel-01.typ"
+        ( line 4 , column 39 )
+        (FuncCall
+           (Ident (Identifier "cancel"))
+           [ NormalArg (Block (Content [ Text "c" ])) ])
+    , Text "-"
+    , Text "5"
+    , Text "+"
+    , Code
+        "test/typ/math/cancel-01.typ"
+        ( line 4 , column 55 )
+        (FuncCall
+           (Ident (Identifier "cancel"))
+           [ NormalArg (Block (Content [ Text "6" ])) ])
+    , Text "-"
+    , Code
+        "test/typ/math/cancel-01.typ"
+        ( line 4 , column 67 )
+        (FuncCall
+           (Ident (Identifier "cancel"))
+           [ NormalArg (Block (Content [ Text "6" ])) ])
+    ]
+, SoftBreak
+, Equation
+    True
+    [ Text "e"
+    , Text "+"
+    , MFrac
+        (MGroup
+           (Just "(")
+           (Just ")")
+           [ Text "a"
+           , Code
+               "test/typ/math/cancel-01.typ"
+               ( line 5 , column 10 )
+               (FieldAccess (Ident (Identifier "c")) (Ident (Identifier "dot")))
+           , Code
+               "test/typ/math/cancel-01.typ"
+               ( line 5 , column 16 )
+               (FuncCall
+                  (Ident (Identifier "cancel"))
+                  [ NormalArg
+                      (Block
+                         (Content
+                            [ MGroup
+                                (Just "(")
+                                (Just ")")
+                                [ Text "b" , Text "+" , Text "c" , Text "+" , Text "d" ]
+                            ]))
+                  ])
+           ])
+        (MGroup
+           Nothing
+           Nothing
+           [ Code
+               "test/typ/math/cancel-01.typ"
+               ( line 5 , column 38 )
+               (FuncCall
+                  (Ident (Identifier "cancel"))
+                  [ NormalArg
+                      (Block
+                         (Content [ Text "b" , Text "+" , Text "c" , Text "+" , Text "d" ]))
+                  ])
+           ])
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  math.equation(block: true, 
+                body: { [a], 
+                        [+], 
+                        [b], 
+                        [+], 
+                        math.cancel(body: { [b], 
+                                            [+], 
+                                            [c] }), 
+                        [-], 
+                        math.cancel(body: [b]), 
+                        [-], 
+                        math.cancel(body: [c]), 
+                        [-], 
+                        [5], 
+                        [+], 
+                        math.cancel(body: [6]), 
+                        [-], 
+                        math.cancel(body: [6]) }, 
+                numbering: none), 
+  [
+], 
+  math.equation(block: true, 
+                body: { [e], 
+                        [+], 
+                        math.frac(denom: math.cancel(body: { [b], 
+                                                             [+], 
+                                                             [c], 
+                                                             [+], 
+                                                             [d] }), 
+                                  num: { [a], 
+                                         [·], 
+                                         math.cancel(body: math.lr(body: { [(], 
+                                                                           [b], 
+                                                                           [+], 
+                                                                           [c], 
+                                                                           [+], 
+                                                                           [d], 
+                                                                           [)] })) }) }, 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math DisplayMath "a + b + {b + c} - b - c - 5 + 6 - 6"
+      , SoftBreak
+      , Math
+          DisplayMath
+          "e + \\frac{a \\cdot \\left( {b + c + d} \\right)}{b + c + d}"
+      ]
+  ]

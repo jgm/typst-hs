@@ -1,0 +1,3 @@
+// Default rectangle.
+#rect()
+

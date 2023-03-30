@@ -1,0 +1,152 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/cancel-04.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/cancel-04.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/cancel-04.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/math/cancel-04.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 200.0 Pt))
+       , KeyValArg (Identifier "height") (Literal Auto)
+       ])
+, SoftBreak
+, Equation
+    False
+    [ Text "a"
+    , Text "+"
+    , Code
+        "test/typ/math/cancel-04.typ"
+        ( line 4 , column 6 )
+        (FuncCall
+           (Ident (Identifier "cancel"))
+           [ NormalArg (Block (Content [ Text "x" ]))
+           , KeyValArg (Identifier "length") (Literal (Numeric 200.0 Percent))
+           ])
+    , Text "-"
+    , Code
+        "test/typ/math/cancel-04.typ"
+        ( line 4 , column 33 )
+        (FuncCall
+           (Ident (Identifier "cancel"))
+           [ NormalArg (Block (Content [ Text "x" ]))
+           , KeyValArg (Identifier "length") (Literal (Numeric 50.0 Percent))
+           , KeyValArg
+               (Identifier "stroke")
+               (Block
+                  (CodeBlock
+                     [ Plus (Ident (Identifier "red")) (Literal (Numeric 1.1 Pt)) ]))
+           ])
+    ]
+, SoftBreak
+, Equation
+    True
+    [ Text "b"
+    , Text "+"
+    , Code
+        "test/typ/math/cancel-04.typ"
+        ( line 5 , column 7 )
+        (FuncCall
+           (Ident (Identifier "cancel"))
+           [ NormalArg (Block (Content [ Text "x" ]))
+           , KeyValArg (Identifier "length") (Literal (Numeric 150.0 Percent))
+           ])
+    , Text "-"
+    , Code
+        "test/typ/math/cancel-04.typ"
+        ( line 5 , column 34 )
+        (FuncCall
+           (Ident (Identifier "cancel"))
+           [ NormalArg
+               (Block
+                  (Content [ Text "a" , Text "+" , Text "b" , Text "+" , Text "c" ]))
+           , KeyValArg (Identifier "length") (Literal (Numeric 50.0 Percent))
+           , KeyValArg
+               (Identifier "stroke")
+               (Block
+                  (CodeBlock
+                     [ Plus (Ident (Identifier "blue")) (Literal (Numeric 1.2 Pt)) ]))
+           ])
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  math.equation(block: false, 
+                body: { [a], 
+                        [+], 
+                        math.cancel(body: [x], 
+                                    length: 200%), 
+                        [-], 
+                        math.cancel(body: [x], 
+                                    length: 50%, 
+                                    stroke: (thickness: 1.1pt,
+                                             color: rgb(100%,25%,21%,100%))) }, 
+                numbering: none), 
+  [
+], 
+  math.equation(block: true, 
+                body: { [b], 
+                        [+], 
+                        math.cancel(body: [x], 
+                                    length: 150%), 
+                        [-], 
+                        math.cancel(body: { [a], 
+                                            [+], 
+                                            [b], 
+                                            [+], 
+                                            [c] }, 
+                                    length: 50%, 
+                                    stroke: (thickness: 1.2pt,
+                                             color: rgb(0%,45%,85%,100%))) }, 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math InlineMath "a + x - x"
+      , SoftBreak
+      , Math DisplayMath "b + x - {a + b + c}"
+      ]
+  ]

@@ -1,0 +1,133 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/string-12.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/string-12.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/string-12.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compiler/string-12.typ"
+    ( line 3 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "date")))
+       (FuncCall
+          (Ident (Identifier "regex"))
+          [ NormalArg (Literal (String "\\d{2}:\\d{2}")) ]))
+, SoftBreak
+, Code
+    "test/typ/compiler/string-12.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "find")) (Literal (String "Hello World")))
+              [ NormalArg (Literal (String "World")) ])
+       , NormalArg (Literal (String "World"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/string-12.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "position")) (Literal (String "Hello World")))
+              [ NormalArg (Literal (String "World")) ])
+       , NormalArg (Literal (Int 6))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/string-12.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "find")) (Literal (String "It's 12:13 now")))
+              [ NormalArg (Ident (Identifier "date")) ])
+       , NormalArg (Literal (String "12:13"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/string-12.typ"
+    ( line 7 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "position"))
+                 (Literal (String "It's 12:13 now")))
+              [ NormalArg (Ident (Identifier "date")) ])
+       , NormalArg (Literal (Int 5))
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      ]
+  ]

@@ -1,0 +1,282 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/show-bare-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/show-bare-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/show-bare-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/compiler/show-bare-00.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "height") (Literal (Numeric 130.0 Pt)) ])
+, SoftBreak
+, Code
+    "test/typ/compiler/show-bare-00.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ NormalArg (Literal (Numeric 0.7 Em)) ])
+, ParBreak
+, Code
+    "test/typ/compiler/show-bare-00.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "align"))
+       [ NormalArg (Ident (Identifier "center"))
+       , BlockArg
+           [ SoftBreak
+           , Code
+               "test/typ/compiler/show-bare-00.typ"
+               ( line 6 , column 4 )
+               (FuncCall
+                  (Ident (Identifier "text"))
+                  [ NormalArg (Literal (Numeric 1.3 Em))
+                  , BlockArg
+                      [ Strong
+                          [ Text "Essay" , Space , Text "on" , Space , Text "typography" ]
+                      ]
+                  ])
+           , Space
+           , HardBreak
+           , Text "T"
+           , Text "."
+           , Space
+           , Text "Ypst"
+           , ParBreak
+           ]
+       ])
+, ParBreak
+, Code
+    "test/typ/compiler/show-bare-00.typ"
+    ( line 10 , column 2 )
+    (Show
+       Nothing
+       (FuncCall
+          (FieldAccess
+             (Ident (Identifier "with")) (Ident (Identifier "columns")))
+          [ NormalArg (Literal (Int 2)) ]))
+, SoftBreak
+, Text "Great"
+, Space
+, Text "typography"
+, Space
+, Text "is"
+, Space
+, Text "at"
+, Space
+, Text "the"
+, Space
+, Text "essence"
+, Space
+, Text "of"
+, Space
+, Text "great"
+, Space
+, Text "storytelling"
+, Text "."
+, Space
+, Text "It"
+, Space
+, Text "is"
+, Space
+, Text "the"
+, Space
+, Text "medium"
+, Space
+, Text "that"
+, SoftBreak
+, Text "transports"
+, Space
+, Text "meaning"
+, Space
+, Text "from"
+, Space
+, Text "parchment"
+, Space
+, Text "to"
+, Space
+, Text "reader,"
+, Space
+, Text "the"
+, Space
+, Text "wave"
+, Space
+, Text "that"
+, Space
+, Text "sparks"
+, Space
+, Text "a"
+, Space
+, Text "flame"
+, SoftBreak
+, Text "in"
+, Space
+, Text "booklovers"
+, Space
+, Text "and"
+, Space
+, Text "the"
+, Space
+, Text "great"
+, Space
+, Text "fulfiller"
+, Space
+, Text "of"
+, Space
+, Text "human"
+, Space
+, Text "need"
+, Text "."
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  parbreak(), 
+  align(alignment: center, 
+        body: { text(body: [
+], 
+                     size: 0.7em), 
+                text(body: strong(body: text(body: [Essay on typography], 
+                                             size: 0.7em)), 
+                     size: 1.3em), 
+                text(body: [ ], size: 0.7em), 
+                linebreak(), 
+                text(body: [T. Ypst], 
+                     size: 0.7em), 
+                parbreak() }), 
+  parbreak(), 
+  columns(body: { text(body: [
+Great typography is at the essence of great storytelling. It is the medium that
+transports meaning from parchment to reader, the wave that sparks a flame
+in booklovers and the great fulfiller of human need.], 
+                       size: 0.7em), 
+                  parbreak() }, 
+          count: 2) }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Div
+      ( "" , [] , [ ( "align" , "center" ) ] )
+      [ Para
+          [ Strong
+              [ Str "Essay" , Space , Str "on" , Space , Str "typography" ]
+          , LineBreak
+          , Str "T."
+          , Space
+          , Str "Ypst"
+          ]
+      ]
+  , Div
+      ( "" , [ "columns-flow" ] , [ ( "count" , "2" ) ] )
+      [ Para
+          [ Str "Great"
+          , Space
+          , Str "typography"
+          , Space
+          , Str "is"
+          , Space
+          , Str "at"
+          , Space
+          , Str "the"
+          , Space
+          , Str "essence"
+          , Space
+          , Str "of"
+          , Space
+          , Str "great"
+          , Space
+          , Str "storytelling."
+          , Space
+          , Str "It"
+          , Space
+          , Str "is"
+          , Space
+          , Str "the"
+          , Space
+          , Str "medium"
+          , Space
+          , Str "that"
+          , SoftBreak
+          , Str "transports"
+          , Space
+          , Str "meaning"
+          , Space
+          , Str "from"
+          , Space
+          , Str "parchment"
+          , Space
+          , Str "to"
+          , Space
+          , Str "reader,"
+          , Space
+          , Str "the"
+          , Space
+          , Str "wave"
+          , Space
+          , Str "that"
+          , Space
+          , Str "sparks"
+          , Space
+          , Str "a"
+          , Space
+          , Str "flame"
+          , SoftBreak
+          , Str "in"
+          , Space
+          , Str "booklovers"
+          , Space
+          , Str "and"
+          , Space
+          , Str "the"
+          , Space
+          , Str "great"
+          , Space
+          , Str "fulfiller"
+          , Space
+          , Str "of"
+          , Space
+          , Str "human"
+          , Space
+          , Str "need."
+          ]
+      ]
+  ]

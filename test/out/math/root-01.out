@@ -1,0 +1,173 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/root-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/root-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/root-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Equation
+    True
+    [ Code
+        "test/typ/math/root-01.typ"
+        ( line 3 , column 3 )
+        (FuncCall
+           (Ident (Identifier "sqrt"))
+           [ NormalArg (Block (Content [ Text "a" ])) ])
+    , Code
+        "test/typ/math/root-01.typ"
+        ( line 3 , column 11 )
+        (Ident (Identifier "quad"))
+    , Code
+        "test/typ/math/root-01.typ"
+        ( line 4 , column 3 )
+        (FuncCall
+           (Ident (Identifier "sqrt"))
+           [ NormalArg (Block (Content [ Text "f" ])) ])
+    , Code
+        "test/typ/math/root-01.typ"
+        ( line 4 , column 11 )
+        (Ident (Identifier "quad"))
+    , Code
+        "test/typ/math/root-01.typ"
+        ( line 5 , column 3 )
+        (FuncCall
+           (Ident (Identifier "sqrt"))
+           [ NormalArg (Block (Content [ Text "q" ])) ])
+    , Code
+        "test/typ/math/root-01.typ"
+        ( line 5 , column 11 )
+        (Ident (Identifier "quad"))
+    , Code
+        "test/typ/math/root-01.typ"
+        ( line 6 , column 3 )
+        (FuncCall
+           (Ident (Identifier "sqrt"))
+           [ NormalArg
+               (Block (Content [ MAttach Nothing (Just (Text "2")) (Text "a") ]))
+           ])
+    , HardBreak
+    , Code
+        "test/typ/math/root-01.typ"
+        ( line 7 , column 3 )
+        (FuncCall
+           (Ident (Identifier "sqrt"))
+           [ NormalArg
+               (Block (Content [ MAttach (Just (Text "0")) Nothing (Text "n") ]))
+           ])
+    , Code
+        "test/typ/math/root-01.typ"
+        ( line 7 , column 13 )
+        (Ident (Identifier "quad"))
+    , Code
+        "test/typ/math/root-01.typ"
+        ( line 8 , column 3 )
+        (FuncCall
+           (Ident (Identifier "sqrt"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ MAttach Nothing (Just (MGroup Nothing Nothing [])) (Text "b") ]))
+           ])
+    , Code
+        "test/typ/math/root-01.typ"
+        ( line 8 , column 14 )
+        (Ident (Identifier "quad"))
+    , Code
+        "test/typ/math/root-01.typ"
+        ( line 9 , column 3 )
+        (FuncCall
+           (Ident (Identifier "sqrt"))
+           [ NormalArg
+               (Block (Content [ MAttach Nothing (Just (Text "2")) (Text "b") ]))
+           ])
+    , Code
+        "test/typ/math/root-01.typ"
+        ( line 9 , column 13 )
+        (Ident (Identifier "quad"))
+    , Code
+        "test/typ/math/root-01.typ"
+        ( line 10 , column 3 )
+        (FuncCall
+           (Ident (Identifier "sqrt"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ MAttach (Just (Text "1")) (Just (Text "2")) (Text "q") ]))
+           ])
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  math.equation(block: true, 
+                body: { math.sqrt(radicand: [a]), 
+                        [ ], 
+                        math.sqrt(radicand: [f]), 
+                        [ ], 
+                        math.sqrt(radicand: [q]), 
+                        [ ], 
+                        math.sqrt(radicand: math.attach(b: none, 
+                                                        base: [a], 
+                                                        t: [2])), 
+                        linebreak(), 
+                        math.sqrt(radicand: math.attach(b: [0], 
+                                                        base: [n], 
+                                                        t: none)), 
+                        [ ], 
+                        math.sqrt(radicand: math.attach(b: none, 
+                                                        base: [b], 
+                                                        t: {  })), 
+                        [ ], 
+                        math.sqrt(radicand: math.attach(b: none, 
+                                                        base: [b], 
+                                                        t: [2])), 
+                        [ ], 
+                        math.sqrt(radicand: math.attach(b: [1], 
+                                                        base: [q], 
+                                                        t: [2])) }, 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math
+          DisplayMath
+          "\\begin{array}{r}\n\\sqrt{a}\\quad\\sqrt{f}\\quad\\sqrt{q}\\quad\\sqrt{a^{2}} \\\\\n\\sqrt{n_{0}}\\quad\\sqrt{b^{}}\\quad\\sqrt{b^{2}}\\quad\\sqrt{q_{1}^{2}}\n\\end{array}"
+      ]
+  ]

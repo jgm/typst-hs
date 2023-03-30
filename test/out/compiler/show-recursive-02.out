@@ -1,0 +1,134 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/show-recursive-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/show-recursive-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/show-recursive-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compiler/show-recursive-02.typ"
+    ( line 3 , column 2 )
+    (LetFunc
+       (Identifier "starwars")
+       [ NormalParam (Identifier "body") ]
+       (Block
+          (CodeBlock
+             [ Show
+                 (Just (Ident (Identifier "list")))
+                 (FuncExpr
+                    [ NormalParam (Identifier "it") ]
+                    (FuncCall
+                       (Ident (Identifier "block"))
+                       [ NormalArg
+                           (Block
+                              (CodeBlock
+                                 [ FuncCall
+                                     (Ident (Identifier "stack"))
+                                     [ KeyValArg (Identifier "dir") (Ident (Identifier "ltr"))
+                                     , NormalArg
+                                         (FuncCall
+                                            (Ident (Identifier "text"))
+                                            [ NormalArg (Ident (Identifier "red"))
+                                            , NormalArg (Ident (Identifier "it"))
+                                            ])
+                                     , NormalArg (Literal (Numeric 1.0 Fr))
+                                     , NormalArg
+                                         (FuncCall
+                                            (Ident (Identifier "scale"))
+                                            [ KeyValArg
+                                                (Identifier "x")
+                                                (Negated (Literal (Numeric 100.0 Percent)))
+                                            , NormalArg
+                                                (FuncCall
+                                                   (Ident (Identifier "text"))
+                                                   [ NormalArg (Ident (Identifier "blue"))
+                                                   , NormalArg (Ident (Identifier "it"))
+                                                   ])
+                                            ])
+                                     ]
+                                 ]))
+                       ]))
+             , Ident (Identifier "body")
+             ])))
+, ParBreak
+, BulletListItem
+    [ Text "Normal" , Space , Text "list" , SoftBreak ]
+, SoftBreak
+, Code
+    "test/typ/compiler/show-recursive-02.typ"
+    ( line 16 , column 2 )
+    (FuncCall
+       (Ident (Identifier "starwars"))
+       [ BlockArg
+           [ SoftBreak
+           , BulletListItem [ Text "Star" ]
+           , SoftBreak
+           , BulletListItem [ Text "Wars" ]
+           , SoftBreak
+           , BulletListItem [ Text "List" , ParBreak ]
+           ]
+       ])
+, ParBreak
+, BulletListItem [ Text "Normal" , Space , Text "list" , ParBreak ]
+]
+--- evaluated ---
+{ [
+], 
+  parbreak(), 
+  list(children: ([Normal list
+])), 
+  [
+], 
+  list(children: ([Star], 
+                  [Wars], 
+                  { [List], parbreak() })), 
+  parbreak(), 
+  list(children: ({ [Normal list], 
+                    parbreak() })) }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , BulletList [ [ Para [ Str "Normal" , Space , Str "list" ] ] ]
+  , Para []
+  , BulletList
+      [ [ Para [ Str "Star" ] ]
+      , [ Para [ Str "Wars" ] ]
+      , [ Para [ Str "List" ] ]
+      ]
+  , BulletList [ [ Para [ Str "Normal" , Space , Str "list" ] ] ]
+  ]

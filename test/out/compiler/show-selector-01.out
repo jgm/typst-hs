@@ -1,0 +1,102 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/show-selector-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/show-selector-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/show-selector-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/compiler/show-selector-01.typ"
+    ( line 2 , column 2 )
+    (Show
+       (Just
+          (FuncCall
+             (FieldAccess
+                (Ident (Identifier "where")) (Ident (Identifier "heading")))
+             [ KeyValArg (Identifier "level") (Literal (Int 1)) ]))
+       (Set
+          (Ident (Identifier "text"))
+          [ NormalArg (Ident (Identifier "red")) ]))
+, SoftBreak
+, Code
+    "test/typ/compiler/show-selector-01.typ"
+    ( line 3 , column 2 )
+    (Show
+       (Just
+          (FuncCall
+             (FieldAccess
+                (Ident (Identifier "where")) (Ident (Identifier "heading")))
+             [ KeyValArg (Identifier "level") (Literal (Int 2)) ]))
+       (Set
+          (Ident (Identifier "text"))
+          [ NormalArg (Ident (Identifier "blue")) ]))
+, SoftBreak
+, Code
+    "test/typ/compiler/show-selector-01.typ"
+    ( line 4 , column 2 )
+    (Show
+       (Just (Ident (Identifier "heading")))
+       (Set
+          (Ident (Identifier "text"))
+          [ NormalArg (Ident (Identifier "green")) ]))
+, SoftBreak
+, Heading 1 [ Text "Red" ]
+, Heading 2 [ Text "Blue" ]
+, Heading 3 [ Text "Green" ]
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  [
+], 
+  [
+], 
+  heading(body: [Red], 
+          level: 1), 
+  heading(body: [Blue], 
+          level: 2), 
+  heading(body: [Green], 
+          level: 3) }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Header 1 ( "" , [] , [] ) [ Str "Red" ]
+  , Header 2 ( "" , [] , [] ) [ Str "Blue" ]
+  , Header 3 ( "" , [] , [] ) [ Str "Green" ]
+  ]

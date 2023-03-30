@@ -1,0 +1,709 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/bench-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/bench-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/bench-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compiler/bench-00.typ"
+    ( line 5 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 450.0 Pt))
+       , KeyValArg (Identifier "margin") (Literal (Numeric 1.0 Cm))
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/bench-00.typ"
+    ( line 8 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "city"))) (Literal (String "Berlin")))
+, ParBreak
+, Comment
+, Comment
+, Comment
+, Code
+    "test/typ/compiler/bench-00.typ"
+    ( line 13 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "university")))
+       (Block
+          (Content
+             [ Strong
+                 [ Text "Technische"
+                 , Space
+                 , Text "Universit\228t"
+                 , Space
+                 , Code
+                     "test/typ/compiler/bench-00.typ"
+                     ( line 13 , column 45 )
+                     (Ident (Identifier "city"))
+                 ]
+             ])))
+, SoftBreak
+, Code
+    "test/typ/compiler/bench-00.typ"
+    ( line 14 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "faculty")))
+       (Block
+          (Content
+             [ Strong
+                 [ Text "Fakult\228t"
+                 , Space
+                 , Text "II,"
+                 , Space
+                 , Text "Institut"
+                 , Space
+                 , Text "for"
+                 , Space
+                 , Text "Mathematik"
+                 ]
+             ])))
+, ParBreak
+, Comment
+, Comment
+, Comment
+, Code
+    "test/typ/compiler/bench-00.typ"
+    ( line 19 , column 2 )
+    (FuncCall
+       (Ident (Identifier "box"))
+       [ BlockArg
+           [ SoftBreak
+           , Comment
+           , Space
+           , Code
+               "test/typ/compiler/bench-00.typ"
+               ( line 21 , column 4 )
+               (Ident (Identifier "university"))
+           , Space
+           , HardBreak
+           , Code
+               "test/typ/compiler/bench-00.typ"
+               ( line 22 , column 4 )
+               (Ident (Identifier "faculty"))
+           , Space
+           , HardBreak
+           , Text "Sekretariat"
+           , Space
+           , Text "MA"
+           , Space
+           , HardBreak
+           , Text "Dr"
+           , Text "."
+           , Space
+           , Text "Max"
+           , Space
+           , Text "Mustermann"
+           , Space
+           , HardBreak
+           , Text "Ola"
+           , Space
+           , Text "Nordmann,"
+           , Space
+           , Text "John"
+           , Space
+           , Text "Doe"
+           , ParBreak
+           ]
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/bench-00.typ"
+    ( line 27 , column 2 )
+    (FuncCall
+       (Ident (Identifier "align"))
+       [ NormalArg (Ident (Identifier "right"))
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "box"))
+              [ BlockArg
+                  [ Strong
+                      [ Text "WiSe" , Space , Text "2019" , Text "/" , Text "2020" ]
+                  , Space
+                  , HardBreak
+                  , Text "Woche"
+                  , Space
+                  , Text "3"
+                  ]
+              ])
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/bench-00.typ"
+    ( line 30 , column 2 )
+    (FuncCall
+       (Ident (Identifier "v")) [ NormalArg (Literal (Numeric 6.0 Mm)) ])
+, ParBreak
+, Comment
+, Comment
+, Code
+    "test/typ/compiler/bench-00.typ"
+    ( line 34 , column 2 )
+    (FuncCall
+       (Ident (Identifier "align"))
+       [ NormalArg (Ident (Identifier "center"))
+       , BlockArg
+           [ SoftBreak
+           , Comment
+           , Space
+           , Heading
+               4
+               [ Text "3"
+               , Text "."
+               , Space
+               , Text "\220bungsblatt"
+               , Space
+               , Text "Computerorientierte"
+               , Space
+               , Text "Mathematik"
+               , Space
+               , Text "II"
+               , Space
+               , Code
+                   "test/typ/compiler/bench-00.typ"
+                   ( line 36 , column 58 )
+                   (FuncCall
+                      (Ident (Identifier "v")) [ NormalArg (Literal (Numeric 4.0 Mm)) ])
+               ]
+           , Strong
+               [ Text "Abgabe"
+               , Text ":"
+               , Space
+               , Text "03"
+               , Text "."
+               , Text "05"
+               , Text "."
+               , Text "2019"
+               ]
+           , Space
+           , Text "(bis"
+           , Space
+           , Text "10"
+           , Text ":"
+           , Text "10"
+           , Space
+           , Text "Uhr"
+           , Space
+           , Text "in"
+           , Space
+           , Text "MA"
+           , Space
+           , Text "001)"
+           , Space
+           , Code
+               "test/typ/compiler/bench-00.typ"
+               ( line 37 , column 51 )
+               (FuncCall
+                  (Ident (Identifier "v")) [ NormalArg (Literal (Numeric 4.0 Mm)) ])
+           , SoftBreak
+           , Strong
+               [ Text "Alle"
+               , Space
+               , Text "Antworten"
+               , Space
+               , Text "sind"
+               , Space
+               , Text "zu"
+               , Space
+               , Text "beweisen"
+               , Text "."
+               ]
+           , ParBreak
+           ]
+       ])
+, ParBreak
+, Strong [ Text "1" , Text "." , Space , Text "Aufgabe" ]
+, Space
+, Code
+    "test/typ/compiler/bench-00.typ"
+    ( line 41 , column 15 )
+    (FuncCall
+       (Ident (Identifier "align"))
+       [ NormalArg (Ident (Identifier "right"))
+       , BlockArg
+           [ Text "(1"
+           , Space
+           , Text "+"
+           , Space
+           , Text "1"
+           , Space
+           , Text "+"
+           , Space
+           , Text "2"
+           , Space
+           , Text "Punkte)"
+           ]
+       ])
+, ParBreak
+, Text "Ein"
+, Space
+, Emph [ Text "Bin\228rbaum" ]
+, Space
+, Text "ist"
+, Space
+, Text "ein"
+, Space
+, Text "Wurzelbaum,"
+, Space
+, Text "in"
+, Space
+, Text "dem"
+, Space
+, Text "jeder"
+, Space
+, Text "Knoten"
+, Space
+, Text "\8804"
+, Space
+, Text "2"
+, Space
+, Text "Kinder"
+, Space
+, Text "hat"
+, Text "."
+, SoftBreak
+, Text "Die"
+, Space
+, Text "Tiefe"
+, Space
+, Text "eines"
+, Space
+, Text "Knotens"
+, Space
+, Emph [ Text "v" ]
+, Space
+, Text "ist"
+, Space
+, Text "die"
+, Space
+, Text "L\228nge"
+, Space
+, Text "des"
+, Space
+, Text "eindeutigen"
+, Space
+, Text "Weges"
+, Space
+, Text "von"
+, Space
+, Text "der"
+, Space
+, Text "Wurzel"
+, SoftBreak
+, Text "zu"
+, Space
+, Emph [ Text "v" ]
+, Text ","
+, Space
+, Text "und"
+, Space
+, Text "die"
+, Space
+, Text "H\246he"
+, Space
+, Text "von"
+, Space
+, Emph [ Text "v" ]
+, Space
+, Text "ist"
+, Space
+, Text "die"
+, Space
+, Text "L\228nge"
+, Space
+, Text "eines"
+, Space
+, Text "l\228ngsten"
+, Space
+, Text "(absteigenden)"
+, Space
+, Text "Weges"
+, SoftBreak
+, Text "von"
+, Space
+, Emph [ Text "v" ]
+, Space
+, Text "zu"
+, Space
+, Text "einem"
+, Space
+, Text "Blatt"
+, Text "."
+, Space
+, Text "Die"
+, Space
+, Text "H\246he"
+, Space
+, Text "des"
+, Space
+, Text "Baumes"
+, Space
+, Text "ist"
+, Space
+, Text "die"
+, Space
+, Text "H\246he"
+, Space
+, Text "der"
+, Space
+, Text "Wurzel"
+, Text "."
+, ParBreak
+, Code
+    "test/typ/compiler/bench-00.typ"
+    ( line 48 , column 2 )
+    (FuncCall
+       (Ident (Identifier "v")) [ NormalArg (Literal (Numeric 6.0 Mm)) ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  parbreak(), 
+  parbreak(), 
+  [
+], 
+  parbreak(), 
+  box(body: { [
+], 
+              [ ], 
+              strong(body: { [Technische Universität ], 
+                             [Berlin] }), 
+              [ ], 
+              linebreak(), 
+              strong(body: [Fakultät II, Institut for Mathematik]), 
+              [ ], 
+              linebreak(), 
+              [Sekretariat MA ], 
+              linebreak(), 
+              [Dr. Max Mustermann ], 
+              linebreak(), 
+              [Ola Nordmann, John Doe], 
+              parbreak() }), 
+  [
+], 
+  align(alignment: right, 
+        body: box(body: { strong(body: [WiSe 2019/2020]), 
+                          [ ], 
+                          linebreak(), 
+                          [Woche 3] })), 
+  parbreak(), 
+  v(amount: 6.0mm), 
+  parbreak(), 
+  align(alignment: center, 
+        body: { [
+], 
+                [ ], 
+                heading(body: { [3. Übungsblatt Computerorientierte Mathematik II ], 
+                                v(amount: 4.0mm) }, 
+                        level: 4), 
+                strong(body: [Abgabe: 03.05.2019]), 
+                [ (bis 10:10 Uhr in MA 001) ], 
+                v(amount: 4.0mm), 
+                [
+], 
+                strong(body: [Alle Antworten sind zu beweisen.]), 
+                parbreak() }), 
+  parbreak(), 
+  strong(body: [1. Aufgabe]), 
+  [ ], 
+  align(alignment: right, 
+        body: [(1 + 1 + 2 Punkte)]), 
+  parbreak(), 
+  [Ein ], 
+  emph(body: [Binärbaum]), 
+  [ ist ein Wurzelbaum, in dem jeder Knoten ≤ 2 Kinder hat.
+Die Tiefe eines Knotens ], 
+  emph(body: [v]), 
+  [ ist die Länge des eindeutigen Weges von der Wurzel
+zu ], 
+  emph(body: [v]), 
+  [, und die Höhe von ], 
+  emph(body: [v]), 
+  [ ist die Länge eines längsten (absteigenden) Weges
+von ], 
+  emph(body: [v]), 
+  [ zu einem Blatt. Die Höhe des Baumes ist die Höhe der Wurzel.], 
+  parbreak(), 
+  v(amount: 6.0mm), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para []
+  , Para
+      [ Span
+          ( "" , [ "box" ] , [] )
+          [ SoftBreak
+          , Strong
+              [ Str "Technische"
+              , Space
+              , Str "Universit\228t"
+              , Space
+              , Str "Berlin"
+              ]
+          , LineBreak
+          , Strong
+              [ Str "Fakult\228t"
+              , Space
+              , Str "II,"
+              , Space
+              , Str "Institut"
+              , Space
+              , Str "for"
+              , Space
+              , Str "Mathematik"
+              ]
+          , LineBreak
+          , Str "Sekretariat"
+          , Space
+          , Str "MA"
+          , LineBreak
+          , Str "Dr."
+          , Space
+          , Str "Max"
+          , Space
+          , Str "Mustermann"
+          , LineBreak
+          , Str "Ola"
+          , Space
+          , Str "Nordmann,"
+          , Space
+          , Str "John"
+          , Space
+          , Str "Doe"
+          ]
+      ]
+  , Div
+      ( "" , [] , [ ( "align" , "right" ) ] )
+      [ Para
+          [ Span
+              ( "" , [ "box" ] , [] )
+              [ Strong [ Str "WiSe" , Space , Str "2019/2020" ]
+              , LineBreak
+              , Str "Woche"
+              , Space
+              , Str "3"
+              ]
+          ]
+      ]
+  , Div
+      ( "" , [] , [ ( "align" , "center" ) ] )
+      [ Para []
+      , Header
+          4
+          ( "" , [] , [] )
+          [ Str "3."
+          , Space
+          , Str "\220bungsblatt"
+          , Space
+          , Str "Computerorientierte"
+          , Space
+          , Str "Mathematik"
+          , Space
+          , Str "II"
+          , Space
+          ]
+      , Para
+          [ Strong [ Str "Abgabe:" , Space , Str "03.05.2019" ]
+          , Space
+          , Str "(bis"
+          , Space
+          , Str "10:10"
+          , Space
+          , Str "Uhr"
+          , Space
+          , Str "in"
+          , Space
+          , Str "MA"
+          , Space
+          , Str "001)"
+          ]
+      , Para
+          [ Strong
+              [ Str "Alle"
+              , Space
+              , Str "Antworten"
+              , Space
+              , Str "sind"
+              , Space
+              , Str "zu"
+              , Space
+              , Str "beweisen."
+              ]
+          ]
+      ]
+  , Para [ Strong [ Str "1." , Space , Str "Aufgabe" ] ]
+  , Div
+      ( "" , [] , [ ( "align" , "right" ) ] )
+      [ Para
+          [ Str "(1"
+          , Space
+          , Str "+"
+          , Space
+          , Str "1"
+          , Space
+          , Str "+"
+          , Space
+          , Str "2"
+          , Space
+          , Str "Punkte)"
+          ]
+      ]
+  , Para
+      [ Str "Ein"
+      , Space
+      , Emph [ Str "Bin\228rbaum" ]
+      , Space
+      , Str "ist"
+      , Space
+      , Str "ein"
+      , Space
+      , Str "Wurzelbaum,"
+      , Space
+      , Str "in"
+      , Space
+      , Str "dem"
+      , Space
+      , Str "jeder"
+      , Space
+      , Str "Knoten"
+      , Space
+      , Str "\8804"
+      , Space
+      , Str "2"
+      , Space
+      , Str "Kinder"
+      , Space
+      , Str "hat."
+      , SoftBreak
+      , Str "Die"
+      , Space
+      , Str "Tiefe"
+      , Space
+      , Str "eines"
+      , Space
+      , Str "Knotens"
+      , Space
+      , Emph [ Str "v" ]
+      , Space
+      , Str "ist"
+      , Space
+      , Str "die"
+      , Space
+      , Str "L\228nge"
+      , Space
+      , Str "des"
+      , Space
+      , Str "eindeutigen"
+      , Space
+      , Str "Weges"
+      , Space
+      , Str "von"
+      , Space
+      , Str "der"
+      , Space
+      , Str "Wurzel"
+      , SoftBreak
+      , Str "zu"
+      , Space
+      , Emph [ Str "v" ]
+      , Str ","
+      , Space
+      , Str "und"
+      , Space
+      , Str "die"
+      , Space
+      , Str "H\246he"
+      , Space
+      , Str "von"
+      , Space
+      , Emph [ Str "v" ]
+      , Space
+      , Str "ist"
+      , Space
+      , Str "die"
+      , Space
+      , Str "L\228nge"
+      , Space
+      , Str "eines"
+      , Space
+      , Str "l\228ngsten"
+      , Space
+      , Str "(absteigenden)"
+      , Space
+      , Str "Weges"
+      , SoftBreak
+      , Str "von"
+      , Space
+      , Emph [ Str "v" ]
+      , Space
+      , Str "zu"
+      , Space
+      , Str "einem"
+      , Space
+      , Str "Blatt."
+      , Space
+      , Str "Die"
+      , Space
+      , Str "H\246he"
+      , Space
+      , Str "des"
+      , Space
+      , Str "Baumes"
+      , Space
+      , Str "ist"
+      , Space
+      , Str "die"
+      , Space
+      , Str "H\246he"
+      , Space
+      , Str "der"
+      , Space
+      , Str "Wurzel."
+      ]
+  ]

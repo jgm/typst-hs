@@ -1,0 +1,784 @@
+--- parse tree ---
+[ Code
+    "test/typ/text/quotes-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/text/quotes-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/text/quotes-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/text/quotes-00.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 250.0 Pt)) ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/text/quotes-00.typ"
+    ( line 5 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "lang") (Literal (String "en")) ])
+, SoftBreak
+, Quote '"'
+, Text "The"
+, Space
+, Text "horse"
+, Space
+, Text "eats"
+, Space
+, Text "no"
+, Space
+, Text "cucumber"
+, Space
+, Text "salad"
+, Quote '"'
+, Space
+, Text "was"
+, Space
+, Text "the"
+, Space
+, Text "first"
+, Space
+, Text "sentence"
+, Space
+, Text "ever"
+, Space
+, Text "uttered"
+, Space
+, Text "on"
+, Space
+, Text "the"
+, Space
+, Quote '\''
+, Text "telephone"
+, Text "."
+, Quote '\''
+, ParBreak
+, Code
+    "test/typ/text/quotes-00.typ"
+    ( line 8 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "lang") (Literal (String "de")) ])
+, SoftBreak
+, Quote '"'
+, Text "Das"
+, Space
+, Text "Pferd"
+, Space
+, Text "frisst"
+, Space
+, Text "keinen"
+, Space
+, Text "Gurkensalat"
+, Quote '"'
+, Space
+, Text "war"
+, Space
+, Text "der"
+, Space
+, Text "erste"
+, Space
+, Text "jemals"
+, Space
+, Text "am"
+, Space
+, Quote '\''
+, Text "Fernsprecher"
+, Quote '\''
+, Space
+, Text "gesagte"
+, Space
+, Text "Satz"
+, Text "."
+, ParBreak
+, Code
+    "test/typ/text/quotes-00.typ"
+    ( line 11 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "lang") (Literal (String "de"))
+       , KeyValArg (Identifier "region") (Literal (String "CH"))
+       ])
+, SoftBreak
+, Quote '"'
+, Text "Das"
+, Space
+, Text "Pferd"
+, Space
+, Text "frisst"
+, Space
+, Text "keinen"
+, Space
+, Text "Gurkensalat"
+, Quote '"'
+, Space
+, Text "war"
+, Space
+, Text "der"
+, Space
+, Text "erste"
+, Space
+, Text "jemals"
+, Space
+, Text "am"
+, Space
+, Quote '\''
+, Text "Fernsprecher"
+, Quote '\''
+, Space
+, Text "gesagte"
+, Space
+, Text "Satz"
+, Text "."
+, ParBreak
+, Code
+    "test/typ/text/quotes-00.typ"
+    ( line 14 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "lang") (Literal (String "es"))
+       , KeyValArg (Identifier "region") (Literal None)
+       ])
+, SoftBreak
+, Quote '"'
+, Text "El"
+, Space
+, Text "caballo"
+, Space
+, Text "no"
+, Space
+, Text "come"
+, Space
+, Text "ensalada"
+, Space
+, Text "de"
+, Space
+, Text "pepino"
+, Quote '"'
+, Space
+, Text "fue"
+, Space
+, Text "la"
+, Space
+, Text "primera"
+, Space
+, Text "frase"
+, Space
+, Text "pronunciada"
+, Space
+, Text "por"
+, Space
+, Quote '\''
+, Text "tel\233fono"
+, Quote '\''
+, Text "."
+, ParBreak
+, Code
+    "test/typ/text/quotes-00.typ"
+    ( line 17 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "lang") (Literal (String "es"))
+       , KeyValArg (Identifier "region") (Literal (String "MX"))
+       ])
+, SoftBreak
+, Quote '"'
+, Text "El"
+, Space
+, Text "caballo"
+, Space
+, Text "no"
+, Space
+, Text "come"
+, Space
+, Text "ensalada"
+, Space
+, Text "de"
+, Space
+, Text "pepino"
+, Quote '"'
+, Space
+, Text "fue"
+, Space
+, Text "la"
+, Space
+, Text "primera"
+, Space
+, Text "frase"
+, Space
+, Text "pronunciada"
+, Space
+, Text "por"
+, Space
+, Quote '\''
+, Text "tel\233fono"
+, Quote '\''
+, Text "."
+, ParBreak
+, Code
+    "test/typ/text/quotes-00.typ"
+    ( line 20 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "lang") (Literal (String "fr"))
+       , KeyValArg (Identifier "region") (Literal None)
+       ])
+, SoftBreak
+, Quote '"'
+, Text "Le"
+, Space
+, Text "cheval"
+, Space
+, Text "ne"
+, Space
+, Text "mange"
+, Space
+, Text "pas"
+, Space
+, Text "de"
+, Space
+, Text "salade"
+, Space
+, Text "de"
+, Space
+, Text "concombres"
+, Quote '"'
+, Space
+, Text "est"
+, Space
+, Text "la"
+, Space
+, Text "premi\232re"
+, Space
+, Text "phrase"
+, Space
+, Text "jamais"
+, Space
+, Text "prononc\233e"
+, Space
+, Text "au"
+, Space
+, Quote '\''
+, Text "t\233l\233phone"
+, Quote '\''
+, Text "."
+, ParBreak
+, Code
+    "test/typ/text/quotes-00.typ"
+    ( line 23 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "lang") (Literal (String "fi")) ])
+, SoftBreak
+, Quote '"'
+, Text "Hevonen"
+, Space
+, Text "ei"
+, Space
+, Text "sy\246"
+, Space
+, Text "kurkkusalaattia"
+, Quote '"'
+, Space
+, Text "oli"
+, Space
+, Text "ensimm\228inen"
+, Space
+, Text "koskaan"
+, Space
+, Quote '\''
+, Text "puhelimessa"
+, Quote '\''
+, Space
+, Text "lausuttu"
+, Space
+, Text "lause"
+, Text "."
+, ParBreak
+, Code
+    "test/typ/text/quotes-00.typ"
+    ( line 26 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "lang") (Literal (String "he")) ])
+, SoftBreak
+, Quote '"'
+, Text "\1492\1505\1493\1505"
+, Space
+, Text "\1500\1488"
+, Space
+, Text "\1488\1493\1499\1500"
+, Space
+, Text "\1505\1500\1496"
+, Space
+, Text "\1502\1500\1508\1508\1493\1504\1497\1501"
+, Quote '"'
+, Space
+, Text "\1492\1497\1492"
+, Space
+, Text "\1492\1502\1513\1508\1496"
+, Space
+, Text "\1492\1492\1512\1488\1513\1493\1503"
+, Space
+, Text "\1513\1504\1488\1502\1512"
+, Space
+, Text "\1489"
+, Space
+, Quote '\''
+, Text "\1496\1500\1508\1493\1503"
+, Quote '\''
+, Text "."
+, ParBreak
+, Code
+    "test/typ/text/quotes-00.typ"
+    ( line 29 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "lang") (Literal (String "ro")) ])
+, SoftBreak
+, Quote '"'
+, Text "Calul"
+, Space
+, Text "nu"
+, Space
+, Text "m\259n\226nc\259"
+, Space
+, Text "salat\259"
+, Space
+, Text "de"
+, Space
+, Text "castrave\539i"
+, Quote '"'
+, Space
+, Text "a"
+, Space
+, Text "fost"
+, Space
+, Text "prima"
+, Space
+, Text "propozi\539ie"
+, Space
+, Text "rostit\259"
+, Space
+, Text "vreodat\259"
+, Space
+, Text "la"
+, Space
+, Quote '\''
+, Text "telefon"
+, Quote '\''
+, Text "."
+, ParBreak
+, Code
+    "test/typ/text/quotes-00.typ"
+    ( line 32 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "lang") (Literal (String "ru")) ])
+, SoftBreak
+, Quote '"'
+, Text "\1051\1086\1096\1072\1076\1100"
+, Space
+, Text "\1085\1077"
+, Space
+, Text "\1077\1089\1090"
+, Space
+, Text "\1089\1072\1083\1072\1090"
+, Space
+, Text "\1080\1079"
+, Space
+, Text "\1086\1075\1091\1088\1094\1086\1074"
+, Quote '"'
+, Space
+, Text "-"
+, Space
+, Text "\1101\1090\1086"
+, Space
+, Text "\1073\1099\1083\1072"
+, Space
+, Text "\1087\1077\1088\1074\1072\1103"
+, Space
+, Text "\1092\1088\1072\1079\1072,"
+, Space
+, Text "\1089\1082\1072\1079\1072\1085\1085\1072\1103"
+, Space
+, Text "\1087\1086"
+, Space
+, Quote '\''
+, Text "\1090\1077\1083\1077\1092\1086\1085\1091"
+, Quote '\''
+, Text "."
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  parbreak(), 
+  text(body: [
+“The horse eats no cucumber salad” was the first sentence ever uttered on the ‘telephone.’], 
+       lang: "en"), 
+  parbreak(), 
+  text(body: [
+“Das Pferd frisst keinen Gurkensalat” war der erste jemals am ‘Fernsprecher” gesagte Satz.], 
+       lang: "de"), 
+  parbreak(), 
+  text(body: [
+“Das Pferd frisst keinen Gurkensalat” war der erste jemals am ‘Fernsprecher” gesagte Satz.], 
+       lang: "de", 
+       region: "CH"), 
+  parbreak(), 
+  text(body: [
+“El caballo no come ensalada de pepino” fue la primera frase pronunciada por ‘teléfono’.], 
+       lang: "es", 
+       region: none), 
+  parbreak(), 
+  text(body: [
+“El caballo no come ensalada de pepino” fue la primera frase pronunciada por ‘teléfono’.], 
+       lang: "es", 
+       region: "MX"), 
+  parbreak(), 
+  text(body: [
+“Le cheval ne mange pas de salade de concombres” est la première phrase jamais prononcée au ‘téléphone’.], 
+       lang: "fr", 
+       region: none), 
+  parbreak(), 
+  text(body: [
+“Hevonen ei syö kurkkusalaattia” oli ensimmäinen koskaan ‘puhelimessa” lausuttu lause.], 
+       lang: "fi", 
+       region: none), 
+  parbreak(), 
+  text(body: [
+“הסוס לא אוכל סלט מלפפונים” היה המשפט ההראשון שנאמר ב ‘טלפון’.], 
+       lang: "he", 
+       region: none), 
+  parbreak(), 
+  text(body: [
+“Calul nu mănâncă salată de castraveți” a fost prima propoziție rostită vreodată la ‘telefon’.], 
+       lang: "ro", 
+       region: none), 
+  parbreak(), 
+  text(body: [
+“Лошадь не ест салат из огурцов” - это была первая фраза, сказанная по ‘телефону’.], 
+       lang: "ru", 
+       region: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para
+      [ Str "\8220The"
+      , Space
+      , Str "horse"
+      , Space
+      , Str "eats"
+      , Space
+      , Str "no"
+      , Space
+      , Str "cucumber"
+      , Space
+      , Str "salad\8221"
+      , Space
+      , Str "was"
+      , Space
+      , Str "the"
+      , Space
+      , Str "first"
+      , Space
+      , Str "sentence"
+      , Space
+      , Str "ever"
+      , Space
+      , Str "uttered"
+      , Space
+      , Str "on"
+      , Space
+      , Str "the"
+      , Space
+      , Str "\8216telephone.\8217"
+      ]
+  , Para
+      [ Str "\8220Das"
+      , Space
+      , Str "Pferd"
+      , Space
+      , Str "frisst"
+      , Space
+      , Str "keinen"
+      , Space
+      , Str "Gurkensalat\8221"
+      , Space
+      , Str "war"
+      , Space
+      , Str "der"
+      , Space
+      , Str "erste"
+      , Space
+      , Str "jemals"
+      , Space
+      , Str "am"
+      , Space
+      , Str "\8216Fernsprecher\8221"
+      , Space
+      , Str "gesagte"
+      , Space
+      , Str "Satz."
+      ]
+  , Para
+      [ Str "\8220Das"
+      , Space
+      , Str "Pferd"
+      , Space
+      , Str "frisst"
+      , Space
+      , Str "keinen"
+      , Space
+      , Str "Gurkensalat\8221"
+      , Space
+      , Str "war"
+      , Space
+      , Str "der"
+      , Space
+      , Str "erste"
+      , Space
+      , Str "jemals"
+      , Space
+      , Str "am"
+      , Space
+      , Str "\8216Fernsprecher\8221"
+      , Space
+      , Str "gesagte"
+      , Space
+      , Str "Satz."
+      ]
+  , Para
+      [ Str "\8220El"
+      , Space
+      , Str "caballo"
+      , Space
+      , Str "no"
+      , Space
+      , Str "come"
+      , Space
+      , Str "ensalada"
+      , Space
+      , Str "de"
+      , Space
+      , Str "pepino\8221"
+      , Space
+      , Str "fue"
+      , Space
+      , Str "la"
+      , Space
+      , Str "primera"
+      , Space
+      , Str "frase"
+      , Space
+      , Str "pronunciada"
+      , Space
+      , Str "por"
+      , Space
+      , Str "\8216tel\233fono\8217."
+      ]
+  , Para
+      [ Str "\8220El"
+      , Space
+      , Str "caballo"
+      , Space
+      , Str "no"
+      , Space
+      , Str "come"
+      , Space
+      , Str "ensalada"
+      , Space
+      , Str "de"
+      , Space
+      , Str "pepino\8221"
+      , Space
+      , Str "fue"
+      , Space
+      , Str "la"
+      , Space
+      , Str "primera"
+      , Space
+      , Str "frase"
+      , Space
+      , Str "pronunciada"
+      , Space
+      , Str "por"
+      , Space
+      , Str "\8216tel\233fono\8217."
+      ]
+  , Para
+      [ Str "\8220Le"
+      , Space
+      , Str "cheval"
+      , Space
+      , Str "ne"
+      , Space
+      , Str "mange"
+      , Space
+      , Str "pas"
+      , Space
+      , Str "de"
+      , Space
+      , Str "salade"
+      , Space
+      , Str "de"
+      , Space
+      , Str "concombres\8221"
+      , Space
+      , Str "est"
+      , Space
+      , Str "la"
+      , Space
+      , Str "premi\232re"
+      , Space
+      , Str "phrase"
+      , Space
+      , Str "jamais"
+      , Space
+      , Str "prononc\233e"
+      , Space
+      , Str "au"
+      , Space
+      , Str "\8216t\233l\233phone\8217."
+      ]
+  , Para
+      [ Str "\8220Hevonen"
+      , Space
+      , Str "ei"
+      , Space
+      , Str "sy\246"
+      , Space
+      , Str "kurkkusalaattia\8221"
+      , Space
+      , Str "oli"
+      , Space
+      , Str "ensimm\228inen"
+      , Space
+      , Str "koskaan"
+      , Space
+      , Str "\8216puhelimessa\8221"
+      , Space
+      , Str "lausuttu"
+      , Space
+      , Str "lause."
+      ]
+  , Para
+      [ Str "\8220\1492\1505\1493\1505"
+      , Space
+      , Str "\1500\1488"
+      , Space
+      , Str "\1488\1493\1499\1500"
+      , Space
+      , Str "\1505\1500\1496"
+      , Space
+      , Str "\1502\1500\1508\1508\1493\1504\1497\1501\8221"
+      , Space
+      , Str "\1492\1497\1492"
+      , Space
+      , Str "\1492\1502\1513\1508\1496"
+      , Space
+      , Str "\1492\1492\1512\1488\1513\1493\1503"
+      , Space
+      , Str "\1513\1504\1488\1502\1512"
+      , Space
+      , Str "\1489"
+      , Space
+      , Str "\8216\1496\1500\1508\1493\1503\8217."
+      ]
+  , Para
+      [ Str "\8220Calul"
+      , Space
+      , Str "nu"
+      , Space
+      , Str "m\259n\226nc\259"
+      , Space
+      , Str "salat\259"
+      , Space
+      , Str "de"
+      , Space
+      , Str "castrave\539i\8221"
+      , Space
+      , Str "a"
+      , Space
+      , Str "fost"
+      , Space
+      , Str "prima"
+      , Space
+      , Str "propozi\539ie"
+      , Space
+      , Str "rostit\259"
+      , Space
+      , Str "vreodat\259"
+      , Space
+      , Str "la"
+      , Space
+      , Str "\8216telefon\8217."
+      ]
+  , Para
+      [ Str "\8220\1051\1086\1096\1072\1076\1100"
+      , Space
+      , Str "\1085\1077"
+      , Space
+      , Str "\1077\1089\1090"
+      , Space
+      , Str "\1089\1072\1083\1072\1090"
+      , Space
+      , Str "\1080\1079"
+      , Space
+      , Str "\1086\1075\1091\1088\1094\1086\1074\8221"
+      , Space
+      , Str "-"
+      , Space
+      , Str "\1101\1090\1086"
+      , Space
+      , Str "\1073\1099\1083\1072"
+      , Space
+      , Str "\1087\1077\1088\1074\1072\1103"
+      , Space
+      , Str "\1092\1088\1072\1079\1072,"
+      , Space
+      , Str "\1089\1082\1072\1079\1072\1085\1085\1072\1103"
+      , Space
+      , Str "\1087\1086"
+      , Space
+      , Str "\8216\1090\1077\1083\1077\1092\1086\1085\1091\8217."
+      ]
+  ]

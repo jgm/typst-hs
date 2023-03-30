@@ -1,0 +1,22 @@
+// Test the `trim` method.
+#let str = "Typst, LaTeX, Word, InDesign"
+#let array = ("Typst", "LaTeX", "Word", "InDesign")
+#test(str.split(",").map(s => s.trim()), array)
+#test("".trim(), "")
+#test(" abc ".trim(at: start), "abc ")
+#test(" abc ".trim(at: end, repeat: true), " abc")
+#test("  abc".trim(at: start, repeat: false), "abc")
+#test("aabcaa".trim("a", repeat: false), "abca")
+#test("aabca".trim("a", at: start), "bca")
+#test("aabcaa".trim("a", at: end, repeat: false), "aabca")
+#test("".trim(regex(".")), "")
+#test("123abc456".trim(regex("\d")), "abc")
+#test("123abc456".trim(regex("\d"), repeat: false), "23abc45")
+#test("123a4b5c678".trim(regex("\d"), repeat: true), "a4b5c")
+#test("123a4b5c678".trim(regex("\d"), repeat: false), "23a4b5c67")
+#test("123abc456".trim(regex("\d"), at: start), "abc456")
+#test("123abc456".trim(regex("\d"), at: end), "123abc")
+#test("123abc456".trim(regex("\d+"), at: end, repeat: false), "123abc")
+#test("123abc456".trim(regex("\d{1,2}$"), repeat: false), "123abc4")
+#test("hello world".trim(regex(".")), "")
+

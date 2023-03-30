@@ -1,0 +1,183 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/show-node-03.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/show-node-03.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/show-node-03.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compiler/show-node-03.typ"
+    ( line 3 , column 2 )
+    (Show
+       (Just (Ident (Identifier "heading")))
+       (FuncExpr
+          [ NormalParam (Identifier "it") ]
+          (FuncCall
+             (Ident (Identifier "block"))
+             [ NormalArg
+                 (Block
+                    (CodeBlock
+                       [ Set
+                           (Ident (Identifier "text"))
+                           [ NormalArg (Literal (Numeric 10.0 Pt)) ]
+                       , FuncCall
+                           (Ident (Identifier "box"))
+                           [ NormalArg
+                               (FuncCall
+                                  (Ident (Identifier "move"))
+                                  [ KeyValArg (Identifier "dy") (Negated (Literal (Numeric 1.0 Pt)))
+                                  , BlockArg [ Text "\128214" ]
+                                  ])
+                           ]
+                       , FuncCall
+                           (Ident (Identifier "h")) [ NormalArg (Literal (Numeric 5.0 Pt)) ]
+                       , If
+                           [ ( Equals
+                                 (FieldAccess
+                                    (Ident (Identifier "level")) (Ident (Identifier "it")))
+                                 (Literal (Int 1))
+                             , Block
+                                 (CodeBlock
+                                    [ FuncCall
+                                        (Ident (Identifier "underline"))
+                                        [ NormalArg
+                                            (FuncCall
+                                               (Ident (Identifier "text"))
+                                               [ NormalArg (Literal (Numeric 1.25 Em))
+                                               , NormalArg (Ident (Identifier "blue"))
+                                               , NormalArg
+                                                   (FieldAccess
+                                                      (Ident (Identifier "body"))
+                                                      (Ident (Identifier "it")))
+                                               ])
+                                        ]
+                                    ])
+                             )
+                           , ( Literal (Boolean True)
+                             , Block
+                                 (CodeBlock
+                                    [ FuncCall
+                                        (Ident (Identifier "text"))
+                                        [ NormalArg (Ident (Identifier "red"))
+                                        , NormalArg
+                                            (FieldAccess
+                                               (Ident (Identifier "body"))
+                                               (Ident (Identifier "it")))
+                                        ]
+                                    ])
+                             )
+                           ]
+                       ]))
+             ])))
+, ParBreak
+, Heading 1 [ Text "Task" , Space , Text "1" ]
+, Text "Some"
+, Space
+, Text "text"
+, Text "."
+, ParBreak
+, Heading 2 [ Text "Subtask" ]
+, Text "Some"
+, Space
+, Text "more"
+, Space
+, Text "text"
+, Text "."
+, ParBreak
+, Heading 1 [ Text "Task" , Space , Text "2" ]
+, Text "Another"
+, Space
+, Text "text"
+, Text "."
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  parbreak(), 
+  block(body: { box(body: move(body: text(body: [📖], 
+                                          size: 10.0pt), 
+                               dy: -1.0pt)), 
+                h(amount: 5.0pt), 
+                underline(body: text(body: [Task 1], 
+                                     color: rgb(0%,45%,85%,100%), 
+                                     size: 1.25em)) }), 
+  [Some text.], 
+  parbreak(), 
+  block(body: { box(body: move(body: text(body: [📖], 
+                                          size: 10.0pt), 
+                               dy: -1.0pt)), 
+                h(amount: 5.0pt), 
+                text(body: [Subtask], 
+                     color: rgb(100%,25%,21%,100%), 
+                     size: 10.0pt) }), 
+  [Some more text.], 
+  parbreak(), 
+  block(body: { box(body: move(body: text(body: [📖], 
+                                          size: 10.0pt), 
+                               dy: -1.0pt)), 
+                h(amount: 5.0pt), 
+                underline(body: text(body: [Task 2], 
+                                     color: rgb(0%,45%,85%,100%), 
+                                     size: 1.25em)) }), 
+  [Another text.], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Div
+      ( "" , [] , [] )
+      [ Para
+          [ Span ( "" , [ "box" ] , [] ) []
+          , Underline [ Str "Task" , Space , Str "1" ]
+          ]
+      ]
+  , Para [ Str "Some" , Space , Str "text." ]
+  , Div
+      ( "" , [] , [] )
+      [ Para [ Span ( "" , [ "box" ] , [] ) [] , Str "Subtask" ] ]
+  , Para [ Str "Some" , Space , Str "more" , Space , Str "text." ]
+  , Div
+      ( "" , [] , [] )
+      [ Para
+          [ Span ( "" , [ "box" ] , [] ) []
+          , Underline [ Str "Task" , Space , Str "2" ]
+          ]
+      ]
+  , Para [ Str "Another" , Space , Str "text." ]
+  ]

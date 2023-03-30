@@ -1,0 +1,128 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/par-justify-cjk-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/par-justify-cjk-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/par-justify-cjk-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, SoftBreak
+, Comment
+, Comment
+, Comment
+, Code
+    "test/typ/layout/par-justify-cjk-00.typ"
+    ( line 7 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal Auto) ])
+, SoftBreak
+, Code
+    "test/typ/layout/par-justify-cjk-00.typ"
+    ( line 8 , column 2 )
+    (Set
+       (Ident (Identifier "par"))
+       [ KeyValArg (Identifier "justify") (Literal (Boolean True)) ])
+, SoftBreak
+, Code
+    "test/typ/layout/par-justify-cjk-00.typ"
+    ( line 9 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg
+           (Identifier "font") (Literal (String "Noto Serif CJK SC"))
+       , KeyValArg (Identifier "lang") (Literal (String "zh"))
+       ])
+, ParBreak
+, Code
+    "test/typ/layout/par-justify-cjk-00.typ"
+    ( line 11 , column 2 )
+    (FuncCall
+       (Ident (Identifier "rect"))
+       [ KeyValArg (Identifier "inset") (Literal (Numeric 0.0 Pt))
+       , KeyValArg (Identifier "width") (Literal (Numeric 80.0 Pt))
+       , KeyValArg
+           (Identifier "fill")
+           (FuncCall
+              (Ident (Identifier "rgb")) [ NormalArg (Literal (String "eee")) ])
+       , BlockArg
+           [ SoftBreak
+           , Text
+               "\20013\25991\32500\22522\30334\31185\20351\29992\27721\23383\20070\20889\65292\27721\23383\26159\27721\26063\25110\21326\20154\30340\20849\21516\25991\23383\65292\26159\20013\22269\22823\38470\12289\26032\21152\22369\12289\39532\26469\35199\20122\12289\21488\28286\12289\39321\28207\12289\28595\38376\30340\21807\19968\23448\26041\25991\23383\25110\23448\26041\25991\23383\20043\19968\12290\&25"
+           , Text "."
+           , Text
+               "9%\65292\32780\32654\22269\21644\33655\20848\21017\20998\21029\21344\&13"
+           , Text "."
+           , Text "7%\21450\&8"
+           , Text "."
+           , Text
+               "2%\12290\36817\24180\20358\65292\20013\22269\22823\38470\22320\21306\30340\32500\22522\30334\31185\32534\36753\32773\27491\22312\36805\36895\22686\21152\65307"
+           , ParBreak
+           ]
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  [
+], 
+  [
+], 
+  parbreak(), 
+  rect(body: { text(body: [
+中文维基百科使用汉字书写，汉字是汉族或华人的共同文字，是中国大陆、新加坡、马来西亚、台湾、香港、澳门的唯一官方文字或官方文字之一。25.9%，而美国和荷兰则分別占13.7%及8.2%。近年來，中国大陆地区的维基百科编辑者正在迅速增加；], 
+                    font: "Noto Serif CJK SC", 
+                    lang: "zh"), 
+               parbreak() }, 
+       fill: rgb(5%,5%,5%,100%), 
+       inset: 0.0pt, 
+       width: 80.0pt), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Div
+      ( "" , [ "rect" ] , [] )
+      [ Para
+          [ Str
+              "\20013\25991\32500\22522\30334\31185\20351\29992\27721\23383\20070\20889\65292\27721\23383\26159\27721\26063\25110\21326\20154\30340\20849\21516\25991\23383\65292\26159\20013\22269\22823\38470\12289\26032\21152\22369\12289\39532\26469\35199\20122\12289\21488\28286\12289\39321\28207\12289\28595\38376\30340\21807\19968\23448\26041\25991\23383\25110\23448\26041\25991\23383\20043\19968\12290\&25.9%\65292\32780\32654\22269\21644\33655\20848\21017\20998\21029\21344\&13.7%\21450\&8.2%\12290\36817\24180\20358\65292\20013\22269\22823\38470\22320\21306\30340\32500\22522\30334\31185\32534\36753\32773\27491\22312\36805\36895\22686\21152\65307"
+          ]
+      ]
+  ]

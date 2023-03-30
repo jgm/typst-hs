@@ -1,0 +1,253 @@
+--- parse tree ---
+[ Code
+    "test/typ/text/lorem-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/text/lorem-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/text/lorem-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/text/lorem-01.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ NormalArg (Literal (Numeric 8.0 Pt)) ])
+, ParBreak
+, Code
+    "test/typ/text/lorem-01.typ"
+    ( line 5 , column 2 )
+    (Block
+       (CodeBlock
+          [ Let
+              (BasicBind (Just (Identifier "sentences")))
+              (FuncCall
+                 (FieldAccess
+                    (Ident (Identifier "map"))
+                    (FuncCall
+                       (FieldAccess
+                          (Ident (Identifier "filter"))
+                          (FuncCall
+                             (FieldAccess
+                                (Ident (Identifier "split"))
+                                (FuncCall
+                                   (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 59)) ]))
+                             [ NormalArg (Literal (String ".")) ]))
+                       [ NormalArg
+                           (FuncExpr
+                              [ NormalParam (Identifier "s") ]
+                              (Not (Equals (Ident (Identifier "s")) (Literal (String "")))))
+                       ]))
+                 [ NormalArg
+                     (FuncExpr
+                        [ NormalParam (Identifier "s") ]
+                        (Plus (Ident (Identifier "s")) (Literal (String "."))))
+                 ])
+          , Let (BasicBind (Just (Identifier "used"))) (Literal (Int 0))
+          , For
+              (BasicBind (Just (Identifier "s")))
+              (Ident (Identifier "sentences"))
+              (Block
+                 (CodeBlock
+                    [ If
+                        [ ( LessThan (Ident (Identifier "used")) (Literal (Int 2))
+                          , Block
+                              (CodeBlock
+                                 [ Assign
+                                     (Ident (Identifier "used"))
+                                     (Plus (Ident (Identifier "used")) (Literal (Int 1)))
+                                 ])
+                          )
+                        , ( Literal (Boolean True)
+                          , Block
+                              (CodeBlock
+                                 [ FuncCall (Ident (Identifier "parbreak")) []
+                                 , Assign
+                                     (Binding (BasicBind (Just (Identifier "used"))))
+                                     (Literal (Int 0))
+                                 ])
+                          )
+                        ]
+                    , FuncCall
+                        (FieldAccess (Ident (Identifier "trim")) (Ident (Identifier "s")))
+                        []
+                    , Block (Content [ Space ])
+                    ]))
+          ]))
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  parbreak(), 
+  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.], 
+       size: 8.0pt), 
+  text(body: [ ], size: 8.0pt), 
+  text(body: [Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.], 
+       size: 8.0pt), 
+  text(body: [ ], size: 8.0pt), 
+  parbreak(), 
+  text(body: [Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.], 
+       size: 8.0pt), 
+  text(body: [ ], size: 8.0pt), 
+  text(body: [Excepteur sint occaecat cupidatat non proident, sunt.], 
+       size: 8.0pt), 
+  text(body: [ ], size: 8.0pt), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para
+      [ Str "Lorem"
+      , Space
+      , Str "ipsum"
+      , Space
+      , Str "dolor"
+      , Space
+      , Str "sit"
+      , Space
+      , Str "amet,"
+      , Space
+      , Str "consectetur"
+      , Space
+      , Str "adipiscing"
+      , Space
+      , Str "elit,"
+      , Space
+      , Str "sed"
+      , Space
+      , Str "do"
+      , Space
+      , Str "eiusmod"
+      , Space
+      , Str "tempor"
+      , Space
+      , Str "incididunt"
+      , Space
+      , Str "ut"
+      , Space
+      , Str "labore"
+      , Space
+      , Str "et"
+      , Space
+      , Str "dolore"
+      , Space
+      , Str "magna"
+      , Space
+      , Str "aliqua."
+      , Space
+      , Str "Ut"
+      , Space
+      , Str "enim"
+      , Space
+      , Str "ad"
+      , Space
+      , Str "minim"
+      , Space
+      , Str "veniam,"
+      , Space
+      , Str "quis"
+      , Space
+      , Str "nostrud"
+      , Space
+      , Str "exercitation"
+      , Space
+      , Str "ullamco"
+      , Space
+      , Str "laboris"
+      , Space
+      , Str "nisi"
+      , Space
+      , Str "ut"
+      , Space
+      , Str "aliquip"
+      , Space
+      , Str "ex"
+      , Space
+      , Str "ea"
+      , Space
+      , Str "commodo"
+      , Space
+      , Str "consequat."
+      ]
+  , Para
+      [ Str "Duis"
+      , Space
+      , Str "aute"
+      , Space
+      , Str "irure"
+      , Space
+      , Str "dolor"
+      , Space
+      , Str "in"
+      , Space
+      , Str "reprehenderit"
+      , Space
+      , Str "in"
+      , Space
+      , Str "voluptate"
+      , Space
+      , Str "velit"
+      , Space
+      , Str "esse"
+      , Space
+      , Str "cillum"
+      , Space
+      , Str "dolore"
+      , Space
+      , Str "eu"
+      , Space
+      , Str "fugiat"
+      , Space
+      , Str "nulla"
+      , Space
+      , Str "pariatur."
+      , Space
+      , Str "Excepteur"
+      , Space
+      , Str "sint"
+      , Space
+      , Str "occaecat"
+      , Space
+      , Str "cupidatat"
+      , Space
+      , Str "non"
+      , Space
+      , Str "proident,"
+      , Space
+      , Str "sunt."
+      ]
+  ]

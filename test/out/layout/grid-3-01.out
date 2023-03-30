@@ -1,0 +1,216 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/grid-3-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/grid-3-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/grid-3-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Comment
+, Code
+    "test/typ/layout/grid-3-01.typ"
+    ( line 4 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 5.0 Cm))
+       , KeyValArg (Identifier "height") (Literal (Numeric 2.0 Cm))
+       ])
+, SoftBreak
+, Code
+    "test/typ/layout/grid-3-01.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "grid"))
+       [ KeyValArg
+           (Identifier "columns")
+           (Times (Literal (Int 4)) (Array [ Literal (Numeric 1.0 Fr) ]))
+       , KeyValArg (Identifier "row-gutter") (Literal (Numeric 10.0 Pt))
+       , KeyValArg
+           (Identifier "column-gutter")
+           (Array
+              [ Literal (Numeric 0.0 Pt) , Literal (Numeric 10.0 Percent) ])
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "align"))
+              [ NormalArg (Ident (Identifier "top"))
+              , NormalArg
+                  (FuncCall
+                     (Ident (Identifier "image"))
+                     [ NormalArg (Literal (String "test/assets/files/rhino.png")) ])
+              ])
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "align"))
+              [ NormalArg (Ident (Identifier "top"))
+              , NormalArg
+                  (FuncCall
+                     (Ident (Identifier "rect"))
+                     [ KeyValArg (Identifier "inset") (Literal (Numeric 0.0 Pt))
+                     , KeyValArg (Identifier "fill") (Ident (Identifier "eastern"))
+                     , NormalArg
+                         (FuncCall
+                            (Ident (Identifier "align"))
+                            [ NormalArg (Ident (Identifier "right"))
+                            , BlockArg [ Text "LoL" ]
+                            ])
+                     ])
+              ])
+       , NormalArg (Block (Content [ Text "rofl" ]))
+       , NormalArg
+           (Times
+              (Block (Content [ HardBreak , Text "A" ])) (Literal (Int 3)))
+       , NormalArg
+           (Times
+              (Block (Content [ Text "Ha!" , HardBreak ])) (Literal (Int 3)))
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  grid(children: (align(alignment: top, 
+                        body: image(path: "test/assets/files/rhino.png")), 
+                  align(alignment: top, 
+                        body: rect(body: align(alignment: right, 
+                                               body: [LoL]), 
+                                   fill: rgb(13%,61%,67%,100%), 
+                                   inset: 0.0pt)), 
+                  [rofl], 
+                  { linebreak(), 
+                    [A], 
+                    linebreak(), 
+                    [A], 
+                    linebreak(), 
+                    [A] }, 
+                  { [Ha!], 
+                    linebreak(), 
+                    [Ha!], 
+                    linebreak(), 
+                    [Ha!], 
+                    linebreak() }), 
+       column-gutter: (0.0pt, 10%), 
+       columns: (1.0fr, 
+                 1.0fr, 
+                 1.0fr, 
+                 1.0fr), 
+       row-gutter: 10.0pt), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Table
+      ( "" , [] , [] )
+      (Caption Nothing [])
+      [ ( AlignDefault , ColWidthDefault )
+      , ( AlignDefault , ColWidthDefault )
+      , ( AlignDefault , ColWidthDefault )
+      , ( AlignDefault , ColWidthDefault )
+      ]
+      (TableHead ( "" , [] , [] ) [])
+      [ TableBody
+          ( "" , [] , [] )
+          (RowHeadColumns 0)
+          []
+          [ Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Div
+                      ( "" , [] , [ ( "align" , "top" ) ] )
+                      [ Para
+                          [ Image ( "" , [] , [] ) [] ( "test/assets/files/rhino.png" , "" )
+                          ]
+                      ]
+                  ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Div
+                      ( "" , [] , [ ( "align" , "top" ) ] )
+                      [ Div
+                          ( "" , [ "rect" ] , [] )
+                          [ Div
+                              ( "" , [] , [ ( "align" , "right" ) ] ) [ Para [ Str "LoL" ] ]
+                          ]
+                      ]
+                  ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "rofl" ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para
+                      [ LineBreak , Str "A" , LineBreak , Str "A" , LineBreak , Str "A" ]
+                  ]
+              ]
+          , Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para
+                      [ Str "Ha!"
+                      , LineBreak
+                      , Str "Ha!"
+                      , LineBreak
+                      , Str "Ha!"
+                      , LineBreak
+                      ]
+                  ]
+              , Cell ( "" , [] , [] ) AlignDefault (RowSpan 1) (ColSpan 1) []
+              , Cell ( "" , [] , [] ) AlignDefault (RowSpan 1) (ColSpan 1) []
+              , Cell ( "" , [] , [] ) AlignDefault (RowSpan 1) (ColSpan 1) []
+              ]
+          ]
+      ]
+      (TableFoot ( "" , [] , [] ) [])
+  ]

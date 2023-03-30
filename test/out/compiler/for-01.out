@@ -1,0 +1,291 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/for-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/for-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/for-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/compiler/for-01.typ"
+    ( line 2 , column 2 )
+    (Let (BasicBind (Just (Identifier "out"))) (Array []))
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/for-01.typ"
+    ( line 5 , column 2 )
+    (For
+       (BasicBind (Just (Identifier "v")))
+       (Array [ Literal (Int 1) , Literal (Int 2) , Literal (Int 3) ])
+       (Block
+          (CodeBlock
+             [ Assign
+                 (Ident (Identifier "out"))
+                 (Plus
+                    (Ident (Identifier "out")) (Array [ Ident (Identifier "v") ]))
+             ])))
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/for-01.typ"
+    ( line 10 , column 2 )
+    (For
+       (DestructuringBind
+          [ Simple (Just (Identifier "i"))
+          , Simple (Just (Identifier "v"))
+          ])
+       (FuncCall
+          (FieldAccess
+             (Ident (Identifier "enumerate"))
+             (Array
+                [ Literal (String "1")
+                , Literal (String "2")
+                , Literal (String "3")
+                ]))
+          [])
+       (Block
+          (CodeBlock
+             [ FuncCall
+                 (Ident (Identifier "test"))
+                 [ NormalArg
+                     (FuncCall
+                        (Ident (Identifier "repr"))
+                        [ NormalArg (Plus (Ident (Identifier "i")) (Literal (Int 1))) ])
+                 , NormalArg (Ident (Identifier "v"))
+                 ]
+             ])))
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/for-01.typ"
+    ( line 15 , column 2 )
+    (For
+       (BasicBind (Just (Identifier "v")))
+       (Dict
+          [ ( Identifier "a" , Literal (Int 4) )
+          , ( Identifier "b" , Literal (Int 5) )
+          ])
+       (Block
+          (CodeBlock
+             [ Assign
+                 (Ident (Identifier "out"))
+                 (Plus
+                    (Ident (Identifier "out")) (Array [ Ident (Identifier "v") ]))
+             ])))
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/for-01.typ"
+    ( line 20 , column 2 )
+    (For
+       (DestructuringBind
+          [ Simple (Just (Identifier "k"))
+          , Simple (Just (Identifier "v"))
+          ])
+       (Dict
+          [ ( Identifier "a" , Literal (Int 6) )
+          , ( Identifier "b" , Literal (Int 7) )
+          ])
+       (Block
+          (CodeBlock
+             [ Assign
+                 (Ident (Identifier "out"))
+                 (Plus
+                    (Ident (Identifier "out")) (Array [ Ident (Identifier "k") ]))
+             , Assign
+                 (Ident (Identifier "out"))
+                 (Plus
+                    (Ident (Identifier "out")) (Array [ Ident (Identifier "v") ]))
+             ])))
+, ParBreak
+, Code
+    "test/typ/compiler/for-01.typ"
+    ( line 25 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg (Ident (Identifier "out"))
+       , NormalArg
+           (Array
+              [ Literal (Int 1)
+              , Literal (Int 2)
+              , Literal (Int 3)
+              , Array [ Literal (String "a") , Literal (Int 4) ]
+              , Array [ Literal (String "b") , Literal (Int 5) ]
+              , Literal (String "a")
+              , Literal (Int 6)
+              , Literal (String "b")
+              , Literal (Int 7)
+              ])
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/for-01.typ"
+    ( line 28 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "first"))) (Literal (Boolean True)))
+, SoftBreak
+, Code
+    "test/typ/compiler/for-01.typ"
+    ( line 29 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "joined")))
+       (For
+          (BasicBind (Just (Identifier "c")))
+          (Literal (String "abc\128105\8205\128105\8205\128102\8205\128102"))
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Not (Ident (Identifier "first"))
+                      , Block (CodeBlock [ Literal (String ", ") ])
+                      )
+                    ]
+                , Assign
+                    (Binding (BasicBind (Just (Identifier "first"))))
+                    (Literal (Boolean False))
+                , Ident (Identifier "c")
+                ]))))
+, ParBreak
+, Code
+    "test/typ/compiler/for-01.typ"
+    ( line 35 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg (Ident (Identifier "joined"))
+       , NormalArg
+           (Literal
+              (String "a, b, c, \128105\8205\128105\8205\128102\8205\128102"))
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/for-01.typ"
+    ( line 38 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (For
+              (BasicBind (Just (Identifier "v")))
+              (Literal (String ""))
+              (Block (Content [])))
+       , NormalArg (Literal None)
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/for-01.typ"
+    ( line 39 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "type"))
+              [ NormalArg
+                  (For
+                     (BasicBind (Just (Identifier "v")))
+                     (Literal (String "1"))
+                     (Block (Content [])))
+              ])
+       , NormalArg (Literal (String "content"))
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  parbreak(), 
+  parbreak(), 
+  [✅], 
+  [✅], 
+  [✅], 
+  parbreak(), 
+  parbreak(), 
+  parbreak(), 
+  [✅], 
+  parbreak(), 
+  [
+], 
+  parbreak(), 
+  [❌(], 
+  ["a, b, c, 👩, ‍, 👩, ‍, 👦, ‍, 👦"], 
+  [ /= ], 
+  ["a, b, c, 👩‍👩‍👦‍👦"], 
+  [)], 
+  parbreak(), 
+  [✅], 
+  [
+], 
+  [✅], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para [ Str "\9989\9989\9989" ]
+  , Para [ Str "\9989" ]
+  , Para []
+  , Para
+      [ Str "\10060(\"a,"
+      , Space
+      , Str "b,"
+      , Space
+      , Str "c,"
+      , Space
+      , Str "\128105,"
+      , Space
+      , Str "\8205,"
+      , Space
+      , Str "\128105,"
+      , Space
+      , Str "\8205,"
+      , Space
+      , Str "\128102,"
+      , Space
+      , Str "\8205,"
+      , Space
+      , Str "\128102\""
+      , Space
+      , Str "/="
+      , Space
+      , Str "\"a,"
+      , Space
+      , Str "b,"
+      , Space
+      , Str "c,"
+      , Space
+      , Str "\128105\8205\128105\8205\128102\8205\128102\")"
+      ]
+  , Para [ Str "\9989" , SoftBreak , Str "\9989" ]
+  ]

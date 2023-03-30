@@ -1,0 +1,255 @@
+--- parse tree ---
+[ Code
+    "test/typ/text/hyphenate-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/text/hyphenate-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/text/hyphenate-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/text/hyphenate-01.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 110.0 Pt)) ])
+, SoftBreak
+, Code
+    "test/typ/text/hyphenate-01.typ"
+    ( line 4 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "hyphenate") (Literal (Boolean True)) ])
+, ParBreak
+, Text "Welcome"
+, Space
+, Text "to"
+, Space
+, Text "wonderful"
+, Space
+, Text "experiences"
+, Text "."
+, Space
+, HardBreak
+, Text "Welcome"
+, Space
+, Text "to"
+, Space
+, RawInline "wonderful"
+, Space
+, Text "experiences"
+, Text "."
+, Space
+, HardBreak
+, Text "Welcome"
+, Space
+, Text "to"
+, Space
+, Code
+    "test/typ/text/hyphenate-01.typ"
+    ( line 8 , column 13 )
+    (FuncCall
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "hyphenate") (Literal (Boolean False))
+       , BlockArg [ Text "wonderful" ]
+       ])
+, Space
+, Text "experiences"
+, Text "."
+, Space
+, HardBreak
+, Text "Welcome"
+, Space
+, Text "to"
+, Space
+, Text "wonde"
+, Code
+    "test/typ/text/hyphenate-01.typ"
+    ( line 9 , column 18 )
+    (FuncCall
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "hyphenate") (Literal (Boolean False))
+       , BlockArg [ Text "rf" ]
+       ])
+, Text "ul"
+, Space
+, Text "experiences"
+, Text "."
+, Space
+, HardBreak
+, SoftBreak
+, Comment
+, Code
+    "test/typ/text/hyphenate-01.typ"
+    ( line 12 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "hyphenate") (Literal (Boolean False)) ])
+, SoftBreak
+, Text "Welcome"
+, Space
+, Text "to"
+, Space
+, Text "wonderful"
+, Space
+, Text "experiences"
+, Text "."
+, Space
+, HardBreak
+, Text "Welcome"
+, Space
+, Text "to"
+, Space
+, Text "wo"
+, Code
+    "test/typ/text/hyphenate-01.typ"
+    ( line 14 , column 15 )
+    (FuncCall
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "hyphenate") (Literal (Boolean True))
+       , BlockArg [ Text "nd" ]
+       ])
+, Text "erful"
+, Space
+, Text "experiences"
+, Text "."
+, Space
+, HardBreak
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  parbreak(), 
+  text(body: [Welcome to wonderful experiences. ], 
+       hyphenate: true), 
+  linebreak(), 
+  text(body: [Welcome to ], 
+       hyphenate: true), 
+  raw(block: false, 
+      lang: none, 
+      text: "wonderful"), 
+  text(body: [ experiences. ], 
+       hyphenate: true), 
+  linebreak(), 
+  text(body: [Welcome to ], 
+       hyphenate: true), 
+  text(body: text(body: [wonderful], 
+                  hyphenate: true), 
+       hyphenate: false), 
+  text(body: [ experiences. ], 
+       hyphenate: true), 
+  linebreak(), 
+  text(body: [Welcome to wonde], 
+       hyphenate: true), 
+  text(body: text(body: [rf], 
+                  hyphenate: true), 
+       hyphenate: false), 
+  text(body: [ul experiences. ], 
+       hyphenate: true), 
+  linebreak(), 
+  text(body: [
+], 
+       hyphenate: true), 
+  text(body: [
+Welcome to wonderful experiences. ], 
+       hyphenate: false), 
+  linebreak(), 
+  text(body: [Welcome to wo], 
+       hyphenate: false), 
+  text(body: text(body: [nd], 
+                  hyphenate: false), 
+       hyphenate: true), 
+  text(body: [erful experiences. ], 
+       hyphenate: false), 
+  linebreak(), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para
+      [ Str "Welcome"
+      , Space
+      , Str "to"
+      , Space
+      , Str "wonderful"
+      , Space
+      , Str "experiences."
+      , LineBreak
+      , Str "Welcome"
+      , Space
+      , Str "to"
+      , Space
+      , Code ( "" , [] , [] ) "wonderful"
+      , Space
+      , Str "experiences."
+      , LineBreak
+      , Str "Welcome"
+      , Space
+      , Str "to"
+      , Space
+      , Str "wonderful"
+      , Space
+      , Str "experiences."
+      , LineBreak
+      , Str "Welcome"
+      , Space
+      , Str "to"
+      , Space
+      , Str "wonderful"
+      , Space
+      , Str "experiences."
+      , LineBreak
+      , Str "Welcome"
+      , Space
+      , Str "to"
+      , Space
+      , Str "wonderful"
+      , Space
+      , Str "experiences."
+      , LineBreak
+      , Str "Welcome"
+      , Space
+      , Str "to"
+      , Space
+      , Str "wonderful"
+      , Space
+      , Str "experiences."
+      , LineBreak
+      ]
+  ]

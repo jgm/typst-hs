@@ -1,0 +1,134 @@
+--- parse tree ---
+[ Code
+    "test/typ/meta/link-05.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/meta/link-05.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/meta/link-05.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/meta/link-05.typ"
+    ( line 3 , column 2 )
+    (Show
+       (Just (Ident (Identifier "link")))
+       (FuncExpr
+          [ NormalParam (Identifier "it") ]
+          (FuncCall
+             (Ident (Identifier "underline"))
+             [ NormalArg
+                 (FuncCall
+                    (Ident (Identifier "text"))
+                    [ KeyValArg
+                        (Identifier "fill")
+                        (FuncCall
+                           (Ident (Identifier "rgb"))
+                           [ NormalArg (Literal (String "283663")) ])
+                    , NormalArg (Ident (Identifier "it"))
+                    ])
+             ])))
+, SoftBreak
+, Text "You"
+, Space
+, Text "could"
+, Space
+, Text "also"
+, Space
+, Text "make"
+, Space
+, Text "the"
+, SoftBreak
+, Code
+    "test/typ/meta/link-05.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "link"))
+       [ NormalArg (Literal (String "https://html5zombo.com/"))
+       , BlockArg
+           [ Text "link"
+           , Space
+           , Text "look"
+           , Space
+           , Text "way"
+           , Space
+           , Text "more"
+           , Space
+           , Text "typical"
+           , Text "."
+           ]
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+You could also make the
+], 
+  underline(body: text(body: link(body: [link look way more typical.], 
+                                  dest: "https://html5zombo.com/"), 
+                       fill: rgb(15%,21%,38%,100%))), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "You"
+      , Space
+      , Str "could"
+      , Space
+      , Str "also"
+      , Space
+      , Str "make"
+      , Space
+      , Str "the"
+      , SoftBreak
+      , Underline
+          [ Link
+              ( "" , [] , [] )
+              [ Str "link"
+              , Space
+              , Str "look"
+              , Space
+              , Str "way"
+              , Space
+              , Str "more"
+              , Space
+              , Str "typical."
+              ]
+              ( "https://html5zombo.com/" , "" )
+          ]
+      ]
+  ]

@@ -1,0 +1,323 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/columns-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/columns-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/columns-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/layout/columns-02.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "height") (Literal (Numeric 5.0 Cm))
+       , KeyValArg (Identifier "width") (Literal (Numeric 7.05 Cm))
+       , KeyValArg (Identifier "columns") (Literal (Int 2))
+       ])
+, ParBreak
+, Text "Lorem"
+, Space
+, Text "ipsum"
+, Space
+, Text "dolor"
+, Space
+, Text "sit"
+, Space
+, Text "amet"
+, Space
+, Text "is"
+, Space
+, Text "a"
+, Space
+, Text "common"
+, Space
+, Text "blind"
+, Space
+, Text "text"
+, SoftBreak
+, Text "and"
+, Space
+, Text "I"
+, Space
+, Text "again"
+, Space
+, Text "am"
+, Space
+, Text "in"
+, Space
+, Text "need"
+, Space
+, Text "of"
+, Space
+, Text "filling"
+, Space
+, Text "up"
+, Space
+, Text "this"
+, Space
+, Text "page"
+, SoftBreak
+, Code
+    "test/typ/layout/columns-02.typ"
+    ( line 7 , column 2 )
+    (FuncCall
+       (Ident (Identifier "align"))
+       [ NormalArg (Ident (Identifier "bottom"))
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "rect"))
+              [ KeyValArg (Identifier "fill") (Ident (Identifier "eastern"))
+              , KeyValArg (Identifier "width") (Literal (Numeric 100.0 Percent))
+              , KeyValArg (Identifier "height") (Literal (Numeric 12.0 Pt))
+              ])
+       ])
+, SoftBreak
+, Code
+    "test/typ/layout/columns-02.typ"
+    ( line 8 , column 2 )
+    (FuncCall (Ident (Identifier "colbreak")) [])
+, ParBreak
+, Text "so"
+, Space
+, Text "I"
+, Quote '\''
+, Text "m"
+, Space
+, Text "returning"
+, Space
+, Text "to"
+, Space
+, Text "this"
+, Space
+, Text "trusty"
+, Space
+, Text "tool"
+, Space
+, Text "of"
+, Space
+, Text "tangible"
+, Space
+, Text "terror"
+, Text "."
+, SoftBreak
+, Text "Sure,"
+, Space
+, Text "it"
+, Space
+, Text "is"
+, Space
+, Text "not"
+, Space
+, Text "the"
+, Space
+, Text "most"
+, Space
+, Text "creative"
+, Space
+, Text "way"
+, Space
+, Text "of"
+, Space
+, Text "filling"
+, Space
+, Text "up"
+, SoftBreak
+, Text "a"
+, Space
+, Text "page"
+, Space
+, Text "for"
+, Space
+, Text "a"
+, Space
+, Text "test"
+, Space
+, Text "but"
+, Space
+, Text "it"
+, Space
+, Text "does"
+, Space
+, Text "get"
+, Space
+, Text "the"
+, Space
+, Text "job"
+, Space
+, Text "done"
+, Text "."
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  parbreak(), 
+  [Lorem ipsum dolor sit amet is a common blind text
+and I again am in need of filling up this page
+], 
+  align(alignment: bottom, 
+        body: rect(body: none, 
+                   fill: rgb(13%,61%,67%,100%), 
+                   height: 12.0pt, 
+                   width: 100%)), 
+  [
+], 
+  colbreak(), 
+  parbreak(), 
+  [so I’m returning to this trusty tool of tangible terror.
+Sure, it is not the most creative way of filling up
+a page for a test but it does get the job done.], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para
+      [ Str "Lorem"
+      , Space
+      , Str "ipsum"
+      , Space
+      , Str "dolor"
+      , Space
+      , Str "sit"
+      , Space
+      , Str "amet"
+      , Space
+      , Str "is"
+      , Space
+      , Str "a"
+      , Space
+      , Str "common"
+      , Space
+      , Str "blind"
+      , Space
+      , Str "text"
+      , SoftBreak
+      , Str "and"
+      , Space
+      , Str "I"
+      , Space
+      , Str "again"
+      , Space
+      , Str "am"
+      , Space
+      , Str "in"
+      , Space
+      , Str "need"
+      , Space
+      , Str "of"
+      , Space
+      , Str "filling"
+      , Space
+      , Str "up"
+      , Space
+      , Str "this"
+      , Space
+      , Str "page"
+      ]
+  , Div
+      ( "" , [] , [ ( "align" , "bottom" ) ] )
+      [ Div ( "" , [ "rect" ] , [] ) [] ]
+  , Para []
+  , Para
+      [ Str "so"
+      , Space
+      , Str "I\8217m"
+      , Space
+      , Str "returning"
+      , Space
+      , Str "to"
+      , Space
+      , Str "this"
+      , Space
+      , Str "trusty"
+      , Space
+      , Str "tool"
+      , Space
+      , Str "of"
+      , Space
+      , Str "tangible"
+      , Space
+      , Str "terror."
+      , SoftBreak
+      , Str "Sure,"
+      , Space
+      , Str "it"
+      , Space
+      , Str "is"
+      , Space
+      , Str "not"
+      , Space
+      , Str "the"
+      , Space
+      , Str "most"
+      , Space
+      , Str "creative"
+      , Space
+      , Str "way"
+      , Space
+      , Str "of"
+      , Space
+      , Str "filling"
+      , Space
+      , Str "up"
+      , SoftBreak
+      , Str "a"
+      , Space
+      , Str "page"
+      , Space
+      , Str "for"
+      , Space
+      , Str "a"
+      , Space
+      , Str "test"
+      , Space
+      , Str "but"
+      , Space
+      , Str "it"
+      , Space
+      , Str "does"
+      , Space
+      , Str "get"
+      , Space
+      , Str "the"
+      , Space
+      , Str "job"
+      , Space
+      , Str "done."
+      ]
+  ]

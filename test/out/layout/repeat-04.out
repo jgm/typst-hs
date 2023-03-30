@@ -1,0 +1,154 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/repeat-04.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/repeat-04.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/repeat-04.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Text "A"
+, Code
+    "test/typ/layout/repeat-04.typ"
+    ( line 3 , column 3 )
+    (FuncCall
+       (Ident (Identifier "box"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 1.0 Fr))
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "repeat"))
+              [ NormalArg
+                  (FuncCall
+                     (Ident (Identifier "rect"))
+                     [ KeyValArg (Identifier "width") (Literal (Numeric 6.0 Em))
+                     , KeyValArg (Identifier "height") (Literal (Numeric 0.7 Em))
+                     ])
+              ])
+       ])
+, Text "B"
+, ParBreak
+, Code
+    "test/typ/layout/repeat-04.typ"
+    ( line 5 , column 2 )
+    (Set
+       (Ident (Identifier "align"))
+       [ NormalArg (Ident (Identifier "center")) ])
+, SoftBreak
+, Text "A"
+, Code
+    "test/typ/layout/repeat-04.typ"
+    ( line 6 , column 3 )
+    (FuncCall
+       (Ident (Identifier "box"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 1.0 Fr))
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "repeat"))
+              [ NormalArg
+                  (FuncCall
+                     (Ident (Identifier "rect"))
+                     [ KeyValArg (Identifier "width") (Literal (Numeric 6.0 Em))
+                     , KeyValArg (Identifier "height") (Literal (Numeric 0.7 Em))
+                     ])
+              ])
+       ])
+, Text "B"
+, ParBreak
+, Code
+    "test/typ/layout/repeat-04.typ"
+    ( line 8 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "dir") (Ident (Identifier "rtl")) ])
+, SoftBreak
+, Text "\1585\1610\1580\1610\1606"
+, Code
+    "test/typ/layout/repeat-04.typ"
+    ( line 9 , column 7 )
+    (FuncCall
+       (Ident (Identifier "box"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 1.0 Fr))
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "repeat"))
+              [ NormalArg
+                  (FuncCall
+                     (Ident (Identifier "rect"))
+                     [ KeyValArg (Identifier "width") (Literal (Numeric 4.0 Em))
+                     , KeyValArg (Identifier "height") (Literal (Numeric 0.7 Em))
+                     ])
+              ])
+       ])
+, Text "\1587\1608\1606"
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [A], 
+  box(body: repeat(body: rect(body: none, 
+                              height: 0.7em, 
+                              width: 6.0em)), 
+      width: 1.0fr), 
+  [B], 
+  parbreak(), 
+  [
+A], 
+  box(body: repeat(body: rect(body: none, 
+                              height: 0.7em, 
+                              width: 6.0em)), 
+      width: 1.0fr), 
+  [B], 
+  parbreak(), 
+  text(body: [
+ريجين], 
+       dir: rtl), 
+  box(body: repeat(body: rect(body: none, 
+                              height: 0.7em, 
+                              width: 4.0em)), 
+      width: 1.0fr), 
+  text(body: [سون], dir: rtl), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para [ Str "A" , Span ( "" , [ "box" ] , [] ) [] , Str "B" ]
+  , Para [ Str "A" , Span ( "" , [ "box" ] , [] ) [] , Str "B" ]
+  , Para
+      [ Str "\1585\1610\1580\1610\1606"
+      , Span ( "" , [ "box" ] , [] ) []
+      , Str "\1587\1608\1606"
+      ]
+  ]

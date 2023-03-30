@@ -1,0 +1,104 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/pad-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/pad-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/pad-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/layout/pad-02.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "height") (Literal (Numeric 6.0 Cm)) ])
+, SoftBreak
+, Code
+    "test/typ/layout/pad-02.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "align"))
+       [ NormalArg (Ident (Identifier "left"))
+       , BlockArg [ Text "Before" ]
+       ])
+, SoftBreak
+, Code
+    "test/typ/layout/pad-02.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "pad"))
+       [ NormalArg (Literal (Numeric 10.0 Pt))
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "image"))
+              [ NormalArg (Literal (String "test/assets/files/tiger.jpg")) ])
+       ])
+, SoftBreak
+, Code
+    "test/typ/layout/pad-02.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "align"))
+       [ NormalArg (Ident (Identifier "right"))
+       , BlockArg [ Text "After" ]
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  align(alignment: left, 
+        body: [Before]), 
+  [
+], 
+  pad(body: [10.0pt]), 
+  [
+], 
+  align(alignment: right, 
+        body: [After]), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Div
+      ( "" , [] , [ ( "align" , "left" ) ] ) [ Para [ Str "Before" ] ]
+  , Para []
+  , Div
+      ( "" , [] , [ ( "align" , "right" ) ] ) [ Para [ Str "After" ] ]
+  ]

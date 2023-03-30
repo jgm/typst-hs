@@ -1,0 +1,135 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/accent-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/accent-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/accent-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Equation
+    True
+    [ Text "x"
+    , MAlignPoint
+    , Text "="
+    , Text "p"
+    , HardBreak
+    , Code
+        "test/typ/math/accent-01.typ"
+        ( line 2 , column 12 )
+        (FuncCall
+           (Ident (Identifier "dot"))
+           [ NormalArg (Block (Content [ Text "x" ])) ])
+    , MAlignPoint
+    , Text "="
+    , Text "v"
+    , HardBreak
+    , Code
+        "test/typ/math/accent-01.typ"
+        ( line 2 , column 26 )
+        (FuncCall
+           (FieldAccess
+              (Ident (Identifier "double")) (Ident (Identifier "dot")))
+           [ NormalArg (Block (Content [ Text "x" ])) ])
+    , MAlignPoint
+    , Text "="
+    , Text "a"
+    , HardBreak
+    , Code
+        "test/typ/math/accent-01.typ"
+        ( line 2 , column 47 )
+        (FuncCall
+           (FieldAccess
+              (Ident (Identifier "triple")) (Ident (Identifier "dot")))
+           [ NormalArg (Block (Content [ Text "x" ])) ])
+    , MAlignPoint
+    , Text "="
+    , Text "j"
+    , HardBreak
+    , Code
+        "test/typ/math/accent-01.typ"
+        ( line 2 , column 68 )
+        (FuncCall
+           (FieldAccess
+              (Ident (Identifier "quad")) (Ident (Identifier "dot")))
+           [ NormalArg (Block (Content [ Text "x" ])) ])
+    , MAlignPoint
+    , Text "="
+    , Text "s"
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  math.equation(block: true, 
+                body: { [x], 
+                        math.alignpoint(), 
+                        [=], 
+                        [p], 
+                        linebreak(), 
+                        math.accent(accent: ⋅, 
+                                    base: [x]), 
+                        math.alignpoint(), 
+                        [=], 
+                        [v], 
+                        linebreak(), 
+                        math.accent(accent: ¨, 
+                                    base: [x]), 
+                        math.alignpoint(), 
+                        [=], 
+                        [a], 
+                        linebreak(), 
+                        math.accent(accent: ⃛, 
+                                    base: [x]), 
+                        math.alignpoint(), 
+                        [=], 
+                        [j], 
+                        linebreak(), 
+                        math.accent(accent: ⃜, 
+                                    base: [x]), 
+                        math.alignpoint(), 
+                        [=], 
+                        [s] }, 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math
+          DisplayMath
+          "\\begin{aligned}\nx & = p \\\\\n\\overset{\\cdot}{x} & = v \\\\\n\\overset{\168}{x} & = a \\\\\n\\dddot{x} & = j \\\\\n\\ddddot{x} & = s\n\\end{aligned}"
+      ]
+  ]

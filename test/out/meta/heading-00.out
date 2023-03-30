@@ -1,0 +1,70 @@
+--- parse tree ---
+[ Code
+    "test/typ/meta/heading-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/meta/heading-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/meta/heading-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, SoftBreak
+, Heading 1 [ Text "Level" , Space , Text "1" ]
+, Heading 2 [ Text "Level" , Space , Text "2" ]
+, Heading 3 [ Text "Level" , Space , Text "3" ]
+, Comment
+, Heading 11 [ Text "Level" , Space , Text "11" ]
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  heading(body: [Level 1], 
+          level: 1), 
+  heading(body: [Level 2], 
+          level: 2), 
+  heading(body: [Level 3], 
+          level: 3), 
+  heading(body: [Level 11], 
+          level: 11) }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Header 1 ( "" , [] , [] ) [ Str "Level" , Space , Str "1" ]
+  , Header 2 ( "" , [] , [] ) [ Str "Level" , Space , Str "2" ]
+  , Header 3 ( "" , [] , [] ) [ Str "Level" , Space , Str "3" ]
+  , Header 11 ( "" , [] , [] ) [ Str "Level" , Space , Str "11" ]
+  ]

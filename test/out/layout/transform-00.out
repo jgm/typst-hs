@@ -1,0 +1,243 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/transform-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/transform-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/transform-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/layout/transform-00.typ"
+    ( line 3 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "size"))) (Literal (Numeric 11.0 Pt)))
+, SoftBreak
+, Code
+    "test/typ/layout/transform-00.typ"
+    ( line 4 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "tex")))
+       (Block
+          (CodeBlock
+             [ Block (Content [ Text "T" ])
+             , FuncCall
+                 (Ident (Identifier "h"))
+                 [ NormalArg
+                     (Times
+                        (Negated (Literal (Float 0.14))) (Ident (Identifier "size")))
+                 ]
+             , FuncCall
+                 (Ident (Identifier "box"))
+                 [ NormalArg
+                     (FuncCall
+                        (Ident (Identifier "move"))
+                        [ KeyValArg
+                            (Identifier "dy")
+                            (Times (Literal (Float 0.22)) (Ident (Identifier "size")))
+                        , BlockArg [ Text "E" ]
+                        ])
+                 ]
+             , FuncCall
+                 (Ident (Identifier "h"))
+                 [ NormalArg
+                     (Times
+                        (Negated (Literal (Float 0.12))) (Ident (Identifier "size")))
+                 ]
+             , Block (Content [ Text "X" ])
+             ])))
+, ParBreak
+, Code
+    "test/typ/layout/transform-00.typ"
+    ( line 12 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "xetex")))
+       (Block
+          (CodeBlock
+             [ Block (Content [ Text "X" ])
+             , FuncCall
+                 (Ident (Identifier "h"))
+                 [ NormalArg
+                     (Times
+                        (Negated (Literal (Float 0.14))) (Ident (Identifier "size")))
+                 ]
+             , FuncCall
+                 (Ident (Identifier "box"))
+                 [ NormalArg
+                     (FuncCall
+                        (Ident (Identifier "scale"))
+                        [ KeyValArg
+                            (Identifier "x") (Negated (Literal (Numeric 100.0 Percent)))
+                        , NormalArg
+                            (FuncCall
+                               (Ident (Identifier "move"))
+                               [ KeyValArg
+                                   (Identifier "dy")
+                                   (Times (Literal (Float 0.26)) (Ident (Identifier "size")))
+                               , BlockArg [ Text "E" ]
+                               ])
+                        ])
+                 ]
+             , FuncCall
+                 (Ident (Identifier "h"))
+                 [ NormalArg
+                     (Times
+                        (Negated (Literal (Float 0.14))) (Ident (Identifier "size")))
+                 ]
+             , Block (Content [ Text "T" ])
+             , FuncCall
+                 (Ident (Identifier "h"))
+                 [ NormalArg
+                     (Times
+                        (Negated (Literal (Float 0.14))) (Ident (Identifier "size")))
+                 ]
+             , FuncCall
+                 (Ident (Identifier "box"))
+                 [ NormalArg
+                     (FuncCall
+                        (Ident (Identifier "move"))
+                        [ KeyValArg
+                            (Identifier "dy")
+                            (Times (Literal (Float 0.26)) (Ident (Identifier "size")))
+                        , BlockArg [ Text "E" ]
+                        ])
+                 ]
+             , FuncCall
+                 (Ident (Identifier "h"))
+                 [ NormalArg
+                     (Times
+                        (Negated (Literal (Float 0.12))) (Ident (Identifier "size")))
+                 ]
+             , Block (Content [ Text "X" ])
+             ])))
+, ParBreak
+, Code
+    "test/typ/layout/transform-00.typ"
+    ( line 24 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg
+           (Identifier "font") (Literal (String "New Computer Modern"))
+       , NormalArg (Ident (Identifier "size"))
+       ])
+, SoftBreak
+, Text "Neither"
+, Space
+, Code
+    "test/typ/layout/transform-00.typ"
+    ( line 25 , column 10 )
+    (Ident (Identifier "tex"))
+, Text ","
+, Space
+, HardBreak
+, Text "nor"
+, Space
+, Code
+    "test/typ/layout/transform-00.typ"
+    ( line 26 , column 6 )
+    (Ident (Identifier "xetex"))
+, Text "!"
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  parbreak(), 
+  parbreak(), 
+  text(body: [
+Neither ], 
+       font: "New Computer Modern", 
+       size: 11.0pt), 
+  text(body: [T], 
+       font: "New Computer Modern", 
+       size: 11.0pt), 
+  h(amount: -1.54pt), 
+  box(body: move(body: [E], 
+                 dy: 2.42pt)), 
+  h(amount: -1.3199999999999998pt), 
+  text(body: [X], 
+       font: "New Computer Modern", 
+       size: 11.0pt), 
+  text(body: [, ], 
+       font: "New Computer Modern", 
+       size: 11.0pt), 
+  linebreak(), 
+  text(body: [nor ], 
+       font: "New Computer Modern", 
+       size: 11.0pt), 
+  text(body: [X], 
+       font: "New Computer Modern", 
+       size: 11.0pt), 
+  h(amount: -1.54pt), 
+  box(body: scale(body: move(body: [E], 
+                             dy: 2.8600000000000003pt), 
+                  x: -100%)), 
+  h(amount: -1.54pt), 
+  text(body: [T], 
+       font: "New Computer Modern", 
+       size: 11.0pt), 
+  h(amount: -1.54pt), 
+  box(body: move(body: [E], 
+                 dy: 2.8600000000000003pt)), 
+  h(amount: -1.3199999999999998pt), 
+  text(body: [X], 
+       font: "New Computer Modern", 
+       size: 11.0pt), 
+  text(body: [!], 
+       font: "New Computer Modern", 
+       size: 11.0pt), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para
+      [ Str "Neither"
+      , Space
+      , Str "T"
+      , Span ( "" , [ "box" ] , [] ) []
+      , Str "X,"
+      , LineBreak
+      , Str "nor"
+      , Space
+      , Str "X"
+      , Span ( "" , [ "box" ] , [] ) []
+      , Str "T"
+      , Span ( "" , [ "box" ] , [] ) []
+      , Str "X!"
+      ]
+  ]

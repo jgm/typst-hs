@@ -1,0 +1,99 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/multiline-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/multiline-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/multiline-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Equation
+    True
+    [ Text "a"
+    , Text "+"
+    , Text "b"
+    , MAlignPoint
+    , Text "="
+    , Text "2"
+    , Text "+"
+    , Text "3"
+    , MAlignPoint
+    , Text "="
+    , Text "5"
+    , HardBreak
+    , Text "b"
+    , MAlignPoint
+    , Text "="
+    , Text "c"
+    , MAlignPoint
+    , Text "="
+    , Text "3"
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  math.equation(block: true, 
+                body: { [a], 
+                        [+], 
+                        [b], 
+                        math.alignpoint(), 
+                        [=], 
+                        [2], 
+                        [+], 
+                        [3], 
+                        math.alignpoint(), 
+                        [=], 
+                        [5], 
+                        linebreak(), 
+                        [b], 
+                        math.alignpoint(), 
+                        [=], 
+                        [c], 
+                        math.alignpoint(), 
+                        [=], 
+                        [3] }, 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math
+          DisplayMath
+          "\\begin{array}{rlr}\na + b & = 2 + 3 & = 5 \\\\\nb & = c & = 3\n\\end{array}"
+      ]
+  ]

@@ -1,0 +1,126 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/alignment-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/alignment-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/alignment-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/math/alignment-00.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 225.0 Pt)) ])
+, SoftBreak
+, Equation
+    True
+    [ Text " a "
+    , MAlignPoint
+    , Text "="
+    , Text "c"
+    , HardBreak
+    , MAlignPoint
+    , Text "="
+    , Text "c"
+    , Text "+"
+    , Text "1"
+    , MAlignPoint
+    , Text " By definition "
+    , HardBreak
+    , MAlignPoint
+    , Text "="
+    , Text "d"
+    , Text "+"
+    , Text "100"
+    , Text "+"
+    , Text "1000"
+    , HardBreak
+    , MAlignPoint
+    , Text "="
+    , Text "x"
+    , MAlignPoint
+    , MAlignPoint
+    , Text " Even longer "
+    , HardBreak
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  math.equation(block: true, 
+                body: { [ a ], 
+                        math.alignpoint(), 
+                        [=], 
+                        [c], 
+                        linebreak(), 
+                        math.alignpoint(), 
+                        [=], 
+                        [c], 
+                        [+], 
+                        [1], 
+                        math.alignpoint(), 
+                        [ By definition ], 
+                        linebreak(), 
+                        math.alignpoint(), 
+                        [=], 
+                        [d], 
+                        [+], 
+                        [100], 
+                        [+], 
+                        [1000], 
+                        linebreak(), 
+                        math.alignpoint(), 
+                        [=], 
+                        [x], 
+                        math.alignpoint(), 
+                        math.alignpoint(), 
+                        [ Even longer ], 
+                        linebreak() }, 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math
+          DisplayMath
+          "\\begin{aligned}\n\\text{ a } & = c \\\\\n & = c + 1 & \\text{ By definition } \\\\\n & = d + 100 + 1000 \\\\\n & = x & & \\text{ Even longer }\n\\end{aligned}"
+      ]
+  ]

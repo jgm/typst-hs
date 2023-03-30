@@ -1,0 +1,97 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/label-05.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/label-05.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/label-05.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compiler/label-05.typ"
+    ( line 3 , column 2 )
+    (Show (Just (Label "strike")) (Ident (Identifier "strike")))
+, SoftBreak
+, Strong [ Text "This" , Space , Text "is" ]
+, Space
+, Code
+    "test/typ/compiler/label-05.typ"
+    ( line 4 , column 12 )
+    (Block
+       (Content
+          [ Code
+              "test/typ/compiler/label-05.typ"
+              ( line 4 , column 13 )
+              (Label "strike")
+          ]))
+, Space
+, Strong [ Text "protected" , Text "." ]
+, SoftBreak
+, Strong
+    [ Text "This" , Space , Text "is" , Space , Text "not" , Text "." ]
+, Space
+, Code
+    "test/typ/compiler/label-05.typ"
+    ( line 5 , column 16 )
+    (Label "strike")
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  strong(body: [This is]), 
+  [ ], 
+  [], 
+  [ ], 
+  strong(body: [protected.]), 
+  [
+], 
+  strong(body: [This is not.]), 
+  [ ], 
+  [], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Strong [ Str "This" , Space , Str "is" ]
+      , Space
+      , Strong [ Str "protected." ]
+      , SoftBreak
+      , Strong [ Str "This" , Space , Str "is" , Space , Str "not." ]
+      ]
+  ]

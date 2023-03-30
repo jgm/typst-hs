@@ -1,0 +1,79 @@
+--- parse tree ---
+[ Code
+    "test/typ/meta/link-09.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/meta/link-09.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/meta/link-09.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Text "Text"
+, Space
+, Code
+    "test/typ/meta/link-09.typ" ( line 3 , column 6 ) (Label "hey")
+, SoftBreak
+, Code
+    "test/typ/meta/link-09.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "link"))
+       [ NormalArg (Label "hey")
+       , BlockArg
+           [ Text "Go" , Space , Text "to" , Space , Text "text" , Text "." ]
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [Text ], 
+  [], 
+  [
+], 
+  link(body: [Go to text.], 
+       dest: ), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "Text"
+      , SoftBreak
+      , Link
+          ( "" , [] , [] )
+          [ Str "Go" , Space , Str "to" , Space , Str "text." ]
+          ( "#hey" , "" )
+      ]
+  ]

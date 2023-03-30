@@ -1,0 +1,96 @@
+--- parse tree ---
+[ Code
+    "test/typ/bugs/smartquotes-in-outline-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/bugs/smartquotes-in-outline-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/bugs/smartquotes-in-outline-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/bugs/smartquotes-in-outline-00.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 15.0 Em)) ])
+, SoftBreak
+, Code
+    "test/typ/bugs/smartquotes-in-outline-00.typ"
+    ( line 3 , column 2 )
+    (FuncCall (Ident (Identifier "outline")) [])
+, ParBreak
+, Heading
+    1
+    [ Quote '"'
+    , Text "This"
+    , Quote '"'
+    , Space
+    , Quote '"'
+    , Text "is"
+    , Quote '"'
+    , Space
+    , Quote '"'
+    , Text "a"
+    , Quote '"'
+    , Space
+    , Quote '"'
+    , Text "test"
+    , Quote '"'
+    ]
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  outline(), 
+  parbreak(), 
+  heading(body: [“This” “is” “a” “test”], 
+          level: 1) }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Header
+      1
+      ( "" , [] , [] )
+      [ Str "\8220This\8221"
+      , Space
+      , Str "\8220is\8221"
+      , Space
+      , Str "\8220a\8221"
+      , Space
+      , Str "\8220test\8221"
+      ]
+  ]

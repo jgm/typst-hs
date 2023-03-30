@@ -1,0 +1,103 @@
+--- parse tree ---
+[ Code
+    "test/typ/text/emphasis-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/text/emphasis-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/text/emphasis-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Text "Normal"
+, ParBreak
+, Code
+    "test/typ/text/emphasis-02.typ"
+    ( line 5 , column 2 )
+    (Set
+       (Ident (Identifier "strong"))
+       [ KeyValArg (Identifier "delta") (Literal (Int 300)) ])
+, SoftBreak
+, Strong [ Text "Bold" ]
+, ParBreak
+, Code
+    "test/typ/text/emphasis-02.typ"
+    ( line 8 , column 2 )
+    (Set
+       (Ident (Identifier "strong"))
+       [ KeyValArg (Identifier "delta") (Literal (Int 150)) ])
+, SoftBreak
+, Strong [ Text "Medium" ]
+, Space
+, Text "and"
+, Space
+, Strong
+    [ Code
+        "test/typ/text/emphasis-02.typ"
+        ( line 9 , column 16 )
+        (Block (Content [ Strong [ Text "Bold" ] ]))
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [Normal], 
+  parbreak(), 
+  [
+], 
+  strong(body: [Bold], 
+         delta: 300), 
+  parbreak(), 
+  [
+], 
+  strong(body: [Medium], 
+         delta: 150), 
+  [ and ], 
+  strong(body: strong(body: [Bold], 
+                      delta: 150), 
+         delta: 150), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para [ Str "Normal" ]
+  , Para [ Strong [ Str "Bold" ] ]
+  , Para
+      [ Strong [ Str "Medium" ]
+      , Space
+      , Str "and"
+      , Space
+      , Strong [ Strong [ Str "Bold" ] ]
+      ]
+  ]

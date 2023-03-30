@@ -1,0 +1,107 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/spacing-03.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/spacing-03.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/spacing-03.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/math/spacing-03.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal Auto) ])
+, SoftBreak
+, Equation
+    True
+    [ MGroup
+        (Just "{")
+        (Just "}")
+        [ Text "x"
+        , Code
+            "test/typ/math/spacing-03.typ"
+            ( line 4 , column 7 )
+            (Ident (Identifier "in"))
+        , Code
+            "test/typ/math/spacing-03.typ"
+            ( line 4 , column 10 )
+            (Ident (Identifier "RR"))
+        , MGroup Nothing Nothing [ Nbsp , Text "|" , Nbsp ]
+        , Text "x"
+        , Text " is natural "
+        , Code
+            "test/typ/math/spacing-03.typ"
+            ( line 4 , column 30 )
+            (Ident (Identifier "and"))
+        , Text "x"
+        , Text "<"
+        , Text "10"
+        ]
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  math.equation(block: true, 
+                body: math.lr(body: { [{], 
+                                      [x], 
+                                      [∈], 
+                                      [ℝ], 
+                                      [ ], 
+                                      [|], 
+                                      [ ], 
+                                      [x], 
+                                      [ is natural ], 
+                                      [∧], 
+                                      [x], 
+                                      [<], 
+                                      [10], 
+                                      [}] }), 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math
+          DisplayMath
+          "\\left\\{ {x \\in {\\mathbb{R}}~|~x\\text{ is natural } \\land x < 10} \\right\\}"
+      ]
+  ]

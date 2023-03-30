@@ -1,0 +1,109 @@
+--- parse tree ---
+[ Code
+    "test/typ/visualize/shape-fill-stroke-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/visualize/shape-fill-stroke-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/visualize/shape-fill-stroke-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/visualize/shape-fill-stroke-02.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "square"))
+       [ KeyValArg (Identifier "stroke") (Literal (Numeric 4.0 Pt)) ])
+, SoftBreak
+, Code
+    "test/typ/visualize/shape-fill-stroke-02.typ"
+    ( line 4 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "font") (Literal (String "Roboto")) ])
+, SoftBreak
+, Code
+    "test/typ/visualize/shape-fill-stroke-02.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "square"))
+       [ KeyValArg
+           (Identifier "stroke")
+           (Dict
+              [ ( Identifier "left" , Ident (Identifier "red") )
+              , ( Identifier "top" , Ident (Identifier "yellow") )
+              , ( Identifier "right" , Ident (Identifier "green") )
+              , ( Identifier "bottom" , Ident (Identifier "blue") )
+              ])
+       , KeyValArg (Identifier "radius") (Literal (Numeric 100.0 Percent))
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "align"))
+              [ NormalArg
+                  (Plus (Ident (Identifier "center")) (Ident (Identifier "horizon")))
+              , BlockArg [ Strong [ Text "G" ] ]
+              ])
+       , KeyValArg (Identifier "inset") (Literal (Numeric 8.0 Pt))
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  text(body: [
+], 
+       font: "Roboto"), 
+  square(body: align(alignment: Axes(center, horizon), 
+                     body: strong(body: text(body: [G], 
+                                             font: "Roboto"))), 
+         inset: 8.0pt, 
+         radius: 100%, 
+         stroke: (left: rgb(100%,25%,21%,100%),
+                  top: rgb(100%,86%,0%,100%),
+                  right: rgb(18%,80%,25%,100%),
+                  bottom: rgb(0%,45%,85%,100%))), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Div
+      ( "" , [ "square" ] , [] )
+      [ Div
+          ( "" , [] , [ ( "align" , "Axes(center, horizon)" ) ] )
+          [ Para [ Strong [ Str "G" ] ] ]
+      ]
+  ]

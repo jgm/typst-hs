@@ -1,0 +1,377 @@
+{-# LANGUAGE LambdaCase #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE RankNTypes #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE OverloadedLists #-}
+module Typst.Module.Standard (
+    standardModule
+  ) where
+
+import Text.Read (readMaybe)
+import Control.Monad (unless, mplus)
+import Control.Applicative ((<|>))
+import Typst.Types
+import Typst.Regex (makeRE)
+import Typst.Module.Math (mathModule)
+import Typst.Module.Sym (typstSymbols)
+import Typst.Module.Emoji (typstEmojis)
+import Typst.Module.Calc (calcModule)
+import Typst.Util
+import Data.Maybe (mapMaybe)
+import Text.Parsec (getPosition, updateState)
+import qualified Data.Map as M
+import qualified Data.Map.Ordered as OM
+import qualified Data.Text as T
+import qualified Data.Vector as V
+import Data.Ratio ((%))
+import Data.Text (Text)
+import Control.Monad.Reader (lift)
+import qualified Data.Set as Set
+import qualified Data.Sequence as Seq
+import qualified Data.Csv as Csv
+import qualified Data.Aeson as Aeson
+import qualified Text.XML as XML
+import qualified Data.Yaml as Yaml
+import qualified Data.ByteString.Lazy as BL
+
+standardModule :: M.Map Identifier Val
+standardModule = M.fromList $
+  [ ("math", VModule "math" mathModule)
+  , ("sym", VModule "sym" symModule)
+  , ("emoji", VModule "emoji" emojiModule)
+  , ("calc", VModule "calc" calcModule)
+  ]
+  ++ colors
+  ++ directions
+  ++ alignments
+  ++ textual
+  ++ layout
+  ++ visualize
+  ++ meta
+  ++ foundations
+  ++ construct
+  ++ dataLoading
+
+symModule :: M.Map Identifier Val
+symModule = M.map VSymbol $ makeSymbolMap typstSymbols
+
+emojiModule :: M.Map Identifier Val
+emojiModule = M.map VSymbol $ makeSymbolMap typstEmojis
+
+textual :: [(Identifier, Val)]
+textual =
+  [ makeTextElement Nothing "text"
+  , makeElement Nothing "emph" [("body", One TContent)]
+  , makeElement Nothing "linebreak" []
+  , makeElement Nothing "strong" [("body", One TContent)]
+  , makeElement Nothing "sub" [("body", One TContent)]
+  , makeElement Nothing "super" [("body", One TContent)]
+  , makeElement Nothing "strike" [("body", One TContent)]
+  , makeElement Nothing "smallcaps" [("body", One TContent)]
+  , makeElement Nothing "underline" [("body", One TContent)]
+  , makeElement Nothing "overline" [("body", One TContent)]
+  , makeElement Nothing "raw" [("text", One TString)]
+  , makeElement Nothing "smartquote" []
+  , makeElement Nothing "lower" [("text", One (TString :|: TContent))]
+  , ("lower", makeFunction $ do
+        val <- nthArg 1
+        case val of
+          VString t -> pure $ VString $ T.toLower t
+          VContent cs -> do
+            pos <- lift getPosition
+            pure $ VContent . Seq.singleton $ Elt "lower" (Just pos) [("text", VContent cs)]
+          _ -> fail "argument must be string or content")
+  , ("upper", makeFunction $ do
+        val <- nthArg 1
+        case val of
+          VString t -> pure $ VString $ T.toUpper t
+          VContent cs -> do
+            pos <- lift getPosition
+            pure $ VContent . Seq.singleton $ Elt "upper" (Just pos) [("text", VContent cs)]
+          _ -> fail "argument must be string or content")
+  ]
+
+layout :: [(Identifier, Val)]
+layout =
+  [ makeElement Nothing "align" [("alignment", One TAlignment),
+                         ("body", One TContent)]
+  , makeElement Nothing "block" [("body", One TContent)]
+  , makeElement Nothing "box" [("body", One TContent)]
+  , makeElement Nothing "colbreak" []
+  , makeElement Nothing "columns" [("count", One TInteger), ("body", One TContent)]
+  , makeElement Nothing "grid" [("children", Many TContent)]
+  , makeElement Nothing "h" [("amount", One (TLength :|: TRatio :|: TFraction))]
+  , makeElement Nothing "v" [("amount", One (TLength :|: TRatio :|: TFraction))]
+  , makeElement Nothing "hide" [("body", One TContent)]
+  , makeElementWithScope Nothing "enum" [("children", Many TContent)]
+      [ makeElement (Just "enum") "item"
+          [("number", One (TInteger :|: TNone)),
+           ("body", One TContent)] ]
+  , makeElementWithScope Nothing "list" [("children", Many TContent)]
+      [ makeElement (Just "list") "item" [("body", One TContent)] ]
+  , makeElement Nothing "measure" [("content", One TContent), ("styles", One TStyles)]
+  , makeElement Nothing "move" [("body", One TContent)]
+  , makeElement Nothing "pad" [("body", One TContent)]
+  , makeElement Nothing "page" [("body", One TContent)]
+  , makeElement Nothing "pagebreak" []
+  , makeElement Nothing "par" [("body", One TContent)]
+  , makeElement Nothing "parbreak" []
+  , makeElement Nothing "place" [("body", One TContent)]
+  , makeElement Nothing "repeat" [("body", One TContent)]
+  , makeElement Nothing "rotate" [("body", One TContent)]
+  , makeElement Nothing "scale" [("body", One TContent)]
+  , makeElement Nothing "stack"
+     [("children", Many (TLength :|: TRatio :|: TFraction :|: TContent))]
+  , makeElement Nothing "table" [("children", Many TContent)]
+  , makeElementWithScope Nothing "terms" [("children", Many TTermItem)]
+      [ makeElement (Just "terms") "item"
+         [("term", One TContent),
+          ("description", One TContent)] ]
+  ]
+
+visualize :: [(Identifier, Val)]
+visualize =
+  [ makeElement Nothing "circle" [("body", One (TContent :|: TNone))]
+  , makeElement Nothing "ellipse" [("body", One (TContent :|: TNone))]
+  , makeElement Nothing "image" [("path", One TString)]
+  , makeElement Nothing "line" []
+  , makeElement Nothing "path" [("vertices", Many TArray)]
+  , makeElement Nothing "polygon" [("vertices", Many TArray)]
+  , makeElement Nothing "rect" [("body", One (TContent :|: TNone))]
+  , makeElement Nothing "square" [("body", One (TContent :|: TNone))]
+  ]
+
+
+meta :: [(Identifier, Val)]
+meta =
+  [ makeElement Nothing "bibliography" [("path", One (TString :|: TArray))]
+  , makeElement Nothing "cite" [("keys", Many TString),
+                        ("supplement", One (TContent :|: TNone))]
+  , makeElement Nothing "document" []
+  , makeElement Nothing "figure" [("body", One TContent)]
+  , makeElement Nothing "heading" [("body", One TContent)]
+  , makeElement Nothing "layout" [("func", One TFunction)]
+  , makeElement Nothing "link"
+      [("dest", One (TString :|: TLabel :|: TDict :|: TLocation)),
+       ("body", One TContent)]
+  , makeElement Nothing "locate" [("func", One TFunction)]
+  , makeElement Nothing "numbering" [("numbering", One (TString :|: TFunction)),
+                             ("numbers", Many TInteger)]
+  , makeElement Nothing "outline" []
+  , makeElement Nothing "query" [("target", One (TLabel :|: TFunction)),
+                         ("location", One TLocation)]
+  , makeElement Nothing "ref" [("target", One TLabel)]
+  , makeElement Nothing "state" [("key", One TString), ("init", One TAny)]
+  , makeElement Nothing "style" [("func", One TFunction)]
+  , makeElementWithScope Nothing "footnote" [("body", One TContent)]
+      [ makeElement (Just "footnote") "entry" [("note", One TContent)] ]
+  ]
+
+colors :: [(Identifier, Val)]
+colors =
+  [ ("red", VColor $ RGB (0xff % 0xff) (0x41 % 0xff) (0x36 % 0xff) 1)
+  , ("blue", VColor $ RGB (0x00 % 0xff) (0x74 % 0xff) (0xd9 % 0xff) 1)
+  , ("black", VColor $ RGB (0x00 % 0xff) (0x00 % 0xff) (0x00 % 0xff) 1)
+  , ("gray", VColor $ RGB (0xaa % 0xff) (0xaa % 0xff) (0xaa % 0xff) 1)
+  , ("silver", VColor $ RGB (0xdd % 0xff) (0xdd % 0xff) (0xdd % 0xff) 1)
+  , ("white", VColor $ RGB (0xff % 0xff) (0xff % 0xff) (0xff % 0xff) 1)
+  , ("navy", VColor $ RGB (0x00 % 0xff) (0x1f % 0xff) (0x3f % 0xff) 1)
+  , ("aqua", VColor $ RGB (0x7f % 0xff) (0xdb % 0xff) (0xff % 0xff) 1)
+  , ("teal", VColor $ RGB (0x39 % 0xff) (0xcc % 0xff) (0xcc % 0xff) 1)
+  , ("eastern", VColor $ RGB (0x23 % 0xff) (0x9d % 0xff) (0xad % 0xff) 1)
+  , ("purple", VColor $ RGB (0xb1 % 0xff) (0x0d % 0xff) (0xc9 % 0xff) 1)
+  , ("fuchsia", VColor $ RGB (0xf0 % 0xff) (0x12 % 0xff) (0xbe % 0xff) 1)
+  , ("maroon", VColor $ RGB (0x85 % 0xff) (0x14 % 0xff) (0x4b % 0xff) 1)
+  , ("yellow", VColor $ RGB (0xff % 0xff) (0xdc % 0xff) (0x00 % 0xff) 1)
+  , ("orange", VColor $ RGB (0xff % 0xff) (0x85 % 0xff) (0x1b % 0xff) 1)
+  , ("olive", VColor $ RGB (0x3d % 0xff) (0x99 % 0xff) (0x70 % 0xff) 1)
+  , ("green", VColor $ RGB (0x2e % 0xff) (0xcc % 0xff) (0x40 % 0xff) 1)
+  , ("lime", VColor $ RGB (0x01 % 0xff) (0xff % 0xff) (0x70 % 0xff) 1)
+  ]
+
+directions :: [(Identifier, Val)]
+directions =
+  [ ("ltr", VDirection Ltr)
+  , ("rtl", VDirection Rtl)
+  , ("ttb", VDirection Ttb)
+  , ("btt", VDirection Btt)
+  ]
+
+alignments :: [(Identifier, Val)]
+alignments =
+  [ ("start", VAlignment (Just HorizStart) Nothing)
+  , ("end", VAlignment (Just HorizEnd) Nothing)
+  , ("left", VAlignment (Just HorizLeft) Nothing)
+  , ("center", VAlignment (Just HorizCenter) Nothing)
+  , ("right", VAlignment (Just HorizRight) Nothing)
+  , ("top", VAlignment Nothing (Just VertTop))
+  , ("horizon", VAlignment Nothing (Just VertHorizon))
+  , ("bottom", VAlignment Nothing (Just VertBottom))
+  ]
+
+foundations :: [(Identifier, Val)]
+foundations =
+  [ ("assert", makeFunctionWithScope
+      (do
+        (cond :: Bool) <- nthArg 1
+        unless cond $ do
+          (msg :: String) <- namedArg "message" <|> pure "Assertion failed"
+          fail msg
+        pure VNone)
+      [("eq", makeFunction $ do
+           (v1 :: Val) <- nthArg 1
+           (v2 :: Val) <- nthArg 2
+           unless (comp v1 v2 == Just EQ) $ fail "Assertion failed"
+           pure VNone)
+      ,("ne", makeFunction $ do
+           (v1 :: Val) <- nthArg 1
+           (v2 :: Val) <- nthArg 2
+           unless (comp v1 v2 /= Just EQ) $ fail "Assertion failed"
+           pure VNone)
+      ]
+    )
+  , ("panic", makeFunction $ allArgs >>= fail . unlines . map show)
+  , ("repr", makeFunction $ nthArg 1 >>= pure . VString . repr)
+  , ("type", makeFunction $ do
+        (x :: Val) <- nthArg 1
+        pure $ VString $
+          case valType x of
+            TAlignment ->
+              case x of
+                VAlignment (Just _) (Just _) -> "2d alignment"
+                _ -> "alignment"
+            TDict -> "dictionary"
+            ty -> T.toLower . T.drop 1 . T.pack . show $ ty)
+  ]
+
+construct :: [(Identifier, Val)]
+construct =
+  [ ("cmyk", makeFunction $
+      VColor <$> (CMYK <$> nthArg 1 <*> nthArg 2 <*> nthArg 3 <*> nthArg 4))
+  , ("float", makeFunction $ VFloat <$> nthArg 1)
+  , ("int", makeFunction $ VInteger <$> nthArg 1)
+  , ("label", makeFunction $ VLabel <$> nthArg 1)
+  , ("counter", makeFunction $ do
+        (counter :: Counter) <- nthArg 1
+        let initializeIfMissing Nothing = Just 0
+            initializeIfMissing (Just x) = Just x
+        lift $ updateState $ \st ->
+          st{ evalCounters = M.alter initializeIfMissing counter $ evalCounters st }
+        pure $ VCounter counter)
+  , ("luma", makeFunction $ VColor <$> (Luma <$> nthArg 1))
+  , ("range", makeFunction $ do
+        first <- nthArg 1
+        mbsecond <- nthArg 2 `mplus` (fmap (+ first) <$> namedArg "count")
+        step <- namedArg "step" `mplus` pure 1
+        pure $ VArray $ V.fromList $ map VInteger $
+          case (first, mbsecond) of
+            (end, Nothing) -> enumFromThenTo 0 step (end - 1)
+            (start, Just end) -> enumFromThenTo start (start + step)
+                                                      (if start < end
+                                                          then end - 1
+                                                          else end + 1))
+  , ("regex", makeFunction $ VRegex <$> (nthArg 1 >>= makeRE))
+  , ("rgb", makeFunction $
+      VColor <$> (   (RGB <$> (nthArg 1 >>= toRatio)
+                          <*> (nthArg 2 >>= toRatio)
+                          <*> (nthArg 3 >>= toRatio)
+                          <*> ((nthArg 4 >>= toRatio) `mplus` pure 1.0))
+                <|> (nthArg 1 >>= hexToRGB) ) )
+  , ("str", makeFunction $ do
+        val <- nthArg 1
+        VString <$> (fromVal val `mplus` pure (repr val)))
+  , ("symbol", makeFunction $ do
+        (t :: Text) <- nthArg 1
+        vs <- drop 1 <$> allArgs
+        variants <- mapM
+            (\case
+                VArray [VString k, VString v] ->
+                  pure (Set.fromList (T.split (=='.') k), v)
+                _ -> fail "wrong type in symbol arguments")
+            vs
+        pure $ VSymbol $ Symbol t False variants)
+  , ("lorem", makeFunction $ do
+        (num :: Int) <- nthArg 1
+        pure $ VString $ T.unwords $ take num loremWords)
+  ]
+
+loremWords :: [Text]
+loremWords = cycle $ T.words $
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\
+  \ eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut\
+  \ enim ad minim veniam, quis nostrud exercitation ullamco laboris\
+  \ nisi ut aliquip ex ea commodo consequat.  Duis aute irure dolor in\
+  \ reprehenderit in voluptate velit esse cillum dolore eu fugiat\
+  \ nulla pariatur. Excepteur sint occaecat cupidatat non proident,\
+  \ sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+
+toRatio :: MonadFail m => Val -> m Rational
+toRatio (VRatio r) = pure r
+toRatio (VInteger i) = pure $ i % 255
+toRatio _ = fail "cannot convert to rational"
+
+hexToRGB :: MonadFail m => Val -> m Color
+hexToRGB (VString s) = do
+  let s' = T.dropWhile (== '#') s
+  parts <- map (fmap (% 255) . readMaybe . T.unpack . ("0x" <>)) <$>
+    case T.length s' of
+         3 -> pure $ T.chunksOf 1 s'
+         4 -> pure $ T.chunksOf 1 s'
+         6 -> pure $ T.chunksOf 2 s'
+         8 -> pure $ T.chunksOf 2 s'
+         _ -> fail "hex string must be 3, 4, 6, or 8 digits"
+  case parts of
+    [Just r, Just g, Just b] -> pure $ RGB r g b 1.0
+    [Just r, Just g, Just b, Just o] -> pure $ RGB r g b o
+    _ -> fail "could not read string as hex color"
+
+hexToRGB _ = fail "expected string"
+
+dataLoading :: [(Identifier, Val)]
+dataLoading =
+  [ ("csv", makeFunction $ do
+        fp <- nthArg 1
+        bs <- lift . lift $ loadFileLazyBytes fp
+        case Csv.decode Csv.NoHeader bs of
+          Left e -> fail e
+          Right (v :: V.Vector (V.Vector String))
+                 -> pure $ VArray $ V.map (VArray . V.map (VString . T.pack)) v)
+  , ("json", makeFunction $ do
+        fp <- nthArg 1
+        bs <- lift . lift $ loadFileLazyBytes fp
+        case Aeson.eitherDecode bs of
+          Left e -> fail e
+          Right (v :: Val) -> pure v)
+  , ("yaml", makeFunction $ do
+        fp <- nthArg 1
+        bs <- lift . lift $ loadFileLazyBytes fp
+        case Yaml.decodeEither' (BL.toStrict bs) of
+          Left e -> fail $ show e
+          Right (v :: Val) -> pure v)
+  , ("read", makeFunction $ do
+        fp <- nthArg 1
+        t <- lift . lift $ loadFileText fp
+        pure $ VString t)
+  , ("toml", makeFunction $ fail "unimplemented toml")
+  , ("xml", makeFunction $ do
+        fp <- nthArg 1
+        bs <- lift . lift $ loadFileLazyBytes fp
+        case XML.parseLBS XML.def bs of
+          Left e -> fail $ show e
+          Right doc -> pure $ VArray $ V.fromList $ mapMaybe nodeToVal
+                            [ XML.NodeElement (XML.documentRoot doc) ]
+           where
+            showname n = XML.nameLocalName n
+            nodeToVal (XML.NodeElement elt) = Just $ eltToDict elt
+            nodeToVal (XML.NodeContent t) = Just $ VString t
+            nodeToVal _ = Nothing
+            eltToDict elt =
+              VDict $ OM.fromList
+                [("tag", VString $ showname (XML.elementName elt)),
+                 ("attrs", VDict $ OM.fromList $
+                    map (\(k,v) -> (Identifier (showname k), VString v))
+                    (M.toList $ XML.elementAttributes elt)) ,
+                 ("children", VArray $ V.fromList $
+                    mapMaybe nodeToVal (XML.elementNodes elt))] )
+  ]

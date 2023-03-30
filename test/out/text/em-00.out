@@ -1,0 +1,168 @@
+--- parse tree ---
+[ Code
+    "test/typ/text/em-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/text/em-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/text/em-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/text/em-00.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "size") (Literal (Numeric 5.0 Pt)) ])
+, SoftBreak
+, Text "A"
+, Space
+, Comment
+, Code
+    "test/typ/text/em-00.typ"
+    ( line 4 , column 2 )
+    (Block
+       (Content
+          [ SoftBreak
+          , Code
+              "test/typ/text/em-00.typ"
+              ( line 5 , column 4 )
+              (Set
+                 (Ident (Identifier "text"))
+                 [ KeyValArg (Identifier "size") (Literal (Numeric 2.0 Em)) ])
+          , SoftBreak
+          , Text "B"
+          , Space
+          , Comment
+          , Space
+          , Code
+              "test/typ/text/em-00.typ"
+              ( line 7 , column 4 )
+              (Block
+                 (Content
+                    [ SoftBreak
+                    , Code
+                        "test/typ/text/em-00.typ"
+                        ( line 8 , column 6 )
+                        (Set
+                           (Ident (Identifier "text"))
+                           [ KeyValArg
+                               (Identifier "size")
+                               (Plus (Literal (Numeric 1.5 Em)) (Literal (Numeric 1.0 Pt)))
+                           ])
+                    , SoftBreak
+                    , Text "C"
+                    , Space
+                    , Comment
+                    , Space
+                    , Code
+                        "test/typ/text/em-00.typ"
+                        ( line 10 , column 6 )
+                        (FuncCall
+                           (Ident (Identifier "text"))
+                           [ KeyValArg (Identifier "size") (Literal (Numeric 2.0 Em))
+                           , BlockArg [ Text "D" ]
+                           ])
+                    , Space
+                    , Comment
+                    , Space
+                    , Text "E"
+                    , Space
+                    , Comment
+                    , Space
+                    ]))
+          , SoftBreak
+          , Text "F"
+          , Space
+          , Comment
+          ]))
+, SoftBreak
+, Text "G"
+, Space
+, Comment
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  text(body: [
+A ], 
+       size: 5.0pt), 
+  text(body: [
+], size: 5.0pt), 
+  text(body: [
+B ], 
+       size: 2.0em), 
+  text(body: [ ], size: 2.0em), 
+  text(body: [
+], size: 2.0em), 
+  text(body: [
+C ], 
+       size: 1.5em + 1.0pt), 
+  text(body: [ ], 
+       size: 1.5em + 1.0pt), 
+  text(body: text(body: [D], 
+                  size: 1.5em + 1.0pt), 
+       size: 2.0em), 
+  text(body: [ ], 
+       size: 1.5em + 1.0pt), 
+  text(body: [ E ], 
+       size: 1.5em + 1.0pt), 
+  text(body: [ ], 
+       size: 1.5em + 1.0pt), 
+  text(body: [
+F ], 
+       size: 1.5em + 1.0pt), 
+  text(body: [
+G ], 
+       size: 1.5em + 1.0pt), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "A"
+      , SoftBreak
+      , Str "B"
+      , SoftBreak
+      , Str "C"
+      , Space
+      , Str "D"
+      , Space
+      , Str "E"
+      , SoftBreak
+      , Str "F"
+      , SoftBreak
+      , Str "G"
+      ]
+  ]

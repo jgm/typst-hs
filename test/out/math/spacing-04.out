@@ -1,0 +1,443 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/spacing-04.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/spacing-04.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/spacing-04.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/math/spacing-04.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal Auto) ])
+, SoftBreak
+, Equation
+    False
+    [ Text "a"
+    , Code
+        "test/typ/math/spacing-04.typ"
+        ( line 4 , column 4 )
+        (Ident (Identifier "ident"))
+    , Text "b"
+    , Text "+"
+    , Text "c"
+    , Text "-"
+    , Text "d"
+    , Text "\8658"
+    , Text "e"
+    , Code
+        "test/typ/math/spacing-04.typ"
+        ( line 4 , column 25 )
+        (Ident (Identifier "log"))
+    , Text "5"
+    , Code
+        "test/typ/math/spacing-04.typ"
+        ( line 4 , column 31 )
+        (FuncCall
+           (Ident (Identifier "op"))
+           [ NormalArg (Block (Content [ Text "ln" ])) ])
+    , Text "6"
+    ]
+, Space
+, HardBreak
+, Equation
+    False
+    [ Text "a"
+    , Code
+        "test/typ/math/spacing-04.typ"
+        ( line 5 , column 4 )
+        (FuncCall
+           (Ident (Identifier "cancel"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/spacing-04.typ"
+                         ( line 5 , column 11 )
+                         (Ident (Identifier "ident"))
+                     ]))
+           ])
+    , Text "b"
+    , Code
+        "test/typ/math/spacing-04.typ"
+        ( line 5 , column 20 )
+        (FuncCall
+           (Ident (Identifier "overline"))
+           [ NormalArg (Block (Content [ Text "+" ])) ])
+    , Text "c"
+    , Code
+        "test/typ/math/spacing-04.typ"
+        ( line 5 , column 34 )
+        (FuncCall
+           (Ident (Identifier "arrow"))
+           [ NormalArg (Block (Content [ Text "-" ])) ])
+    , Text "d"
+    , Code
+        "test/typ/math/spacing-04.typ"
+        ( line 5 , column 45 )
+        (FuncCall
+           (Ident (Identifier "hat"))
+           [ NormalArg (Block (Content [ Text "\8658" ])) ])
+    , Text "e"
+    , Code
+        "test/typ/math/spacing-04.typ"
+        ( line 5 , column 55 )
+        (FuncCall
+           (Ident (Identifier "cancel"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/spacing-04.typ"
+                         ( line 5 , column 62 )
+                         (Ident (Identifier "log"))
+                     ]))
+           ])
+    , Text "5"
+    , Code
+        "test/typ/math/spacing-04.typ"
+        ( line 5 , column 69 )
+        (FuncCall
+           (Ident (Identifier "dot"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/spacing-04.typ"
+                         ( line 5 , column 73 )
+                         (FuncCall
+                            (Ident (Identifier "op"))
+                            [ NormalArg (Block (Content [ Text "ln" ])) ])
+                     ]))
+           ])
+    , Text "6"
+    ]
+, Space
+, HardBreak
+, Equation
+    False
+    [ Text "a"
+    , Code
+        "test/typ/math/spacing-04.typ"
+        ( line 6 , column 4 )
+        (FuncCall
+           (Ident (Identifier "overbrace"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/spacing-04.typ"
+                         ( line 6 , column 14 )
+                         (Ident (Identifier "ident"))
+                     ]))
+           ])
+    , Text "b"
+    , Code
+        "test/typ/math/spacing-04.typ"
+        ( line 6 , column 23 )
+        (FuncCall
+           (Ident (Identifier "underline"))
+           [ NormalArg (Block (Content [ Text "+" ])) ])
+    , Text "c"
+    , Code
+        "test/typ/math/spacing-04.typ"
+        ( line 6 , column 38 )
+        (FuncCall
+           (Ident (Identifier "grave"))
+           [ NormalArg (Block (Content [ Text "-" ])) ])
+    , Text "d"
+    , Code
+        "test/typ/math/spacing-04.typ"
+        ( line 6 , column 49 )
+        (FuncCall
+           (Ident (Identifier "underbracket"))
+           [ NormalArg (Block (Content [ Text "\8658" ])) ])
+    , Text "e"
+    , Code
+        "test/typ/math/spacing-04.typ"
+        ( line 6 , column 68 )
+        (FuncCall
+           (Ident (Identifier "circle"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/spacing-04.typ"
+                         ( line 6 , column 75 )
+                         (Ident (Identifier "log"))
+                     ]))
+           ])
+    , Text "5"
+    , Code
+        "test/typ/math/spacing-04.typ"
+        ( line 6 , column 82 )
+        (FuncCall
+           (Ident (Identifier "caron"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/spacing-04.typ"
+                         ( line 6 , column 88 )
+                         (FuncCall
+                            (Ident (Identifier "op"))
+                            [ NormalArg (Block (Content [ Text "ln" ])) ])
+                     ]))
+           ])
+    , Text "6"
+    ]
+, Space
+, HardBreak
+, HardBreak
+, Equation
+    False
+    [ Text "a"
+    , Code
+        "test/typ/math/spacing-04.typ"
+        ( line 8 , column 4 )
+        (FuncCall
+           (Ident (Identifier "attach"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/spacing-04.typ"
+                         ( line 8 , column 11 )
+                         (Ident (Identifier "ident"))
+                     ]))
+           , KeyValArg (Identifier "tl") (Block (Content [ Text "a" ]))
+           , KeyValArg (Identifier "tr") (Block (Content [ Text "b" ]))
+           ])
+    , Text "b"
+    , Code
+        "test/typ/math/spacing-04.typ"
+        ( line 8 , column 34 )
+        (FuncCall
+           (Ident (Identifier "attach"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/spacing-04.typ"
+                         ( line 8 , column 41 )
+                         (FuncCall
+                            (Ident (Identifier "limits"))
+                            [ NormalArg (Block (Content [ Text "+" ])) ])
+                     ]))
+           , KeyValArg (Identifier "t") (Block (Content [ Text "a" ]))
+           , KeyValArg (Identifier "b") (Block (Content [ Text "b" ]))
+           ])
+    , Text "c"
+    , Code
+        "test/typ/math/spacing-04.typ"
+        ( line 8 , column 66 )
+        (FuncCall
+           (Ident (Identifier "tilde"))
+           [ NormalArg (Block (Content [ Text "-" ])) ])
+    , Text "d"
+    , Code
+        "test/typ/math/spacing-04.typ"
+        ( line 8 , column 77 )
+        (FuncCall
+           (Ident (Identifier "breve"))
+           [ NormalArg (Block (Content [ Text "\8658" ])) ])
+    , Text "e"
+    , Code
+        "test/typ/math/spacing-04.typ"
+        ( line 8 , column 89 )
+        (FuncCall
+           (Ident (Identifier "attach"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/spacing-04.typ"
+                         ( line 8 , column 96 )
+                         (FuncCall
+                            (Ident (Identifier "limits"))
+                            [ NormalArg
+                                (Block
+                                   (Content
+                                      [ Code
+                                          "test/typ/math/spacing-04.typ"
+                                          ( line 8 , column 103 )
+                                          (Ident (Identifier "log"))
+                                      ]))
+                            ])
+                     ]))
+           , KeyValArg (Identifier "t") (Block (Content [ Text "a" ]))
+           , KeyValArg (Identifier "b") (Block (Content [ Text "b" ]))
+           ])
+    , Text "5"
+    , Code
+        "test/typ/math/spacing-04.typ"
+        ( line 8 , column 123 )
+        (FuncCall
+           (Ident (Identifier "attach"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/spacing-04.typ"
+                         ( line 8 , column 130 )
+                         (FuncCall
+                            (Ident (Identifier "op"))
+                            [ NormalArg (Block (Content [ Text "ln" ])) ])
+                     ]))
+           , KeyValArg (Identifier "tr") (Block (Content [ Text "a" ]))
+           , KeyValArg (Identifier "bl") (Block (Content [ Text "b" ]))
+           ])
+    , Text "6"
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  math.equation(block: false, 
+                body: { [a], 
+                        [≡], 
+                        [b], 
+                        [+], 
+                        [c], 
+                        [-], 
+                        [d], 
+                        [⇒], 
+                        [e], 
+                        math.op(limits: false, 
+                                text: "log"), 
+                        [5], 
+                        math.op(text: [ln]), 
+                        [6] }, 
+                numbering: none), 
+  [ ], 
+  linebreak(), 
+  math.equation(block: false, 
+                body: { [a], 
+                        math.cancel(body: [≡]), 
+                        [b], 
+                        math.overline(body: [+]), 
+                        [c], 
+                        math.accent(accent: →, 
+                                    base: [-]), 
+                        [d], 
+                        math.accent(accent: ^, 
+                                    base: [⇒]), 
+                        [e], 
+                        math.cancel(body: math.op(limits: false, 
+                                                  text: "log")), 
+                        [5], 
+                        math.accent(accent: ⋅, 
+                                    base: math.op(text: [ln])), 
+                        [6] }, 
+                numbering: none), 
+  [ ], 
+  linebreak(), 
+  math.equation(block: false, 
+                body: { [a], 
+                        math.overbrace(annotation: none, 
+                                       body: [≡]), 
+                        [b], 
+                        math.underline(body: [+]), 
+                        [c], 
+                        math.accent(accent: `, 
+                                    base: [-]), 
+                        [d], 
+                        math.underbracket(annotation: none, 
+                                          body: [⇒]), 
+                        [e], 
+                        math.accent(accent: ○, 
+                                    base: math.op(limits: false, 
+                                                  text: "log")), 
+                        [5], 
+                        math.accent(accent: ˇ, 
+                                    base: math.op(text: [ln])), 
+                        [6] }, 
+                numbering: none), 
+  [ ], 
+  linebreak(), 
+  linebreak(), 
+  math.equation(block: false, 
+                body: { [a], 
+                        math.attach(base: [≡], 
+                                    tl: [a], 
+                                    tr: [b]), 
+                        [b], 
+                        math.attach(b: [b], 
+                                    base: math.limits(body: [+]), 
+                                    t: [a]), 
+                        [c], 
+                        math.accent(accent: ∼, 
+                                    base: [-]), 
+                        [d], 
+                        math.accent(accent: ˘, 
+                                    base: [⇒]), 
+                        [e], 
+                        math.attach(b: [b], 
+                                    base: math.limits(body: math.op(limits: false, 
+                                                                    text: "log")), 
+                                    t: [a]), 
+                        [5], 
+                        math.attach(base: math.op(text: [ln]), 
+                                    bl: [b], 
+                                    tr: [a]), 
+                        [6] }, 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math InlineMath "a \\equiv b + c - d \\Rightarrow e\\log 5\\ln 6"
+      , LineBreak
+      , Math
+          InlineMath
+          "a \\equiv b\\underset{\175}{+}c\\overset{\\rightarrow}{-}d\\hat{\\Rightarrow}e\\log 5\\ln\\limits^{\\cdot}6"
+      , LineBreak
+      , Math
+          InlineMath
+          "a\\overbrace{\\equiv}b\\underline{+}c\\grave{-}d\\underset{\9141}{\\Rightarrow}e\\log\\limits^{\9675}5\\ln\\limits^{\711}6"
+      , LineBreak
+      , LineBreak
+      , Math
+          InlineMath
+          "a{{}^{a} \\equiv^{b}}b +_{b}^{a}c\\overset{\\sim}{-}d\\breve{\\Rightarrow}e\\log_{b}^{a}5{{}_{b}\\ln^{a}}6"
+      ]
+  ]

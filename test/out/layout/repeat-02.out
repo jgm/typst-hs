@@ -1,0 +1,75 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/repeat-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/repeat-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/repeat-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Text "A"
+, Space
+, Code
+    "test/typ/layout/repeat-02.typ"
+    ( line 3 , column 4 )
+    (FuncCall
+       (Ident (Identifier "box"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 1.0 Fr))
+       , NormalArg
+           (FuncCall (Ident (Identifier "repeat")) [ BlockArg [] ])
+       ])
+, Space
+, Text "B"
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [A ], 
+  box(body: repeat(body: {  }), 
+      width: 1.0fr), 
+  [ B], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "A"
+      , Space
+      , Span ( "" , [ "box" ] , [] ) []
+      , Space
+      , Str "B"
+      ]
+  ]

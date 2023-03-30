@@ -1,0 +1,97 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/delimited-07.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/delimited-07.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/delimited-07.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Equation
+    False
+    [ Code
+        "test/typ/math/delimited-07.typ"
+        ( line 3 , column 2 )
+        (FuncCall
+           (Ident (Identifier "floor"))
+           [ NormalArg (Block (Content [ MFrac (Text "x") (Text "2") ])) ])
+    , Text ","
+    , Code
+        "test/typ/math/delimited-07.typ"
+        ( line 3 , column 14 )
+        (FuncCall
+           (Ident (Identifier "ceil"))
+           [ NormalArg (Block (Content [ MFrac (Text "x") (Text "2") ])) ])
+    , Text ","
+    , Code
+        "test/typ/math/delimited-07.typ"
+        ( line 3 , column 25 )
+        (FuncCall
+           (Ident (Identifier "abs"))
+           [ NormalArg (Block (Content [ Text "x" ])) ])
+    , Text ","
+    , Code
+        "test/typ/math/delimited-07.typ"
+        ( line 3 , column 33 )
+        (FuncCall
+           (Ident (Identifier "norm"))
+           [ NormalArg (Block (Content [ Text "x" ])) ])
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  math.equation(block: false, 
+                body: { math.floor(body: math.frac(denom: [2], 
+                                                   num: [x])), 
+                        [,], 
+                        math.ceil(body: math.frac(denom: [2], 
+                                                  num: [x])), 
+                        [,], 
+                        math.abs(body: [x]), 
+                        [,], 
+                        math.norm(body: [x]) }, 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math
+          InlineMath
+          "\\left\\lfloor \\frac{x}{2} \\right\\rfloor,\\left\\lceil \\frac{x}{2} \\right\\rceil,|x|,\\left. \\parallel x \\right.\\parallel"
+      ]
+  ]

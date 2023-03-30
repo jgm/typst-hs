@@ -1,0 +1,418 @@
+--- parse tree ---
+[ Code
+    "test/typ/text/edge-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/text/edge-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/text/edge-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/text/edge-00.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 160.0 Pt)) ])
+, SoftBreak
+, Code
+    "test/typ/text/edge-00.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "size") (Literal (Numeric 8.0 Pt)) ])
+, ParBreak
+, Code
+    "test/typ/text/edge-00.typ"
+    ( line 5 , column 2 )
+    (LetFunc
+       (Identifier "try")
+       [ NormalParam (Identifier "top")
+       , NormalParam (Identifier "bottom")
+       ]
+       (FuncCall
+          (Ident (Identifier "rect"))
+          [ KeyValArg (Identifier "inset") (Literal (Numeric 0.0 Pt))
+          , KeyValArg (Identifier "fill") (Ident (Identifier "green"))
+          , BlockArg
+              [ SoftBreak
+              , Code
+                  "test/typ/text/edge-00.typ"
+                  ( line 6 , column 4 )
+                  (Set
+                     (Ident (Identifier "text"))
+                     [ KeyValArg (Identifier "font") (Literal (String "IBM Plex Mono"))
+                     , KeyValArg (Identifier "top-edge") (Ident (Identifier "top"))
+                     , KeyValArg
+                         (Identifier "bottom-edge") (Ident (Identifier "bottom"))
+                     ])
+              , SoftBreak
+              , Text "From"
+              , Space
+              , Code
+                  "test/typ/text/edge-00.typ"
+                  ( line 7 , column 9 )
+                  (Ident (Identifier "top"))
+              , Space
+              , Text "to"
+              , Space
+              , Code
+                  "test/typ/text/edge-00.typ"
+                  ( line 7 , column 17 )
+                  (Ident (Identifier "bottom"))
+              , ParBreak
+              ]
+          ]))
+, ParBreak
+, Code
+    "test/typ/text/edge-00.typ"
+    ( line 10 , column 2 )
+    (FuncCall
+       (Ident (Identifier "try"))
+       [ NormalArg (Literal (String "ascender"))
+       , NormalArg (Literal (String "descender"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/text/edge-00.typ"
+    ( line 11 , column 2 )
+    (FuncCall
+       (Ident (Identifier "try"))
+       [ NormalArg (Literal (String "ascender"))
+       , NormalArg (Literal (String "baseline"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/text/edge-00.typ"
+    ( line 12 , column 2 )
+    (FuncCall
+       (Ident (Identifier "try"))
+       [ NormalArg (Literal (String "cap-height"))
+       , NormalArg (Literal (String "baseline"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/text/edge-00.typ"
+    ( line 13 , column 2 )
+    (FuncCall
+       (Ident (Identifier "try"))
+       [ NormalArg (Literal (String "x-height"))
+       , NormalArg (Literal (String "baseline"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/text/edge-00.typ"
+    ( line 14 , column 2 )
+    (FuncCall
+       (Ident (Identifier "try"))
+       [ NormalArg (Literal (Numeric 4.0 Pt))
+       , NormalArg (Negated (Literal (Numeric 2.0 Pt)))
+       ])
+, SoftBreak
+, Code
+    "test/typ/text/edge-00.typ"
+    ( line 15 , column 2 )
+    (FuncCall
+       (Ident (Identifier "try"))
+       [ NormalArg
+           (Plus (Literal (Numeric 1.0 Pt)) (Literal (Numeric 0.3 Em)))
+       , NormalArg (Negated (Literal (Numeric 0.15 Em)))
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  parbreak(), 
+  parbreak(), 
+  rect(body: { text(body: [
+], 
+                    size: 8.0pt), 
+               text(body: [
+From ], 
+                    bottom-edge: "descender", 
+                    font: "IBM Plex Mono", 
+                    size: 8.0pt, 
+                    top-edge: "ascender"), 
+               text(body: [ascender], 
+                    bottom-edge: "descender", 
+                    font: "IBM Plex Mono", 
+                    size: 8.0pt, 
+                    top-edge: "ascender"), 
+               text(body: [ to ], 
+                    bottom-edge: "descender", 
+                    font: "IBM Plex Mono", 
+                    size: 8.0pt, 
+                    top-edge: "ascender"), 
+               text(body: [descender], 
+                    bottom-edge: "descender", 
+                    font: "IBM Plex Mono", 
+                    size: 8.0pt, 
+                    top-edge: "ascender"), 
+               parbreak() }, 
+       fill: rgb(18%,80%,25%,100%), 
+       inset: 0.0pt), 
+  text(body: [
+], size: 8.0pt), 
+  rect(body: { text(body: [
+], 
+                    size: 8.0pt), 
+               text(body: [
+From ], 
+                    bottom-edge: "baseline", 
+                    font: "IBM Plex Mono", 
+                    size: 8.0pt, 
+                    top-edge: "ascender"), 
+               text(body: [ascender], 
+                    bottom-edge: "baseline", 
+                    font: "IBM Plex Mono", 
+                    size: 8.0pt, 
+                    top-edge: "ascender"), 
+               text(body: [ to ], 
+                    bottom-edge: "baseline", 
+                    font: "IBM Plex Mono", 
+                    size: 8.0pt, 
+                    top-edge: "ascender"), 
+               text(body: [baseline], 
+                    bottom-edge: "baseline", 
+                    font: "IBM Plex Mono", 
+                    size: 8.0pt, 
+                    top-edge: "ascender"), 
+               parbreak() }, 
+       fill: rgb(18%,80%,25%,100%), 
+       inset: 0.0pt), 
+  text(body: [
+], size: 8.0pt), 
+  rect(body: { text(body: [
+], 
+                    size: 8.0pt), 
+               text(body: [
+From ], 
+                    bottom-edge: "baseline", 
+                    font: "IBM Plex Mono", 
+                    size: 8.0pt, 
+                    top-edge: "cap-height"), 
+               text(body: [cap-height], 
+                    bottom-edge: "baseline", 
+                    font: "IBM Plex Mono", 
+                    size: 8.0pt, 
+                    top-edge: "cap-height"), 
+               text(body: [ to ], 
+                    bottom-edge: "baseline", 
+                    font: "IBM Plex Mono", 
+                    size: 8.0pt, 
+                    top-edge: "cap-height"), 
+               text(body: [baseline], 
+                    bottom-edge: "baseline", 
+                    font: "IBM Plex Mono", 
+                    size: 8.0pt, 
+                    top-edge: "cap-height"), 
+               parbreak() }, 
+       fill: rgb(18%,80%,25%,100%), 
+       inset: 0.0pt), 
+  text(body: [
+], size: 8.0pt), 
+  rect(body: { text(body: [
+], 
+                    size: 8.0pt), 
+               text(body: [
+From ], 
+                    bottom-edge: "baseline", 
+                    font: "IBM Plex Mono", 
+                    size: 8.0pt, 
+                    top-edge: "x-height"), 
+               text(body: [x-height], 
+                    bottom-edge: "baseline", 
+                    font: "IBM Plex Mono", 
+                    size: 8.0pt, 
+                    top-edge: "x-height"), 
+               text(body: [ to ], 
+                    bottom-edge: "baseline", 
+                    font: "IBM Plex Mono", 
+                    size: 8.0pt, 
+                    top-edge: "x-height"), 
+               text(body: [baseline], 
+                    bottom-edge: "baseline", 
+                    font: "IBM Plex Mono", 
+                    size: 8.0pt, 
+                    top-edge: "x-height"), 
+               parbreak() }, 
+       fill: rgb(18%,80%,25%,100%), 
+       inset: 0.0pt), 
+  text(body: [
+], size: 8.0pt), 
+  rect(body: { text(body: [
+], 
+                    size: 8.0pt), 
+               text(body: [
+From ], 
+                    bottom-edge: -2.0pt, 
+                    font: "IBM Plex Mono", 
+                    size: 8.0pt, 
+                    top-edge: 4.0pt), 
+               text(body: [4.0pt], 
+                    bottom-edge: -2.0pt, 
+                    font: "IBM Plex Mono", 
+                    size: 8.0pt, 
+                    top-edge: 4.0pt), 
+               text(body: [ to ], 
+                    bottom-edge: -2.0pt, 
+                    font: "IBM Plex Mono", 
+                    size: 8.0pt, 
+                    top-edge: 4.0pt), 
+               text(body: [-2.0pt], 
+                    bottom-edge: -2.0pt, 
+                    font: "IBM Plex Mono", 
+                    size: 8.0pt, 
+                    top-edge: 4.0pt), 
+               parbreak() }, 
+       fill: rgb(18%,80%,25%,100%), 
+       inset: 0.0pt), 
+  text(body: [
+], size: 8.0pt), 
+  rect(body: { text(body: [
+], 
+                    size: 8.0pt), 
+               text(body: [
+From ], 
+                    bottom-edge: -0.15em, 
+                    font: "IBM Plex Mono", 
+                    size: 8.0pt, 
+                    top-edge: 1.0pt + 0.3em), 
+               text(body: [1.0pt + 0.3em], 
+                    bottom-edge: -0.15em, 
+                    font: "IBM Plex Mono", 
+                    size: 8.0pt, 
+                    top-edge: 1.0pt + 0.3em), 
+               text(body: [ to ], 
+                    bottom-edge: -0.15em, 
+                    font: "IBM Plex Mono", 
+                    size: 8.0pt, 
+                    top-edge: 1.0pt + 0.3em), 
+               text(body: [-0.15em], 
+                    bottom-edge: -0.15em, 
+                    font: "IBM Plex Mono", 
+                    size: 8.0pt, 
+                    top-edge: 1.0pt + 0.3em), 
+               parbreak() }, 
+       fill: rgb(18%,80%,25%,100%), 
+       inset: 0.0pt), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Div
+      ( "" , [ "rect" ] , [] )
+      [ Para
+          [ Str "From"
+          , Space
+          , Str "ascender"
+          , Space
+          , Str "to"
+          , Space
+          , Str "descender"
+          ]
+      ]
+  , Para []
+  , Div
+      ( "" , [ "rect" ] , [] )
+      [ Para
+          [ Str "From"
+          , Space
+          , Str "ascender"
+          , Space
+          , Str "to"
+          , Space
+          , Str "baseline"
+          ]
+      ]
+  , Para []
+  , Div
+      ( "" , [ "rect" ] , [] )
+      [ Para
+          [ Str "From"
+          , Space
+          , Str "cap-height"
+          , Space
+          , Str "to"
+          , Space
+          , Str "baseline"
+          ]
+      ]
+  , Para []
+  , Div
+      ( "" , [ "rect" ] , [] )
+      [ Para
+          [ Str "From"
+          , Space
+          , Str "x-height"
+          , Space
+          , Str "to"
+          , Space
+          , Str "baseline"
+          ]
+      ]
+  , Para []
+  , Div
+      ( "" , [ "rect" ] , [] )
+      [ Para
+          [ Str "From"
+          , Space
+          , Str "4.0pt"
+          , Space
+          , Str "to"
+          , Space
+          , Str "-2.0pt"
+          ]
+      ]
+  , Para []
+  , Div
+      ( "" , [ "rect" ] , [] )
+      [ Para
+          [ Str "From"
+          , Space
+          , Str "1.0pt"
+          , Space
+          , Str "+"
+          , Space
+          , Str "0.3em"
+          , Space
+          , Str "to"
+          , Space
+          , Str "-0.15em"
+          ]
+      ]
+  ]

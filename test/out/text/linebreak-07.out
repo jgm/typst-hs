@@ -1,0 +1,143 @@
+--- parse tree ---
+[ Code
+    "test/typ/text/linebreak-07.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/text/linebreak-07.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/text/linebreak-07.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/text/linebreak-07.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "par"))
+       [ KeyValArg (Identifier "justify") (Literal (Boolean True)) ])
+, SoftBreak
+, Text "With"
+, Space
+, Text "a"
+, Space
+, Text "soft"
+, Space
+, Code
+    "test/typ/text/linebreak-07.typ"
+    ( line 4 , column 14 )
+    (FuncCall
+       (Ident (Identifier "linebreak"))
+       [ KeyValArg (Identifier "justify") (Literal (Boolean True)) ])
+, SoftBreak
+, Text "break"
+, Space
+, Text "you"
+, Space
+, Text "can"
+, Space
+, Text "force"
+, Space
+, Text "a"
+, Space
+, Text "break"
+, Space
+, Text "without"
+, Space
+, Code
+    "test/typ/text/linebreak-07.typ"
+    ( line 5 , column 38 )
+    (FuncCall
+       (Ident (Identifier "linebreak"))
+       [ KeyValArg (Identifier "justify") (Literal (Boolean True)) ])
+, SoftBreak
+, Text "breaking"
+, Space
+, Text "justification"
+, Text "."
+, Space
+, Code
+    "test/typ/text/linebreak-07.typ"
+    ( line 6 , column 26 )
+    (FuncCall
+       (Ident (Identifier "linebreak"))
+       [ KeyValArg (Identifier "justify") (Literal (Boolean False)) ])
+, SoftBreak
+, Text "Nice!"
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+With a soft ], 
+  linebreak(justify: true), 
+  [
+break you can force a break without ], 
+  linebreak(justify: true), 
+  [
+breaking justification. ], 
+  linebreak(justify: false), 
+  [
+Nice!], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "With"
+      , Space
+      , Str "a"
+      , Space
+      , Str "soft"
+      , LineBreak
+      , Str "break"
+      , Space
+      , Str "you"
+      , Space
+      , Str "can"
+      , Space
+      , Str "force"
+      , Space
+      , Str "a"
+      , Space
+      , Str "break"
+      , Space
+      , Str "without"
+      , LineBreak
+      , Str "breaking"
+      , Space
+      , Str "justification."
+      , LineBreak
+      , Str "Nice!"
+      ]
+  ]

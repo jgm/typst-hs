@@ -1,0 +1,184 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/stack-1-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/stack-1-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/stack-1-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/layout/stack-1-01.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 50.0 Pt))
+       , KeyValArg (Identifier "margin") (Literal (Numeric 0.0 Pt))
+       ])
+, ParBreak
+, Code
+    "test/typ/layout/stack-1-01.typ"
+    ( line 5 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "x")))
+       (FuncCall
+          (Ident (Identifier "square"))
+          [ KeyValArg (Identifier "size") (Literal (Numeric 10.0 Pt))
+          , KeyValArg (Identifier "fill") (Ident (Identifier "eastern"))
+          ]))
+, SoftBreak
+, Code
+    "test/typ/layout/stack-1-01.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "stack"))
+       [ KeyValArg (Identifier "spacing") (Literal (Numeric 5.0 Pt))
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "stack"))
+              [ KeyValArg (Identifier "dir") (Ident (Identifier "rtl"))
+              , KeyValArg (Identifier "spacing") (Literal (Numeric 5.0 Pt))
+              , NormalArg (Ident (Identifier "x"))
+              , NormalArg (Ident (Identifier "x"))
+              , NormalArg (Ident (Identifier "x"))
+              ])
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "stack"))
+              [ KeyValArg (Identifier "dir") (Ident (Identifier "ltr"))
+              , NormalArg (Ident (Identifier "x"))
+              , NormalArg (Literal (Numeric 20.0 Percent))
+              , NormalArg (Ident (Identifier "x"))
+              , NormalArg (Literal (Numeric 20.0 Percent))
+              , NormalArg (Ident (Identifier "x"))
+              ])
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "stack"))
+              [ KeyValArg (Identifier "dir") (Ident (Identifier "ltr"))
+              , KeyValArg (Identifier "spacing") (Literal (Numeric 5.0 Pt))
+              , NormalArg (Ident (Identifier "x"))
+              , NormalArg (Ident (Identifier "x"))
+              , NormalArg (Literal (Numeric 7.0 Pt))
+              , NormalArg (Literal (Numeric 3.0 Pt))
+              , NormalArg (Ident (Identifier "x"))
+              ])
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  parbreak(), 
+  [
+], 
+  stack(children: (stack(children: (square(body: none, 
+                                           fill: rgb(13%,61%,67%,100%), 
+                                           size: 10.0pt), 
+                                    square(body: none, 
+                                           fill: rgb(13%,61%,67%,100%), 
+                                           size: 10.0pt), 
+                                    square(body: none, 
+                                           fill: rgb(13%,61%,67%,100%), 
+                                           size: 10.0pt)), 
+                         dir: rtl, 
+                         spacing: 5.0pt), 
+                   stack(children: (square(body: none, 
+                                           fill: rgb(13%,61%,67%,100%), 
+                                           size: 10.0pt), 
+                                    20%, 
+                                    square(body: none, 
+                                           fill: rgb(13%,61%,67%,100%), 
+                                           size: 10.0pt), 
+                                    20%, 
+                                    square(body: none, 
+                                           fill: rgb(13%,61%,67%,100%), 
+                                           size: 10.0pt)), 
+                         dir: ltr), 
+                   stack(children: (square(body: none, 
+                                           fill: rgb(13%,61%,67%,100%), 
+                                           size: 10.0pt), 
+                                    square(body: none, 
+                                           fill: rgb(13%,61%,67%,100%), 
+                                           size: 10.0pt), 
+                                    7.0pt, 
+                                    3.0pt, 
+                                    square(body: none, 
+                                           fill: rgb(13%,61%,67%,100%), 
+                                           size: 10.0pt)), 
+                         dir: ltr, 
+                         spacing: 5.0pt)), 
+        spacing: 5.0pt), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para []
+  , Div
+      ( "" , [] , [ ( "stack" , "ltr" ) ] )
+      [ Div
+          ( "" , [] , [] )
+          [ Div
+              ( "" , [] , [ ( "stack" , "rtl" ) ] )
+              [ Div ( "" , [] , [] ) [ Div ( "" , [ "square" ] , [] ) [] ]
+              , Div ( "" , [] , [] ) [ Div ( "" , [ "square" ] , [] ) [] ]
+              , Div ( "" , [] , [] ) [ Div ( "" , [ "square" ] , [] ) [] ]
+              ]
+          ]
+      , Div
+          ( "" , [] , [] )
+          [ Div
+              ( "" , [] , [ ( "stack" , "ltr" ) ] )
+              [ Div ( "" , [] , [] ) [ Div ( "" , [ "square" ] , [] ) [] ]
+              , Div ( "" , [] , [] ) [ Para [ Str "20%" ] ]
+              , Div ( "" , [] , [] ) [ Div ( "" , [ "square" ] , [] ) [] ]
+              , Div ( "" , [] , [] ) [ Para [ Str "20%" ] ]
+              , Div ( "" , [] , [] ) [ Div ( "" , [ "square" ] , [] ) [] ]
+              ]
+          ]
+      , Div
+          ( "" , [] , [] )
+          [ Div
+              ( "" , [] , [ ( "stack" , "ltr" ) ] )
+              [ Div ( "" , [] , [] ) [ Div ( "" , [ "square" ] , [] ) [] ]
+              , Div ( "" , [] , [] ) [ Div ( "" , [ "square" ] , [] ) [] ]
+              , Div ( "" , [] , [] ) [ Para [ Str "7.0pt" ] ]
+              , Div ( "" , [] , [] ) [ Para [ Str "3.0pt" ] ]
+              , Div ( "" , [] , [] ) [ Div ( "" , [ "square" ] , [] ) [] ]
+              ]
+          ]
+      ]
+  ]

@@ -1,0 +1,147 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/par-justify-cjk-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/par-justify-cjk-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/par-justify-cjk-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/layout/par-justify-cjk-01.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal Auto) ])
+, SoftBreak
+, Code
+    "test/typ/layout/par-justify-cjk-01.typ"
+    ( line 4 , column 2 )
+    (Set
+       (Ident (Identifier "par"))
+       [ KeyValArg (Identifier "justify") (Literal (Boolean True)) ])
+, SoftBreak
+, Code
+    "test/typ/layout/par-justify-cjk-01.typ"
+    ( line 5 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "lang") (Literal (String "jp")) ])
+, SoftBreak
+, Code
+    "test/typ/layout/par-justify-cjk-01.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "rect"))
+       [ KeyValArg (Identifier "inset") (Literal (Numeric 0.0 Pt))
+       , KeyValArg (Identifier "width") (Literal (Numeric 80.0 Pt))
+       , KeyValArg
+           (Identifier "fill")
+           (FuncCall
+              (Ident (Identifier "rgb")) [ NormalArg (Literal (String "eee")) ])
+       , BlockArg
+           [ SoftBreak
+           , Text "\12454\12451\12461\12506\12487\12451\12450\65288\33521"
+           , Text ":"
+           , Space
+           , Text
+               "Wikipedia\65289\12399\12289\19990\30028\20013\12398\12508\12521\12531\12486\12451\12450\12398\20849\21516\20316\26989\12395\12424\12387\12390\22519\31558\21450\12403\20316\25104\12373\12428\12427\12501\12522\12540\12398\22810\35328\35486\12452\12531\12479\12540\12493\12483\12488\30334\31185\20107\20856\12391\12354\12427\12290\20027\12395\23492\20184\12395\20381\12387\12390\27963\21205\12375\12390\12356\12427\38750\21942\21033\22243\20307\12300\12454\12451\12461\12513\12487\12451\12450\36001\22243\12301\12364\25152\26377\12539\36939\21942\12375\12390\12356\12427\12290"
+           , ParBreak
+           , Text
+               "\23554\38272\23478\12395\12424\12427\12458\12531\12521\12452\12531\30334\31185\20107\20856\12503\12525\12472\12455\12463\12488Nupedia\65288\12492\12540\12506\12487\12451\12450\65289\12434\21069\36523\12392\12375\12390\12289\&2001\24180\&1\26376\12289\12521\12522\12540\12539\12469\12531\12460\12540\12392\12472\12511\12540\12539\12454\12455\12540\12523\12474\65288\33521"
+           , Text ":"
+           , Space
+           , Text "Jimmy"
+           , Space
+           , Text "Donal"
+           , Space
+           , Quote '"'
+           , Text "Jimbo"
+           , Quote '"'
+           , Space
+           , Text
+               "Wales\65289\12395\12424\12426\33521\35486\12391\12503\12525\12472\12455\12463\12488\12364\38283\22987\12373\12428\12383\12290"
+           , ParBreak
+           ]
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  [
+], 
+  text(body: [
+], lang: "jp"), 
+  rect(body: { text(body: [
+ウィキペディア（英: Wikipedia）は、世界中のボランティアの共同作業によって執筆及び作成されるフリーの多言語インターネット百科事典である。主に寄付に依って活動している非営利団体「ウィキメディア財団」が所有・運営している。], 
+                    lang: "jp"), 
+               parbreak(), 
+               text(body: [専門家によるオンライン百科事典プロジェクトNupedia（ヌーペディア）を前身として、2001年1月、ラリー・サンガーとジミー・ウェールズ（英: Jimmy Donal “Jimbo” Wales）により英語でプロジェクトが開始された。], 
+                    lang: "jp"), 
+               parbreak() }, 
+       fill: rgb(5%,5%,5%,100%), 
+       inset: 0.0pt, 
+       width: 80.0pt), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Div
+      ( "" , [ "rect" ] , [] )
+      [ Para
+          [ Str "\12454\12451\12461\12506\12487\12451\12450\65288\33521:"
+          , Space
+          , Str
+              "Wikipedia\65289\12399\12289\19990\30028\20013\12398\12508\12521\12531\12486\12451\12450\12398\20849\21516\20316\26989\12395\12424\12387\12390\22519\31558\21450\12403\20316\25104\12373\12428\12427\12501\12522\12540\12398\22810\35328\35486\12452\12531\12479\12540\12493\12483\12488\30334\31185\20107\20856\12391\12354\12427\12290\20027\12395\23492\20184\12395\20381\12387\12390\27963\21205\12375\12390\12356\12427\38750\21942\21033\22243\20307\12300\12454\12451\12461\12513\12487\12451\12450\36001\22243\12301\12364\25152\26377\12539\36939\21942\12375\12390\12356\12427\12290"
+          ]
+      , Para
+          [ Str
+              "\23554\38272\23478\12395\12424\12427\12458\12531\12521\12452\12531\30334\31185\20107\20856\12503\12525\12472\12455\12463\12488Nupedia\65288\12492\12540\12506\12487\12451\12450\65289\12434\21069\36523\12392\12375\12390\12289\&2001\24180\&1\26376\12289\12521\12522\12540\12539\12469\12531\12460\12540\12392\12472\12511\12540\12539\12454\12455\12540\12523\12474\65288\33521:"
+          , Space
+          , Str "Jimmy"
+          , Space
+          , Str "Donal"
+          , Space
+          , Str "\8220Jimbo\8221"
+          , Space
+          , Str
+              "Wales\65289\12395\12424\12426\33521\35486\12391\12503\12525\12472\12455\12463\12488\12364\38283\22987\12373\12428\12383\12290"
+          ]
+      ]
+  ]

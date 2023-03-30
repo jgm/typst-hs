@@ -1,0 +1,205 @@
+--- parse tree ---
+[ Code
+    "test/typ/meta/counter-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/meta/counter-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/meta/counter-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/meta/counter-00.typ"
+    ( line 3 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "mine")))
+       (FuncCall
+          (Ident (Identifier "counter"))
+          [ NormalArg (Literal (String "mine!")) ]))
+, ParBreak
+, Text "Final"
+, Text ":"
+, Space
+, Code
+    "test/typ/meta/counter-00.typ"
+    ( line 5 , column 9 )
+    (FuncCall
+       (Ident (Identifier "locate"))
+       [ NormalArg
+           (FuncExpr
+              [ NormalParam (Identifier "loc") ]
+              (FuncCall
+                 (FieldAccess
+                    (Ident (Identifier "at"))
+                    (FuncCall
+                       (FieldAccess
+                          (Ident (Identifier "final")) (Ident (Identifier "mine")))
+                       [ NormalArg (Ident (Identifier "loc")) ]))
+                 [ NormalArg (Literal (Int 0)) ]))
+       ])
+, Space
+, HardBreak
+, Code
+    "test/typ/meta/counter-00.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (FieldAccess
+          (Ident (Identifier "step")) (Ident (Identifier "mine")))
+       [])
+, SoftBreak
+, Text "First"
+, Text ":"
+, Space
+, Code
+    "test/typ/meta/counter-00.typ"
+    ( line 7 , column 9 )
+    (FuncCall
+       (FieldAccess
+          (Ident (Identifier "display")) (Ident (Identifier "mine")))
+       [])
+, Space
+, HardBreak
+, Code
+    "test/typ/meta/counter-00.typ"
+    ( line 8 , column 2 )
+    (FuncCall
+       (FieldAccess
+          (Ident (Identifier "update")) (Ident (Identifier "mine")))
+       [ NormalArg (Literal (Int 7)) ])
+, SoftBreak
+, Code
+    "test/typ/meta/counter-00.typ"
+    ( line 9 , column 2 )
+    (FuncCall
+       (FieldAccess
+          (Ident (Identifier "display")) (Ident (Identifier "mine")))
+       [ NormalArg (Literal (String "1 of 1"))
+       , KeyValArg (Identifier "both") (Literal (Boolean True))
+       ])
+, Space
+, HardBreak
+, Code
+    "test/typ/meta/counter-00.typ"
+    ( line 10 , column 2 )
+    (FuncCall
+       (FieldAccess
+          (Ident (Identifier "step")) (Ident (Identifier "mine")))
+       [])
+, SoftBreak
+, Code
+    "test/typ/meta/counter-00.typ"
+    ( line 11 , column 2 )
+    (FuncCall
+       (FieldAccess
+          (Ident (Identifier "step")) (Ident (Identifier "mine")))
+       [])
+, SoftBreak
+, Text "Second"
+, Text ":"
+, Space
+, Code
+    "test/typ/meta/counter-00.typ"
+    ( line 12 , column 10 )
+    (FuncCall
+       (FieldAccess
+          (Ident (Identifier "display")) (Ident (Identifier "mine")))
+       [ NormalArg (Literal (String "I")) ])
+, SoftBreak
+, Code
+    "test/typ/meta/counter-00.typ"
+    ( line 13 , column 2 )
+    (FuncCall
+       (FieldAccess
+          (Ident (Identifier "update")) (Ident (Identifier "mine")))
+       [ NormalArg
+           (FuncExpr
+              [ NormalParam (Identifier "n") ]
+              (Times (Ident (Identifier "n")) (Literal (Int 2))))
+       ])
+, SoftBreak
+, Code
+    "test/typ/meta/counter-00.typ"
+    ( line 14 , column 2 )
+    (FuncCall
+       (FieldAccess
+          (Ident (Identifier "step")) (Ident (Identifier "mine")))
+       [])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  parbreak(), 
+  [Final: ], 
+  locate(func: ), 
+  [ ], 
+  linebreak(), 
+  [
+First: ], 
+  [1], 
+  [ ], 
+  linebreak(), 
+  [
+], 
+  [7], 
+  [ ], 
+  linebreak(), 
+  [
+], 
+  [
+Second: ], 
+  [9], 
+  [
+], 
+  [
+], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para
+      [ Str "Final:"
+      , LineBreak
+      , Str "First:"
+      , Space
+      , Str "1"
+      , LineBreak
+      , Str "7"
+      , LineBreak
+      , Str "Second:"
+      , Space
+      , Str "9"
+      ]
+  ]

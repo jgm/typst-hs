@@ -1,0 +1,188 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/show-text-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/show-text-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/show-text-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compiler/show-text-01.typ"
+    ( line 3 , column 2 )
+    (Show
+       (Just (Literal (String "TeX")))
+       (Block
+          (Content
+             [ Text "T"
+             , Code
+                 "test/typ/compiler/show-text-01.typ"
+                 ( line 3 , column 17 )
+                 (FuncCall
+                    (Ident (Identifier "h"))
+                    [ NormalArg (Negated (Literal (Numeric 0.145 Em))) ])
+             , Code
+                 "test/typ/compiler/show-text-01.typ"
+                 ( line 3 , column 29 )
+                 (FuncCall
+                    (Ident (Identifier "box"))
+                    [ NormalArg
+                        (FuncCall
+                           (Ident (Identifier "move"))
+                           [ KeyValArg (Identifier "dy") (Literal (Numeric 0.233 Em))
+                           , BlockArg [ Text "E" ]
+                           ])
+                    ])
+             , Code
+                 "test/typ/compiler/show-text-01.typ"
+                 ( line 3 , column 55 )
+                 (FuncCall
+                    (Ident (Identifier "h"))
+                    [ NormalArg (Negated (Literal (Numeric 0.135 Em))) ])
+             , Text "X"
+             ])))
+, SoftBreak
+, Code
+    "test/typ/compiler/show-text-01.typ"
+    ( line 4 , column 2 )
+    (Show
+       (Just
+          (FuncCall
+             (Ident (Identifier "regex"))
+             [ NormalArg (Literal (String "(Lua)?(La)?TeX")) ]))
+       (FuncExpr
+          [ NormalParam (Identifier "name") ]
+          (FuncCall
+             (Ident (Identifier "box"))
+             [ NormalArg
+                 (FuncCall
+                    (Ident (Identifier "text"))
+                    [ KeyValArg
+                        (Identifier "font") (Literal (String "New Computer Modern"))
+                    , BlockArg
+                        [ Code
+                            "test/typ/compiler/show-text-01.typ"
+                            ( line 4 , column 79 )
+                            (Ident (Identifier "name"))
+                        ]
+                    ])
+             ])))
+, ParBreak
+, Text "TeX,"
+, Space
+, Text "LaTeX,"
+, Space
+, Text "LuaTeX"
+, Space
+, Text "and"
+, Space
+, Text "LuaLaTeX!"
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  parbreak(), 
+  [], 
+  box(body: text(body: { [], 
+                         [T], 
+                         h(amount: -0.145em), 
+                         box(body: move(body: [E], 
+                                        dy: 0.233em)), 
+                         h(amount: -0.135em), 
+                         [X], 
+                         [] }, 
+                 font: "New Computer Modern")), 
+  [, ], 
+  box(body: text(body: { [La], 
+                         [T], 
+                         h(amount: -0.145em), 
+                         box(body: move(body: [E], 
+                                        dy: 0.233em)), 
+                         h(amount: -0.135em), 
+                         [X], 
+                         [] }, 
+                 font: "New Computer Modern")), 
+  [, ], 
+  box(body: text(body: { [Lua], 
+                         [T], 
+                         h(amount: -0.145em), 
+                         box(body: move(body: [E], 
+                                        dy: 0.233em)), 
+                         h(amount: -0.135em), 
+                         [X], 
+                         [] }, 
+                 font: "New Computer Modern")), 
+  [ and ], 
+  box(body: text(body: { [LuaLa], 
+                         [T], 
+                         h(amount: -0.145em), 
+                         box(body: move(body: [E], 
+                                        dy: 0.233em)), 
+                         h(amount: -0.135em), 
+                         [X], 
+                         [] }, 
+                 font: "New Computer Modern")), 
+  [!], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para
+      [ Span
+          ( "" , [ "box" ] , [] )
+          [ Str "T" , Span ( "" , [ "box" ] , [] ) [] , Str "X" ]
+      , Str ","
+      , Space
+      , Span
+          ( "" , [ "box" ] , [] )
+          [ Str "LaT" , Span ( "" , [ "box" ] , [] ) [] , Str "X" ]
+      , Str ","
+      , Space
+      , Span
+          ( "" , [ "box" ] , [] )
+          [ Str "LuaT" , Span ( "" , [ "box" ] , [] ) [] , Str "X" ]
+      , Space
+      , Str "and"
+      , Space
+      , Span
+          ( "" , [ "box" ] , [] )
+          [ Str "LuaLaT" , Span ( "" , [ "box" ] , [] ) [] , Str "X" ]
+      , Str "!"
+      ]
+  ]

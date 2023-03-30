@@ -1,0 +1,113 @@
+--- parse tree ---
+[ Code
+    "test/typ/text/raw-code-04.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/text/raw-code-04.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/text/raw-code-04.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/text/raw-code-04.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 180.0 Pt)) ])
+, SoftBreak
+, Code
+    "test/typ/text/raw-code-04.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ NormalArg (Literal (Numeric 6.0 Pt)) ])
+, ParBreak
+, Code
+    "test/typ/text/raw-code-04.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "rect"))
+       [ KeyValArg
+           (Identifier "inset")
+           (Dict
+              [ ( Identifier "x" , Literal (Numeric 4.0 Pt) )
+              , ( Identifier "y" , Literal (Numeric 5.0 Pt) )
+              ])
+       , KeyValArg (Identifier "radius") (Literal (Numeric 4.0 Pt))
+       , KeyValArg
+           (Identifier "fill")
+           (FuncCall
+              (Ident (Identifier "rgb"))
+              [ NormalArg (Literal (Int 239))
+              , NormalArg (Literal (Int 241))
+              , NormalArg (Literal (Int 243))
+              ])
+       , BlockArg
+           [ SoftBreak
+           , RawBlock
+               "html"
+               "<!DOCTYPE html>\n  <html>\n    <head>\n      <meta charset=\"utf-8\">\n    </head>\n    <body>\n      <h1>Topic</h1>\n      <p>The Hypertext Markup Language.</p>\n      <script>\n        function foo(a, b) {\n          return a + b + \"string\";\n        }\n      </script>\n    </body>\n  </html>\n  "
+           , ParBreak
+           ]
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  parbreak(), 
+  rect(body: { text(body: [
+], 
+                    size: 6.0pt), 
+               raw(block: true, 
+                   lang: "html", 
+                   text: "<!DOCTYPE html>\n  <html>\n    <head>\n      <meta charset=\"utf-8\">\n    </head>\n    <body>\n      <h1>Topic</h1>\n      <p>The Hypertext Markup Language.</p>\n      <script>\n        function foo(a, b) {\n          return a + b + \"string\";\n        }\n      </script>\n    </body>\n  </html>\n  "), 
+               parbreak() }, 
+       fill: rgb(93%,94%,95%,100%), 
+       inset: (x: 4.0pt, y: 5.0pt), 
+       radius: 4.0pt), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Div
+      ( "" , [ "rect" ] , [] )
+      [ Para []
+      , CodeBlock
+          ( "" , [ "html" ] , [] )
+          "<!DOCTYPE html>\n  <html>\n    <head>\n      <meta charset=\"utf-8\">\n    </head>\n    <body>\n      <h1>Topic</h1>\n      <p>The Hypertext Markup Language.</p>\n      <script>\n        function foo(a, b) {\n          return a + b + \"string\";\n        }\n      </script>\n    </body>\n  </html>\n  "
+      ]
+  ]

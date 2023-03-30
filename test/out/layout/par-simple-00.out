@@ -1,0 +1,902 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/par-simple-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/par-simple-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/par-simple-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/layout/par-simple-00.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 250.0 Pt))
+       , KeyValArg (Identifier "height") (Literal (Numeric 120.0 Pt))
+       ])
+, ParBreak
+, Text "But,"
+, Space
+, Text "soft!"
+, Space
+, Text "what"
+, Space
+, Text "light"
+, Space
+, Text "through"
+, Space
+, Text "yonder"
+, Space
+, Text "window"
+, Space
+, Text "breaks?"
+, Space
+, Text "It"
+, Space
+, Text "is"
+, Space
+, Text "the"
+, Space
+, Text "east,"
+, Space
+, Text "and"
+, Space
+, Text "Juliet"
+, SoftBreak
+, Text "is"
+, Space
+, Text "the"
+, Space
+, Text "sun"
+, Text "."
+, Space
+, Text "Arise,"
+, Space
+, Text "fair"
+, Space
+, Text "sun,"
+, Space
+, Text "and"
+, Space
+, Text "kill"
+, Space
+, Text "the"
+, Space
+, Text "envious"
+, Space
+, Text "moon,"
+, Space
+, Text "Who"
+, Space
+, Text "is"
+, Space
+, Text "already"
+, Space
+, Text "sick"
+, Space
+, Text "and"
+, SoftBreak
+, Text "pale"
+, Space
+, Text "with"
+, Space
+, Text "grief,"
+, Space
+, Text "That"
+, Space
+, Text "thou"
+, Space
+, Text "her"
+, Space
+, Text "maid"
+, Space
+, Text "art"
+, Space
+, Text "far"
+, Space
+, Text "more"
+, Space
+, Text "fair"
+, Space
+, Text "than"
+, Space
+, Text "she"
+, Text ":"
+, Space
+, Text "Be"
+, Space
+, Text "not"
+, Space
+, Text "her"
+, Space
+, Text "maid,"
+, SoftBreak
+, Text "since"
+, Space
+, Text "she"
+, Space
+, Text "is"
+, Space
+, Text "envious;"
+, Space
+, Text "Her"
+, Space
+, Text "vestal"
+, Space
+, Text "livery"
+, Space
+, Text "is"
+, Space
+, Text "but"
+, Space
+, Text "sick"
+, Space
+, Text "and"
+, Space
+, Text "green"
+, Space
+, Text "And"
+, Space
+, Text "none"
+, Space
+, Text "but"
+, Space
+, Text "fools"
+, SoftBreak
+, Text "do"
+, Space
+, Text "wear"
+, Space
+, Text "it;"
+, Space
+, Text "cast"
+, Space
+, Text "it"
+, Space
+, Text "off"
+, Text "."
+, Space
+, Text "It"
+, Space
+, Text "is"
+, Space
+, Text "my"
+, Space
+, Text "lady,"
+, Space
+, Text "O,"
+, Space
+, Text "it"
+, Space
+, Text "is"
+, Space
+, Text "my"
+, Space
+, Text "love!"
+, Space
+, Text "O,"
+, Space
+, Text "that"
+, Space
+, Text "she"
+, Space
+, Text "knew"
+, Space
+, Text "she"
+, SoftBreak
+, Text "were!"
+, Space
+, Text "She"
+, Space
+, Text "speaks"
+, Space
+, Text "yet"
+, Space
+, Text "she"
+, Space
+, Text "says"
+, Space
+, Text "nothing"
+, Text ":"
+, Space
+, Text "what"
+, Space
+, Text "of"
+, Space
+, Text "that?"
+, Space
+, Text "Her"
+, Space
+, Text "eye"
+, Space
+, Text "discourses;"
+, Space
+, Text "I"
+, Space
+, Text "will"
+, SoftBreak
+, Text "answer"
+, Space
+, Text "it"
+, Text "."
+, ParBreak
+, Text "I"
+, Space
+, Text "am"
+, Space
+, Text "too"
+, Space
+, Text "bold,"
+, Space
+, Quote '\''
+, Text "tis"
+, Space
+, Text "not"
+, Space
+, Text "to"
+, Space
+, Text "me"
+, Space
+, Text "she"
+, Space
+, Text "speaks"
+, Text ":"
+, Space
+, Text "Two"
+, Space
+, Text "of"
+, Space
+, Text "the"
+, Space
+, Text "fairest"
+, Space
+, Text "stars"
+, Space
+, Text "in"
+, Space
+, Text "all"
+, Space
+, Text "the"
+, SoftBreak
+, Text "heaven,"
+, Space
+, Text "Having"
+, Space
+, Text "some"
+, Space
+, Text "business,"
+, Space
+, Text "do"
+, Space
+, Text "entreat"
+, Space
+, Text "her"
+, Space
+, Text "eyes"
+, Space
+, Text "To"
+, Space
+, Text "twinkle"
+, Space
+, Text "in"
+, Space
+, Text "their"
+, Space
+, Text "spheres"
+, SoftBreak
+, Text "till"
+, Space
+, Text "they"
+, Space
+, Text "return"
+, Text "."
+, Space
+, Text "What"
+, Space
+, Text "if"
+, Space
+, Text "her"
+, Space
+, Text "eyes"
+, Space
+, Text "were"
+, Space
+, Text "there,"
+, Space
+, Text "they"
+, Space
+, Text "in"
+, Space
+, Text "her"
+, Space
+, Text "head?"
+, Space
+, Text "The"
+, Space
+, Text "brightness"
+, SoftBreak
+, Text "of"
+, Space
+, Text "her"
+, Space
+, Text "cheek"
+, Space
+, Text "would"
+, Space
+, Text "shame"
+, Space
+, Text "those"
+, Space
+, Text "stars,"
+, Space
+, Text "As"
+, Space
+, Text "daylight"
+, Space
+, Text "doth"
+, Space
+, Text "a"
+, Space
+, Text "lamp;"
+, Space
+, Text "her"
+, Space
+, Text "eyes"
+, Space
+, Text "in"
+, SoftBreak
+, Text "heaven"
+, Space
+, Text "Would"
+, Space
+, Text "through"
+, Space
+, Text "the"
+, Space
+, Text "airy"
+, Space
+, Text "region"
+, Space
+, Text "stream"
+, Space
+, Text "so"
+, Space
+, Text "bright"
+, Space
+, Text "That"
+, Space
+, Text "birds"
+, Space
+, Text "would"
+, Space
+, Text "sing"
+, Space
+, Text "and"
+, SoftBreak
+, Text "think"
+, Space
+, Text "it"
+, Space
+, Text "were"
+, Space
+, Text "not"
+, Space
+, Text "night"
+, Text "."
+, Space
+, Text "See,"
+, Space
+, Text "how"
+, Space
+, Text "she"
+, Space
+, Text "leans"
+, Space
+, Text "her"
+, Space
+, Text "cheek"
+, Space
+, Text "upon"
+, Space
+, Text "her"
+, Space
+, Text "hand!"
+, Space
+, Text "O,"
+, Space
+, Text "that"
+, Space
+, Text "I"
+, SoftBreak
+, Text "were"
+, Space
+, Text "a"
+, Space
+, Text "glove"
+, Space
+, Text "upon"
+, Space
+, Text "that"
+, Space
+, Text "hand,"
+, Space
+, Text "That"
+, Space
+, Text "I"
+, Space
+, Text "might"
+, Space
+, Text "touch"
+, Space
+, Text "that"
+, Space
+, Text "cheek!"
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  parbreak(), 
+  [But, soft! what light through yonder window breaks? It is the east, and Juliet
+is the sun. Arise, fair sun, and kill the envious moon, Who is already sick and
+pale with grief, That thou her maid art far more fair than she: Be not her maid,
+since she is envious; Her vestal livery is but sick and green And none but fools
+do wear it; cast it off. It is my lady, O, it is my love! O, that she knew she
+were! She speaks yet she says nothing: what of that? Her eye discourses; I will
+answer it.], 
+  parbreak(), 
+  [I am too bold, ‘tis not to me she speaks: Two of the fairest stars in all the
+heaven, Having some business, do entreat her eyes To twinkle in their spheres
+till they return. What if her eyes were there, they in her head? The brightness
+of her cheek would shame those stars, As daylight doth a lamp; her eyes in
+heaven Would through the airy region stream so bright That birds would sing and
+think it were not night. See, how she leans her cheek upon her hand! O, that I
+were a glove upon that hand, That I might touch that cheek!], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para
+      [ Str "But,"
+      , Space
+      , Str "soft!"
+      , Space
+      , Str "what"
+      , Space
+      , Str "light"
+      , Space
+      , Str "through"
+      , Space
+      , Str "yonder"
+      , Space
+      , Str "window"
+      , Space
+      , Str "breaks?"
+      , Space
+      , Str "It"
+      , Space
+      , Str "is"
+      , Space
+      , Str "the"
+      , Space
+      , Str "east,"
+      , Space
+      , Str "and"
+      , Space
+      , Str "Juliet"
+      , SoftBreak
+      , Str "is"
+      , Space
+      , Str "the"
+      , Space
+      , Str "sun."
+      , Space
+      , Str "Arise,"
+      , Space
+      , Str "fair"
+      , Space
+      , Str "sun,"
+      , Space
+      , Str "and"
+      , Space
+      , Str "kill"
+      , Space
+      , Str "the"
+      , Space
+      , Str "envious"
+      , Space
+      , Str "moon,"
+      , Space
+      , Str "Who"
+      , Space
+      , Str "is"
+      , Space
+      , Str "already"
+      , Space
+      , Str "sick"
+      , Space
+      , Str "and"
+      , SoftBreak
+      , Str "pale"
+      , Space
+      , Str "with"
+      , Space
+      , Str "grief,"
+      , Space
+      , Str "That"
+      , Space
+      , Str "thou"
+      , Space
+      , Str "her"
+      , Space
+      , Str "maid"
+      , Space
+      , Str "art"
+      , Space
+      , Str "far"
+      , Space
+      , Str "more"
+      , Space
+      , Str "fair"
+      , Space
+      , Str "than"
+      , Space
+      , Str "she:"
+      , Space
+      , Str "Be"
+      , Space
+      , Str "not"
+      , Space
+      , Str "her"
+      , Space
+      , Str "maid,"
+      , SoftBreak
+      , Str "since"
+      , Space
+      , Str "she"
+      , Space
+      , Str "is"
+      , Space
+      , Str "envious;"
+      , Space
+      , Str "Her"
+      , Space
+      , Str "vestal"
+      , Space
+      , Str "livery"
+      , Space
+      , Str "is"
+      , Space
+      , Str "but"
+      , Space
+      , Str "sick"
+      , Space
+      , Str "and"
+      , Space
+      , Str "green"
+      , Space
+      , Str "And"
+      , Space
+      , Str "none"
+      , Space
+      , Str "but"
+      , Space
+      , Str "fools"
+      , SoftBreak
+      , Str "do"
+      , Space
+      , Str "wear"
+      , Space
+      , Str "it;"
+      , Space
+      , Str "cast"
+      , Space
+      , Str "it"
+      , Space
+      , Str "off."
+      , Space
+      , Str "It"
+      , Space
+      , Str "is"
+      , Space
+      , Str "my"
+      , Space
+      , Str "lady,"
+      , Space
+      , Str "O,"
+      , Space
+      , Str "it"
+      , Space
+      , Str "is"
+      , Space
+      , Str "my"
+      , Space
+      , Str "love!"
+      , Space
+      , Str "O,"
+      , Space
+      , Str "that"
+      , Space
+      , Str "she"
+      , Space
+      , Str "knew"
+      , Space
+      , Str "she"
+      , SoftBreak
+      , Str "were!"
+      , Space
+      , Str "She"
+      , Space
+      , Str "speaks"
+      , Space
+      , Str "yet"
+      , Space
+      , Str "she"
+      , Space
+      , Str "says"
+      , Space
+      , Str "nothing:"
+      , Space
+      , Str "what"
+      , Space
+      , Str "of"
+      , Space
+      , Str "that?"
+      , Space
+      , Str "Her"
+      , Space
+      , Str "eye"
+      , Space
+      , Str "discourses;"
+      , Space
+      , Str "I"
+      , Space
+      , Str "will"
+      , SoftBreak
+      , Str "answer"
+      , Space
+      , Str "it."
+      ]
+  , Para
+      [ Str "I"
+      , Space
+      , Str "am"
+      , Space
+      , Str "too"
+      , Space
+      , Str "bold,"
+      , Space
+      , Str "\8216tis"
+      , Space
+      , Str "not"
+      , Space
+      , Str "to"
+      , Space
+      , Str "me"
+      , Space
+      , Str "she"
+      , Space
+      , Str "speaks:"
+      , Space
+      , Str "Two"
+      , Space
+      , Str "of"
+      , Space
+      , Str "the"
+      , Space
+      , Str "fairest"
+      , Space
+      , Str "stars"
+      , Space
+      , Str "in"
+      , Space
+      , Str "all"
+      , Space
+      , Str "the"
+      , SoftBreak
+      , Str "heaven,"
+      , Space
+      , Str "Having"
+      , Space
+      , Str "some"
+      , Space
+      , Str "business,"
+      , Space
+      , Str "do"
+      , Space
+      , Str "entreat"
+      , Space
+      , Str "her"
+      , Space
+      , Str "eyes"
+      , Space
+      , Str "To"
+      , Space
+      , Str "twinkle"
+      , Space
+      , Str "in"
+      , Space
+      , Str "their"
+      , Space
+      , Str "spheres"
+      , SoftBreak
+      , Str "till"
+      , Space
+      , Str "they"
+      , Space
+      , Str "return."
+      , Space
+      , Str "What"
+      , Space
+      , Str "if"
+      , Space
+      , Str "her"
+      , Space
+      , Str "eyes"
+      , Space
+      , Str "were"
+      , Space
+      , Str "there,"
+      , Space
+      , Str "they"
+      , Space
+      , Str "in"
+      , Space
+      , Str "her"
+      , Space
+      , Str "head?"
+      , Space
+      , Str "The"
+      , Space
+      , Str "brightness"
+      , SoftBreak
+      , Str "of"
+      , Space
+      , Str "her"
+      , Space
+      , Str "cheek"
+      , Space
+      , Str "would"
+      , Space
+      , Str "shame"
+      , Space
+      , Str "those"
+      , Space
+      , Str "stars,"
+      , Space
+      , Str "As"
+      , Space
+      , Str "daylight"
+      , Space
+      , Str "doth"
+      , Space
+      , Str "a"
+      , Space
+      , Str "lamp;"
+      , Space
+      , Str "her"
+      , Space
+      , Str "eyes"
+      , Space
+      , Str "in"
+      , SoftBreak
+      , Str "heaven"
+      , Space
+      , Str "Would"
+      , Space
+      , Str "through"
+      , Space
+      , Str "the"
+      , Space
+      , Str "airy"
+      , Space
+      , Str "region"
+      , Space
+      , Str "stream"
+      , Space
+      , Str "so"
+      , Space
+      , Str "bright"
+      , Space
+      , Str "That"
+      , Space
+      , Str "birds"
+      , Space
+      , Str "would"
+      , Space
+      , Str "sing"
+      , Space
+      , Str "and"
+      , SoftBreak
+      , Str "think"
+      , Space
+      , Str "it"
+      , Space
+      , Str "were"
+      , Space
+      , Str "not"
+      , Space
+      , Str "night."
+      , Space
+      , Str "See,"
+      , Space
+      , Str "how"
+      , Space
+      , Str "she"
+      , Space
+      , Str "leans"
+      , Space
+      , Str "her"
+      , Space
+      , Str "cheek"
+      , Space
+      , Str "upon"
+      , Space
+      , Str "her"
+      , Space
+      , Str "hand!"
+      , Space
+      , Str "O,"
+      , Space
+      , Str "that"
+      , Space
+      , Str "I"
+      , SoftBreak
+      , Str "were"
+      , Space
+      , Str "a"
+      , Space
+      , Str "glove"
+      , Space
+      , Str "upon"
+      , Space
+      , Str "that"
+      , Space
+      , Str "hand,"
+      , Space
+      , Str "That"
+      , Space
+      , Str "I"
+      , Space
+      , Str "might"
+      , Space
+      , Str "touch"
+      , Space
+      , Str "that"
+      , Space
+      , Str "cheek!"
+      ]
+  ]

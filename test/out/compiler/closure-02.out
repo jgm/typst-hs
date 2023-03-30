@@ -1,0 +1,90 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/closure-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/closure-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/closure-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Comment
+, Code
+    "test/typ/compiler/closure-02.typ"
+    ( line 4 , column 2 )
+    (Block
+       (CodeBlock
+          [ Let
+              (BasicBind (Just (Identifier "chain")))
+              (FuncExpr
+                 [ NormalParam (Identifier "f") , NormalParam (Identifier "g") ]
+                 (FuncExpr
+                    [ NormalParam (Identifier "x") ]
+                    (FuncCall
+                       (Ident (Identifier "f"))
+                       [ NormalArg
+                           (FuncCall
+                              (Ident (Identifier "g")) [ NormalArg (Ident (Identifier "x")) ])
+                       ])))
+          , Let
+              (BasicBind (Just (Identifier "f")))
+              (FuncExpr
+                 [ NormalParam (Identifier "x") ]
+                 (Plus (Ident (Identifier "x")) (Literal (Int 1))))
+          , Let
+              (BasicBind (Just (Identifier "g")))
+              (FuncExpr
+                 [ NormalParam (Identifier "x") ]
+                 (Times (Literal (Int 2)) (Ident (Identifier "x"))))
+          , Let
+              (BasicBind (Just (Identifier "h")))
+              (FuncCall
+                 (Ident (Identifier "chain"))
+                 [ NormalArg (Ident (Identifier "f"))
+                 , NormalArg (Ident (Identifier "g"))
+                 ])
+          , FuncCall
+              (Ident (Identifier "test"))
+              [ NormalArg
+                  (FuncCall (Ident (Identifier "h")) [ NormalArg (Literal (Int 2)) ])
+              , NormalArg (Literal (Int 5))
+              ]
+          ]))
+, ParBreak
+]
+--- evaluated ---
+{ [
+], [✅], parbreak() }
+--- pandoc ---
+Pandoc Meta { unMeta = fromList [] } [ Para [ Str "\9989" ] ]

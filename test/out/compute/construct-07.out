@@ -1,0 +1,138 @@
+--- parse tree ---
+[ Code
+    "test/typ/compute/construct-07.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compute/construct-07.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compute/construct-07.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compute/construct-07.typ"
+    ( line 3 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "envelope")))
+       (FuncCall
+          (Ident (Identifier "symbol"))
+          [ NormalArg (Literal (String "\128386"))
+          , NormalArg
+              (Array [ Literal (String "stamped") , Literal (String "\128387") ])
+          , NormalArg
+              (Array
+                 [ Literal (String "stamped.pen") , Literal (String "\128390") ])
+          , NormalArg
+              (Array
+                 [ Literal (String "lightning") , Literal (String "\128388") ])
+          , NormalArg
+              (Array [ Literal (String "fly") , Literal (String "\128389") ])
+          ]))
+, ParBreak
+, Code
+    "test/typ/compute/construct-07.typ"
+    ( line 11 , column 2 )
+    (Ident (Identifier "envelope"))
+, SoftBreak
+, Code
+    "test/typ/compute/construct-07.typ"
+    ( line 12 , column 2 )
+    (FieldAccess
+       (Ident (Identifier "stamped")) (Ident (Identifier "envelope")))
+, SoftBreak
+, Code
+    "test/typ/compute/construct-07.typ"
+    ( line 13 , column 2 )
+    (FieldAccess
+       (Ident (Identifier "pen")) (Ident (Identifier "envelope")))
+, SoftBreak
+, Code
+    "test/typ/compute/construct-07.typ"
+    ( line 14 , column 2 )
+    (FieldAccess
+       (Ident (Identifier "pen"))
+       (FieldAccess
+          (Ident (Identifier "stamped")) (Ident (Identifier "envelope"))))
+, SoftBreak
+, Code
+    "test/typ/compute/construct-07.typ"
+    ( line 15 , column 2 )
+    (FieldAccess
+       (Ident (Identifier "lightning")) (Ident (Identifier "envelope")))
+, SoftBreak
+, Code
+    "test/typ/compute/construct-07.typ"
+    ( line 16 , column 2 )
+    (FieldAccess
+       (Ident (Identifier "fly")) (Ident (Identifier "envelope")))
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  parbreak(), 
+  [🖂], 
+  [
+], 
+  [🖃], 
+  [
+], 
+  [🖆], 
+  [
+], 
+  [🖆], 
+  [
+], 
+  [🖄], 
+  [
+], 
+  [🖅], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para
+      [ Str "\128386"
+      , SoftBreak
+      , Str "\128387"
+      , SoftBreak
+      , Str "\128390"
+      , SoftBreak
+      , Str "\128390"
+      , SoftBreak
+      , Str "\128388"
+      , SoftBreak
+      , Str "\128389"
+      ]
+  ]

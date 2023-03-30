@@ -1,0 +1,237 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/matrix-alignment-05.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/matrix-alignment-05.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/matrix-alignment-05.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Equation
+    True
+    [ Code
+        "test/typ/math/matrix-alignment-05.typ"
+        ( line 3 , column 3 )
+        (FuncCall
+           (Ident (Identifier "mat"))
+           [ ArrayArg
+               [ [ MGroup
+                     Nothing Nothing [ MAlignPoint , Text "a" , Text "+" , Text "b" ]
+                 , Text "c"
+                 ]
+               , [ MGroup Nothing Nothing [ MAlignPoint , Text "d" ] , Text "e" ]
+               ]
+           ])
+    ]
+, SoftBreak
+, Equation
+    True
+    [ Code
+        "test/typ/math/matrix-alignment-05.typ"
+        ( line 4 , column 3 )
+        (FuncCall
+           (Ident (Identifier "mat"))
+           [ ArrayArg
+               [ [ MGroup
+                     Nothing
+                     Nothing
+                     [ MAlignPoint , Text "a" , Text "+" , Text "b" , MAlignPoint ]
+                 , Text "c"
+                 ]
+               , [ MGroup Nothing Nothing [ MAlignPoint , Text "d" , MAlignPoint ]
+                 , Text "e"
+                 ]
+               ]
+           ])
+    ]
+, SoftBreak
+, Equation
+    True
+    [ Code
+        "test/typ/math/matrix-alignment-05.typ"
+        ( line 5 , column 3 )
+        (FuncCall
+           (Ident (Identifier "mat"))
+           [ ArrayArg
+               [ [ MGroup
+                     Nothing
+                     Nothing
+                     [ MAlignPoint
+                     , MAlignPoint
+                     , MAlignPoint
+                     , Text "a"
+                     , Text "+"
+                     , Text "b"
+                     ]
+                 , Text "c"
+                 ]
+               , [ MGroup
+                     Nothing
+                     Nothing
+                     [ MAlignPoint , MAlignPoint , MAlignPoint , Text "d" ]
+                 , Text "e"
+                 ]
+               ]
+           ])
+    ]
+, SoftBreak
+, Equation
+    True
+    [ Code
+        "test/typ/math/matrix-alignment-05.typ"
+        ( line 6 , column 3 )
+        (FuncCall
+           (Ident (Identifier "mat"))
+           [ ArrayArg
+               [ [ MGroup
+                     Nothing
+                     Nothing
+                     [ Text "."
+                     , MAlignPoint
+                     , Text "a"
+                     , Text "+"
+                     , Text "b"
+                     , MAlignPoint
+                     , Text "."
+                     ]
+                 , Text "c"
+                 ]
+               , [ MGroup
+                     Nothing
+                     Nothing
+                     [ Text "\8230"
+                     , Text "."
+                     , Text "."
+                     , MAlignPoint
+                     , Text "d"
+                     , MAlignPoint
+                     , Text "\8230"
+                     , Text "."
+                     , Text "."
+                     ]
+                 , Text "e"
+                 ]
+               ]
+           ])
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  math.equation(block: true, 
+                body: math.mat(rows: (({ math.alignpoint(), 
+                                         [a], 
+                                         [+], 
+                                         [b] }, 
+                                       [c]), 
+                                      ({ math.alignpoint(), 
+                                         [d] }, 
+                                       [e]))), 
+                numbering: none), 
+  [
+], 
+  math.equation(block: true, 
+                body: math.mat(rows: (({ math.alignpoint(), 
+                                         [a], 
+                                         [+], 
+                                         [b], 
+                                         math.alignpoint() }, 
+                                       [c]), 
+                                      ({ math.alignpoint(), 
+                                         [d], 
+                                         math.alignpoint() }, 
+                                       [e]))), 
+                numbering: none), 
+  [
+], 
+  math.equation(block: true, 
+                body: math.mat(rows: (({ math.alignpoint(), 
+                                         math.alignpoint(), 
+                                         math.alignpoint(), 
+                                         [a], 
+                                         [+], 
+                                         [b] }, 
+                                       [c]), 
+                                      ({ math.alignpoint(), 
+                                         math.alignpoint(), 
+                                         math.alignpoint(), 
+                                         [d] }, 
+                                       [e]))), 
+                numbering: none), 
+  [
+], 
+  math.equation(block: true, 
+                body: math.mat(rows: (({ [.], 
+                                         math.alignpoint(), 
+                                         [a], 
+                                         [+], 
+                                         [b], 
+                                         math.alignpoint(), 
+                                         [.] }, 
+                                       [c]), 
+                                      ({ […], 
+                                         [.], 
+                                         [.], 
+                                         math.alignpoint(), 
+                                         [d], 
+                                         math.alignpoint(), 
+                                         […], 
+                                         [.], 
+                                         [.] }, 
+                                       [e]))), 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math
+          DisplayMath
+          "\\left( \\begin{array}{lc}\n\\begin{aligned}\n & a + b\n\\end{aligned} & c \\\\\n\\begin{aligned}\n & d\n\\end{aligned} & e\n\\end{array} \\right)"
+      , SoftBreak
+      , Math
+          DisplayMath
+          "\\left( \\begin{array}{lc}\n\\begin{aligned}\n & a + b\n\\end{aligned} & c \\\\\n\\begin{aligned}\n & d\n\\end{aligned} & e\n\\end{array} \\right)"
+      , SoftBreak
+      , Math
+          DisplayMath
+          "\\left( \\begin{array}{lc}\n\\begin{aligned}\n & & & a + b\n\\end{aligned} & c \\\\\n\\begin{aligned}\n & & & d\n\\end{aligned} & e\n\\end{array} \\right)"
+      , SoftBreak
+      , Math
+          DisplayMath
+          "\\begin{pmatrix}\n\\begin{array}{rlr}\n. & a + b & .\n\\end{array} & c \\\\\n\\begin{array}{rlr}\n\\ldots.. & d & \\ldots..\n\\end{array} & e\n\\end{pmatrix}"
+      ]
+  ]

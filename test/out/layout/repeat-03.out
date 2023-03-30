@@ -1,0 +1,64 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/repeat-03.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/repeat-03.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/repeat-03.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/layout/repeat-03.typ"
+    ( line 3 , column 2 )
+    (FuncCall
+       (Ident (Identifier "repeat"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "rect"))
+              [ KeyValArg (Identifier "width") (Literal (Numeric 2.0 Em))
+              , KeyValArg (Identifier "height") (Literal (Numeric 1.0 Em))
+              ])
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  repeat(body: rect(body: none, 
+                    height: 1.0em, 
+                    width: 2.0em)), 
+  parbreak() }
+--- pandoc ---
+Pandoc Meta { unMeta = fromList [] } [ Para [] ]

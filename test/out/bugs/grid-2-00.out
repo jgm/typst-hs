@@ -1,0 +1,242 @@
+--- parse tree ---
+[ Code
+    "test/typ/bugs/grid-2-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/bugs/grid-2-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/bugs/grid-2-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/bugs/grid-2-00.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "height") (Literal (Numeric 100.0 Pt)) ])
+, SoftBreak
+, Code
+    "test/typ/bugs/grid-2-00.typ"
+    ( line 3 , column 2 )
+    (FuncCall
+       (Ident (Identifier "grid"))
+       [ KeyValArg
+           (Identifier "columns")
+           (Array [ Literal (Numeric 2.0 Cm) , Literal Auto ])
+       , KeyValArg
+           (Identifier "rows") (Array [ Literal Auto , Literal Auto ])
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "rect"))
+              [ KeyValArg (Identifier "width") (Literal (Numeric 100.0 Percent))
+              , KeyValArg (Identifier "fill") (Ident (Identifier "red"))
+              ])
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "rect"))
+              [ KeyValArg (Identifier "width") (Literal (Numeric 100.0 Percent))
+              , KeyValArg (Identifier "fill") (Ident (Identifier "blue"))
+              ])
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "rect"))
+              [ KeyValArg (Identifier "width") (Literal (Numeric 100.0 Percent))
+              , KeyValArg (Identifier "height") (Literal (Numeric 80.0 Percent))
+              , KeyValArg (Identifier "fill") (Ident (Identifier "green"))
+              ])
+       , NormalArg
+           (Block
+              (Content
+                 [ Text "hello"
+                 , Space
+                 , HardBreak
+                 , Text "darkness"
+                 , Space
+                 , Code
+                     "test/typ/bugs/grid-2-00.typ"
+                     ( line 9 , column 22 )
+                     (Ident (Identifier "parbreak"))
+                 , Space
+                 , Text "my"
+                 , Space
+                 , HardBreak
+                 , Text "old"
+                 , Space
+                 , HardBreak
+                 , Text "friend"
+                 , Space
+                 , HardBreak
+                 , Text "I"
+                 ]))
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "rect"))
+              [ KeyValArg (Identifier "width") (Literal (Numeric 100.0 Percent))
+              , KeyValArg (Identifier "height") (Literal (Numeric 20.0 Percent))
+              , KeyValArg (Identifier "fill") (Ident (Identifier "blue"))
+              ])
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "polygon"))
+              [ KeyValArg (Identifier "fill") (Ident (Identifier "red"))
+              , NormalArg
+                  (Array
+                     [ Literal (Numeric 0.0 Percent) , Literal (Numeric 0.0 Percent) ])
+              , NormalArg
+                  (Array
+                     [ Literal (Numeric 100.0 Percent)
+                     , Literal (Numeric 0.0 Percent)
+                     ])
+              , NormalArg
+                  (Array
+                     [ Literal (Numeric 100.0 Percent)
+                     , Literal (Numeric 20.0 Percent)
+                     ])
+              ])
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  grid(children: (rect(body: none, 
+                       fill: rgb(100%,25%,21%,100%), 
+                       width: 100%), 
+                  rect(body: none, 
+                       fill: rgb(0%,45%,85%,100%), 
+                       width: 100%), 
+                  rect(body: none, 
+                       fill: rgb(18%,80%,25%,100%), 
+                       height: 80%, 
+                       width: 100%), 
+                  { [hello ], 
+                    linebreak(), 
+                    [darkness ], 
+                    [], 
+                    [ my ], 
+                    linebreak(), 
+                    [old ], 
+                    linebreak(), 
+                    [friend ], 
+                    linebreak(), 
+                    [I] }, 
+                  rect(body: none, 
+                       fill: rgb(0%,45%,85%,100%), 
+                       height: 20%, 
+                       width: 100%), 
+                  polygon(fill: rgb(100%,25%,21%,100%), 
+                          vertices: ((0%, 0%), 
+                                     (100%, 0%), 
+                                     (100%, 20%)))), 
+       columns: (2.0cm, auto), 
+       rows: (auto, auto)), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Table
+      ( "" , [] , [] )
+      (Caption Nothing [])
+      [ ( AlignDefault , ColWidthDefault )
+      , ( AlignDefault , ColWidthDefault )
+      ]
+      (TableHead ( "" , [] , [] ) [])
+      [ TableBody
+          ( "" , [] , [] )
+          (RowHeadColumns 0)
+          []
+          [ Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Div ( "" , [ "rect" ] , [] ) [] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Div ( "" , [ "rect" ] , [] ) [] ]
+              ]
+          , Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Div ( "" , [ "rect" ] , [] ) [] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para
+                      [ Str "hello"
+                      , LineBreak
+                      , Str "darkness"
+                      , Space
+                      , Str "my"
+                      , LineBreak
+                      , Str "old"
+                      , LineBreak
+                      , Str "friend"
+                      , LineBreak
+                      , Str "I"
+                      ]
+                  ]
+              ]
+          , Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Div ( "" , [ "rect" ] , [] ) [] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Div ( "" , [ "polygon" ] , [] ) [] ]
+              ]
+          ]
+      ]
+      (TableFoot ( "" , [] , [] ) [])
+  ]

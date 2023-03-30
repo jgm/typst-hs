@@ -1,0 +1,146 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/grid-1-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/grid-1-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/grid-1-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/layout/grid-1-01.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "rect"))
+       [ KeyValArg (Identifier "inset") (Literal (Numeric 0.0 Pt)) ])
+, SoftBreak
+, Code
+    "test/typ/layout/grid-1-01.typ"
+    ( line 3 , column 2 )
+    (FuncCall
+       (Ident (Identifier "grid"))
+       [ KeyValArg
+           (Identifier "columns")
+           (Array
+              [ Literal Auto , Literal Auto , Literal (Numeric 40.0 Percent) ])
+       , KeyValArg (Identifier "column-gutter") (Literal (Numeric 1.0 Fr))
+       , KeyValArg (Identifier "row-gutter") (Literal (Numeric 1.0 Fr))
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "rect"))
+              [ KeyValArg (Identifier "fill") (Ident (Identifier "eastern"))
+              , BlockArg
+                  [ Text "dddaa" , Space , Text "aaa" , Space , Text "aaa" ]
+              ])
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "rect"))
+              [ KeyValArg (Identifier "fill") (Ident (Identifier "green"))
+              , BlockArg [ Text "ccc" ]
+              ])
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "rect"))
+              [ KeyValArg
+                  (Identifier "fill")
+                  (FuncCall
+                     (Ident (Identifier "rgb"))
+                     [ NormalArg (Literal (String "dddddd")) ])
+              , BlockArg [ Text "aaa" ]
+              ])
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  grid(children: (rect(body: [dddaa aaa aaa], 
+                       fill: rgb(13%,61%,67%,100%), 
+                       inset: 0.0pt), 
+                  rect(body: [ccc], 
+                       fill: rgb(18%,80%,25%,100%), 
+                       inset: 0.0pt), 
+                  rect(body: [aaa], 
+                       fill: rgb(86%,86%,86%,100%), 
+                       inset: 0.0pt)), 
+       column-gutter: 1.0fr, 
+       columns: (auto, auto, 40%), 
+       row-gutter: 1.0fr), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Table
+      ( "" , [] , [] )
+      (Caption Nothing [])
+      [ ( AlignDefault , ColWidthDefault )
+      , ( AlignDefault , ColWidthDefault )
+      , ( AlignDefault , ColWidthDefault )
+      ]
+      (TableHead ( "" , [] , [] ) [])
+      [ TableBody
+          ( "" , [] , [] )
+          (RowHeadColumns 0)
+          []
+          [ Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Div
+                      ( "" , [ "rect" ] , [] )
+                      [ Para [ Str "dddaa" , Space , Str "aaa" , Space , Str "aaa" ] ]
+                  ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Div ( "" , [ "rect" ] , [] ) [ Para [ Str "ccc" ] ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Div ( "" , [ "rect" ] , [] ) [ Para [ Str "aaa" ] ] ]
+              ]
+          ]
+      ]
+      (TableFoot ( "" , [] , [] ) [])
+  ]

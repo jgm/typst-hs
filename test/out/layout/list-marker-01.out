@@ -1,0 +1,85 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/list-marker-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/list-marker-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/list-marker-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/layout/list-marker-01.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "list"))
+       [ KeyValArg
+           (Identifier "marker")
+           (Array
+              [ Block (Content [ EnDash ]) , Block (Content [ Text "\8226" ]) ])
+       ])
+, SoftBreak
+, BulletListItem
+    [ Text "A"
+    , SoftBreak
+    , BulletListItem
+        [ Text "B" , SoftBreak , BulletListItem [ Text "C" , ParBreak ] ]
+    ]
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  list(children: ({ [A
+], 
+                    list(children: ({ [B
+], 
+                                      list(children: ({ [C], 
+                                                        parbreak() }), 
+                                           marker: ([–], 
+                                                    [•])) }), 
+                         marker: ([–], [•])) }), 
+       marker: ([–], [•])) }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , BulletList
+      [ [ Para [ Str "A" ]
+        , BulletList
+            [ [ Para [ Str "B" ] , BulletList [ [ Para [ Str "C" ] ] ] ] ]
+        ]
+      ]
+  ]

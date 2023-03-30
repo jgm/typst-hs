@@ -1,0 +1,3 @@
+"test/typ/compiler/ops-03.typ" (line 15, column 18):
+unexpected '-'
+expecting operator

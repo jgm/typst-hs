@@ -1,0 +1,392 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/modules/chap2.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/modules/chap2.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/modules/chap2.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, SoftBreak
+, Code
+    "test/typ/compiler/modules/chap2.typ"
+    ( line 4 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "name"))) (Literal (String "Klaus")))
+, ParBreak
+, Heading 2 [ Text "Chapter" , Space , Text "2" ]
+, Text "Their"
+, Space
+, Text "motivations,"
+, Space
+, Text "however,"
+, Space
+, Text "were"
+, Space
+, Text "pretty"
+, Space
+, Text "descript,"
+, Space
+, Text "so"
+, Space
+, Text "to"
+, Space
+, Text "speak"
+, Text "."
+, Space
+, Code
+    "test/typ/compiler/modules/chap2.typ"
+    ( line 7 , column 65 )
+    (Ident (Identifier "name"))
+, Space
+, Text "had"
+, Space
+, Text "not"
+, Space
+, Text "yet"
+, SoftBreak
+, Text "conceptualized"
+, Space
+, Text "their"
+, Space
+, Text "consequences,"
+, Space
+, Text "but"
+, Space
+, Text "that"
+, Space
+, Text "should"
+, Space
+, Text "change"
+, Space
+, Text "pretty"
+, Space
+, Text "quickly"
+, Text "."
+, Space
+, Code
+    "test/typ/compiler/modules/chap2.typ"
+    ( line 8 , column 76 )
+    (Ident (Identifier "name"))
+, SoftBreak
+, Text "approached"
+, Space
+, Text "the"
+, Space
+, Text "center"
+, Space
+, Text "of"
+, Space
+, Text "the"
+, Space
+, Text "field"
+, Space
+, Text "and"
+, Space
+, Text "picked"
+, Space
+, Text "up"
+, Space
+, Text "a"
+, Space
+, Text "4"
+, Text "-"
+, Text "foot"
+, Space
+, Text "long"
+, Space
+, Text "disk"
+, Space
+, Text "made"
+, Space
+, Text "from"
+, SoftBreak
+, Text "what"
+, Space
+, Text "could"
+, Space
+, Text "only"
+, Space
+, Text "be"
+, Space
+, Text "cow"
+, Space
+, Text "manure"
+, Text "."
+, Space
+, Text "The"
+, Space
+, Text "hair"
+, Space
+, Text "on"
+, Space
+, Text "the"
+, Space
+, Text "back"
+, Space
+, Text "of"
+, Space
+, Code
+    "test/typ/compiler/modules/chap2.typ"
+    ( line 10 , column 57 )
+    (Ident (Identifier "name"))
+, Quote '\''
+, Space
+, Text "neck"
+, Space
+, Text "bristled"
+, Space
+, Text "as"
+, SoftBreak
+, Text "he"
+, Space
+, Text "stared"
+, Space
+, Text "at"
+, Space
+, Text "the"
+, Space
+, Text "unusual"
+, Space
+, Text "sight"
+, Text "."
+, Space
+, Text "After"
+, Space
+, Text "studying"
+, Space
+, Text "the"
+, Space
+, Text "object"
+, Space
+, Text "for"
+, Space
+, Text "a"
+, Space
+, Text "while,"
+, Space
+, Text "he"
+, SoftBreak
+, Text "promptly"
+, Space
+, Text "popped"
+, Space
+, Text "the"
+, Space
+, Text "question,"
+, Space
+, Quote '"'
+, Text "How"
+, Space
+, Text "much?"
+, Quote '"'
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  parbreak(), 
+  heading(body: [Chapter 2], 
+          level: 2), 
+  [Their motivations, however, were pretty descript, so to speak. ], 
+  [Klaus], 
+  [ had not yet
+conceptualized their consequences, but that should change pretty quickly. ], 
+  [Klaus], 
+  [
+approached the center of the field and picked up a 4-foot long disk made from
+what could only be cow manure. The hair on the back of ], 
+  [Klaus], 
+  [” neck bristled as
+he stared at the unusual sight. After studying the object for a while, he
+promptly popped the question, “How much?”], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Header 2 ( "" , [] , [] ) [ Str "Chapter" , Space , Str "2" ]
+  , Para
+      [ Str "Their"
+      , Space
+      , Str "motivations,"
+      , Space
+      , Str "however,"
+      , Space
+      , Str "were"
+      , Space
+      , Str "pretty"
+      , Space
+      , Str "descript,"
+      , Space
+      , Str "so"
+      , Space
+      , Str "to"
+      , Space
+      , Str "speak."
+      , Space
+      , Str "Klaus"
+      , Space
+      , Str "had"
+      , Space
+      , Str "not"
+      , Space
+      , Str "yet"
+      , SoftBreak
+      , Str "conceptualized"
+      , Space
+      , Str "their"
+      , Space
+      , Str "consequences,"
+      , Space
+      , Str "but"
+      , Space
+      , Str "that"
+      , Space
+      , Str "should"
+      , Space
+      , Str "change"
+      , Space
+      , Str "pretty"
+      , Space
+      , Str "quickly."
+      , Space
+      , Str "Klaus"
+      , SoftBreak
+      , Str "approached"
+      , Space
+      , Str "the"
+      , Space
+      , Str "center"
+      , Space
+      , Str "of"
+      , Space
+      , Str "the"
+      , Space
+      , Str "field"
+      , Space
+      , Str "and"
+      , Space
+      , Str "picked"
+      , Space
+      , Str "up"
+      , Space
+      , Str "a"
+      , Space
+      , Str "4-foot"
+      , Space
+      , Str "long"
+      , Space
+      , Str "disk"
+      , Space
+      , Str "made"
+      , Space
+      , Str "from"
+      , SoftBreak
+      , Str "what"
+      , Space
+      , Str "could"
+      , Space
+      , Str "only"
+      , Space
+      , Str "be"
+      , Space
+      , Str "cow"
+      , Space
+      , Str "manure."
+      , Space
+      , Str "The"
+      , Space
+      , Str "hair"
+      , Space
+      , Str "on"
+      , Space
+      , Str "the"
+      , Space
+      , Str "back"
+      , Space
+      , Str "of"
+      , Space
+      , Str "Klaus\8221"
+      , Space
+      , Str "neck"
+      , Space
+      , Str "bristled"
+      , Space
+      , Str "as"
+      , SoftBreak
+      , Str "he"
+      , Space
+      , Str "stared"
+      , Space
+      , Str "at"
+      , Space
+      , Str "the"
+      , Space
+      , Str "unusual"
+      , Space
+      , Str "sight."
+      , Space
+      , Str "After"
+      , Space
+      , Str "studying"
+      , Space
+      , Str "the"
+      , Space
+      , Str "object"
+      , Space
+      , Str "for"
+      , Space
+      , Str "a"
+      , Space
+      , Str "while,"
+      , Space
+      , Str "he"
+      , SoftBreak
+      , Str "promptly"
+      , Space
+      , Str "popped"
+      , Space
+      , Str "the"
+      , Space
+      , Str "question,"
+      , Space
+      , Str "\8220How"
+      , Space
+      , Str "much?\8221"
+      ]
+  ]

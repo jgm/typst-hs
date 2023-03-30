@@ -1,0 +1,68 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/highlight-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/highlight-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/highlight-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/compiler/highlight-00.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal Auto) ])
+, ParBreak
+, RawBlock
+    "typ"
+    "#set hello()\n#set hello()\n#set hello.world()\n#set hello.my.world()\n#let foo(x) = x * 2\n#show heading: func\n#show module.func: func\n#show module.func: it => {}\n#foo(ident: ident)\n#hello\n#hello()\n#box[]\n#hello.world\n#hello.world()\n#hello().world()\n#hello.my.world\n#hello.my.world()\n#hello.my().world\n#hello.my().world()\n#{ hello }\n#{ hello() }\n#{ hello.world() }\n$ hello $\n$ hello() $\n$ box[] $\n$ hello.world $\n$ hello.world() $\n$ hello.my.world() $\n$ f_zeta(x), f_zeta(x)/1 $\n$ emph(hello.my.world()) $\n$ emph(hello.my().world) $\n$ emph(hello.my().world()) $\n$ #hello $\n$ #hello() $\n$ #hello.world $\n$ #hello.world() $\n$ #box[] $\n#if foo []\n"
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  parbreak(), 
+  raw(block: true, 
+      lang: "typ", 
+      text: "#set hello()\n#set hello()\n#set hello.world()\n#set hello.my.world()\n#let foo(x) = x * 2\n#show heading: func\n#show module.func: func\n#show module.func: it => {}\n#foo(ident: ident)\n#hello\n#hello()\n#box[]\n#hello.world\n#hello.world()\n#hello().world()\n#hello.my.world\n#hello.my.world()\n#hello.my().world\n#hello.my().world()\n#{ hello }\n#{ hello() }\n#{ hello.world() }\n$ hello $\n$ hello() $\n$ box[] $\n$ hello.world $\n$ hello.world() $\n$ hello.my.world() $\n$ f_zeta(x), f_zeta(x)/1 $\n$ emph(hello.my.world()) $\n$ emph(hello.my().world) $\n$ emph(hello.my().world()) $\n$ #hello $\n$ #hello() $\n$ #hello.world $\n$ #hello.world() $\n$ #box[] $\n#if foo []\n"), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , CodeBlock
+      ( "" , [ "typ" ] , [] )
+      "#set hello()\n#set hello()\n#set hello.world()\n#set hello.my.world()\n#let foo(x) = x * 2\n#show heading: func\n#show module.func: func\n#show module.func: it => {}\n#foo(ident: ident)\n#hello\n#hello()\n#box[]\n#hello.world\n#hello.world()\n#hello().world()\n#hello.my.world\n#hello.my.world()\n#hello.my().world\n#hello.my().world()\n#{ hello }\n#{ hello() }\n#{ hello.world() }\n$ hello $\n$ hello() $\n$ box[] $\n$ hello.world $\n$ hello.world() $\n$ hello.my.world() $\n$ f_zeta(x), f_zeta(x)/1 $\n$ emph(hello.my.world()) $\n$ emph(hello.my().world) $\n$ emph(hello.my().world()) $\n$ #hello $\n$ #hello() $\n$ #hello.world $\n$ #hello.world() $\n$ #box[] $\n#if foo []\n"
+  ]

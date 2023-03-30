@@ -1,0 +1,97 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/list-05.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/list-05.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/list-05.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Space
+, Text "-"
+, Space
+, Text "A"
+, Space
+, Text "with"
+, Space
+, Text "1"
+, Space
+, Text "tab"
+, SoftBreak
+, BulletListItem
+    [ Text "B"
+    , Space
+    , Text "with"
+    , Space
+    , Text "2"
+    , Space
+    , Text "tabs"
+    , ParBreak
+    ]
+]
+--- evaluated ---
+{ [
+], 
+  [ - A with 1 tab
+], 
+  list(children: ({ [B with 2 tabs], 
+                    parbreak() })) }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "-"
+      , Space
+      , Str "A"
+      , Space
+      , Str "with"
+      , Space
+      , Str "1"
+      , Space
+      , Str "tab"
+      ]
+  , BulletList
+      [ [ Para
+            [ Str "B"
+            , Space
+            , Str "with"
+            , Space
+            , Str "2"
+            , Space
+            , Str "tabs"
+            ]
+        ]
+      ]
+  ]

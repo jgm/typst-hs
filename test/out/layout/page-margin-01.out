@@ -1,0 +1,211 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/page-margin-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/page-margin-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/page-margin-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/layout/page-margin-01.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "height") (Literal (Numeric 40.0 Pt)) ])
+, SoftBreak
+, Code
+    "test/typ/layout/page-margin-01.typ"
+    ( line 4 , column 2 )
+    (Block
+       (Content
+          [ Code
+              "test/typ/layout/page-margin-01.typ"
+              ( line 4 , column 4 )
+              (Set
+                 (Ident (Identifier "page"))
+                 [ KeyValArg
+                     (Identifier "margin")
+                     (Dict [ ( Identifier "left" , Literal (Numeric 0.0 Pt) ) ])
+                 ])
+          , Space
+          , Code
+              "test/typ/layout/page-margin-01.typ"
+              ( line 4 , column 36 )
+              (FuncCall
+                 (Ident (Identifier "align"))
+                 [ NormalArg (Ident (Identifier "left"))
+                 , BlockArg [ Text "Left" ]
+                 ])
+          ]))
+, SoftBreak
+, Code
+    "test/typ/layout/page-margin-01.typ"
+    ( line 5 , column 2 )
+    (Block
+       (Content
+          [ Code
+              "test/typ/layout/page-margin-01.typ"
+              ( line 5 , column 4 )
+              (Set
+                 (Ident (Identifier "page"))
+                 [ KeyValArg
+                     (Identifier "margin")
+                     (Dict [ ( Identifier "right" , Literal (Numeric 0.0 Pt) ) ])
+                 ])
+          , Space
+          , Code
+              "test/typ/layout/page-margin-01.typ"
+              ( line 5 , column 37 )
+              (FuncCall
+                 (Ident (Identifier "align"))
+                 [ NormalArg (Ident (Identifier "right"))
+                 , BlockArg [ Text "Right" ]
+                 ])
+          ]))
+, SoftBreak
+, Code
+    "test/typ/layout/page-margin-01.typ"
+    ( line 6 , column 2 )
+    (Block
+       (Content
+          [ Code
+              "test/typ/layout/page-margin-01.typ"
+              ( line 6 , column 4 )
+              (Set
+                 (Ident (Identifier "page"))
+                 [ KeyValArg
+                     (Identifier "margin")
+                     (Dict [ ( Identifier "top" , Literal (Numeric 0.0 Pt) ) ])
+                 ])
+          , Space
+          , Code
+              "test/typ/layout/page-margin-01.typ"
+              ( line 6 , column 35 )
+              (FuncCall
+                 (Ident (Identifier "align"))
+                 [ NormalArg (Ident (Identifier "top")) , BlockArg [ Text "Top" ] ])
+          ]))
+, SoftBreak
+, Code
+    "test/typ/layout/page-margin-01.typ"
+    ( line 7 , column 2 )
+    (Block
+       (Content
+          [ Code
+              "test/typ/layout/page-margin-01.typ"
+              ( line 7 , column 4 )
+              (Set
+                 (Ident (Identifier "page"))
+                 [ KeyValArg
+                     (Identifier "margin")
+                     (Dict [ ( Identifier "bottom" , Literal (Numeric 0.0 Pt) ) ])
+                 ])
+          , Space
+          , Code
+              "test/typ/layout/page-margin-01.typ"
+              ( line 7 , column 38 )
+              (FuncCall
+                 (Ident (Identifier "align"))
+                 [ NormalArg (Ident (Identifier "bottom"))
+                 , BlockArg [ Text "Bottom" ]
+                 ])
+          ]))
+, ParBreak
+, Comment
+, Code
+    "test/typ/layout/page-margin-01.typ"
+    ( line 10 , column 2 )
+    (Block
+       (Content
+          [ Code
+              "test/typ/layout/page-margin-01.typ"
+              ( line 10 , column 4 )
+              (Set
+                 (Ident (Identifier "page"))
+                 [ KeyValArg
+                     (Identifier "margin")
+                     (Dict
+                        [ ( Identifier "rest" , Literal (Numeric 0.0 Pt) )
+                        , ( Identifier "left" , Literal (Numeric 20.0 Pt) )
+                        ])
+                 ])
+          , Space
+          , Text "Overridden"
+          ]))
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  [ ], 
+  align(alignment: left, 
+        body: [Left]), 
+  [
+], 
+  [ ], 
+  align(alignment: right, 
+        body: [Right]), 
+  [
+], 
+  [ ], 
+  align(alignment: top, 
+        body: [Top]), 
+  [
+], 
+  [ ], 
+  align(alignment: bottom, 
+        body: [Bottom]), 
+  parbreak(), 
+  [ Overridden], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Div
+      ( "" , [] , [ ( "align" , "left" ) ] ) [ Para [ Str "Left" ] ]
+  , Para []
+  , Div
+      ( "" , [] , [ ( "align" , "right" ) ] ) [ Para [ Str "Right" ] ]
+  , Para []
+  , Div ( "" , [] , [ ( "align" , "top" ) ] ) [ Para [ Str "Top" ] ]
+  , Para []
+  , Div
+      ( "" , [] , [ ( "align" , "bottom" ) ] ) [ Para [ Str "Bottom" ] ]
+  , Para [ Str "Overridden" ]
+  ]

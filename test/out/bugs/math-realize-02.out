@@ -1,0 +1,520 @@
+--- parse tree ---
+[ Code
+    "test/typ/bugs/math-realize-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/bugs/math-realize-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/bugs/math-realize-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/bugs/math-realize-02.typ"
+    ( line 3 , column 2 )
+    (LetFunc
+       (Identifier "foo")
+       [ NormalParam (Identifier "v1") , NormalParam (Identifier "v2") ]
+       (Block
+          (CodeBlock
+             [ Block
+                 (Content
+                    [ Equation
+                        False
+                        [ Code
+                            "test/typ/bugs/math-realize-02.typ"
+                            ( line 6 , column 4 )
+                            (Ident (Identifier "v1"))
+                        , MAttach
+                            Nothing
+                            (Just (Text "2"))
+                            (Code
+                               "test/typ/bugs/math-realize-02.typ"
+                               ( line 6 , column 7 )
+                               (Ident (Identifier "v2")))
+                        ]
+                    ])
+             ])))
+, SoftBreak
+, Code
+    "test/typ/bugs/math-realize-02.typ"
+    ( line 8 , column 2 )
+    (LetFunc
+       (Identifier "bar")
+       [ NormalParam (Identifier "v1") , NormalParam (Identifier "v2") ]
+       (Block
+          (CodeBlock
+             [ Block
+                 (Content
+                    [ Equation
+                        True
+                        [ Code
+                            "test/typ/bugs/math-realize-02.typ"
+                            ( line 11 , column 5 )
+                            (Ident (Identifier "v1"))
+                        , MAttach
+                            Nothing
+                            (Just (Text "2"))
+                            (Code
+                               "test/typ/bugs/math-realize-02.typ"
+                               ( line 11 , column 8 )
+                               (Ident (Identifier "v2")))
+                        ]
+                    ])
+             ])))
+, SoftBreak
+, Code
+    "test/typ/bugs/math-realize-02.typ"
+    ( line 13 , column 2 )
+    (LetFunc
+       (Identifier "baz")
+       [ SinkParam (Just (Identifier "sink")) ]
+       (Block
+          (CodeBlock
+             [ FuncCall
+                 (FieldAccess
+                    (Ident (Identifier "join"))
+                    (FuncCall
+                       (FieldAccess
+                          (Ident (Identifier "map"))
+                          (FuncCall
+                             (FieldAccess
+                                (Ident (Identifier "pos")) (Ident (Identifier "sink")))
+                             []))
+                       [ NormalArg
+                           (FuncExpr
+                              [ NormalParam (Identifier "x") ]
+                              (Block
+                                 (Content
+                                    [ Equation
+                                        False
+                                        [ Code
+                                            "test/typ/bugs/math-realize-02.typ"
+                                            ( line 15 , column 24 )
+                                            (FuncCall
+                                               (Ident (Identifier "hat"))
+                                               [ NormalArg (Ident (Identifier "x")) ])
+                                        ]
+                                    ])))
+                       ]))
+                 [ NormalArg
+                     (FieldAccess (Ident (Identifier "and")) (Ident (Identifier "sym")))
+                 ]
+             ])))
+, ParBreak
+, Text "Inline"
+, Space
+, Equation
+    False
+    [ Text "2"
+    , Code
+        "test/typ/bugs/math-realize-02.typ"
+        ( line 18 , column 11 )
+        (FuncCall
+           (Ident (Identifier "foo"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/bugs/math-realize-02.typ"
+                         ( line 18 , column 15 )
+                         (Ident (Identifier "alpha"))
+                     ]))
+           , NormalArg
+               (Block
+                  (Content
+                     [ MGroup
+                         (Just "(")
+                         (Just ")")
+                         [ Text "M"
+                         , Text "+"
+                         , Code
+                             "test/typ/bugs/math-realize-02.typ"
+                             ( line 18 , column 25 )
+                             (FuncCall
+                                (Ident (Identifier "foo"))
+                                [ NormalArg (Block (Content [ Text "a" ]))
+                                , NormalArg (Block (Content [ Text "b" ]))
+                                ])
+                         ]
+                     ]))
+           ])
+    ]
+, Text "."
+, ParBreak
+, Text "Inline"
+, Space
+, Equation
+    False
+    [ Text "2"
+    , Code
+        "test/typ/bugs/math-realize-02.typ"
+        ( line 20 , column 11 )
+        (FuncCall
+           (Ident (Identifier "bar"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/bugs/math-realize-02.typ"
+                         ( line 20 , column 15 )
+                         (Ident (Identifier "alpha"))
+                     ]))
+           , NormalArg
+               (Block
+                  (Content
+                     [ MGroup
+                         (Just "(")
+                         (Just ")")
+                         [ Text "M"
+                         , Text "+"
+                         , Code
+                             "test/typ/bugs/math-realize-02.typ"
+                             ( line 20 , column 25 )
+                             (FuncCall
+                                (Ident (Identifier "foo"))
+                                [ NormalArg (Block (Content [ Text "a" ]))
+                                , NormalArg (Block (Content [ Text "b" ]))
+                                ])
+                         ]
+                     ]))
+           ])
+    ]
+, Text "."
+, ParBreak
+, Text "Inline"
+, Space
+, Equation
+    False
+    [ Text "2"
+    , Code
+        "test/typ/bugs/math-realize-02.typ"
+        ( line 22 , column 11 )
+        (FuncCall
+           (Ident (Identifier "baz"))
+           [ NormalArg (Block (Content [ Text "x" ]))
+           , NormalArg (Block (Content [ Text "y" ]))
+           , NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/bugs/math-realize-02.typ"
+                         ( line 22 , column 19 )
+                         (FuncCall
+                            (Ident (Identifier "baz"))
+                            [ NormalArg (Block (Content [ Text "u" ]))
+                            , NormalArg (Block (Content [ Text "v" ]))
+                            ])
+                     ]))
+           ])
+    ]
+, Text "."
+, ParBreak
+, Equation
+    True
+    [ Text "2"
+    , Code
+        "test/typ/bugs/math-realize-02.typ"
+        ( line 24 , column 5 )
+        (FuncCall
+           (Ident (Identifier "foo"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/bugs/math-realize-02.typ"
+                         ( line 24 , column 9 )
+                         (Ident (Identifier "alpha"))
+                     ]))
+           , NormalArg
+               (Block
+                  (Content
+                     [ MGroup
+                         (Just "(")
+                         (Just ")")
+                         [ Text "M"
+                         , Text "+"
+                         , Code
+                             "test/typ/bugs/math-realize-02.typ"
+                             ( line 24 , column 19 )
+                             (FuncCall
+                                (Ident (Identifier "foo"))
+                                [ NormalArg (Block (Content [ Text "a" ]))
+                                , NormalArg (Block (Content [ Text "b" ]))
+                                ])
+                         ]
+                     ]))
+           ])
+    ]
+, SoftBreak
+, Equation
+    True
+    [ Text "2"
+    , Code
+        "test/typ/bugs/math-realize-02.typ"
+        ( line 25 , column 5 )
+        (FuncCall
+           (Ident (Identifier "bar"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/bugs/math-realize-02.typ"
+                         ( line 25 , column 9 )
+                         (Ident (Identifier "alpha"))
+                     ]))
+           , NormalArg
+               (Block
+                  (Content
+                     [ MGroup
+                         (Just "(")
+                         (Just ")")
+                         [ Text "M"
+                         , Text "+"
+                         , Code
+                             "test/typ/bugs/math-realize-02.typ"
+                             ( line 25 , column 19 )
+                             (FuncCall
+                                (Ident (Identifier "foo"))
+                                [ NormalArg (Block (Content [ Text "a" ]))
+                                , NormalArg (Block (Content [ Text "b" ]))
+                                ])
+                         ]
+                     ]))
+           ])
+    ]
+, SoftBreak
+, Equation
+    True
+    [ Text "2"
+    , Code
+        "test/typ/bugs/math-realize-02.typ"
+        ( line 26 , column 5 )
+        (FuncCall
+           (Ident (Identifier "baz"))
+           [ NormalArg (Block (Content [ Text "x" ]))
+           , NormalArg (Block (Content [ Text "y" ]))
+           , NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/bugs/math-realize-02.typ"
+                         ( line 26 , column 13 )
+                         (FuncCall
+                            (Ident (Identifier "baz"))
+                            [ NormalArg (Block (Content [ Text "u" ]))
+                            , NormalArg (Block (Content [ Text "v" ]))
+                            ])
+                     ]))
+           ])
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  [
+], 
+  parbreak(), 
+  [Inline ], 
+  math.equation(block: false, 
+                body: { [2], 
+                        math.equation(block: false, 
+                                      body: { [α], 
+                                              math.attach(b: none, 
+                                                          base: math.lr(body: { [(], 
+                                                                                [M], 
+                                                                                [+], 
+                                                                                math.equation(block: false, 
+                                                                                              body: { [a], 
+                                                                                                      math.attach(b: none, 
+                                                                                                                  base: [b], 
+                                                                                                                  t: [2]) }, 
+                                                                                              numbering: none), 
+                                                                                [)] }), 
+                                                          t: [2]) }, 
+                                      numbering: none) }, 
+                numbering: none), 
+  [.], 
+  parbreak(), 
+  [Inline ], 
+  math.equation(block: false, 
+                body: { [2], 
+                        [|], 
+                        [(], 
+                        [α], 
+                        [,], 
+                        math.lr(body: { [(], 
+                                        [M], 
+                                        [+], 
+                                        math.equation(block: false, 
+                                                      body: { [a], 
+                                                              math.attach(b: none, 
+                                                                          base: [b], 
+                                                                          t: [2]) }, 
+                                                      numbering: none), 
+                                        [)] }), 
+                        [)] }, 
+                numbering: none), 
+  [.], 
+  parbreak(), 
+  [Inline ], 
+  math.equation(block: false, 
+                body: { [2], 
+                        math.equation(block: false, 
+                                      body: math.accent(accent: ^, 
+                                                        base: [x]), 
+                                      numbering: none), 
+                        [∧], 
+                        math.equation(block: false, 
+                                      body: math.accent(accent: ^, 
+                                                        base: [y]), 
+                                      numbering: none), 
+                        [∧], 
+                        math.equation(block: false, 
+                                      body: math.accent(accent: ^, 
+                                                        base: { math.equation(block: false, 
+                                                                              body: math.accent(accent: ^, 
+                                                                                                base: [u]), 
+                                                                              numbering: none), 
+                                                                [∧], 
+                                                                math.equation(block: false, 
+                                                                              body: math.accent(accent: ^, 
+                                                                                                base: [v]), 
+                                                                              numbering: none) }), 
+                                      numbering: none) }, 
+                numbering: none), 
+  [.], 
+  parbreak(), 
+  math.equation(block: true, 
+                body: { [2], 
+                        math.equation(block: false, 
+                                      body: { [α], 
+                                              math.attach(b: none, 
+                                                          base: math.lr(body: { [(], 
+                                                                                [M], 
+                                                                                [+], 
+                                                                                math.equation(block: false, 
+                                                                                              body: { [a], 
+                                                                                                      math.attach(b: none, 
+                                                                                                                  base: [b], 
+                                                                                                                  t: [2]) }, 
+                                                                                              numbering: none), 
+                                                                                [)] }), 
+                                                          t: [2]) }, 
+                                      numbering: none) }, 
+                numbering: none), 
+  [
+], 
+  math.equation(block: true, 
+                body: { [2], 
+                        [|], 
+                        [(], 
+                        [α], 
+                        [,], 
+                        math.lr(body: { [(], 
+                                        [M], 
+                                        [+], 
+                                        math.equation(block: false, 
+                                                      body: { [a], 
+                                                              math.attach(b: none, 
+                                                                          base: [b], 
+                                                                          t: [2]) }, 
+                                                      numbering: none), 
+                                        [)] }), 
+                        [)] }, 
+                numbering: none), 
+  [
+], 
+  math.equation(block: true, 
+                body: { [2], 
+                        math.equation(block: false, 
+                                      body: math.accent(accent: ^, 
+                                                        base: [x]), 
+                                      numbering: none), 
+                        [∧], 
+                        math.equation(block: false, 
+                                      body: math.accent(accent: ^, 
+                                                        base: [y]), 
+                                      numbering: none), 
+                        [∧], 
+                        math.equation(block: false, 
+                                      body: math.accent(accent: ^, 
+                                                        base: { math.equation(block: false, 
+                                                                              body: math.accent(accent: ^, 
+                                                                                                base: [u]), 
+                                                                              numbering: none), 
+                                                                [∧], 
+                                                                math.equation(block: false, 
+                                                                              body: math.accent(accent: ^, 
+                                                                                                base: [v]), 
+                                                                              numbering: none) }), 
+                                      numbering: none) }, 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para
+      [ Str "Inline"
+      , Space
+      , Math InlineMath "2{\\alpha\\left( {M + {ab^{2}}} \\right)^{2}}"
+      , Str "."
+      ]
+  , Para
+      [ Str "Inline"
+      , Space
+      , Math InlineMath "2|(\\alpha,\\left( {M + {ab^{2}}} \\right))"
+      , Str "."
+      ]
+  , Para
+      [ Str "Inline"
+      , Space
+      , Math
+          InlineMath
+          "2\\hat{x} \\land \\hat{y} \\land \\hat{\\hat{u} \\land \\hat{v}}"
+      , Str "."
+      ]
+  , Para
+      [ Math DisplayMath "2{\\alpha\\left( {M + {ab^{2}}} \\right)^{2}}"
+      , SoftBreak
+      , Math DisplayMath "2|(\\alpha,\\left( {M + {ab^{2}}} \\right))"
+      , SoftBreak
+      , Math
+          DisplayMath
+          "2\\hat{x} \\land \\hat{y} \\land \\hat{\\hat{u} \\land \\hat{v}}"
+      ]
+  ]

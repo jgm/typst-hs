@@ -1,0 +1,185 @@
+--- parse tree ---
+[ Code
+    "test/typ/text/symbol-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/text/symbol-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/text/symbol-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/text/symbol-00.typ"
+    ( line 2 , column 2 )
+    (FieldAccess
+       (Ident (Identifier "face")) (Ident (Identifier "emoji")))
+, SoftBreak
+, Code
+    "test/typ/text/symbol-00.typ"
+    ( line 3 , column 2 )
+    (FieldAccess
+       (Ident (Identifier "old"))
+       (FieldAccess
+          (Ident (Identifier "woman")) (Ident (Identifier "emoji"))))
+, SoftBreak
+, Code
+    "test/typ/text/symbol-00.typ"
+    ( line 4 , column 2 )
+    (FieldAccess
+       (Ident (Identifier "turtle")) (Ident (Identifier "emoji")))
+, ParBreak
+, Code
+    "test/typ/text/symbol-00.typ"
+    ( line 6 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg
+           (Identifier "font") (Literal (String "New Computer Modern Math"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/text/symbol-00.typ"
+    ( line 7 , column 2 )
+    (FieldAccess
+       (Ident (Identifier "arrow")) (Ident (Identifier "sym")))
+, SoftBreak
+, Code
+    "test/typ/text/symbol-00.typ"
+    ( line 8 , column 2 )
+    (FieldAccess
+       (Ident (Identifier "l"))
+       (FieldAccess
+          (Ident (Identifier "arrow")) (Ident (Identifier "sym"))))
+, SoftBreak
+, Code
+    "test/typ/text/symbol-00.typ"
+    ( line 9 , column 2 )
+    (FieldAccess
+       (Ident (Identifier "squiggly"))
+       (FieldAccess
+          (Ident (Identifier "r"))
+          (FieldAccess
+             (Ident (Identifier "arrow")) (Ident (Identifier "sym")))))
+, SoftBreak
+, Code
+    "test/typ/text/symbol-00.typ"
+    ( line 10 , column 2 )
+    (FieldAccess
+       (Ident (Identifier "hook"))
+       (FieldAccess
+          (Ident (Identifier "tr"))
+          (FieldAccess
+             (Ident (Identifier "arrow")) (Ident (Identifier "sym")))))
+, ParBreak
+, Code
+    "test/typ/text/symbol-00.typ"
+    ( line 12 , column 2 )
+    (FieldAccess
+       (Ident (Identifier "r"))
+       (FieldAccess
+          (Ident (Identifier "arrow")) (Ident (Identifier "sym"))))
+, Text "this"
+, Space
+, Text "and"
+, Space
+, Text "this"
+, Code
+    "test/typ/text/symbol-00.typ"
+    ( line 12 , column 28 )
+    (FieldAccess
+       (Ident (Identifier "l"))
+       (FieldAccess
+          (Ident (Identifier "arrow")) (Ident (Identifier "sym"))))
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [😀], 
+  [
+], 
+  [👵], 
+  [
+], 
+  [🐢], 
+  parbreak(), 
+  text(body: [
+], 
+       font: "New Computer Modern Math"), 
+  text(body: [→], 
+       font: "New Computer Modern Math"), 
+  text(body: [
+], 
+       font: "New Computer Modern Math"), 
+  text(body: [←], 
+       font: "New Computer Modern Math"), 
+  text(body: [
+], 
+       font: "New Computer Modern Math"), 
+  text(body: [⇝], 
+       font: "New Computer Modern Math"), 
+  text(body: [
+], 
+       font: "New Computer Modern Math"), 
+  text(body: [⤤], 
+       font: "New Computer Modern Math"), 
+  parbreak(), 
+  text(body: [→], 
+       font: "New Computer Modern Math"), 
+  text(body: [this and this], 
+       font: "New Computer Modern Math"), 
+  text(body: [←], 
+       font: "New Computer Modern Math"), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "\128512"
+      , SoftBreak
+      , Str "\128117"
+      , SoftBreak
+      , Str "\128034"
+      ]
+  , Para
+      [ Str "\8594"
+      , SoftBreak
+      , Str "\8592"
+      , SoftBreak
+      , Str "\8669"
+      , SoftBreak
+      , Str "\10532"
+      ]
+  , Para
+      [ Str "\8594this" , Space , Str "and" , Space , Str "this\8592" ]
+  ]

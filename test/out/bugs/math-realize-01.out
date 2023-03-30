@@ -1,0 +1,159 @@
+--- parse tree ---
+[ Code
+    "test/typ/bugs/math-realize-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/bugs/math-realize-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/bugs/math-realize-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Equation
+    True
+    [ MAttach Nothing (Just (Text "2")) (Text "x")
+    , Code
+        "test/typ/bugs/math-realize-01.typ"
+        ( line 2 , column 8 )
+        (FuncCall
+           (Ident (Identifier "hide"))
+           [ BlockArg
+               [ Equation
+                   False
+                   [ MGroup
+                       (Just "(")
+                       (Just ")")
+                       [ Text "\8805"
+                       , Code
+                           "test/typ/bugs/math-realize-01.typ"
+                           ( line 2 , column 18 )
+                           (FieldAccess (Ident (Identifier "alt")) (Ident (Identifier "phi")))
+                       ]
+                   , Code
+                       "test/typ/bugs/math-realize-01.typ"
+                       ( line 2 , column 27 )
+                       (Ident (Identifier "union"))
+                   , MAttach Nothing (Just (Text "2")) (Text "y")
+                   , Text "0"
+                   ]
+               ]
+           ])
+    , MAttach Nothing (Just (Text "2")) (Text "z")
+    ]
+, SoftBreak
+, Text "Hello"
+, Space
+, Code
+    "test/typ/bugs/math-realize-01.typ"
+    ( line 3 , column 8 )
+    (FuncCall
+       (Ident (Identifier "hide"))
+       [ BlockArg [ Text "there" , Space , Equation False [ Text "x" ] ]
+       ])
+, SoftBreak
+, Text "and"
+, Space
+, Code
+    "test/typ/bugs/math-realize-01.typ"
+    ( line 4 , column 6 )
+    (FuncCall
+       (Ident (Identifier "hide"))
+       [ BlockArg
+           [ Equation
+               True
+               [ MGroup
+                   Nothing
+                   Nothing
+                   [ Text "f" , MGroup (Just "(") (Just ")") [ Text "x" ] ]
+               , Text ":"
+               , Text "="
+               , MAttach Nothing (Just (Text "2")) (Text "x")
+               ]
+           ]
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  math.equation(block: true, 
+                body: { math.attach(b: none, 
+                                    base: [x], 
+                                    t: [2]), 
+                        hide(body: math.equation(block: false, 
+                                                 body: { math.lr(body: { [(], 
+                                                                         [≥], 
+                                                                         [ϕ], 
+                                                                         [)] }), 
+                                                         [∪], 
+                                                         math.attach(b: none, 
+                                                                     base: [y], 
+                                                                     t: [2]), 
+                                                         [0] }, 
+                                                 numbering: none)), 
+                        math.attach(b: none, 
+                                    base: [z], 
+                                    t: [2]) }, 
+                numbering: none), 
+  [
+Hello ], 
+  hide(body: { [there ], 
+               math.equation(block: false, 
+                             body: [x], 
+                             numbering: none) }), 
+  [
+and ], 
+  hide(body: math.equation(block: true, 
+                           body: { [f], 
+                                   math.lr(body: { [(], 
+                                                   [x], 
+                                                   [)] }), 
+                                   [:], 
+                                   [=], 
+                                   math.attach(b: none, 
+                                               base: [x], 
+                                               t: [2]) }, 
+                           numbering: none)), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math
+          DisplayMath
+          "x^{2}\\phantom{\\left( {\\geq \\phi} \\right) \\cup y^{2}0}z^{2}"
+      , SoftBreak
+      , Str "Hello"
+      , SoftBreak
+      , Str "and"
+      ]
+  ]

@@ -1,0 +1,158 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/place-background-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/place-background-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/place-background-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/layout/place-background-00.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "paper") (Literal (String "a10"))
+       , KeyValArg (Identifier "flipped") (Literal (Boolean True))
+       ])
+, SoftBreak
+, Code
+    "test/typ/layout/place-background-00.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "fill") (Ident (Identifier "white")) ])
+, SoftBreak
+, Code
+    "test/typ/layout/place-background-00.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "place"))
+       [ KeyValArg (Identifier "dx") (Negated (Literal (Numeric 10.0 Pt)))
+       , KeyValArg (Identifier "dy") (Negated (Literal (Numeric 10.0 Pt)))
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "image"))
+              [ NormalArg (Literal (String "/tiger.jpg"))
+              , KeyValArg (Identifier "fit") (Literal (String "cover"))
+              , KeyValArg
+                  (Identifier "width")
+                  (Plus
+                     (Literal (Numeric 100.0 Percent)) (Literal (Numeric 20.0 Pt)))
+              , KeyValArg
+                  (Identifier "height")
+                  (Plus
+                     (Literal (Numeric 100.0 Percent)) (Literal (Numeric 20.0 Pt)))
+              ])
+       ])
+, SoftBreak
+, Code
+    "test/typ/layout/place-background-00.typ"
+    ( line 14 , column 2 )
+    (FuncCall
+       (Ident (Identifier "align"))
+       [ NormalArg
+           (Plus (Ident (Identifier "bottom")) (Ident (Identifier "right")))
+       , BlockArg
+           [ SoftBreak
+           , Emph [ Text "Welcome" , Space , Text "to" ]
+           , Space
+           , Code
+               "test/typ/layout/place-background-00.typ"
+               ( line 15 , column 17 )
+               (FuncCall
+                  (Ident (Identifier "underline"))
+                  [ BlockArg [ Strong [ Text "Tigerland" ] ] ])
+           , ParBreak
+           ]
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  text(body: [
+], 
+       fill: rgb(100%,100%,100%,100%)), 
+  place(body: image(fit: "cover", 
+                    height: 20.0pt + 100%, 
+                    path: "/tiger.jpg", 
+                    width: 20.0pt + 100%), 
+        dx: -10.0pt, 
+        dy: -10.0pt), 
+  text(body: [
+], 
+       fill: rgb(100%,100%,100%,100%)), 
+  align(alignment: Axes(right, bottom), 
+        body: { text(body: [
+], 
+                     fill: rgb(100%,100%,100%,100%)), 
+                emph(body: text(body: [Welcome to], 
+                                fill: rgb(100%,100%,100%,100%))), 
+                text(body: [ ], 
+                     fill: rgb(100%,100%,100%,100%)), 
+                underline(body: strong(body: text(body: [Tigerland], 
+                                                  fill: rgb(100%,100%,100%,100%)))), 
+                parbreak() }), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Div
+      ( "" , [] , [] )
+      [ Para
+          [ Image
+              ( ""
+              , []
+              , [ ( "width" , "20.0pt + 100%" )
+                , ( "height" , "20.0pt + 100%" )
+                ]
+              )
+              []
+              ( "/tiger.jpg" , "" )
+          ]
+      ]
+  , Para []
+  , Div
+      ( "" , [] , [ ( "align" , "Axes(right, bottom)" ) ] )
+      [ Para
+          [ Emph [ Str "Welcome" , Space , Str "to" ]
+          , Space
+          , Underline [ Strong [ Str "Tigerland" ] ]
+          ]
+      ]
+  ]

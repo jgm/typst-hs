@@ -1,0 +1,100 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/enum-numbering-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/enum-numbering-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/enum-numbering-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/layout/enum-numbering-00.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "enum"))
+       [ KeyValArg (Identifier "numbering") (Literal (String "(1.a.*)"))
+       ])
+, SoftBreak
+, EnumListItem Nothing [ Text "First" ]
+, SoftBreak
+, EnumListItem
+    Nothing
+    [ Text "Second"
+    , SoftBreak
+    , EnumListItem
+        (Just 2)
+        [ Text "Nested"
+        , SoftBreak
+        , EnumListItem Nothing [ Text "Deep" ]
+        ]
+    ]
+, SoftBreak
+, EnumListItem Nothing [ Text "Normal" , ParBreak ]
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  enum(children: ([First], 
+                  { [Second
+], 
+                    enum(children: ({ [Nested
+], 
+                                      enum(children: ([Deep]), 
+                                           numbering: "(1.a.*)") }), 
+                         numbering: "(1.a.*)", 
+                         start: 2) }, 
+                  { [Normal], parbreak() }), 
+       numbering: "(1.a.*)") }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , OrderedList
+      ( 1 , DefaultStyle , DefaultDelim )
+      [ [ Para [ Str "First" ] ]
+      , [ Para [ Str "Second" ]
+        , OrderedList
+            ( 2 , DefaultStyle , DefaultDelim )
+            [ [ Para [ Str "Nested" ]
+              , OrderedList
+                  ( 1 , DefaultStyle , DefaultDelim ) [ [ Para [ Str "Deep" ] ] ]
+              ]
+            ]
+        ]
+      , [ Para [ Str "Normal" ] ]
+      ]
+  ]

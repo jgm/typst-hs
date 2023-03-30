@@ -1,0 +1,263 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/style-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/style-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/style-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Equation
+    False
+    [ Text "A"
+    , Text ","
+    , Code
+        "test/typ/math/style-01.typ"
+        ( line 3 , column 5 )
+        (FuncCall
+           (Ident (Identifier "italic"))
+           [ NormalArg (Block (Content [ Text "A" ])) ])
+    , Text ","
+    , Code
+        "test/typ/math/style-01.typ"
+        ( line 3 , column 16 )
+        (FuncCall
+           (Ident (Identifier "upright"))
+           [ NormalArg (Block (Content [ Text "A" ])) ])
+    , Text ","
+    , Code
+        "test/typ/math/style-01.typ"
+        ( line 3 , column 28 )
+        (FuncCall
+           (Ident (Identifier "bold"))
+           [ NormalArg (Block (Content [ Text "A" ])) ])
+    , Text ","
+    , Code
+        "test/typ/math/style-01.typ"
+        ( line 3 , column 37 )
+        (FuncCall
+           (Ident (Identifier "bold"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/style-01.typ"
+                         ( line 3 , column 42 )
+                         (FuncCall
+                            (Ident (Identifier "upright"))
+                            [ NormalArg (Block (Content [ Text "A" ])) ])
+                     ]))
+           ])
+    , Text ","
+    , HardBreak
+    , Code
+        "test/typ/math/style-01.typ"
+        ( line 4 , column 2 )
+        (FuncCall
+           (Ident (Identifier "serif"))
+           [ NormalArg (Block (Content [ Text "A" ])) ])
+    , Text ","
+    , Code
+        "test/typ/math/style-01.typ"
+        ( line 4 , column 12 )
+        (FuncCall
+           (Ident (Identifier "sans"))
+           [ NormalArg (Block (Content [ Text "A" ])) ])
+    , Text ","
+    , Code
+        "test/typ/math/style-01.typ"
+        ( line 4 , column 21 )
+        (FuncCall
+           (Ident (Identifier "cal"))
+           [ NormalArg (Block (Content [ Text "A" ])) ])
+    , Text ","
+    , Code
+        "test/typ/math/style-01.typ"
+        ( line 4 , column 29 )
+        (FuncCall
+           (Ident (Identifier "frak"))
+           [ NormalArg (Block (Content [ Text "A" ])) ])
+    , Text ","
+    , Code
+        "test/typ/math/style-01.typ"
+        ( line 4 , column 38 )
+        (FuncCall
+           (Ident (Identifier "mono"))
+           [ NormalArg (Block (Content [ Text "A" ])) ])
+    , Text ","
+    , Code
+        "test/typ/math/style-01.typ"
+        ( line 4 , column 47 )
+        (FuncCall
+           (Ident (Identifier "bb"))
+           [ NormalArg (Block (Content [ Text "A" ])) ])
+    , Text ","
+    , HardBreak
+    , Code
+        "test/typ/math/style-01.typ"
+        ( line 5 , column 2 )
+        (FuncCall
+           (Ident (Identifier "italic"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/style-01.typ"
+                         ( line 5 , column 9 )
+                         (Ident (Identifier "diff"))
+                     ]))
+           ])
+    , Text ","
+    , Code
+        "test/typ/math/style-01.typ"
+        ( line 5 , column 16 )
+        (FuncCall
+           (Ident (Identifier "upright"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/style-01.typ"
+                         ( line 5 , column 24 )
+                         (Ident (Identifier "diff"))
+                     ]))
+           ])
+    , Text ","
+    , HardBreak
+    , Code
+        "test/typ/math/style-01.typ"
+        ( line 6 , column 2 )
+        (FuncCall
+           (Ident (Identifier "bb"))
+           [ NormalArg (Block (Content [ Text "hello" ])) ])
+    , Text "+"
+    , Code
+        "test/typ/math/style-01.typ"
+        ( line 6 , column 16 )
+        (FuncCall
+           (Ident (Identifier "bold"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/style-01.typ"
+                         ( line 6 , column 21 )
+                         (FuncCall
+                            (Ident (Identifier "cal"))
+                            [ NormalArg (Block (Content [ Text "world" ])) ])
+                     ]))
+           ])
+    , Text ","
+    , HardBreak
+    , Code
+        "test/typ/math/style-01.typ"
+        ( line 7 , column 2 )
+        (FuncCall
+           (FuncCall
+              (Ident (Identifier "mono"))
+              [ NormalArg (Block (Content [ Text "SQRT" ])) ])
+           [ NormalArg (Block (Content [ Text "x" ])) ])
+    , Code
+        "test/typ/math/style-01.typ"
+        ( line 7 , column 18 )
+        (Ident (Identifier "wreath"))
+    , Code
+        "test/typ/math/style-01.typ"
+        ( line 7 , column 25 )
+        (FuncCall
+           (Ident (Identifier "mono"))
+           [ NormalArg
+               (Block (Content [ Text "123" , Text "+" , Text "456" ]))
+           ])
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  math.equation(block: false, 
+                body: { [A], 
+                        [,], 
+                        math.italic(body: [A]), 
+                        [,], 
+                        math.upright(body: [A]), 
+                        [,], 
+                        math.bold(body: [A]), 
+                        [,], 
+                        math.bold(body: math.upright(body: [A])), 
+                        [,], 
+                        linebreak(), 
+                        math.serif(body: [A]), 
+                        [,], 
+                        math.sans(body: [A]), 
+                        [,], 
+                        math.cal(body: [A]), 
+                        [,], 
+                        math.frak(body: [A]), 
+                        [,], 
+                        math.mono(body: [A]), 
+                        [,], 
+                        math.bb(body: [A]), 
+                        [,], 
+                        linebreak(), 
+                        math.italic(body: [∂]), 
+                        [,], 
+                        math.upright(body: [∂]), 
+                        [,], 
+                        linebreak(), 
+                        math.bb(body: [hello]), 
+                        [+], 
+                        math.bold(body: math.cal(body: [world])), 
+                        [,], 
+                        linebreak(), 
+                        math.mono(body: [SQRT]), 
+                        [(], 
+                        [x], 
+                        [)], 
+                        [≀], 
+                        math.mono(body: { [123], 
+                                          [+], 
+                                          [456] }) }, 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math
+          InlineMath
+          "\\begin{array}{r}\nA,\\mathit{A},\\mathrm{A},\\mathbf{A},\\mathbf{\\mathrm{A}}, \\\\\n\\mathrm{A},\\mathsf{A},\\mathcal{A},\\mathfrak{A},\\mathtt{A},\\mathbb{A}, \\\\\n\\mathit{\\partial},\\mathrm{\\partial}, \\\\\n\\mathbb{\\text{hello}} + \\mathbf{\\mathcal{\\text{world}}}, \\\\\n\\mathtt{\\text{SQRT}}(x) \\wr \\mathtt{123 + 456}\n\\end{array}"
+      ]
+  ]

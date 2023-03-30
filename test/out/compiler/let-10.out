@@ -1,0 +1,98 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/let-10.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/let-10.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/let-10.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Comment
+, Code
+    "test/typ/compiler/let-10.typ"
+    ( line 4 , column 2 )
+    (Let
+       (DestructuringBind
+          [ Simple (Just (Identifier "a"))
+          , Simple (Just (Identifier "b"))
+          , Sink (Just (Identifier "c"))
+          ])
+       (Array [ Literal (Int 1) , Literal (Int 2) ]))
+, SoftBreak
+, Code
+    "test/typ/compiler/let-10.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg (Ident (Identifier "a"))
+       , NormalArg (Literal (Int 1))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/let-10.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg (Ident (Identifier "b"))
+       , NormalArg (Literal (Int 2))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/let-10.typ"
+    ( line 7 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg (Ident (Identifier "c")) , NormalArg (Array []) ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "\9989" , SoftBreak , Str "\9989" , SoftBreak , Str "\9989" ]
+  ]

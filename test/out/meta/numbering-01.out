@@ -1,0 +1,259 @@
+--- parse tree ---
+[ Code
+    "test/typ/meta/numbering-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/meta/numbering-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/meta/numbering-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/meta/numbering-01.typ"
+    ( line 2 , column 2 )
+    (For
+       (BasicBind (Just (Identifier "i")))
+       (FuncCall
+          (Ident (Identifier "range"))
+          [ NormalArg (Literal (Int 0)) , NormalArg (Literal (Int 4)) ])
+       (Block
+          (CodeBlock
+             [ FuncCall
+                 (Ident (Identifier "numbering"))
+                 [ NormalArg (Literal (String "A"))
+                 , NormalArg (Ident (Identifier "i"))
+                 ]
+             , Block
+                 (Content
+                    [ Space
+                    , Text "for"
+                    , Space
+                    , Code
+                        "test/typ/meta/numbering-01.typ"
+                        ( line 4 , column 10 )
+                        (Ident (Identifier "i"))
+                    , Space
+                    , HardBreak
+                    ])
+             ])))
+, SoftBreak
+, Ellipsis
+, Space
+, HardBreak
+, Code
+    "test/typ/meta/numbering-01.typ"
+    ( line 7 , column 2 )
+    (For
+       (BasicBind (Just (Identifier "i")))
+       (FuncCall
+          (Ident (Identifier "range"))
+          [ NormalArg (Literal (Int 26)) , NormalArg (Literal (Int 30)) ])
+       (Block
+          (CodeBlock
+             [ FuncCall
+                 (Ident (Identifier "numbering"))
+                 [ NormalArg (Literal (String "A"))
+                 , NormalArg (Ident (Identifier "i"))
+                 ]
+             , Block
+                 (Content
+                    [ Space
+                    , Text "for"
+                    , Space
+                    , Code
+                        "test/typ/meta/numbering-01.typ"
+                        ( line 9 , column 10 )
+                        (Ident (Identifier "i"))
+                    , Space
+                    , HardBreak
+                    ])
+             ])))
+, SoftBreak
+, Ellipsis
+, Space
+, HardBreak
+, Code
+    "test/typ/meta/numbering-01.typ"
+    ( line 12 , column 2 )
+    (For
+       (BasicBind (Just (Identifier "i")))
+       (FuncCall
+          (Ident (Identifier "range"))
+          [ NormalArg (Literal (Int 702)) , NormalArg (Literal (Int 706)) ])
+       (Block
+          (CodeBlock
+             [ FuncCall
+                 (Ident (Identifier "numbering"))
+                 [ NormalArg (Literal (String "A"))
+                 , NormalArg (Ident (Identifier "i"))
+                 ]
+             , Block
+                 (Content
+                    [ Space
+                    , Text "for"
+                    , Space
+                    , Code
+                        "test/typ/meta/numbering-01.typ"
+                        ( line 14 , column 10 )
+                        (Ident (Identifier "i"))
+                    , Space
+                    , HardBreak
+                    ])
+             ])))
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  numbering(numbering: "A", 
+            numbers: (0)), 
+  [ for ], 
+  [0], 
+  [ ], 
+  linebreak(), 
+  numbering(numbering: "A", 
+            numbers: (1)), 
+  [ for ], 
+  [1], 
+  [ ], 
+  linebreak(), 
+  numbering(numbering: "A", 
+            numbers: (2)), 
+  [ for ], 
+  [2], 
+  [ ], 
+  linebreak(), 
+  numbering(numbering: "A", 
+            numbers: (3)), 
+  [ for ], 
+  [3], 
+  [ ], 
+  linebreak(), 
+  [
+… ], 
+  linebreak(), 
+  numbering(numbering: "A", 
+            numbers: (26)), 
+  [ for ], 
+  [26], 
+  [ ], 
+  linebreak(), 
+  numbering(numbering: "A", 
+            numbers: (27)), 
+  [ for ], 
+  [27], 
+  [ ], 
+  linebreak(), 
+  numbering(numbering: "A", 
+            numbers: (28)), 
+  [ for ], 
+  [28], 
+  [ ], 
+  linebreak(), 
+  numbering(numbering: "A", 
+            numbers: (29)), 
+  [ for ], 
+  [29], 
+  [ ], 
+  linebreak(), 
+  [
+… ], 
+  linebreak(), 
+  numbering(numbering: "A", 
+            numbers: (702)), 
+  [ for ], 
+  [702], 
+  [ ], 
+  linebreak(), 
+  numbering(numbering: "A", 
+            numbers: (703)), 
+  [ for ], 
+  [703], 
+  [ ], 
+  linebreak(), 
+  numbering(numbering: "A", 
+            numbers: (704)), 
+  [ for ], 
+  [704], 
+  [ ], 
+  linebreak(), 
+  numbering(numbering: "A", 
+            numbers: (705)), 
+  [ for ], 
+  [705], 
+  [ ], 
+  linebreak(), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Plain [ Str "A" ]
+  , Para [ Str "for" , Space , Str "0" , LineBreak ]
+  , Plain [ Str "A" ]
+  , Para [ Str "for" , Space , Str "1" , LineBreak ]
+  , Plain [ Str "B" ]
+  , Para [ Str "for" , Space , Str "2" , LineBreak ]
+  , Plain [ Str "C" ]
+  , Para
+      [ Str "for"
+      , Space
+      , Str "3"
+      , LineBreak
+      , Str "\8230"
+      , LineBreak
+      ]
+  , Plain [ Str "Z" ]
+  , Para [ Str "for" , Space , Str "26" , LineBreak ]
+  , Plain [ Str "A" ]
+  , Para [ Str "for" , Space , Str "27" , LineBreak ]
+  , Plain [ Str "B" ]
+  , Para [ Str "for" , Space , Str "28" , LineBreak ]
+  , Plain [ Str "C" ]
+  , Para
+      [ Str "for"
+      , Space
+      , Str "29"
+      , LineBreak
+      , Str "\8230"
+      , LineBreak
+      ]
+  , Plain [ Str "Z" ]
+  , Para [ Str "for" , Space , Str "702" , LineBreak ]
+  , Plain [ Str "A" ]
+  , Para [ Str "for" , Space , Str "703" , LineBreak ]
+  , Plain [ Str "B" ]
+  , Para [ Str "for" , Space , Str "704" , LineBreak ]
+  , Plain [ Str "C" ]
+  , Para [ Str "for" , Space , Str "705" , LineBreak ]
+  ]

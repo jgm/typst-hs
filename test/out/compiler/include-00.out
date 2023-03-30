@@ -1,0 +1,103 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/include-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/include-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/include-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/compiler/include-00.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 200.0 Pt)) ])
+, ParBreak
+, Heading 1 [ Text "Document" ]
+, Comment
+, Code
+    "test/typ/compiler/include-00.typ"
+    ( line 7 , column 2 )
+    (Include (Literal (String "modules/chap1.typ")))
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/include-00.typ"
+    ( line 10 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "chap2")))
+       (Include
+          (Plus
+             (Plus (Literal (String "modu")) (Literal (String "les/chap")))
+             (Literal (String "2.typ")))))
+, ParBreak
+, EnDash
+, Space
+, Emph [ Text "Intermission" ]
+, Space
+, EnDash
+, SoftBreak
+, Code
+    "test/typ/compiler/include-00.typ"
+    ( line 13 , column 2 )
+    (Ident (Identifier "chap2"))
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  parbreak(), 
+  heading(body: [Document], 
+          level: 1), 
+  parbreak(), 
+  parbreak(), 
+  [– ], 
+  emph(body: [Intermission]), 
+  [ –
+], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Header 1 ( "" , [] , [] ) [ Str "Document" ]
+  , Para
+      [ Str "\8211"
+      , Space
+      , Emph [ Str "Intermission" ]
+      , Space
+      , Str "\8211"
+      ]
+  ]

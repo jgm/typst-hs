@@ -1,0 +1,105 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/par-indent-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/par-indent-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/par-indent-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/layout/par-indent-01.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "par"))
+       [ KeyValArg
+           (Identifier "first-line-indent") (Literal (Numeric 12.0 Pt))
+       ])
+, SoftBreak
+, Text "Why"
+, Space
+, Text "would"
+, Space
+, Text "anybody"
+, Space
+, Text "ever"
+, Space
+, Ellipsis
+, ParBreak
+, Ellipsis
+, Space
+, Text "want"
+, Space
+, Text "spacing"
+, Space
+, Text "and"
+, Space
+, Text "indent?"
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+Why would anybody ever …], 
+  parbreak(), 
+  [… want spacing and indent?], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "Why"
+      , Space
+      , Str "would"
+      , Space
+      , Str "anybody"
+      , Space
+      , Str "ever"
+      , Space
+      , Str "\8230"
+      ]
+  , Para
+      [ Str "\8230"
+      , Space
+      , Str "want"
+      , Space
+      , Str "spacing"
+      , Space
+      , Str "and"
+      , Space
+      , Str "indent?"
+      ]
+  ]

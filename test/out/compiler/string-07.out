@@ -1,0 +1,132 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/string-07.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/string-07.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/string-07.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compiler/string-07.typ"
+    ( line 3 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess (Ident (Identifier "slice")) (Literal (String "abc")))
+              [ NormalArg (Literal (Int 1)) , NormalArg (Literal (Int 2)) ])
+       , NormalArg (Literal (String "b"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/string-07.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "slice")) (Literal (String "abc\127969def")))
+              [ NormalArg (Literal (Int 2)) , NormalArg (Literal (Int 7)) ])
+       , NormalArg (Literal (String "c\127969"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/string-07.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "slice")) (Literal (String "abc\127969def")))
+              [ NormalArg (Literal (Int 2))
+              , NormalArg (Negated (Literal (Int 2)))
+              ])
+       , NormalArg (Literal (String "c\127969d"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/string-07.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "slice")) (Literal (String "abc\127969def")))
+              [ NormalArg (Negated (Literal (Int 3)))
+              , NormalArg (Negated (Literal (Int 1)))
+              ])
+       , NormalArg (Literal (String "de"))
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [✅], 
+  [
+], 
+  [❌(], 
+  ["c🏡def"], 
+  [ /= ], 
+  ["c🏡"], 
+  [)], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "\9989"
+      , SoftBreak
+      , Str "\10060(\"c\127969def\""
+      , Space
+      , Str "/="
+      , Space
+      , Str "\"c\127969\")"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      ]
+  ]

@@ -1,0 +1,143 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/delimited-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/delimited-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/delimited-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Equation
+    True
+    [ MGroup
+        (Just "[")
+        (Just "]")
+        [ MGroup (Just "|") (Just "|") [ MFrac (Text "a") (Text "b") ] ]
+    , Text "\8800"
+    , Code
+        "test/typ/math/delimited-02.typ"
+        ( line 3 , column 14 )
+        (FuncCall
+           (Ident (Identifier "lr"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ MGroup
+                         (Just "|") (Just "|") [ Text "]" , MFrac (Text "a") (Text "b") ]
+                     , Text "]"
+                     ]))
+           ])
+    , Text "\8800"
+    , MGroup
+        (Just "[") Nothing [ MFrac (Text "a") (Text "b") , Text ")" ]
+    ]
+, SoftBreak
+, Equation
+    True
+    [ Code
+        "test/typ/math/delimited-02.typ"
+        ( line 4 , column 3 )
+        (FuncCall
+           (Ident (Identifier "lr"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ MGroup
+                         (Just "|")
+                         (Just "|")
+                         [ Text "]"
+                         , Text "1"
+                         , Text ","
+                         , Text "2"
+                         , Text "["
+                         , Text "+"
+                         , MFrac (Text "1") (Text "2")
+                         ]
+                     ]))
+           ])
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  math.equation(block: true, 
+                body: { math.lr(body: { [[], 
+                                        math.lr(body: { [|], 
+                                                        math.frac(denom: [b], 
+                                                                  num: [a]), 
+                                                        [|] }), 
+                                        []] }), 
+                        [≠], 
+                        math.lr(body: { math.lr(body: { [|], 
+                                                        []], 
+                                                        math.frac(denom: [b], 
+                                                                  num: [a]), 
+                                                        [|] }), 
+                                        []] }), 
+                        [≠], 
+                        [[], 
+                        math.frac(denom: [b], 
+                                  num: [a]), 
+                        [)] }, 
+                numbering: none), 
+  [
+], 
+  math.equation(block: true, 
+                body: math.lr(body: math.lr(body: { [|], 
+                                                    []], 
+                                                    [1], 
+                                                    [,], 
+                                                    [2], 
+                                                    [[], 
+                                                    [+], 
+                                                    math.frac(denom: [2], 
+                                                              num: [1]), 
+                                                    [|] })), 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math
+          DisplayMath
+          "\\left\\lbrack \\left| \\frac{a}{b} \\right| \\right\\rbrack \\neq \\left. \\left| {\\rbrack\\frac{a}{b}} \\right| \\right\\rbrack \\neq \\lbrack\\frac{a}{b})"
+      , SoftBreak
+      , Math
+          DisplayMath
+          "\\left. \\left| {\\rbrack 1,2\\lbrack + \\frac{1}{2}} \\right| \\right."
+      ]
+  ]

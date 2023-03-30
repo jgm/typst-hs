@@ -1,0 +1,161 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/if-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/if-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/if-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Comment
+, SoftBreak
+, Code
+    "test/typ/compiler/if-02.typ"
+    ( line 5 , column 2 )
+    (LetFunc
+       (Identifier "nth")
+       [ NormalParam (Identifier "n") ]
+       (Block
+          (CodeBlock
+             [ FuncCall
+                 (Ident (Identifier "str")) [ NormalArg (Ident (Identifier "n")) ]
+             , If
+                 [ ( Equals (Ident (Identifier "n")) (Literal (Int 1))
+                   , Block (CodeBlock [ Literal (String "st") ])
+                   )
+                 , ( Equals (Ident (Identifier "n")) (Literal (Int 2))
+                   , Block (CodeBlock [ Literal (String "nd") ])
+                   )
+                 , ( Equals (Ident (Identifier "n")) (Literal (Int 3))
+                   , Block (CodeBlock [ Literal (String "rd") ])
+                   )
+                 , ( Literal (Boolean True)
+                   , Block (CodeBlock [ Literal (String "th") ])
+                   )
+                 ]
+             ])))
+, ParBreak
+, Code
+    "test/typ/compiler/if-02.typ"
+    ( line 13 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "nth")) [ NormalArg (Literal (Int 1)) ])
+       , NormalArg (Literal (String "1st"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/if-02.typ"
+    ( line 14 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "nth")) [ NormalArg (Literal (Int 2)) ])
+       , NormalArg (Literal (String "2nd"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/if-02.typ"
+    ( line 15 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "nth")) [ NormalArg (Literal (Int 3)) ])
+       , NormalArg (Literal (String "3rd"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/if-02.typ"
+    ( line 16 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "nth")) [ NormalArg (Literal (Int 4)) ])
+       , NormalArg (Literal (String "4th"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/if-02.typ"
+    ( line 17 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "nth")) [ NormalArg (Literal (Int 5)) ])
+       , NormalArg (Literal (String "5th"))
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  parbreak(), 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para
+      [ Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      ]
+  ]

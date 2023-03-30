@@ -1,0 +1,109 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/par-bidi-04.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/par-bidi-04.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/par-bidi-04.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/layout/par-bidi-04.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "lang") (Literal (String "ar"))
+       , KeyValArg
+           (Identifier "font")
+           (Array
+              [ Literal (String "Noto Sans Arabic")
+              , Literal (String "PT Sans")
+              ])
+       ])
+, SoftBreak
+, Text "Life"
+, Space
+, Text "\1575\1604\1605\1591\1585"
+, Space
+, Text "\1607\1608"
+, Space
+, Text "\1575\1604\1581\1610\1575\1577"
+, Space
+, HardBreak
+, Text "\1575\1604\1581\1610\1575\1577"
+, Space
+, Text "\1578\1605\1591\1585"
+, Space
+, Text "is"
+, Space
+, Text "rain"
+, Text "."
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  text(body: [
+Life المطر هو الحياة ], 
+       font: ("Noto Sans Arabic", 
+              "PT Sans"), 
+       lang: "ar"), 
+  linebreak(), 
+  text(body: [الحياة تمطر is rain.], 
+       font: ("Noto Sans Arabic", 
+              "PT Sans"), 
+       lang: "ar"), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "Life"
+      , Space
+      , Str "\1575\1604\1605\1591\1585"
+      , Space
+      , Str "\1607\1608"
+      , Space
+      , Str "\1575\1604\1581\1610\1575\1577"
+      , LineBreak
+      , Str "\1575\1604\1581\1610\1575\1577"
+      , Space
+      , Str "\1578\1605\1591\1585"
+      , Space
+      , Str "is"
+      , Space
+      , Str "rain."
+      ]
+  ]

@@ -1,0 +1,139 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/ops-assoc-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/ops-assoc-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/ops-assoc-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Text "{"
+, SoftBreak
+, Text "let"
+, Space
+, Text "x"
+, Space
+, Text "="
+, Space
+, Text "1"
+, SoftBreak
+, Text "let"
+, Space
+, Text "y"
+, Space
+, Text "="
+, Space
+, Text "2"
+, SoftBreak
+, Text "x"
+, Space
+, Text "="
+, Space
+, Text "y"
+, Space
+, Text "="
+, Space
+, Quote '"'
+, Text "ok"
+, Quote '"'
+, SoftBreak
+, Text "test(x,"
+, Space
+, Text "none)"
+, SoftBreak
+, Text "test(y,"
+, Space
+, Quote '"'
+, Text "ok"
+, Quote '"'
+, Text ")"
+, SoftBreak
+, Text "}"
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [{
+let x = 1
+let y = 2
+x = y = “ok”
+test(x, none)
+test(y, “ok”)
+}], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "{"
+      , SoftBreak
+      , Str "let"
+      , Space
+      , Str "x"
+      , Space
+      , Str "="
+      , Space
+      , Str "1"
+      , SoftBreak
+      , Str "let"
+      , Space
+      , Str "y"
+      , Space
+      , Str "="
+      , Space
+      , Str "2"
+      , SoftBreak
+      , Str "x"
+      , Space
+      , Str "="
+      , Space
+      , Str "y"
+      , Space
+      , Str "="
+      , Space
+      , Str "\8220ok\8221"
+      , SoftBreak
+      , Str "test(x,"
+      , Space
+      , Str "none)"
+      , SoftBreak
+      , Str "test(y,"
+      , Space
+      , Str "\8220ok\8221)"
+      , SoftBreak
+      , Str "}"
+      ]
+  ]

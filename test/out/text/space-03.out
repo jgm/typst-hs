@@ -1,0 +1,66 @@
+--- parse tree ---
+[ Code
+    "test/typ/text/space-03.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/text/space-03.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/text/space-03.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Text "Left"
+, Space
+, Code
+    "test/typ/text/space-03.typ"
+    ( line 3 , column 7 )
+    (FuncCall
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "font") (Literal (String "IBM Plex Serif"))
+       , BlockArg [ Text "Right" ]
+       ])
+, Text "."
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [Left ], 
+  text(body: [Right], 
+       font: "IBM Plex Serif"), 
+  [.], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para [ Str "Left" , Space , Str "Right." ] ]

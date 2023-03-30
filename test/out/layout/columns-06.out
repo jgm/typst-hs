@@ -1,0 +1,112 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/columns-06.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/columns-06.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/columns-06.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/layout/columns-06.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 7.05 Cm))
+       , KeyValArg (Identifier "columns") (Literal (Int 2))
+       ])
+, ParBreak
+, Code
+    "test/typ/layout/columns-06.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "rect"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 100.0 Percent))
+       , KeyValArg (Identifier "inset") (Literal (Numeric 3.0 Pt))
+       , BlockArg
+           [ Text "So"
+           , Space
+           , Text "there"
+           , Space
+           , Text "isn"
+           , Quote '\''
+           , Text "t"
+           , Space
+           , Text "anything"
+           , Space
+           , Text "in"
+           , Space
+           , Text "the"
+           , Space
+           , Text "second"
+           , Space
+           , Text "column?"
+           ]
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  parbreak(), 
+  rect(body: [So there isn’t anything in the second column?], 
+       inset: 3.0pt, 
+       width: 100%), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Div
+      ( "" , [ "rect" ] , [] )
+      [ Para
+          [ Str "So"
+          , Space
+          , Str "there"
+          , Space
+          , Str "isn\8217t"
+          , Space
+          , Str "anything"
+          , Space
+          , Str "in"
+          , Space
+          , Str "the"
+          , Space
+          , Str "second"
+          , Space
+          , Str "column?"
+          ]
+      ]
+  ]

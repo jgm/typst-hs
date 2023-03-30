@@ -1,0 +1,137 @@
+--- parse tree ---
+[ Code
+    "test/typ/text/font-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/text/font-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/text/font-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/text/font-01.typ"
+    ( line 3 , column 2 )
+    (FuncCall
+       (Ident (Identifier "text"))
+       [ NormalArg (Literal (String "Text")) ])
+, Space
+, HardBreak
+, Code
+    "test/typ/text/font-01.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "text"))
+       [ NormalArg (Ident (Identifier "red"))
+       , NormalArg (Literal (String "Text"))
+       ])
+, Space
+, HardBreak
+, Code
+    "test/typ/text/font-01.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "font") (Literal (String "Ubuntu"))
+       , NormalArg (Ident (Identifier "blue"))
+       , NormalArg (Literal (String "Text"))
+       ])
+, Space
+, HardBreak
+, Code
+    "test/typ/text/font-01.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "text"))
+       [ NormalArg (Block (Content [ Text "Text" ]))
+       , NormalArg (Ident (Identifier "teal"))
+       , KeyValArg (Identifier "font") (Literal (String "IBM Plex Serif"))
+       ])
+, Space
+, HardBreak
+, Code
+    "test/typ/text/font-01.typ"
+    ( line 7 , column 2 )
+    (FuncCall
+       (Ident (Identifier "text"))
+       [ NormalArg (Ident (Identifier "red"))
+       , KeyValArg
+           (Identifier "font") (Literal (String "New Computer Modern"))
+       , NormalArg (Block (Content [ Text "Text" ]))
+       ])
+, Space
+, HardBreak
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  text(body: "Text"), 
+  [ ], 
+  linebreak(), 
+  text(body: "Text", 
+       color: rgb(100%,25%,21%,100%)), 
+  [ ], 
+  linebreak(), 
+  text(body: "Text", 
+       color: rgb(0%,45%,85%,100%), 
+       font: "Ubuntu"), 
+  [ ], 
+  linebreak(), 
+  text(body: [Text], 
+       color: rgb(22%,80%,80%,100%), 
+       font: "IBM Plex Serif"), 
+  [ ], 
+  linebreak(), 
+  text(body: [Text], 
+       color: rgb(100%,25%,21%,100%), 
+       font: "New Computer Modern"), 
+  [ ], 
+  linebreak(), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "Text"
+      , LineBreak
+      , Str "Text"
+      , LineBreak
+      , Str "Text"
+      , LineBreak
+      , Str "Text"
+      , LineBreak
+      , Str "Text"
+      , LineBreak
+      ]
+  ]

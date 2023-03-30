@@ -1,0 +1,100 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/syntax-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/syntax-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/syntax-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Equation
+    True
+    [ MAttach
+        (Just (MGroup Nothing Nothing [ Text "i" , Text "=" , Text "0" ]))
+        (Just (Text "\8469"))
+        (Text "\8721")
+    , Text "a"
+    , Text "\8728"
+    , Text "b"
+    , Text "="
+    , MAttach
+        (Just (MGroup Nothing Nothing [ Text "i" , Text "=" , Text "0" ]))
+        (Just
+           (Code
+              "test/typ/math/syntax-00.typ"
+              ( line 3 , column 36 )
+              (Ident (Identifier "NN"))))
+        (Text "\8721")
+    , Text "a"
+    , Code
+        "test/typ/math/syntax-00.typ"
+        ( line 3 , column 41 )
+        (Ident (Identifier "compose"))
+    , Text "b"
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  math.equation(block: true, 
+                body: { math.attach(b: { [i], 
+                                         [=], 
+                                         [0] }, 
+                                    base: [∑], 
+                                    t: [ℕ]), 
+                        [a], 
+                        [∘], 
+                        [b], 
+                        [=], 
+                        math.attach(b: { [i], 
+                                         [=], 
+                                         [0] }, 
+                                    base: [∑], 
+                                    t: [ℕ]), 
+                        [a], 
+                        [∘], 
+                        [b] }, 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math
+          DisplayMath
+          "\\sum_{i = 0}^{\\mathbb{N}}a \\circ b = \\sum_{i = 0}^{\\mathbb{N}}a \\circ b"
+      ]
+  ]

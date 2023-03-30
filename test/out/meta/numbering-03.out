@@ -1,0 +1,187 @@
+--- parse tree ---
+[ Code
+    "test/typ/meta/numbering-03.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/meta/numbering-03.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/meta/numbering-03.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/meta/numbering-03.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "lang") (Literal (String "zh")) ])
+, SoftBreak
+, Code
+    "test/typ/meta/numbering-03.typ"
+    ( line 3 , column 2 )
+    (For
+       (BasicBind (Just (Identifier "i")))
+       (FuncCall
+          (Ident (Identifier "range"))
+          [ NormalArg (Literal (Int 9))
+          , NormalArg (Literal (Int 21))
+          , KeyValArg (Identifier "step") (Literal (Int 2))
+          ])
+       (Block
+          (CodeBlock
+             [ FuncCall
+                 (Ident (Identifier "numbering"))
+                 [ NormalArg (Literal (String "\19968"))
+                 , NormalArg (Ident (Identifier "i"))
+                 ]
+             , Block (Content [ Space , Text "and" , Space ])
+             , FuncCall
+                 (Ident (Identifier "numbering"))
+                 [ NormalArg (Literal (String "\22777"))
+                 , NormalArg (Ident (Identifier "i"))
+                 ]
+             , Block
+                 (Content
+                    [ Space
+                    , Text "for"
+                    , Space
+                    , Code
+                        "test/typ/meta/numbering-03.typ"
+                        ( line 7 , column 10 )
+                        (Ident (Identifier "i"))
+                    , Space
+                    , HardBreak
+                    ])
+             ])))
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  text(body: [
+], lang: "zh"), 
+  numbering(numbering: "一", 
+            numbers: (9)), 
+  text(body: [ and ], 
+       lang: "zh"), 
+  numbering(numbering: "壹", 
+            numbers: (9)), 
+  text(body: [ for ], 
+       lang: "zh"), 
+  text(body: [9], lang: "zh"), 
+  text(body: [ ], lang: "zh"), 
+  linebreak(), 
+  numbering(numbering: "一", 
+            numbers: (11)), 
+  text(body: [ and ], 
+       lang: "zh"), 
+  numbering(numbering: "壹", 
+            numbers: (11)), 
+  text(body: [ for ], 
+       lang: "zh"), 
+  text(body: [11], lang: "zh"), 
+  text(body: [ ], lang: "zh"), 
+  linebreak(), 
+  numbering(numbering: "一", 
+            numbers: (13)), 
+  text(body: [ and ], 
+       lang: "zh"), 
+  numbering(numbering: "壹", 
+            numbers: (13)), 
+  text(body: [ for ], 
+       lang: "zh"), 
+  text(body: [13], lang: "zh"), 
+  text(body: [ ], lang: "zh"), 
+  linebreak(), 
+  numbering(numbering: "一", 
+            numbers: (15)), 
+  text(body: [ and ], 
+       lang: "zh"), 
+  numbering(numbering: "壹", 
+            numbers: (15)), 
+  text(body: [ for ], 
+       lang: "zh"), 
+  text(body: [15], lang: "zh"), 
+  text(body: [ ], lang: "zh"), 
+  linebreak(), 
+  numbering(numbering: "一", 
+            numbers: (17)), 
+  text(body: [ and ], 
+       lang: "zh"), 
+  numbering(numbering: "壹", 
+            numbers: (17)), 
+  text(body: [ for ], 
+       lang: "zh"), 
+  text(body: [17], lang: "zh"), 
+  text(body: [ ], lang: "zh"), 
+  linebreak(), 
+  numbering(numbering: "一", 
+            numbers: (19)), 
+  text(body: [ and ], 
+       lang: "zh"), 
+  numbering(numbering: "壹", 
+            numbers: (19)), 
+  text(body: [ for ], 
+       lang: "zh"), 
+  text(body: [19], lang: "zh"), 
+  text(body: [ ], lang: "zh"), 
+  linebreak(), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Plain [ Str "\19968" ]
+  , Para [ Str "and" ]
+  , Plain [ Str "\22777" ]
+  , Para [ Str "for" , Space , Str "9" , LineBreak ]
+  , Plain [ Str "\19968" ]
+  , Para [ Str "and" ]
+  , Plain [ Str "\22777" ]
+  , Para [ Str "for" , Space , Str "11" , LineBreak ]
+  , Plain [ Str "\19968" ]
+  , Para [ Str "and" ]
+  , Plain [ Str "\22777" ]
+  , Para [ Str "for" , Space , Str "13" , LineBreak ]
+  , Plain [ Str "\19968" ]
+  , Para [ Str "and" ]
+  , Plain [ Str "\22777" ]
+  , Para [ Str "for" , Space , Str "15" , LineBreak ]
+  , Plain [ Str "\19968" ]
+  , Para [ Str "and" ]
+  , Plain [ Str "\22777" ]
+  , Para [ Str "for" , Space , Str "17" , LineBreak ]
+  , Plain [ Str "\19968" ]
+  , Para [ Str "and" ]
+  , Plain [ Str "\22777" ]
+  , Para [ Str "for" , Space , Str "19" , LineBreak ]
+  ]

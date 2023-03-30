@@ -1,0 +1,102 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/frac-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/frac-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/frac-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Equation
+    True
+    [ Text "x"
+    , Text "="
+    , MFrac
+        (MGroup
+           (Just "(")
+           (Just ")")
+           [ Text "-"
+           , Text "b"
+           , Code
+               "test/typ/math/frac-02.typ"
+               ( line 3 , column 11 )
+               (FieldAccess
+                  (Ident (Identifier "minus")) (Ident (Identifier "plus")))
+           , Code
+               "test/typ/math/frac-02.typ"
+               ( line 3 , column 22 )
+               (FuncCall
+                  (Ident (Identifier "sqrt"))
+                  [ NormalArg
+                      (Block
+                         (Content
+                            [ MAttach Nothing (Just (Text "2")) (Text "b")
+                            , Text "-"
+                            , Text "4"
+                            , Text "a"
+                            , Text "c"
+                            ]))
+                  ])
+           ])
+        (MGroup Nothing Nothing [ Text "2" , Text "a" ])
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  math.equation(block: true, 
+                body: { [x], 
+                        [=], 
+                        math.frac(denom: { [2], 
+                                           [a] }, 
+                                  num: { [-], 
+                                         [b], 
+                                         [±], 
+                                         math.sqrt(radicand: { math.attach(b: none, 
+                                                                           base: [b], 
+                                                                           t: [2]), 
+                                                               [-], 
+                                                               [4], 
+                                                               [a], 
+                                                               [c] }) }) }, 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math DisplayMath "x = \\frac{- b \\pm \\sqrt{b^{2} - 4ac}}{2a}" ]
+  ]

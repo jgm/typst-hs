@@ -1,0 +1,158 @@
+--- parse tree ---
+[ Code
+    "test/typ/text/hyphenate-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/text/hyphenate-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/text/hyphenate-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/text/hyphenate-00.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "hyphenate") (Literal (Boolean True)) ])
+, SoftBreak
+, Code
+    "test/typ/text/hyphenate-00.typ"
+    ( line 4 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal Auto) ])
+, SoftBreak
+, Code
+    "test/typ/text/hyphenate-00.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "grid"))
+       [ KeyValArg
+           (Identifier "columns")
+           (Array [ Literal (Numeric 50.0 Pt) , Literal (Numeric 50.0 Pt) ])
+       , NormalArg
+           (Block
+              (Content
+                 [ Text "Warm"
+                 , Space
+                 , Text "welcomes"
+                 , Space
+                 , Text "to"
+                 , Space
+                 , Text "Typst"
+                 , Text "."
+                 ]))
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "text"))
+              [ KeyValArg (Identifier "lang") (Literal (String "el"))
+              , BlockArg
+                  [ Text "\948\953\945\956\949\961\943\963\956\945\964\945"
+                  , Text "."
+                  , Space
+                  , HardBreak
+                  , Text "\955\945\964\961\949\965\964\972\962"
+                  ]
+              ])
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  text(body: [
+], 
+       hyphenate: true), 
+  text(body: [
+], 
+       hyphenate: true), 
+  grid(children: (text(body: [Warm welcomes to Typst.], 
+                       hyphenate: true), 
+                  text(body: { text(body: [διαμερίσματα. ], 
+                                    hyphenate: true), 
+                               linebreak(), 
+                               text(body: [λατρευτός], 
+                                    hyphenate: true) }, 
+                       hyphenate: true, 
+                       lang: "el")), 
+       columns: (50.0pt, 50.0pt)), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Table
+      ( "" , [] , [] )
+      (Caption Nothing [])
+      [ ( AlignDefault , ColWidthDefault )
+      , ( AlignDefault , ColWidthDefault )
+      ]
+      (TableHead ( "" , [] , [] ) [])
+      [ TableBody
+          ( "" , [] , [] )
+          (RowHeadColumns 0)
+          []
+          [ Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para
+                      [ Str "Warm"
+                      , Space
+                      , Str "welcomes"
+                      , Space
+                      , Str "to"
+                      , Space
+                      , Str "Typst."
+                      ]
+                  ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para
+                      [ Str "\948\953\945\956\949\961\943\963\956\945\964\945."
+                      , LineBreak
+                      , Str "\955\945\964\961\949\965\964\972\962"
+                      ]
+                  ]
+              ]
+          ]
+      ]
+      (TableFoot ( "" , [] , [] ) [])
+  ]

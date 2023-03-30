@@ -1,0 +1,227 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/numbering-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/numbering-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/numbering-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/math/numbering-00.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 150.0 Pt)) ])
+, SoftBreak
+, Code
+    "test/typ/math/numbering-00.typ"
+    ( line 3 , column 2 )
+    (Set
+       (FieldAccess
+          (Ident (Identifier "equation")) (Ident (Identifier "math")))
+       [ KeyValArg (Identifier "numbering") (Literal (String "(I)")) ])
+, ParBreak
+, Text "We"
+, Space
+, Text "define"
+, Space
+, Equation False [ Text "x" ]
+, Space
+, Text "in"
+, Space
+, Text "preparation"
+, Space
+, Text "of"
+, Space
+, Ref "fib" (Literal Auto)
+, Text ":"
+, SoftBreak
+, Equation
+    True
+    [ Code
+        "test/typ/math/numbering-00.typ"
+        ( line 6 , column 3 )
+        (FieldAccess (Ident (Identifier "alt")) (Ident (Identifier "phi")))
+    , Text ":"
+    , Text "="
+    , MFrac
+        (MGroup
+           (Just "(")
+           (Just ")")
+           [ Text "1"
+           , Text "+"
+           , Code
+               "test/typ/math/numbering-00.typ"
+               ( line 6 , column 19 )
+               (FuncCall
+                  (Ident (Identifier "sqrt"))
+                  [ NormalArg (Block (Content [ Text "5" ])) ])
+           ])
+        (Text "2")
+    ]
+, Space
+, Code
+    "test/typ/math/numbering-00.typ"
+    ( line 6 , column 34 )
+    (Label "ratio")
+, ParBreak
+, Text "With"
+, Space
+, Ref "ratio" (Literal Auto)
+, Text ","
+, Space
+, Text "we"
+, Space
+, Text "get"
+, SoftBreak
+, Equation
+    True
+    [ MAttach (Just (Text "n")) Nothing (Text "F")
+    , Text "="
+    , Code
+        "test/typ/math/numbering-00.typ"
+        ( line 9 , column 9 )
+        (FuncCall
+           (Ident (Identifier "round"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ MFrac
+                         (Text "1")
+                         (Code
+                            "test/typ/math/numbering-00.typ"
+                            ( line 9 , column 19 )
+                            (FuncCall
+                               (Ident (Identifier "sqrt"))
+                               [ NormalArg (Block (Content [ Text "5" ])) ]))
+                     , MAttach
+                         Nothing
+                         (Just (Text "n"))
+                         (Code
+                            "test/typ/math/numbering-00.typ"
+                            ( line 9 , column 27 )
+                            (FieldAccess
+                               (Ident (Identifier "alt")) (Ident (Identifier "phi"))))
+                     ]))
+           ])
+    ]
+, Space
+, Code
+    "test/typ/math/numbering-00.typ"
+    ( line 9 , column 40 )
+    (Label "fib")
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  parbreak(), 
+  [We define ], 
+  math.equation(block: false, 
+                body: [x], 
+                numbering: none), 
+  [ in preparation of ], 
+  ref(supplement: [auto], 
+      target: ), 
+  [:
+], 
+  math.equation(block: true, 
+                body: { [ϕ], 
+                        [:], 
+                        [=], 
+                        math.frac(denom: [2], 
+                                  num: { [1], 
+                                         [+], 
+                                         math.sqrt(radicand: [5]) }) }, 
+                numbering: none), 
+  [ ], 
+  [], 
+  parbreak(), 
+  [With ], 
+  ref(supplement: [auto], 
+      target: ), 
+  [, we get
+], 
+  math.equation(block: true, 
+                body: { math.attach(b: [n], 
+                                    base: [F], 
+                                    t: none), 
+                        [=], 
+                        math.round(body: { math.frac(denom: math.sqrt(radicand: [5]), 
+                                                     num: [1]), 
+                                           math.attach(b: none, 
+                                                       base: [ϕ], 
+                                                       t: [n]) }) }, 
+                numbering: none), 
+  [ ], 
+  [], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para
+      [ Str "We"
+      , Space
+      , Str "define"
+      , Space
+      , Math InlineMath "x"
+      , Space
+      , Str "in"
+      , Space
+      , Str "preparation"
+      , Space
+      , Str "of"
+      , Space
+      , Str ":"
+      , SoftBreak
+      , Math DisplayMath "\\phi: = \\frac{1 + \\sqrt{5}}{2}"
+      ]
+  , Para
+      [ Str "With"
+      , Space
+      , Str ","
+      , Space
+      , Str "we"
+      , Space
+      , Str "get"
+      , SoftBreak
+      , Math
+          DisplayMath
+          "F_{n} = \\left\\lfloor {\\frac{1}{\\sqrt{5}}\\phi^{n}} \\right\\rceil"
+      ]
+  ]

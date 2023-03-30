@@ -1,0 +1,4 @@
+dist-newstyle
+samples/*.out
+*.eval
+*.parse

@@ -1,0 +1,133 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/pagebreak-03.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/pagebreak-03.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/pagebreak-03.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Comment
+, Code
+    "test/typ/layout/pagebreak-03.typ"
+    ( line 4 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 80.0 Pt))
+       , KeyValArg (Identifier "height") (Literal (Numeric 30.0 Pt))
+       ])
+, SoftBreak
+, Code
+    "test/typ/layout/pagebreak-03.typ"
+    ( line 5 , column 2 )
+    (Block
+       (Content
+          [ Code
+              "test/typ/layout/pagebreak-03.typ"
+              ( line 5 , column 4 )
+              (Set
+                 (Ident (Identifier "page"))
+                 [ KeyValArg (Identifier "width") (Literal (Numeric 60.0 Pt)) ])
+          , Space
+          , Text "First"
+          ]))
+, SoftBreak
+, Code
+    "test/typ/layout/pagebreak-03.typ"
+    ( line 6 , column 2 )
+    (FuncCall (Ident (Identifier "pagebreak")) [])
+, SoftBreak
+, Code
+    "test/typ/layout/pagebreak-03.typ"
+    ( line 7 , column 2 )
+    (FuncCall (Ident (Identifier "pagebreak")) [])
+, SoftBreak
+, Text "Third"
+, SoftBreak
+, Code
+    "test/typ/layout/pagebreak-03.typ"
+    ( line 9 , column 2 )
+    (FuncCall
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "height") (Literal (Numeric 20.0 Pt))
+       , KeyValArg (Identifier "fill") (Ident (Identifier "red"))
+       , BlockArg []
+       ])
+, SoftBreak
+, Text "Fif"
+, Code
+    "test/typ/layout/pagebreak-03.typ"
+    ( line 10 , column 5 )
+    (Block
+       (Content
+          [ Code
+              "test/typ/layout/pagebreak-03.typ"
+              ( line 10 , column 7 )
+              (Set (Ident (Identifier "page")) [])
+          , Text "th"
+          ]))
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  [ First], 
+  [
+], 
+  pagebreak(), 
+  [
+], 
+  pagebreak(), 
+  [
+Third
+], 
+  page(body: {  }, 
+       fill: rgb(100%,25%,21%,100%), 
+       height: 20.0pt, 
+       width: 60.0pt), 
+  [
+Fif], 
+  [th], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para [ Str "First" ]
+  , Para []
+  , Para [ Str "Third" ]
+  , Para [ Str "Fifth" ]
+  ]

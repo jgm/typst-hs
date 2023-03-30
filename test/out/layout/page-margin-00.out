@@ -1,0 +1,103 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/page-margin-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/page-margin-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/page-margin-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/layout/page-margin-00.typ"
+    ( line 3 , column 2 )
+    (Block
+       (Content
+          [ SoftBreak
+          , Code
+              "test/typ/layout/page-margin-00.typ"
+              ( line 4 , column 4 )
+              (Set
+                 (Ident (Identifier "page"))
+                 [ KeyValArg (Identifier "height") (Literal (Numeric 20.0 Pt))
+                 , KeyValArg (Identifier "margin") (Literal (Numeric 5.0 Pt))
+                 ])
+          , SoftBreak
+          , Code
+              "test/typ/layout/page-margin-00.typ"
+              ( line 5 , column 4 )
+              (FuncCall
+                 (Ident (Identifier "place"))
+                 [ NormalArg
+                     (Plus (Ident (Identifier "top")) (Ident (Identifier "left")))
+                 , BlockArg [ Text "TL" ]
+                 ])
+          , SoftBreak
+          , Code
+              "test/typ/layout/page-margin-00.typ"
+              ( line 6 , column 4 )
+              (FuncCall
+                 (Ident (Identifier "place"))
+                 [ NormalArg
+                     (Plus (Ident (Identifier "bottom")) (Ident (Identifier "right")))
+                 , BlockArg [ Text "BR" ]
+                 ])
+          , ParBreak
+          ]))
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  [
+], 
+  place(body: [Axes(left, top)]), 
+  [
+], 
+  place(body: [Axes(right, bottom)]), 
+  parbreak(), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Div
+      ( "" , [] , [] ) [ Para [ Str "Axes(left," , Space , Str "top)" ] ]
+  , Para []
+  , Div
+      ( "" , [] , [] )
+      [ Para [ Str "Axes(right," , Space , Str "bottom)" ] ]
+  ]

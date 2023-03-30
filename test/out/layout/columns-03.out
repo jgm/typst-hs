@@ -1,0 +1,108 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/columns-03.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/columns-03.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/columns-03.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/layout/columns-03.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "height") (Literal (Numeric 2.5 Cm))
+       , KeyValArg (Identifier "width") (Literal (Numeric 7.05 Cm))
+       ])
+, ParBreak
+, Code
+    "test/typ/layout/columns-03.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "rect"))
+       [ KeyValArg (Identifier "inset") (Literal (Numeric 6.0 Pt))
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "columns"))
+              [ NormalArg (Literal (Int 2))
+              , NormalArg
+                  (Block
+                     (Content
+                        [ SoftBreak
+                        , Text "ABC"
+                        , Space
+                        , HardBreak
+                        , Text "BCD"
+                        , SoftBreak
+                        , Code
+                            "test/typ/layout/columns-03.typ"
+                            ( line 8 , column 6 )
+                            (FuncCall (Ident (Identifier "colbreak")) [])
+                        , SoftBreak
+                        , Text "DEF"
+                        , ParBreak
+                        ]))
+              ])
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  parbreak(), 
+  rect(body: columns(body: { [
+ABC ], 
+                             linebreak(), 
+                             [BCD
+], 
+                             colbreak(), 
+                             [
+DEF], 
+                             parbreak() }, 
+                     count: 2), 
+       inset: 6.0pt), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Div
+      ( "" , [ "rect" ] , [] )
+      [ Div
+          ( "" , [ "columns-flow" ] , [ ( "count" , "2" ) ] )
+          [ Para [ Str "ABC" , LineBreak , Str "BCD" ] , Para [ Str "DEF" ] ]
+      ]
+  ]

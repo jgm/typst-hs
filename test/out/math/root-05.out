@@ -1,0 +1,174 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/root-05.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/root-05.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/root-05.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Equation
+    True
+    [ Code
+        "test/typ/math/root-05.typ"
+        ( line 3 , column 3 )
+        (FuncCall
+           (Ident (Identifier "root"))
+           [ NormalArg
+               (Block (Content [ MAttach Nothing (Just (Text "3")) (Text "2") ]))
+           ])
+    , Text "="
+    , Code
+        "test/typ/math/root-05.typ"
+        ( line 3 , column 10 )
+        (FuncCall
+           (Ident (Identifier "sqrt"))
+           [ NormalArg
+               (Block (Content [ MAttach Nothing (Just (Text "3")) (Text "2") ]))
+           ])
+    ]
+, SoftBreak
+, Equation
+    True
+    [ Code
+        "test/typ/math/root-05.typ"
+        ( line 4 , column 3 )
+        (Ident (Identifier "root"))
+    , MGroup (Just "(") (Just ")") [ Text "x" , Text "+" , Text "y" ]
+    , Code
+        "test/typ/math/root-05.typ"
+        ( line 4 , column 10 )
+        (Ident (Identifier "quad"))
+    , Text "\8731"
+    , Text "x"
+    , Code
+        "test/typ/math/root-05.typ"
+        ( line 4 , column 18 )
+        (Ident (Identifier "quad"))
+    , Text "\8732"
+    , Text "x"
+    ]
+, SoftBreak
+, Equation
+    True
+    [ MGroup
+        (Just "(")
+        (Just ")")
+        [ Code
+            "test/typ/math/root-05.typ"
+            ( line 5 , column 4 )
+            (FuncCall
+               (Ident (Identifier "root"))
+               [ NormalArg (Block (Content [ Text "2" ])) ])
+        , Text "+"
+        , Text "3"
+        ]
+    , Text "="
+    , MGroup
+        (Just "(")
+        (Just ")")
+        [ Code
+            "test/typ/math/root-05.typ"
+            ( line 5 , column 13 )
+            (FuncCall
+               (Ident (Identifier "sqrt"))
+               [ NormalArg (Block (Content [ Text "2" ])) ])
+        , Text "+"
+        , Text "3"
+        ]
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  math.equation(block: true, 
+                body: { math.root(index: math.attach(b: none, 
+                                                     base: [2], 
+                                                     t: [3]), 
+                                  radicand: none), 
+                        [=], 
+                        math.sqrt(radicand: math.attach(b: none, 
+                                                        base: [2], 
+                                                        t: [3])) }, 
+                numbering: none), 
+  [
+], 
+  math.equation(block: true, 
+                body: { [], 
+                        math.lr(body: { [(], 
+                                        [x], 
+                                        [+], 
+                                        [y], 
+                                        [)] }), 
+                        [ ], 
+                        [∛], 
+                        [x], 
+                        [ ], 
+                        [∜], 
+                        [x] }, 
+                numbering: none), 
+  [
+], 
+  math.equation(block: true, 
+                body: { math.lr(body: { [(], 
+                                        math.root(index: [2], 
+                                                  radicand: none), 
+                                        [+], 
+                                        [3], 
+                                        [)] }), 
+                        [=], 
+                        math.lr(body: { [(], 
+                                        math.sqrt(radicand: [2]), 
+                                        [+], 
+                                        [3], 
+                                        [)] }) }, 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math DisplayMath "\\sqrt[2^{3}]{} = \\sqrt{2^{3}}"
+      , SoftBreak
+      , Math
+          DisplayMath
+          "\\left( {x + y} \\right)\\quad\\sqrt[3]{}x\\quad\\sqrt[4]{}x"
+      , SoftBreak
+      , Math
+          DisplayMath
+          "\\left( {\\sqrt[2]{} + 3} \\right) = \\left( {\\sqrt{2} + 3} \\right)"
+      ]
+  ]

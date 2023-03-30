@@ -1,0 +1,175 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/attach-03.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/attach-03.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/attach-03.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Equation
+    False
+    [ MGroup
+        Nothing
+        Nothing
+        [ MAttach
+            (Just (Text "1"))
+            Nothing
+            (Code
+               "test/typ/math/attach-03.typ"
+               ( line 3 , column 2 )
+               (Ident (Identifier "pi")))
+        , MGroup (Just "(") (Just ")") [ Text "Y" ]
+        ]
+    , Text ","
+    , MGroup
+        Nothing
+        Nothing
+        [ MAttach (Just (Text "f")) Nothing (Text "a")
+        , MGroup (Just "(") (Just ")") [ Text "x" ]
+        ]
+    , Text ","
+    , MAttach
+        Nothing
+        (Just
+           (Code
+              "test/typ/math/attach-03.typ"
+              ( line 3 , column 21 )
+              (FuncCall
+                 (Ident (Identifier "zeta"))
+                 [ NormalArg (Block (Content [ Text "x" ])) ])))
+        (Text "a")
+    , HardBreak
+    , MAttach
+        Nothing
+        (Just
+           (Code
+              "test/typ/math/attach-03.typ"
+              ( line 4 , column 4 )
+              (FuncCall
+                 (FieldAccess
+                    (Ident (Identifier "eq")) (Ident (Identifier "subset")))
+                 [ NormalArg (Block (Content [ Text "x" ])) ])))
+        (Text "a")
+    , Text ","
+    , MAttach
+        (Just
+           (MGroup
+              Nothing
+              Nothing
+              [ Code
+                  "test/typ/math/attach-03.typ"
+                  ( line 4 , column 21 )
+                  (FuncCall
+                     (Ident (Identifier "zeta"))
+                     [ NormalArg (Block (Content [ Text "x" ])) ])
+              ]))
+        Nothing
+        (Text "a")
+    , Text ","
+    , MAttach
+        (Just
+           (MGroup
+              Nothing
+              Nothing
+              [ MGroup
+                  Nothing
+                  Nothing
+                  [ Text "1" , MGroup (Just "(") (Just ")") [ Text "Y" ] ]
+              ]))
+        Nothing
+        (Code
+           "test/typ/math/attach-03.typ"
+           ( line 4 , column 31 )
+           (Ident (Identifier "pi")))
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  math.equation(block: false, 
+                body: { math.attach(b: [1], 
+                                    base: [π], 
+                                    t: none), 
+                        math.lr(body: { [(], 
+                                        [Y], 
+                                        [)] }), 
+                        [,], 
+                        math.attach(b: [f], 
+                                    base: [a], 
+                                    t: none), 
+                        math.lr(body: { [(], 
+                                        [x], 
+                                        [)] }), 
+                        [,], 
+                        math.attach(b: none, 
+                                    base: [a], 
+                                    t: { [ζ], 
+                                         [(], 
+                                         [x], 
+                                         [)] }), 
+                        linebreak(), 
+                        math.attach(b: none, 
+                                    base: [a], 
+                                    t: { [⊆], 
+                                         [(], 
+                                         [x], 
+                                         [)] }), 
+                        [,], 
+                        math.attach(b: { [ζ], 
+                                         [(], 
+                                         [x], 
+                                         [)] }, 
+                                    base: [a], 
+                                    t: none), 
+                        [,], 
+                        math.attach(b: { [1], 
+                                         math.lr(body: { [(], 
+                                                         [Y], 
+                                                         [)] }) }, 
+                                    base: [π], 
+                                    t: none) }, 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math
+          InlineMath
+          "\\begin{array}{r}\n\\pi_{1}(Y),a_{f}(x),a^{\\zeta(x)} \\\\\na^{\\subseteq (x)},a_{\\zeta(x)},\\pi_{1(Y)}\n\\end{array}"
+      ]
+  ]

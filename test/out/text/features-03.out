@@ -1,0 +1,76 @@
+--- parse tree ---
+[ Code
+    "test/typ/text/features-03.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/text/features-03.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/text/features-03.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Text "fi"
+, Space
+, Text "vs"
+, Text "."
+, Space
+, Code
+    "test/typ/text/features-03.typ"
+    ( line 3 , column 9 )
+    (FuncCall
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "ligatures") (Literal (Boolean False))
+       , BlockArg [ Text "No" , Space , Text "fi" ]
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [fi vs. ], 
+  text(body: [No fi], 
+       ligatures: false), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "fi"
+      , Space
+      , Str "vs."
+      , Space
+      , Str "No"
+      , Space
+      , Str "fi"
+      ]
+  ]

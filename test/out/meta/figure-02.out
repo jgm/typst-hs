@@ -1,0 +1,293 @@
+--- parse tree ---
+[ Code
+    "test/typ/meta/figure-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/meta/figure-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/meta/figure-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, ParBreak
+, Comment
+, Code
+    "test/typ/meta/figure-02.typ"
+    ( line 4 , column 2 )
+    (Show
+       (Just
+          (FuncCall
+             (FieldAccess
+                (Ident (Identifier "where")) (Ident (Identifier "figure")))
+             [ KeyValArg (Identifier "kind") (Literal (String "theorem")) ]))
+       (FuncExpr
+          [ NormalParam (Identifier "it") ]
+          (Block
+             (CodeBlock
+                [ Let (BasicBind (Just (Identifier "name"))) (Literal None)
+                , If
+                    [ ( Not
+                          (Equals
+                             (FieldAccess
+                                (Ident (Identifier "caption")) (Ident (Identifier "it")))
+                             (Literal None))
+                      , Block
+                          (CodeBlock
+                             [ Assign
+                                 (Binding (BasicBind (Just (Identifier "name"))))
+                                 (Block
+                                    (Content
+                                       [ Space
+                                       , Code
+                                           "test/typ/meta/figure-02.typ"
+                                           ( line 7 , column 15 )
+                                           (FuncCall
+                                              (Ident (Identifier "emph"))
+                                              [ NormalArg
+                                                  (FieldAccess
+                                                     (Ident (Identifier "caption"))
+                                                     (Ident (Identifier "it")))
+                                              ])
+                                       ]))
+                             ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (CodeBlock
+                             [ Assign
+                                 (Binding (BasicBind (Just (Identifier "name"))))
+                                 (Block (Content []))
+                             ])
+                      )
+                    ]
+                , Let (BasicBind (Just (Identifier "title"))) (Literal None)
+                , If
+                    [ ( Not
+                          (Equals
+                             (FieldAccess
+                                (Ident (Identifier "numbering")) (Ident (Identifier "it")))
+                             (Literal None))
+                      , Block
+                          (CodeBlock
+                             [ Assign
+                                 (Binding (BasicBind (Just (Identifier "title"))))
+                                 (FieldAccess
+                                    (Ident (Identifier "supplement")) (Ident (Identifier "it")))
+                             , If
+                                 [ ( Not
+                                       (Equals
+                                          (FieldAccess
+                                             (Ident (Identifier "numbering"))
+                                             (Ident (Identifier "it")))
+                                          (Literal None))
+                                   , Block
+                                       (CodeBlock
+                                          [ Assign
+                                              (Ident (Identifier "title"))
+                                              (Plus
+                                                 (Ident (Identifier "title"))
+                                                 (Plus
+                                                    (Literal (String " "))
+                                                    (FuncCall
+                                                       (FieldAccess
+                                                          (Ident (Identifier "display"))
+                                                          (FieldAccess
+                                                             (Ident (Identifier "counter"))
+                                                             (Ident (Identifier "it"))))
+                                                       [ NormalArg
+                                                           (FieldAccess
+                                                              (Ident (Identifier "numbering"))
+                                                              (Ident (Identifier "it")))
+                                                       ])))
+                                          ])
+                                   )
+                                 ]
+                             ])
+                      )
+                    ]
+                , Assign
+                    (Binding (BasicBind (Just (Identifier "title"))))
+                    (FuncCall
+                       (Ident (Identifier "strong"))
+                       [ NormalArg (Ident (Identifier "title")) ])
+                , FuncCall
+                    (Ident (Identifier "pad"))
+                    [ KeyValArg (Identifier "top") (Literal (Numeric 0.0 Em))
+                    , KeyValArg (Identifier "bottom") (Literal (Numeric 0.0 Em))
+                    , NormalArg
+                        (FuncCall
+                           (Ident (Identifier "block"))
+                           [ KeyValArg
+                               (Identifier "fill")
+                               (FuncCall
+                                  (FieldAccess
+                                     (Ident (Identifier "lighten")) (Ident (Identifier "green")))
+                                  [ NormalArg (Literal (Numeric 90.0 Percent)) ])
+                           , KeyValArg
+                               (Identifier "stroke")
+                               (Plus (Literal (Numeric 1.0 Pt)) (Ident (Identifier "green")))
+                           , KeyValArg (Identifier "inset") (Literal (Numeric 10.0 Pt))
+                           , KeyValArg (Identifier "width") (Literal (Numeric 100.0 Percent))
+                           , KeyValArg (Identifier "radius") (Literal (Numeric 5.0 Pt))
+                           , KeyValArg (Identifier "breakable") (Literal (Boolean False))
+                           , NormalArg
+                               (Block
+                                  (Content
+                                     [ Code
+                                         "test/typ/meta/figure-02.typ"
+                                         ( line 29 , column 9 )
+                                         (Ident (Identifier "title"))
+                                     , Code
+                                         "test/typ/meta/figure-02.typ"
+                                         ( line 29 , column 15 )
+                                         (Ident (Identifier "name"))
+                                     , Code
+                                         "test/typ/meta/figure-02.typ"
+                                         ( line 29 , column 20 )
+                                         (FuncCall
+                                            (Ident (Identifier "h"))
+                                            [ NormalArg (Literal (Numeric 0.1 Em)) ])
+                                     , Text ":"
+                                     , Code
+                                         "test/typ/meta/figure-02.typ"
+                                         ( line 29 , column 30 )
+                                         (FuncCall
+                                            (Ident (Identifier "h"))
+                                            [ NormalArg (Literal (Numeric 0.2 Em)) ])
+                                     , Code
+                                         "test/typ/meta/figure-02.typ"
+                                         ( line 29 , column 39 )
+                                         (FieldAccess
+                                            (Ident (Identifier "body")) (Ident (Identifier "it")))
+                                     , Code
+                                         "test/typ/meta/figure-02.typ"
+                                         ( line 29 , column 47 )
+                                         (FuncCall
+                                            (Ident (Identifier "v"))
+                                            [ NormalArg (Literal (Numeric 0.5 Em)) ])
+                                     ]))
+                           ])
+                    ]
+                ]))))
+, ParBreak
+, Code
+    "test/typ/meta/figure-02.typ"
+    ( line 34 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 150.0 Pt)) ])
+, SoftBreak
+, Code
+    "test/typ/meta/figure-02.typ"
+    ( line 35 , column 2 )
+    (FuncCall
+       (Ident (Identifier "figure"))
+       [ NormalArg
+           (Block
+              (Content
+                 [ Equation
+                     False
+                     [ MAttach Nothing (Just (Text "2")) (Text "a")
+                     , Text "+"
+                     , MAttach Nothing (Just (Text "2")) (Text "b")
+                     , Text "="
+                     , MAttach Nothing (Just (Text "2")) (Text "c")
+                     ]
+                 ]))
+       , KeyValArg (Identifier "supplement") (Literal (String "Theorem"))
+       , KeyValArg (Identifier "kind") (Literal (String "theorem"))
+       , KeyValArg
+           (Identifier "caption") (Literal (String "Pythagoras' theorem."))
+       , KeyValArg (Identifier "numbering") (Literal (String "1"))
+       ])
+, Space
+, Code
+    "test/typ/meta/figure-02.typ"
+    ( line 41 , column 3 )
+    (Label "fig-formula")
+, ParBreak
+, Code
+    "test/typ/meta/figure-02.typ"
+    ( line 43 , column 2 )
+    (FuncCall
+       (Ident (Identifier "figure"))
+       [ NormalArg
+           (Block
+              (Content
+                 [ Equation
+                     False
+                     [ MAttach Nothing (Just (Text "2")) (Text "a")
+                     , Text "+"
+                     , MAttach Nothing (Just (Text "2")) (Text "b")
+                     , Text "="
+                     , MAttach Nothing (Just (Text "2")) (Text "c")
+                     ]
+                 ]))
+       , KeyValArg (Identifier "supplement") (Literal (String "Theorem"))
+       , KeyValArg (Identifier "kind") (Literal (String "theorem"))
+       , KeyValArg
+           (Identifier "caption")
+           (Literal (String "Another Pythagoras' theorem."))
+       , KeyValArg (Identifier "numbering") (Literal None)
+       ])
+, Space
+, Code
+    "test/typ/meta/figure-02.typ"
+    ( line 49 , column 3 )
+    (Label "fig-formula")
+, ParBreak
+, Code
+    "test/typ/meta/figure-02.typ"
+    ( line 51 , column 2 )
+    (FuncCall
+       (Ident (Identifier "figure"))
+       [ NormalArg
+           (Block
+              (Content
+                 [ RawBlock "rust" "fn main() {\n    println!(\"Hello!\");\n  }\n  "
+                 ]))
+       , KeyValArg
+           (Identifier "caption")
+           (Block
+              (Content
+                 [ Text "Hello"
+                 , Space
+                 , Text "world"
+                 , Space
+                 , Text "in"
+                 , Space
+                 , Emph [ Text "rust" ]
+                 ]))
+       ])
+, ParBreak
+]
+"test/typ/meta/figure-02.typ" (line 35, column 2):
+Content does not have a method "counter" or FieldAccess requires a dictionary

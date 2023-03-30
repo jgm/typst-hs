@@ -1,0 +1,103 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/container-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/container-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/container-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Text "A"
+, Space
+, Code
+    "test/typ/layout/container-00.typ"
+    ( line 3 , column 4 )
+    (FuncCall
+       (Ident (Identifier "box"))
+       [ BlockArg [ Text "B" , Space , HardBreak , Text "C" ] ])
+, Space
+, Text "D"
+, Text "."
+, ParBreak
+, Comment
+, Text "Spaced"
+, Space
+, HardBreak
+, Code
+    "test/typ/layout/container-00.typ"
+    ( line 7 , column 2 )
+    (FuncCall
+       (Ident (Identifier "box"))
+       [ KeyValArg (Identifier "height") (Literal (Numeric 0.5 Cm)) ])
+, Space
+, HardBreak
+, Text "Apart"
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [A ], 
+  box(body: { [B ], 
+              linebreak(), 
+              [C] }), 
+  [ D.], 
+  parbreak(), 
+  [Spaced ], 
+  linebreak(), 
+  box(body: none, 
+      height: 0.5cm), 
+  [ ], 
+  linebreak(), 
+  [Apart], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "A"
+      , Space
+      , Span ( "" , [ "box" ] , [] ) [ Str "B" , LineBreak , Str "C" ]
+      , Space
+      , Str "D."
+      ]
+  , Para
+      [ Str "Spaced"
+      , LineBreak
+      , Span ( "" , [ "box" ] , [] ) []
+      , LineBreak
+      , Str "Apart"
+      ]
+  ]

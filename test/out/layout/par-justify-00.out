@@ -1,0 +1,218 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/par-justify-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/par-justify-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/par-justify-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/layout/par-justify-00.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 180.0 Pt)) ])
+, SoftBreak
+, Code
+    "test/typ/layout/par-justify-00.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "block"))
+       [ KeyValArg (Identifier "spacing") (Literal (Numeric 5.0 Pt)) ])
+, SoftBreak
+, Code
+    "test/typ/layout/par-justify-00.typ"
+    ( line 4 , column 2 )
+    (Set
+       (Ident (Identifier "par"))
+       [ KeyValArg (Identifier "justify") (Literal (Boolean True))
+       , KeyValArg
+           (Identifier "first-line-indent") (Literal (Numeric 14.0 Pt))
+       , KeyValArg (Identifier "leading") (Literal (Numeric 5.0 Pt))
+       ])
+, ParBreak
+, Text "This"
+, Space
+, Text "text"
+, Space
+, Text "is"
+, Space
+, Text "justified,"
+, Space
+, Text "meaning"
+, Space
+, Text "that"
+, Space
+, Text "spaces"
+, Space
+, Text "are"
+, Space
+, Text "stretched"
+, Space
+, Text "so"
+, Space
+, Text "that"
+, Space
+, Text "the"
+, Space
+, Text "text"
+, SoftBreak
+, Text "forms"
+, Space
+, Text "a"
+, Space
+, Quote '"'
+, Text "block"
+, Quote '"'
+, Space
+, Text "with"
+, Space
+, Text "flush"
+, Space
+, Text "edges"
+, Space
+, Text "at"
+, Space
+, Text "both"
+, Space
+, Text "sides"
+, Text "."
+, ParBreak
+, Text "First"
+, Space
+, Text "line"
+, Space
+, Text "indents"
+, Space
+, Text "and"
+, Space
+, Text "hyphenation"
+, Space
+, Text "play"
+, Space
+, Text "nicely"
+, Space
+, Text "with"
+, Space
+, Text "justified"
+, Space
+, Text "text"
+, Text "."
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  [
+], 
+  parbreak(), 
+  [This text is justified, meaning that spaces are stretched so that the text
+forms a “block” with flush edges at both sides.], 
+  parbreak(), 
+  [First line indents and hyphenation play nicely with justified text.], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para
+      [ Str "This"
+      , Space
+      , Str "text"
+      , Space
+      , Str "is"
+      , Space
+      , Str "justified,"
+      , Space
+      , Str "meaning"
+      , Space
+      , Str "that"
+      , Space
+      , Str "spaces"
+      , Space
+      , Str "are"
+      , Space
+      , Str "stretched"
+      , Space
+      , Str "so"
+      , Space
+      , Str "that"
+      , Space
+      , Str "the"
+      , Space
+      , Str "text"
+      , SoftBreak
+      , Str "forms"
+      , Space
+      , Str "a"
+      , Space
+      , Str "\8220block\8221"
+      , Space
+      , Str "with"
+      , Space
+      , Str "flush"
+      , Space
+      , Str "edges"
+      , Space
+      , Str "at"
+      , Space
+      , Str "both"
+      , Space
+      , Str "sides."
+      ]
+  , Para
+      [ Str "First"
+      , Space
+      , Str "line"
+      , Space
+      , Str "indents"
+      , Space
+      , Str "and"
+      , Space
+      , Str "hyphenation"
+      , Space
+      , Str "play"
+      , Space
+      , Str "nicely"
+      , Space
+      , Str "with"
+      , Space
+      , Str "justified"
+      , Space
+      , Str "text."
+      ]
+  ]

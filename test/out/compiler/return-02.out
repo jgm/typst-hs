@@ -1,0 +1,97 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/return-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/return-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/return-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Comment
+, SoftBreak
+, Code
+    "test/typ/compiler/return-02.typ"
+    ( line 5 , column 2 )
+    (LetFunc
+       (Identifier "f")
+       [ NormalParam (Identifier "text")
+       , DefaultParam (Identifier "caption") (Literal None)
+       ]
+       (Block
+          (CodeBlock
+             [ Ident (Identifier "text")
+             , If
+                 [ ( Equals (Ident (Identifier "caption")) (Literal None)
+                   , Block
+                       (Content
+                          [ Text "."
+                          , Code
+                              "test/typ/compiler/return-02.typ"
+                              ( line 7 , column 26 )
+                              (Return Nothing)
+                          ])
+                   )
+                 ]
+             , Block (Content [ Text "," , Space ])
+             , FuncCall
+                 (Ident (Identifier "emph"))
+                 [ NormalArg (Ident (Identifier "caption")) ]
+             , Block (Content [ Text "." ])
+             ])))
+, ParBreak
+, Code
+    "test/typ/compiler/return-02.typ"
+    ( line 13 , column 2 )
+    (FuncCall
+       (Ident (Identifier "f"))
+       [ KeyValArg
+           (Identifier "caption")
+           (Block (Content [ Text "with" , Space , Text "caption" ]))
+       , BlockArg [ Text "My" , Space , Text "figure" ]
+       ])
+, ParBreak
+, Code
+    "test/typ/compiler/return-02.typ"
+    ( line 15 , column 2 )
+    (FuncCall
+       (Ident (Identifier "f"))
+       [ BlockArg
+           [ Text "My" , Space , Text "other" , Space , Text "figure" ]
+       ])
+, ParBreak
+]
+"test/typ/compiler/return-02.typ" (line 13, column 2):
+unexpected end of input
+text is not an element function

@@ -1,0 +1,87 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/par-bidi-05.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/par-bidi-05.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/par-bidi-05.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Text "L"
+, Space
+, Code
+    "test/typ/layout/par-bidi-05.typ"
+    ( line 3 , column 4 )
+    (FuncCall
+       (Ident (Identifier "h")) [ NormalArg (Literal (Numeric 1.0 Cm)) ])
+, Space
+, Text "\1512\1497\1493\1493\1495R"
+, Space
+, HardBreak
+, Text "L\1512\1497\1493\1493\1495"
+, Space
+, Code
+    "test/typ/layout/par-bidi-05.typ"
+    ( line 4 , column 9 )
+    (FuncCall
+       (Ident (Identifier "h")) [ NormalArg (Literal (Numeric 1.0 Cm)) ])
+, Space
+, Text "R"
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [L ], 
+  h(amount: 1.0cm), 
+  [ ריווחR ], 
+  linebreak(), 
+  [Lריווח ], 
+  h(amount: 1.0cm), 
+  [ R], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "L"
+      , Space
+      , Str "\1512\1497\1493\1493\1495R"
+      , LineBreak
+      , Str "L\1512\1497\1493\1493\1495"
+      , Space
+      , Str "R"
+      ]
+  ]

@@ -1,0 +1,106 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/attach-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/attach-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/attach-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Equation
+    False
+    [ MAttach (Just (Text "x")) Nothing (Text "f")
+    , Text "+"
+    , MAttach Nothing (Just (Text "b")) (Text "t")
+    , Text "+"
+    , MAttach (Just (Text "1")) (Just (Text "2")) (Text "V")
+    , Text "+"
+    , Code
+        "test/typ/math/attach-00.typ"
+        ( line 3 , column 22 )
+        (FuncCall
+           (Ident (Identifier "attach"))
+           [ NormalArg (Block (Content [ Text "A" ]))
+           , KeyValArg
+               (Identifier "t")
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/attach-00.typ"
+                         ( line 3 , column 35 )
+                         (Ident (Identifier "alpha"))
+                     ]))
+           , KeyValArg
+               (Identifier "b")
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/attach-00.typ"
+                         ( line 3 , column 45 )
+                         (Ident (Identifier "beta"))
+                     ]))
+           ])
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  math.equation(block: false, 
+                body: { math.attach(b: [x], 
+                                    base: [f], 
+                                    t: none), 
+                        [+], 
+                        math.attach(b: none, 
+                                    base: [t], 
+                                    t: [b]), 
+                        [+], 
+                        math.attach(b: [1], 
+                                    base: [V], 
+                                    t: [2]), 
+                        [+], 
+                        math.attach(b: [β], 
+                                    base: [A], 
+                                    t: [α]) }, 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math
+          InlineMath "f_{x} + t^{b} + V_{1}^{2} + A_{\\beta}^{\\alpha}"
+      ]
+  ]

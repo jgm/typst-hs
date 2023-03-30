@@ -1,0 +1,3 @@
+"test/typ/compiler/spread-09.typ" (line 6, column 10):
+unexpected "."
+expecting digit

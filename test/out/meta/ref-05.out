@@ -1,0 +1,148 @@
+--- parse tree ---
+[ Code
+    "test/typ/meta/ref-05.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/meta/ref-05.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/meta/ref-05.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, ParBreak
+, Code
+    "test/typ/meta/ref-05.typ"
+    ( line 3 , column 2 )
+    (Show
+       (Just (Ident (Identifier "ref")))
+       (FuncExpr
+          [ NormalParam (Identifier "it") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Not
+                          (Equals
+                             (FieldAccess
+                                (Ident (Identifier "element")) (Ident (Identifier "it")))
+                             (Literal None))
+                      , Block
+                          (CodeBlock
+                             [ If
+                                 [ ( Equals
+                                       (FuncCall
+                                          (FieldAccess
+                                             (Ident (Identifier "func"))
+                                             (FieldAccess
+                                                (Ident (Identifier "element"))
+                                                (Ident (Identifier "it"))))
+                                          [])
+                                       (Ident (Identifier "text"))
+                                   , Block
+                                       (CodeBlock
+                                          [ Let
+                                              (BasicBind (Just (Identifier "element")))
+                                              (FieldAccess
+                                                 (Ident (Identifier "element"))
+                                                 (Ident (Identifier "it")))
+                                          , Literal (String "[")
+                                          , Ident (Identifier "element")
+                                          , Literal (String "]")
+                                          ])
+                                   )
+                                 , ( Equals
+                                       (FuncCall
+                                          (FieldAccess
+                                             (Ident (Identifier "func"))
+                                             (FieldAccess
+                                                (Ident (Identifier "element"))
+                                                (Ident (Identifier "it"))))
+                                          [])
+                                       (Ident (Identifier "underline"))
+                                   , Block
+                                       (CodeBlock
+                                          [ Let
+                                              (BasicBind (Just (Identifier "element")))
+                                              (FieldAccess
+                                                 (Ident (Identifier "element"))
+                                                 (Ident (Identifier "it")))
+                                          , Literal (String "{")
+                                          , Ident (Identifier "element")
+                                          , Literal (String "}")
+                                          ])
+                                   )
+                                 , ( Literal (Boolean True)
+                                   , Block (CodeBlock [ Ident (Identifier "it") ])
+                                   )
+                                 ]
+                             ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block (CodeBlock [ Ident (Identifier "it") ])
+                      )
+                    ]
+                ]))))
+, ParBreak
+, Ref "txt" (Literal Auto)
+, ParBreak
+, Text "Ref"
+, Space
+, Text "something"
+, Space
+, Text "unreferable"
+, Space
+, Code
+    "test/typ/meta/ref-05.typ" ( line 25 , column 27 ) (Label "txt")
+, ParBreak
+, Ref "under" (Literal Auto)
+, SoftBreak
+, Code
+    "test/typ/meta/ref-05.typ"
+    ( line 28 , column 2 )
+    (FuncCall
+       (Ident (Identifier "underline"))
+       [ BlockArg
+           [ SoftBreak
+           , Text "Some"
+           , Space
+           , Text "underline"
+           , Space
+           , Text "text"
+           , Text "."
+           , ParBreak
+           ]
+       ])
+, Space
+, Code
+    "test/typ/meta/ref-05.typ" ( line 30 , column 3 ) (Label "under")
+, ParBreak
+]
+"test/typ/meta/ref-05.typ" (line 3, column 2):
+Content does not have a method "element" or FieldAccess requires a dictionary

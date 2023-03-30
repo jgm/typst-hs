@@ -1,0 +1,84 @@
+--- parse tree ---
+[ Code
+    "test/typ/text/copy-paste-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/text/copy-paste-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/text/copy-paste-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Text "The"
+, Space
+, Text "after"
+, Space
+, Text "fira"
+, Space
+, Text "\127987\65039\8205\127752!"
+, ParBreak
+, Code
+    "test/typ/text/copy-paste-00.typ"
+    ( line 4 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "lang") (Literal (String "ar"))
+       , KeyValArg
+           (Identifier "font") (Literal (String "Noto Sans Arabic"))
+       ])
+, SoftBreak
+, Text "\1605\1585\1581\1576\1611\1575"
+, ParBreak
+]
+--- evaluated ---
+{ [
+The after fira 🏳️‍🌈!], 
+  parbreak(), 
+  text(body: [
+مرحبًا], 
+       font: "Noto Sans Arabic", 
+       lang: "ar"), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "The"
+      , Space
+      , Str "after"
+      , Space
+      , Str "fira"
+      , Space
+      , Str "\127987\65039\8205\127752!"
+      ]
+  , Para [ Str "\1605\1585\1581\1576\1611\1575" ]
+  ]

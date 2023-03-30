@@ -1,0 +1,165 @@
+--- parse tree ---
+[ Code
+    "test/typ/visualize/shape-aspect-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/visualize/shape-aspect-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/visualize/shape-aspect-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Comment
+, Code
+    "test/typ/visualize/shape-aspect-00.typ"
+    ( line 4 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 120.0 Pt))
+       , KeyValArg (Identifier "height") (Literal (Numeric 70.0 Pt))
+       ])
+, SoftBreak
+, Code
+    "test/typ/visualize/shape-aspect-00.typ"
+    ( line 5 , column 2 )
+    (Set
+       (Ident (Identifier "align"))
+       [ NormalArg (Ident (Identifier "bottom")) ])
+, SoftBreak
+, Code
+    "test/typ/visualize/shape-aspect-00.typ"
+    ( line 6 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "centered")))
+       (FuncCall
+          (FieldAccess
+             (Ident (Identifier "with")) (Ident (Identifier "align")))
+          [ NormalArg
+              (Plus (Ident (Identifier "center")) (Ident (Identifier "horizon")))
+          ]))
+, SoftBreak
+, Code
+    "test/typ/visualize/shape-aspect-00.typ"
+    ( line 7 , column 2 )
+    (FuncCall
+       (Ident (Identifier "stack"))
+       [ KeyValArg (Identifier "dir") (Ident (Identifier "ltr"))
+       , KeyValArg (Identifier "spacing") (Literal (Numeric 1.0 Fr))
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "square"))
+              [ KeyValArg (Identifier "width") (Literal (Numeric 50.0 Percent))
+              , NormalArg
+                  (FuncCall
+                     (Ident (Identifier "centered")) [ BlockArg [ Text "A" ] ])
+              ])
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "square"))
+              [ KeyValArg (Identifier "height") (Literal (Numeric 50.0 Percent))
+              ])
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "stack"))
+              [ NormalArg
+                  (FuncCall
+                     (Ident (Identifier "square"))
+                     [ KeyValArg (Identifier "size") (Literal (Numeric 10.0 Pt)) ])
+              , NormalArg
+                  (FuncCall
+                     (Ident (Identifier "square"))
+                     [ KeyValArg (Identifier "size") (Literal (Numeric 20.0 Pt))
+                     , NormalArg
+                         (FuncCall
+                            (Ident (Identifier "centered")) [ BlockArg [ Text "B" ] ])
+                     ])
+              ])
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  [
+], 
+  [
+], 
+  stack(children: (square(body: align(alignment: bottom, 
+                                      body: [Axes(center, horizon)]), 
+                          width: 50%), 
+                   square(body: none, 
+                          height: 50%), 
+                   stack(children: (square(body: none, 
+                                           size: 10.0pt), 
+                                    square(body: align(alignment: bottom, 
+                                                       body: [Axes(center, horizon)]), 
+                                           size: 20.0pt)))), 
+        dir: ltr, 
+        spacing: 1.0fr), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Div
+      ( "" , [] , [ ( "stack" , "ltr" ) ] )
+      [ Div
+          ( "" , [] , [] )
+          [ Div
+              ( "" , [ "square" ] , [] )
+              [ Div
+                  ( "" , [] , [ ( "align" , "bottom" ) ] )
+                  [ Para [ Str "Axes(center," , Space , Str "horizon)" ] ]
+              ]
+          ]
+      , Div ( "" , [] , [] ) [ Div ( "" , [ "square" ] , [] ) [] ]
+      , Div
+          ( "" , [] , [] )
+          [ Div
+              ( "" , [] , [ ( "stack" , "ltr" ) ] )
+              [ Div ( "" , [] , [] ) [ Div ( "" , [ "square" ] , [] ) [] ]
+              , Div
+                  ( "" , [] , [] )
+                  [ Div
+                      ( "" , [ "square" ] , [] )
+                      [ Div
+                          ( "" , [] , [ ( "align" , "bottom" ) ] )
+                          [ Para [ Str "Axes(center," , Space , Str "horizon)" ] ]
+                      ]
+                  ]
+              ]
+          ]
+      ]
+  ]

@@ -1,0 +1,3 @@
+- En dash: --
+- Em dash: ---
+

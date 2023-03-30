@@ -1,0 +1,317 @@
+--- parse tree ---
+[ Code
+    "test/typ/meta/footnote-container-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/meta/footnote-container-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/meta/footnote-container-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/meta/footnote-container-01.typ"
+    ( line 3 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "lang")))
+       (FuncCall
+          (Ident (Identifier "footnote"))
+          [ BlockArg [ Text "Languages" , Text "." ] ]))
+, SoftBreak
+, Code
+    "test/typ/meta/footnote-container-01.typ"
+    ( line 4 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "nums")))
+       (FuncCall
+          (Ident (Identifier "footnote"))
+          [ BlockArg [ Text "Numbers" , Text "." ] ]))
+, ParBreak
+, DescListItem
+    [ Quote '"' , Text "Hello" , Quote '"' ]
+    [ Text "A"
+    , Space
+    , Text "word"
+    , Space
+    , Code
+        "test/typ/meta/footnote-container-01.typ"
+        ( line 6 , column 20 )
+        (Ident (Identifier "lang"))
+    ]
+, SoftBreak
+, DescListItem
+    [ Quote '"' , Text "123" , Quote '"' ]
+    [ Text "A"
+    , Space
+    , Text "number"
+    , Space
+    , Code
+        "test/typ/meta/footnote-container-01.typ"
+        ( line 7 , column 20 )
+        (Ident (Identifier "nums"))
+    , SoftBreak
+    ]
+, SoftBreak
+, BulletListItem
+    [ Quote '"'
+    , Text "Hello"
+    , Quote '"'
+    , Space
+    , Code
+        "test/typ/meta/footnote-container-01.typ"
+        ( line 9 , column 12 )
+        (Ident (Identifier "lang"))
+    ]
+, SoftBreak
+, BulletListItem
+    [ Quote '"'
+    , Text "123"
+    , Quote '"'
+    , Space
+    , Code
+        "test/typ/meta/footnote-container-01.typ"
+        ( line 10 , column 10 )
+        (Ident (Identifier "nums"))
+    , SoftBreak
+    ]
+, SoftBreak
+, EnumListItem
+    Nothing
+    [ Quote '"'
+    , Text "Hello"
+    , Quote '"'
+    , Space
+    , Code
+        "test/typ/meta/footnote-container-01.typ"
+        ( line 12 , column 12 )
+        (Ident (Identifier "lang"))
+    ]
+, SoftBreak
+, EnumListItem
+    Nothing
+    [ Quote '"'
+    , Text "123"
+    , Quote '"'
+    , Space
+    , Code
+        "test/typ/meta/footnote-container-01.typ"
+        ( line 13 , column 10 )
+        (Ident (Identifier "nums"))
+    , SoftBreak
+    ]
+, SoftBreak
+, Code
+    "test/typ/meta/footnote-container-01.typ"
+    ( line 15 , column 2 )
+    (FuncCall
+       (Ident (Identifier "table"))
+       [ KeyValArg (Identifier "columns") (Literal (Int 2))
+       , NormalArg (Block (Content [ Text "Hello" ]))
+       , NormalArg
+           (Block
+              (Content
+                 [ Text "A"
+                 , Space
+                 , Text "word"
+                 , Space
+                 , Code
+                     "test/typ/meta/footnote-container-01.typ"
+                     ( line 17 , column 21 )
+                     (Ident (Identifier "lang"))
+                 ]))
+       , NormalArg (Block (Content [ Text "123" ]))
+       , NormalArg
+           (Block
+              (Content
+                 [ Text "A"
+                 , Space
+                 , Text "number"
+                 , Space
+                 , Code
+                     "test/typ/meta/footnote-container-01.typ"
+                     ( line 18 , column 21 )
+                     (Ident (Identifier "nums"))
+                 ]))
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  parbreak(), 
+  terms(children: (([“Hello”], 
+                    { [A word ], 
+                      footnote(body: [Languages.]) }), 
+                   ([“123”], 
+                    { [A number ], 
+                      footnote(body: [Numbers.]), 
+                      [
+] }))), 
+  list(children: ({ [“Hello” ], 
+                    footnote(body: [Languages.]) }, 
+                  { [“123” ], 
+                    footnote(body: [Numbers.]), 
+                    [
+] })), 
+  enum(children: ({ [“Hello” ], 
+                    footnote(body: [Languages.]) }, 
+                  { [“123” ], 
+                    footnote(body: [Numbers.]), 
+                    [
+] })), 
+  table(children: ([Hello], 
+                   { [A word ], 
+                     footnote(body: [Languages.]) }, 
+                   [123], 
+                   { [A number ], 
+                     footnote(body: [Numbers.]) }), 
+        columns: 2), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , DefinitionList
+      [ ( [ Str "\8220Hello\8221" ]
+        , [ [ Para
+                [ Str "A"
+                , Space
+                , Str "word"
+                , Space
+                , Note [ Para [ Str "Languages." ] ]
+                ]
+            ]
+          ]
+        )
+      , ( [ Str "\8220\&123\8221" ]
+        , [ [ Para
+                [ Str "A"
+                , Space
+                , Str "number"
+                , Space
+                , Note [ Para [ Str "Numbers." ] ]
+                ]
+            ]
+          ]
+        )
+      ]
+  , BulletList
+      [ [ Para
+            [ Str "\8220Hello\8221"
+            , Space
+            , Note [ Para [ Str "Languages." ] ]
+            ]
+        ]
+      , [ Para
+            [ Str "\8220\&123\8221"
+            , Space
+            , Note [ Para [ Str "Numbers." ] ]
+            ]
+        ]
+      ]
+  , OrderedList
+      ( 1 , DefaultStyle , DefaultDelim )
+      [ [ Para
+            [ Str "\8220Hello\8221"
+            , Space
+            , Note [ Para [ Str "Languages." ] ]
+            ]
+        ]
+      , [ Para
+            [ Str "\8220\&123\8221"
+            , Space
+            , Note [ Para [ Str "Numbers." ] ]
+            ]
+        ]
+      ]
+  , Table
+      ( "" , [] , [] )
+      (Caption Nothing [])
+      [ ( AlignDefault , ColWidthDefault )
+      , ( AlignDefault , ColWidthDefault )
+      ]
+      (TableHead ( "" , [] , [] ) [])
+      [ TableBody
+          ( "" , [] , [] )
+          (RowHeadColumns 0)
+          []
+          [ Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "Hello" ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para
+                      [ Str "A"
+                      , Space
+                      , Str "word"
+                      , Space
+                      , Note [ Para [ Str "Languages." ] ]
+                      ]
+                  ]
+              ]
+          , Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "123" ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para
+                      [ Str "A"
+                      , Space
+                      , Str "number"
+                      , Space
+                      , Note [ Para [ Str "Numbers." ] ]
+                      ]
+                  ]
+              ]
+          ]
+      ]
+      (TableFoot ( "" , [] , [] ) [])
+  ]

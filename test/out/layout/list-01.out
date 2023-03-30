@@ -1,0 +1,153 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/list-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/list-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/list-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, BulletListItem
+    [ Text "First"
+    , Space
+    , Text "level"
+    , Text "."
+    , ParBreak
+    , BulletListItem
+        [ Text "Second"
+        , Space
+        , Text "level"
+        , Text "."
+        , SoftBreak
+        , Text "There"
+        , Space
+        , Text "are"
+        , Space
+        , Text "multiple"
+        , Space
+        , Text "paragraphs"
+        , Text "."
+        , ParBreak
+        , BulletListItem
+            [ Text "Third" , Space , Text "level" , Text "." , SoftBreak ]
+        , SoftBreak
+        , Text "Still"
+        , Space
+        , Text "the"
+        , Space
+        , Text "same"
+        , Space
+        , Text "bullet"
+        , Space
+        , Text "point"
+        , Text "."
+        , SoftBreak
+        ]
+    , SoftBreak
+    , BulletListItem
+        [ Text "Still"
+        , Space
+        , Text "level"
+        , Space
+        , Text "2"
+        , Text "."
+        , SoftBreak
+        ]
+    ]
+, SoftBreak
+, BulletListItem
+    [ Text "At"
+    , Space
+    , Text "the"
+    , Space
+    , Text "top"
+    , Text "."
+    , ParBreak
+    ]
+]
+--- evaluated ---
+{ [
+], 
+  list(children: ({ [First level.], 
+                    parbreak(), 
+                    list(children: ({ [Second level.
+There are multiple paragraphs.], 
+                                      parbreak(), 
+                                      list(children: ([Third level.
+])), 
+                                      [Still the same bullet point.
+] }, 
+                                    [Still level 2.
+])) }, 
+                  { [At the top.], 
+                    parbreak() })) }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , BulletList
+      [ [ Para [ Str "First" , Space , Str "level." ]
+        , BulletList
+            [ [ Para
+                  [ Str "Second"
+                  , Space
+                  , Str "level."
+                  , SoftBreak
+                  , Str "There"
+                  , Space
+                  , Str "are"
+                  , Space
+                  , Str "multiple"
+                  , Space
+                  , Str "paragraphs."
+                  ]
+              , BulletList [ [ Para [ Str "Third" , Space , Str "level." ] ] ]
+              , Para
+                  [ Str "Still"
+                  , Space
+                  , Str "the"
+                  , Space
+                  , Str "same"
+                  , Space
+                  , Str "bullet"
+                  , Space
+                  , Str "point."
+                  ]
+              ]
+            , [ Para [ Str "Still" , Space , Str "level" , Space , Str "2." ] ]
+            ]
+        ]
+      , [ Para [ Str "At" , Space , Str "the" , Space , Str "top." ] ]
+      ]
+  ]

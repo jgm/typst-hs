@@ -1,0 +1,228 @@
+--- parse tree ---
+[ Code
+    "test/typ/meta/footnote-container-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/meta/footnote-container-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/meta/footnote-container-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Text "Read"
+, Space
+, Text "the"
+, Space
+, Text "docs"
+, Space
+, Code
+    "test/typ/meta/footnote-container-00.typ"
+    ( line 3 , column 16 )
+    (FuncCall
+       (Ident (Identifier "footnote"))
+       [ BlockArg [ Url "https://typst.app/docs" ] ])
+, Text "!"
+, SoftBreak
+, Code
+    "test/typ/meta/footnote-container-00.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "figure"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "image"))
+              [ NormalArg (Literal (String "test/assets/files/graph.png"))
+              , KeyValArg (Identifier "width") (Literal (Numeric 70.0 Percent))
+              ])
+       , KeyValArg
+           (Identifier "caption")
+           (Block
+              (Content
+                 [ SoftBreak
+                 , Text "A"
+                 , Space
+                 , Text "graph"
+                 , Space
+                 , Code
+                     "test/typ/meta/footnote-container-00.typ"
+                     ( line 7 , column 14 )
+                     (FuncCall
+                        (Ident (Identifier "footnote"))
+                        [ BlockArg
+                            [ Text "A"
+                            , Space
+                            , Emph [ Text "graph" ]
+                            , Space
+                            , Text "is"
+                            , Space
+                            , Text "a"
+                            , Space
+                            , Text "structure"
+                            , Space
+                            , Text "with"
+                            , Space
+                            , Text "nodes"
+                            , Space
+                            , Text "and"
+                            , Space
+                            , Text "edges"
+                            , Text "."
+                            ]
+                        ])
+                 , ParBreak
+                 ]))
+       ])
+, SoftBreak
+, Text "More"
+, Space
+, Code
+    "test/typ/meta/footnote-container-00.typ"
+    ( line 10 , column 7 )
+    (FuncCall
+       (Ident (Identifier "footnote"))
+       [ BlockArg [ Text "just" , Space , Text "for" , Space , Ellipsis ]
+       ])
+, Space
+, Text "footnotes"
+, Space
+, Code
+    "test/typ/meta/footnote-container-00.typ"
+    ( line 10 , column 41 )
+    (FuncCall
+       (Ident (Identifier "footnote"))
+       [ BlockArg
+           [ Ellipsis
+           , Space
+           , Text "testing"
+           , Text "."
+           , Space
+           , Text ":"
+           , Text ")"
+           ]
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [Read the docs ], 
+  footnote(body: link(body: [https://typst.app/docs], 
+                      dest: "https://typst.app/docs")), 
+  [!
+], 
+  figure(body: image(path: "test/assets/files/graph.png", 
+                     width: 70%), 
+         caption: { [
+A graph ], 
+                    footnote(body: { [A ], 
+                                     emph(body: [graph]), 
+                                     [ is a structure with nodes and edges.] }), 
+                    parbreak() }), 
+  [
+More ], 
+  footnote(body: [just for …]), 
+  [ footnotes ], 
+  footnote(body: [… testing. :)]), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "Read"
+      , Space
+      , Str "the"
+      , Space
+      , Str "docs"
+      , Space
+      , Note
+          [ Para
+              [ Link
+                  ( "" , [] , [] )
+                  [ Str "https://typst.app/docs" ]
+                  ( "https://typst.app/docs" , "" )
+              ]
+          ]
+      , Str "!"
+      ]
+  , Figure
+      ( "" , [] , [] )
+      (Caption
+         Nothing
+         [ Para
+             [ Str "A"
+             , Space
+             , Str "graph"
+             , Space
+             , Note
+                 [ Para
+                     [ Str "A"
+                     , Space
+                     , Emph [ Str "graph" ]
+                     , Space
+                     , Str "is"
+                     , Space
+                     , Str "a"
+                     , Space
+                     , Str "structure"
+                     , Space
+                     , Str "with"
+                     , Space
+                     , Str "nodes"
+                     , Space
+                     , Str "and"
+                     , Space
+                     , Str "edges."
+                     ]
+                 ]
+             ]
+         ])
+      [ Para
+          [ Image
+              ( "" , [] , [ ( "width" , "70%" ) ] )
+              []
+              ( "test/assets/files/graph.png" , "" )
+          ]
+      ]
+  , Para
+      [ Str "More"
+      , Space
+      , Note
+          [ Para [ Str "just" , Space , Str "for" , Space , Str "\8230" ] ]
+      , Space
+      , Str "footnotes"
+      , Space
+      , Note
+          [ Para [ Str "\8230" , Space , Str "testing." , Space , Str ":)" ]
+          ]
+      ]
+  ]

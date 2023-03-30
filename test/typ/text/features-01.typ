@@ -1,0 +1,3 @@
+// Test smallcaps.
+#smallcaps[Smallcaps]
+

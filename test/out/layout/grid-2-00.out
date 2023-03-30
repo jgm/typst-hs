@@ -1,0 +1,318 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/grid-2-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/grid-2-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/grid-2-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/layout/grid-2-00.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 11.0 Cm))
+       , KeyValArg (Identifier "height") (Literal (Numeric 2.5 Cm))
+       ])
+, SoftBreak
+, Code
+    "test/typ/layout/grid-2-00.typ"
+    ( line 3 , column 2 )
+    (FuncCall
+       (Ident (Identifier "grid"))
+       [ KeyValArg (Identifier "columns") (Literal (Int 5))
+       , KeyValArg
+           (Identifier "column-gutter")
+           (Array
+              [ Literal (Numeric 2.0 Fr)
+              , Literal (Numeric 1.0 Fr)
+              , Literal (Numeric 1.0 Fr)
+              ])
+       , KeyValArg (Identifier "row-gutter") (Literal (Numeric 6.0 Pt))
+       , NormalArg (Block (Content [ Strong [ Text "Quarter" ] ]))
+       , NormalArg (Block (Content [ Text "Expenditure" ]))
+       , NormalArg
+           (Block (Content [ Text "External" , Space , Text "Revenue" ]))
+       , NormalArg
+           (Block (Content [ Text "Financial" , Space , Text "ROI" ]))
+       , NormalArg (Block (Content [ Emph [ Text "total" ] ]))
+       , NormalArg (Block (Content [ Strong [ Text "Q1" ] ]))
+       , NormalArg
+           (Block
+              (Content
+                 [ Text "173,472" , Text "." , Text "57" , Space , Text "$" ]))
+       , NormalArg
+           (Block
+              (Content
+                 [ Text "472,860" , Text "." , Text "91" , Space , Text "$" ]))
+       , NormalArg
+           (Block
+              (Content
+                 [ Text "51,286" , Text "." , Text "84" , Space , Text "$" ]))
+       , NormalArg
+           (Block
+              (Content
+                 [ Emph [ Text "350,675" , Text "." , Text "18" , Space , Text "$" ]
+                 ]))
+       , NormalArg (Block (Content [ Strong [ Text "Q2" ] ]))
+       , NormalArg
+           (Block
+              (Content
+                 [ Text "93,382" , Text "." , Text "12" , Space , Text "$" ]))
+       , NormalArg
+           (Block
+              (Content
+                 [ Text "439,382" , Text "." , Text "85" , Space , Text "$" ]))
+       , NormalArg
+           (Block
+              (Content
+                 [ Text "-"
+                 , Text "1,134"
+                 , Text "."
+                 , Text "30"
+                 , Space
+                 , Text "$"
+                 ]))
+       , NormalArg
+           (Block
+              (Content
+                 [ Emph [ Text "344,866" , Text "." , Text "43" , Space , Text "$" ]
+                 ]))
+       , NormalArg (Block (Content [ Strong [ Text "Q3" ] ]))
+       , NormalArg
+           (Block
+              (Content
+                 [ Text "96,421" , Text "." , Text "49" , Space , Text "$" ]))
+       , NormalArg
+           (Block
+              (Content
+                 [ Text "238,583" , Text "." , Text "54" , Space , Text "$" ]))
+       , NormalArg
+           (Block
+              (Content
+                 [ Text "3,497" , Text "." , Text "12" , Space , Text "$" ]))
+       , NormalArg
+           (Block
+              (Content
+                 [ Emph [ Text "145,659" , Text "." , Text "17" , Space , Text "$" ]
+                 ]))
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  grid(children: (strong(body: [Quarter]), 
+                  [Expenditure], 
+                  [External Revenue], 
+                  [Financial ROI], 
+                  emph(body: [total]), 
+                  strong(body: [Q1]), 
+                  [173,472.57 $], 
+                  [472,860.91 $], 
+                  [51,286.84 $], 
+                  emph(body: [350,675.18 $]), 
+                  strong(body: [Q2]), 
+                  [93,382.12 $], 
+                  [439,382.85 $], 
+                  [-1,134.30 $], 
+                  emph(body: [344,866.43 $]), 
+                  strong(body: [Q3]), 
+                  [96,421.49 $], 
+                  [238,583.54 $], 
+                  [3,497.12 $], 
+                  emph(body: [145,659.17 $])), 
+       column-gutter: (2.0fr, 
+                       1.0fr, 
+                       1.0fr), 
+       columns: 5, 
+       row-gutter: 6.0pt), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Table
+      ( "" , [] , [] )
+      (Caption Nothing [])
+      [ ( AlignDefault , ColWidthDefault )
+      , ( AlignDefault , ColWidthDefault )
+      , ( AlignDefault , ColWidthDefault )
+      , ( AlignDefault , ColWidthDefault )
+      , ( AlignDefault , ColWidthDefault )
+      ]
+      (TableHead ( "" , [] , [] ) [])
+      [ TableBody
+          ( "" , [] , [] )
+          (RowHeadColumns 0)
+          []
+          [ Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Strong [ Str "Quarter" ] ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "Expenditure" ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "External" , Space , Str "Revenue" ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "Financial" , Space , Str "ROI" ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Emph [ Str "total" ] ] ]
+              ]
+          , Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Strong [ Str "Q1" ] ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "173,472.57" , Space , Str "$" ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "472,860.91" , Space , Str "$" ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "51,286.84" , Space , Str "$" ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Emph [ Str "350,675.18" , Space , Str "$" ] ] ]
+              ]
+          , Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Strong [ Str "Q2" ] ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "93,382.12" , Space , Str "$" ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "439,382.85" , Space , Str "$" ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "-1,134.30" , Space , Str "$" ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Emph [ Str "344,866.43" , Space , Str "$" ] ] ]
+              ]
+          , Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Strong [ Str "Q3" ] ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "96,421.49" , Space , Str "$" ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "238,583.54" , Space , Str "$" ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "3,497.12" , Space , Str "$" ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Emph [ Str "145,659.17" , Space , Str "$" ] ] ]
+              ]
+          ]
+      ]
+      (TableFoot ( "" , [] , [] ) [])
+  ]

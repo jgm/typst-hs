@@ -1,0 +1,172 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/if-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/if-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/if-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compiler/if-01.typ"
+    ( line 3 , column 2 )
+    (If
+       [ ( Block (CodeBlock [ Literal (Boolean True) ])
+         , Block (Content [ SoftBreak , Text "One" , Text "." , ParBreak ])
+         )
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/if-01.typ"
+    ( line 8 , column 2 )
+    (If
+       [ ( Not (Equals (Block (Content [])) (Literal None))
+         , Block (Content [ SoftBreak , Text "Two" , Text "." , ParBreak ])
+         )
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/if-01.typ"
+    ( line 13 , column 2 )
+    (If
+       [ ( Equals
+             (Plus (Literal (Int 1)) (Literal (Int 1))) (Literal (Int 1))
+         , Block (Content [ SoftBreak , Text "Nope" , Text "." , ParBreak ])
+         )
+       , ( Literal (Boolean True)
+         , Block (CodeBlock [ Literal (String "Three.") ])
+         )
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/if-01.typ"
+    ( line 23 , column 2 )
+    (If
+       [ ( Literal (Boolean False)
+         , Block (Content [ SoftBreak , Text "Bad" , Text "." , ParBreak ])
+         )
+       , ( Literal (Boolean True)
+         , Block
+             (CodeBlock
+                [ Let
+                    (BasicBind (Just (Identifier "point"))) (Literal (String "."))
+                , Plus (Literal (String "Four")) (Ident (Identifier "point"))
+                ])
+         )
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/if-01.typ"
+    ( line 31 , column 2 )
+    (Block
+       (CodeBlock
+          [ If
+              [ ( Equals
+                    (Literal (String "content"))
+                    (FuncCall (Ident (Identifier "type")) [ BlockArg [ Text "b" ] ])
+                , Block (Content [ Text "Fi" ])
+                )
+              , ( Literal (Boolean True) , Block (Content [ Text "Nope" ]) )
+              ]
+          , If
+              [ ( Equals (Literal (String "content")) (Ident (Identifier "type"))
+                , Block (Content [ Text "Nope" ])
+                )
+              , ( Literal (Boolean True)
+                , Block (Content [ Text "ve" , Text "." ])
+                )
+              ]
+          ]))
+, ParBreak
+, Code
+    "test/typ/compiler/if-01.typ"
+    ( line 36 , column 2 )
+    (Let (BasicBind (Just (Identifier "i"))) (Literal (Int 3)))
+, SoftBreak
+, Code
+    "test/typ/compiler/if-01.typ"
+    ( line 37 , column 2 )
+    (If
+       [ ( LessThan (Ident (Identifier "i")) (Literal (Int 2))
+         , Block (Content [ SoftBreak , Text "Five" , Text "." , ParBreak ])
+         )
+       , ( LessThan (Ident (Identifier "i")) (Literal (Int 4))
+         , Block (Content [ SoftBreak , Text "Six" , Text "." , ParBreak ])
+         )
+       , ( Literal (Boolean True)
+         , Block
+             (Content [ SoftBreak , Text "Seven" , Text "." , ParBreak ])
+         )
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+One.], 
+  parbreak(), 
+  parbreak(), 
+  [
+Two.], 
+  parbreak(), 
+  parbreak(), 
+  [Three.], 
+  parbreak(), 
+  [Four.], 
+  parbreak(), 
+  [Fi], 
+  [ve.], 
+  parbreak(), 
+  [
+], 
+  [
+Six.], 
+  parbreak(), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para [ Str "One." ]
+  , Para [ Str "Two." ]
+  , Para [ Str "Three." ]
+  , Para [ Str "Four." ]
+  , Para [ Str "Five." ]
+  , Para [ Str "Six." ]
+  ]

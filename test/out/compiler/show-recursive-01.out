@@ -1,0 +1,87 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/show-recursive-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/show-recursive-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/show-recursive-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compiler/show-recursive-01.typ"
+    ( line 3 , column 2 )
+    (Show
+       (Just (Ident (Identifier "list")))
+       (FuncCall
+          (FieldAccess
+             (Ident (Identifier "with")) (Ident (Identifier "scale")))
+          [ KeyValArg (Identifier "origin") (Ident (Identifier "left"))
+          , KeyValArg (Identifier "x") (Literal (Numeric 80.0 Percent))
+          ]))
+, SoftBreak
+, Code
+    "test/typ/compiler/show-recursive-01.typ"
+    ( line 4 , column 2 )
+    (Show (Just (Ident (Identifier "heading"))) (Block (Content [])))
+, SoftBreak
+, Code
+    "test/typ/compiler/show-recursive-01.typ"
+    ( line 5 , column 2 )
+    (Show (Just (Ident (Identifier "enum"))) (Block (Content [])))
+, SoftBreak
+, BulletListItem [ Text "Actual" ]
+, SoftBreak
+, BulletListItem [ Text "Tight" ]
+, SoftBreak
+, BulletListItem [ Text "List" ]
+, SoftBreak
+, Heading 1 [ Text "Nope" ]
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  [
+], 
+  [
+], 
+  scale(body: list(children: ([Actual], 
+                              [Tight], 
+                              [List])), 
+        origin: left, 
+        x: 80%) }
+--- pandoc ---
+Pandoc Meta { unMeta = fromList [] } [ Para [] ]

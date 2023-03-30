@@ -1,0 +1,229 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/grid-auto-shrink-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/grid-auto-shrink-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/grid-auto-shrink-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/layout/grid-auto-shrink-00.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg
+           (Identifier "width")
+           (Plus
+              (Minus
+                 (Literal (Numeric 210.0 Mm))
+                 (Times (Literal (Int 2)) (Literal (Numeric 2.5 Cm))))
+              (Times (Literal (Int 2)) (Literal (Numeric 10.0 Pt))))
+       ])
+, SoftBreak
+, Code
+    "test/typ/layout/grid-auto-shrink-00.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ NormalArg (Literal (Numeric 11.0 Pt)) ])
+, SoftBreak
+, Code
+    "test/typ/layout/grid-auto-shrink-00.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "table"))
+       [ KeyValArg (Identifier "columns") (Literal (Int 4))
+       , NormalArg (Block (Content [ Text "Hello!" ]))
+       , NormalArg
+           (Block
+              (Content
+                 [ Text "Hello"
+                 , Space
+                 , Text "there,"
+                 , Space
+                 , Text "my"
+                 , Space
+                 , Text "friend!"
+                 ]))
+       , NormalArg
+           (Block
+              (Content
+                 [ Text "Hello"
+                 , Space
+                 , Text "there,"
+                 , Space
+                 , Text "my"
+                 , Space
+                 , Text "friends!"
+                 , Space
+                 , Text "Hi!"
+                 ]))
+       , NormalArg
+           (Block
+              (Content
+                 [ Text "Hello"
+                 , Space
+                 , Text "there,"
+                 , Space
+                 , Text "my"
+                 , Space
+                 , Text "friends!"
+                 , Space
+                 , Text "Hi!"
+                 , Space
+                 , Text "What"
+                 , Space
+                 , Text "is"
+                 , Space
+                 , Text "going"
+                 , Space
+                 , Text "on"
+                 , Space
+                 , Text "right"
+                 , Space
+                 , Text "now?"
+                 ]))
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  text(body: [
+], 
+       size: 11.0pt), 
+  table(children: (text(body: [Hello!], 
+                        size: 11.0pt), 
+                   text(body: [Hello there, my friend!], 
+                        size: 11.0pt), 
+                   text(body: [Hello there, my friends! Hi!], 
+                        size: 11.0pt), 
+                   text(body: [Hello there, my friends! Hi! What is going on right now?], 
+                        size: 11.0pt)), 
+        columns: 4), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Table
+      ( "" , [] , [] )
+      (Caption Nothing [])
+      [ ( AlignDefault , ColWidthDefault )
+      , ( AlignDefault , ColWidthDefault )
+      , ( AlignDefault , ColWidthDefault )
+      , ( AlignDefault , ColWidthDefault )
+      ]
+      (TableHead ( "" , [] , [] ) [])
+      [ TableBody
+          ( "" , [] , [] )
+          (RowHeadColumns 0)
+          []
+          [ Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "Hello!" ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para
+                      [ Str "Hello"
+                      , Space
+                      , Str "there,"
+                      , Space
+                      , Str "my"
+                      , Space
+                      , Str "friend!"
+                      ]
+                  ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para
+                      [ Str "Hello"
+                      , Space
+                      , Str "there,"
+                      , Space
+                      , Str "my"
+                      , Space
+                      , Str "friends!"
+                      , Space
+                      , Str "Hi!"
+                      ]
+                  ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para
+                      [ Str "Hello"
+                      , Space
+                      , Str "there,"
+                      , Space
+                      , Str "my"
+                      , Space
+                      , Str "friends!"
+                      , Space
+                      , Str "Hi!"
+                      , Space
+                      , Str "What"
+                      , Space
+                      , Str "is"
+                      , Space
+                      , Str "going"
+                      , Space
+                      , Str "on"
+                      , Space
+                      , Str "right"
+                      , Space
+                      , Str "now?"
+                      ]
+                  ]
+              ]
+          ]
+      ]
+      (TableFoot ( "" , [] , [] ) [])
+  ]

@@ -1,0 +1,85 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/par-bidi-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/par-bidi-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/par-bidi-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/layout/par-bidi-00.typ"
+    ( line 3 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "content")))
+       (FuncCall
+          (Ident (Identifier "par"))
+          [ BlockArg
+              [ Text "Text" , Space , Text "\1496\1462\1511\1505\1496" ]
+          ]))
+, SoftBreak
+, Code
+    "test/typ/layout/par-bidi-00.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "lang") (Literal (String "he"))
+       , NormalArg (Ident (Identifier "content"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/layout/par-bidi-00.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "lang") (Literal (String "de"))
+       , NormalArg (Ident (Identifier "content"))
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  text(body: par(body: [Text טֶקסט]), 
+       lang: "he"), 
+  [
+], 
+  text(body: par(body: [Text טֶקסט]), 
+       lang: "de"), 
+  parbreak() }
+--- pandoc ---
+Pandoc Meta { unMeta = fromList [] } [ Para [] ]

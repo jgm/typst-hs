@@ -1,0 +1,90 @@
+--- parse tree ---
+[ Code
+    "test/typ/text/shaping-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/text/shaping-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/text/shaping-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Text "ABC\2309\2346\2366\2352\2381\2335\2350\2375\2306\2335"
+, ParBreak
+, Comment
+, Text "\2309\2346\2366\2352\2381\2335\2350\2375\2306\2335"
+, ParBreak
+, Comment
+, Comment
+, Text "\2309"
+, Space
+, Text "\2346\2366"
+, Space
+, Text "\2352\2381"
+, Space
+, Text "\2335"
+, Space
+, Text "\2350\2375\2306"
+, Space
+, Text "\2335"
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [ABCअपार्टमेंट], 
+  parbreak(), 
+  [अपार्टमेंट], 
+  parbreak(), 
+  [अ पा र् ट में ट], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "ABC\2309\2346\2366\2352\2381\2335\2350\2375\2306\2335" ]
+  , Para [ Str "\2309\2346\2366\2352\2381\2335\2350\2375\2306\2335" ]
+  , Para
+      [ Str "\2309"
+      , Space
+      , Str "\2346\2366"
+      , Space
+      , Str "\2352\2381"
+      , Space
+      , Str "\2335"
+      , Space
+      , Str "\2350\2375\2306"
+      , Space
+      , Str "\2335"
+      ]
+  ]

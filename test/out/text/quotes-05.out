@@ -1,0 +1,173 @@
+--- parse tree ---
+[ Code
+    "test/typ/text/quotes-05.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/text/quotes-05.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/text/quotes-05.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Quote '"'
+, Text "She"
+, Space
+, Text "suddenly"
+, Space
+, Text "started"
+, Space
+, Text "speaking"
+, Space
+, Text "french"
+, Text ":"
+, Space
+, Code
+    "test/typ/text/quotes-05.typ"
+    ( line 3 , column 41 )
+    (FuncCall
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "lang") (Literal (String "fr"))
+       , BlockArg
+           [ Quote '\''
+           , Text "Je"
+           , Space
+           , Text "suis"
+           , Space
+           , Text "une"
+           , Space
+           , Text "banane"
+           , Text "."
+           , Quote '\''
+           ]
+       ])
+, Quote '"'
+, Space
+, Text "Roman"
+, Space
+, Text "told"
+, Space
+, Text "me"
+, Text "."
+, ParBreak
+, Text "Some"
+, Space
+, Text "people"
+, Quote '\''
+, Text "s"
+, Space
+, Text "thought"
+, Space
+, Text "on"
+, Space
+, Text "this"
+, Space
+, Text "would"
+, Space
+, Text "be"
+, Space
+, Code
+    "test/typ/text/quotes-05.typ"
+    ( line 5 , column 41 )
+    (Block
+       (Content
+          [ Code
+              "test/typ/text/quotes-05.typ"
+              ( line 5 , column 43 )
+              (Set
+                 (Ident (Identifier "smartquote"))
+                 [ KeyValArg (Identifier "enabled") (Literal (Boolean False)) ])
+          , Space
+          , Quote '"'
+          , Text "strange"
+          , Text "."
+          , Quote '"'
+          ]))
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [“She suddenly started speaking french: ], 
+  text(body: [‘Je suis une banane.’], 
+       lang: "fr"), 
+  [” Roman told me.], 
+  parbreak(), 
+  [Some people’s thought on this would be ], 
+  [ “strange.”], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "\8220She"
+      , Space
+      , Str "suddenly"
+      , Space
+      , Str "started"
+      , Space
+      , Str "speaking"
+      , Space
+      , Str "french:"
+      , Space
+      , Str "\8216Je"
+      , Space
+      , Str "suis"
+      , Space
+      , Str "une"
+      , Space
+      , Str "banane.\8217\8221"
+      , Space
+      , Str "Roman"
+      , Space
+      , Str "told"
+      , Space
+      , Str "me."
+      ]
+  , Para
+      [ Str "Some"
+      , Space
+      , Str "people\8217s"
+      , Space
+      , Str "thought"
+      , Space
+      , Str "on"
+      , Space
+      , Str "this"
+      , Space
+      , Str "would"
+      , Space
+      , Str "be"
+      , Space
+      , Str "\8220strange.\8221"
+      ]
+  ]

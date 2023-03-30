@@ -1,0 +1,198 @@
+--- parse tree ---
+[ Code
+    "test/typ/meta/query-before-after-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/meta/query-before-after-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/meta/query-before-after-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, ParBreak
+, Code
+    "test/typ/meta/query-before-after-01.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "paper") (Literal (String "a7"))
+       , KeyValArg (Identifier "numbering") (Literal (String "1 / 1"))
+       , KeyValArg
+           (Identifier "margin")
+           (Dict
+              [ ( Identifier "bottom" , Literal (Numeric 1.0 Cm) )
+              , ( Identifier "rest" , Literal (Numeric 0.5 Cm) )
+              ])
+       ])
+, ParBreak
+, Code
+    "test/typ/meta/query-before-after-01.typ"
+    ( line 9 , column 2 )
+    (Set
+       (Ident (Identifier "heading"))
+       [ KeyValArg (Identifier "outlined") (Literal (Boolean True))
+       , KeyValArg (Identifier "numbering") (Literal (String "1."))
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/meta/query-before-after-01.typ"
+    ( line 12 , column 2 )
+    (FuncCall
+       (Ident (Identifier "locate"))
+       [ NormalArg
+           (FuncExpr
+              [ NormalParam (Identifier "loc") ]
+              (Block
+                 (Content
+                    [ SoftBreak
+                    , Text "Non"
+                    , Text "-"
+                    , Text "outlined"
+                    , Space
+                    , Text "elements"
+                    , Text ":"
+                    , SoftBreak
+                    , Code
+                        "test/typ/meta/query-before-after-01.typ"
+                        ( line 14 , column 4 )
+                        (FuncCall
+                           (FieldAccess
+                              (Ident (Identifier "join"))
+                              (FuncCall
+                                 (FieldAccess
+                                    (Ident (Identifier "map"))
+                                    (FuncCall
+                                       (Ident (Identifier "query"))
+                                       [ NormalArg
+                                           (FuncCall
+                                              (FieldAccess
+                                                 (Ident (Identifier "and"))
+                                                 (FuncCall
+                                                    (Ident (Identifier "selector"))
+                                                    [ NormalArg (Ident (Identifier "heading")) ]))
+                                              [ NormalArg
+                                                  (FuncCall
+                                                     (FieldAccess
+                                                        (Ident (Identifier "where"))
+                                                        (Ident (Identifier "heading")))
+                                                     [ KeyValArg
+                                                         (Identifier "outlined")
+                                                         (Literal (Boolean False))
+                                                     ])
+                                              ])
+                                       , NormalArg (Ident (Identifier "loc"))
+                                       ]))
+                                 [ NormalArg
+                                     (FuncExpr
+                                        [ NormalParam (Identifier "it") ]
+                                        (FieldAccess
+                                           (Ident (Identifier "body")) (Ident (Identifier "it"))))
+                                 ]))
+                           [ NormalArg (Literal (String ", ")) ])
+                    , ParBreak
+                    ])))
+       ])
+, ParBreak
+, Code
+    "test/typ/meta/query-before-after-01.typ"
+    ( line 18 , column 2 )
+    (FuncCall
+       (Ident (Identifier "heading"))
+       [ NormalArg (Literal (String "A"))
+       , KeyValArg (Identifier "outlined") (Literal (Boolean False))
+       ])
+, SoftBreak
+, Code
+    "test/typ/meta/query-before-after-01.typ"
+    ( line 19 , column 2 )
+    (FuncCall
+       (Ident (Identifier "heading"))
+       [ NormalArg (Literal (String "B"))
+       , KeyValArg (Identifier "outlined") (Literal (Boolean True))
+       ])
+, SoftBreak
+, Code
+    "test/typ/meta/query-before-after-01.typ"
+    ( line 20 , column 2 )
+    (FuncCall
+       (Ident (Identifier "heading"))
+       [ NormalArg (Literal (String "C"))
+       , KeyValArg (Identifier "outlined") (Literal (Boolean True))
+       ])
+, SoftBreak
+, Code
+    "test/typ/meta/query-before-after-01.typ"
+    ( line 21 , column 2 )
+    (FuncCall
+       (Ident (Identifier "heading"))
+       [ NormalArg (Literal (String "D"))
+       , KeyValArg (Identifier "outlined") (Literal (Boolean False))
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ parbreak(), 
+  parbreak(), 
+  parbreak(), 
+  locate(func: ), 
+  parbreak(), 
+  heading(body: [A], 
+          numbering: "1.", 
+          outlined: false), 
+  [
+], 
+  heading(body: [B], 
+          numbering: "1.", 
+          outlined: true), 
+  [
+], 
+  heading(body: [C], 
+          numbering: "1.", 
+          outlined: true), 
+  [
+], 
+  heading(body: [D], 
+          numbering: "1.", 
+          outlined: false), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Header 1 ( "" , [] , [] ) [ Str "A" ]
+  , Para []
+  , Header 1 ( "" , [] , [] ) [ Str "B" ]
+  , Para []
+  , Header 1 ( "" , [] , [] ) [ Str "C" ]
+  , Para []
+  , Header 1 ( "" , [] , [] ) [ Str "D" ]
+  ]

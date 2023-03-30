@@ -1,0 +1,337 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/attach-04.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/attach-04.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/attach-04.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Equation
+    True
+    [ MFrac
+        (Text "1")
+        (MGroup
+           Nothing
+           Nothing
+           [ MAttach
+               Nothing
+               (Just (Text "5"))
+               (MAttach
+                  Nothing
+                  (Just (Text "4"))
+                  (MAttach
+                     Nothing
+                     (Just (Text "3"))
+                     (MAttach Nothing (Just (Text "2")) (Text "V"))))
+           ])
+    , Text ","
+    , MFrac
+        (Text "1")
+        (Code
+           "test/typ/math/attach-04.typ"
+           ( line 4 , column 5 )
+           (FuncCall
+              (Ident (Identifier "attach"))
+              [ NormalArg (Block (Content [ Text "V" ]))
+              , KeyValArg
+                  (Identifier "tl")
+                  (Block
+                     (Content
+                        [ Code
+                            "test/typ/math/attach-04.typ"
+                            ( line 4 , column 19 )
+                            (FuncCall
+                               (Ident (Identifier "attach"))
+                               [ NormalArg (Block (Content [ Text "2" ]))
+                               , KeyValArg
+                                   (Identifier "tl")
+                                   (Block
+                                      (Content
+                                         [ Code
+                                             "test/typ/math/attach-04.typ"
+                                             ( line 4 , column 33 )
+                                             (FuncCall
+                                                (Ident (Identifier "attach"))
+                                                [ NormalArg (Block (Content [ Text "3" ]))
+                                                , KeyValArg
+                                                    (Identifier "tl")
+                                                    (Block
+                                                       (Content
+                                                          [ Code
+                                                              "test/typ/math/attach-04.typ"
+                                                              ( line 4 , column 47 )
+                                                              (FuncCall
+                                                                 (Ident (Identifier "attach"))
+                                                                 [ NormalArg
+                                                                     (Block (Content [ Text "4" ]))
+                                                                 , KeyValArg
+                                                                     (Identifier "tl")
+                                                                     (Block (Content [ Text "5" ]))
+                                                                 ])
+                                                          ]))
+                                                ])
+                                         ]))
+                               ])
+                        ]))
+              ]))
+    , Text ","
+    , Code
+        "test/typ/math/attach-04.typ"
+        ( line 5 , column 3 )
+        (FuncCall
+           (Ident (Identifier "attach"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/attach-04.typ"
+                         ( line 5 , column 10 )
+                         (Ident (Identifier "Omega"))
+                     ]))
+           , KeyValArg
+               (Identifier "tl")
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/attach-04.typ"
+                         ( line 6 , column 9 )
+                         (FuncCall
+                            (Ident (Identifier "attach"))
+                            [ NormalArg (Block (Content [ Text "2" ]))
+                            , KeyValArg
+                                (Identifier "tl")
+                                (Block
+                                   (Content
+                                      [ Code
+                                          "test/typ/math/attach-04.typ"
+                                          ( line 6 , column 23 )
+                                          (FuncCall
+                                             (Ident (Identifier "attach"))
+                                             [ NormalArg (Block (Content [ Text "3" ]))
+                                             , KeyValArg
+                                                 (Identifier "tl")
+                                                 (Block
+                                                    (Content
+                                                       [ Code
+                                                           "test/typ/math/attach-04.typ"
+                                                           ( line 6 , column 37 )
+                                                           (FuncCall
+                                                              (Ident (Identifier "attach"))
+                                                              [ NormalArg
+                                                                  (Block (Content [ Text "4" ]))
+                                                              , KeyValArg
+                                                                  (Identifier "tl")
+                                                                  (Block (Content [ Text "5" ]))
+                                                              ])
+                                                       ]))
+                                             ])
+                                      ]))
+                            ])
+                     ]))
+           , KeyValArg
+               (Identifier "tr")
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/attach-04.typ"
+                         ( line 7 , column 9 )
+                         (FuncCall
+                            (Ident (Identifier "attach"))
+                            [ NormalArg (Block (Content [ Text "2" ]))
+                            , KeyValArg
+                                (Identifier "tr")
+                                (Block
+                                   (Content
+                                      [ Code
+                                          "test/typ/math/attach-04.typ"
+                                          ( line 7 , column 23 )
+                                          (FuncCall
+                                             (Ident (Identifier "attach"))
+                                             [ NormalArg (Block (Content [ Text "3" ]))
+                                             , KeyValArg
+                                                 (Identifier "tr")
+                                                 (Block
+                                                    (Content
+                                                       [ Code
+                                                           "test/typ/math/attach-04.typ"
+                                                           ( line 7 , column 37 )
+                                                           (FuncCall
+                                                              (Ident (Identifier "attach"))
+                                                              [ NormalArg
+                                                                  (Block (Content [ Text "4" ]))
+                                                              , KeyValArg
+                                                                  (Identifier "tr")
+                                                                  (Block (Content [ Text "5" ]))
+                                                              ])
+                                                       ]))
+                                             ])
+                                      ]))
+                            ])
+                     ]))
+           , KeyValArg
+               (Identifier "bl")
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/attach-04.typ"
+                         ( line 8 , column 9 )
+                         (FuncCall
+                            (Ident (Identifier "attach"))
+                            [ NormalArg (Block (Content [ Text "2" ]))
+                            , KeyValArg
+                                (Identifier "bl")
+                                (Block
+                                   (Content
+                                      [ Code
+                                          "test/typ/math/attach-04.typ"
+                                          ( line 8 , column 23 )
+                                          (FuncCall
+                                             (Ident (Identifier "attach"))
+                                             [ NormalArg (Block (Content [ Text "3" ]))
+                                             , KeyValArg
+                                                 (Identifier "bl")
+                                                 (Block
+                                                    (Content
+                                                       [ Code
+                                                           "test/typ/math/attach-04.typ"
+                                                           ( line 8 , column 37 )
+                                                           (FuncCall
+                                                              (Ident (Identifier "attach"))
+                                                              [ NormalArg
+                                                                  (Block (Content [ Text "4" ]))
+                                                              , KeyValArg
+                                                                  (Identifier "bl")
+                                                                  (Block (Content [ Text "5" ]))
+                                                              ])
+                                                       ]))
+                                             ])
+                                      ]))
+                            ])
+                     ]))
+           , KeyValArg
+               (Identifier "br")
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/attach-04.typ"
+                         ( line 9 , column 9 )
+                         (FuncCall
+                            (Ident (Identifier "attach"))
+                            [ NormalArg (Block (Content [ Text "2" ]))
+                            , KeyValArg
+                                (Identifier "br")
+                                (Block
+                                   (Content
+                                      [ Code
+                                          "test/typ/math/attach-04.typ"
+                                          ( line 9 , column 23 )
+                                          (FuncCall
+                                             (Ident (Identifier "attach"))
+                                             [ NormalArg (Block (Content [ Text "3" ]))
+                                             , KeyValArg
+                                                 (Identifier "br")
+                                                 (Block
+                                                    (Content
+                                                       [ Code
+                                                           "test/typ/math/attach-04.typ"
+                                                           ( line 9 , column 37 )
+                                                           (FuncCall
+                                                              (Ident (Identifier "attach"))
+                                                              [ NormalArg
+                                                                  (Block (Content [ Text "4" ]))
+                                                              , KeyValArg
+                                                                  (Identifier "br")
+                                                                  (Block (Content [ Text "5" ]))
+                                                              ])
+                                                       ]))
+                                             ])
+                                      ]))
+                            ])
+                     ]))
+           ])
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  math.equation(block: true, 
+                body: { math.frac(denom: math.attach(b: none, 
+                                                     base: math.attach(b: none, 
+                                                                       base: math.attach(b: none, 
+                                                                                         base: math.attach(b: none, 
+                                                                                                           base: [V], 
+                                                                                                           t: [2]), 
+                                                                                         t: [3]), 
+                                                                       t: [4]), 
+                                                     t: [5]), 
+                                  num: [1]), 
+                        [,], 
+                        math.frac(denom: math.attach(base: [V], 
+                                                     tl: math.attach(base: [2], 
+                                                                     tl: math.attach(base: [3], 
+                                                                                     tl: math.attach(base: [4], 
+                                                                                                     tl: [5])))), 
+                                  num: [1]), 
+                        [,], 
+                        math.attach(base: [Ω], 
+                                    bl: math.attach(base: [2], 
+                                                    bl: math.attach(base: [3], 
+                                                                    bl: math.attach(base: [4], 
+                                                                                    bl: [5]))), 
+                                    br: math.attach(base: [2], 
+                                                    br: math.attach(base: [3], 
+                                                                    br: math.attach(base: [4], 
+                                                                                    br: [5]))), 
+                                    tl: math.attach(base: [2], 
+                                                    tl: math.attach(base: [3], 
+                                                                    tl: math.attach(base: [4], 
+                                                                                    tl: [5]))), 
+                                    tr: math.attach(base: [2], 
+                                                    tr: math.attach(base: [3], 
+                                                                    tr: math.attach(base: [4], 
+                                                                                    tr: [5])))) }, 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math
+          DisplayMath
+          "\\frac{1}{{{{V^{2}}^{3}}^{4}}^{5}},\\frac{1}{{}^{{}^{{}^{{}^{5}4}3}2}V},{{}_{{}_{{}_{{}_{5}4}3}2}^{{}^{{}^{{}^{5}4}3}2}\\Omega_{2_{3_{4_{5}}}}^{2^{3^{4^{5}}}}}"
+      ]
+  ]

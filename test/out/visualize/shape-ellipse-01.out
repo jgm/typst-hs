@@ -1,0 +1,304 @@
+--- parse tree ---
+[ Code
+    "test/typ/visualize/shape-ellipse-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/visualize/shape-ellipse-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/visualize/shape-ellipse-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/visualize/shape-ellipse-01.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "rect"))
+       [ KeyValArg (Identifier "inset") (Literal (Numeric 0.0 Pt)) ])
+, SoftBreak
+, Code
+    "test/typ/visualize/shape-ellipse-01.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "ellipse"))
+       [ KeyValArg (Identifier "inset") (Literal (Numeric 0.0 Pt)) ])
+, ParBreak
+, Text "Rect"
+, Space
+, Text "in"
+, Space
+, Text "ellipse"
+, Space
+, Text "in"
+, Space
+, Text "fixed"
+, Space
+, Text "rect"
+, Text "."
+, SoftBreak
+, Code
+    "test/typ/visualize/shape-ellipse-01.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "rect"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 3.0 Cm))
+       , KeyValArg (Identifier "height") (Literal (Numeric 2.0 Cm))
+       , KeyValArg
+           (Identifier "fill")
+           (FuncCall
+              (Ident (Identifier "rgb"))
+              [ NormalArg (Literal (String "2a631a")) ])
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "ellipse"))
+              [ KeyValArg (Identifier "fill") (Ident (Identifier "red"))
+              , KeyValArg (Identifier "width") (Literal (Numeric 100.0 Percent))
+              , KeyValArg (Identifier "height") (Literal (Numeric 100.0 Percent))
+              , NormalArg
+                  (FuncCall
+                     (Ident (Identifier "rect"))
+                     [ KeyValArg (Identifier "fill") (Ident (Identifier "green"))
+                     , KeyValArg (Identifier "width") (Literal (Numeric 100.0 Percent))
+                     , KeyValArg (Identifier "height") (Literal (Numeric 100.0 Percent))
+                     , NormalArg
+                         (FuncCall
+                            (Ident (Identifier "align"))
+                            [ NormalArg
+                                (Plus (Ident (Identifier "center")) (Ident (Identifier "horizon")))
+                            , BlockArg
+                                [ SoftBreak
+                                , Text "Stuff"
+                                , Space
+                                , Text "inside"
+                                , Space
+                                , Text "an"
+                                , Space
+                                , Text "ellipse!"
+                                , ParBreak
+                                ]
+                            ])
+                     ])
+              ])
+       ])
+, ParBreak
+, Text "Auto"
+, Text "-"
+, Text "sized"
+, Space
+, Text "ellipse"
+, Text "."
+, SoftBreak
+, Code
+    "test/typ/visualize/shape-ellipse-01.typ"
+    ( line 17 , column 2 )
+    (FuncCall
+       (Ident (Identifier "ellipse"))
+       [ KeyValArg (Identifier "fill") (Ident (Identifier "green"))
+       , KeyValArg
+           (Identifier "stroke")
+           (Plus (Literal (Numeric 3.0 Pt)) (Ident (Identifier "red")))
+       , KeyValArg (Identifier "inset") (Literal (Numeric 3.0 Pt))
+       , BlockArg
+           [ SoftBreak
+           , Code
+               "test/typ/visualize/shape-ellipse-01.typ"
+               ( line 18 , column 4 )
+               (Set
+                  (Ident (Identifier "text"))
+                  [ NormalArg (Literal (Numeric 8.0 Pt)) ])
+           , SoftBreak
+           , Text "But,"
+           , Space
+           , Text "soft!"
+           , Space
+           , Text "what"
+           , Space
+           , Text "light"
+           , Space
+           , Text "through"
+           , Space
+           , Text "yonder"
+           , Space
+           , Text "window"
+           , Space
+           , Text "breaks?"
+           , ParBreak
+           ]
+       ])
+, ParBreak
+, Text "An"
+, Space
+, Text "inline"
+, SoftBreak
+, Code
+    "test/typ/visualize/shape-ellipse-01.typ"
+    ( line 24 , column 2 )
+    (FuncCall
+       (Ident (Identifier "box"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "ellipse"))
+              [ KeyValArg (Identifier "width") (Literal (Numeric 8.0 Pt))
+              , KeyValArg (Identifier "height") (Literal (Numeric 6.0 Pt))
+              , KeyValArg
+                  (Identifier "outset")
+                  (Dict
+                     [ ( Identifier "top" , Literal (Numeric 3.0 Pt) )
+                     , ( Identifier "rest" , Literal (Numeric 5.5 Pt) )
+                     ])
+              ])
+       ])
+, SoftBreak
+, Text "ellipse"
+, Text "."
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  parbreak(), 
+  [Rect in ellipse in fixed rect.
+], 
+  rect(body: ellipse(body: rect(body: align(alignment: Axes(center, horizon), 
+                                            body: { [
+Stuff inside an ellipse!], 
+                                                    parbreak() }), 
+                                fill: rgb(18%,80%,25%,100%), 
+                                height: 100%, 
+                                inset: 0.0pt, 
+                                width: 100%), 
+                     fill: rgb(100%,25%,21%,100%), 
+                     height: 100%, 
+                     inset: 0.0pt, 
+                     width: 100%), 
+       fill: rgb(16%,38%,10%,100%), 
+       height: 2.0cm, 
+       inset: 0.0pt, 
+       width: 3.0cm), 
+  parbreak(), 
+  [Auto-sized ellipse.
+], 
+  ellipse(body: { [
+], 
+                  text(body: [
+But, soft! what light through yonder window breaks?], 
+                       size: 8.0pt), 
+                  parbreak() }, 
+          fill: rgb(18%,80%,25%,100%), 
+          inset: 3.0pt, 
+          stroke: (thickness: 3.0pt,
+                   color: rgb(100%,25%,21%,100%))), 
+  parbreak(), 
+  text(body: [An inline
+], 
+       size: 8.0pt), 
+  box(body: ellipse(body: none, 
+                    height: 6.0pt, 
+                    inset: 0.0pt, 
+                    outset: (top: 3.0pt,
+                             rest: 5.5pt), 
+                    width: 8.0pt)), 
+  text(body: [
+ellipse.], 
+       size: 8.0pt), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para
+      [ Str "Rect"
+      , Space
+      , Str "in"
+      , Space
+      , Str "ellipse"
+      , Space
+      , Str "in"
+      , Space
+      , Str "fixed"
+      , Space
+      , Str "rect."
+      ]
+  , Div
+      ( "" , [ "rect" ] , [] )
+      [ Div
+          ( "" , [ "ellipse" ] , [] )
+          [ Div
+              ( "" , [ "rect" ] , [] )
+              [ Div
+                  ( "" , [] , [ ( "align" , "Axes(center, horizon)" ) ] )
+                  [ Para
+                      [ Str "Stuff"
+                      , Space
+                      , Str "inside"
+                      , Space
+                      , Str "an"
+                      , Space
+                      , Str "ellipse!"
+                      ]
+                  ]
+              ]
+          ]
+      ]
+  , Para [ Str "Auto-sized" , Space , Str "ellipse." ]
+  , Div
+      ( "" , [ "ellipse" ] , [] )
+      [ Para
+          [ Str "But,"
+          , Space
+          , Str "soft!"
+          , Space
+          , Str "what"
+          , Space
+          , Str "light"
+          , Space
+          , Str "through"
+          , Space
+          , Str "yonder"
+          , Space
+          , Str "window"
+          , Space
+          , Str "breaks?"
+          ]
+      ]
+  , Para
+      [ Str "An"
+      , Space
+      , Str "inline"
+      , SoftBreak
+      , Span ( "" , [ "box" ] , [] ) []
+      , SoftBreak
+      , Str "ellipse."
+      ]
+  ]

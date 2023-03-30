@@ -1,0 +1,111 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/delimited-06.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/delimited-06.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/delimited-06.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Equation
+    True
+    [ Code
+        "test/typ/math/delimited-06.typ"
+        ( line 3 , column 3 )
+        (FuncCall
+           (Ident (Identifier "lr"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Text "]"
+                     , MAttach
+                         (Just (MGroup Nothing Nothing [ Text "x" , Text "=" , Text "1" ]))
+                         (Just (Text "n"))
+                         (Code
+                            "test/typ/math/delimited-06.typ"
+                            ( line 3 , column 7 )
+                            (Ident (Identifier "sum")))
+                     , Text "x"
+                     , Text "]"
+                     ]))
+           , KeyValArg (Identifier "size") (Literal (Numeric 70.0 Percent))
+           ])
+    , Text "<"
+    , Code
+        "test/typ/math/delimited-06.typ"
+        ( line 4 , column 5 )
+        (FuncCall
+           (Ident (Identifier "lr"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ MGroup (Just "(") (Just ")") [ Text "1" , Text "," , Text "2" ]
+                     ]))
+           , KeyValArg (Identifier "size") (Literal (Numeric 200.0 Percent))
+           ])
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  math.equation(block: true, 
+                body: { math.lr(body: { []], 
+                                        math.attach(b: { [x], 
+                                                         [=], 
+                                                         [1] }, 
+                                                    base: [∑], 
+                                                    t: [n]), 
+                                        [x], 
+                                        []] }, 
+                                size: 70%), 
+                        [<], 
+                        math.lr(body: math.lr(body: { [(], 
+                                                      [1], 
+                                                      [,], 
+                                                      [2], 
+                                                      [)] }), 
+                                size: 200%) }, 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math
+          DisplayMath
+          "\\left\\rbrack {\\sum_{x = 1}^{n}x} \\right\\rbrack < \\left. \\left( {1,2} \\right) \\right."
+      ]
+  ]

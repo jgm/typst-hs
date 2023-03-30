@@ -1,0 +1,207 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/root-03.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/root-03.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/root-03.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Equation
+    True
+    [ Code
+        "test/typ/math/root-03.typ"
+        ( line 3 , column 3 )
+        (FuncCall
+           (Ident (Identifier "sqrt"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ MAttach
+                         Nothing
+                         (Just (Text "2"))
+                         (MGroup
+                            (Just "[")
+                            (Just "]")
+                            [ MGroup (Just "|") (Just "|") [ Text "x" ] ])
+                     , Text "+"
+                     , MAttach
+                         Nothing
+                         (Just (Text "2"))
+                         (MGroup
+                            (Just "[")
+                            (Just "]")
+                            [ MGroup (Just "|") (Just "|") [ Text "y" ] ])
+                     ]))
+           ])
+    , Text "<"
+    , MGroup
+        (Just "[") (Just "]") [ MGroup (Just "|") (Just "|") [ Text "z" ] ]
+    ]
+, SoftBreak
+, Equation
+    True
+    [ Text "v"
+    , Text "="
+    , Code
+        "test/typ/math/root-03.typ"
+        ( line 4 , column 7 )
+        (FuncCall
+           (Ident (Identifier "sqrt"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ MFrac
+                         (MGroup (Just "(") (Just ")") [ MFrac (Text "1") (Text "2") ])
+                         (MGroup Nothing Nothing [ MFrac (Text "4") (Text "5") ])
+                     ]))
+           ])
+    , Text "="
+    , Code
+        "test/typ/math/root-03.typ"
+        ( line 5 , column 6 )
+        (FuncCall
+           (Ident (Identifier "root"))
+           [ NormalArg (Block (Content [ Text "3" ]))
+           , NormalArg
+               (Block
+                  (Content
+                     [ MFrac
+                         (MGroup
+                            (Just "(")
+                            (Just ")")
+                            [ MFrac (MFrac (Text "1") (Text "2")) (Text "3") ])
+                         (MGroup
+                            Nothing Nothing [ MFrac (MFrac (Text "4") (Text "5")) (Text "6") ])
+                     ]))
+           ])
+    , Text "="
+    , Code
+        "test/typ/math/root-03.typ"
+        ( line 6 , column 6 )
+        (FuncCall
+           (Ident (Identifier "root"))
+           [ NormalArg (Block (Content [ Text "4" ]))
+           , NormalArg
+               (Block
+                  (Content
+                     [ MFrac
+                         (MGroup
+                            (Just "(")
+                            (Just ")")
+                            [ MFrac
+                                (MGroup (Just "(") (Just ")") [ MFrac (Text "1") (Text "2") ])
+                                (MGroup Nothing Nothing [ MFrac (Text "3") (Text "4") ])
+                            ])
+                         (MGroup
+                            Nothing
+                            Nothing
+                            [ MFrac
+                                (MGroup (Just "(") (Just ")") [ MFrac (Text "1") (Text "2") ])
+                                (MGroup Nothing Nothing [ MFrac (Text "3") (Text "4") ])
+                            ])
+                     ]))
+           ])
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  math.equation(block: true, 
+                body: { math.sqrt(radicand: { math.attach(b: none, 
+                                                          base: math.lr(body: { [[], 
+                                                                                math.lr(body: { [|], 
+                                                                                                [x], 
+                                                                                                [|] }), 
+                                                                                []] }), 
+                                                          t: [2]), 
+                                              [+], 
+                                              math.attach(b: none, 
+                                                          base: math.lr(body: { [[], 
+                                                                                math.lr(body: { [|], 
+                                                                                                [y], 
+                                                                                                [|] }), 
+                                                                                []] }), 
+                                                          t: [2]) }), 
+                        [<], 
+                        math.lr(body: { [[], 
+                                        math.lr(body: { [|], 
+                                                        [z], 
+                                                        [|] }), 
+                                        []] }) }, 
+                numbering: none), 
+  [
+], 
+  math.equation(block: true, 
+                body: { [v], 
+                        [=], 
+                        math.sqrt(radicand: math.frac(denom: math.frac(denom: [5], 
+                                                                       num: [4]), 
+                                                      num: math.frac(denom: [2], 
+                                                                     num: [1]))), 
+                        [=], 
+                        math.root(index: [3], 
+                                  radicand: math.frac(denom: math.frac(denom: [6], 
+                                                                       num: math.frac(denom: [5], 
+                                                                                      num: [4])), 
+                                                      num: math.frac(denom: [3], 
+                                                                     num: math.frac(denom: [2], 
+                                                                                    num: [1])))), 
+                        [=], 
+                        math.root(index: [4], 
+                                  radicand: math.frac(denom: math.frac(denom: math.frac(denom: [4], 
+                                                                                        num: [3]), 
+                                                                       num: math.frac(denom: [2], 
+                                                                                      num: [1])), 
+                                                      num: math.frac(denom: math.frac(denom: [4], 
+                                                                                      num: [3]), 
+                                                                     num: math.frac(denom: [2], 
+                                                                                    num: [1])))) }, 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math
+          DisplayMath
+          "\\sqrt{\\left\\lbrack |x| \\right\\rbrack^{2} + \\left\\lbrack |y| \\right\\rbrack^{2}} < \\left\\lbrack |z| \\right\\rbrack"
+      , SoftBreak
+      , Math
+          DisplayMath
+          "v = \\sqrt{\\frac{\\frac{1}{2}}{\\frac{4}{5}}} = \\sqrt[3]{\\frac{\\frac{\\frac{1}{2}}{3}}{\\frac{\\frac{4}{5}}{6}}} = \\sqrt[4]{\\frac{\\frac{\\frac{1}{2}}{\\frac{3}{4}}}{\\frac{\\frac{1}{2}}{\\frac{3}{4}}}}"
+      ]
+  ]

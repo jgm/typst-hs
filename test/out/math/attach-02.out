@@ -1,0 +1,524 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/attach-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/attach-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/attach-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Equation
+    True
+    [ Code
+        "test/typ/math/attach-02.typ"
+        ( line 4 , column 1 )
+        (FuncCall
+           (Ident (Identifier "attach"))
+           [ NormalArg (Block (Content [ Text "a" ]))
+           , KeyValArg (Identifier "tl") (Block (Content [ Text "u" ]))
+           ])
+    , Text ","
+    , Code
+        "test/typ/math/attach-02.typ"
+        ( line 4 , column 21 )
+        (FuncCall
+           (Ident (Identifier "attach"))
+           [ NormalArg (Block (Content [ Text "a" ]))
+           , KeyValArg (Identifier "tr") (Block (Content [ Text "v" ]))
+           ])
+    , Text ","
+    , Code
+        "test/typ/math/attach-02.typ"
+        ( line 4 , column 41 )
+        (FuncCall
+           (Ident (Identifier "attach"))
+           [ NormalArg (Block (Content [ Text "a" ]))
+           , KeyValArg (Identifier "bl") (Block (Content [ Text "x" ]))
+           ])
+    , Text ","
+    , Code
+        "test/typ/math/attach-02.typ"
+        ( line 5 , column 1 )
+        (FuncCall
+           (Ident (Identifier "attach"))
+           [ NormalArg (Block (Content [ Text "a" ]))
+           , KeyValArg (Identifier "br") (Block (Content [ Text "y" ]))
+           ])
+    , Text ","
+    , MAttach
+        Nothing
+        (Just (Text "t"))
+        (Code
+           "test/typ/math/attach-02.typ"
+           ( line 5 , column 21 )
+           (FuncCall
+              (Ident (Identifier "limits"))
+              [ NormalArg (Block (Content [ Text "a" ])) ]))
+    , Text ","
+    , MAttach
+        (Just (Text "b"))
+        Nothing
+        (Code
+           "test/typ/math/attach-02.typ"
+           ( line 5 , column 41 )
+           (FuncCall
+              (Ident (Identifier "limits"))
+              [ NormalArg (Block (Content [ Text "a" ])) ]))
+    , HardBreak
+    , Code
+        "test/typ/math/attach-02.typ"
+        ( line 7 , column 1 )
+        (FuncCall
+           (Ident (Identifier "attach"))
+           [ NormalArg (Block (Content [ Text "a" ]))
+           , KeyValArg (Identifier "tr") (Block (Content [ Text "v" ]))
+           , KeyValArg (Identifier "t") (Block (Content [ Text "t" ]))
+           ])
+    , Text ","
+    , Code
+        "test/typ/math/attach-02.typ"
+        ( line 8 , column 1 )
+        (FuncCall
+           (Ident (Identifier "attach"))
+           [ NormalArg (Block (Content [ Text "a" ]))
+           , KeyValArg (Identifier "tr") (Block (Content [ Text "v" ]))
+           , KeyValArg (Identifier "br") (Block (Content [ Text "y" ]))
+           ])
+    , Text ","
+    , Code
+        "test/typ/math/attach-02.typ"
+        ( line 9 , column 1 )
+        (FuncCall
+           (Ident (Identifier "attach"))
+           [ NormalArg (Block (Content [ Text "a" ]))
+           , KeyValArg (Identifier "br") (Block (Content [ Text "y" ]))
+           , KeyValArg (Identifier "b") (Block (Content [ Text "b" ]))
+           ])
+    , Text ","
+    , Code
+        "test/typ/math/attach-02.typ"
+        ( line 10 , column 1 )
+        (FuncCall
+           (Ident (Identifier "attach"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/attach-02.typ"
+                         ( line 10 , column 8 )
+                         (FuncCall
+                            (Ident (Identifier "limits"))
+                            [ NormalArg (Block (Content [ Text "a" ])) ])
+                     ]))
+           , KeyValArg (Identifier "b") (Block (Content [ Text "b" ]))
+           , KeyValArg (Identifier "bl") (Block (Content [ Text "x" ]))
+           ])
+    , Text ","
+    , Code
+        "test/typ/math/attach-02.typ"
+        ( line 11 , column 1 )
+        (FuncCall
+           (Ident (Identifier "attach"))
+           [ NormalArg (Block (Content [ Text "a" ]))
+           , KeyValArg (Identifier "tl") (Block (Content [ Text "u" ]))
+           , KeyValArg (Identifier "bl") (Block (Content [ Text "x" ]))
+           ])
+    , Text ","
+    , Code
+        "test/typ/math/attach-02.typ"
+        ( line 12 , column 1 )
+        (FuncCall
+           (Ident (Identifier "attach"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/attach-02.typ"
+                         ( line 12 , column 8 )
+                         (FuncCall
+                            (Ident (Identifier "limits"))
+                            [ NormalArg (Block (Content [ Text "a" ])) ])
+                     ]))
+           , KeyValArg (Identifier "t") (Block (Content [ Text "t" ]))
+           , KeyValArg (Identifier "tl") (Block (Content [ Text "u" ]))
+           ])
+    , HardBreak
+    , Code
+        "test/typ/math/attach-02.typ"
+        ( line 14 , column 1 )
+        (FuncCall
+           (Ident (Identifier "attach"))
+           [ NormalArg (Block (Content [ Text "a" ]))
+           , KeyValArg (Identifier "tl") (Block (Content [ Text "u" ]))
+           , KeyValArg (Identifier "tr") (Block (Content [ Text "v" ]))
+           ])
+    , Text ","
+    , Code
+        "test/typ/math/attach-02.typ"
+        ( line 15 , column 1 )
+        (FuncCall
+           (Ident (Identifier "attach"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/attach-02.typ"
+                         ( line 15 , column 8 )
+                         (FuncCall
+                            (Ident (Identifier "limits"))
+                            [ NormalArg (Block (Content [ Text "a" ])) ])
+                     ]))
+           , KeyValArg (Identifier "t") (Block (Content [ Text "t" ]))
+           , KeyValArg (Identifier "br") (Block (Content [ Text "y" ]))
+           ])
+    , Text ","
+    , Code
+        "test/typ/math/attach-02.typ"
+        ( line 16 , column 1 )
+        (FuncCall
+           (Ident (Identifier "attach"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/attach-02.typ"
+                         ( line 16 , column 8 )
+                         (FuncCall
+                            (Ident (Identifier "limits"))
+                            [ NormalArg (Block (Content [ Text "a" ])) ])
+                     ]))
+           , KeyValArg (Identifier "b") (Block (Content [ Text "b" ]))
+           , KeyValArg (Identifier "tr") (Block (Content [ Text "v" ]))
+           ])
+    , Text ","
+    , Code
+        "test/typ/math/attach-02.typ"
+        ( line 17 , column 1 )
+        (FuncCall
+           (Ident (Identifier "attach"))
+           [ NormalArg (Block (Content [ Text "a" ]))
+           , KeyValArg (Identifier "bl") (Block (Content [ Text "x" ]))
+           , KeyValArg (Identifier "br") (Block (Content [ Text "y" ]))
+           ])
+    , Text ","
+    , Code
+        "test/typ/math/attach-02.typ"
+        ( line 18 , column 1 )
+        (FuncCall
+           (Ident (Identifier "attach"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/attach-02.typ"
+                         ( line 18 , column 8 )
+                         (FuncCall
+                            (Ident (Identifier "limits"))
+                            [ NormalArg (Block (Content [ Text "a" ])) ])
+                     ]))
+           , KeyValArg (Identifier "b") (Block (Content [ Text "b" ]))
+           , KeyValArg (Identifier "tl") (Block (Content [ Text "u" ]))
+           ])
+    , Text ","
+    , Code
+        "test/typ/math/attach-02.typ"
+        ( line 19 , column 1 )
+        (FuncCall
+           (Ident (Identifier "attach"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/attach-02.typ"
+                         ( line 19 , column 8 )
+                         (FuncCall
+                            (Ident (Identifier "limits"))
+                            [ NormalArg (Block (Content [ Text "a" ])) ])
+                     ]))
+           , KeyValArg (Identifier "t") (Block (Content [ Text "t" ]))
+           , KeyValArg (Identifier "bl") (Block (Content [ Text "u" ]))
+           ])
+    , Text ","
+    , MAttach
+        (Just (Text "b"))
+        Nothing
+        (MAttach
+           Nothing
+           (Just (Text "t"))
+           (Code
+              "test/typ/math/attach-02.typ"
+              ( line 20 , column 1 )
+              (FuncCall
+                 (Ident (Identifier "limits"))
+                 [ NormalArg (Block (Content [ Text "a" ])) ])))
+    , HardBreak
+    , Code
+        "test/typ/math/attach-02.typ"
+        ( line 22 , column 1 )
+        (FuncCall
+           (Ident (Identifier "attach"))
+           [ NormalArg (Block (Content [ Text "a" ]))
+           , KeyValArg (Identifier "tl") (Block (Content [ Text "u" ]))
+           , KeyValArg (Identifier "tr") (Block (Content [ Text "v" ]))
+           , KeyValArg (Identifier "bl") (Block (Content [ Text "x" ]))
+           , KeyValArg (Identifier "br") (Block (Content [ Text "y" ]))
+           ])
+    , Text ","
+    , Code
+        "test/typ/math/attach-02.typ"
+        ( line 23 , column 1 )
+        (FuncCall
+           (Ident (Identifier "attach"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/attach-02.typ"
+                         ( line 23 , column 8 )
+                         (FuncCall
+                            (Ident (Identifier "limits"))
+                            [ NormalArg (Block (Content [ Text "a" ])) ])
+                     ]))
+           , KeyValArg (Identifier "t") (Block (Content [ Text "t" ]))
+           , KeyValArg (Identifier "bl") (Block (Content [ Text "x" ]))
+           , KeyValArg (Identifier "br") (Block (Content [ Text "y" ]))
+           , KeyValArg (Identifier "b") (Block (Content [ Text "b" ]))
+           ])
+    , Text ","
+    , Code
+        "test/typ/math/attach-02.typ"
+        ( line 24 , column 1 )
+        (FuncCall
+           (Ident (Identifier "attach"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/attach-02.typ"
+                         ( line 24 , column 8 )
+                         (FuncCall
+                            (Ident (Identifier "limits"))
+                            [ NormalArg (Block (Content [ Text "a" ])) ])
+                     ]))
+           , KeyValArg (Identifier "t") (Block (Content [ Text "t" ]))
+           , KeyValArg (Identifier "tl") (Block (Content [ Text "u" ]))
+           , KeyValArg (Identifier "tr") (Block (Content [ Text "v" ]))
+           , KeyValArg (Identifier "b") (Block (Content [ Text "b" ]))
+           ])
+    , Text ","
+    , Code
+        "test/typ/math/attach-02.typ"
+        ( line 25 , column 1 )
+        (FuncCall
+           (Ident (Identifier "attach"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/attach-02.typ"
+                         ( line 25 , column 8 )
+                         (FuncCall
+                            (Ident (Identifier "limits"))
+                            [ NormalArg (Block (Content [ Text "a" ])) ])
+                     ]))
+           , KeyValArg (Identifier "tl") (Block (Content [ Text "u" ]))
+           , KeyValArg (Identifier "bl") (Block (Content [ Text "x" ]))
+           , KeyValArg (Identifier "t") (Block (Content [ Text "t" ]))
+           , KeyValArg (Identifier "b") (Block (Content [ Text "b" ]))
+           ])
+    , Text ","
+    , Code
+        "test/typ/math/attach-02.typ"
+        ( line 26 , column 1 )
+        (FuncCall
+           (Ident (Identifier "attach"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/attach-02.typ"
+                         ( line 26 , column 8 )
+                         (FuncCall
+                            (Ident (Identifier "limits"))
+                            [ NormalArg (Block (Content [ Text "a" ])) ])
+                     ]))
+           , KeyValArg (Identifier "t") (Block (Content [ Text "t" ]))
+           , KeyValArg (Identifier "b") (Block (Content [ Text "b" ]))
+           , KeyValArg (Identifier "tr") (Block (Content [ Text "v" ]))
+           , KeyValArg (Identifier "br") (Block (Content [ Text "y" ]))
+           ])
+    , Text ","
+    , Code
+        "test/typ/math/attach-02.typ"
+        ( line 27 , column 1 )
+        (FuncCall
+           (Ident (Identifier "attach"))
+           [ NormalArg (Block (Content [ Text "a" ]))
+           , KeyValArg (Identifier "tl") (Block (Content [ Text "u" ]))
+           , KeyValArg (Identifier "t") (Block (Content [ Text "t" ]))
+           , KeyValArg (Identifier "tr") (Block (Content [ Text "v" ]))
+           , KeyValArg (Identifier "bl") (Block (Content [ Text "x" ]))
+           , KeyValArg (Identifier "b") (Block (Content [ Text "b" ]))
+           , KeyValArg (Identifier "br") (Block (Content [ Text "y" ]))
+           ])
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  math.equation(block: true, 
+                body: { math.attach(base: [a], 
+                                    tl: [u]), 
+                        [,], 
+                        math.attach(base: [a], 
+                                    tr: [v]), 
+                        [,], 
+                        math.attach(base: [a], 
+                                    bl: [x]), 
+                        [,], 
+                        math.attach(base: [a], 
+                                    br: [y]), 
+                        [,], 
+                        math.attach(b: none, 
+                                    base: math.limits(body: [a]), 
+                                    t: [t]), 
+                        [,], 
+                        math.attach(b: [b], 
+                                    base: math.limits(body: [a]), 
+                                    t: none), 
+                        linebreak(), 
+                        math.attach(base: [a], 
+                                    t: [t], 
+                                    tr: [v]), 
+                        [,], 
+                        math.attach(base: [a], 
+                                    br: [y], 
+                                    tr: [v]), 
+                        [,], 
+                        math.attach(b: [b], 
+                                    base: [a], 
+                                    br: [y]), 
+                        [,], 
+                        math.attach(b: [b], 
+                                    base: math.limits(body: [a]), 
+                                    bl: [x]), 
+                        [,], 
+                        math.attach(base: [a], 
+                                    bl: [x], 
+                                    tl: [u]), 
+                        [,], 
+                        math.attach(base: math.limits(body: [a]), 
+                                    t: [t], 
+                                    tl: [u]), 
+                        linebreak(), 
+                        math.attach(base: [a], 
+                                    tl: [u], 
+                                    tr: [v]), 
+                        [,], 
+                        math.attach(base: math.limits(body: [a]), 
+                                    br: [y], 
+                                    t: [t]), 
+                        [,], 
+                        math.attach(b: [b], 
+                                    base: math.limits(body: [a]), 
+                                    tr: [v]), 
+                        [,], 
+                        math.attach(base: [a], 
+                                    bl: [x], 
+                                    br: [y]), 
+                        [,], 
+                        math.attach(b: [b], 
+                                    base: math.limits(body: [a]), 
+                                    tl: [u]), 
+                        [,], 
+                        math.attach(base: math.limits(body: [a]), 
+                                    bl: [u], 
+                                    t: [t]), 
+                        [,], 
+                        math.attach(b: [b], 
+                                    base: math.attach(b: none, 
+                                                      base: math.limits(body: [a]), 
+                                                      t: [t]), 
+                                    t: none), 
+                        linebreak(), 
+                        math.attach(base: [a], 
+                                    bl: [x], 
+                                    br: [y], 
+                                    tl: [u], 
+                                    tr: [v]), 
+                        [,], 
+                        math.attach(b: [b], 
+                                    base: math.limits(body: [a]), 
+                                    bl: [x], 
+                                    br: [y], 
+                                    t: [t]), 
+                        [,], 
+                        math.attach(b: [b], 
+                                    base: math.limits(body: [a]), 
+                                    t: [t], 
+                                    tl: [u], 
+                                    tr: [v]), 
+                        [,], 
+                        math.attach(b: [b], 
+                                    base: math.limits(body: [a]), 
+                                    bl: [x], 
+                                    t: [t], 
+                                    tl: [u]), 
+                        [,], 
+                        math.attach(b: [b], 
+                                    base: math.limits(body: [a]), 
+                                    br: [y], 
+                                    t: [t], 
+                                    tr: [v]), 
+                        [,], 
+                        math.attach(b: [b], 
+                                    base: [a], 
+                                    bl: [x], 
+                                    br: [y], 
+                                    t: [t], 
+                                    tl: [u], 
+                                    tr: [v]) }, 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math
+          DisplayMath
+          "\\begin{array}{r}\n{{}^{u}a},a^{v},{{}_{x}a},a_{y},a^{t},a_{b} \\\\\n\\overset{t}{a^{v}},a_{y}^{v},\\underset{b}{a_{y}},{{}_{x}a_{b}},{{}_{x}^{u}a},{{}^{u}a^{t}} \\\\\n{{}^{u}a^{v}},a_{y}^{t},a_{b}^{v},{{}_{x}a_{y}},{{}^{u}a_{b}},{{}_{u}a^{t}},{a^{t}}_{b} \\\\\n{{}_{x}^{u}a_{y}^{v}},{{}_{x}\\underset{b}{a_{y}^{t}}},{{}^{u}\\overset{t}{a_{b}^{v}}},{{}_{x}^{u}a_{b}^{t}},\\underset{b}{\\overset{t}{a_{y}^{v}}},{{}_{x}^{u}\\underset{b}{\\overset{t}{a_{y}^{v}}}}\n\\end{array}"
+      ]
+  ]

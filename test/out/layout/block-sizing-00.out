@@ -1,0 +1,178 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/block-sizing-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/block-sizing-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/block-sizing-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/layout/block-sizing-00.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "height") (Literal (Numeric 100.0 Pt)) ])
+, SoftBreak
+, Code
+    "test/typ/layout/block-sizing-00.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "align"))
+       [ NormalArg (Ident (Identifier "center")) ])
+, ParBreak
+, Code
+    "test/typ/layout/block-sizing-00.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 10)) ])
+, SoftBreak
+, Code
+    "test/typ/layout/block-sizing-00.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "block"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 80.0 Percent))
+       , KeyValArg (Identifier "height") (Literal (Numeric 60.0 Pt))
+       , KeyValArg (Identifier "fill") (Ident (Identifier "aqua"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/layout/block-sizing-00.typ"
+    ( line 7 , column 2 )
+    (FuncCall
+       (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 6)) ])
+, SoftBreak
+, Code
+    "test/typ/layout/block-sizing-00.typ"
+    ( line 8 , column 2 )
+    (FuncCall
+       (Ident (Identifier "block"))
+       [ KeyValArg (Identifier "breakable") (Literal (Boolean False))
+       , KeyValArg (Identifier "width") (Literal (Numeric 100.0 Percent))
+       , KeyValArg (Identifier "inset") (Literal (Numeric 4.0 Pt))
+       , KeyValArg (Identifier "fill") (Ident (Identifier "aqua"))
+       , NormalArg
+           (Plus
+              (FuncCall
+                 (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 8)) ])
+              (FuncCall (Ident (Identifier "colbreak")) []))
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  parbreak(), 
+  [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do], 
+  [
+], 
+  block(body: none, 
+        fill: rgb(49%,85%,100%,100%), 
+        height: 60.0pt, 
+        width: 80%), 
+  [
+], 
+  [Lorem ipsum dolor sit amet, consectetur], 
+  [
+], 
+  block(body: { [Lorem ipsum dolor sit amet, consectetur adipiscing elit,], 
+                colbreak() }, 
+        breakable: false, 
+        fill: rgb(49%,85%,100%,100%), 
+        inset: 4.0pt, 
+        width: 100%), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para
+      [ Str "Lorem"
+      , Space
+      , Str "ipsum"
+      , Space
+      , Str "dolor"
+      , Space
+      , Str "sit"
+      , Space
+      , Str "amet,"
+      , Space
+      , Str "consectetur"
+      , Space
+      , Str "adipiscing"
+      , Space
+      , Str "elit,"
+      , Space
+      , Str "sed"
+      , Space
+      , Str "do"
+      ]
+  , Div ( "" , [] , [] ) []
+  , Para
+      [ Str "Lorem"
+      , Space
+      , Str "ipsum"
+      , Space
+      , Str "dolor"
+      , Space
+      , Str "sit"
+      , Space
+      , Str "amet,"
+      , Space
+      , Str "consectetur"
+      ]
+  , Div
+      ( "" , [] , [] )
+      [ Para
+          [ Str "Lorem"
+          , Space
+          , Str "ipsum"
+          , Space
+          , Str "dolor"
+          , Space
+          , Str "sit"
+          , Space
+          , Str "amet,"
+          , Space
+          , Str "consectetur"
+          , Space
+          , Str "adipiscing"
+          , Space
+          , Str "elit,"
+          ]
+      ]
+  ]

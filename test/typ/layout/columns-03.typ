@@ -1,0 +1,10 @@
+// Test the expansion behavior.
+#set page(height: 2.5cm, width: 7.05cm)
+
+#rect(inset: 6pt, columns(2, [
+    ABC \
+    BCD
+    #colbreak()
+    DEF
+]))
+

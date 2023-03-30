@@ -1,0 +1,111 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/matrix-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/matrix-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/matrix-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Equation
+    True
+    [ Code
+        "test/typ/math/matrix-02.typ"
+        ( line 3 , column 3 )
+        (FuncCall
+           (Ident (Identifier "mat"))
+           [ ArrayArg
+               [ [ Text "a" , MAttach Nothing (Just (Text "2")) (Text "b") ]
+               , [ MGroup
+                     Nothing
+                     Nothing
+                     [ MAttach
+                         (Just (MGroup Nothing Nothing [ Text "x" , HardBreak , Text "y" ]))
+                         Nothing
+                         (Code
+                            "test/typ/math/matrix-02.typ"
+                            ( line 5 , column 3 )
+                            (Ident (Identifier "sum")))
+                     , Text "x"
+                     ]
+                 , MAttach
+                     Nothing
+                     (Just (MGroup Nothing Nothing [ MFrac (Text "1") (Text "2") ]))
+                     (Text "a")
+                 ]
+               , [ Code
+                     "test/typ/math/matrix-02.typ"
+                     ( line 6 , column 3 )
+                     (Ident (Identifier "zeta"))
+                 , Code
+                     "test/typ/math/matrix-02.typ"
+                     ( line 6 , column 9 )
+                     (Ident (Identifier "alpha"))
+                 ]
+               ]
+           ])
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  math.equation(block: true, 
+                body: math.mat(rows: (([a], 
+                                       math.attach(b: none, 
+                                                   base: [b], 
+                                                   t: [2])), 
+                                      ({ math.attach(b: { [x], 
+                                                          linebreak(), 
+                                                          [y] }, 
+                                                     base: [∑], 
+                                                     t: none), 
+                                         [x] }, 
+                                       math.attach(b: none, 
+                                                   base: [a], 
+                                                   t: math.frac(denom: [2], 
+                                                                num: [1]))), 
+                                      ([ζ], [α]))), 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math
+          DisplayMath
+          "\\begin{pmatrix}\na & b^{2} \\\\\n\\sum_{\\begin{array}{r}\nx \\\\\ny\n\\end{array}}x & a^{\\frac{1}{2}} \\\\\n\\zeta & \\alpha\n\\end{pmatrix}"
+      ]
+  ]

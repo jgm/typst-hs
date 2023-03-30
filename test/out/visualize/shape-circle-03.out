@@ -1,0 +1,167 @@
+--- parse tree ---
+[ Code
+    "test/typ/visualize/shape-circle-03.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/visualize/shape-circle-03.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/visualize/shape-circle-03.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/visualize/shape-circle-03.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "fill") (Ident (Identifier "white")) ])
+, SoftBreak
+, Code
+    "test/typ/visualize/shape-circle-03.typ"
+    ( line 4 , column 2 )
+    (Show
+       Nothing
+       (FuncCall
+          (FieldAccess
+             (Ident (Identifier "with")) (Ident (Identifier "rect")))
+          [ KeyValArg (Identifier "width") (Literal (Numeric 100.0 Pt))
+          , KeyValArg (Identifier "height") (Literal (Numeric 50.0 Pt))
+          , KeyValArg (Identifier "inset") (Literal (Numeric 0.0 Pt))
+          , KeyValArg
+              (Identifier "fill")
+              (FuncCall
+                 (Ident (Identifier "rgb")) [ NormalArg (Literal (String "aaa")) ])
+          ]))
+, SoftBreak
+, Code
+    "test/typ/visualize/shape-circle-03.typ"
+    ( line 5 , column 2 )
+    (Set
+       (Ident (Identifier "align"))
+       [ NormalArg
+           (Plus (Ident (Identifier "center")) (Ident (Identifier "horizon")))
+       ])
+, SoftBreak
+, Code
+    "test/typ/visualize/shape-circle-03.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "stack"))
+       [ KeyValArg (Identifier "dir") (Ident (Identifier "ltr"))
+       , KeyValArg (Identifier "spacing") (Literal (Numeric 1.0 Fr))
+       , NormalArg (Literal (Numeric 1.0 Fr))
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "circle"))
+              [ KeyValArg (Identifier "radius") (Literal (Numeric 10.0 Pt))
+              , KeyValArg (Identifier "fill") (Ident (Identifier "eastern"))
+              , NormalArg (Block (Content [ Text "A" ]))
+              ])
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "circle"))
+              [ KeyValArg (Identifier "height") (Literal (Numeric 60.0 Percent))
+              , KeyValArg (Identifier "fill") (Ident (Identifier "eastern"))
+              , NormalArg (Block (Content [ Text "B" ]))
+              ])
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "circle"))
+              [ KeyValArg
+                  (Identifier "width")
+                  (Plus (Literal (Numeric 20.0 Percent)) (Literal (Numeric 20.0 Pt)))
+              , KeyValArg (Identifier "fill") (Ident (Identifier "eastern"))
+              , NormalArg (Block (Content [ Text "C" ]))
+              ])
+       , NormalArg (Literal (Numeric 1.0 Fr))
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  text(body: [
+], 
+       fill: rgb(100%,100%,100%,100%)), 
+  rect(body: { text(body: [
+], 
+                    fill: rgb(100%,100%,100%,100%)), 
+               text(body: [
+], 
+                    fill: rgb(100%,100%,100%,100%)), 
+               stack(children: (1.0fr, 
+                                circle(body: text(body: [A], 
+                                                  fill: rgb(100%,100%,100%,100%)), 
+                                       fill: rgb(13%,61%,67%,100%), 
+                                       radius: 10.0pt), 
+                                circle(body: text(body: [B], 
+                                                  fill: rgb(100%,100%,100%,100%)), 
+                                       fill: rgb(13%,61%,67%,100%), 
+                                       height: 60%), 
+                                circle(body: text(body: [C], 
+                                                  fill: rgb(100%,100%,100%,100%)), 
+                                       fill: rgb(13%,61%,67%,100%), 
+                                       width: 20.0pt + 20%), 
+                                1.0fr), 
+                     dir: ltr, 
+                     spacing: 1.0fr), 
+               parbreak() }, 
+       fill: rgb(3%,3%,3%,100%), 
+       height: 50.0pt, 
+       inset: 0.0pt, 
+       width: 100.0pt) }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Div
+      ( "" , [ "rect" ] , [] )
+      [ Para []
+      , Div
+          ( "" , [] , [ ( "stack" , "ltr" ) ] )
+          [ Div
+              ( "" , [] , [] ) [ Div ( "" , [] , [ ( "space" , "1.0fr" ) ] ) [] ]
+          , Div
+              ( "" , [] , [] )
+              [ Div ( "" , [ "circle" ] , [] ) [ Para [ Str "A" ] ] ]
+          , Div
+              ( "" , [] , [] )
+              [ Div ( "" , [ "circle" ] , [] ) [ Para [ Str "B" ] ] ]
+          , Div
+              ( "" , [] , [] )
+              [ Div ( "" , [ "circle" ] , [] ) [ Para [ Str "C" ] ] ]
+          , Div
+              ( "" , [] , [] ) [ Div ( "" , [] , [ ( "space" , "1.0fr" ) ] ) [] ]
+          ]
+      ]
+  ]

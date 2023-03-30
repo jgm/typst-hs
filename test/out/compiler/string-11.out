@@ -1,0 +1,191 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/string-11.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/string-11.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/string-11.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compiler/string-11.typ"
+    ( line 3 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "starts-with")) (Literal (String "Typst")))
+              [ NormalArg (Literal (String "Ty")) ])
+       , NormalArg (Literal (Boolean True))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/string-11.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "starts-with")) (Literal (String "Typst")))
+              [ NormalArg
+                  (FuncCall
+                     (Ident (Identifier "regex"))
+                     [ NormalArg (Literal (String "[Tt]ys")) ])
+              ])
+       , NormalArg (Literal (Boolean False))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/string-11.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "starts-with")) (Literal (String "Typst")))
+              [ NormalArg (Literal (String "st")) ])
+       , NormalArg (Literal (Boolean False))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/string-11.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "ends-with")) (Literal (String "Typst")))
+              [ NormalArg (Literal (String "st")) ])
+       , NormalArg (Literal (Boolean True))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/string-11.typ"
+    ( line 7 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "ends-with")) (Literal (String "Typst")))
+              [ NormalArg
+                  (FuncCall
+                     (Ident (Identifier "regex"))
+                     [ NormalArg (Literal (String "\\d*")) ])
+              ])
+       , NormalArg (Literal (Boolean True))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/string-11.typ"
+    ( line 8 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "ends-with")) (Literal (String "Typst")))
+              [ NormalArg
+                  (FuncCall
+                     (Ident (Identifier "regex"))
+                     [ NormalArg (Literal (String "\\d+")) ])
+              ])
+       , NormalArg (Literal (Boolean False))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/string-11.typ"
+    ( line 9 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "ends-with")) (Literal (String "Typ12")))
+              [ NormalArg
+                  (FuncCall
+                     (Ident (Identifier "regex"))
+                     [ NormalArg (Literal (String "\\d+")) ])
+              ])
+       , NormalArg (Literal (Boolean True))
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      ]
+  ]

@@ -1,0 +1,192 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/attach-05.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/attach-05.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/attach-05.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Equation
+    True
+    [ Code
+        "test/typ/math/attach-05.typ"
+        ( line 3 , column 3 )
+        (FuncCall
+           (Ident (Identifier "sqrt"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ MAttach
+                         (Just (MGroup Nothing Nothing [ MFrac (Text "1") (Text "2") ]))
+                         (Just
+                            (Code
+                               "test/typ/math/attach-05.typ"
+                               ( line 3 , column 16 )
+                               (Ident (Identifier "zeta"))))
+                         (Text "a")
+                     ]))
+           ])
+    , Text ","
+    , Code
+        "test/typ/math/attach-05.typ"
+        ( line 3 , column 23 )
+        (FuncCall
+           (Ident (Identifier "sqrt"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ MAttach
+                         (Just
+                            (Code
+                               "test/typ/math/attach-05.typ"
+                               ( line 3 , column 30 )
+                               (Ident (Identifier "alpha"))))
+                         (Just (MGroup Nothing Nothing [ MFrac (Text "1") (Text "2") ]))
+                         (Text "a")
+                     ]))
+           ])
+    , Text ","
+    , Code
+        "test/typ/math/attach-05.typ"
+        ( line 3 , column 44 )
+        (FuncCall
+           (Ident (Identifier "sqrt"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ MAttach
+                         (Just (MGroup Nothing Nothing [ MFrac (Text "1") (Text "2") ]))
+                         (Just (MGroup Nothing Nothing [ MFrac (Text "3") (Text "4") ]))
+                         (Text "a")
+                     ]))
+           ])
+    , HardBreak
+    , Code
+        "test/typ/math/attach-05.typ"
+        ( line 4 , column 3 )
+        (FuncCall
+           (Ident (Identifier "sqrt"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/attach-05.typ"
+                         ( line 4 , column 8 )
+                         (FuncCall
+                            (Ident (Identifier "attach"))
+                            [ NormalArg (Block (Content [ Text "a" ]))
+                            , KeyValArg
+                                (Identifier "tl") (Block (Content [ MFrac (Text "1") (Text "2") ]))
+                            , KeyValArg
+                                (Identifier "bl") (Block (Content [ MFrac (Text "3") (Text "4") ]))
+                            ])
+                     ]))
+           ])
+    , Text ","
+    , Code
+        "test/typ/math/attach-05.typ"
+        ( line 5 , column 3 )
+        (FuncCall
+           (Ident (Identifier "sqrt"))
+           [ NormalArg
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/attach-05.typ"
+                         ( line 5 , column 8 )
+                         (FuncCall
+                            (Ident (Identifier "attach"))
+                            [ NormalArg (Block (Content [ Text "a" ]))
+                            , KeyValArg
+                                (Identifier "tl") (Block (Content [ MFrac (Text "1") (Text "2") ]))
+                            , KeyValArg
+                                (Identifier "bl") (Block (Content [ MFrac (Text "3") (Text "4") ]))
+                            , KeyValArg
+                                (Identifier "tr") (Block (Content [ MFrac (Text "1") (Text "2") ]))
+                            , KeyValArg
+                                (Identifier "br") (Block (Content [ MFrac (Text "3") (Text "4") ]))
+                            ])
+                     ]))
+           ])
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  math.equation(block: true, 
+                body: { math.sqrt(radicand: math.attach(b: math.frac(denom: [2], 
+                                                                     num: [1]), 
+                                                        base: [a], 
+                                                        t: [ζ])), 
+                        [,], 
+                        math.sqrt(radicand: math.attach(b: [α], 
+                                                        base: [a], 
+                                                        t: math.frac(denom: [2], 
+                                                                     num: [1]))), 
+                        [,], 
+                        math.sqrt(radicand: math.attach(b: math.frac(denom: [2], 
+                                                                     num: [1]), 
+                                                        base: [a], 
+                                                        t: math.frac(denom: [4], 
+                                                                     num: [3]))), 
+                        linebreak(), 
+                        math.sqrt(radicand: math.attach(base: [a], 
+                                                        bl: math.frac(denom: [4], 
+                                                                      num: [3]), 
+                                                        tl: math.frac(denom: [2], 
+                                                                      num: [1]))), 
+                        [,], 
+                        math.sqrt(radicand: math.attach(base: [a], 
+                                                        bl: math.frac(denom: [4], 
+                                                                      num: [3]), 
+                                                        br: math.frac(denom: [4], 
+                                                                      num: [3]), 
+                                                        tl: math.frac(denom: [2], 
+                                                                      num: [1]), 
+                                                        tr: math.frac(denom: [2], 
+                                                                      num: [1]))) }, 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math
+          DisplayMath
+          "\\begin{array}{r}\n\\sqrt{a_{\\frac{1}{2}}^{\\zeta}},\\sqrt{a_{\\alpha}^{\\frac{1}{2}}},\\sqrt{a_{\\frac{1}{2}}^{\\frac{3}{4}}} \\\\\n\\sqrt{{}_{\\frac{3}{4}}^{\\frac{1}{2}}a},\\sqrt{{}_{\\frac{3}{4}}^{\\frac{1}{2}}a_{\\frac{3}{4}}^{\\frac{1}{2}}}\n\\end{array}"
+      ]
+  ]

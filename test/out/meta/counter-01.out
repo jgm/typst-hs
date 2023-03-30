@@ -1,0 +1,148 @@
+--- parse tree ---
+[ Code
+    "test/typ/meta/counter-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/meta/counter-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/meta/counter-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/meta/counter-01.typ"
+    ( line 3 , column 2 )
+    (Let (BasicBind (Just (Identifier "label"))) (Label "heya"))
+, Space
+, Code
+    "test/typ/meta/counter-01.typ"
+    ( line 3 , column 14 )
+    (Label "heya")
+, SoftBreak
+, Code
+    "test/typ/meta/counter-01.typ"
+    ( line 4 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "count")))
+       (FuncCall
+          (FieldAccess
+             (Ident (Identifier "display"))
+             (FuncCall
+                (Ident (Identifier "counter"))
+                [ NormalArg (Ident (Identifier "label")) ]))
+          []))
+, SoftBreak
+, Code
+    "test/typ/meta/counter-01.typ"
+    ( line 5 , column 2 )
+    (LetFunc
+       (Identifier "elem")
+       [ NormalParam (Identifier "it") ]
+       (Block
+          (Content
+             [ Code
+                 "test/typ/meta/counter-01.typ"
+                 ( line 5 , column 19 )
+                 (FuncCall
+                    (Ident (Identifier "box")) [ NormalArg (Ident (Identifier "it")) ])
+             , Space
+             , Code
+                 "test/typ/meta/counter-01.typ"
+                 ( line 5 , column 28 )
+                 (Ident (Identifier "label"))
+             ])))
+, ParBreak
+, Code
+    "test/typ/meta/counter-01.typ"
+    ( line 7 , column 2 )
+    (FuncCall
+       (Ident (Identifier "elem"))
+       [ BlockArg [ Text "hey," , Space , Text "there!" ] ])
+, Space
+, Code
+    "test/typ/meta/counter-01.typ"
+    ( line 7 , column 21 )
+    (Ident (Identifier "count"))
+, Space
+, HardBreak
+, Code
+    "test/typ/meta/counter-01.typ"
+    ( line 8 , column 2 )
+    (FuncCall
+       (Ident (Identifier "elem"))
+       [ BlockArg [ Text "more" , Space , Text "here!" ] ])
+, Space
+, Code
+    "test/typ/meta/counter-01.typ"
+    ( line 8 , column 20 )
+    (Ident (Identifier "count"))
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [ ], 
+  [], 
+  [
+], 
+  [
+], 
+  parbreak(), 
+  box(body: [hey, there!]), 
+  [ ], 
+  [], 
+  [ ], 
+  [0], 
+  [ ], 
+  linebreak(), 
+  box(body: [more here!]), 
+  [ ], 
+  [], 
+  [ ], 
+  [0], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para
+      [ Span
+          ( "" , [ "box" ] , [] ) [ Str "hey," , Space , Str "there!" ]
+      , Space
+      , Str "0"
+      , LineBreak
+      , Span ( "" , [ "box" ] , [] ) [ Str "more" , Space , Str "here!" ]
+      , Space
+      , Str "0"
+      ]
+  ]

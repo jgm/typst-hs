@@ -1,0 +1,203 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/array-34.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/array-34.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/array-34.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compiler/array-34.typ"
+    ( line 3 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess (Ident (Identifier "zip")) (Array []))
+              [ NormalArg (Array []) ])
+       , NormalArg (Array [])
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/array-34.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "zip")) (Array [ Literal (Int 1) ]))
+              [ NormalArg (Array []) ])
+       , NormalArg (Array [])
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/array-34.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "zip")) (Array [ Literal (Int 1) ]))
+              [ NormalArg (Array [ Literal (Int 2) ]) ])
+       , NormalArg (Array [ Array [ Literal (Int 1) , Literal (Int 2) ] ])
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/array-34.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "zip"))
+                 (Array [ Literal (Int 1) , Literal (Int 2) ]))
+              [ NormalArg (Array [ Literal (Int 3) , Literal (Int 4) ]) ])
+       , NormalArg
+           (Array
+              [ Array [ Literal (Int 1) , Literal (Int 3) ]
+              , Array [ Literal (Int 2) , Literal (Int 4) ]
+              ])
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/array-34.typ"
+    ( line 7 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "zip"))
+                 (Array
+                    [ Literal (Int 1)
+                    , Literal (Int 2)
+                    , Literal (Int 3)
+                    , Literal (Int 4)
+                    ]))
+              [ NormalArg (Array [ Literal (Int 5) , Literal (Int 6) ]) ])
+       , NormalArg
+           (Array
+              [ Array [ Literal (Int 1) , Literal (Int 5) ]
+              , Array [ Literal (Int 2) , Literal (Int 6) ]
+              ])
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/array-34.typ"
+    ( line 8 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "zip"))
+                 (Array
+                    [ Array [ Literal (Int 1) , Literal (Int 2) ] , Literal (Int 3) ]))
+              [ NormalArg (Array [ Literal (Int 4) , Literal (Int 5) ]) ])
+       , NormalArg
+           (Array
+              [ Array
+                  [ Array [ Literal (Int 1) , Literal (Int 2) ] , Literal (Int 4) ]
+              , Array [ Literal (Int 3) , Literal (Int 5) ]
+              ])
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/array-34.typ"
+    ( line 9 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "zip"))
+                 (Array [ Literal (Int 1) , Literal (String "hi") ]))
+              [ NormalArg
+                  (Array [ Literal (Boolean True) , Literal (Boolean False) ])
+              ])
+       , NormalArg
+           (Array
+              [ Array [ Literal (Int 1) , Literal (Boolean True) ]
+              , Array [ Literal (String "hi") , Literal (Boolean False) ]
+              ])
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      ]
+  ]

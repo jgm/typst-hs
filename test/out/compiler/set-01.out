@@ -1,0 +1,126 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/set-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/set-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/set-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compiler/set-01.typ"
+    ( line 3 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "fruit")))
+       (Block
+          (Content
+             [ SoftBreak
+             , BulletListItem [ Text "Apple" ]
+             , SoftBreak
+             , BulletListItem [ Text "Orange" ]
+             , SoftBreak
+             , Code
+                 "test/typ/compiler/set-01.typ"
+                 ( line 6 , column 4 )
+                 (FuncCall
+                    (Ident (Identifier "list"))
+                    [ KeyValArg (Identifier "body-indent") (Literal (Numeric 20.0 Pt))
+                    , BlockArg [ Text "Pear" ]
+                    ])
+             , ParBreak
+             ])))
+, ParBreak
+, BulletListItem [ Text "Fruit" ]
+, SoftBreak
+, Code
+    "test/typ/compiler/set-01.typ"
+    ( line 10 , column 2 )
+    (Block
+       (Content
+          [ Code
+              "test/typ/compiler/set-01.typ"
+              ( line 10 , column 4 )
+              (Set
+                 (Ident (Identifier "list"))
+                 [ KeyValArg (Identifier "indent") (Literal (Numeric 10.0 Pt)) ])
+          , SoftBreak
+          , Code
+              "test/typ/compiler/set-01.typ"
+              ( line 11 , column 3 )
+              (Ident (Identifier "fruit"))
+          ]))
+, SoftBreak
+, BulletListItem
+    [ Text "No"
+    , Space
+    , Text "more"
+    , Space
+    , Text "fruit"
+    , ParBreak
+    ]
+]
+--- evaluated ---
+{ [
+], 
+  parbreak(), 
+  list(children: ([Fruit])), 
+  [
+], 
+  [
+], 
+  list(children: ([Apple], 
+                  [Orange])), 
+  list(body-indent: 20.0pt, 
+       children: ([Pear])), 
+  parbreak(), 
+  [
+], 
+  list(children: ({ [No more fruit], 
+                    parbreak() }), 
+       indent: 10.0pt) }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , BulletList [ [ Para [ Str "Fruit" ] ] ]
+  , Para []
+  , BulletList
+      [ [ Para [ Str "Apple" ] ] , [ Para [ Str "Orange" ] ] ]
+  , BulletList [ [ Para [ Str "Pear" ] ] ]
+  , Para []
+  , BulletList
+      [ [ Para [ Str "No" , Space , Str "more" , Space , Str "fruit" ] ]
+      ]
+  ]

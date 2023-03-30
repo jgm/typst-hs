@@ -1,0 +1,87 @@
+--- parse tree ---
+[ Code
+    "test/typ/visualize/svg-text-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/visualize/svg-text-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/visualize/svg-text-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/visualize/svg-text-00.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 250.0 Pt)) ])
+, ParBreak
+, Code
+    "test/typ/visualize/svg-text-00.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "figure"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "image"))
+              [ NormalArg (Literal (String "test/assets/files/diagram.svg")) ])
+       , KeyValArg
+           (Identifier "caption")
+           (Block
+              (Content
+                 [ Text "A" , Space , Text "textful" , Space , Text "diagram" ]))
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  parbreak(), 
+  figure(body: image(path: "test/assets/files/diagram.svg"), 
+         caption: [A textful diagram]), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Figure
+      ( "" , [] , [] )
+      (Caption
+         Nothing
+         [ Para [ Str "A" , Space , Str "textful" , Space , Str "diagram" ]
+         ])
+      [ Para
+          [ Image
+              ( "" , [] , [] ) [] ( "test/assets/files/diagram.svg" , "" )
+          ]
+      ]
+  ]

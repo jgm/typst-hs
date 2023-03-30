@@ -1,0 +1,157 @@
+--- parse tree ---
+[ Code
+    "test/typ/meta/bibliography-04.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/meta/bibliography-04.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/meta/bibliography-04.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/meta/bibliography-04.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 200.0 Pt)) ])
+, SoftBreak
+, Code
+    "test/typ/meta/bibliography-04.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "heading"))
+       [ KeyValArg (Identifier "numbering") (Literal (String "1.")) ])
+, SoftBreak
+, Code
+    "test/typ/meta/bibliography-04.typ"
+    ( line 4 , column 2 )
+    (Show
+       (Just (Ident (Identifier "bibliography")))
+       (Set
+          (Ident (Identifier "heading"))
+          [ KeyValArg (Identifier "numbering") (Literal (String "1.")) ]))
+, ParBreak
+, Heading 1 [ Text "Multiple" , Space , Text "Bibs" ]
+, Text "Now"
+, Space
+, Text "we"
+, Space
+, Text "have"
+, Space
+, Text "multiple"
+, Space
+, Text "bibliographies"
+, Space
+, Text "containing"
+, Space
+, Code
+    "test/typ/meta/bibliography-04.typ"
+    ( line 7 , column 49 )
+    (FuncCall
+       (Ident (Identifier "cite"))
+       [ NormalArg (Literal (String "glacier-melt"))
+       , NormalArg (Literal (String "keshav2007read"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/meta/bibliography-04.typ"
+    ( line 8 , column 2 )
+    (FuncCall
+       (Ident (Identifier "bibliography"))
+       [ NormalArg
+           (Array
+              [ Literal (String "/works.bib")
+              , Literal (String "/works_too.bib")
+              ])
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  [
+], 
+  parbreak(), 
+  heading(body: [Multiple Bibs], 
+          level: 1, 
+          numbering: "1."), 
+  [Now we have multiple bibliographies containing ], 
+  cite(keys: ("glacier-melt", 
+              "keshav2007read"), 
+       supplement: none), 
+  [
+], 
+  bibliography(path: ("/works.bib", 
+                      "/works_too.bib")), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Header 1 ( "" , [] , [] ) [ Str "Multiple" , Space , Str "Bibs" ]
+  , Para
+      [ Str "Now"
+      , Space
+      , Str "we"
+      , Space
+      , Str "have"
+      , Space
+      , Str "multiple"
+      , Space
+      , Str "bibliographies"
+      , Space
+      , Str "containing"
+      , Space
+      , Cite
+          [ Citation
+              { citationId = "glacier-melt"
+              , citationPrefix = []
+              , citationSuffix = []
+              , citationMode = NormalCitation
+              , citationNoteNum = 0
+              , citationHash = 0
+              }
+          , Citation
+              { citationId = "keshav2007read"
+              , citationPrefix = []
+              , citationSuffix = []
+              , citationMode = NormalCitation
+              , citationNoteNum = 0
+              , citationHash = 0
+              }
+          ]
+          [ Str "[glacier-melt,keshav2007read]" ]
+      ]
+  ]

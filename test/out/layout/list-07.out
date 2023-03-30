@@ -1,0 +1,75 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/list-07.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/list-07.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/list-07.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, BulletListItem []
+, SoftBreak
+, Text "Not"
+, Space
+, Text "in"
+, Space
+, Text "list"
+, SoftBreak
+, Text "-"
+, Text "Nope"
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  list(children: ({  })), 
+  [Not in list
+-Nope], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , BulletList [ [] ]
+  , Para
+      [ Str "Not"
+      , Space
+      , Str "in"
+      , Space
+      , Str "list"
+      , SoftBreak
+      , Str "-Nope"
+      ]
+  ]

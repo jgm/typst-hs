@@ -1,0 +1,234 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/ops-13.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/ops-13.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/ops-13.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compiler/ops-13.typ"
+    ( line 3 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (InCollection (Literal (String "hi")) (Literal (String "worship")))
+       , NormalArg (Literal (Boolean True))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/ops-13.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (InCollection
+              (Literal (String "hi"))
+              (Array
+                 [ Literal (String "we")
+                 , Literal (String "hi")
+                 , Literal (String "bye")
+                 ]))
+       , NormalArg (Literal (Boolean True))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/ops-13.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (InCollection
+              (Literal (String "Hey")) (Literal (String "abHeyCd")))
+       , NormalArg (Literal (Boolean True))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/ops-13.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (InCollection
+              (Literal (String "Hey")) (Literal (String "abheyCd")))
+       , NormalArg (Literal (Boolean False))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/ops-13.typ"
+    ( line 7 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (InCollection
+              (Literal (Int 5))
+              (FuncCall
+                 (Ident (Identifier "range")) [ NormalArg (Literal (Int 10)) ]))
+       , NormalArg (Literal (Boolean True))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/ops-13.typ"
+    ( line 8 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (InCollection
+              (Literal (Int 12))
+              (FuncCall
+                 (Ident (Identifier "range")) [ NormalArg (Literal (Int 10)) ]))
+       , NormalArg (Literal (Boolean False))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/ops-13.typ"
+    ( line 9 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg (InCollection (Literal (String "")) (Array []))
+       , NormalArg (Literal (Boolean False))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/ops-13.typ"
+    ( line 10 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (InCollection
+              (Literal (String "key"))
+              (Dict [ ( Identifier "key" , Literal (String "value") ) ]))
+       , NormalArg (Literal (Boolean True))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/ops-13.typ"
+    ( line 11 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (InCollection
+              (Literal (String "value"))
+              (Dict [ ( Identifier "key" , Literal (String "value") ) ]))
+       , NormalArg (Literal (Boolean False))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/ops-13.typ"
+    ( line 12 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Not
+              (InCollection
+                 (Literal (String "Hey")) (Literal (String "abheyCd"))))
+       , NormalArg (Literal (Boolean True))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/ops-13.typ"
+    ( line 13 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Not
+              (InCollection (Literal (String "a")) (Literal (String "abc"))))
+       , NormalArg (Literal (Boolean False))
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      ]
+  ]

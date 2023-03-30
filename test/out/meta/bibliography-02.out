@@ -1,0 +1,211 @@
+--- parse tree ---
+[ Code
+    "test/typ/meta/bibliography-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/meta/bibliography-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/meta/bibliography-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/meta/bibliography-02.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 200.0 Pt)) ])
+, SoftBreak
+, Code
+    "test/typ/meta/bibliography-02.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "bibliography"))
+       [ NormalArg (Literal (String "/works.bib"))
+       , KeyValArg
+           (Identifier "title")
+           (Block
+              (Content
+                 [ Text "Works"
+                 , Space
+                 , Text "to"
+                 , Space
+                 , Text "be"
+                 , Space
+                 , Text "cited"
+                 ]))
+       , KeyValArg
+           (Identifier "style") (Literal (String "chicago-author-date"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/meta/bibliography-02.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "line"))
+       [ KeyValArg (Identifier "length") (Literal (Numeric 100.0 Percent))
+       ])
+, SoftBreak
+, Code
+    "test/typ/meta/bibliography-02.typ"
+    ( line 6 , column 2 )
+    (Block
+       (Content
+          [ Code
+              "test/typ/meta/bibliography-02.typ"
+              ( line 6 , column 4 )
+              (Set
+                 (Ident (Identifier "cite"))
+                 [ KeyValArg (Identifier "brackets") (Literal (Boolean False)) ])
+          , SoftBreak
+          , Text "As"
+          , Space
+          , Text "described"
+          , Space
+          , Text "by"
+          , Space
+          , Ref "netwok" (Literal Auto)
+          ]))
+, Text ","
+, SoftBreak
+, Text "the"
+, Space
+, Text "net"
+, Text "-"
+, Text "work"
+, Space
+, Text "is"
+, Space
+, Text "a"
+, Space
+, Text "creature"
+, Space
+, Text "of"
+, Space
+, Text "its"
+, Space
+, Text "own"
+, Text "."
+, SoftBreak
+, Text "This"
+, Space
+, Text "is"
+, Space
+, Text "close"
+, Space
+, Text "to"
+, Space
+, Text "piratery!"
+, Space
+, Ref "arrgh" (Literal Auto)
+, SoftBreak
+, Text "And"
+, Space
+, Text "quark!"
+, Space
+, Ref "quark" (Literal Auto)
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  bibliography(path: "/works.bib", 
+               style: "chicago-author-date", 
+               title: [Works to be cited]), 
+  [
+], 
+  line(length: 100%), 
+  [
+], 
+  [
+As described by ], 
+  ref(supplement: [auto], 
+      target: ), 
+  [,
+the net-work is a creature of its own.
+This is close to piratery! ], 
+  ref(supplement: [auto], 
+      target: ), 
+  [
+And quark! ], 
+  ref(supplement: [auto], 
+      target: ), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para []
+  , HorizontalRule
+  , Para
+      [ Str "As"
+      , Space
+      , Str "described"
+      , Space
+      , Str "by"
+      , Space
+      , Str ","
+      , SoftBreak
+      , Str "the"
+      , Space
+      , Str "net-work"
+      , Space
+      , Str "is"
+      , Space
+      , Str "a"
+      , Space
+      , Str "creature"
+      , Space
+      , Str "of"
+      , Space
+      , Str "its"
+      , Space
+      , Str "own."
+      , SoftBreak
+      , Str "This"
+      , Space
+      , Str "is"
+      , Space
+      , Str "close"
+      , Space
+      , Str "to"
+      , Space
+      , Str "piratery!"
+      , SoftBreak
+      , Str "And"
+      , Space
+      , Str "quark!"
+      ]
+  ]

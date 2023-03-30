@@ -1,0 +1,119 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/clip-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/clip-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/clip-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Text "Emoji"
+, Text ":"
+, Space
+, Code
+    "test/typ/layout/clip-02.typ"
+    ( line 3 , column 9 )
+    (FuncCall
+       (Ident (Identifier "box"))
+       [ KeyValArg (Identifier "height") (Literal (Numeric 0.5 Em))
+       , KeyValArg
+           (Identifier "stroke")
+           (Plus (Literal (Numeric 1.0 Pt)) (Ident (Identifier "black")))
+       , BlockArg
+           [ Text "\128042,"
+           , Space
+           , Text "\127755,"
+           , Space
+           , Text "\127966"
+           ]
+       ])
+, ParBreak
+, Text "Emoji"
+, Text ":"
+, Space
+, Code
+    "test/typ/layout/clip-02.typ"
+    ( line 5 , column 9 )
+    (FuncCall
+       (Ident (Identifier "box"))
+       [ KeyValArg (Identifier "height") (Literal (Numeric 0.5 Em))
+       , KeyValArg (Identifier "clip") (Literal (Boolean True))
+       , KeyValArg
+           (Identifier "stroke")
+           (Plus (Literal (Numeric 1.0 Pt)) (Ident (Identifier "black")))
+       , BlockArg
+           [ Text "\128042,"
+           , Space
+           , Text "\127755,"
+           , Space
+           , Text "\127966"
+           ]
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [Emoji: ], 
+  box(body: [🐪, 🌋, 🏞], 
+      height: 0.5em, 
+      stroke: (thickness: 1.0pt,
+               color: rgb(0%,0%,0%,100%))), 
+  parbreak(), 
+  [Emoji: ], 
+  box(body: [🐪, 🌋, 🏞], 
+      clip: true, 
+      height: 0.5em, 
+      stroke: (thickness: 1.0pt,
+               color: rgb(0%,0%,0%,100%))), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "Emoji:"
+      , Space
+      , Span
+          ( "" , [ "box" ] , [] )
+          [ Str "\128042," , Space , Str "\127755," , Space , Str "\127966" ]
+      ]
+  , Para
+      [ Str "Emoji:"
+      , Space
+      , Span
+          ( "" , [ "box" ] , [] )
+          [ Str "\128042," , Space , Str "\127755," , Space , Str "\127966" ]
+      ]
+  ]

@@ -1,0 +1,106 @@
+--- parse tree ---
+[ Code
+    "test/typ/text/quotes-03.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/text/quotes-03.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/text/quotes-03.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Text "The"
+, Space
+, Text "5"
+, Text "'"
+, Text "11"
+, Text "\""
+, Space
+, Quote '\''
+, Text "quick"
+, Text "'"
+, Space
+, Text "brown"
+, Space
+, Text "fox"
+, Space
+, Text "jumps"
+, Space
+, Text "over"
+, Space
+, Text "the"
+, Space
+, Text "\""
+, Text "lazy"
+, Quote '"'
+, Space
+, Text "dog"
+, Text "'"
+, Text "s"
+, Space
+, Text "ear"
+, Text "."
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [The 5'11" ‘quick' brown fox jumps over the "lazy” dog's ear.], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "The"
+      , Space
+      , Str "5'11\""
+      , Space
+      , Str "\8216quick'"
+      , Space
+      , Str "brown"
+      , Space
+      , Str "fox"
+      , Space
+      , Str "jumps"
+      , Space
+      , Str "over"
+      , Space
+      , Str "the"
+      , Space
+      , Str "\"lazy\8221"
+      , Space
+      , Str "dog's"
+      , Space
+      , Str "ear."
+      ]
+  ]

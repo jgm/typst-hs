@@ -1,0 +1,637 @@
+--- parse tree ---
+[ Code
+    "test/typ/coma-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/coma-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/coma-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/coma-00.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 450.0 Pt))
+       , KeyValArg (Identifier "margin") (Literal (Numeric 1.0 Cm))
+       ])
+, ParBreak
+, Strong
+    [ Text "Technische"
+    , Space
+    , Text "Universit\228t"
+    , Space
+    , Text "Berlin"
+    ]
+, Space
+, Code
+    "test/typ/coma-00.typ"
+    ( line 4 , column 34 )
+    (FuncCall
+       (Ident (Identifier "h")) [ NormalArg (Literal (Numeric 1.0 Fr)) ])
+, Space
+, Strong
+    [ Text "WiSe" , Space , Text "2019" , Text "/" , Text "2020" ]
+, Space
+, HardBreak
+, Strong
+    [ Text "Fakult\228t"
+    , Space
+    , Text "II,"
+    , Space
+    , Text "Institut"
+    , Space
+    , Text "for"
+    , Space
+    , Text "Mathematik"
+    ]
+, Space
+, Code
+    "test/typ/coma-00.typ"
+    ( line 5 , column 41 )
+    (FuncCall
+       (Ident (Identifier "h")) [ NormalArg (Literal (Numeric 1.0 Fr)) ])
+, Space
+, Text "Woche"
+, Space
+, Text "3"
+, Space
+, HardBreak
+, Text "Sekretariat"
+, Space
+, Text "MA"
+, Space
+, HardBreak
+, Text "Dr"
+, Text "."
+, Space
+, Text "Max"
+, Space
+, Text "Mustermann"
+, Space
+, HardBreak
+, Text "Ola"
+, Space
+, Text "Nordmann,"
+, Space
+, Text "John"
+, Space
+, Text "Doe"
+, ParBreak
+, Code
+    "test/typ/coma-00.typ"
+    ( line 10 , column 2 )
+    (FuncCall
+       (Ident (Identifier "v")) [ NormalArg (Literal (Numeric 3.0 Mm)) ])
+, SoftBreak
+, Code
+    "test/typ/coma-00.typ"
+    ( line 11 , column 2 )
+    (FuncCall
+       (Ident (Identifier "align"))
+       [ NormalArg (Ident (Identifier "center"))
+       , BlockArg
+           [ SoftBreak
+           , Code
+               "test/typ/coma-00.typ"
+               ( line 12 , column 4 )
+               (Set
+                  (Ident (Identifier "par"))
+                  [ KeyValArg (Identifier "leading") (Literal (Numeric 3.0 Mm)) ])
+           , SoftBreak
+           , Code
+               "test/typ/coma-00.typ"
+               ( line 13 , column 4 )
+               (FuncCall
+                  (Ident (Identifier "text"))
+                  [ NormalArg (Literal (Numeric 1.2 Em))
+                  , BlockArg
+                      [ Strong
+                          [ Text "3"
+                          , Text "."
+                          , Space
+                          , Text "\220bungsblatt"
+                          , Space
+                          , Text "Computerorientierte"
+                          , Space
+                          , Text "Mathematik"
+                          , Space
+                          , Text "II"
+                          ]
+                      ]
+                  ])
+           , Space
+           , HardBreak
+           , Strong
+               [ Text "Abgabe"
+               , Text ":"
+               , Space
+               , Text "03"
+               , Text "."
+               , Text "05"
+               , Text "."
+               , Text "2019"
+               ]
+           , Space
+           , Text "(bis"
+           , Space
+           , Text "10"
+           , Text ":"
+           , Text "10"
+           , Space
+           , Text "Uhr"
+           , Space
+           , Text "in"
+           , Space
+           , Text "MA"
+           , Space
+           , Text "001)"
+           , Space
+           , HardBreak
+           , Strong
+               [ Text "Alle"
+               , Space
+               , Text "Antworten"
+               , Space
+               , Text "sind"
+               , Space
+               , Text "zu"
+               , Space
+               , Text "beweisen"
+               , Text "."
+               ]
+           , ParBreak
+           ]
+       ])
+, ParBreak
+, Strong [ Text "1" , Text "." , Space , Text "Aufgabe" ]
+, Space
+, Code
+    "test/typ/coma-00.typ"
+    ( line 18 , column 15 )
+    (FuncCall
+       (Ident (Identifier "h")) [ NormalArg (Literal (Numeric 1.0 Fr)) ])
+, Space
+, Text "(1"
+, Space
+, Text "+"
+, Space
+, Text "1"
+, Space
+, Text "+"
+, Space
+, Text "2"
+, Space
+, Text "Punkte)"
+, ParBreak
+, Text "Ein"
+, Space
+, Emph [ Text "Bin\228rbaum" ]
+, Space
+, Text "ist"
+, Space
+, Text "ein"
+, Space
+, Text "Wurzelbaum,"
+, Space
+, Text "in"
+, Space
+, Text "dem"
+, Space
+, Text "jeder"
+, Space
+, Text "Knoten"
+, Space
+, Text "\8804"
+, Space
+, Text "2"
+, Space
+, Text "Kinder"
+, Space
+, Text "hat"
+, Text "."
+, SoftBreak
+, Text "Die"
+, Space
+, Text "Tiefe"
+, Space
+, Text "eines"
+, Space
+, Text "Knotens"
+, Space
+, Emph [ Text "v" ]
+, Space
+, Text "ist"
+, Space
+, Text "die"
+, Space
+, Text "L\228nge"
+, Space
+, Text "des"
+, Space
+, Text "eindeutigen"
+, Space
+, Text "Weges"
+, Space
+, Text "von"
+, Space
+, Text "der"
+, Space
+, Text "Wurzel"
+, SoftBreak
+, Text "zu"
+, Space
+, Emph [ Text "v" ]
+, Text ","
+, Space
+, Text "und"
+, Space
+, Text "die"
+, Space
+, Text "H\246he"
+, Space
+, Text "von"
+, Space
+, Emph [ Text "v" ]
+, Space
+, Text "ist"
+, Space
+, Text "die"
+, Space
+, Text "L\228nge"
+, Space
+, Text "eines"
+, Space
+, Text "l\228ngsten"
+, Space
+, Text "(absteigenden)"
+, Space
+, Text "Weges"
+, SoftBreak
+, Text "von"
+, Space
+, Emph [ Text "v" ]
+, Space
+, Text "zu"
+, Space
+, Text "einem"
+, Space
+, Text "Blatt"
+, Text "."
+, Space
+, Text "Die"
+, Space
+, Text "H\246he"
+, Space
+, Text "des"
+, Space
+, Text "Baumes"
+, Space
+, Text "ist"
+, Space
+, Text "die"
+, Space
+, Text "H\246he"
+, Space
+, Text "der"
+, Space
+, Text "Wurzel"
+, Text "."
+, ParBreak
+, Code
+    "test/typ/coma-00.typ"
+    ( line 25 , column 2 )
+    (FuncCall
+       (Ident (Identifier "align"))
+       [ NormalArg (Ident (Identifier "center"))
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "image"))
+              [ NormalArg (Literal (String "/graph.png"))
+              , KeyValArg (Identifier "width") (Literal (Numeric 75.0 Percent))
+              ])
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  parbreak(), 
+  strong(body: [Technische Universität Berlin]), 
+  [ ], 
+  h(amount: 1.0fr), 
+  [ ], 
+  strong(body: [WiSe 2019/2020]), 
+  [ ], 
+  linebreak(), 
+  strong(body: [Fakultät II, Institut for Mathematik]), 
+  [ ], 
+  h(amount: 1.0fr), 
+  [ Woche 3 ], 
+  linebreak(), 
+  [Sekretariat MA ], 
+  linebreak(), 
+  [Dr. Max Mustermann ], 
+  linebreak(), 
+  [Ola Nordmann, John Doe], 
+  parbreak(), 
+  v(amount: 3.0mm), 
+  [
+], 
+  align(alignment: center, 
+        body: { [
+], 
+                [
+], 
+                text(body: strong(body: [3. Übungsblatt Computerorientierte Mathematik II]), 
+                     size: 1.2em), 
+                [ ], 
+                linebreak(), 
+                strong(body: [Abgabe: 03.05.2019]), 
+                [ (bis 10:10 Uhr in MA 001) ], 
+                linebreak(), 
+                strong(body: [Alle Antworten sind zu beweisen.]), 
+                parbreak() }), 
+  parbreak(), 
+  strong(body: [1. Aufgabe]), 
+  [ ], 
+  h(amount: 1.0fr), 
+  [ (1 + 1 + 2 Punkte)], 
+  parbreak(), 
+  [Ein ], 
+  emph(body: [Binärbaum]), 
+  [ ist ein Wurzelbaum, in dem jeder Knoten ≤ 2 Kinder hat.
+Die Tiefe eines Knotens ], 
+  emph(body: [v]), 
+  [ ist die Länge des eindeutigen Weges von der Wurzel
+zu ], 
+  emph(body: [v]), 
+  [, und die Höhe von ], 
+  emph(body: [v]), 
+  [ ist die Länge eines längsten (absteigenden) Weges
+von ], 
+  emph(body: [v]), 
+  [ zu einem Blatt. Die Höhe des Baumes ist die Höhe der Wurzel.], 
+  parbreak(), 
+  align(alignment: center, 
+        body: image(path: "/graph.png", 
+                    width: 75%)), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para
+      [ Strong
+          [ Str "Technische"
+          , Space
+          , Str "Universit\228t"
+          , Space
+          , Str "Berlin"
+          ]
+      , Space
+      , Strong [ Str "WiSe" , Space , Str "2019/2020" ]
+      , LineBreak
+      , Strong
+          [ Str "Fakult\228t"
+          , Space
+          , Str "II,"
+          , Space
+          , Str "Institut"
+          , Space
+          , Str "for"
+          , Space
+          , Str "Mathematik"
+          ]
+      , Space
+      , Str "Woche"
+      , Space
+      , Str "3"
+      , LineBreak
+      , Str "Sekretariat"
+      , Space
+      , Str "MA"
+      , LineBreak
+      , Str "Dr."
+      , Space
+      , Str "Max"
+      , Space
+      , Str "Mustermann"
+      , LineBreak
+      , Str "Ola"
+      , Space
+      , Str "Nordmann,"
+      , Space
+      , Str "John"
+      , Space
+      , Str "Doe"
+      ]
+  , Para []
+  , Div
+      ( "" , [] , [ ( "align" , "center" ) ] )
+      [ Para
+          [ Strong
+              [ Str "3."
+              , Space
+              , Str "\220bungsblatt"
+              , Space
+              , Str "Computerorientierte"
+              , Space
+              , Str "Mathematik"
+              , Space
+              , Str "II"
+              ]
+          , LineBreak
+          , Strong [ Str "Abgabe:" , Space , Str "03.05.2019" ]
+          , Space
+          , Str "(bis"
+          , Space
+          , Str "10:10"
+          , Space
+          , Str "Uhr"
+          , Space
+          , Str "in"
+          , Space
+          , Str "MA"
+          , Space
+          , Str "001)"
+          , LineBreak
+          , Strong
+              [ Str "Alle"
+              , Space
+              , Str "Antworten"
+              , Space
+              , Str "sind"
+              , Space
+              , Str "zu"
+              , Space
+              , Str "beweisen."
+              ]
+          ]
+      ]
+  , Para
+      [ Strong [ Str "1." , Space , Str "Aufgabe" ]
+      , Space
+      , Str "(1"
+      , Space
+      , Str "+"
+      , Space
+      , Str "1"
+      , Space
+      , Str "+"
+      , Space
+      , Str "2"
+      , Space
+      , Str "Punkte)"
+      ]
+  , Para
+      [ Str "Ein"
+      , Space
+      , Emph [ Str "Bin\228rbaum" ]
+      , Space
+      , Str "ist"
+      , Space
+      , Str "ein"
+      , Space
+      , Str "Wurzelbaum,"
+      , Space
+      , Str "in"
+      , Space
+      , Str "dem"
+      , Space
+      , Str "jeder"
+      , Space
+      , Str "Knoten"
+      , Space
+      , Str "\8804"
+      , Space
+      , Str "2"
+      , Space
+      , Str "Kinder"
+      , Space
+      , Str "hat."
+      , SoftBreak
+      , Str "Die"
+      , Space
+      , Str "Tiefe"
+      , Space
+      , Str "eines"
+      , Space
+      , Str "Knotens"
+      , Space
+      , Emph [ Str "v" ]
+      , Space
+      , Str "ist"
+      , Space
+      , Str "die"
+      , Space
+      , Str "L\228nge"
+      , Space
+      , Str "des"
+      , Space
+      , Str "eindeutigen"
+      , Space
+      , Str "Weges"
+      , Space
+      , Str "von"
+      , Space
+      , Str "der"
+      , Space
+      , Str "Wurzel"
+      , SoftBreak
+      , Str "zu"
+      , Space
+      , Emph [ Str "v" ]
+      , Str ","
+      , Space
+      , Str "und"
+      , Space
+      , Str "die"
+      , Space
+      , Str "H\246he"
+      , Space
+      , Str "von"
+      , Space
+      , Emph [ Str "v" ]
+      , Space
+      , Str "ist"
+      , Space
+      , Str "die"
+      , Space
+      , Str "L\228nge"
+      , Space
+      , Str "eines"
+      , Space
+      , Str "l\228ngsten"
+      , Space
+      , Str "(absteigenden)"
+      , Space
+      , Str "Weges"
+      , SoftBreak
+      , Str "von"
+      , Space
+      , Emph [ Str "v" ]
+      , Space
+      , Str "zu"
+      , Space
+      , Str "einem"
+      , Space
+      , Str "Blatt."
+      , Space
+      , Str "Die"
+      , Space
+      , Str "H\246he"
+      , Space
+      , Str "des"
+      , Space
+      , Str "Baumes"
+      , Space
+      , Str "ist"
+      , Space
+      , Str "die"
+      , Space
+      , Str "H\246he"
+      , Space
+      , Str "der"
+      , Space
+      , Str "Wurzel."
+      ]
+  , Div
+      ( "" , [] , [ ( "align" , "center" ) ] )
+      [ Para
+          [ Image
+              ( "" , [] , [ ( "width" , "75%" ) ] ) [] ( "/graph.png" , "" )
+          ]
+      ]
+  ]

@@ -1,0 +1,131 @@
+--- parse tree ---
+[ Code
+    "test/typ/text/em-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/text/em-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/text/em-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/text/em-01.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "size") (Literal (Numeric 5.0 Pt)) ])
+, SoftBreak
+, Code
+    "test/typ/text/em-01.typ"
+    ( line 4 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "size") (Literal (Numeric 2.0 Em)) ])
+, SoftBreak
+, Code
+    "test/typ/text/em-01.typ"
+    ( line 5 , column 2 )
+    (Set
+       (Ident (Identifier "square"))
+       [ KeyValArg (Identifier "fill") (Ident (Identifier "red")) ])
+, ParBreak
+, Code
+    "test/typ/text/em-01.typ"
+    ( line 7 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "size")))
+       (Block
+          (CodeBlock
+             [ Let
+                 (BasicBind (Just (Identifier "size")))
+                 (Plus (Literal (Numeric 0.25 Em)) (Literal (Numeric 1.0 Pt)))
+             , For
+                 (BasicBind Nothing)
+                 (FuncCall
+                    (Ident (Identifier "range")) [ NormalArg (Literal (Int 3)) ])
+                 (Block
+                    (CodeBlock
+                       [ Assign
+                           (Ident (Identifier "size"))
+                           (Times (Ident (Identifier "size")) (Literal (Int 2)))
+                       ]))
+             , Minus (Ident (Identifier "size")) (Literal (Numeric 3.0 Pt))
+             ])))
+, ParBreak
+, Code
+    "test/typ/text/em-01.typ"
+    ( line 15 , column 2 )
+    (FuncCall
+       (Ident (Identifier "stack"))
+       [ KeyValArg (Identifier "dir") (Ident (Identifier "ltr"))
+       , KeyValArg (Identifier "spacing") (Literal (Numeric 1.0 Fr))
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "square"))
+              [ KeyValArg (Identifier "size") (Ident (Identifier "size")) ])
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "square"))
+              [ KeyValArg (Identifier "size") (Literal (Numeric 25.0 Pt)) ])
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  text(body: [
+], size: 5.0pt), 
+  text(body: [
+], size: 2.0em), 
+  parbreak(), 
+  parbreak(), 
+  stack(children: (square(body: none, 
+                          fill: rgb(100%,25%,21%,100%), 
+                          size: (2.0em + 8.0pt) + -3.0pt), 
+                   square(body: none, 
+                          fill: rgb(100%,25%,21%,100%), 
+                          size: 25.0pt)), 
+        dir: ltr, 
+        spacing: 1.0fr), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Div
+      ( "" , [] , [ ( "stack" , "ltr" ) ] )
+      [ Div ( "" , [] , [] ) [ Div ( "" , [ "square" ] , [] ) [] ]
+      , Div ( "" , [] , [] ) [ Div ( "" , [ "square" ] , [] ) [] ]
+      ]
+  ]

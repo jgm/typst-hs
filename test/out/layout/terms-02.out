@@ -1,0 +1,130 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/terms-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/terms-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/terms-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/layout/terms-02.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ NormalArg (Literal (Numeric 8.0 Pt)) ])
+, ParBreak
+, DescListItem
+    [ Text "Fruit" ]
+    [ Text "A"
+    , Space
+    , Text "tasty,"
+    , Space
+    , Text "edible"
+    , Space
+    , Text "thing"
+    , Text "."
+    ]
+, SoftBreak
+, DescListItem
+    [ Text "Veggie" ]
+    [ SoftBreak
+    , Text "An"
+    , Space
+    , Text "important"
+    , Space
+    , Text "energy"
+    , Space
+    , Text "source"
+    , SoftBreak
+    , Text "for"
+    , Space
+    , Text "vegetarians"
+    , Text "."
+    , ParBreak
+    ]
+]
+--- evaluated ---
+{ [
+], 
+  parbreak(), 
+  terms(children: ((text(body: [Fruit], 
+                         size: 8.0pt), 
+                    text(body: [A tasty, edible thing.], 
+                         size: 8.0pt)), 
+                   (text(body: [Veggie], 
+                         size: 8.0pt), 
+                    { text(body: [
+An important energy source
+for vegetarians.], 
+                           size: 8.0pt), 
+                      parbreak() }))) }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , DefinitionList
+      [ ( [ Str "Fruit" ]
+        , [ [ Para
+                [ Str "A"
+                , Space
+                , Str "tasty,"
+                , Space
+                , Str "edible"
+                , Space
+                , Str "thing."
+                ]
+            ]
+          ]
+        )
+      , ( [ Str "Veggie" ]
+        , [ [ Para
+                [ Str "An"
+                , Space
+                , Str "important"
+                , Space
+                , Str "energy"
+                , Space
+                , Str "source"
+                , SoftBreak
+                , Str "for"
+                , Space
+                , Str "vegetarians."
+                ]
+            ]
+          ]
+        )
+      ]
+  ]

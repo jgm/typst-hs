@@ -1,0 +1,203 @@
+--- parse tree ---
+[ Code
+    "test/typ/meta/numbering-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/meta/numbering-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/meta/numbering-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/meta/numbering-00.typ"
+    ( line 2 , column 2 )
+    (For
+       (BasicBind (Just (Identifier "i")))
+       (FuncCall
+          (Ident (Identifier "range"))
+          [ NormalArg (Literal (Int 0)) , NormalArg (Literal (Int 9)) ])
+       (Block
+          (CodeBlock
+             [ FuncCall
+                 (Ident (Identifier "numbering"))
+                 [ NormalArg (Literal (String "*"))
+                 , NormalArg (Ident (Identifier "i"))
+                 ]
+             , Block (Content [ Space , Text "and" , Space ])
+             , FuncCall
+                 (Ident (Identifier "numbering"))
+                 [ NormalArg (Literal (String "I.a"))
+                 , NormalArg (Ident (Identifier "i"))
+                 , NormalArg (Ident (Identifier "i"))
+                 ]
+             , Block
+                 (Content
+                    [ Space
+                    , Text "for"
+                    , Space
+                    , Code
+                        "test/typ/meta/numbering-00.typ"
+                        ( line 6 , column 10 )
+                        (Ident (Identifier "i"))
+                    , Space
+                    , HardBreak
+                    ])
+             ])))
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  numbering(numbering: "*", 
+            numbers: (0)), 
+  [ and ], 
+  numbering(numbering: "I.a", 
+            numbers: (0, 0)), 
+  [ for ], 
+  [0], 
+  [ ], 
+  linebreak(), 
+  numbering(numbering: "*", 
+            numbers: (1)), 
+  [ and ], 
+  numbering(numbering: "I.a", 
+            numbers: (1, 1)), 
+  [ for ], 
+  [1], 
+  [ ], 
+  linebreak(), 
+  numbering(numbering: "*", 
+            numbers: (2)), 
+  [ and ], 
+  numbering(numbering: "I.a", 
+            numbers: (2, 2)), 
+  [ for ], 
+  [2], 
+  [ ], 
+  linebreak(), 
+  numbering(numbering: "*", 
+            numbers: (3)), 
+  [ and ], 
+  numbering(numbering: "I.a", 
+            numbers: (3, 3)), 
+  [ for ], 
+  [3], 
+  [ ], 
+  linebreak(), 
+  numbering(numbering: "*", 
+            numbers: (4)), 
+  [ and ], 
+  numbering(numbering: "I.a", 
+            numbers: (4, 4)), 
+  [ for ], 
+  [4], 
+  [ ], 
+  linebreak(), 
+  numbering(numbering: "*", 
+            numbers: (5)), 
+  [ and ], 
+  numbering(numbering: "I.a", 
+            numbers: (5, 5)), 
+  [ for ], 
+  [5], 
+  [ ], 
+  linebreak(), 
+  numbering(numbering: "*", 
+            numbers: (6)), 
+  [ and ], 
+  numbering(numbering: "I.a", 
+            numbers: (6, 6)), 
+  [ for ], 
+  [6], 
+  [ ], 
+  linebreak(), 
+  numbering(numbering: "*", 
+            numbers: (7)), 
+  [ and ], 
+  numbering(numbering: "I.a", 
+            numbers: (7, 7)), 
+  [ for ], 
+  [7], 
+  [ ], 
+  linebreak(), 
+  numbering(numbering: "*", 
+            numbers: (8)), 
+  [ and ], 
+  numbering(numbering: "I.a", 
+            numbers: (8, 8)), 
+  [ for ], 
+  [8], 
+  [ ], 
+  linebreak(), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Plain [ Str "-" ]
+  , Para [ Str "and" ]
+  , Plain [ Str "I.aI.a" ]
+  , Para [ Str "for" , Space , Str "0" , LineBreak ]
+  , Plain [ Str "*" ]
+  , Para [ Str "and" ]
+  , Plain [ Str "I.aI.a" ]
+  , Para [ Str "for" , Space , Str "1" , LineBreak ]
+  , Plain [ Str "\8224" ]
+  , Para [ Str "and" ]
+  , Plain [ Str "II.bII.b" ]
+  , Para [ Str "for" , Space , Str "2" , LineBreak ]
+  , Plain [ Str "\8225" ]
+  , Para [ Str "and" ]
+  , Plain [ Str "III.cIII.c" ]
+  , Para [ Str "for" , Space , Str "3" , LineBreak ]
+  , Plain [ Str "\167" ]
+  , Para [ Str "and" ]
+  , Plain [ Str "IV.dIV.d" ]
+  , Para [ Str "for" , Space , Str "4" , LineBreak ]
+  , Plain [ Str "\182" ]
+  , Para [ Str "and" ]
+  , Plain [ Str "V.eV.e" ]
+  , Para [ Str "for" , Space , Str "5" , LineBreak ]
+  , Plain [ Str "\8214" ]
+  , Para [ Str "and" ]
+  , Plain [ Str "VI.fVI.f" ]
+  , Para [ Str "for" , Space , Str "6" , LineBreak ]
+  , Plain [ Str "*" ]
+  , Para [ Str "and" ]
+  , Plain [ Str "VII.gVII.g" ]
+  , Para [ Str "for" , Space , Str "7" , LineBreak ]
+  , Plain [ Str "\8224" ]
+  , Para [ Str "and" ]
+  , Plain [ Str "VIII.hVIII.h" ]
+  , Para [ Str "for" , Space , Str "8" , LineBreak ]
+  ]

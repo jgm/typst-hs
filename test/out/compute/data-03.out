@@ -1,0 +1,254 @@
+--- parse tree ---
+[ Code
+    "test/typ/compute/data-03.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compute/data-03.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compute/data-03.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Comment
+, Code
+    "test/typ/compute/data-03.typ"
+    ( line 4 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal Auto) ])
+, SoftBreak
+, Code
+    "test/typ/compute/data-03.typ"
+    ( line 5 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "data")))
+       (FuncCall
+          (Ident (Identifier "csv"))
+          [ NormalArg (Literal (String "test/assets/files/zoo.csv")) ]))
+, SoftBreak
+, Code
+    "test/typ/compute/data-03.typ"
+    ( line 6 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "cells")))
+       (Plus
+          (FuncCall
+             (FieldAccess
+                (Ident (Identifier "map"))
+                (FuncCall
+                   (FieldAccess (Ident (Identifier "at")) (Ident (Identifier "data")))
+                   [ NormalArg (Literal (Int 0)) ]))
+             [ NormalArg (Ident (Identifier "strong")) ])
+          (FuncCall
+             (FieldAccess
+                (Ident (Identifier "flatten"))
+                (FuncCall
+                   (FieldAccess
+                      (Ident (Identifier "slice")) (Ident (Identifier "data")))
+                   [ NormalArg (Literal (Int 1)) ]))
+             [])))
+, SoftBreak
+, Code
+    "test/typ/compute/data-03.typ"
+    ( line 7 , column 2 )
+    (FuncCall
+       (Ident (Identifier "table"))
+       [ KeyValArg
+           (Identifier "columns")
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "len"))
+                 (FuncCall
+                    (FieldAccess (Ident (Identifier "at")) (Ident (Identifier "data")))
+                    [ NormalArg (Literal (Int 0)) ]))
+              [])
+       , SpreadArg (Ident (Identifier "cells"))
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  [
+], 
+  [
+], 
+  table(children: (strong(body: [Name]), 
+                   strong(body: [Species]), 
+                   strong(body: [Weight]), 
+                   strong(body: [Length]), 
+                   [Debby], 
+                   [Rhinoceros], 
+                   [1900kg], 
+                   [390cm], 
+                   [Fluffy], 
+                   [Tiger], 
+                   [115kg], 
+                   [310cm], 
+                   [Sleepy], 
+                   [Dolphin], 
+                   [150kg], 
+                   [180cm]), 
+        columns: 4), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Table
+      ( "" , [] , [] )
+      (Caption Nothing [])
+      [ ( AlignDefault , ColWidthDefault )
+      , ( AlignDefault , ColWidthDefault )
+      , ( AlignDefault , ColWidthDefault )
+      , ( AlignDefault , ColWidthDefault )
+      ]
+      (TableHead ( "" , [] , [] ) [])
+      [ TableBody
+          ( "" , [] , [] )
+          (RowHeadColumns 0)
+          []
+          [ Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Strong [ Str "Name" ] ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Strong [ Str "Species" ] ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Strong [ Str "Weight" ] ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Strong [ Str "Length" ] ] ]
+              ]
+          , Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "Debby" ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "Rhinoceros" ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "1900kg" ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "390cm" ] ]
+              ]
+          , Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "Fluffy" ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "Tiger" ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "115kg" ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "310cm" ] ]
+              ]
+          , Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "Sleepy" ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "Dolphin" ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "150kg" ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "180cm" ] ]
+              ]
+          ]
+      ]
+      (TableFoot ( "" , [] , [] ) [])
+  ]

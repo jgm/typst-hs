@@ -1,0 +1,138 @@
+* TEST progress
+** major things
+*** TODO operator precedence?
+#assert(3-4 * 5 < -10)
+*** TODO see how the function replace regex works in string-16
+we're doing better but we still don't handel m.captures
+*** TODO mutable dict
+dict-02, 09,10 (assign bind - need mutable dict)
+*** TODO mutable array
+Notes on this:
+By the time we get to Pandoc (i.e. the evaluated result) we should have no mutable values; we need 'getField' in pandoc to be able to retrieve pure values.
+So, maybe we need a ValMutable type for the processing?
+
+Perhaps easier to add a Ref VType Int constructor to Val.
+Then, in addition to fromVal, we get have resolveVal which lives in MP m.
+Pandoc module would just need fromVal.  (fromVal can just spit out an error if called on a Ref)
+
+What about things like joinValues, maybePlus?
+These can all be moved to MP m.
+
+FromVal stays in more generic type but we supplement it with
+resolveVal?  And some of the utility functions that use fromVal need to use resolveVal.
+
+array-03-08,11 (assign bind - need mutable arrays for this)
+methods-02
+"Push doesn't do anything special to not break purity, it's just that variables from outside of a closure can't be modified in general (also not through assignment). It is a bit special because it can modify its receiver while normal functions can't do such a thing."
+also:
+you can mutate nested arrays
+#{
+  let x = ((1, 2), (3, 4))
+  x.at(1).at(0) += 2
+  x
+}
+We can't currently handle that because they're not mutable for us.
+*** TODO show should be confined properly to blocks:
+show-text-07
+#+begin_example
+#show list: it => [
+  #show "World": [🌎]
+  #it
+]
+
+World
+- World
+#+end_example
+
+should substituet World in the list but not out of it. currently does neither.
+It doesn't work because we are evaluating "it" first, so the show can't affect it.
+*** TODO label and ref
+label-02
+label-03
+label-04
+label-05
+label-06
+ref-04
+ref-03, 05 element method
+*** TODO data: xml? toml? yaml?
+*** TODO handle math elements directly in text
+content-02
+*** TODO case-01 fails but that is because of how 'test' is implemented
+should this be in the main module not pandoc?
+** meta
+counter-00, 01, etc. (we don't support counter objects)
+figure-02 (counter)
+state-00, 01 (state object)
+** compute
+data - all these are failing due to paths - what is "/bad.txt"?
+repeat function needs to be implemented
+** compiler
+content-field-00
+import-10,11 - check for cyclic import
+ops-04
+ops-12
+ops-13 should raise error
+ops-14  (not in)
+show-bare-00 (columns.with(2)?)
+show-node-08 : '#show text: none' should affect text
+show-selector-01 (just needs show set to be implemented)
+show-test-06
+spread-10
+while-03 (develop detection of infinite loop?)
+** less worrisome:
+We have preliminary support but not complete:
+matrix-alignment-00 (need to split on & and make cells?)
+matrix-alignment-01 (see above)
+
+ return still isn't right inside content blocks return-03 return-05 return-06
+
+closure-09 (this is an edge issue which we could address by assigning default values to params before assigning params, but that adds complexity)
+color-00 (negate)
+color-01 (lighten)
+break-continue-10 (#break inside a text block instead of a code block, not currently supported)
+break-continue-11 (break in set rule...not supported but not crucial)
+* TODO show set rules
+* TODO locate and query
+#set page(header: locate(loc => {
+  let elems = query(
+    selector(heading).before(loc),
+    loc,
+  )
+  let academy = smallcaps[
+    Typst Academy
+  ]
+  if elems == () {
+    align(right, academy)
+  } else {
+    let body = elems.last().body
+    academy + h(1fr) + emph(body)
+  }
+}))
+* TODO pandoc AST
+* TODO replace trace with warn after integrating into Pandoc
+* TODO in math $|x|$ = lr(|x|) - probably also with others?
+* TODO tests for let bindings
+https://typst.app/docs/reference/scripting/#bindings
+#let (x,y) = (1,2)
+#let  (a, .., b) = (1, 2, 3, 4)
+#let books = (
+  Shakespeare: "Hamlet",
+  Homer: "The Odyssey",
+  Austen: "Persuasion"
+)
+#let (Austen,) = books
+Now #Austen is "Persuasion"
+#let (Homer: h) = books
+Now #h is "The Odyssey"
+#let (Homer, ..other) = books
+now #other is the dictionary books but without Homer.
+#let (Homer, Austen) = books
+now #Austen is "Persuasion"
+#let (_, y, _) = (1, 2, 3)
+
+* TODO tests for loops
+#for letter in "abc"
+#for value in array
+#for pair in dict
+or
+#for (key, val) in dict

@@ -1,0 +1,113 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/enum-align-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/enum-align-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/enum-align-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/layout/enum-align-02.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "align"))
+       [ NormalArg (Ident (Identifier "center")) ])
+, SoftBreak
+, Code
+    "test/typ/layout/enum-align-02.typ"
+    ( line 4 , column 2 )
+    (Set
+       (Ident (Identifier "enum"))
+       [ KeyValArg
+           (Identifier "number-align") (Ident (Identifier "start"))
+       ])
+, ParBreak
+, EnumListItem (Just 4) [ Space , Text "c" ]
+, SoftBreak
+, EnumListItem (Just 8) [ Space , Text "d" ]
+, SoftBreak
+, EnumListItem
+    (Just 16)
+    [ Text "e"
+    , HardBreak
+    , Text "f"
+    , SoftBreak
+    , EnumListItem (Just 2) [ Space , Text "f" , HardBreak , Text "g" ]
+    , SoftBreak
+    , EnumListItem (Just 32) [ Text "g" ]
+    , SoftBreak
+    , EnumListItem (Just 64) [ Text "h" , ParBreak ]
+    ]
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  parbreak(), 
+  enum(children: ([ c], 
+                  [ d], 
+                  { [e], 
+                    linebreak(), 
+                    [f
+], 
+                    enum(children: ({ [ f], 
+                                      linebreak(), 
+                                      [g] }, 
+                                    [g], 
+                                    { [h], parbreak() }), 
+                         number-align: start, 
+                         start: 2) }), 
+       number-align: start, 
+       start: 4) }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , OrderedList
+      ( 4 , DefaultStyle , DefaultDelim )
+      [ [ Para [ Str "c" ] ]
+      , [ Para [ Str "d" ] ]
+      , [ Para [ Str "e" , LineBreak , Str "f" ]
+        , OrderedList
+            ( 2 , DefaultStyle , DefaultDelim )
+            [ [ Para [ Str "f" , LineBreak , Str "g" ] ]
+            , [ Para [ Str "g" ] ]
+            , [ Para [ Str "h" ] ]
+            ]
+        ]
+      ]
+  ]

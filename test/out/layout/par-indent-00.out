@@ -1,0 +1,376 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/par-indent-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/par-indent-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/par-indent-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/layout/par-indent-00.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "par"))
+       [ KeyValArg
+           (Identifier "first-line-indent") (Literal (Numeric 12.0 Pt))
+       , KeyValArg (Identifier "leading") (Literal (Numeric 5.0 Pt))
+       ])
+, SoftBreak
+, Code
+    "test/typ/layout/par-indent-00.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "block"))
+       [ KeyValArg (Identifier "spacing") (Literal (Numeric 5.0 Pt)) ])
+, SoftBreak
+, Code
+    "test/typ/layout/par-indent-00.typ"
+    ( line 4 , column 2 )
+    (Show
+       (Just (Ident (Identifier "heading")))
+       (Set
+          (Ident (Identifier "text"))
+          [ KeyValArg (Identifier "size") (Literal (Numeric 10.0 Pt)) ]))
+, ParBreak
+, Text "The"
+, Space
+, Text "first"
+, Space
+, Text "paragraph"
+, Space
+, Text "has"
+, Space
+, Text "no"
+, Space
+, Text "indent"
+, Text "."
+, ParBreak
+, Text "But"
+, Space
+, Text "the"
+, Space
+, Text "second"
+, Space
+, Text "one"
+, Space
+, Text "does"
+, Text "."
+, ParBreak
+, Code
+    "test/typ/layout/par-indent-00.typ"
+    ( line 10 , column 2 )
+    (FuncCall
+       (Ident (Identifier "box"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "image"))
+              [ NormalArg (Literal (String "test/assets/files/tiger.jpg"))
+              , KeyValArg (Identifier "height") (Literal (Numeric 6.0 Pt))
+              ])
+       ])
+, SoftBreak
+, Text "starts"
+, Space
+, Text "a"
+, Space
+, Text "paragraph,"
+, Space
+, Text "also"
+, Space
+, Text "with"
+, Space
+, Text "indent"
+, Text "."
+, ParBreak
+, Code
+    "test/typ/layout/par-indent-00.typ"
+    ( line 13 , column 2 )
+    (FuncCall
+       (Ident (Identifier "align"))
+       [ NormalArg (Ident (Identifier "center"))
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "image"))
+              [ NormalArg (Literal (String "test/assets/files/rhino.png"))
+              , KeyValArg (Identifier "width") (Literal (Numeric 1.0 Cm))
+              ])
+       ])
+, ParBreak
+, Heading 1 [ Text "Headings" ]
+, BulletListItem [ Text "And" , Space , Text "lists" , Text "." ]
+, SoftBreak
+, BulletListItem
+    [ Text "Have"
+    , Space
+    , Text "no"
+    , Space
+    , Text "indent"
+    , Text "."
+    , ParBreak
+    , Text "Except"
+    , Space
+    , Text "if"
+    , Space
+    , Text "you"
+    , Space
+    , Text "have"
+    , Space
+    , Text "another"
+    , Space
+    , Text "paragraph"
+    , Space
+    , Text "in"
+    , Space
+    , Text "them"
+    , Text "."
+    , SoftBreak
+    ]
+, SoftBreak
+, Code
+    "test/typ/layout/par-indent-00.typ"
+    ( line 21 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ NormalArg (Literal (Numeric 8.0 Pt))
+       , KeyValArg (Identifier "lang") (Literal (String "ar"))
+       , KeyValArg
+           (Identifier "font")
+           (Array
+              [ Literal (String "Noto Sans Arabic")
+              , Literal (String "Linux Libertine")
+              ])
+       ])
+, SoftBreak
+, Code
+    "test/typ/layout/par-indent-00.typ"
+    ( line 22 , column 2 )
+    (Set
+       (Ident (Identifier "par"))
+       [ KeyValArg (Identifier "leading") (Literal (Numeric 8.0 Pt)) ])
+, ParBreak
+, Heading 1 [ Text "Arabic" ]
+, Text "\1583\1593"
+, Space
+, Text "\1575\1604\1606\1589"
+, Space
+, Text "\1610\1605\1591\1585"
+, Space
+, Text "\1593\1604\1610\1603"
+, ParBreak
+, Text "\1579\1605"
+, Space
+, Text "\1610\1589\1576\1581"
+, Space
+, Text "\1575\1604\1606\1589"
+, Space
+, Text "\1585\1591\1576\1611\1575"
+, Space
+, Text "\1608\1602\1575\1576\1604"
+, Space
+, Text "\1604\1604\1591\1585\1602"
+, Space
+, Text "\1608\1610\1576\1583\1608"
+, Space
+, Text "\1575\1604\1605\1587\1578\1606\1583"
+, Space
+, Text "\1585\1575\1574\1593\1611\1575"
+, Text "."
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  [
+], 
+  parbreak(), 
+  [The first paragraph has no indent.], 
+  parbreak(), 
+  [But the second one does.], 
+  parbreak(), 
+  box(body: image(height: 6.0pt, 
+                  path: "test/assets/files/tiger.jpg")), 
+  [
+starts a paragraph, also with indent.], 
+  parbreak(), 
+  align(alignment: center, 
+        body: image(path: "test/assets/files/rhino.png", 
+                    width: 1.0cm)), 
+  parbreak(), 
+  heading(body: [Headings], 
+          level: 1), 
+  list(children: ([And lists.], 
+                  { [Have no indent.], 
+                    parbreak(), 
+                    [Except if you have another paragraph in them.
+] })), 
+  text(body: [
+], 
+       font: ("Noto Sans Arabic", 
+              "Linux Libertine"), 
+       lang: "ar", 
+       size: 8.0pt), 
+  parbreak(), 
+  heading(body: text(body: [Arabic], 
+                     font: ("Noto Sans Arabic", 
+                            "Linux Libertine"), 
+                     lang: "ar", 
+                     size: 8.0pt), 
+          level: 1), 
+  text(body: [دع النص يمطر عليك], 
+       font: ("Noto Sans Arabic", 
+              "Linux Libertine"), 
+       lang: "ar", 
+       size: 8.0pt), 
+  parbreak(), 
+  text(body: [ثم يصبح النص رطبًا وقابل للطرق ويبدو المستند رائعًا.], 
+       font: ("Noto Sans Arabic", 
+              "Linux Libertine"), 
+       lang: "ar", 
+       size: 8.0pt), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para
+      [ Str "The"
+      , Space
+      , Str "first"
+      , Space
+      , Str "paragraph"
+      , Space
+      , Str "has"
+      , Space
+      , Str "no"
+      , Space
+      , Str "indent."
+      ]
+  , Para
+      [ Str "But"
+      , Space
+      , Str "the"
+      , Space
+      , Str "second"
+      , Space
+      , Str "one"
+      , Space
+      , Str "does."
+      ]
+  , Para
+      [ Span
+          ( "" , [ "box" ] , [] )
+          [ Image
+              ( "" , [] , [ ( "height" , "6.0pt" ) ] )
+              []
+              ( "test/assets/files/tiger.jpg" , "" )
+          ]
+      , SoftBreak
+      , Str "starts"
+      , Space
+      , Str "a"
+      , Space
+      , Str "paragraph,"
+      , Space
+      , Str "also"
+      , Space
+      , Str "with"
+      , Space
+      , Str "indent."
+      ]
+  , Div
+      ( "" , [] , [ ( "align" , "center" ) ] )
+      [ Para
+          [ Image
+              ( "" , [] , [ ( "width" , "1.0cm" ) ] )
+              []
+              ( "test/assets/files/rhino.png" , "" )
+          ]
+      ]
+  , Header 1 ( "" , [] , [] ) [ Str "Headings" ]
+  , BulletList
+      [ [ Para [ Str "And" , Space , Str "lists." ] ]
+      , [ Para [ Str "Have" , Space , Str "no" , Space , Str "indent." ]
+        , Para
+            [ Str "Except"
+            , Space
+            , Str "if"
+            , Space
+            , Str "you"
+            , Space
+            , Str "have"
+            , Space
+            , Str "another"
+            , Space
+            , Str "paragraph"
+            , Space
+            , Str "in"
+            , Space
+            , Str "them."
+            ]
+        ]
+      ]
+  , Para []
+  , Header 1 ( "" , [] , [] ) [ Str "Arabic" ]
+  , Para
+      [ Str "\1583\1593"
+      , Space
+      , Str "\1575\1604\1606\1589"
+      , Space
+      , Str "\1610\1605\1591\1585"
+      , Space
+      , Str "\1593\1604\1610\1603"
+      ]
+  , Para
+      [ Str "\1579\1605"
+      , Space
+      , Str "\1610\1589\1576\1581"
+      , Space
+      , Str "\1575\1604\1606\1589"
+      , Space
+      , Str "\1585\1591\1576\1611\1575"
+      , Space
+      , Str "\1608\1602\1575\1576\1604"
+      , Space
+      , Str "\1604\1604\1591\1585\1602"
+      , Space
+      , Str "\1608\1610\1576\1583\1608"
+      , Space
+      , Str "\1575\1604\1605\1587\1578\1606\1583"
+      , Space
+      , Str "\1585\1575\1574\1593\1611\1575."
+      ]
+  ]

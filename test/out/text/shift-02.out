@@ -1,0 +1,190 @@
+--- parse tree ---
+[ Code
+    "test/typ/text/shift-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/text/shift-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/text/shift-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/text/shift-02.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "underline"))
+       [ KeyValArg (Identifier "stroke") (Literal (Numeric 0.5 Pt))
+       , KeyValArg (Identifier "offset") (Literal (Numeric 0.15 Em))
+       ])
+, SoftBreak
+, Code
+    "test/typ/text/shift-02.typ"
+    ( line 3 , column 2 )
+    (FuncCall
+       (Ident (Identifier "underline"))
+       [ BlockArg
+           [ Text "The"
+           , Space
+           , Text "claim"
+           , Code
+               "test/typ/text/shift-02.typ"
+               ( line 3 , column 22 )
+               (FuncCall
+                  (Ident (Identifier "super"))
+                  [ BlockArg [ Text "[" , Text "4" , Text "]" ] ])
+           ]
+       ])
+, Space
+, Text "has"
+, Space
+, Text "been"
+, Space
+, Text "disputed"
+, Text "."
+, Space
+, HardBreak
+, Text "The"
+, Space
+, Text "claim"
+, Code
+    "test/typ/text/shift-02.typ"
+    ( line 4 , column 11 )
+    (FuncCall
+       (Ident (Identifier "super"))
+       [ BlockArg
+           [ Code
+               "test/typ/text/shift-02.typ"
+               ( line 4 , column 18 )
+               (FuncCall
+                  (Ident (Identifier "underline"))
+                  [ BlockArg [ Text "[" , Text "4" , Text "]" ] ])
+           ]
+       ])
+, Space
+, Text "has"
+, Space
+, Text "been"
+, Space
+, Text "disputed"
+, Text "."
+, Space
+, HardBreak
+, Text "It"
+, Space
+, Text "really"
+, Space
+, Text "has"
+, Space
+, Text "been"
+, Code
+    "test/typ/text/shift-02.typ"
+    ( line 5 , column 20 )
+    (FuncCall
+       (Ident (Identifier "super"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "box"))
+              [ NormalArg
+                  (FuncCall
+                     (Ident (Identifier "text"))
+                     [ KeyValArg (Identifier "baseline") (Literal (Numeric 0.0 Pt))
+                     , NormalArg
+                         (FuncCall
+                            (Ident (Identifier "underline"))
+                            [ BlockArg [ Text "[" , Text "4" , Text "]" ] ])
+                     ])
+              ])
+       ])
+, Space
+, HardBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  underline(body: { [The claim], 
+                    super(body: [[4]]) }, 
+            offset: 0.15em, 
+            stroke: 0.5pt), 
+  [ has been disputed. ], 
+  linebreak(), 
+  [The claim], 
+  super(body: underline(body: [[4]], 
+                        offset: 0.15em, 
+                        stroke: 0.5pt)), 
+  [ has been disputed. ], 
+  linebreak(), 
+  [It really has been], 
+  super(body: box(body: text(baseline: 0.0pt, 
+                             body: underline(body: [[4]], 
+                                             offset: 0.15em, 
+                                             stroke: 0.5pt)))), 
+  [ ], 
+  linebreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Underline
+          [ Str "The" , Space , Str "claim" , Superscript [ Str "[4]" ] ]
+      , Space
+      , Str "has"
+      , Space
+      , Str "been"
+      , Space
+      , Str "disputed."
+      , LineBreak
+      , Str "The"
+      , Space
+      , Str "claim"
+      , Superscript [ Underline [ Str "[4]" ] ]
+      , Space
+      , Str "has"
+      , Space
+      , Str "been"
+      , Space
+      , Str "disputed."
+      , LineBreak
+      , Str "It"
+      , Space
+      , Str "really"
+      , Space
+      , Str "has"
+      , Space
+      , Str "been"
+      , Superscript
+          [ Span ( "" , [ "box" ] , [] ) [ Underline [ Str "[4]" ] ] ]
+      , LineBreak
+      ]
+  ]

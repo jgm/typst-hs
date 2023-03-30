@@ -1,0 +1,89 @@
+--- parse tree ---
+[ Code
+    "test/typ/meta/cite-footnote-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/meta/cite-footnote-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/meta/cite-footnote-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Text "Hello"
+, Space
+, Ref "netwok" (Literal Auto)
+, SoftBreak
+, Text "And"
+, Space
+, Text "again"
+, Text ":"
+, Space
+, Ref "netwok" (Literal Auto)
+, ParBreak
+, Code
+    "test/typ/meta/cite-footnote-00.typ"
+    ( line 5 , column 2 )
+    (FuncCall (Ident (Identifier "pagebreak")) [])
+, SoftBreak
+, Code
+    "test/typ/meta/cite-footnote-00.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "bibliography"))
+       [ NormalArg (Literal (String "/works.bib"))
+       , KeyValArg (Identifier "style") (Literal (String "chicago-notes"))
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+Hello ], 
+  ref(supplement: [auto], 
+      target: ), 
+  [
+And again: ], 
+  ref(supplement: [auto], 
+      target: ), 
+  parbreak(), 
+  pagebreak(), 
+  [
+], 
+  bibliography(path: "/works.bib", 
+               style: "chicago-notes"), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "Hello" , SoftBreak , Str "And" , Space , Str "again:" ]
+  , Para []
+  ]

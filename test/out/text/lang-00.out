@@ -1,0 +1,123 @@
+--- parse tree ---
+[ Code
+    "test/typ/text/lang-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/text/lang-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/text/lang-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/text/lang-00.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "hyphenate") (Literal (Boolean True)) ])
+, SoftBreak
+, Code
+    "test/typ/text/lang-00.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "grid"))
+       [ KeyValArg
+           (Identifier "columns")
+           (Times (Literal (Int 2)) (Array [ Literal (Numeric 20.0 Pt) ]))
+       , KeyValArg (Identifier "gutter") (Literal (Numeric 1.0 Fr))
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "text"))
+              [ KeyValArg (Identifier "lang") (Literal (String "en"))
+              , BlockArg [ Quote '"' , Text "Eingabeaufforderung" , Quote '"' ]
+              ])
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "text"))
+              [ KeyValArg (Identifier "lang") (Literal (String "de"))
+              , BlockArg [ Quote '"' , Text "Eingabeaufforderung" , Quote '"' ]
+              ])
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  text(body: [
+], 
+       hyphenate: true), 
+  grid(children: (text(body: text(body: [“Eingabeaufforderung”], 
+                                  hyphenate: true), 
+                       hyphenate: true, 
+                       lang: "en"), 
+                  text(body: text(body: [“Eingabeaufforderung”], 
+                                  hyphenate: true), 
+                       hyphenate: true, 
+                       lang: "de")), 
+       columns: (20.0pt, 20.0pt), 
+       gutter: 1.0fr), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Table
+      ( "" , [] , [] )
+      (Caption Nothing [])
+      [ ( AlignDefault , ColWidthDefault )
+      , ( AlignDefault , ColWidthDefault )
+      ]
+      (TableHead ( "" , [] , [] ) [])
+      [ TableBody
+          ( "" , [] , [] )
+          (RowHeadColumns 0)
+          []
+          [ Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "\8220Eingabeaufforderung\8221" ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "\8220Eingabeaufforderung\8221" ] ]
+              ]
+          ]
+      ]
+      (TableFoot ( "" , [] , [] ) [])
+  ]

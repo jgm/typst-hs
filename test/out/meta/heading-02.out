@@ -1,0 +1,95 @@
+--- parse tree ---
+[ Code
+    "test/typ/meta/heading-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/meta/heading-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/meta/heading-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, SoftBreak
+, Heading
+    1
+    [ Code
+        "test/typ/meta/heading-02.typ"
+        ( line 4 , column 4 )
+        (Block
+           (Content
+              [ Text "This"
+              , SoftBreak
+              , Text "is"
+              , SoftBreak
+              , Text "multiline"
+              , Text "."
+              , ParBreak
+              ]))
+    ]
+, Heading 1 [ Text "This" ]
+, Text "is"
+, Space
+, Text "not"
+, Text "."
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  heading(body: { [This
+is
+multiline.], 
+                  parbreak() }, 
+          level: 1), 
+  heading(body: [This], 
+          level: 1), 
+  [is not.], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Header
+      1
+      ( "" , [] , [] )
+      [ Str "This"
+      , SoftBreak
+      , Str "is"
+      , SoftBreak
+      , Str "multiline."
+      ]
+  , Header 1 ( "" , [] , [] ) [ Str "This" ]
+  , Para [ Str "is" , Space , Str "not." ]
+  ]

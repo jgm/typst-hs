@@ -1,0 +1,168 @@
+--- parse tree ---
+[ Code
+    "test/typ/meta/ref-03.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/meta/ref-03.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/meta/ref-03.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, ParBreak
+, Code
+    "test/typ/meta/ref-03.typ"
+    ( line 3 , column 2 )
+    (Show
+       (Just (Ident (Identifier "ref")))
+       (FuncExpr
+          [ NormalParam (Identifier "it") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( And
+                          (Not
+                             (Equals
+                                (FieldAccess
+                                   (Ident (Identifier "element")) (Ident (Identifier "it")))
+                                (Literal None)))
+                          (Equals
+                             (FuncCall
+                                (FieldAccess
+                                   (Ident (Identifier "func"))
+                                   (FieldAccess
+                                      (Ident (Identifier "element")) (Ident (Identifier "it"))))
+                                [])
+                             (Ident (Identifier "figure")))
+                      , Block
+                          (CodeBlock
+                             [ Let
+                                 (BasicBind (Just (Identifier "element")))
+                                 (FieldAccess
+                                    (Ident (Identifier "element")) (Ident (Identifier "it")))
+                             , Literal (String "[")
+                             , FieldAccess
+                                 (Ident (Identifier "supplement")) (Ident (Identifier "element"))
+                             , Literal (String "-")
+                             , FuncCall
+                                 (Ident (Identifier "str"))
+                                 [ NormalArg
+                                     (FuncCall
+                                        (FieldAccess
+                                           (Ident (Identifier "at"))
+                                           (FuncCall
+                                              (FieldAccess
+                                                 (Ident (Identifier "at"))
+                                                 (FieldAccess
+                                                    (Ident (Identifier "counter"))
+                                                    (Ident (Identifier "element"))))
+                                              [ NormalArg
+                                                  (FuncCall
+                                                     (FieldAccess
+                                                        (Ident (Identifier "location"))
+                                                        (Ident (Identifier "element")))
+                                                     [])
+                                              ]))
+                                        [ NormalArg (Literal (Int 0)) ])
+                                 ]
+                             , Literal (String "]")
+                             ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block (CodeBlock [ Ident (Identifier "it") ])
+                      )
+                    ]
+                ]))))
+, ParBreak
+, Code
+    "test/typ/meta/ref-03.typ"
+    ( line 17 , column 2 )
+    (FuncCall
+       (Ident (Identifier "figure"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "image"))
+              [ NormalArg (Literal (String "test/assets/files/cylinder.svg"))
+              , KeyValArg (Identifier "height") (Literal (Numeric 3.0 Cm))
+              ])
+       , KeyValArg
+           (Identifier "caption")
+           (Block (Content [ Text "A" , Space , Text "sylinder" , Text "." ]))
+       , KeyValArg (Identifier "supplement") (Literal (String "Fig"))
+       ])
+, Space
+, Code
+    "test/typ/meta/ref-03.typ" ( line 21 , column 3 ) (Label "fig1")
+, ParBreak
+, Code
+    "test/typ/meta/ref-03.typ"
+    ( line 23 , column 2 )
+    (FuncCall
+       (Ident (Identifier "figure"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "image"))
+              [ NormalArg (Literal (String "test/assets/files/tiger.jpg"))
+              , KeyValArg (Identifier "height") (Literal (Numeric 3.0 Cm))
+              ])
+       , KeyValArg
+           (Identifier "caption")
+           (Block (Content [ Text "A" , Space , Text "tiger" , Text "." ]))
+       , KeyValArg (Identifier "supplement") (Literal (String "Figg"))
+       ])
+, Space
+, Code
+    "test/typ/meta/ref-03.typ" ( line 27 , column 3 ) (Label "fig2")
+, ParBreak
+, Code
+    "test/typ/meta/ref-03.typ"
+    ( line 29 , column 2 )
+    (FuncCall
+       (Ident (Identifier "figure"))
+       [ NormalArg
+           (Block
+              (Content [ Equation True [ Text "A" , Text "=" , Text "1" ] ]))
+       , KeyValArg (Identifier "kind") (Literal (String "equation"))
+       , KeyValArg (Identifier "supplement") (Literal (String "Equa"))
+       ])
+, Space
+, Code
+    "test/typ/meta/ref-03.typ" ( line 34 , column 3 ) (Label "eq1")
+, SoftBreak
+, Ref "fig1" (Literal Auto)
+, ParBreak
+, Ref "fig2" (Literal Auto)
+, ParBreak
+, Ref "eq1" (Literal Auto)
+, ParBreak
+]
+"test/typ/meta/ref-03.typ" (line 34, column 3):
+Content does not have a method "element" or FieldAccess requires a dictionary

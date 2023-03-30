@@ -1,0 +1,283 @@
+--- parse tree ---
+[ Code
+    "test/typ/visualize/polygon-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/visualize/polygon-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/visualize/polygon-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/visualize/polygon-00.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 50.0 Pt)) ])
+, SoftBreak
+, Code
+    "test/typ/visualize/polygon-00.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "polygon"))
+       [ KeyValArg (Identifier "stroke") (Literal (Numeric 0.75 Pt))
+       , KeyValArg (Identifier "fill") (Ident (Identifier "blue"))
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/visualize/polygon-00.typ"
+    ( line 6 , column 2 )
+    (FuncCall (Ident (Identifier "polygon")) [])
+, SoftBreak
+, Code
+    "test/typ/visualize/polygon-00.typ"
+    ( line 7 , column 2 )
+    (FuncCall
+       (Ident (Identifier "polygon"))
+       [ NormalArg
+           (Array [ Literal (Numeric 0.0 Em) , Literal (Numeric 0.0 Pt) ])
+       ])
+, SoftBreak
+, Code
+    "test/typ/visualize/polygon-00.typ"
+    ( line 8 , column 2 )
+    (FuncCall
+       (Ident (Identifier "polygon"))
+       [ NormalArg
+           (Array [ Literal (Numeric 0.0 Pt) , Literal (Numeric 0.0 Pt) ])
+       , NormalArg
+           (Array [ Literal (Numeric 10.0 Pt) , Literal (Numeric 0.0 Pt) ])
+       ])
+, ParBreak
+, Code
+    "test/typ/visualize/polygon-00.typ"
+    ( line 10 , column 2 )
+    (FuncCall
+       (Ident (Identifier "polygon"))
+       [ NormalArg
+           (Array [ Literal (Numeric 5.0 Pt) , Literal (Numeric 0.0 Pt) ])
+       , NormalArg
+           (Array [ Literal (Numeric 0.0 Pt) , Literal (Numeric 10.0 Pt) ])
+       , NormalArg
+           (Array [ Literal (Numeric 10.0 Pt) , Literal (Numeric 10.0 Pt) ])
+       ])
+, SoftBreak
+, Code
+    "test/typ/visualize/polygon-00.typ"
+    ( line 11 , column 2 )
+    (FuncCall
+       (Ident (Identifier "polygon"))
+       [ NormalArg
+           (Array [ Literal (Numeric 0.0 Pt) , Literal (Numeric 0.0 Pt) ])
+       , NormalArg
+           (Array [ Literal (Numeric 5.0 Pt) , Literal (Numeric 5.0 Pt) ])
+       , NormalArg
+           (Array [ Literal (Numeric 10.0 Pt) , Literal (Numeric 0.0 Pt) ])
+       , NormalArg
+           (Array [ Literal (Numeric 15.0 Pt) , Literal (Numeric 5.0 Pt) ])
+       , NormalArg
+           (Array [ Literal (Numeric 5.0 Pt) , Literal (Numeric 10.0 Pt) ])
+       ])
+, SoftBreak
+, Code
+    "test/typ/visualize/polygon-00.typ"
+    ( line 16 , column 2 )
+    (FuncCall
+       (Ident (Identifier "polygon"))
+       [ KeyValArg (Identifier "stroke") (Literal None)
+       , NormalArg
+           (Array [ Literal (Numeric 5.0 Pt) , Literal (Numeric 0.0 Pt) ])
+       , NormalArg
+           (Array [ Literal (Numeric 0.0 Pt) , Literal (Numeric 10.0 Pt) ])
+       , NormalArg
+           (Array [ Literal (Numeric 10.0 Pt) , Literal (Numeric 10.0 Pt) ])
+       ])
+, SoftBreak
+, Code
+    "test/typ/visualize/polygon-00.typ"
+    ( line 17 , column 2 )
+    (FuncCall
+       (Ident (Identifier "polygon"))
+       [ KeyValArg (Identifier "stroke") (Literal (Numeric 3.0 Pt))
+       , KeyValArg (Identifier "fill") (Literal None)
+       , NormalArg
+           (Array [ Literal (Numeric 5.0 Pt) , Literal (Numeric 0.0 Pt) ])
+       , NormalArg
+           (Array [ Literal (Numeric 0.0 Pt) , Literal (Numeric 10.0 Pt) ])
+       , NormalArg
+           (Array [ Literal (Numeric 10.0 Pt) , Literal (Numeric 10.0 Pt) ])
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/visualize/polygon-00.typ"
+    ( line 20 , column 2 )
+    (FuncCall
+       (Ident (Identifier "polygon"))
+       [ NormalArg
+           (Array [ Literal (Numeric 0.0 Pt) , Literal (Numeric 0.0 Pt) ])
+       , NormalArg
+           (Array
+              [ Literal (Numeric 100.0 Percent) , Literal (Numeric 5.0 Pt) ])
+       , NormalArg
+           (Array
+              [ Literal (Numeric 50.0 Percent) , Literal (Numeric 10.0 Pt) ])
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/visualize/polygon-00.typ"
+    ( line 23 , column 2 )
+    (FuncCall
+       (Ident (Identifier "polygon"))
+       [ NormalArg
+           (Array [ Literal (Numeric 0.0 Pt) , Literal (Numeric 5.0 Pt) ])
+       , NormalArg
+           (Array [ Literal (Numeric 5.0 Pt) , Literal (Numeric 0.0 Pt) ])
+       , NormalArg
+           (Array [ Literal (Numeric 0.0 Pt) , Literal (Numeric 10.0 Pt) ])
+       , NormalArg
+           (Array [ Literal (Numeric 5.0 Pt) , Literal (Numeric 15.0 Pt) ])
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/visualize/polygon-00.typ"
+    ( line 26 , column 2 )
+    (FuncCall
+       (Ident (Identifier "polygon"))
+       [ NormalArg
+           (Array [ Literal (Numeric 0.0 Pt) , Literal (Numeric 10.0 Pt) ])
+       , NormalArg
+           (Array [ Literal (Numeric 30.0 Pt) , Literal (Numeric 20.0 Pt) ])
+       , NormalArg
+           (Array [ Literal (Numeric 0.0 Pt) , Literal (Numeric 30.0 Pt) ])
+       , NormalArg
+           (Array [ Literal (Numeric 20.0 Pt) , Literal (Numeric 0.0 Pt) ])
+       , NormalArg
+           (Array [ Literal (Numeric 20.0 Pt) , Literal (Numeric 35.0 Pt) ])
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  parbreak(), 
+  polygon(fill: rgb(0%,45%,85%,100%), 
+          stroke: 0.75pt, 
+          vertices: ()), 
+  [
+], 
+  polygon(fill: rgb(0%,45%,85%,100%), 
+          stroke: 0.75pt, 
+          vertices: ((0.0em, 0.0pt))), 
+  [
+], 
+  polygon(fill: rgb(0%,45%,85%,100%), 
+          stroke: 0.75pt, 
+          vertices: ((0.0pt, 0.0pt), 
+                     (10.0pt, 0.0pt))), 
+  parbreak(), 
+  polygon(fill: rgb(0%,45%,85%,100%), 
+          stroke: 0.75pt, 
+          vertices: ((5.0pt, 0.0pt), 
+                     (0.0pt, 10.0pt), 
+                     (10.0pt, 10.0pt))), 
+  [
+], 
+  polygon(fill: rgb(0%,45%,85%,100%), 
+          stroke: 0.75pt, 
+          vertices: ((0.0pt, 0.0pt), 
+                     (5.0pt, 5.0pt), 
+                     (10.0pt, 0.0pt), 
+                     (15.0pt, 5.0pt), 
+                     (5.0pt, 10.0pt))), 
+  [
+], 
+  polygon(fill: rgb(0%,45%,85%,100%), 
+          stroke: none, 
+          vertices: ((5.0pt, 0.0pt), 
+                     (0.0pt, 10.0pt), 
+                     (10.0pt, 10.0pt))), 
+  [
+], 
+  polygon(fill: none, 
+          stroke: 3.0pt, 
+          vertices: ((5.0pt, 0.0pt), 
+                     (0.0pt, 10.0pt), 
+                     (10.0pt, 10.0pt))), 
+  parbreak(), 
+  polygon(fill: rgb(0%,45%,85%,100%), 
+          stroke: 0.75pt, 
+          vertices: ((0.0pt, 0.0pt), 
+                     (100%, 5.0pt), 
+                     (50%, 10.0pt))), 
+  parbreak(), 
+  polygon(fill: rgb(0%,45%,85%,100%), 
+          stroke: 0.75pt, 
+          vertices: ((0.0pt, 5.0pt), 
+                     (5.0pt, 0.0pt), 
+                     (0.0pt, 10.0pt), 
+                     (5.0pt, 15.0pt))), 
+  parbreak(), 
+  polygon(fill: rgb(0%,45%,85%,100%), 
+          stroke: 0.75pt, 
+          vertices: ((0.0pt, 10.0pt), 
+                     (30.0pt, 20.0pt), 
+                     (0.0pt, 30.0pt), 
+                     (20.0pt, 0.0pt), 
+                     (20.0pt, 35.0pt))), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Div ( "" , [ "polygon" ] , [] ) []
+  , Para []
+  , Div ( "" , [ "polygon" ] , [] ) []
+  , Para []
+  , Div ( "" , [ "polygon" ] , [] ) []
+  , Div ( "" , [ "polygon" ] , [] ) []
+  , Para []
+  , Div ( "" , [ "polygon" ] , [] ) []
+  , Para []
+  , Div ( "" , [ "polygon" ] , [] ) []
+  , Para []
+  , Div ( "" , [ "polygon" ] , [] ) []
+  , Div ( "" , [ "polygon" ] , [] ) []
+  , Div ( "" , [ "polygon" ] , [] ) []
+  , Div ( "" , [ "polygon" ] , [] ) []
+  ]

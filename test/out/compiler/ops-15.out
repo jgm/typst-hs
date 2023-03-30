@@ -1,0 +1,221 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/ops-15.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/ops-15.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/ops-15.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compiler/ops-15.typ"
+    ( line 5 , column 2 )
+    (LetFunc
+       (Identifier "add")
+       [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+       (Plus (Ident (Identifier "x")) (Ident (Identifier "y"))))
+, SoftBreak
+, Code
+    "test/typ/compiler/ops-15.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FuncCall
+                 (FieldAccess
+                    (Ident (Identifier "with")) (Ident (Identifier "add")))
+                 [ NormalArg (Literal (Int 2)) ])
+              [ NormalArg (Literal (Int 3)) ])
+       , NormalArg (Literal (Int 5))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/ops-15.typ"
+    ( line 7 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FuncCall
+                 (FieldAccess
+                    (Ident (Identifier "with"))
+                    (FuncCall
+                       (FieldAccess
+                          (Ident (Identifier "with")) (Ident (Identifier "add")))
+                       [ NormalArg (Literal (Int 2)) ]))
+                 [ NormalArg (Literal (Int 3)) ])
+              [])
+       , NormalArg (Literal (Int 5))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/ops-15.typ"
+    ( line 8 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FuncCall
+                 (FieldAccess
+                    (Ident (Identifier "with")) (Ident (Identifier "add")))
+                 [ NormalArg (Literal (Int 2)) ])
+              [ NormalArg (Literal (Int 4)) ])
+       , NormalArg (Literal (Int 6))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/ops-15.typ"
+    ( line 9 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FuncCall
+                 (FieldAccess
+                    (Ident (Identifier "with"))
+                    (FuncCall
+                       (FieldAccess
+                          (Ident (Identifier "with")) (Ident (Identifier "add")))
+                       [ NormalArg (Literal (Int 2)) ]))
+                 [ NormalArg (Literal (Int 3)) ])
+              [])
+       , NormalArg (Literal (Int 5))
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/ops-15.typ"
+    ( line 12 , column 2 )
+    (LetFunc
+       (Identifier "inc")
+       [ NormalParam (Identifier "x")
+       , DefaultParam (Identifier "y") (Literal (Int 1))
+       ]
+       (Plus (Ident (Identifier "x")) (Ident (Identifier "y"))))
+, SoftBreak
+, Code
+    "test/typ/compiler/ops-15.typ"
+    ( line 13 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "inc")) [ NormalArg (Literal (Int 1)) ])
+       , NormalArg (Literal (Int 2))
+       ])
+, ParBreak
+, Code
+    "test/typ/compiler/ops-15.typ"
+    ( line 15 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "inc2")))
+       (FuncCall
+          (FieldAccess
+             (Ident (Identifier "with")) (Ident (Identifier "inc")))
+          [ KeyValArg (Identifier "y") (Literal (Int 2)) ]))
+, SoftBreak
+, Code
+    "test/typ/compiler/ops-15.typ"
+    ( line 16 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "inc2")) [ NormalArg (Literal (Int 2)) ])
+       , NormalArg (Literal (Int 4))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/ops-15.typ"
+    ( line 17 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "inc2"))
+              [ NormalArg (Literal (Int 2))
+              , KeyValArg (Identifier "y") (Literal (Int 4))
+              ])
+       , NormalArg (Literal (Int 6))
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  parbreak(), 
+  [
+], 
+  [✅], 
+  parbreak(), 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      ]
+  , Para [ Str "\9989" ]
+  , Para [ Str "\9989" , SoftBreak , Str "\9989" ]
+  ]

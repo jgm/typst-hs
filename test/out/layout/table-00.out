@@ -1,0 +1,213 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/table-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/table-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/table-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/layout/table-00.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "height") (Literal (Numeric 70.0 Pt)) ])
+, SoftBreak
+, Code
+    "test/typ/layout/table-00.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "table"))
+       [ KeyValArg
+           (Identifier "fill")
+           (FuncExpr
+              [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+              (If
+                 [ ( FuncCall
+                       (FieldAccess
+                          (Ident (Identifier "even")) (Ident (Identifier "calc")))
+                       [ NormalArg
+                           (Plus (Ident (Identifier "x")) (Ident (Identifier "y")))
+                       ]
+                   , Block
+                       (CodeBlock
+                          [ FuncCall
+                              (Ident (Identifier "rgb")) [ NormalArg (Literal (String "aaa")) ]
+                          ])
+                   )
+                 ]))
+       ])
+, ParBreak
+, Code
+    "test/typ/layout/table-00.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "table"))
+       [ KeyValArg
+           (Identifier "columns")
+           (Times (Array [ Literal (Numeric 1.0 Fr) ]) (Literal (Int 3)))
+       , KeyValArg
+           (Identifier "stroke")
+           (Plus
+              (Literal (Numeric 2.0 Pt))
+              (FuncCall
+                 (Ident (Identifier "rgb")) [ NormalArg (Literal (String "333")) ]))
+       , NormalArg (Block (Content [ Text "A" ]))
+       , NormalArg (Block (Content [ Text "B" ]))
+       , NormalArg (Block (Content [ Text "C" ]))
+       , NormalArg (Block (Content []))
+       , NormalArg (Block (Content []))
+       , NormalArg
+           (Block
+              (Content
+                 [ Text "D"
+                 , Space
+                 , HardBreak
+                 , Text "E"
+                 , Space
+                 , HardBreak
+                 , Text "F"
+                 , Space
+                 , HardBreak
+                 , HardBreak
+                 , HardBreak
+                 , Text "G"
+                 ]))
+       , NormalArg (Block (Content [ Text "H" ]))
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  parbreak(), 
+  table(children: ([A], 
+                   [B], 
+                   [C], 
+                   {  }, 
+                   {  }, 
+                   { [D ], 
+                     linebreak(), 
+                     [E ], 
+                     linebreak(), 
+                     [F ], 
+                     linebreak(), 
+                     linebreak(), 
+                     linebreak(), 
+                     [G] }, 
+                   [H]), 
+        columns: (1.0fr, 
+                  1.0fr, 
+                  1.0fr), 
+        fill: , 
+        stroke: (thickness: 2.0pt,
+                 color: rgb(1%,1%,1%,100%))), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Table
+      ( "" , [] , [] )
+      (Caption Nothing [])
+      [ ( AlignDefault , ColWidthDefault )
+      , ( AlignDefault , ColWidthDefault )
+      , ( AlignDefault , ColWidthDefault )
+      ]
+      (TableHead ( "" , [] , [] ) [])
+      [ TableBody
+          ( "" , [] , [] )
+          (RowHeadColumns 0)
+          []
+          [ Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "A" ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "B" ] ]
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "C" ] ]
+              ]
+          , Row
+              ( "" , [] , [] )
+              [ Cell ( "" , [] , [] ) AlignDefault (RowSpan 1) (ColSpan 1) []
+              , Cell ( "" , [] , [] ) AlignDefault (RowSpan 1) (ColSpan 1) []
+              , Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para
+                      [ Str "D"
+                      , LineBreak
+                      , Str "E"
+                      , LineBreak
+                      , Str "F"
+                      , LineBreak
+                      , LineBreak
+                      , LineBreak
+                      , Str "G"
+                      ]
+                  ]
+              ]
+          , Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Para [ Str "H" ] ]
+              , Cell ( "" , [] , [] ) AlignDefault (RowSpan 1) (ColSpan 1) []
+              , Cell ( "" , [] , [] ) AlignDefault (RowSpan 1) (ColSpan 1) []
+              ]
+          ]
+      ]
+      (TableFoot ( "" , [] , [] ) [])
+  ]

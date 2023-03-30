@@ -1,0 +1,159 @@
+--- parse tree ---
+[ Code
+    "test/typ/meta/bibliography-ordering-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/meta/bibliography-ordering-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/meta/bibliography-ordering-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/meta/bibliography-ordering-00.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 300.0 Pt)) ])
+, ParBreak
+, Ref "mcintosh_anxiety" (Literal Auto)
+, Text ","
+, Space
+, Ref "psychology25" (Literal Auto)
+, SoftBreak
+, Ref "netwok" (Literal Auto)
+, Text ","
+, Space
+, Ref "issue201" (Literal Auto)
+, Text ","
+, Space
+, Ref "arrgh" (Literal Auto)
+, Text ","
+, Space
+, Ref "quark" (Literal Auto)
+, Text ","
+, Space
+, Ref "distress" (Literal Auto)
+, Text ","
+, SoftBreak
+, Ref "glacier-melt" (Literal Auto)
+, Text ","
+, Space
+, Ref "issue201" (Literal Auto)
+, Text ","
+, Space
+, Ref "tolkien54" (Literal Auto)
+, Text ","
+, Space
+, Ref "sharing" (Literal Auto)
+, Text ","
+, Space
+, Ref "restful" (Literal Auto)
+, ParBreak
+, Code
+    "test/typ/meta/bibliography-ordering-00.typ"
+    ( line 8 , column 2 )
+    (FuncCall
+       (Ident (Identifier "bibliography"))
+       [ NormalArg (Literal (String "/works.bib")) ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  parbreak(), 
+  ref(supplement: [auto], 
+      target: ), 
+  [, ], 
+  ref(supplement: [auto], 
+      target: ), 
+  [
+], 
+  ref(supplement: [auto], 
+      target: ), 
+  [, ], 
+  ref(supplement: [auto], 
+      target: ), 
+  [, ], 
+  ref(supplement: [auto], 
+      target: ), 
+  [, ], 
+  ref(supplement: [auto], 
+      target: ), 
+  [, ], 
+  ref(supplement: [auto], 
+      target: ), 
+  [,
+], 
+  ref(supplement: [auto], 
+      target: ), 
+  [, ], 
+  ref(supplement: [auto], 
+      target: ), 
+  [, ], 
+  ref(supplement: [auto], 
+      target: ), 
+  [, ], 
+  ref(supplement: [auto], 
+      target: ), 
+  [, ], 
+  ref(supplement: [auto], 
+      target: ), 
+  parbreak(), 
+  bibliography(path: "/works.bib"), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para
+      [ Str ","
+      , SoftBreak
+      , Str ","
+      , Space
+      , Str ","
+      , Space
+      , Str ","
+      , Space
+      , Str ","
+      , Space
+      , Str ","
+      , SoftBreak
+      , Str ","
+      , Space
+      , Str ","
+      , Space
+      , Str ","
+      , Space
+      , Str ","
+      ]
+  ]

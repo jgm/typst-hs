@@ -1,0 +1,281 @@
+--- parse tree ---
+[ Code
+    "test/typ/text/font-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/text/font-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/text/font-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/text/font-00.typ"
+    ( line 3 , column 2 )
+    (FuncCall
+       (Ident (Identifier "text"))
+       [ NormalArg (Literal (Numeric 20.0 Pt)) , BlockArg [ Text "A" ] ])
+, SoftBreak
+, Code
+    "test/typ/text/font-00.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "text"))
+       [ NormalArg (Literal (Numeric 2.0 Em)) , BlockArg [ Text "A" ] ])
+, SoftBreak
+, Code
+    "test/typ/text/font-00.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "text"))
+       [ KeyValArg
+           (Identifier "size")
+           (Plus (Literal (Numeric 15.0 Pt)) (Literal (Numeric 0.5 Em)))
+       , BlockArg [ Text "A" ]
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/text/font-00.typ"
+    ( line 8 , column 2 )
+    (FuncCall
+       (Ident (Identifier "text")) [ BlockArg [ Text "Normal" ] ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/text/font-00.typ"
+    ( line 11 , column 2 )
+    (FuncCall
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "style") (Literal (String "italic"))
+       , BlockArg [ Text "Italic" ]
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/text/font-00.typ"
+    ( line 14 , column 2 )
+    (FuncCall
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "weight") (Literal (String "bold"))
+       , BlockArg [ Text "Bold" ]
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/text/font-00.typ"
+    ( line 17 , column 2 )
+    (FuncCall
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "stretch") (Literal (Numeric 50.0 Percent))
+       , BlockArg [ Text "Condensed" ]
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/text/font-00.typ"
+    ( line 20 , column 2 )
+    (FuncCall
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "font") (Literal (String "IBM Plex Serif"))
+       , BlockArg [ Text "Serif" ]
+       ])
+, ParBreak
+, Comment
+, Text "Emoji"
+, Text ":"
+, Space
+, Text "\128042,"
+, Space
+, Text "\127755,"
+, Space
+, Text "\127966"
+, ParBreak
+, Comment
+, Code
+    "test/typ/text/font-00.typ"
+    ( line 26 , column 2 )
+    (Block
+       (Content
+          [ SoftBreak
+          , Code
+              "test/typ/text/font-00.typ"
+              ( line 27 , column 4 )
+              (Set
+                 (Ident (Identifier "text"))
+                 [ KeyValArg (Identifier "fill") (Ident (Identifier "eastern")) ])
+          , SoftBreak
+          , Text "This"
+          , Space
+          , Text "is"
+          , Space
+          , Code
+              "test/typ/text/font-00.typ"
+              ( line 28 , column 12 )
+              (FuncCall
+                 (Ident (Identifier "text"))
+                 [ NormalArg
+                     (FuncCall
+                        (Ident (Identifier "rgb"))
+                        [ NormalArg (Literal (String "FA644B")) ])
+                 , BlockArg [ Text "way" , Space , Text "more" ]
+                 ])
+          , Space
+          , Text "colorful"
+          , Text "."
+          , ParBreak
+          ]))
+, ParBreak
+, Comment
+, Comment
+, Code
+    "test/typ/text/font-00.typ"
+    ( line 33 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg
+           (Identifier "font")
+           (Array
+              [ Literal (String "PT Sans")
+              , Literal (String "Twitter Color Emoji")
+              ])
+       , KeyValArg (Identifier "fallback") (Literal (Boolean False))
+       ])
+, SoftBreak
+, Text "2\960"
+, Space
+, Text "="
+, Space
+, Text "\120572"
+, Space
+, Text "+"
+, Space
+, Text "\120573"
+, Text "."
+, Space
+, Text "\9989"
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  text(body: [A], 
+       size: 20.0pt), 
+  [
+], 
+  text(body: [A], size: 2.0em), 
+  [
+], 
+  text(body: [A], 
+       size: 15.0pt + 0.5em), 
+  parbreak(), 
+  [Normal], 
+  parbreak(), 
+  text(body: [Italic], 
+       style: "italic"), 
+  parbreak(), 
+  text(body: [Bold], 
+       weight: "bold"), 
+  parbreak(), 
+  text(body: [Condensed], 
+       stretch: 50%), 
+  parbreak(), 
+  text(body: [Serif], 
+       font: "IBM Plex Serif"), 
+  parbreak(), 
+  [Emoji: 🐪, 🌋, 🏞], 
+  parbreak(), 
+  text(body: [
+], 
+       fill: rgb(13%,61%,67%,100%)), 
+  text(body: [
+This is ], 
+       fill: rgb(13%,61%,67%,100%)), 
+  text(body: text(body: [way more], 
+                  fill: rgb(13%,61%,67%,100%)), 
+       color: rgb(98%,39%,29%,100%), 
+       fill: rgb(13%,61%,67%,100%)), 
+  text(body: [ colorful.], 
+       fill: rgb(13%,61%,67%,100%)), 
+  parbreak(), 
+  parbreak(), 
+  text(body: [
+2π = 𝛼 + 𝛽. ✅], 
+       fallback: false, 
+       fill: rgb(13%,61%,67%,100%), 
+       font: ("PT Sans", 
+              "Twitter Color Emoji")), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para [ Str "A" , SoftBreak , Str "A" , SoftBreak , Str "A" ]
+  , Para [ Str "Normal" ]
+  , Para [ Str "Italic" ]
+  , Para [ Str "Bold" ]
+  , Para [ Str "Condensed" ]
+  , Para [ Str "Serif" ]
+  , Para
+      [ Str "Emoji:"
+      , Space
+      , Str "\128042,"
+      , Space
+      , Str "\127755,"
+      , Space
+      , Str "\127966"
+      ]
+  , Para
+      [ Str "This"
+      , Space
+      , Str "is"
+      , Space
+      , Str "way"
+      , Space
+      , Str "more"
+      , Space
+      , Str "colorful."
+      ]
+  , Para
+      [ Str "2\960"
+      , Space
+      , Str "="
+      , Space
+      , Str "\120572"
+      , Space
+      , Str "+"
+      , Space
+      , Str "\120573."
+      , Space
+      , Str "\9989"
+      ]
+  ]

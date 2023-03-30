@@ -1,0 +1,249 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/show-selector-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/show-selector-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/show-selector-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compiler/show-selector-00.typ"
+    ( line 3 , column 2 )
+    (Show
+       (Just
+          (FuncCall
+             (FieldAccess
+                (Ident (Identifier "where")) (Ident (Identifier "raw")))
+             [ KeyValArg (Identifier "block") (Literal (Boolean False)) ]))
+       (FuncCall
+          (FieldAccess
+             (Ident (Identifier "with")) (Ident (Identifier "box")))
+          [ KeyValArg (Identifier "radius") (Literal (Numeric 2.0 Pt))
+          , KeyValArg
+              (Identifier "outset")
+              (Dict [ ( Identifier "y" , Literal (Numeric 2.5 Pt) ) ])
+          , KeyValArg
+              (Identifier "inset")
+              (Dict
+                 [ ( Identifier "x" , Literal (Numeric 3.0 Pt) )
+                 , ( Identifier "y" , Literal (Numeric 0.0 Pt) )
+                 ])
+          , KeyValArg
+              (Identifier "fill")
+              (FuncCall
+                 (Ident (Identifier "luma")) [ NormalArg (Literal (Int 230)) ])
+          ]))
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/show-selector-00.typ"
+    ( line 11 , column 2 )
+    (Show
+       (Just
+          (FuncCall
+             (FieldAccess
+                (Ident (Identifier "where")) (Ident (Identifier "raw")))
+             [ KeyValArg (Identifier "block") (Literal (Boolean True)) ]))
+       (FuncCall
+          (FieldAccess
+             (Ident (Identifier "with")) (Ident (Identifier "block")))
+          [ KeyValArg
+              (Identifier "outset") (Negated (Literal (Numeric 3.0 Pt)))
+          , KeyValArg (Identifier "inset") (Literal (Numeric 11.0 Pt))
+          , KeyValArg
+              (Identifier "fill")
+              (FuncCall
+                 (Ident (Identifier "luma")) [ NormalArg (Literal (Int 230)) ])
+          , KeyValArg
+              (Identifier "stroke")
+              (Dict
+                 [ ( Identifier "left"
+                   , Plus
+                       (Literal (Numeric 1.5 Pt))
+                       (FuncCall
+                          (Ident (Identifier "luma")) [ NormalArg (Literal (Int 180)) ])
+                   )
+                 ])
+          ]))
+, ParBreak
+, Code
+    "test/typ/compiler/show-selector-00.typ"
+    ( line 18 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg
+           (Identifier "margin")
+           (Dict [ ( Identifier "top" , Literal (Numeric 12.0 Pt) ) ])
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/show-selector-00.typ"
+    ( line 19 , column 2 )
+    (Set
+       (Ident (Identifier "par"))
+       [ KeyValArg (Identifier "justify") (Literal (Boolean True)) ])
+, ParBreak
+, Text "This"
+, Space
+, Text "code"
+, Space
+, Text "tests"
+, Space
+, RawInline "code"
+, SoftBreak
+, Text "with"
+, Space
+, Text "selectors"
+, Space
+, Text "and"
+, Space
+, Text "justification"
+, Text "."
+, ParBreak
+, RawBlock "rs" "code!(\"it\");\n"
+, ParBreak
+, Text "You"
+, Space
+, Text "can"
+, Space
+, Text "use"
+, Space
+, Text "the"
+, Space
+, RawBlock "rs" "*const T"
+, Space
+, Text "pointer"
+, Space
+, Text "or"
+, SoftBreak
+, Text "the"
+, Space
+, RawBlock "rs" "&mut T"
+, Space
+, Text "reference"
+, Text "."
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  parbreak(), 
+  parbreak(), 
+  [
+], 
+  parbreak(), 
+  [This code tests ], 
+  box(body: raw(block: false, 
+                lang: none, 
+                text: "code"), 
+      fill: luma(23000%), 
+      inset: (x: 3.0pt, y: 0.0pt), 
+      outset: (y: 2.5pt), 
+      radius: 2.0pt), 
+  [
+with selectors and justification.], 
+  parbreak(), 
+  block(body: raw(block: true, 
+                  lang: "rs", 
+                  text: "code!(\"it\");\n"), 
+        fill: luma(23000%), 
+        inset: 11.0pt, 
+        outset: -3.0pt, 
+        stroke: (left: (thickness: 1.5pt,
+                        color: luma(18000%)))), 
+  parbreak(), 
+  [You can use the ], 
+  block(body: raw(block: true, 
+                  lang: "rs", 
+                  text: "*const T"), 
+        fill: luma(23000%), 
+        inset: 11.0pt, 
+        outset: -3.0pt, 
+        stroke: (left: (thickness: 1.5pt,
+                        color: luma(18000%)))), 
+  [ pointer or
+the ], 
+  block(body: raw(block: true, 
+                  lang: "rs", 
+                  text: "&mut T"), 
+        fill: luma(23000%), 
+        inset: 11.0pt, 
+        outset: -3.0pt, 
+        stroke: (left: (thickness: 1.5pt,
+                        color: luma(18000%)))), 
+  [ reference.], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para []
+  , Para
+      [ Str "This"
+      , Space
+      , Str "code"
+      , Space
+      , Str "tests"
+      , Space
+      , Span ( "" , [ "box" ] , [] ) [ Code ( "" , [] , [] ) "code" ]
+      , SoftBreak
+      , Str "with"
+      , Space
+      , Str "selectors"
+      , Space
+      , Str "and"
+      , Space
+      , Str "justification."
+      ]
+  , Div
+      ( "" , [] , [] )
+      [ CodeBlock ( "" , [ "rs" ] , [] ) "code!(\"it\");\n" ]
+  , Para
+      [ Str "You"
+      , Space
+      , Str "can"
+      , Space
+      , Str "use"
+      , Space
+      , Str "the"
+      ]
+  , Div
+      ( "" , [] , [] ) [ CodeBlock ( "" , [ "rs" ] , [] ) "*const T" ]
+  , Para [ Str "pointer" , Space , Str "or" , SoftBreak , Str "the" ]
+  , Div
+      ( "" , [] , [] ) [ CodeBlock ( "" , [ "rs" ] , [] ) "&mut T" ]
+  , Para [ Str "reference." ]
+  ]

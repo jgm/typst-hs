@@ -1,0 +1,128 @@
+--- parse tree ---
+[ Code
+    "test/typ/text/linebreak-obj-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/text/linebreak-obj-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/text/linebreak-obj-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/text/linebreak-obj-00.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 162.0 Pt)) ])
+, ParBreak
+, Text "They"
+, Space
+, Text "can"
+, Space
+, Text "look"
+, Space
+, Text "for"
+, Space
+, Text "the"
+, Space
+, Text "details"
+, Space
+, Text "in"
+, Space
+, Ref "netwok" (Literal Auto)
+, Text ","
+, SoftBreak
+, Text "which"
+, Space
+, Text "is"
+, Space
+, Text "the"
+, Space
+, Text "authoritative"
+, Space
+, Text "source"
+, Text "."
+, ParBreak
+, Code
+    "test/typ/text/linebreak-obj-00.typ"
+    ( line 8 , column 2 )
+    (FuncCall
+       (Ident (Identifier "bibliography"))
+       [ NormalArg (Literal (String "/works.bib")) ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  parbreak(), 
+  [They can look for the details in ], 
+  ref(supplement: [auto], 
+      target: ), 
+  [,
+which is the authoritative source.], 
+  parbreak(), 
+  bibliography(path: "/works.bib"), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para
+      [ Str "They"
+      , Space
+      , Str "can"
+      , Space
+      , Str "look"
+      , Space
+      , Str "for"
+      , Space
+      , Str "the"
+      , Space
+      , Str "details"
+      , Space
+      , Str "in"
+      , Space
+      , Str ","
+      , SoftBreak
+      , Str "which"
+      , Space
+      , Str "is"
+      , Space
+      , Str "the"
+      , Space
+      , Str "authoritative"
+      , Space
+      , Str "source."
+      ]
+  ]

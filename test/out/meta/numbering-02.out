@@ -1,0 +1,150 @@
+--- parse tree ---
+[ Code
+    "test/typ/meta/numbering-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/meta/numbering-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/meta/numbering-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/meta/numbering-02.typ"
+    ( line 2 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "lang") (Literal (String "he")) ])
+, SoftBreak
+, Code
+    "test/typ/meta/numbering-02.typ"
+    ( line 3 , column 2 )
+    (For
+       (BasicBind (Just (Identifier "i")))
+       (FuncCall
+          (Ident (Identifier "range"))
+          [ NormalArg (Literal (Int 9))
+          , NormalArg (Literal (Int 21))
+          , KeyValArg (Identifier "step") (Literal (Int 2))
+          ])
+       (Block
+          (CodeBlock
+             [ FuncCall
+                 (Ident (Identifier "numbering"))
+                 [ NormalArg (Literal (String "\1488."))
+                 , NormalArg (Ident (Identifier "i"))
+                 ]
+             , Block
+                 (Content
+                    [ Space
+                    , Text "\1506\1489\1493\1512"
+                    , Space
+                    , Code
+                        "test/typ/meta/numbering-02.typ"
+                        ( line 5 , column 11 )
+                        (Ident (Identifier "i"))
+                    , Space
+                    , HardBreak
+                    ])
+             ])))
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  text(body: [
+], lang: "he"), 
+  numbering(numbering: "א.", 
+            numbers: (9)), 
+  text(body: [ עבור ], 
+       lang: "he"), 
+  text(body: [9], lang: "he"), 
+  text(body: [ ], lang: "he"), 
+  linebreak(), 
+  numbering(numbering: "א.", 
+            numbers: (11)), 
+  text(body: [ עבור ], 
+       lang: "he"), 
+  text(body: [11], lang: "he"), 
+  text(body: [ ], lang: "he"), 
+  linebreak(), 
+  numbering(numbering: "א.", 
+            numbers: (13)), 
+  text(body: [ עבור ], 
+       lang: "he"), 
+  text(body: [13], lang: "he"), 
+  text(body: [ ], lang: "he"), 
+  linebreak(), 
+  numbering(numbering: "א.", 
+            numbers: (15)), 
+  text(body: [ עבור ], 
+       lang: "he"), 
+  text(body: [15], lang: "he"), 
+  text(body: [ ], lang: "he"), 
+  linebreak(), 
+  numbering(numbering: "א.", 
+            numbers: (17)), 
+  text(body: [ עבור ], 
+       lang: "he"), 
+  text(body: [17], lang: "he"), 
+  text(body: [ ], lang: "he"), 
+  linebreak(), 
+  numbering(numbering: "א.", 
+            numbers: (19)), 
+  text(body: [ עבור ], 
+       lang: "he"), 
+  text(body: [19], lang: "he"), 
+  text(body: [ ], lang: "he"), 
+  linebreak(), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Plain [ Str "9." ]
+  , Para [ Str "\1506\1489\1493\1512" , Space , Str "9" , LineBreak ]
+  , Plain [ Str "11." ]
+  , Para
+      [ Str "\1506\1489\1493\1512" , Space , Str "11" , LineBreak ]
+  , Plain [ Str "13." ]
+  , Para
+      [ Str "\1506\1489\1493\1512" , Space , Str "13" , LineBreak ]
+  , Plain [ Str "15." ]
+  , Para
+      [ Str "\1506\1489\1493\1512" , Space , Str "15" , LineBreak ]
+  , Plain [ Str "17." ]
+  , Para
+      [ Str "\1506\1489\1493\1512" , Space , Str "17" , LineBreak ]
+  , Plain [ Str "19." ]
+  , Para
+      [ Str "\1506\1489\1493\1512" , Space , Str "19" , LineBreak ]
+  ]

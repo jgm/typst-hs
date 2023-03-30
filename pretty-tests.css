@@ -1,0 +1,4 @@
+body { min-width: 100%; max-width: 100% }
+.typst { width: 33%; min-width: 33%; }
+.parse { width: 33%; min-width: 33%; }
+.eval { width: 33%; min-width: 33%; }

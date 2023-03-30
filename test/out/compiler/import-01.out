@@ -1,0 +1,133 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/import-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/import-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/import-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compiler/import-01.typ"
+    ( line 3 , column 2 )
+    (Import
+       (Literal (String "module.typ"))
+       (SomeIdentifiers [ Identifier "item" ]))
+, SoftBreak
+, Code
+    "test/typ/compiler/import-01.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "item"))
+              [ NormalArg (Literal (Int 1)) , NormalArg (Literal (Int 2)) ])
+       , NormalArg (Literal (Int 3))
+       ])
+, ParBreak
+, Comment
+, Text "{"
+, SoftBreak
+, Text "import"
+, Space
+, Quote '"'
+, Text "module"
+, Text "."
+, Text "typ"
+, Quote '"'
+, Text ":"
+, Space
+, Text "b"
+, SoftBreak
+, Text "test(b,"
+, Space
+, Text "1)"
+, SoftBreak
+, Text "}"
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/import-01.typ"
+    ( line 13 , column 2 )
+    (Import (Literal (String "module.typ")) AllIdentifiers)
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/import-01.typ"
+    ( line 16 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg (Ident (Identifier "d"))
+       , NormalArg (Literal (Int 3))
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  [✅], 
+  parbreak(), 
+  [{
+import “module.typ”: b
+test(b, 1)
+}], 
+  parbreak(), 
+  parbreak(), 
+  [✅], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para [ Str "\9989" ]
+  , Para
+      [ Str "{"
+      , SoftBreak
+      , Str "import"
+      , Space
+      , Str "\8220module.typ\8221:"
+      , Space
+      , Str "b"
+      , SoftBreak
+      , Str "test(b,"
+      , Space
+      , Str "1)"
+      , SoftBreak
+      , Str "}"
+      ]
+  , Para [ Str "\9989" ]
+  ]

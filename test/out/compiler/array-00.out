@@ -1,0 +1,108 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/array-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/array-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/array-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, SoftBreak
+, Code
+    "test/typ/compiler/array-00.typ"
+    ( line 4 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 150.0 Pt)) ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/array-00.typ" ( line 7 , column 2 ) (Array [])
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/array-00.typ"
+    ( line 10 , column 2 )
+    (Literal (Int 1))
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/array-00.typ"
+    ( line 13 , column 2 )
+    (Array [ Negated (Literal (Int 1)) ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/array-00.typ"
+    ( line 16 , column 2 )
+    (Array [ Literal (Boolean True) , Literal (Boolean False) ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/array-00.typ"
+    ( line 19 , column 2 )
+    (Array
+       [ Literal (String "1")
+       , FuncCall
+           (Ident (Identifier "rgb")) [ NormalArg (Literal (String "002")) ]
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  parbreak(), 
+  [()], 
+  parbreak(), 
+  [1], 
+  parbreak(), 
+  [(-1)], 
+  parbreak(), 
+  [(true, false)], 
+  parbreak(), 
+  [("1", rgb(0%,0%,0%,100%))], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para [ Str "()" ]
+  , Para [ Str "1" ]
+  , Para [ Str "(-1)" ]
+  , Para [ Str "(true," , Space , Str "false)" ]
+  , Para [ Str "(\"1\"," , Space , Str "rgb(0%,0%,0%,100%))" ]
+  ]

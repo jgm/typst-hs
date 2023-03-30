@@ -1,0 +1,165 @@
+--- parse tree ---
+[ Code
+    "test/typ/math/spacing-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/math/spacing-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/math/spacing-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Equation
+    False
+    [ Text "a"
+    , Code
+        "test/typ/math/spacing-02.typ"
+        ( line 3 , column 4 )
+        (Ident (Identifier "thin"))
+    , Text "b"
+    , Text ","
+    , Text "a"
+    , Code
+        "test/typ/math/spacing-02.typ"
+        ( line 3 , column 14 )
+        (Ident (Identifier "med"))
+    , Text "b"
+    , Text ","
+    , Text "a"
+    , Code
+        "test/typ/math/spacing-02.typ"
+        ( line 3 , column 23 )
+        (Ident (Identifier "thick"))
+    , Text "b"
+    , Text ","
+    , Text "a"
+    , Code
+        "test/typ/math/spacing-02.typ"
+        ( line 3 , column 34 )
+        (Ident (Identifier "quad"))
+    , Text "b"
+    ]
+, Space
+, HardBreak
+, Equation
+    False
+    [ Text "a"
+    , Text "="
+    , Code
+        "test/typ/math/spacing-02.typ"
+        ( line 4 , column 6 )
+        (Ident (Identifier "thin"))
+    , Text "b"
+    ]
+, Space
+, HardBreak
+, Equation
+    False
+    [ Text "a"
+    , Text "-"
+    , Text "b"
+    , Code
+        "test/typ/math/spacing-02.typ"
+        ( line 5 , column 8 )
+        (Ident (Identifier "ident"))
+    , Text "c"
+    , Code
+        "test/typ/math/spacing-02.typ"
+        ( line 5 , column 16 )
+        (Ident (Identifier "quad"))
+    , MGroup
+        (Just "(")
+        (Just ")")
+        [ Code
+            "test/typ/math/spacing-02.typ"
+            ( line 5 , column 22 )
+            (Ident (Identifier "mod"))
+        , Text "2"
+        ]
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  math.equation(block: false, 
+                body: { [a], 
+                        [ ], 
+                        [b], 
+                        [,], 
+                        [a], 
+                        [ ], 
+                        [b], 
+                        [,], 
+                        [a], 
+                        [ ], 
+                        [b], 
+                        [,], 
+                        [a], 
+                        [ ], 
+                        [b] }, 
+                numbering: none), 
+  [ ], 
+  linebreak(), 
+  math.equation(block: false, 
+                body: { [a], [=], [ ], [b] }, 
+                numbering: none), 
+  [ ], 
+  linebreak(), 
+  math.equation(block: false, 
+                body: { [a], 
+                        [-], 
+                        [b], 
+                        [≡], 
+                        [c], 
+                        [ ], 
+                        math.lr(body: { [(], 
+                                        math.op(limits: false, 
+                                                text: "mod"), 
+                                        [2], 
+                                        [)] }) }, 
+                numbering: none), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Math InlineMath "a\\, b,a\\: b,a\\:b,a\\quad b"
+      , LineBreak
+      , Math InlineMath "a = \\, b"
+      , LineBreak
+      , Math
+          InlineMath
+          "a - b \\equiv c\\quad\\left( {\\operatorname{mod}2} \\right)"
+      ]
+  ]

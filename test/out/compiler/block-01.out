@@ -1,0 +1,144 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/block-01.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/block-01.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/block-01.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compiler/block-01.typ"
+    ( line 3 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg (Block (CodeBlock [])) , NormalArg (Literal None) ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/block-01.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Block
+              (CodeBlock
+                 [ Let (BasicBind (Just (Identifier "v"))) (Literal (Int 0)) ]))
+       , NormalArg (Literal None)
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/block-01.typ"
+    ( line 9 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg (Block (CodeBlock [ Literal (String "hello") ]))
+       , NormalArg (Literal (String "hello"))
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/block-01.typ"
+    ( line 12 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Block
+              (CodeBlock
+                 [ Let (BasicBind (Just (Identifier "x"))) (Literal (String "m"))
+                 , Plus (Ident (Identifier "x")) (Literal (String "y"))
+                 ]))
+       , NormalArg (Literal (String "my"))
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/block-01.typ"
+    ( line 15 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Block
+              (CodeBlock
+                 [ Let (BasicBind (Just (Identifier "x"))) (Literal (Int 1))
+                 , Let (BasicBind (Just (Identifier "y"))) (Literal (Int 2))
+                 , Plus (Ident (Identifier "x")) (Ident (Identifier "y"))
+                 ]))
+       , NormalArg (Literal (Int 3))
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/block-01.typ"
+    ( line 22 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Block
+              (CodeBlock
+                 [ FuncCall
+                     (Ident (Identifier "type")) [ NormalArg (Literal (String "")) ]
+                 , Literal None
+                 ]))
+       , NormalArg (Literal (String "string"))
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [✅], 
+  parbreak(), 
+  [✅], 
+  parbreak(), 
+  [✅], 
+  parbreak(), 
+  [✅], 
+  parbreak(), 
+  [✅], 
+  parbreak(), 
+  [✅], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para [ Str "\9989" ]
+  , Para [ Str "\9989" ]
+  , Para [ Str "\9989" ]
+  , Para [ Str "\9989" ]
+  , Para [ Str "\9989" ]
+  , Para [ Str "\9989" ]
+  ]

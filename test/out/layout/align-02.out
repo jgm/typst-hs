@@ -1,0 +1,150 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/align-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/align-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/align-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/layout/align-02.typ"
+    ( line 3 , column 2 )
+    (FuncCall
+       (Ident (Identifier "rotate"))
+       [ NormalArg (Negated (Literal (Numeric 30.0 Deg)))
+       , KeyValArg
+           (Identifier "origin")
+           (Plus (Ident (Identifier "end")) (Ident (Identifier "horizon")))
+       , BlockArg [ Text "Hello" ]
+       ])
+, ParBreak
+, Code
+    "test/typ/layout/align-02.typ"
+    ( line 5 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "lang") (Literal (String "de")) ])
+, SoftBreak
+, Code
+    "test/typ/layout/align-02.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "align"))
+       [ NormalArg (Ident (Identifier "start"))
+       , BlockArg [ Text "Start" ]
+       ])
+, SoftBreak
+, Code
+    "test/typ/layout/align-02.typ"
+    ( line 7 , column 2 )
+    (FuncCall
+       (Ident (Identifier "align"))
+       [ NormalArg (Ident (Identifier "end"))
+       , BlockArg [ Text "Ende" ]
+       ])
+, ParBreak
+, Code
+    "test/typ/layout/align-02.typ"
+    ( line 9 , column 2 )
+    (Set
+       (Ident (Identifier "text"))
+       [ KeyValArg (Identifier "lang") (Literal (String "ar")) ])
+, SoftBreak
+, Code
+    "test/typ/layout/align-02.typ"
+    ( line 10 , column 2 )
+    (FuncCall
+       (Ident (Identifier "align"))
+       [ NormalArg (Ident (Identifier "start"))
+       , BlockArg [ Text "\1610\1576\1583\1571" ]
+       ])
+, SoftBreak
+, Code
+    "test/typ/layout/align-02.typ"
+    ( line 11 , column 2 )
+    (FuncCall
+       (Ident (Identifier "align"))
+       [ NormalArg (Ident (Identifier "end"))
+       , BlockArg [ Text "\1606\1607\1575\1610\1577" ]
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  rotate(body: [-30.0deg], 
+         origin: Axes(end, horizon)), 
+  parbreak(), 
+  text(body: [
+], lang: "de"), 
+  align(alignment: start, 
+        body: text(body: [Start], 
+                   lang: "de")), 
+  text(body: [
+], lang: "de"), 
+  align(alignment: end, 
+        body: text(body: [Ende], 
+                   lang: "de")), 
+  parbreak(), 
+  text(body: [
+], lang: "ar"), 
+  align(alignment: start, 
+        body: text(body: [يبدأ], 
+                   lang: "ar")), 
+  text(body: [
+], lang: "ar"), 
+  align(alignment: end, 
+        body: text(body: [نهاية], 
+                   lang: "ar")), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Para []
+  , Div
+      ( "" , [] , [ ( "align" , "start" ) ] ) [ Para [ Str "Start" ] ]
+  , Para []
+  , Div ( "" , [] , [ ( "align" , "end" ) ] ) [ Para [ Str "Ende" ] ]
+  , Para []
+  , Div
+      ( "" , [] , [ ( "align" , "start" ) ] )
+      [ Para [ Str "\1610\1576\1583\1571" ] ]
+  , Para []
+  , Div
+      ( "" , [] , [ ( "align" , "end" ) ] )
+      [ Para [ Str "\1606\1607\1575\1610\1577" ] ]
+  ]

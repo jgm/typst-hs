@@ -1,0 +1,108 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/ops-prec-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/ops-prec-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/ops-prec-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compiler/ops-prec-00.typ"
+    ( line 3 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Plus
+              (Literal (Int 1))
+              (Times (Literal (Int 2)) (Negated (Literal (Int 3)))))
+       , NormalArg (Negated (Literal (Int 5)))
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/ops-prec-00.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Equals
+              (Literal (Int 3)) (Minus (Literal (Int 5)) (Literal (Int 2))))
+       , NormalArg (Literal (Boolean True))
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/ops-prec-00.typ"
+    ( line 9 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (And
+              (Equals (Literal (String "a")) (Literal (String "a")))
+              (LessThan (Literal (Int 2)) (Literal (Int 3))))
+       , NormalArg (Literal (Boolean True))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/ops-prec-00.typ"
+    ( line 10 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Not (Equals (Literal (String "b")) (Literal (String "b"))))
+       , NormalArg (Literal (Boolean False))
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [✅], 
+  parbreak(), 
+  [✅], 
+  parbreak(), 
+  [✅], 
+  [
+], 
+  [✅], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para [ Str "\9989" ]
+  , Para [ Str "\9989" ]
+  , Para [ Str "\9989" , SoftBreak , Str "\9989" ]
+  ]

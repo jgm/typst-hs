@@ -1,0 +1,206 @@
+--- parse tree ---
+[ Code
+    "test/typ/meta/counter-03.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/meta/counter-03.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/meta/counter-03.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/meta/counter-03.typ"
+    ( line 3 , column 2 )
+    (FuncCall
+       (Ident (Identifier "figure"))
+       [ KeyValArg (Identifier "numbering") (Literal (String "A"))
+       , KeyValArg
+           (Identifier "caption")
+           (Block
+              (Content
+                 [ Text "Four"
+                 , Space
+                 , Quote '\''
+                 , Text "A"
+                 , Quote '\''
+                 , Text "s"
+                 ]))
+       , KeyValArg (Identifier "kind") (Ident (Identifier "image"))
+       , KeyValArg (Identifier "supplement") (Literal (String "Figure"))
+       , BlockArg [ Emph [ Text "AAAA!" ] ]
+       ])
+, SoftBreak
+, Code
+    "test/typ/meta/counter-03.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "figure"))
+       [ KeyValArg (Identifier "numbering") (Literal None)
+       , KeyValArg
+           (Identifier "caption")
+           (Block
+              (Content
+                 [ Text "Four"
+                 , Space
+                 , Quote '\''
+                 , Text "B"
+                 , Quote '\''
+                 , Text "s"
+                 ]))
+       , KeyValArg (Identifier "kind") (Ident (Identifier "image"))
+       , KeyValArg (Identifier "supplement") (Literal (String "Figure"))
+       , BlockArg [ Emph [ Text "BBBB!" ] ]
+       ])
+, SoftBreak
+, Code
+    "test/typ/meta/counter-03.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "figure"))
+       [ KeyValArg
+           (Identifier "caption")
+           (Block
+              (Content
+                 [ Text "Four"
+                 , Space
+                 , Quote '\''
+                 , Text "C"
+                 , Quote '\''
+                 , Text "s"
+                 ]))
+       , KeyValArg (Identifier "kind") (Ident (Identifier "image"))
+       , KeyValArg (Identifier "supplement") (Literal (String "Figure"))
+       , BlockArg [ Emph [ Text "CCCC!" ] ]
+       ])
+, SoftBreak
+, Code
+    "test/typ/meta/counter-03.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (FieldAccess
+          (Ident (Identifier "update"))
+          (FuncCall
+             (Ident (Identifier "counter"))
+             [ NormalArg
+                 (FuncCall
+                    (FieldAccess
+                       (Ident (Identifier "where")) (Ident (Identifier "figure")))
+                    [ KeyValArg (Identifier "kind") (Ident (Identifier "image")) ])
+             ]))
+       [ NormalArg
+           (FuncExpr
+              [ NormalParam (Identifier "n") ]
+              (Plus (Ident (Identifier "n")) (Literal (Int 3))))
+       ])
+, SoftBreak
+, Code
+    "test/typ/meta/counter-03.typ"
+    ( line 7 , column 2 )
+    (FuncCall
+       (Ident (Identifier "figure"))
+       [ KeyValArg
+           (Identifier "caption")
+           (Block
+              (Content
+                 [ Text "Four"
+                 , Space
+                 , Quote '\''
+                 , Text "D"
+                 , Quote '\''
+                 , Text "s"
+                 ]))
+       , KeyValArg (Identifier "kind") (Ident (Identifier "image"))
+       , KeyValArg (Identifier "supplement") (Literal (String "Figure"))
+       , BlockArg [ Emph [ Text "DDDD!" ] ]
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  figure(body: emph(body: [AAAA!]), 
+         caption: [Four ‘A’s], 
+         kind: , 
+         numbering: "A", 
+         supplement: "Figure"), 
+  [
+], 
+  figure(body: emph(body: [BBBB!]), 
+         caption: [Four ‘B’s], 
+         kind: , 
+         numbering: none, 
+         supplement: "Figure"), 
+  [
+], 
+  figure(body: emph(body: [CCCC!]), 
+         caption: [Four ‘C’s], 
+         kind: , 
+         supplement: "Figure"), 
+  [
+], 
+  [
+], 
+  figure(body: emph(body: [DDDD!]), 
+         caption: [Four ‘D’s], 
+         kind: , 
+         supplement: "Figure"), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Figure
+      ( "" , [] , [] )
+      (Caption
+         Nothing [ Para [ Str "Four" , Space , Str "\8216A\8217s" ] ])
+      [ Para [ Emph [ Str "AAAA!" ] ] ]
+  , Para []
+  , Figure
+      ( "" , [] , [] )
+      (Caption
+         Nothing [ Para [ Str "Four" , Space , Str "\8216B\8217s" ] ])
+      [ Para [ Emph [ Str "BBBB!" ] ] ]
+  , Para []
+  , Figure
+      ( "" , [] , [] )
+      (Caption
+         Nothing [ Para [ Str "Four" , Space , Str "\8216C\8217s" ] ])
+      [ Para [ Emph [ Str "CCCC!" ] ] ]
+  , Para []
+  , Figure
+      ( "" , [] , [] )
+      (Caption
+         Nothing [ Para [ Str "Four" , Space , Str "\8216D\8217s" ] ])
+      [ Para [ Emph [ Str "DDDD!" ] ] ]
+  ]

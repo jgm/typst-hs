@@ -1,0 +1,260 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/string-13.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/string-13.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/string-13.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compiler/string-13.typ"
+    ( line 3 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "match")) (Literal (String "Is there a")))
+              [ NormalArg (Literal (String "for this?")) ])
+       , NormalArg (Literal None)
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/string-13.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "match"))
+                 (Literal (String "The time of my life.")))
+              [ NormalArg
+                  (FuncCall
+                     (Ident (Identifier "regex"))
+                     [ NormalArg (Literal (String "[mit]+e")) ])
+              ])
+       , NormalArg
+           (Dict
+              [ ( Identifier "start" , Literal (Int 4) )
+              , ( Identifier "end" , Literal (Int 8) )
+              , ( Identifier "text" , Literal (String "time") )
+              , ( Identifier "captures" , Array [] )
+              ])
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/string-13.typ"
+    ( line 10 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "matches")) (Literal (String "Hello there")))
+              [ NormalArg (Literal (String "\\d")) ])
+       , NormalArg (Array [])
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/string-13.typ"
+    ( line 11 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "matches")) (Literal (String "Day by Day.")))
+              [ NormalArg (Literal (String "Day")) ])
+       , NormalArg
+           (Array
+              [ Dict
+                  [ ( Identifier "start" , Literal (Int 0) )
+                  , ( Identifier "end" , Literal (Int 3) )
+                  , ( Identifier "text" , Literal (String "Day") )
+                  , ( Identifier "captures" , Array [] )
+                  ]
+              , Dict
+                  [ ( Identifier "start" , Literal (Int 7) )
+                  , ( Identifier "end" , Literal (Int 10) )
+                  , ( Identifier "text" , Literal (String "Day") )
+                  , ( Identifier "captures" , Array [] )
+                  ]
+              ])
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/string-13.typ"
+    ( line 17 , column 2 )
+    (LetFunc
+       (Identifier "timesum")
+       [ NormalParam (Identifier "text") ]
+       (Block
+          (CodeBlock
+             [ Let (BasicBind (Just (Identifier "time"))) (Literal (Int 0))
+             , For
+                 (BasicBind (Just (Identifier "match")))
+                 (FuncCall
+                    (FieldAccess
+                       (Ident (Identifier "matches")) (Ident (Identifier "text")))
+                    [ NormalArg
+                        (FuncCall
+                           (Ident (Identifier "regex"))
+                           [ NormalArg (Literal (String "(\\d+):(\\d+)")) ])
+                    ])
+                 (Block
+                    (CodeBlock
+                       [ Let
+                           (BasicBind (Just (Identifier "caps")))
+                           (FieldAccess
+                              (Ident (Identifier "captures")) (Ident (Identifier "match")))
+                       , Assign
+                           (Ident (Identifier "time"))
+                           (Plus
+                              (Ident (Identifier "time"))
+                              (Plus
+                                 (Times
+                                    (Literal (Int 60))
+                                    (FuncCall
+                                       (Ident (Identifier "int"))
+                                       [ NormalArg
+                                           (FuncCall
+                                              (FieldAccess
+                                                 (Ident (Identifier "at"))
+                                                 (Ident (Identifier "caps")))
+                                              [ NormalArg (Literal (Int 0)) ])
+                                       ]))
+                                 (FuncCall
+                                    (Ident (Identifier "int"))
+                                    [ NormalArg
+                                        (FuncCall
+                                           (FieldAccess
+                                              (Ident (Identifier "at")) (Ident (Identifier "caps")))
+                                           [ NormalArg (Literal (Int 1)) ])
+                                    ])))
+                       ]))
+             , Plus
+                 (Plus
+                    (FuncCall
+                       (Ident (Identifier "str"))
+                       [ NormalArg
+                           (FuncCall
+                              (Ident (Identifier "int"))
+                              [ NormalArg
+                                  (Divided (Ident (Identifier "time")) (Literal (Int 60)))
+                              ])
+                       ])
+                    (Literal (String ":")))
+                 (FuncCall
+                    (Ident (Identifier "str"))
+                    [ NormalArg
+                        (FuncCall
+                           (FieldAccess
+                              (Ident (Identifier "rem")) (Ident (Identifier "calc")))
+                           [ NormalArg (Ident (Identifier "time"))
+                           , NormalArg (Literal (Int 60))
+                           ])
+                    ])
+             ])))
+, ParBreak
+, Code
+    "test/typ/compiler/string-13.typ"
+    ( line 26 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "timesum")) [ NormalArg (Literal (String "")) ])
+       , NormalArg (Literal (String "0:0"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/string-13.typ"
+    ( line 27 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "timesum"))
+              [ NormalArg (Literal (String "2:70")) ])
+       , NormalArg (Literal (String "3:10"))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/string-13.typ"
+    ( line 28 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "timesum"))
+              [ NormalArg (Literal (String "1:20, 2:10, 0:40")) ])
+       , NormalArg (Literal (String "4:10"))
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  parbreak(), 
+  [✅], 
+  [
+], 
+  [✅], 
+  parbreak(), 
+  parbreak(), 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para [ Str "\9989" , SoftBreak , Str "\9989" ]
+  , Para [ Str "\9989" , SoftBreak , Str "\9989" ]
+  , Para
+      [ Str "\9989" , SoftBreak , Str "\9989" , SoftBreak , Str "\9989" ]
+  ]

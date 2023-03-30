@@ -1,0 +1,106 @@
+--- parse tree ---
+[ Code
+    "test/typ/compiler/label-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/compiler/label-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/label-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compiler/label-00.typ"
+    ( line 3 , column 2 )
+    (Show
+       (Just (Ident (Identifier "heading")))
+       (Set
+          (Ident (Identifier "text"))
+          [ NormalArg (Literal (Numeric 10.0 Pt)) ]))
+, SoftBreak
+, Code
+    "test/typ/compiler/label-00.typ"
+    ( line 4 , column 2 )
+    (Show
+       (Just
+          (FuncCall
+             (FieldAccess
+                (Ident (Identifier "where")) (Ident (Identifier "heading")))
+             [ KeyValArg (Identifier "label") (Label "intro") ]))
+       (Ident (Identifier "underline")))
+, ParBreak
+, Heading
+    1
+    [ Text "Introduction"
+    , Space
+    , Code
+        "test/typ/compiler/label-00.typ"
+        ( line 6 , column 16 )
+        (Label "intro")
+    ]
+, Text "The"
+, Space
+, Text "beginning"
+, Text "."
+, ParBreak
+, Heading 1 [ Text "Conclusion" ]
+, Text "The"
+, Space
+, Text "end"
+, Text "."
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  parbreak(), 
+  heading(body: { [Introduction ], 
+                  [] }, 
+          level: 1), 
+  [The beginning.], 
+  parbreak(), 
+  heading(body: [Conclusion], 
+          level: 1), 
+  [The end.], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Header 1 ( "" , [] , [] ) [ Str "Introduction" , Space ]
+  , Para [ Str "The" , Space , Str "beginning." ]
+  , Header 1 ( "" , [] , [] ) [ Str "Conclusion" ]
+  , Para [ Str "The" , Space , Str "end." ]
+  ]

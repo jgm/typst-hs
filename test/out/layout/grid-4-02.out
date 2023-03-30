@@ -1,0 +1,173 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/grid-4-02.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/grid-4-02.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/grid-4-02.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/layout/grid-4-02.typ"
+    ( line 3 , column 2 )
+    (Set
+       (Ident (Identifier "page"))
+       [ KeyValArg (Identifier "height") (Literal (Numeric 4.0 Cm))
+       , KeyValArg (Identifier "margin") (Literal (Numeric 0.0 Cm))
+       ])
+, SoftBreak
+, Code
+    "test/typ/layout/grid-4-02.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "grid"))
+       [ KeyValArg
+           (Identifier "rows")
+           (Array
+              [ Literal (Numeric 1.0 Cm)
+              , Literal (Numeric 1.0 Fr)
+              , Literal (Numeric 1.0 Fr)
+              , Literal Auto
+              ])
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "rect"))
+              [ KeyValArg (Identifier "height") (Literal (Numeric 50.0 Percent))
+              , KeyValArg (Identifier "width") (Literal (Numeric 100.0 Percent))
+              , KeyValArg (Identifier "fill") (Ident (Identifier "green"))
+              ])
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "rect"))
+              [ KeyValArg (Identifier "height") (Literal (Numeric 50.0 Percent))
+              , KeyValArg (Identifier "width") (Literal (Numeric 100.0 Percent))
+              , KeyValArg (Identifier "fill") (Ident (Identifier "red"))
+              ])
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "rect"))
+              [ KeyValArg (Identifier "height") (Literal (Numeric 50.0 Percent))
+              , KeyValArg (Identifier "width") (Literal (Numeric 100.0 Percent))
+              , KeyValArg (Identifier "fill") (Ident (Identifier "green"))
+              ])
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "rect"))
+              [ KeyValArg (Identifier "height") (Literal (Numeric 25.0 Percent))
+              , KeyValArg (Identifier "width") (Literal (Numeric 100.0 Percent))
+              , KeyValArg (Identifier "fill") (Ident (Identifier "red"))
+              ])
+       ])
+, ParBreak
+]
+--- evaluated ---
+{ [
+], 
+  [
+], 
+  grid(children: (rect(body: none, 
+                       fill: rgb(18%,80%,25%,100%), 
+                       height: 50%, 
+                       width: 100%), 
+                  rect(body: none, 
+                       fill: rgb(100%,25%,21%,100%), 
+                       height: 50%, 
+                       width: 100%), 
+                  rect(body: none, 
+                       fill: rgb(18%,80%,25%,100%), 
+                       height: 50%, 
+                       width: 100%), 
+                  rect(body: none, 
+                       fill: rgb(100%,25%,21%,100%), 
+                       height: 25%, 
+                       width: 100%)), 
+       rows: (1.0cm, 
+              1.0fr, 
+              1.0fr, 
+              auto)), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , Table
+      ( "" , [] , [] )
+      (Caption Nothing [])
+      [ ( AlignDefault , ColWidthDefault ) ]
+      (TableHead ( "" , [] , [] ) [])
+      [ TableBody
+          ( "" , [] , [] )
+          (RowHeadColumns 0)
+          []
+          [ Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Div ( "" , [ "rect" ] , [] ) [] ]
+              ]
+          , Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Div ( "" , [ "rect" ] , [] ) [] ]
+              ]
+          , Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Div ( "" , [ "rect" ] , [] ) [] ]
+              ]
+          , Row
+              ( "" , [] , [] )
+              [ Cell
+                  ( "" , [] , [] )
+                  AlignDefault
+                  (RowSpan 1)
+                  (ColSpan 1)
+                  [ Div ( "" , [ "rect" ] , [] ) [] ]
+              ]
+          ]
+      ]
+      (TableFoot ( "" , [] , [] ) [])
+  ]

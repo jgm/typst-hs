@@ -1,0 +1,65 @@
+--- parse tree ---
+[ Code
+    "test/typ/layout/enum-03.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060("
+                             , Code
+                                 "test/typ/layout/enum-03.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/layout/enum-03.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, BulletListItem [ Text "Bullet" , Space , Text "List" ]
+, SoftBreak
+, EnumListItem Nothing [ Text "Numbered" , Space , Text "List" ]
+, SoftBreak
+, DescListItem [ Text "Term" ] [ Text "List" , ParBreak ]
+]
+--- evaluated ---
+{ [
+], 
+  list(children: ([Bullet List])), 
+  enum(children: ([Numbered List])), 
+  terms(children: (([Term], 
+                    { [List], parbreak() }))) }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para []
+  , BulletList [ [ Para [ Str "Bullet" , Space , Str "List" ] ] ]
+  , OrderedList
+      ( 1 , DefaultStyle , DefaultDelim )
+      [ [ Para [ Str "Numbered" , Space , Str "List" ] ] ]
+  , DefinitionList
+      [ ( [ Str "Term" ] , [ [ Para [ Str "List" ] ] ] ) ]
+  ]
