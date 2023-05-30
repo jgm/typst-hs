@@ -30,7 +30,7 @@ import Text.Parsec (runParserT, updateState, getState)
 -- import Debug.Trace
 
 getMethod :: MonadFail m =>
-  (forall n. EvaluateM n => Val -> MP n ()) -> Val -> Text -> m Val
+  (forall n. MonadFail n => Val -> MP n ()) -> Val -> Text -> m Val
 getMethod updateVal val fld = do
   let methodUnimplemented name = fail $ "Method " <> show name <>
         " is not yet implemented"
@@ -197,7 +197,7 @@ getMethod updateVal val fld = do
                                    ("end", VInteger (fromIntegral end)),
                                    ("text", VString txt),
                                    ("captures", VArray (V.fromList (map VString captures)))]] of
-                            Right (VString s) -> s
+                            Success (VString s) -> s
                             _ -> "")
                        t
                  _ -> fail "replacement must be string or function"
@@ -248,8 +248,8 @@ getMethod updateVal val fld = do
                 case newval of
                   VFunction _ _ fn ->
                     case applyPureFunction fn [VInteger num] of
-                      Left e -> fail e
-                      Right v -> fromVal v
+                      Failure e -> fail e
+                      Success v -> fromVal v
                   _ -> fromVal newval
               lift $ updateState $ \st ->
                 st{ evalCounters = M.adjust (const newnum) key $ evalCounters st }
@@ -562,15 +562,15 @@ getMethod updateVal val fld = do
 pairToArray :: (Val, Val) -> Val
 pairToArray (x,y) = VArray $ V.fromList [x,y]
 
-applyPureFunction :: Function -> [Val] -> Either String Val
+applyPureFunction :: Function -> [Val] -> Attempt Val
 applyPureFunction (Function f) vals =
   let args = Arguments vals OM.empty
   in case runParserT (f args) initialEvalState "" [] of
-        Left s -> Left s
-        Right (Left s) -> Left $ show s
-        Right (Right v) -> Right v
+        Failure s -> Failure s
+        Success (Left s) -> Failure $ show s
+        Success (Right v) -> Success v
 
-initialEvalState :: EvalState
+initialEvalState :: MonadFail m => EvalState m
 initialEvalState =
   EvalState
   { evalIdentifiers = [(BlockScope , standardModule)]
@@ -578,6 +578,7 @@ initialEvalState =
   , evalMath = False
   , evalShowRules = []
   , evalFlowDirective = FlowNormal
+  , evalLoadBytes = \_ -> pure mempty
   }
 
 formatNumber :: Text -> Int -> Text

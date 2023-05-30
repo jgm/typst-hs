@@ -19,12 +19,12 @@ import Text.Parsec ( (<|>), getState, updateState )
 import Typst.Regex (RE(..))
 import qualified Text.Regex.TDFA as TDFA
 
-applyShowRules :: EvaluateM m => Seq Content -> MP m (Seq Content)
+applyShowRules :: MonadFail m => Seq Content -> MP m (Seq Content)
 applyShowRules cs = do
   rules <- evalShowRules <$> getState
   foldM (tryShowRules rules) mempty cs
 
-withoutShowRule :: EvaluateM m => Selector -> MP m a -> MP m a
+withoutShowRule :: MonadFail m => Selector -> MP m a -> MP m a
 withoutShowRule selector pa = do
   oldShowRules <- evalShowRules <$> getState
   updateState $ \st -> st{ evalShowRules =
@@ -37,7 +37,7 @@ withoutShowRule selector pa = do
 -- By experiment, it seems that show rules work this way:
 -- the first (i.e. most recently defined) one to match a given element
 -- are applied first.
-tryShowRules :: EvaluateM m =>
+tryShowRules :: MonadFail m =>
   [ShowRule] -> Seq Content -> Content -> MP m (Seq Content)
 tryShowRules [] cs c = pure $ cs Seq.|> c
 tryShowRules (ShowRule sel f : rs) cs c =
@@ -75,9 +75,9 @@ fieldsMatch ((k,v):rest) m =
        Just v' -> v == v'
        Nothing -> False) && fieldsMatch rest m
 
-replaceRegexContent :: EvaluateM m =>
+replaceRegexContent :: MonadFail m =>
   RE -> Text
-  -> (forall m'. EvaluateM m' => Content -> MP m' (Seq Content))
+  -> (forall m'. MonadFail m' => Content -> MP m' (Seq Content))
   -> MP m (Seq Content)
 replaceRegexContent (RE _ re) strIn f =
   let matches = map (! 0) (TDFA.matchAll re strIn)

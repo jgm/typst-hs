@@ -9,7 +9,7 @@
 {-# LANGUAGE OverloadedLists #-}
 module Typst.Evaluate (
     evaluateTypst
-  , EvaluateM(..)
+  , MonadFail(..)
   , valToContent
 )
 where
@@ -31,20 +31,24 @@ import Typst.Util (makeFunction, nthArg)
 import Typst.Bind (destructuringBind)
 import Typst.Show (applyShowRules)
 import Typst.Methods (getMethod)
-import Typst.Module.Standard (standardModule)
+import Typst.Module.Standard (standardModule, loadFileText)
 import Control.Monad.State
 import Text.Parsec
 import System.FilePath (takeBaseName, replaceFileName)
 import Typst.Regex (match)
+import qualified Data.ByteString as BS
 -- import Debug.Trace
 
 -- | Evaluate a parsed typst expression, evaluating the code and
 -- replacing it with content.
-evaluateTypst :: EvaluateM m =>
-                 FilePath -> [Markup] -> m (Either ParseError (Seq Content))
-evaluateTypst = runParserT (mconcat <$> many pContent <* eof) initialEvalState
+evaluateTypst :: MonadFail m
+                 => (FilePath -> m BS.ByteString) -> FilePath -> [Markup]
+                 -> m (Either ParseError (Seq Content))
+evaluateTypst loadBytes =
+  runParserT (mconcat <$> many pContent <* eof)
+    initialEvalState{ evalLoadBytes = loadBytes }
 
-initialEvalState :: EvalState
+initialEvalState :: EvalState m
 initialEvalState =
   EvalState
   { evalIdentifiers = [(BlockScope , standardModule')]
@@ -52,6 +56,7 @@ initialEvalState =
   , evalMath = False
   , evalShowRules = []
   , evalFlowDirective = FlowNormal
+  , evalLoadBytes = undefined
   }
  where
    standardModule' = M.insert "eval" evalFunction standardModule
@@ -62,12 +67,12 @@ initialEvalState =
           Right [Code _ expr] ->
             -- run in Either monad so we can't access file system
             case runParserT (evalExpr expr) initialEvalState "eval" [] of
-              Left e -> fail $ "eval: " <> e
-              Right (Left e) ->  fail $ "eval: " <> show e
-              Right (Right val) -> pure val
+              Failure e -> fail $ "eval: " <> e
+              Success (Left e) ->  fail $ "eval: " <> show e
+              Success (Right val) -> pure val
           Right _ -> fail "eval: got something other than Code (should not happen)"
 
-satisfyTok :: EvaluateM m => (Markup -> Bool) -> MP m Markup
+satisfyTok :: MonadFail m => (Markup -> Bool) -> MP m Markup
 satisfyTok f = tokenPrim show showPos match'
  where
    showPos _oldpos (Code pos _) _ = pos
@@ -75,10 +80,10 @@ satisfyTok f = tokenPrim show showPos match'
    match' x | f x = Just x
    match' _ = Nothing
 
-pContent :: EvaluateM m => MP m (Seq Content)
+pContent :: MonadFail m => MP m (Seq Content)
 pContent = (pTxt <|> pElt) >>= applyShowRules >>= addTextElement
 
-addTextElement :: EvaluateM m => Seq Content -> MP m (Seq Content)
+addTextElement :: MonadFail m => Seq Content -> MP m (Seq Content)
 addTextElement = foldM go mempty
  where
    go acc (Txt t) = (acc <>) <$> element "text" (Arguments [VContent [Txt t]] OM.empty)
@@ -108,7 +113,7 @@ getText Ellipsis = "\x2026"
 getText (Quote c) = T.singleton c -- TODO localize
 getText _ = ""
 
-pTxt :: EvaluateM m => MP m (Seq Content)
+pTxt :: MonadFail m => MP m (Seq Content)
 pTxt = do
    mathMode <- evalMath <$> getState
    txt <- if mathMode
@@ -138,7 +143,7 @@ setQuotes (Quote '"' : rest) = Quote '\x201D' : setQuotes rest
 setQuotes (Quote '\'' : rest) = Quote '\x2019' : setQuotes rest
 setQuotes (x:xs) = x : setQuotes xs
 
-pInnerContents :: EvaluateM m => [Markup] -> MP m (Seq Content)
+pInnerContents :: MonadFail m => [Markup] -> MP m (Seq Content)
 pInnerContents ms = do
   oldInput <- getInput
   oldPos <- getPosition
@@ -153,14 +158,14 @@ pInnerContents ms = do
 single :: Content -> Seq Content
 single = Seq.singleton
 
-element :: EvaluateM m => Identifier -> Arguments -> MP m (Seq Content)
+element :: MonadFail m => Identifier -> Arguments -> MP m (Seq Content)
 element name@(Identifier n) args = do
   eltfn <- lookupIdentifier name
   case eltfn of
     VFunction _ _ (Function f) -> valToContent <$> f args
     _ -> fail $ T.unpack n <> " is not an element function"
 
-pElt :: EvaluateM m => MP m (Seq Content)
+pElt :: MonadFail m => MP m (Seq Content)
 pElt = do
   tok <- satisfyTok (not . isText)
   case tok of
@@ -263,7 +268,7 @@ pElt = do
 
     _ -> fail $ "Encountered " <> show tok <> " in pElt"
 
-pDescItem :: EvaluateM m => MP m Val
+pDescItem :: MonadFail m => MP m Val
 pDescItem = do
   tok <- satisfyTok isDescListItem
   case tok of
@@ -278,7 +283,7 @@ pDescItem = do
   isDescListItem _ = False
 
 
-pEnumItem :: EvaluateM m => MP m (Seq Content)
+pEnumItem :: MonadFail m => MP m (Seq Content)
 pEnumItem = do
   tok <- satisfyTok isEnumListItem
   case tok of
@@ -288,7 +293,7 @@ pEnumItem = do
   isEnumListItem EnumListItem{} = True
   isEnumListItem _ = False
 
-pListItem :: EvaluateM m => MP m (Seq Content)
+pListItem :: MonadFail m => MP m (Seq Content)
 pListItem = do
   tok <- satisfyTok isBulletListItem
   case tok of
@@ -311,10 +316,10 @@ wrapIn (Just op) (Just cl) cs =
 wrapIn Nothing (Just cl) cs = cs Seq.|> Txt cl
 wrapIn (Just op) Nothing cs = Txt op Seq.<| cs
 
-pExpr :: EvaluateM m => Expr -> MP m (Seq Content)
+pExpr :: MonadFail m => Expr -> MP m (Seq Content)
 pExpr expr = valToContent <$> evalExpr expr
 
-evalExpr :: EvaluateM m => Expr -> MP m Val
+evalExpr :: MonadFail m => Expr -> MP m Val
 evalExpr expr =
   case expr of
     Literal lit -> pure $ evalLiteral lit
@@ -709,7 +714,7 @@ evalExpr expr =
         _ -> fail "Include requires a path"
       pure VNone
 
-toFunction :: EvaluateM m =>
+toFunction :: MonadFail m =>
   Maybe Identifier -> [Param] -> Expr -> MP m Val
 toFunction mbname params e = do
   idents <- evalIdentifiers <$> getState
@@ -764,12 +769,12 @@ toFunction mbname params e = do
   pure fn
 
 
-loadModule :: EvaluateM m => Text -> MP m (Identifier, M.Map Identifier Val)
+loadModule :: MonadFail m => Text -> MP m (Identifier, M.Map Identifier Val)
 loadModule modname = do
   pos <- getPosition
   let fp = replaceFileName (sourceName pos) (T.unpack modname)
   let modid = Identifier (T.pack $ takeBaseName fp)
-  txt <- lift $ loadFileText fp
+  txt <- loadFileText fp
   case parseTypst fp txt of
     Left err -> fail $ show err
     Right ms -> do
@@ -783,7 +788,7 @@ loadModule modname = do
             [] -> fail "Empty evalIdentifiers in module!"
             ((_,m):_) -> pure (modid, m)
 
-importModule :: EvaluateM m => M.Map Identifier Val -> MP m ()
+importModule :: MonadFail m => M.Map Identifier Val -> MP m ()
 importModule m = updateState $ \st -> st{
   evalIdentifiers =
     case evalIdentifiers st of
@@ -811,7 +816,7 @@ evalLiteral lit =
     None -> VNone
     Auto -> VAuto
 
-toArguments :: EvaluateM m => [Arg] -> MP m Arguments
+toArguments :: MonadFail m => [Arg] -> MP m Arguments
 toArguments = foldM addArg (Arguments mempty OM.empty)
  where
    addArg args (KeyValArg ident e) = do
@@ -839,7 +844,7 @@ toArguments = foldM addArg (Arguments mempty OM.empty)
      val <- pInnerContents ms
      pure $ args{ positional = positional args ++ [VContent val] }
 
-addIdentifier :: EvaluateM m => Identifier -> Val -> MP m ()
+addIdentifier :: MonadFail m => Identifier -> Val -> MP m ()
 addIdentifier ident val = do
   identifiers <- evalIdentifiers <$> getState
   case identifiers of
@@ -847,7 +852,7 @@ addIdentifier ident val = do
     ((s,i):is) -> updateState $ \st -> st{
                 evalIdentifiers = (s, M.insert ident val i) : is }
 
-updateIdentifier :: EvaluateM m => Identifier -> Val -> MP m ()
+updateIdentifier :: MonadFail m => Identifier -> Val -> MP m ()
 updateIdentifier ident val = do
   let go (True, is) (s,m) = pure (True, (s,m):is)
       go (False, is) (s,m) =
@@ -862,26 +867,26 @@ updateIdentifier ident val = do
      else fail $ show ident <> " not defined"
 
 -- When we open a block, we add a new identifiers map.
-openBlock :: EvaluateM m => Scope -> MP m ()
+openBlock :: MonadFail m => Scope -> MP m ()
 openBlock scope =
   updateState $ \st -> st{
     evalIdentifiers = (scope, mempty) : evalIdentifiers st }
 
-closeBlock :: EvaluateM m => MP m ()
+closeBlock :: MonadFail m => MP m ()
 closeBlock =
   updateState $ \st -> st{
     evalIdentifiers = drop 1 (evalIdentifiers st) }
 
-inBlock :: EvaluateM m => Scope -> MP m a -> MP m a
+inBlock :: MonadFail m => Scope -> MP m a -> MP m a
 inBlock scope pa = openBlock scope *> pa <* closeBlock
 
-updateExpression :: EvaluateM m => Expr -> Val -> MP m ()
+updateExpression :: MonadFail m => Expr -> Val -> MP m ()
 updateExpression e val =
   case e of
     Ident i -> updateIdentifier i val
     _ -> fail $ "Cannot update expression " <> show e
 
-toSelector :: EvaluateM m => Val -> MP m Selector
+toSelector :: MonadFail m => Val -> MP m Selector
 toSelector (VSelector s) = pure s
 toSelector (VFunction (Just name) _ _) = pure $ SelectElement name []
 toSelector (VString t) = pure $ SelectString t

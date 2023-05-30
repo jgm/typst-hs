@@ -106,31 +106,31 @@ makeTextElement mbNamespace name =
   go _ x = fail $ "Unexpected argument: " <> show x
 
 makeFunction ::
-  (forall m'. EvaluateM m' => ReaderT Arguments (MP m') Val) -> Val
+  (forall m'. MonadFail m' => ReaderT Arguments (MP m') Val) -> Val
 makeFunction f = VFunction Nothing mempty $ Function $ runReaderT f
 
 makeFunctionWithScope ::
-  (forall m'. EvaluateM m' => ReaderT Arguments (MP m') Val)
+  (forall m'. MonadFail m' => ReaderT Arguments (MP m') Val)
   -> M.Map Identifier Val -> Val
 makeFunctionWithScope f m = VFunction Nothing m $ Function $ runReaderT f
 
-nthArg :: (EvaluateM m, FromVal a) =>
+nthArg :: (MonadFail m, FromVal a) =>
           Int -> ReaderT Arguments (MP m) a
 nthArg num = getPositional (num - 1) >>= fromVal
 
-getPositional :: EvaluateM m => Int -> ReaderT Arguments (MP m) Val
+getPositional :: MonadFail m => Int -> ReaderT Arguments (MP m) Val
 getPositional idx = do
   xs <- asks positional
   if idx >= length xs
      then pure VNone
      else pure $ xs !! idx
 
-getNamed :: EvaluateM m => Identifier -> ReaderT Arguments (MP m) (Maybe Val)
+getNamed :: MonadFail m => Identifier -> ReaderT Arguments (MP m) (Maybe Val)
 getNamed ident = do
   m <- asks named
   pure $ OM.lookup ident m
 
-namedArg :: (EvaluateM m, FromVal a) =>
+namedArg :: (MonadFail m, FromVal a) =>
   Identifier -> ReaderT Arguments (MP m) a
 namedArg ident@(Identifier ident') = do
   mbval <- getNamed ident
@@ -138,7 +138,7 @@ namedArg ident@(Identifier ident') = do
     Just val -> fromVal val
     Nothing -> fail $ "named argument " <> T.unpack ident' <> " not defined"
 
-allArgs :: EvaluateM m => ReaderT Arguments (MP m) [Val]
+allArgs :: MonadFail m => ReaderT Arguments (MP m) [Val]
 allArgs = asks positional
 
 makeSymbolMap :: [(Text, Bool, Text)] -> M.Map Identifier Symbol

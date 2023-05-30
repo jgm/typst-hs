@@ -27,7 +27,6 @@ module Typst.Types (
   , Scope(..)
   , FlowDirective(..)
   , EvalState(..)
-  , EvaluateM(..)
   , ShowRule(..)
   , Counter(..)
   , LUnit(..)
@@ -43,6 +42,7 @@ module Typst.Types (
   , prettyVal
   , valToContent
   , repr
+  , Attempt(..)
 )
 where
 import Text.Read (readMaybe)
@@ -63,14 +63,12 @@ import Data.Scientific (floatingOrInteger)
 import Data.String
 import Typst.Syntax (Identifier(..), Markup)
 import Text.Parsec
-import qualified Data.Text.IO as TIO
 import Control.Monad.State
 import Data.Aeson (FromJSON, parseJSON)
 import qualified Data.Aeson as Aeson
 import qualified Text.PrettyPrint as P
 import Typst.Regex (RE, makeLiteralRE)
-import System.IO (stderr)
-import qualified Data.ByteString.Lazy as BL
+import qualified Data.ByteString as BS
 
 data Val =
     VNone
@@ -464,7 +462,7 @@ instance Ord Content where
 instance IsString Content where
   fromString x = Txt (T.pack x)
 
-newtype Function = Function (forall m. EvaluateM m => Arguments -> MP m Val)
+newtype Function = Function (forall m. MonadFail m => Arguments -> MP m Val)
   deriving (Typeable)
 
 instance Show Function where
@@ -472,26 +470,6 @@ instance Show Function where
 
 instance Eq Function where
   _ == _ = False
-
-class Monad m => EvaluateM m where
-  loadFileLazyBytes :: FilePath -> m BL.ByteString
-  loadFileText :: FilePath -> m Text
-  issueWarning :: Text -> m ()
-
-instance EvaluateM IO where
-  loadFileLazyBytes = BL.readFile
-  loadFileText = TIO.readFile
-  issueWarning = TIO.hPutStrLn stderr
-
-instance EvaluateM m => EvaluateM (StateT s m) where
-  loadFileLazyBytes fp = lift (loadFileLazyBytes fp)
-  loadFileText fp = lift (loadFileText fp)
-  issueWarning msg = lift (issueWarning msg)
-
-instance EvaluateM (Either String) where
-  loadFileLazyBytes _ = Left "cannot interact with the file system"
-  loadFileText _ = Left "cannot interact with the file system"
-  issueWarning _ = Right ()
 
 data Scope =
   FunctionScope | BlockScope
@@ -501,7 +479,7 @@ data FlowDirective =
   FlowNormal | FlowBreak | FlowContinue | FlowReturn Bool
   deriving (Show, Ord, Eq)
 
-data EvalState =
+data EvalState m =
   EvalState
   { evalIdentifiers :: [(Scope, M.Map Identifier Val)]
      -- first item is current block, then superordinate block, etc.
@@ -509,16 +487,38 @@ data EvalState =
   , evalMath :: Bool
   , evalShowRules :: [ShowRule]
   , evalFlowDirective :: FlowDirective
+  , evalLoadBytes :: FilePath -> m BS.ByteString
   }
-  deriving (Show)
+
+data Attempt a =
+  Success a | Failure String
+  deriving (Show, Eq, Ord, Typeable)
+
+instance Functor Attempt where
+  fmap f (Success x) = Success (f x)
+  fmap _ (Failure s) = Failure s
+
+instance Applicative Attempt where
+  pure = Success
+  (Success f) <*> (Success a) = Success (f a)
+  Failure s <*> _ = Failure s
+  _ <*> Failure s = Failure s
+
+instance Monad Attempt where
+  return = pure
+  Failure s >>= _ = Failure s
+  Success x >>= f = f x
+
+instance MonadFail Attempt where
+  fail = Failure
 
 data ShowRule =
-  ShowRule Selector (forall m. EvaluateM m => Content -> MP m (Seq Content))
+  ShowRule Selector (forall m. MonadFail m => Content -> MP m (Seq Content))
 
 instance Show ShowRule where
   show (ShowRule sel _) = "ShowRule " <> show sel <> " <function>"
 
-type MP = ParsecT [Markup] EvalState
+type MP m = ParsecT [Markup] (EvalState m) m
 
 data Arguments = Arguments{
     positional :: [Val]
@@ -757,7 +757,7 @@ toPercent n =
 text :: Text -> P.Doc
 text t = P.text $ T.unpack t
 
-lookupIdentifier :: EvaluateM m => Identifier -> MP m Val
+lookupIdentifier :: MonadFail m => Identifier -> MP m Val
 lookupIdentifier ident = do
   let go [] = fail $ show ident <> " not found"
       go ((_,i):is) = case M.lookup ident i of

@@ -26,9 +26,16 @@ import Text.Pandoc.Walk
 import Control.Monad.Reader
 import qualified Data.Map as M
 import Data.Maybe (fromMaybe, isNothing)
-import Debug.Trace (trace)
 
-type P = ParsecT [Content] ()
+contentToPandoc :: Monad m => (Text -> m ()) -> Seq Content -> m (Either ParseError B.Pandoc)
+contentToPandoc warn' = runParserT pPandoc warn' "" . F.toList
+
+type P m a = ParsecT [Content] (Text -> m ()) m a
+
+warn :: Monad m => Text -> P m ()
+warn msg = do
+  warn' <- getState
+  lift $ warn' msg
 
 data AttachmentStyle = Limits | Scripts
   deriving (Eq, Show)
@@ -111,9 +118,9 @@ handleBlock tok =
     Elt "parbreak" _ _ -> pure mempty
     Elt "block" _ fields ->
       B.divWith ("",[],[]) <$> (getField "body" fields >>= pWithContents pBlocks)
-    Elt "place" pos fields ->
-      trace "Ignoring parameters of place\n" $
-        handleBlock (Elt "block" pos fields)
+    Elt "place" pos fields -> do
+      warn "Ignoring parameters of place"
+      handleBlock (Elt "block" pos fields)
     Elt "columns" _ fields -> do
       (cnt :: Integer) <- getField "count" fields
       B.divWith ("",["columns-flow"],[("count", T.pack (show cnt))])
@@ -166,9 +173,11 @@ handleBlock tok =
              zip (map toAlign (V.toList v) ++ repeat B.AlignDefault)
                      (replicate numcols B.ColWidthDefault)
           VFunction _ _ f -> do
-            aligns <- mapM (\colnum -> either fail (pure . toAlign) $
-                              applyPureFunction f
-                               [VInteger colnum, VInteger 0])
+            aligns <- mapM (\colnum ->
+                              case applyPureFunction f
+                                      [VInteger colnum, VInteger 0] of
+                                Success x -> pure $ toAlign x
+                                Failure e -> fail e)
                         [0..(fromIntegral numcols - 1)]
             pure $ zip aligns (replicate numcols B.ColWidthDefault)
           _ -> pure $ replicate numcols (B.AlignDefault, B.ColWidthDefault)
@@ -201,14 +210,16 @@ handleBlock tok =
             case numStyle of
               VString t -> formatNumber t (fromIntegral n)
               VFunction _ _ f ->
-                either (const "?")
-                  toText (applyPureFunction f [VInteger n])
+                case applyPureFunction f [VInteger n] of
+                  Success x -> toText x
+                  Failure _ -> "?"
               _ -> "?"
       pure $ B.plain . B.text . mconcat . map toNum $ V.toList nums
     Elt "footnote.entry" _ fields ->
       getField "body" fields >>= pWithContents pBlocks
-    Elt (Identifier tname) _ _ ->
-      trace ("Skipping unknown block element " <> T.unpack tname <> "\n") (pure mempty)
+    Elt (Identifier tname) _ _ -> do
+      warn ("Skipping unknown block element " <> tname)
+      pure mempty
 
 pPara :: Monad m => P m B.Blocks
 pPara =
@@ -298,7 +309,9 @@ pMath = pTok (const True) >>= handleMath
 handleMath :: Monad m => Content -> P m Exp
 handleMath tok =
   case tok of
-    Lab t -> trace ("skipping label " <> T.unpack t) (pure (EGrouped []))
+    Lab t -> do
+      warn ("skipping label " <> t)
+      pure (EGrouped [])
     Txt t
       | T.any isDigit t -> pure $ ENumber t
       | T.length t == 1 ->
@@ -535,10 +548,12 @@ handleMath tok =
     Elt "table" pos fields -> handleMath (Elt "grid" pos fields)
     Elt "link" _ fields -> do
       body <- getField "body" fields
-      trace "hyperlinks not supported in math" $ pMathGrouped body
+      warn "Hyperlinks not supported in math"
+      pMathGrouped body
     Elt (Identifier name) _ fields -> do
       body <- getField "body" fields `mplus` pure mempty
-      trace ("ignoring unsupported " <> T.unpack name) $ pMathGrouped body
+      warn ("Ignoring unsupported " <> name)
+      pMathGrouped body
 
 arrayDelims :: Monad m => M.Map Identifier Val -> P m (Text, Text)
 arrayDelims fields = do
@@ -659,8 +674,9 @@ handleInline tok =
       src <- case dest of
                VString t -> pure t
                VLabel t -> pure $ "#" <> t
-               VDict _ ->
-                 trace "Unable to link to location, linking to #" $ pure "#"
+               VDict _ -> do
+                 warn "Unable to link to location, linking to #"
+                 pure "#"
                _ -> fail $ "Expected string or label for dest"
       body <- getField "body" fields
       B.link src "" <$> pWithContents pInlines body
@@ -678,11 +694,9 @@ handleInline tok =
     Elt "box" _ fields -> do
       body <- getField "body" fields
       B.spanWith ("",["box"],[]) <$> pWithContents pInlines body
-    Elt (Identifier tname) _ _ ->
-      trace ("Skipping unknown inline element " <> T.unpack tname <> "\n") (pure mempty)
-
-contentToPandoc :: Monad m => Seq Content -> m (Either ParseError B.Pandoc)
-contentToPandoc = runParserT pPandoc () "" . F.toList
+    Elt (Identifier tname) _ _ -> do
+      warn ("Skipping unknown inline element " <> tname)
+      pure mempty
 
 modString :: (Text -> Text) -> B.Inline -> B.Inline
 modString f (B.Str t) = B.Str (f t)

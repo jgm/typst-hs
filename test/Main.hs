@@ -12,6 +12,8 @@ import qualified Data.Text as T
 import qualified Data.Text.Encoding as TE
 import qualified Data.ByteString.Lazy as BL
 import Text.Show.Pretty (ppShow)
+import qualified Data.ByteString as BS
+import System.IO (stderr)
 
 main :: IO ()
 main = defaultMain =<< goldenTests
@@ -45,14 +47,14 @@ writeTest input = do
        case parseResult of
          Left e -> pure $ fromText $ T.pack $ show e
          Right parsed -> do
-           evalResult <- evaluateTypst input parsed
+           evalResult <- evaluateTypst BS.readFile input parsed
            let parseOutput = "--- parse tree ---\n" <> T.pack (ppShow parsed) <> "\n"
            case evalResult of
              Left e -> pure $ fromText $
                parseOutput <> T.pack (show e)
              Right cs -> do
                let evalOutput = "--- evaluated ---\n" <> repr (VContent cs) <> "\n"
-               pandocResult <- contentToPandoc cs
+               pandocResult <- contentToPandoc (TIO.hPutStr stderr) cs
                case pandocResult of
                  Left e -> pure $ fromText $
                    parseOutput <> evalOutput <> T.pack (show e)

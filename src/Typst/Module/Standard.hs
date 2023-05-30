@@ -5,6 +5,7 @@
 {-# LANGUAGE OverloadedLists #-}
 module Typst.Module.Standard (
     standardModule
+  , loadFileText
   ) where
 
 import Text.Read (readMaybe)
@@ -18,10 +19,11 @@ import Typst.Module.Emoji (typstEmojis)
 import Typst.Module.Calc (calcModule)
 import Typst.Util
 import Data.Maybe (mapMaybe)
-import Text.Parsec (getPosition, updateState)
+import Text.Parsec (getPosition, updateState, getState)
 import qualified Data.Map as M
 import qualified Data.Map.Ordered as OM
 import qualified Data.Text as T
+import qualified Data.Text.Encoding as TE
 import qualified Data.Vector as V
 import Data.Ratio ((%))
 import Data.Text (Text)
@@ -328,35 +330,45 @@ hexToRGB (VString s) = do
 
 hexToRGB _ = fail "expected string"
 
+loadFileLazyBytes :: MonadFail m => FilePath -> MP m BL.ByteString
+loadFileLazyBytes fp = do
+  loadBytes <- evalLoadBytes <$> getState
+  lift $ BL.fromStrict <$> loadBytes fp
+
+loadFileText :: MonadFail m => FilePath -> MP m T.Text
+loadFileText fp = do
+  loadBytes <- evalLoadBytes <$> getState
+  lift $ TE.decodeUtf8 <$> loadBytes fp
+
 dataLoading :: [(Identifier, Val)]
 dataLoading =
   [ ("csv", makeFunction $ do
         fp <- nthArg 1
-        bs <- lift . lift $ loadFileLazyBytes fp
+        bs <- lift $ loadFileLazyBytes fp
         case Csv.decode Csv.NoHeader bs of
           Left e -> fail e
           Right (v :: V.Vector (V.Vector String))
                  -> pure $ VArray $ V.map (VArray . V.map (VString . T.pack)) v)
   , ("json", makeFunction $ do
         fp <- nthArg 1
-        bs <- lift . lift $ loadFileLazyBytes fp
+        bs <- lift $ loadFileLazyBytes fp
         case Aeson.eitherDecode bs of
           Left e -> fail e
           Right (v :: Val) -> pure v)
   , ("yaml", makeFunction $ do
         fp <- nthArg 1
-        bs <- lift . lift $ loadFileLazyBytes fp
+        bs <- lift $ loadFileLazyBytes fp
         case Yaml.decodeEither' (BL.toStrict bs) of
           Left e -> fail $ show e
           Right (v :: Val) -> pure v)
   , ("read", makeFunction $ do
         fp <- nthArg 1
-        t <- lift . lift $ loadFileText fp
+        t <- lift $ loadFileText fp
         pure $ VString t)
   , ("toml", makeFunction $ fail "unimplemented toml")
   , ("xml", makeFunction $ do
         fp <- nthArg 1
-        bs <- lift . lift $ loadFileLazyBytes fp
+        bs <- lift $ loadFileLazyBytes fp
         case XML.parseLBS XML.def bs of
           Left e -> fail $ show e
           Right doc -> pure $ VArray $ V.fromList $ mapMaybe nodeToVal
