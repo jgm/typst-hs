@@ -23,6 +23,7 @@ import qualified Data.Array as Array
 import Data.Text (Text)
 import qualified Data.Text as T
 import Data.Typeable (Typeable)
+import Control.Monad.Except (MonadError(throwError))
 -- import Debug.Trace
 
 data RE = RE !Text !Regex
@@ -64,8 +65,8 @@ replaceRegex (RE _ re) mbCount replaceFn strIn =
       slice pos len = T.take len . T.drop pos
   in go 0 matches
 
-makeRE :: MonadFail m => Text -> m RE
-makeRE t = RE t' <$> either fail pure
+makeRE :: MonadError String m => Text -> m RE
+makeRE t = RE t' <$> either throwError pure
                       (TDFA.compile compopts TDFA.defaultExecOpt t')
  where
    (caseSensitive, t') =
@@ -93,7 +94,7 @@ match (RE _ re) t = TDFA.match re t
 matchAll :: TDFA.RegexLike Regex source => RE -> source -> [TDFA.MatchArray]
 matchAll (RE _ re) t = TDFA.matchAll re t
 
-makeLiteralRE :: MonadFail m => Text -> m RE
+makeLiteralRE :: MonadError String m => Text -> m RE
 makeLiteralRE t
   | T.null t = makeRE ".{0,0}" -- experimentally behaves as typst does
   | otherwise = makeRE $ T.foldl go mempty t

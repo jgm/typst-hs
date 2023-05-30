@@ -1,3 +1,4 @@
+{-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE RankNTypes #-}
@@ -35,6 +36,7 @@ import qualified Data.Aeson as Aeson
 import qualified Text.XML as XML
 import qualified Data.Yaml as Yaml
 import qualified Data.ByteString.Lazy as BL
+import Control.Monad.Except (MonadError(throwError))
 
 standardModule :: M.Map Identifier Val
 standardModule = M.fromList $
@@ -82,7 +84,7 @@ textual =
           VContent cs -> do
             pos <- lift getPosition
             pure $ VContent . Seq.singleton $ Elt "lower" (Just pos) [("text", VContent cs)]
-          _ -> fail "argument must be string or content")
+          _ -> throwError "argument must be string or content")
   , ("upper", makeFunction $ do
         val <- nthArg 1
         case val of
@@ -90,7 +92,7 @@ textual =
           VContent cs -> do
             pos <- lift getPosition
             pure $ VContent . Seq.singleton $ Elt "upper" (Just pos) [("text", VContent cs)]
-          _ -> fail "argument must be string or content")
+          _ -> throwError "argument must be string or content")
   ]
 
 layout :: [(Identifier, Val)]
@@ -218,21 +220,21 @@ foundations =
         (cond :: Bool) <- nthArg 1
         unless cond $ do
           (msg :: String) <- namedArg "message" <|> pure "Assertion failed"
-          fail msg
+          throwError msg
         pure VNone)
       [("eq", makeFunction $ do
            (v1 :: Val) <- nthArg 1
            (v2 :: Val) <- nthArg 2
-           unless (comp v1 v2 == Just EQ) $ fail "Assertion failed"
+           unless (comp v1 v2 == Just EQ) $ throwError "Assertion failed"
            pure VNone)
       ,("ne", makeFunction $ do
            (v1 :: Val) <- nthArg 1
            (v2 :: Val) <- nthArg 2
-           unless (comp v1 v2 /= Just EQ) $ fail "Assertion failed"
+           unless (comp v1 v2 /= Just EQ) $ throwError "Assertion failed"
            pure VNone)
       ]
     )
-  , ("panic", makeFunction $ allArgs >>= fail . unlines . map show)
+  , ("panic", makeFunction $ allArgs >>= throwError . unlines . map show)
   , ("repr", makeFunction $ nthArg 1 >>= pure . VString . repr)
   , ("type", makeFunction $ do
         (x :: Val) <- nthArg 1
@@ -289,7 +291,7 @@ construct =
             (\case
                 VArray [VString k, VString v] ->
                   pure (Set.fromList (T.split (=='.') k), v)
-                _ -> fail "wrong type in symbol arguments")
+                _ -> throwError "wrong type in symbol arguments")
             vs
         pure $ VSymbol $ Symbol t False variants)
   , ("lorem", makeFunction $ do
@@ -308,12 +310,12 @@ loremWords = cycle $ T.words $
   \ sunt in culpa qui officia deserunt mollit anim id est laborum."
 
 
-toRatio :: MonadFail m => Val -> m Rational
+toRatio :: MonadError String m => Val -> m Rational
 toRatio (VRatio r) = pure r
 toRatio (VInteger i) = pure $ i % 255
-toRatio _ = fail "cannot convert to rational"
+toRatio _ = throwError "cannot convert to rational"
 
-hexToRGB :: MonadFail m => Val -> m Color
+hexToRGB :: MonadError String m => Val -> m Color
 hexToRGB (VString s) = do
   let s' = T.dropWhile (== '#') s
   parts <- map (fmap (% 255) . readMaybe . T.unpack . ("0x" <>)) <$>
@@ -322,20 +324,20 @@ hexToRGB (VString s) = do
          4 -> pure $ T.chunksOf 1 s'
          6 -> pure $ T.chunksOf 2 s'
          8 -> pure $ T.chunksOf 2 s'
-         _ -> fail "hex string must be 3, 4, 6, or 8 digits"
+         _ -> throwError "hex string must be 3, 4, 6, or 8 digits"
   case parts of
     [Just r, Just g, Just b] -> pure $ RGB r g b 1.0
     [Just r, Just g, Just b, Just o] -> pure $ RGB r g b o
-    _ -> fail "could not read string as hex color"
+    _ -> throwError "could not read string as hex color"
 
-hexToRGB _ = fail "expected string"
+hexToRGB _ = throwError "expected string"
 
-loadFileLazyBytes :: MonadFail m => FilePath -> MP m BL.ByteString
+loadFileLazyBytes :: MonadError String m => FilePath -> MP m BL.ByteString
 loadFileLazyBytes fp = do
   loadBytes <- evalLoadBytes <$> getState
   lift $ BL.fromStrict <$> loadBytes fp
 
-loadFileText :: MonadFail m => FilePath -> MP m T.Text
+loadFileText :: MonadError String m => FilePath -> MP m T.Text
 loadFileText fp = do
   loadBytes <- evalLoadBytes <$> getState
   lift $ TE.decodeUtf8 <$> loadBytes fp
@@ -346,31 +348,31 @@ dataLoading =
         fp <- nthArg 1
         bs <- lift $ loadFileLazyBytes fp
         case Csv.decode Csv.NoHeader bs of
-          Left e -> fail e
+          Left e -> throwError e
           Right (v :: V.Vector (V.Vector String))
                  -> pure $ VArray $ V.map (VArray . V.map (VString . T.pack)) v)
   , ("json", makeFunction $ do
         fp <- nthArg 1
         bs <- lift $ loadFileLazyBytes fp
         case Aeson.eitherDecode bs of
-          Left e -> fail e
+          Left e -> throwError e
           Right (v :: Val) -> pure v)
   , ("yaml", makeFunction $ do
         fp <- nthArg 1
         bs <- lift $ loadFileLazyBytes fp
         case Yaml.decodeEither' (BL.toStrict bs) of
-          Left e -> fail $ show e
+          Left e -> throwError $ show e
           Right (v :: Val) -> pure v)
   , ("read", makeFunction $ do
         fp <- nthArg 1
         t <- lift $ loadFileText fp
         pure $ VString t)
-  , ("toml", makeFunction $ fail "unimplemented toml")
+  , ("toml", makeFunction $ throwError "unimplemented toml")
   , ("xml", makeFunction $ do
         fp <- nthArg 1
         bs <- lift $ loadFileLazyBytes fp
         case XML.parseLBS XML.def bs of
-          Left e -> fail $ show e
+          Left e -> throwError $ show e
           Right doc -> pure $ VArray $ V.fromList $ mapMaybe nodeToVal
                             [ XML.NodeElement (XML.documentRoot doc) ]
            where

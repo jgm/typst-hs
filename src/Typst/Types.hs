@@ -1,4 +1,6 @@
 {-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE RankNTypes #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE OverloadedLists #-}
@@ -42,7 +44,6 @@ module Typst.Types (
   , prettyVal
   , valToContent
   , repr
-  , Attempt(..)
 )
 where
 import Text.Read (readMaybe)
@@ -69,6 +70,7 @@ import qualified Data.Aeson as Aeson
 import qualified Text.PrettyPrint as P
 import Typst.Regex (RE, makeLiteralRE)
 import qualified Data.ByteString as BS
+import Control.Monad.Except (MonadError, throwError)
 
 data Val =
     VNone
@@ -179,7 +181,7 @@ hasType (t1 :|: t2) v = hasType t1 v || hasType t2 v
 hasType t v = t == valType v
 
 class FromVal a where
-  fromVal :: (MonadPlus m, MonadFail m) => Val -> m a
+  fromVal :: (MonadPlus m, MonadError String m) => Val -> m a
 
 instance FromVal Val where
   fromVal = pure
@@ -192,11 +194,11 @@ instance FromVal Text where
      where
       go (Txt t) = pure t
       go (Elt "text" _ fs) =
-        maybe (fail "text element has no body")
+        maybe (throwError "text element has no body")
           fromVal (M.lookup "body" fs)
-      go _ = fail "not a text element"
+      go _ = throwError "not a text element"
   fromVal (VString t) = pure t
-  fromVal _ = fail "not a string or content value"
+  fromVal _ = throwError "not a string or content value"
 
 instance FromVal String where
   fromVal = fmap T.unpack . fromVal
@@ -204,7 +206,7 @@ instance FromVal String where
 instance FromVal RE where
   fromVal (VString t) = makeLiteralRE t
   fromVal (VRegex re) = pure re
-  fromVal _ = fail "not a string or regex"
+  fromVal _ = throwError "not a string or regex"
 
 instance FromVal Integer where
   fromVal val =
@@ -214,7 +216,7 @@ instance FromVal Integer where
       VRatio x -> pure $ floor x
       VBoolean x -> pure $ if x then 1 else 0
       VString x | Just (xint :: Integer) <- readMaybe (T.unpack x) -> pure xint
-      _ -> fail $ "Cannot convert " <> show val <> " to integer"
+      _ -> throwError $ "Cannot convert " <> show val <> " to integer"
 
 instance FromVal Int where
   fromVal val = (fromIntegral :: Integer -> Int) <$> fromVal val
@@ -225,7 +227,7 @@ instance FromVal Rational where
       VRatio x -> pure x
       VInteger x -> pure $ fromIntegral x
       VString x | Just (xrat :: Rational) <- readMaybe (T.unpack x) -> pure xrat
-      _ -> fail $ "Cannot convert " <> show val <> " to rational"
+      _ -> throwError $ "Cannot convert " <> show val <> " to rational"
 
 instance FromVal Double where
   fromVal val =
@@ -234,24 +236,24 @@ instance FromVal Double where
       VFloat x -> pure x
       VRatio x -> pure $ fromRational x
       VString x | Just (xdb :: Double) <- readMaybe (T.unpack x) -> pure xdb
-      _ -> fail $ "Cannot convert " <> show val <> " to double"
+      _ -> throwError $ "Cannot convert " <> show val <> " to double"
 
 instance FromVal Bool where
   fromVal (VBoolean b) = pure b
-  fromVal val = fail $ "Cannot convert " <> show val <> " to boolean"
+  fromVal val = throwError $ "Cannot convert " <> show val <> " to boolean"
 
 instance FromVal Length where
   fromVal (VLength x) = pure x
   fromVal (VRatio x) = pure $ LRatio x
-  fromVal val = fail $ "Cannot convert " <> show val <> " to length"
+  fromVal val = throwError $ "Cannot convert " <> show val <> " to length"
 
 instance FromVal Function where
   fromVal (VFunction _ _ f) = pure f
-  fromVal val = fail $ show val <> " is not a function"
+  fromVal val = throwError $ show val <> " is not a function"
 
 instance FromVal Direction where
   fromVal (VDirection d) = pure d
-  fromVal val = fail $ show val <> " is not a direction"
+  fromVal val = throwError $ show val <> " is not a direction"
 
 instance FromVal Counter where
   fromVal (VString t) = pure $ CounterCustom t
@@ -259,11 +261,11 @@ instance FromVal Counter where
   fromVal (VFunction (Just "page") _ _) = pure $ CounterPage
   fromVal (VFunction (Just name) _ _) = pure $ CounterSelector $ SelectElement name []
   fromVal (VSelector s) = pure $ CounterSelector s
-  fromVal val = fail $ show val <> " is not a counter"
+  fromVal val = throwError $ show val <> " is not a counter"
 
 instance FromVal Selector where
   fromVal (VSelector s) = pure s
-  fromVal val = fail $ show val <> " is not a selector"
+  fromVal val = throwError $ show val <> " is not a selector"
 
 instance FromVal a => FromVal (Maybe a) where
   fromVal VNone = pure Nothing
@@ -271,7 +273,7 @@ instance FromVal a => FromVal (Maybe a) where
 
 instance FromVal a => FromVal (Vector a) where
   fromVal (VArray v) = V.mapM fromVal v
-  fromVal val = fail $ "Could not convert " <> show val <> " to array"
+  fromVal val = throwError $ "Could not convert " <> show val <> " to array"
 
 data Selector =
     SelectElement Identifier [(Identifier, Val)]
@@ -291,7 +293,7 @@ data Symbol =
   , symVariants :: [(Set.Set Text, Text)] }
   deriving (Show, Eq, Typeable)
 
-joinVals :: MonadFail m => Val -> Val -> m Val
+joinVals :: MonadError String m => Val -> Val -> m Val
 joinVals = go
  where
    go VNone v = pure v
@@ -302,7 +304,7 @@ joinVals = go
    go (VContent cs) (VString t) = pure $ VContent (cs Seq.|> Txt t)
    go (VContent cs) (VContent cs') = pure $ VContent (cs <> cs')
    go (VArray vec) (VArray vec') = pure $ VArray (vec <> vec')
-   go accum v = fail $ "Can't combine " <> show accum <> " and " <> show v
+   go accum v = throwError $ "Can't combine " <> show accum <> " and " <> show v
 
 class Compare a where
   comp :: a -> a -> Maybe Ordering
@@ -462,7 +464,7 @@ instance Ord Content where
 instance IsString Content where
   fromString x = Txt (T.pack x)
 
-newtype Function = Function (forall m. MonadFail m => Arguments -> MP m Val)
+newtype Function = Function (forall m. MonadError String m => Arguments -> MP m Val)
   deriving (Typeable)
 
 instance Show Function where
@@ -490,30 +492,8 @@ data EvalState m =
   , evalLoadBytes :: FilePath -> m BS.ByteString
   }
 
-data Attempt a =
-  Success a | Failure String
-  deriving (Show, Eq, Ord, Typeable)
-
-instance Functor Attempt where
-  fmap f (Success x) = Success (f x)
-  fmap _ (Failure s) = Failure s
-
-instance Applicative Attempt where
-  pure = Success
-  (Success f) <*> (Success a) = Success (f a)
-  Failure s <*> _ = Failure s
-  _ <*> Failure s = Failure s
-
-instance Monad Attempt where
-  return = pure
-  Failure s >>= _ = Failure s
-  Success x >>= f = f x
-
-instance MonadFail Attempt where
-  fail = Failure
-
 data ShowRule =
-  ShowRule Selector (forall m. MonadFail m => Content -> MP m (Seq Content))
+  ShowRule Selector (forall m. MonadError String m => Content -> MP m (Seq Content))
 
 instance Show ShowRule where
   show (ShowRule sel _) = "ShowRule " <> show sel <> " <function>"
@@ -535,16 +515,16 @@ instance Monoid Arguments where
   mempty :: Arguments
   mempty = Arguments mempty OM.empty
 
-getPositionalArg :: (MonadFail m, MonadPlus m, FromVal a) => Int -> Arguments -> m a
+getPositionalArg :: (MonadError String m, MonadPlus m, FromVal a) => Int -> Arguments -> m a
 getPositionalArg idx args =
   if length (positional args) < idx
-     then fail "Not enough arguments"
+     then throwError "Not enough arguments"
      else fromVal (positional args !! (idx - 1))
 
-getNamedArg :: (MonadFail m, MonadPlus m, FromVal a) => Identifier -> Arguments -> m a
+getNamedArg :: (MonadError String m, MonadPlus m, FromVal a) => Identifier -> Arguments -> m a
 getNamedArg ident@(Identifier name) args =
   case OM.lookup ident (named args) of
-    Nothing -> fail $ "No argument named " <> T.unpack name
+    Nothing -> throwError $ "No argument named " <> T.unpack name
     Just v -> fromVal v
 
 data Counter =
@@ -757,9 +737,9 @@ toPercent n =
 text :: Text -> P.Doc
 text t = P.text $ T.unpack t
 
-lookupIdentifier :: MonadFail m => Identifier -> MP m Val
+lookupIdentifier :: MonadError String m => Identifier -> MP m Val
 lookupIdentifier ident = do
-  let go [] = fail $ show ident <> " not found"
+  let go [] = throwError $ show ident <> " not found"
       go ((_,i):is) = case M.lookup ident i of
                         Just v -> pure v
                         Nothing -> go is

@@ -88,7 +88,7 @@ executable typst-hs
         base,
         typst,
         parsec,
-        mtl,
+        mtl >= 2.3.1,
         vector,
         containers,
         text >= 2,
@@ -109,6 +109,7 @@ test-suite typst-test
     build-depends:
         base,
         typst,
+        mtl >= 2.3.1,
         text >= 2,
         bytestring,
         filepath,

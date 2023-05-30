@@ -1,3 +1,4 @@
+{-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE OverloadedStrings #-}
 module Main (main) where
 import Typst.Evaluate ( evaluateTypst )
@@ -14,6 +15,7 @@ import qualified Data.ByteString.Lazy as BL
 import Text.Show.Pretty (ppShow)
 import qualified Data.ByteString as BS
 import System.IO (stderr)
+import Control.Monad.Except (modifyError)
 
 main :: IO ()
 main = defaultMain =<< goldenTests
@@ -32,6 +34,9 @@ runTest input =
         ("test/out" <> drop 8 (replaceExtension input ".out"))
         (writeTest input)
 
+readBytes :: FilePath -> IO BS.ByteString
+readBytes fp = modifyError show (BS.readFile fp)
+
 writeTest :: FilePath -> IO BL.ByteString
 writeTest input = do
   let fromText = BL.fromStrict . TE.encodeUtf8 . (<> "\n")
@@ -47,7 +52,7 @@ writeTest input = do
        case parseResult of
          Left e -> pure $ fromText $ T.pack $ show e
          Right parsed -> do
-           evalResult <- evaluateTypst BS.readFile input parsed
+           evalResult <- evaluateTypst readBytes input parsed
            let parseOutput = "--- parse tree ---\n" <> T.pack (ppShow parsed) <> "\n"
            case evalResult of
              Left e -> pure $ fromText $

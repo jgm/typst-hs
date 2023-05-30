@@ -3,6 +3,7 @@
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE OverloadedLists #-}
+{-# LANGUAGE FlexibleContexts #-}
 module Typst.Pandoc (
     contentToPandoc
 ) where
@@ -26,13 +27,14 @@ import Text.Pandoc.Walk
 import Control.Monad.Reader
 import qualified Data.Map as M
 import Data.Maybe (fromMaybe, isNothing)
+import Control.Monad.Except (MonadError)
 
-contentToPandoc :: Monad m => (Text -> m ()) -> Seq Content -> m (Either ParseError B.Pandoc)
+contentToPandoc :: MonadError String m => (Text -> m ()) -> Seq Content -> m (Either ParseError B.Pandoc)
 contentToPandoc warn' = runParserT pPandoc warn' "" . F.toList
 
 type P m a = ParsecT [Content] (Text -> m ()) m a
 
-warn :: Monad m => Text -> P m ()
+warn :: MonadError String m => Text -> P m ()
 warn msg = do
   warn' <- getState
   lift $ warn' msg
@@ -40,23 +42,23 @@ warn msg = do
 data AttachmentStyle = Limits | Scripts
   deriving (Eq, Show)
 
-getField :: (MonadFail m, MonadPlus m, FromVal a) =>
+getField :: (MonadError String m, MonadPlus m, FromVal a) =>
             Identifier -> M.Map Identifier Val -> m a
 getField name fields = fromVal $ fromMaybe VNone $ M.lookup name fields
 
-pPandoc :: Monad m => P m B.Pandoc
+pPandoc :: MonadError String m => P m B.Pandoc
 pPandoc = B.doc <$> pBlocks
 
-pBlocks :: Monad m => P m B.Blocks
+pBlocks :: MonadError String m => P m B.Blocks
 pBlocks = mconcat <$> many pBlock
 
-pBlock :: Monad m => P m B.Blocks
+pBlock :: MonadError String m => P m B.Blocks
 pBlock = pPara <|> pBlockElt
 
-pBlockElt :: Monad m => P m B.Blocks
+pBlockElt :: MonadError String m => P m B.Blocks
 pBlockElt = pTok isBlock >>= handleBlock
 
-handleBlock :: Monad m => Content -> P m B.Blocks
+handleBlock :: MonadError String m => Content -> P m B.Blocks
 handleBlock tok =
   case tok of
     Txt{} -> fail "pBlockElt encountered Txt"
@@ -176,8 +178,8 @@ handleBlock tok =
             aligns <- mapM (\colnum ->
                               case applyPureFunction f
                                       [VInteger colnum, VInteger 0] of
-                                Success x -> pure $ toAlign x
-                                Failure e -> fail e)
+                                Right x -> pure $ toAlign x
+                                Left e -> fail e)
                         [0..(fromIntegral numcols - 1)]
             pure $ zip aligns (replicate numcols B.ColWidthDefault)
           _ -> pure $ replicate numcols (B.AlignDefault, B.ColWidthDefault)
@@ -205,14 +207,14 @@ handleBlock tok =
     Elt "numbering" _ fields -> do
       numStyle <- getField "numbering" fields
       (nums :: V.Vector Integer) <- getField "numbers" fields
-      let toText v = fromMaybe "" $ fromVal v
+      let toText v = either (const "") id $ fromVal v
       let toNum n =
             case numStyle of
               VString t -> formatNumber t (fromIntegral n)
               VFunction _ _ f ->
                 case applyPureFunction f [VInteger n] of
-                  Success x -> toText x
-                  Failure _ -> "?"
+                  Right x -> toText x
+                  Left _ -> "?"
               _ -> "?"
       pure $ B.plain . B.text . mconcat . map toNum $ V.toList nums
     Elt "footnote.entry" _ fields ->
@@ -221,11 +223,11 @@ handleBlock tok =
       warn ("Skipping unknown block element " <> tname)
       pure mempty
 
-pPara :: Monad m => P m B.Blocks
+pPara :: MonadError String m => P m B.Blocks
 pPara =
   B.para . B.trimInlines . mconcat <$> (many1 pInline <* optional pParBreak)
 
-pTok :: Monad m => (Content -> Bool) -> P m Content
+pTok :: MonadError String m => (Content -> Bool) -> P m Content
 pTok f = tokenPrim show showPos match
  where
    showPos _oldpos (Elt _ (Just pos) _) _ = pos
@@ -233,7 +235,7 @@ pTok f = tokenPrim show showPos match
    match x | f x = Just x
    match _ = Nothing
 
-pParBreak :: Monad m => P m ()
+pParBreak :: MonadError String m => P m ()
 pParBreak = () <$ pTok (\case
                            Elt "parbreak" _ _ -> True
                            _  -> False)
@@ -283,7 +285,7 @@ isBlock (Elt name _ fields) =
     "yaml" -> True
     _ -> False
 
-pWithContents :: Monad m => P m a -> Seq Content -> P m a
+pWithContents :: MonadError String m => P m a -> Seq Content -> P m a
 pWithContents pa cs = do
   inp <- getInput
   setInput $ F.toList cs
@@ -295,7 +297,7 @@ withGroup :: [Exp] -> Exp
 withGroup [x] = x
 withGroup xs = EGrouped xs
 
-getAttachmentStyle :: Monad m => M.Map Identifier Val -> P m (Maybe AttachmentStyle)
+getAttachmentStyle :: MonadError String m => M.Map Identifier Val -> P m (Maybe AttachmentStyle)
 getAttachmentStyle fields = do
   (base :: Seq Content) <- getField "base" fields
   case base of
@@ -303,10 +305,10 @@ getAttachmentStyle fields = do
     [Elt "scripts" _ _] -> pure $ Just Scripts
     _ -> pure Nothing
 
-pMath :: Monad m => P m Exp
+pMath :: MonadError String m => P m Exp
 pMath = pTok (const True) >>= handleMath
 
-handleMath :: Monad m => Content -> P m Exp
+handleMath :: MonadError String m => Content -> P m Exp
 handleMath tok =
   case tok of
     Lab t -> do
@@ -555,7 +557,7 @@ handleMath tok =
       warn ("Ignoring unsupported " <> name)
       pMathGrouped body
 
-arrayDelims :: Monad m => M.Map Identifier Val -> P m (Text, Text)
+arrayDelims :: MonadError String m => M.Map Identifier Val -> P m (Text, Text)
 arrayDelims fields = do
   (mbdelim :: Maybe Text) <- getField "delim" fields
   pure $ case mbdelim of
@@ -566,7 +568,7 @@ arrayDelims fields = do
     Just "||" -> ( "\8741", "\8741" )
     _ -> ( "(", ")" )
 
-pMathMany :: Monad m => Seq Content -> P m [Exp]
+pMathMany :: MonadError String m => Seq Content -> P m [Exp]
 pMathMany cs = do
   -- check for "alignpoint" and "linebreak" elements
   -- and use an array structure for alignment
@@ -580,7 +582,7 @@ pMathMany cs = do
       let cols = take numcols $ AlignRight : cycle [AlignLeft, AlignRight]
       pure [EArray cols rows]
 
-pMathGrouped :: Monad m => Seq Content -> P m Exp
+pMathGrouped :: MonadError String m => Seq Content -> P m Exp
 pMathGrouped = fmap withGroup . pMathMany
 
 splitOnLinebreaks :: Seq Content -> [Seq Content]
@@ -611,13 +613,13 @@ isAlignpoint :: Content -> Bool
 isAlignpoint (Elt "math.alignpoint" _ _) = True
 isAlignpoint _ = False
 
-pInlines :: Monad m => P m B.Inlines
+pInlines :: MonadError String m => P m B.Inlines
 pInlines = mconcat <$> many pInline
 
-pInline :: Monad m => P m B.Inlines
+pInline :: MonadError String m => P m B.Inlines
 pInline = pTok (not . isBlock) >>= handleInline
 
-handleInline :: Monad m => Content -> P m B.Inlines
+handleInline :: MonadError String m => Content -> P m B.Inlines
 handleInline tok =
   case tok of
     Txt t -> pure $ B.text t
