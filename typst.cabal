@@ -16,7 +16,17 @@ build-type:         Simple
 extra-doc-files:    CHANGELOG.md
 extra-source-files: test/typ/**/*.typ
                     test/out/**/*.out
-                    test/assets/*
+                    test/assets/files/*.png
+                    test/assets/files/*.jpg
+                    test/assets/files/*.bib
+                    test/assets/files/*.csv
+                    test/assets/files/*.json
+                    test/assets/files/*.svg
+                    test/assets/files/*.toml
+                    test/assets/files/*.xml
+                    test/assets/files/*.txt
+                    test/assets/files/*.yaml
+                    test/assets/files/*.html
 
 common warnings
     ghc-options: -Wall
