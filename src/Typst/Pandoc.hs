@@ -22,6 +22,7 @@ import Text.TeXMath (writeTeX)
 import Text.TeXMath.Types (Exp(..), FractionType(..), TextType(..),
                            TeXSymbolType(..), Alignment(..))
 import Text.TeXMath.Unicode.ToTeX (getSymbolType)
+import Text.TeXMath.Shared (getSpaceChars)
 import Text.Pandoc.Walk
 import Control.Monad.Reader
 import qualified Data.Map as M
@@ -696,6 +697,14 @@ handleInline tok =
     Elt "box" _ fields -> do
       body <- getField "body" fields
       B.spanWith ("",["box"],[]) <$> pWithContents pInlines body
+    Elt "h" _ fields -> do
+      amount <- getField "amount" fields
+      let em = case amount of
+                 LExact x LEm -> toRational x
+                 _ -> case amount <> LExact 0 LPt of -- force to Pt
+                        LExact x LPt -> toRational x / 12
+                        _ -> 1/3 -- guess!
+      pure $ B.text $ getSpaceChars em
     Elt (Identifier tname) _ _ -> do
       warn ("Skipping unknown inline element " <> tname)
       pure mempty
