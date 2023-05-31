@@ -15,7 +15,8 @@
                     , ( Literal (Boolean True)
                       , Block
                           (Content
-                             [ Text "\10060("
+                             [ Text "\10060"
+                             , Text "("
                              , Code
                                  "test/typ/math/underover-01.typ"
                                  ( line 1 , column 47 )

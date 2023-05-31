@@ -15,7 +15,8 @@
                     , ( Literal (Boolean True)
                       , Block
                           (Content
-                             [ Text "\10060("
+                             [ Text "\10060"
+                             , Text "("
                              , Code
                                  "test/typ/compiler/bench-00.typ"
                                  ( line 1 , column 47 )
@@ -217,7 +218,8 @@
                , Text "2019"
                ]
            , Space
-           , Text "(bis"
+           , Text "("
+           , Text "bis"
            , Space
            , Text "10"
            , Text ":"
@@ -262,7 +264,8 @@
        (Ident (Identifier "align"))
        [ NormalArg (Ident (Identifier "right"))
        , BlockArg
-           [ Text "(1"
+           [ Text "("
+           , Text "1"
            , Space
            , Text "+"
            , Space
@@ -356,7 +359,8 @@
 , Space
 , Text "l\228ngsten"
 , Space
-, Text "(absteigenden)"
+, Text "("
+, Text "absteigenden)"
 , Space
 , Text "Weges"
 , SoftBreak

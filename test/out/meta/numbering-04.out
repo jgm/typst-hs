@@ -15,7 +15,8 @@
                     , ( Literal (Boolean True)
                       , Block
                           (Content
-                             [ Text "\10060("
+                             [ Text "\10060"
+                             , Text "("
                              , Code
                                  "test/typ/meta/numbering-04.typ"
                                  ( line 1 , column 47 )
@@ -53,7 +54,7 @@
                  [ NormalArg (Literal (String "\12452"))
                  , NormalArg (Ident (Identifier "i"))
                  ]
-             , Block (Content [ Space , Text "(or" , Space ])
+             , Block (Content [ Space , Text "(" , Text "or" , Space ])
              , FuncCall
                  (Ident (Identifier "numbering"))
                  [ NormalArg (Literal (String "\12356"))
@@ -92,7 +93,7 @@
                  [ NormalArg (Literal (String "\12452"))
                  , NormalArg (Ident (Identifier "i"))
                  ]
-             , Block (Content [ Space , Text "(or" , Space ])
+             , Block (Content [ Space , Text "(" , Text "or" , Space ])
              , FuncCall
                  (Ident (Identifier "numbering"))
                  [ NormalArg (Literal (String "\12356"))

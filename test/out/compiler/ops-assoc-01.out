@@ -15,7 +15,8 @@
                     , ( Literal (Boolean True)
                       , Block
                           (Content
-                             [ Text "\10060("
+                             [ Text "\10060"
+                             , Text "("
                              , Code
                                  "test/typ/compiler/ops-assoc-01.typ"
                                  ( line 1 , column 47 )
@@ -69,11 +70,15 @@
 , Text "ok"
 , Quote '"'
 , SoftBreak
-, Text "test(x,"
+, Text "test"
+, Text "("
+, Text "x,"
 , Space
 , Text "none)"
 , SoftBreak
-, Text "test(y,"
+, Text "test"
+, Text "("
+, Text "y,"
 , Space
 , Quote '"'
 , Text "ok"

@@ -15,7 +15,8 @@
                     , ( Literal (Boolean True)
                       , Block
                           (Content
-                             [ Text "\10060("
+                             [ Text "\10060"
+                             , Text "("
                              , Code
                                  "test/typ/text/deco-01.typ"
                                  ( line 1 , column 47 )
@@ -98,7 +99,9 @@
 , Text "things"
 , Text "."
 , SoftBreak
-, Text "underline()"
+, Text "underline"
+, Text "("
+, Text ")"
 , ParBreak
 ]
 --- evaluated ---

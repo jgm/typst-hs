@@ -15,7 +15,8 @@
                     , ( Literal (Boolean True)
                       , Block
                           (Content
-                             [ Text "\10060("
+                             [ Text "\10060"
+                             , Text "("
                              , Code
                                  "test/typ/layout/columns-00.typ"
                                  ( line 1 , column 47 )
@@ -91,7 +92,8 @@
 , Text "\1575\1604\1603\1610\1605\1610\1575\1574\1610\1577"
 , Text "."
 , Space
-, Text "(DNA)"
+, Text "("
+, Text "DNA)"
 , Space
 , Text "\1605\1606"
 , Space

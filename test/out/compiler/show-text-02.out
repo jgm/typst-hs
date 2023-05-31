@@ -15,7 +15,8 @@
                     , ( Literal (Boolean True)
                       , Block
                           (Content
-                             [ Text "\10060("
+                             [ Text "\10060"
+                             , Text "("
                              , Code
                                  "test/typ/compiler/show-text-02.typ"
                                  ( line 1 , column 47 )
@@ -53,7 +54,8 @@
 , SoftBreak
 , Text "AA"
 , Space
-, Text "(8)"
+, Text "("
+, Text "8)"
 , ParBreak
 ]
 --- evaluated ---

@@ -15,7 +15,8 @@
                     , ( Literal (Boolean True)
                       , Block
                           (Content
-                             [ Text "\10060("
+                             [ Text "\10060"
+                             , Text "("
                              , Code
                                  "test/typ/coma-00.typ"
                                  ( line 1 , column 47 )
@@ -164,7 +165,8 @@
                , Text "2019"
                ]
            , Space
-           , Text "(bis"
+           , Text "("
+           , Text "bis"
            , Space
            , Text "10"
            , Text ":"
@@ -203,7 +205,8 @@
     (FuncCall
        (Ident (Identifier "h")) [ NormalArg (Literal (Numeric 1.0 Fr)) ])
 , Space
-, Text "(1"
+, Text "("
+, Text "1"
 , Space
 , Text "+"
 , Space
@@ -295,7 +298,8 @@
 , Space
 , Text "l\228ngsten"
 , Space
-, Text "(absteigenden)"
+, Text "("
+, Text "absteigenden)"
 , Space
 , Text "Weges"
 , SoftBreak

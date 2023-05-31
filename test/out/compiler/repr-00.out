@@ -15,7 +15,8 @@
                     , ( Literal (Boolean True)
                       , Block
                           (Content
-                             [ Text "\10060("
+                             [ Text "\10060"
+                             , Text "("
                              , Code
                                  "test/typ/compiler/repr-00.typ"
                                  ( line 1 , column 47 )
@@ -50,7 +51,8 @@
     ( line 4 , column 2 )
     (Literal None)
 , Space
-, Text "(empty)"
+, Text "("
+, Text "empty)"
 , Space
 , HardBreak
 , Code

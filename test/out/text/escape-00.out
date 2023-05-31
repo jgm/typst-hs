@@ -15,7 +15,8 @@
                     , ( Literal (Boolean True)
                       , Block
                           (Content
-                             [ Text "\10060("
+                             [ Text "\10060"
+                             , Text "("
                              , Code
                                  "test/typ/text/escape-00.typ"
                                  ( line 1 , column 47 )
@@ -127,7 +128,9 @@
 , Comment
 , Text "let"
 , Space
-, Text "f()"
+, Text "f"
+, Text "("
+, Text ")"
 , Space
 , Text ","
 , Space

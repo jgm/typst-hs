@@ -3,7 +3,7 @@ build:
 .PHONY: build
 
 test:
-	cabal test --disable-optimization --test-options="--hide-successes --ansi-tricks=false"
+	cabal test --disable-optimization --test-options="--hide-successes --ansi-tricks=false $(TESTARGS)"
 .PHONY: test
 
 run:
