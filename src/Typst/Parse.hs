@@ -512,10 +512,8 @@ pNonspaceWithBalancedBrackets parens brackets braces =
   <|>
   ((:) <$> (guard (braces > 0) *> char '}') *> pNonspaceWithBalancedBrackets parens brackets (braces - 1))
   <|>
-  (:) <$> noneOf " \t\r\n()[]{}"
-      <*> pNonspaceWithBalancedBrackets parens brackets braces
-  <|>
-  pure []
+  (:) <$> noneOf " \t\r\n()[]{}" <*> pNonspaceWithBalancedBrackets parens brackets braces
+  <|> pure []
 
 pText :: P Markup
 pText = Text . T.pack
@@ -617,6 +615,7 @@ isSpecial '/' = True
 isSpecial ':' = True
 isSpecial '~' = True
 isSpecial '=' = True
+isSpecial '(' = True -- so we don't gobble ( before URLs
 isSpecial _ = False
 
 pIdentifier :: P Identifier
