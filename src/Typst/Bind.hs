@@ -1,5 +1,4 @@
 {-# LANGUAGE RankNTypes #-}
-{-# LANGUAGE FlexibleContexts #-}
 module Typst.Bind
   ( destructuringBind )
 where
@@ -9,10 +8,9 @@ import Control.Monad.State
 import qualified Data.Map.Ordered as OM
 import qualified Data.Vector as V
 import Data.Maybe (fromMaybe)
-import Control.Monad.Except (MonadError)
 
 destructuringBind
-  :: MonadError String m => (forall m'. MonadError String m' => Identifier -> Val -> MP m' ())
+  :: Monad m => (forall m'. Monad m' => Identifier -> Val -> MP m' ())
   -> [BindPart] -> Val -> MP m ()
 destructuringBind setIdentifier parts val = do
   let isSink Sink{} = True
@@ -31,7 +29,7 @@ destructuringBind setIdentifier parts val = do
      _ -> fail "Only Array or Dictionary values can be destructured"
 
 destructureDict
-  :: MonadError String m => (forall m'. MonadError String m' => Identifier -> Val -> MP m' ())
+  :: Monad m => (forall m'. Monad m' => Identifier -> Val -> MP m' ())
   -> [BindPart] -> [BindPart] -> Maybe Identifier
   -> StateT (OM.OMap Identifier Val) (MP m) ()
 destructureDict setIdentifier fronts backs mbsink = do
@@ -40,7 +38,7 @@ destructureDict setIdentifier fronts backs mbsink = do
     Just i -> get >>= lift . setIdentifier i . VDict
     Nothing -> pure ()
  where
-   handleDictBind :: MonadError String m => BindPart -> StateT (OM.OMap Identifier Val) (MP m) ()
+   handleDictBind :: Monad m => BindPart -> StateT (OM.OMap Identifier Val) (MP m) ()
    handleDictBind (Sink{}) = fail "Bind cannot contain multiple sinks"
    handleDictBind (Simple Nothing) = pure ()
    handleDictBind (Simple (Just i)) = do
@@ -61,7 +59,7 @@ destructureDict setIdentifier fronts backs mbsink = do
          lift $ setIdentifier (fromMaybe key mbident) v
 
 destructureArray
-  :: MonadError String m => (forall m'. MonadError String m' => Identifier -> Val -> MP m' ())
+  :: Monad m => (forall m'. Monad m' => Identifier -> Val -> MP m' ())
   -> [BindPart] -> [BindPart] -> Maybe Identifier
   -> StateT (V.Vector Val) (MP m) ()
 destructureArray setIdentifier fronts backs mbsink = do
@@ -71,7 +69,7 @@ destructureArray setIdentifier fronts backs mbsink = do
     Just i -> get >>= lift . setIdentifier i . VArray
     Nothing -> pure ()
  where
-   handleFrontBind :: MonadError String m => BindPart -> StateT (V.Vector Val) (MP m) ()
+   handleFrontBind :: Monad m => BindPart -> StateT (V.Vector Val) (MP m) ()
    handleFrontBind (Sink{}) = fail "Bind cannot contain multiple sinks"
    handleFrontBind (WithKey{}) = fail "Cannot destructure array with key"
    handleFrontBind (Simple mbi) = do
@@ -84,7 +82,7 @@ destructureArray setIdentifier fronts backs mbsink = do
            Nothing -> pure ()
            Just i -> lift $ setIdentifier i x
 
-   handleBackBind :: MonadError String m => BindPart -> StateT (V.Vector Val) (MP m) ()
+   handleBackBind :: Monad m => BindPart -> StateT (V.Vector Val) (MP m) ()
    handleBackBind (Sink{}) = fail "Bind cannot contain multiple sinks"
    handleBackBind (WithKey{}) = fail "Cannot destructure array with key"
    handleBackBind (Simple mbi) = do

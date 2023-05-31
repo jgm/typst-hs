@@ -1,5 +1,4 @@
 {-# LANGUAGE RankNTypes #-}
-{-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# OPTIONS_GHC  -fsimpl-tick-factor=140 #-}
@@ -14,18 +13,18 @@ import qualified Data.Text as T
 import qualified Data.Map as M
 import Typst.Syntax
 import Typst.Types
+import Typst.Regex (makeLiteralRE)
 import Control.Monad.State
 import Text.Parsec ( (<|>), getState, updateState )
-import Typst.Regex (RE(..), makeLiteralRE)
+import Typst.Regex (RE(..))
 import qualified Text.Regex.TDFA as TDFA
-import Control.Monad.Except (MonadError(throwError))
 
-applyShowRules :: MonadError String m => Seq Content -> MP m (Seq Content)
+applyShowRules :: Monad m => Seq Content -> MP m (Seq Content)
 applyShowRules cs = do
   rules <- evalShowRules <$> getState
   foldM (tryShowRules rules) mempty cs
 
-withoutShowRule :: MonadError String m => Selector -> MP m a -> MP m a
+withoutShowRule :: Monad m => Selector -> MP m a -> MP m a
 withoutShowRule selector pa = do
   oldShowRules <- evalShowRules <$> getState
   updateState $ \st -> st{ evalShowRules =
@@ -38,7 +37,7 @@ withoutShowRule selector pa = do
 -- By experiment, it seems that show rules work this way:
 -- the first (i.e. most recently defined) one to match a given element
 -- are applied first.
-tryShowRules :: MonadError String m =>
+tryShowRules :: Monad m =>
   [ShowRule] -> Seq Content -> Content -> MP m (Seq Content)
 tryShowRules [] cs c = pure $ cs Seq.|> c
 tryShowRules (ShowRule sel f : rs) cs c =
@@ -60,13 +59,13 @@ tryShowRules (ShowRule sel f : rs) cs c =
      , fieldsMatch fields fields'
      -> withoutShowRule sel $ (cs <>) <$> (f elt >>= applyShowRules)
    (SelectOr _sel1 _sel2, _elt) ->
-     throwError "or is not yet implemented for select"
+     fail "or is not yet implemented for select"
    (SelectAnd _sel1 _sel2, _elt) ->
-     throwError "and is not yet implemented for select"
+     fail "and is not yet implemented for select"
    (SelectBefore _sel1 _sel2, _elt) ->
-     throwError "before is not yet implemented for select"
+     fail "before is not yet implemented for select"
    (SelectAfter _sel1 _sel2, _elt) ->
-     throwError "after is not yet implemented for select"
+     fail "after is not yet implemented for select"
    _ -> tryShowRules rs cs c
 
 fieldsMatch :: [(Identifier, Val)] -> (M.Map Identifier Val) -> Bool
@@ -76,9 +75,9 @@ fieldsMatch ((k,v):rest) m =
        Just v' -> v == v'
        Nothing -> False) && fieldsMatch rest m
 
-replaceRegexContent :: MonadError String m =>
+replaceRegexContent :: Monad m =>
   RE -> Text
-  -> (forall m'. MonadError String m' => Content -> MP m' (Seq Content))
+  -> (forall m'. Monad m' => Content -> MP m' (Seq Content))
   -> MP m (Seq Content)
 replaceRegexContent (RE _ re) strIn f =
   let matches = map (! 0) (TDFA.matchAll re strIn)

@@ -1,4 +1,3 @@
-{-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE OverloadedLists #-}
 {-# LANGUAGE RankNTypes #-}
@@ -27,7 +26,6 @@ import qualified Data.Map as M
 import qualified Data.Map.Ordered as OM
 import qualified Data.Vector as V
 import Text.Parsec (getPosition)
-import Control.Monad.Except (MonadError)
 
 data TypeSpec =
   One ValType | Many ValType
@@ -107,31 +105,31 @@ makeTextElement mbNamespace name =
   go _ x = fail $ "Unexpected argument: " <> show x
 
 makeFunction ::
-  (forall m'. MonadError String m' => ReaderT Arguments (MP m') Val) -> Val
+  (forall m'. Monad m' => ReaderT Arguments (MP m') Val) -> Val
 makeFunction f = VFunction Nothing mempty $ Function $ runReaderT f
 
 makeFunctionWithScope ::
-  (forall m'. MonadError String m' => ReaderT Arguments (MP m') Val)
+  (forall m'. Monad m' => ReaderT Arguments (MP m') Val)
   -> M.Map Identifier Val -> Val
 makeFunctionWithScope f m = VFunction Nothing m $ Function $ runReaderT f
 
-nthArg :: (MonadError String m, FromVal a) =>
+nthArg :: (Monad m, FromVal a) =>
           Int -> ReaderT Arguments (MP m) a
 nthArg num = getPositional (num - 1) >>= fromVal
 
-getPositional :: MonadError String m => Int -> ReaderT Arguments (MP m) Val
+getPositional :: Monad m => Int -> ReaderT Arguments (MP m) Val
 getPositional idx = do
   xs <- asks positional
   if idx >= length xs
      then pure VNone
      else pure $ xs !! idx
 
-getNamed :: MonadError String m => Identifier -> ReaderT Arguments (MP m) (Maybe Val)
+getNamed :: Monad m => Identifier -> ReaderT Arguments (MP m) (Maybe Val)
 getNamed ident = do
   m <- asks named
   pure $ OM.lookup ident m
 
-namedArg :: (MonadError String m, FromVal a) =>
+namedArg :: (Monad m, FromVal a) =>
   Identifier -> ReaderT Arguments (MP m) a
 namedArg ident@(Identifier ident') = do
   mbval <- getNamed ident
@@ -139,7 +137,7 @@ namedArg ident@(Identifier ident') = do
     Just val -> fromVal val
     Nothing -> fail $ "named argument " <> T.unpack ident' <> " not defined"
 
-allArgs :: MonadError String m => ReaderT Arguments (MP m) [Val]
+allArgs :: Monad m => ReaderT Arguments (MP m) [Val]
 allArgs = asks positional
 
 makeSymbolMap :: [(Text, Bool, Text)] -> M.Map Identifier Symbol

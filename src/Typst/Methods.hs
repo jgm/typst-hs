@@ -1,5 +1,4 @@
 {-# LANGUAGE TupleSections #-}
-{-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE OverloadedStrings #-}
@@ -28,15 +27,14 @@ import Typst.Regex (replaceRegex, splitRegex, match, matchAll,
                     makeRE, RE(..), RegexMatch(..), extract)
 import qualified Data.Array as Array
 import Text.Parsec (runParserT, updateState, getState)
-import Control.Monad.Except (MonadError(throwError))
 -- import Debug.Trace
 
-getMethod :: MonadError String m =>
-  (forall n. MonadError String n => Val -> MP n ()) -> Val -> Text -> m Val
+getMethod :: MonadFail m =>
+  (forall n. Monad n => Val -> MP n ()) -> Val -> Text -> m Val
 getMethod updateVal val fld = do
-  let methodUnimplemented name = throwError $ "Method " <> show name <>
+  let methodUnimplemented name = fail $ "Method " <> show name <>
         " is not yet implemented"
-  let noMethod typename name = throwError $ typename <>
+  let noMethod typename name = fail $ typename <>
         " does not have a method " <> show name
   case val of
     VDict m ->
@@ -77,7 +75,7 @@ getMethod updateVal val fld = do
                 pure oldval
         _ -> case OM.lookup (Identifier fld) m of
                Just x -> pure x
-               Nothing -> throwError $ show (Identifier fld) <> " not found"
+               Nothing -> fail $ show (Identifier fld) <> " not found"
 
     VColor col ->
       case fld of
@@ -111,11 +109,11 @@ getMethod updateVal val fld = do
           pure $ makeFunction $ pure $ VInteger (fromIntegral $ T.length t)
         "first" ->
           if T.null t
-             then throwError "string is empty"
+             then fail "string is empty"
              else pure $ makeFunction $ pure $ VString $ T.take 1 t
         "last" ->
           if T.null t
-             then throwError "string is empty"
+             then fail "string is empty"
              else pure $ makeFunction $ pure $ VString $ T.takeEnd 1 t
         "at" ->
           pure $ makeFunction $ do
@@ -199,7 +197,7 @@ getMethod updateVal val fld = do
                                    ("end", VInteger (fromIntegral end)),
                                    ("text", VString txt),
                                    ("captures", VArray (V.fromList (map VString captures)))]] of
-                            Right (VString s) -> s
+                            Success (VString s) -> s
                             _ -> "")
                        t
                  _ -> fail "replacement must be string or function"
@@ -250,8 +248,8 @@ getMethod updateVal val fld = do
                 case newval of
                   VFunction _ _ fn ->
                     case applyPureFunction fn [VInteger num] of
-                      Left e -> fail e
-                      Right v -> fromVal v
+                      Failure e -> fail e
+                      Success v -> fromVal v
                   _ -> fromVal newval
               lift $ updateState $ \st ->
                 st{ evalCounters = M.adjust (const newnum) key $ evalCounters st }
@@ -297,7 +295,7 @@ getMethod updateVal val fld = do
           case F.toList cs of
             [Txt t] -> pure $ VString t
             [Elt "text" _ [("body", VContent [Txt t])]] -> pure $ VString t
-            _ -> throwError "Content is not a single text element"
+            _ -> fail "Content is not a single text element"
 
         _ ->
           let childrenOrFallback =
@@ -564,15 +562,15 @@ getMethod updateVal val fld = do
 pairToArray :: (Val, Val) -> Val
 pairToArray (x,y) = VArray $ V.fromList [x,y]
 
-applyPureFunction :: Function -> [Val] -> Either String Val
+applyPureFunction :: Function -> [Val] -> Attempt Val
 applyPureFunction (Function f) vals =
   let args = Arguments vals OM.empty
   in case runParserT (f args) initialEvalState "" [] of
-        Left s -> Left s
-        Right (Left s) -> Left $ show s
-        Right (Right v) -> Right v
+        Failure s -> Failure s
+        Success (Left s) -> Failure $ show s
+        Success (Right v) -> Success v
 
-initialEvalState :: MonadError String m => EvalState m
+initialEvalState :: MonadFail m => EvalState m
 initialEvalState =
   EvalState
   { evalIdentifiers = [(BlockScope , standardModule)]
