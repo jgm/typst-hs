@@ -67,5 +67,22 @@
 , RawBlock "" "#set text(blue)\nBlue #move(dy: -0.15em)[\127754]\n"
 , ParBreak
 ]
-"test/typ/compute/foundations-16.typ" (line 2, column 2):
-Content is not a single text element or FieldAccess requires a dictionary
+--- evaluated ---
+{ [
+], 
+  parbreak(), 
+  [Interacting
+], 
+  text(body: { text(body: [
+Blue ], 
+                    color: rgb(0%,45%,85%,100%)), 
+               move(body: text(body: [🌊], 
+                               color: rgb(0%,45%,85%,100%)), 
+                    dy: -0.15em), 
+               parbreak() }, 
+       font: "PT Sans"), 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para [] , Para [ Str "Interacting" , SoftBreak , Str "Blue" ] ]
