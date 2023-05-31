@@ -112,8 +112,6 @@ break-continue-11 (break in set rule...not supported but not crucial)
     academy + h(1fr) + emph(body)
   }
 }))
-* TODO pandoc AST
-* TODO replace trace with warn after integrating into Pandoc
 * TODO in math $|x|$ = lr(|x|) - probably also with others?
 * TODO tests for let bindings
 https://typst.app/docs/reference/scripting/#bindings
