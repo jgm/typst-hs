@@ -1,5 +1,9 @@
 * TEST progress
 ** major things
+*** TODO ugh, body in lr and maybe others can contain unescaped commas?!
+so how is the parser supposed to know we have a single param?
+does the parser need to be aware of elements?
+currently we're DROPPING everything after first comma!
 *** TODO operator precedence?
 #assert(3-4 * 5 < -10)
 *** TODO see how the function replace regex works in string-16
