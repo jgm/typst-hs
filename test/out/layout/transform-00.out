@@ -229,16 +229,16 @@ Pandoc
   , Para
       [ Str "Neither"
       , Space
-      , Str "T"
+      , Str "T\8202"
       , Span ( "" , [ "box" ] , [] ) []
-      , Str "X,"
+      , Str "\8202X,"
       , LineBreak
       , Str "nor"
       , Space
-      , Str "X"
+      , Str "X\8202"
       , Span ( "" , [ "box" ] , [] ) []
-      , Str "T"
+      , Str "\8202T\8202"
       , Span ( "" , [ "box" ] , [] ) []
-      , Str "X!"
+      , Str "\8202X!"
       ]
   ]

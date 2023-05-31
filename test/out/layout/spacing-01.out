@@ -103,13 +103,19 @@ Pandoc
   [ Para
       [ Str "A"
       , Space
+      , Str "\8202"
+      , Space
       , Str "B"
+      , Space
+      , Str "\8202"
       , LineBreak
       , Str "A"
       , Space
       , Str "B"
       , LineBreak
       , Str "A"
+      , Space
+      , Str "\8202\8193"
       , Space
       , Str "B"
       ]

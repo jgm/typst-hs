@@ -87,5 +87,12 @@
 Pandoc
   Meta { unMeta = fromList [] }
   [ Para
-      [ Str "networks," , Space , Str "the" , Space , Str "rest." ]
+      [ Str "\8192"
+      , Space
+      , Str "networks,"
+      , Space
+      , Str "the"
+      , Space
+      , Str "rest."
+      ]
   ]

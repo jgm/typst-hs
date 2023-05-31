@@ -295,9 +295,6 @@ getMethod updateVal val fld = do
           case F.toList cs of
             [Txt t] -> pure $ VString t
             [Elt "text" _ [("body", VContent [Txt t])]] -> pure $ VString t
-            [Elt "raw" n fields] -- preserve formatting but remove lang
-                | Just x <- M.lookup "text" fields ->
-                  pure $ VContent [Elt "raw" n [("text",x)]]
             [Elt _ _ fields]
                 | Just x <- M.lookup "text" fields -> pure x
             _ -> fail "Content is not a single text element"

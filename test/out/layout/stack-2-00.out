@@ -156,6 +156,16 @@ Pandoc
       , Div ( "" , [] , [] ) [ Para [ Str "I" ] ]
       ]
   , Para [ Str "Hello" ]
-  , Para [ Str "from" , Space , Str "the" , Space , Str "wonderful" ]
+  , Para
+      [ Str "from"
+      , Space
+      , Str "\8202\8193"
+      , Space
+      , Str "the"
+      , Space
+      , Str "\8202\8193"
+      , Space
+      , Str "wonderful"
+      ]
   , Para [ Str "World!" , Space , Str "\127757" ]
   ]

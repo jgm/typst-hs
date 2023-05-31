@@ -425,6 +425,8 @@ Pandoc
           , Str "Berlin"
           ]
       , Space
+      , Str "\8202\8193"
+      , Space
       , Strong [ Str "WiSe" , Space , Str "2019/2020" ]
       , LineBreak
       , Strong
@@ -438,6 +440,8 @@ Pandoc
           , Space
           , Str "Mathematik"
           ]
+      , Space
+      , Str "\8202\8193"
       , Space
       , Str "Woche"
       , Space
@@ -506,6 +510,8 @@ Pandoc
       ]
   , Para
       [ Strong [ Str "1." , Space , Str "Aufgabe" ]
+      , Space
+      , Str "\8202\8193"
       , Space
       , Str "(1"
       , Space

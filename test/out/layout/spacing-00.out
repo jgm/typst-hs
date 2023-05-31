@@ -206,9 +206,30 @@ Pandoc
       , Space
       , Span ( "" , [ "box" ] , [] ) [ Str "A" , Space ]
       ]
-  , Para [ Str "Invisible" ]
-  , Para [ Str "Add" , Space , Str "up" ]
-  , Para [ Str "|||||" ]
+  , Para [ Str "Inv\8202isible" ]
   , Para
-      [ Str "|" , Space , Str "|" , Space , Str "|" , Space , Str "|" ]
+      [ Str "Add"
+      , Space
+      , Str "\8192\8196"
+      , Space
+      , Str "\8192\8196"
+      , Space
+      , Str "up"
+      ]
+  , Para [ Str "|\8196|\8196|\8196|\8196|" ]
+  , Para
+      [ Str "|"
+      , Space
+      , Str "\8202\8193"
+      , Space
+      , Str "|"
+      , Space
+      , Str "\8202\8193"
+      , Space
+      , Str "|"
+      , Space
+      , Str "\8202\8193"
+      , Space
+      , Str "|"
+      ]
   ]

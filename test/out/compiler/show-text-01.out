@@ -167,23 +167,29 @@ Pandoc
   , Para
       [ Span
           ( "" , [ "box" ] , [] )
-          [ Str "T" , Span ( "" , [ "box" ] , [] ) [] , Str "X" ]
+          [ Str "T\8202" , Span ( "" , [ "box" ] , [] ) [] , Str "\8202X" ]
       , Str ","
       , Space
       , Span
           ( "" , [ "box" ] , [] )
-          [ Str "LaT" , Span ( "" , [ "box" ] , [] ) [] , Str "X" ]
+          [ Str "LaT\8202" , Span ( "" , [ "box" ] , [] ) [] , Str "\8202X" ]
       , Str ","
       , Space
       , Span
           ( "" , [ "box" ] , [] )
-          [ Str "LuaT" , Span ( "" , [ "box" ] , [] ) [] , Str "X" ]
+          [ Str "LuaT\8202"
+          , Span ( "" , [ "box" ] , [] ) []
+          , Str "\8202X"
+          ]
       , Space
       , Str "and"
       , Space
       , Span
           ( "" , [ "box" ] , [] )
-          [ Str "LuaLaT" , Span ( "" , [ "box" ] , [] ) [] , Str "X" ]
+          [ Str "LuaLaT\8202"
+          , Span ( "" , [ "box" ] , [] ) []
+          , Str "\8202X"
+          ]
       , Str "!"
       ]
   ]

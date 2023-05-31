@@ -165,18 +165,20 @@ Pandoc
       ( "" , [] , [] )
       [ Para
           [ Span ( "" , [ "box" ] , [] ) []
+          , Str "\8192"
           , Underline [ Str "Task" , Space , Str "1" ]
           ]
       ]
   , Para [ Str "Some" , Space , Str "text." ]
   , Div
       ( "" , [] , [] )
-      [ Para [ Span ( "" , [ "box" ] , [] ) [] , Str "Subtask" ] ]
+      [ Para [ Span ( "" , [ "box" ] , [] ) [] , Str "\8192Subtask" ] ]
   , Para [ Str "Some" , Space , Str "more" , Space , Str "text." ]
   , Div
       ( "" , [] , [] )
       [ Para
           [ Span ( "" , [ "box" ] , [] ) []
+          , Str "\8192"
           , Underline [ Str "Task" , Space , Str "2" ]
           ]
       ]

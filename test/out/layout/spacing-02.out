@@ -87,9 +87,13 @@ Pandoc
   [ Para
       [ Str "A"
       , Space
+      , Str "\8192\8196"
+      , Space
       , Str "B"
       , LineBreak
       , Str "A"
+      , Space
+      , Str "\8202\8193"
       , Space
       , Str "B"
       ]

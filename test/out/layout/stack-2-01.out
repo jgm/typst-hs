@@ -108,5 +108,7 @@ Pandoc
   [ Para []
   , Div
       ( "" , [ "rect" ] , [] )
-      [ Para [] , Para [ Str "Hi" , Space , Str "you!" ] ]
+      [ Para []
+      , Para [ Str "\8202\8193" , Space , Str "Hi" , Space , Str "you!" ]
+      ]
   ]

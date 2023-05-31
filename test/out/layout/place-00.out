@@ -296,7 +296,8 @@ Pandoc
               , Div ( "" , [] , [] ) [ Para [ Str "center" ] ]
               , Para []
               , Div ( "" , [] , [] ) [ Para [ Str "center" ] ]
-              , Para [ Str "Hello" , Space , Str "Hello" ]
+              , Para
+                  [ Str "Hello" , Space , Str "\8202\8193" , Space , Str "Hello" ]
               ]
           ]
       ]

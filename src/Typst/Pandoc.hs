@@ -698,7 +698,7 @@ handleInline tok =
       body <- getField "body" fields
       B.spanWith ("",["box"],[]) <$> pWithContents pInlines body
     Elt "h" _ fields -> do
-      amount <- getField "amount" fields
+      amount <- getField "amount" fields `mplus` pure (LExact 1 LEm)
       let em = case amount of
                  LExact x LEm -> toRational x
                  _ -> case amount <> LExact 0 LPt of -- force to Pt
