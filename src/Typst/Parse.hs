@@ -937,7 +937,7 @@ pArg = pKeyValArg <|> pSpreadArg <|> pNormalArg
  where
    pKeyValArg = KeyValArg <$> try (pIdentifier <* sym ":") <*> pExpr
    pNormalArg = NormalArg <$>
-     ((Block . Content . (:[]) <$> (pRawBlock <|> pRawInline)) <|> pExpr)
+     ((Block . Content . (:[]) <$> lexeme (pRawBlock <|> pRawInline)) <|> pExpr)
    pSpreadArg = SpreadArg <$> try (string ".." *> pExpr)
 
 -- params ::= '(' (param (',' param)* ','?)? ')'
