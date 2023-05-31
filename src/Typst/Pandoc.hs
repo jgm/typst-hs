@@ -319,6 +319,8 @@ handleMath tok =
            [c] | not (isAlphaNum c) -> pure $ ESymbol (getSymbolType c) t
            _ -> pure $ EIdentifier t
       | otherwise -> pure $ EText TextNormal t
+    Elt "math.dif" _ _ -> pure $ EIdentifier "d"
+    Elt "math.Dif" _ _ -> pure $ EIdentifier "D"
     Elt "math.equation" _ fields -> getField "body" fields >>= pMathGrouped
     Elt "text" _ fields -> getField "body" fields >>= pMathGrouped
     Elt "math.op" _ fields -> EMathOperator <$> getField "text" fields
