@@ -14,6 +14,7 @@ import Data.Maybe (fromMaybe)
 import Text.Pandoc (writeLaTeX, writeHtml5String, runIOorExplode, WriterOptions(..), def, HTMLMathMethod(..))
 import Text.Pandoc.Templates (compileDefaultTemplate)
 import Typst.Pandoc (contentToPandoc)
+import qualified Data.ByteString as BS
 
 data Opts =
   Opts
@@ -56,7 +57,7 @@ main = do
       when (optShowParse opts || showAll) $ do
         when showAll $ putStrLn "--- parse tree ---"
         pPrint parseResult
-      result <- evaluateTypst "stdin" parseResult
+      result <- evaluateTypst BS.readFile "stdin" parseResult
       case result of
         Left e -> err $ show e
         Right cs -> do
@@ -66,7 +67,7 @@ main = do
           when (optShowRepr opts || showAll) $ do
             when showAll $ putStrLn "--- repr ---"
             TIO.putStrLn $ repr $ VContent cs
-          pandocResult <- contentToPandoc cs
+          pandocResult <- contentToPandoc (TIO.hPutStrLn stderr) cs
           case pandocResult of
             Left e -> err $ show e
             Right pdoc -> do

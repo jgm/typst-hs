@@ -92,6 +92,7 @@ executable typst-hs
         vector,
         containers,
         text >= 2,
+        bytestring,
         pretty-show,
         ordered-containers,
         pandoc-types,

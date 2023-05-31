@@ -1,5 +1,5 @@
 build:
-	cabal build --disable-optimization
+	cabal build --disable-optimization -fexecutable
 .PHONY: build
 
 test:
@@ -7,7 +7,7 @@ test:
 .PHONY: test
 
 run:
-	cabal run --disable-optimization
+	cabal run typst-hs --disable-optimization -fexecutable
 .PHONY: run
 
 pretty-tests.html: build
