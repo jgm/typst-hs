@@ -1,5 +1,10 @@
 * TEST progress
 ** major things
+*** TODO
+#show raw.where(block: false): it => { it.text }
+`hi there`
+"stdin" (line 1, column 2):
+Content is not a single text element or FieldAccess requires a dictionary
 *** TODO operator precedence?
 #assert(3-4 * 5 < -10)
 *** TODO see how the function replace regex works in string-16

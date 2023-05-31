@@ -295,6 +295,8 @@ getMethod updateVal val fld = do
           case F.toList cs of
             [Txt t] -> pure $ VString t
             [Elt "text" _ [("body", VContent [Txt t])]] -> pure $ VString t
+            [Elt _ _ fields]
+                | Just x <- M.lookup "text" fields -> pure x
             _ -> fail "Content is not a single text element"
 
         _ ->
