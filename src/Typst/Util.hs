@@ -100,6 +100,7 @@ makeTextElement mbNamespace name =
              Just ns -> ns <> "." <> name
   go args x@(VContent{}) = pure $ args{ named = insertOM "body" x (named args) }
   go args x@(VString{}) = pure $ args{ named = insertOM "body" x (named args) }
+  go args x@(VSymbol{}) = pure $ args{ named = insertOM "body" x (named args) }
   go args x@(VLength{}) = pure $ args{ named = insertOM "size" x (named args) }
   go args x@(VColor{}) = pure $ args{ named = insertOM "color" x (named args) }
   go _ x = fail $ "Unexpected argument: " <> show x
