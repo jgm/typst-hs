@@ -13,7 +13,6 @@ import qualified Data.Text.Encoding as TE
 import qualified Data.ByteString.Lazy as BL
 import Text.Show.Pretty (ppShow)
 import qualified Data.ByteString as BS
-import System.IO (stderr)
 
 main :: IO ()
 main = defaultMain =<< goldenTests
@@ -54,7 +53,7 @@ writeTest input = do
                parseOutput <> T.pack (show e)
              Right cs -> do
                let evalOutput = "--- evaluated ---\n" <> repr (VContent cs) <> "\n"
-               pandocResult <- contentToPandoc (TIO.hPutStr stderr) cs
+               pandocResult <- contentToPandoc (const (pure ())) cs
                case pandocResult of
                  Left e -> pure $ fromText $
                    parseOutput <> evalOutput <> T.pack (show e)
