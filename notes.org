@@ -1,6 +1,5 @@
 * TEST progress
 ** major things
-*** TODO  In addition to the symbols listed below, math mode defines dif and Dif. These are not normal symbol values because they also affect spacing and font style.
 *** TODO operator precedence?
 #assert(3-4 * 5 < -10)
 *** TODO see how the function replace regex works in string-16
