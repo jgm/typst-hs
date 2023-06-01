@@ -716,6 +716,7 @@ escString :: Text -> P.Doc
 escString =
    P.text . concatMap go . T.unpack
  where
+   go :: Char -> String
    go '"' = "\\\""
    go '\\' = "\\\\"
    go '\n' = "\\n"
