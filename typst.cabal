@@ -51,7 +51,7 @@ library
                       Typst.Module.Calc
     -- other-modules:
     -- other-extensions:
-    build-depends:    base >= 4.12 && <= 5,
+    build-depends:    base >= 4.14 && <= 5,
                       mtl,
                       vector,
                       parsec,
