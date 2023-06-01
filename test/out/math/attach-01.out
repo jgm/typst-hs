@@ -48,16 +48,12 @@
         ( line 5 , column 1 )
         (FuncCall
            (Ident (Identifier "attach"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/math/attach-01.typ"
-                         ( line 5 , column 8 )
-                         (FuncCall
-                            (Ident (Identifier "upright"))
-                            [ NormalArg (Block (Content [ Text "O" ])) ])
-                     ]))
+           [ BlockArg
+               [ Code
+                   "test/typ/math/attach-01.typ"
+                   ( line 5 , column 8 )
+                   (FuncCall (Ident (Identifier "upright")) [ BlockArg [ Text "O" ] ])
+               ]
            , KeyValArg (Identifier "bl") (Block (Content [ Text "8" ]))
            , KeyValArg (Identifier "tl") (Block (Content [ Text "16" ]))
            , KeyValArg (Identifier "br") (Block (Content [ Text "2" ]))
@@ -70,7 +66,7 @@
         ( line 6 , column 1 )
         (FuncCall
            (Ident (Identifier "attach"))
-           [ NormalArg (Block (Content [ Text "Pb" ]))
+           [ BlockArg [ Text "Pb" ]
            , KeyValArg (Identifier "bl") (Block (Content [ Text "82" ]))
            , KeyValArg (Identifier "tl") (Block (Content [ Text "207" ]))
            ])
@@ -80,16 +76,12 @@
         ( line 6 , column 33 )
         (FuncCall
            (Ident (Identifier "attach"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/math/attach-01.typ"
-                         ( line 6 , column 40 )
-                         (FuncCall
-                            (Ident (Identifier "upright"))
-                            [ NormalArg (Block (Content [ Text "e" ])) ])
-                     ]))
+           [ BlockArg
+               [ Code
+                   "test/typ/math/attach-01.typ"
+                   ( line 6 , column 40 )
+                   (FuncCall (Ident (Identifier "upright")) [ BlockArg [ Text "e" ] ])
+               ]
            , KeyValArg
                (Identifier "bl") (Block (Content [ Text "-" , Text "1" ]))
            , KeyValArg (Identifier "tl") (Block (Content [ Text "0" ]))
@@ -101,9 +93,7 @@
         (Code
            "test/typ/math/attach-01.typ"
            ( line 6 , column 69 )
-           (FuncCall
-              (Ident (Identifier "macron"))
-              [ NormalArg (Block (Content [ Text "v" ])) ]))
+           (FuncCall (Ident (Identifier "macron")) [ BlockArg [ Text "v" ] ]))
     , HardBreak
     ]
 , ParBreak

@@ -49,40 +49,31 @@
         ( line 3 , column 7 )
         (FuncCall
            (Ident (Identifier "overbracket"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/math/underover-01.typ"
-                         ( line 4 , column 3 )
-                         (FuncCall
-                            (Ident (Identifier "overline"))
-                            [ NormalArg
-                                (Block
-                                   (Content
-                                      [ Code
-                                          "test/typ/math/underover-01.typ"
-                                          ( line 4 , column 12 )
-                                          (FuncCall
-                                             (Ident (Identifier "underline"))
-                                             [ NormalArg
-                                                 (Block
-                                                    (Content [ Text "x" , Text "+" , Text "y" ]))
-                                             ])
-                                      ]))
-                            ])
-                     ]))
-           , NormalArg
-               (Block
-                  (Content
-                     [ Text "1"
-                     , Text "+"
-                     , Text "2"
-                     , Text "+"
-                     , Text "\8230"
-                     , Text "+"
-                     , Text "5"
-                     ]))
+           [ BlockArg
+               [ Code
+                   "test/typ/math/underover-01.typ"
+                   ( line 4 , column 3 )
+                   (FuncCall
+                      (Ident (Identifier "overline"))
+                      [ BlockArg
+                          [ Code
+                              "test/typ/math/underover-01.typ"
+                              ( line 4 , column 12 )
+                              (FuncCall
+                                 (Ident (Identifier "underline"))
+                                 [ BlockArg [ Text "x" , Text "+" , Text "y" ] ])
+                          ]
+                      ])
+               ]
+           , BlockArg
+               [ Text "1"
+               , Text "+"
+               , Text "2"
+               , Text "+"
+               , Text "\8230"
+               , Text "+"
+               , Text "5"
+               ]
            ])
     ]
 , ParBreak

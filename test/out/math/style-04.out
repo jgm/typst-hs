@@ -48,17 +48,14 @@
         (FuncCall
            (Ident (Identifier "text"))
            [ NormalArg (Ident (Identifier "red"))
-           , NormalArg
-               (Block
-                  (Content [ MAttach Nothing (Just (Text "2")) (Text " time") ]))
+           , BlockArg [ MAttach Nothing (Just (Text "2")) (Text " time") ]
            ])
     , Text "+"
     , Code
         "test/typ/math/style-04.typ"
         ( line 3 , column 25 )
         (FuncCall
-           (Ident (Identifier "sqrt"))
-           [ NormalArg (Block (Content [ Text "place" ])) ])
+           (Ident (Identifier "sqrt")) [ BlockArg [ Text "place" ] ])
     ]
 , ParBreak
 ]

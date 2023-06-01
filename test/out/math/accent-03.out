@@ -47,31 +47,23 @@
         ( line 3 , column 2 )
         (FuncCall
            (Ident (Identifier "sqrt"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/math/accent-03.typ"
-                         ( line 3 , column 7 )
-                         (FuncCall
-                            (Ident (Identifier "tilde"))
-                            [ NormalArg (Block (Content [ Text "T" ])) ])
-                     ]))
+           [ BlockArg
+               [ Code
+                   "test/typ/math/accent-03.typ"
+                   ( line 3 , column 7 )
+                   (FuncCall (Ident (Identifier "tilde")) [ BlockArg [ Text "T" ] ])
+               ]
            ])
     , Text "+"
     , MFrac
         (Code
            "test/typ/math/accent-03.typ"
            ( line 3 , column 19 )
-           (FuncCall
-              (Ident (Identifier "hat"))
-              [ NormalArg (Block (Content [ Text "f" ])) ]))
+           (FuncCall (Ident (Identifier "hat")) [ BlockArg [ Text "f" ] ]))
         (Code
            "test/typ/math/accent-03.typ"
            ( line 3 , column 26 )
-           (FuncCall
-              (Ident (Identifier "hat"))
-              [ NormalArg (Block (Content [ Text "g" ])) ]))
+           (FuncCall (Ident (Identifier "hat")) [ BlockArg [ Text "g" ] ]))
     ]
 , ParBreak
 ]

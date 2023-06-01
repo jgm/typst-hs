@@ -49,9 +49,7 @@
         ( line 3 , column 6 )
         (FuncCall
            (Ident (Identifier "cancel"))
-           [ NormalArg
-               (Block
-                  (Content [ Text "b" , Text "+" , Text "c" , Text "+" , Text "d" ]))
+           [ BlockArg [ Text "b" , Text "+" , Text "c" , Text "+" , Text "d" ]
            , KeyValArg (Identifier "cross") (Literal (Boolean True))
            , KeyValArg (Identifier "stroke") (Ident (Identifier "red"))
            ])
@@ -68,9 +66,7 @@
         ( line 4 , column 7 )
         (FuncCall
            (Ident (Identifier "cancel"))
-           [ NormalArg
-               (Block
-                  (Content [ Text "b" , Text "+" , Text "c" , Text "+" , Text "d" ]))
+           [ BlockArg [ Text "b" , Text "+" , Text "c" , Text "+" , Text "d" ]
            , KeyValArg (Identifier "cross") (Literal (Boolean True))
            ])
     , Text "+"

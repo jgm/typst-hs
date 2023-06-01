@@ -50,21 +50,17 @@
         ( line 3 , column 8 )
         (FuncCall
            (Ident (Identifier "cases"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Text "1"
-                     , Text "+"
-                     , Text "2"
-                     , MAlignPoint
-                     , Text "iff "
-                     , MAlignPoint
-                     , Text "x"
-                     ]))
-           , NormalArg
-               (Block
-                  (Content
-                     [ Text "3" , MAlignPoint , Text "if " , MAlignPoint , Text "y" ]))
+           [ BlockArg
+               [ Text "1"
+               , Text "+"
+               , Text "2"
+               , MAlignPoint
+               , Text "iff "
+               , MAlignPoint
+               , Text "x"
+               ]
+           , BlockArg
+               [ Text "3" , MAlignPoint , Text "if " , MAlignPoint , Text "y" ]
            ])
     ]
 , ParBreak

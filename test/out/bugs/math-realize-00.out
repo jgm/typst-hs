@@ -114,7 +114,7 @@
         ( line 9 , column 7 )
         (FuncCall
            (Ident (Identifier "sqrt"))
-           [ NormalArg (Block (Content [ MFrac (Text "x") (Text "2") ])) ])
+           [ BlockArg [ MFrac (Text "x") (Text "2") ] ])
     , Text "+"
     , Code
         "test/typ/bugs/math-realize-00.typ"
@@ -166,9 +166,7 @@
         ( line 12 , column 3 )
         (FuncCall
            (Ident (Identifier "vec"))
-           [ NormalArg (Block (Content [ Text "1" ]))
-           , NormalArg (Block (Content [ Text "2" ]))
-           ])
+           [ BlockArg [ Text "1" ] , BlockArg [ Text "2" ] ])
     , Text "*"
     , Text "2"
     ]

@@ -60,15 +60,13 @@
                ( line 3 , column 22 )
                (FuncCall
                   (Ident (Identifier "sqrt"))
-                  [ NormalArg
-                      (Block
-                         (Content
-                            [ MAttach Nothing (Just (Text "2")) (Text "b")
-                            , Text "-"
-                            , Text "4"
-                            , Text "a"
-                            , Text "c"
-                            ]))
+                  [ BlockArg
+                      [ MAttach Nothing (Just (Text "2")) (Text "b")
+                      , Text "-"
+                      , Text "4"
+                      , Text "a"
+                      , Text "c"
+                      ]
                   ])
            ])
         (MGroup Nothing Nothing [ Text "2" , Text "a" ])

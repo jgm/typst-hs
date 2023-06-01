@@ -55,9 +55,7 @@
         ( line 4 , column 3 )
         (FuncCall
            (Ident (Identifier "vec"))
-           [ NormalArg (Block (Content [ Text "1" ]))
-           , NormalArg (Block (Content [ Text "2" ]))
-           ])
+           [ BlockArg [ Text "1" ] , BlockArg [ Text "2" ] ])
     ]
 , ParBreak
 ]

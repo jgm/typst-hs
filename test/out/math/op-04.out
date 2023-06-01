@@ -50,18 +50,16 @@
            ( line 3 , column 3 )
            (FuncCall
               (Ident (Identifier "bold"))
-              [ NormalArg
-                  (Block
-                     (Content
-                        [ Code
-                            "test/typ/math/op-04.typ"
-                            ( line 3 , column 8 )
-                            (FuncCall
-                               (Ident (Identifier "op"))
-                               [ NormalArg (Block (Content [ Text "bold" ]))
-                               , KeyValArg (Identifier "limits") (Literal (Boolean True))
-                               ])
-                        ]))
+              [ BlockArg
+                  [ Code
+                      "test/typ/math/op-04.typ"
+                      ( line 3 , column 8 )
+                      (FuncCall
+                         (Ident (Identifier "op"))
+                         [ BlockArg [ Text "bold" ]
+                         , KeyValArg (Identifier "limits") (Literal (Boolean True))
+                         ])
+                  ]
               ]))
     , Text "y"
     ]

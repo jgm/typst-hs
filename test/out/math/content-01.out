@@ -60,9 +60,9 @@
            ( line 3 , column 33 )
            (FuncCall
               (Ident (Identifier "mat"))
-              [ NormalArg (Block (Content [ Text "1" ]))
-              , NormalArg (Block (Content [ Text "2" ]))
-              , NormalArg (Block (Content [ Text "3" ]))
+              [ BlockArg [ Text "1" ]
+              , BlockArg [ Text "2" ]
+              , BlockArg [ Text "3" ]
               ]))
     , Text "="
     , Code

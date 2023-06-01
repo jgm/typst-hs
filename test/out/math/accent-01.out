@@ -49,9 +49,7 @@
     , Code
         "test/typ/math/accent-01.typ"
         ( line 2 , column 12 )
-        (FuncCall
-           (Ident (Identifier "dot"))
-           [ NormalArg (Block (Content [ Text "x" ])) ])
+        (FuncCall (Ident (Identifier "dot")) [ BlockArg [ Text "x" ] ])
     , MAlignPoint
     , Text "="
     , Text "v"
@@ -62,7 +60,7 @@
         (FuncCall
            (FieldAccess
               (Ident (Identifier "double")) (Ident (Identifier "dot")))
-           [ NormalArg (Block (Content [ Text "x" ])) ])
+           [ BlockArg [ Text "x" ] ])
     , MAlignPoint
     , Text "="
     , Text "a"
@@ -73,7 +71,7 @@
         (FuncCall
            (FieldAccess
               (Ident (Identifier "triple")) (Ident (Identifier "dot")))
-           [ NormalArg (Block (Content [ Text "x" ])) ])
+           [ BlockArg [ Text "x" ] ])
     , MAlignPoint
     , Text "="
     , Text "j"
@@ -84,7 +82,7 @@
         (FuncCall
            (FieldAccess
               (Ident (Identifier "quad")) (Ident (Identifier "dot")))
-           [ NormalArg (Block (Content [ Text "x" ])) ])
+           [ BlockArg [ Text "x" ] ])
     , MAlignPoint
     , Text "="
     , Text "s"

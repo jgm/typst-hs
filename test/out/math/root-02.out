@@ -46,9 +46,7 @@
     [ Code
         "test/typ/math/root-02.typ"
         ( line 4 , column 2 )
-        (FuncCall
-           (Ident (Identifier "sqrt"))
-           [ NormalArg (Block (Content [ Text "x" ])) ])
+        (FuncCall (Ident (Identifier "sqrt")) [ BlockArg [ Text "x" ] ])
     ]
 , SoftBreak
 , Equation
@@ -58,9 +56,7 @@
         ( line 5 , column 2 )
         (FuncCall
            (Ident (Identifier "root"))
-           [ NormalArg (Block (Content [ Text "2" ]))
-           , NormalArg (Block (Content [ Text "x" ]))
-           ])
+           [ BlockArg [ Text "2" ] , BlockArg [ Text "x" ] ])
     ]
 , SoftBreak
 , Equation
@@ -70,9 +66,7 @@
         ( line 6 , column 2 )
         (FuncCall
            (Ident (Identifier "root"))
-           [ NormalArg (Block (Content [ Text "3" ]))
-           , NormalArg (Block (Content [ Text "x" ]))
-           ])
+           [ BlockArg [ Text "3" ] , BlockArg [ Text "x" ] ])
     ]
 , SoftBreak
 , Equation
@@ -82,9 +76,7 @@
         ( line 7 , column 2 )
         (FuncCall
            (Ident (Identifier "root"))
-           [ NormalArg (Block (Content [ Text "4" ]))
-           , NormalArg (Block (Content [ Text "x" ]))
-           ])
+           [ BlockArg [ Text "4" ] , BlockArg [ Text "x" ] ])
     ]
 , SoftBreak
 , Equation
@@ -94,9 +86,7 @@
         ( line 8 , column 2 )
         (FuncCall
            (Ident (Identifier "root"))
-           [ NormalArg (Block (Content [ Text "5" ]))
-           , NormalArg (Block (Content [ Text "x" ]))
-           ])
+           [ BlockArg [ Text "5" ] , BlockArg [ Text "x" ] ])
     ]
 , ParBreak
 ]

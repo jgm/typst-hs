@@ -86,9 +86,7 @@
            , Code
                "test/typ/math/numbering-00.typ"
                ( line 6 , column 19 )
-               (FuncCall
-                  (Ident (Identifier "sqrt"))
-                  [ NormalArg (Block (Content [ Text "5" ])) ])
+               (FuncCall (Ident (Identifier "sqrt")) [ BlockArg [ Text "5" ] ])
            ])
         (Text "2")
     ]
@@ -116,26 +114,22 @@
         ( line 9 , column 9 )
         (FuncCall
            (Ident (Identifier "round"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ MFrac
-                         (Text "1")
-                         (Code
-                            "test/typ/math/numbering-00.typ"
-                            ( line 9 , column 19 )
-                            (FuncCall
-                               (Ident (Identifier "sqrt"))
-                               [ NormalArg (Block (Content [ Text "5" ])) ]))
-                     , MAttach
-                         Nothing
-                         (Just (Text "n"))
-                         (Code
-                            "test/typ/math/numbering-00.typ"
-                            ( line 9 , column 27 )
-                            (FieldAccess
-                               (Ident (Identifier "alt")) (Ident (Identifier "phi"))))
-                     ]))
+           [ BlockArg
+               [ MFrac
+                   (Text "1")
+                   (Code
+                      "test/typ/math/numbering-00.typ"
+                      ( line 9 , column 19 )
+                      (FuncCall (Ident (Identifier "sqrt")) [ BlockArg [ Text "5" ] ]))
+               , MAttach
+                   Nothing
+                   (Just (Text "n"))
+                   (Code
+                      "test/typ/math/numbering-00.typ"
+                      ( line 9 , column 27 )
+                      (FieldAccess
+                         (Ident (Identifier "alt")) (Ident (Identifier "phi"))))
+               ]
            ])
     ]
 , Space

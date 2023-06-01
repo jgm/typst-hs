@@ -47,22 +47,20 @@
         ( line 3 , column 3 )
         (FuncCall
            (Ident (Identifier "underline"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Text "f"
-                     , Text "\8242"
-                     , Text ":"
-                     , Code
-                         "test/typ/math/syntax-01.typ"
-                         ( line 3 , column 18 )
-                         (Ident (Identifier "NN"))
-                     , Text "\8594"
-                     , Code
-                         "test/typ/math/syntax-01.typ"
-                         ( line 3 , column 24 )
-                         (Ident (Identifier "RR"))
-                     ]))
+           [ BlockArg
+               [ Text "f"
+               , Text "\8242"
+               , Text ":"
+               , Code
+                   "test/typ/math/syntax-01.typ"
+                   ( line 3 , column 18 )
+                   (Ident (Identifier "NN"))
+               , Text "\8594"
+               , Code
+                   "test/typ/math/syntax-01.typ"
+                   ( line 3 , column 24 )
+                   (Ident (Identifier "RR"))
+               ]
            ])
     , HardBreak
     , Text "n"
@@ -73,44 +71,38 @@
         ( line 4 , column 9 )
         (FuncCall
            (Ident (Identifier "cases"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ MGroup
-                         (Just "[") (Just "]") [ MGroup (Just "|") (Just "|") [ Text "1" ] ]
-                     , MAlignPoint
-                     , Text "if "
-                     , Text "n"
-                     , Text ">"
-                     , Text ">"
-                     , Text ">"
-                     , Text "10"
-                     ]))
-           , NormalArg
-               (Block
-                  (Content
-                     [ Text "2"
-                     , Text "*"
-                     , Text "3"
-                     , MAlignPoint
-                     , Text "if "
-                     , Text "n"
-                     , Text "\8800"
-                     , Text "5"
-                     ]))
-           , NormalArg
-               (Block
-                  (Content
-                     [ Text "1"
-                     , Text "-"
-                     , Text "0"
-                     , Code
-                         "test/typ/math/syntax-01.typ"
-                         ( line 7 , column 11 )
-                         (Ident (Identifier "thick"))
-                     , MAlignPoint
-                     , Text "\8230"
-                     ]))
+           [ BlockArg
+               [ MGroup
+                   (Just "[") (Just "]") [ MGroup (Just "|") (Just "|") [ Text "1" ] ]
+               , MAlignPoint
+               , Text "if "
+               , Text "n"
+               , Text ">"
+               , Text ">"
+               , Text ">"
+               , Text "10"
+               ]
+           , BlockArg
+               [ Text "2"
+               , Text "*"
+               , Text "3"
+               , MAlignPoint
+               , Text "if "
+               , Text "n"
+               , Text "\8800"
+               , Text "5"
+               ]
+           , BlockArg
+               [ Text "1"
+               , Text "-"
+               , Text "0"
+               , Code
+                   "test/typ/math/syntax-01.typ"
+                   ( line 7 , column 11 )
+                   (Ident (Identifier "thick"))
+               , MAlignPoint
+               , Text "\8230"
+               ]
            ])
     ]
 , ParBreak

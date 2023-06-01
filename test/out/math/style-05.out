@@ -61,28 +61,20 @@
         ( line 4 , column 8 )
         (FuncCall
            (Ident (Identifier "vec"))
-           [ NormalArg (Block (Content [ Text "1" , Text "+" , Text "2" ]))
-           , NormalArg (Block (Content [ Text "2" , Text "-" , Text "4" ]))
-           , NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/math/style-05.typ"
-                         ( line 4 , column 26 )
-                         (FuncCall
-                            (Ident (Identifier "sqrt"))
-                            [ NormalArg (Block (Content [ Text "3" ])) ])
-                     ]))
-           , NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/math/style-05.typ"
-                         ( line 4 , column 35 )
-                         (FuncCall
-                            (Ident (Identifier "arrow"))
-                            [ NormalArg (Block (Content [ Text "x" ])) ])
-                     ]))
+           [ BlockArg [ Text "1" , Text "+" , Text "2" ]
+           , BlockArg [ Text "2" , Text "-" , Text "4" ]
+           , BlockArg
+               [ Code
+                   "test/typ/math/style-05.typ"
+                   ( line 4 , column 26 )
+                   (FuncCall (Ident (Identifier "sqrt")) [ BlockArg [ Text "3" ] ])
+               ]
+           , BlockArg
+               [ Code
+                   "test/typ/math/style-05.typ"
+                   ( line 4 , column 35 )
+                   (FuncCall (Ident (Identifier "arrow")) [ BlockArg [ Text "x" ] ])
+               ]
            ])
     , Text "+"
     , Text "1"

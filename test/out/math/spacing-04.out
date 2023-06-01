@@ -69,9 +69,7 @@
     , Code
         "test/typ/math/spacing-04.typ"
         ( line 4 , column 31 )
-        (FuncCall
-           (Ident (Identifier "op"))
-           [ NormalArg (Block (Content [ Text "ln" ])) ])
+        (FuncCall (Ident (Identifier "op")) [ BlockArg [ Text "ln" ] ])
     , Text "6"
     ]
 , Space
@@ -84,50 +82,41 @@
         ( line 5 , column 4 )
         (FuncCall
            (Ident (Identifier "cancel"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/math/spacing-04.typ"
-                         ( line 5 , column 11 )
-                         (Ident (Identifier "ident"))
-                     ]))
+           [ BlockArg
+               [ Code
+                   "test/typ/math/spacing-04.typ"
+                   ( line 5 , column 11 )
+                   (Ident (Identifier "ident"))
+               ]
            ])
     , Text "b"
     , Code
         "test/typ/math/spacing-04.typ"
         ( line 5 , column 20 )
         (FuncCall
-           (Ident (Identifier "overline"))
-           [ NormalArg (Block (Content [ Text "+" ])) ])
+           (Ident (Identifier "overline")) [ BlockArg [ Text "+" ] ])
     , Text "c"
     , Code
         "test/typ/math/spacing-04.typ"
         ( line 5 , column 34 )
-        (FuncCall
-           (Ident (Identifier "arrow"))
-           [ NormalArg (Block (Content [ Text "-" ])) ])
+        (FuncCall (Ident (Identifier "arrow")) [ BlockArg [ Text "-" ] ])
     , Text "d"
     , Code
         "test/typ/math/spacing-04.typ"
         ( line 5 , column 45 )
-        (FuncCall
-           (Ident (Identifier "hat"))
-           [ NormalArg (Block (Content [ Text "\8658" ])) ])
+        (FuncCall (Ident (Identifier "hat")) [ BlockArg [ Text "\8658" ] ])
     , Text "e"
     , Code
         "test/typ/math/spacing-04.typ"
         ( line 5 , column 55 )
         (FuncCall
            (Ident (Identifier "cancel"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/math/spacing-04.typ"
-                         ( line 5 , column 62 )
-                         (Ident (Identifier "log"))
-                     ]))
+           [ BlockArg
+               [ Code
+                   "test/typ/math/spacing-04.typ"
+                   ( line 5 , column 62 )
+                   (Ident (Identifier "log"))
+               ]
            ])
     , Text "5"
     , Code
@@ -135,16 +124,12 @@
         ( line 5 , column 69 )
         (FuncCall
            (Ident (Identifier "dot"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/math/spacing-04.typ"
-                         ( line 5 , column 73 )
-                         (FuncCall
-                            (Ident (Identifier "op"))
-                            [ NormalArg (Block (Content [ Text "ln" ])) ])
-                     ]))
+           [ BlockArg
+               [ Code
+                   "test/typ/math/spacing-04.typ"
+                   ( line 5 , column 73 )
+                   (FuncCall (Ident (Identifier "op")) [ BlockArg [ Text "ln" ] ])
+               ]
            ])
     , Text "6"
     ]
@@ -158,50 +143,42 @@
         ( line 6 , column 4 )
         (FuncCall
            (Ident (Identifier "overbrace"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/math/spacing-04.typ"
-                         ( line 6 , column 14 )
-                         (Ident (Identifier "ident"))
-                     ]))
+           [ BlockArg
+               [ Code
+                   "test/typ/math/spacing-04.typ"
+                   ( line 6 , column 14 )
+                   (Ident (Identifier "ident"))
+               ]
            ])
     , Text "b"
     , Code
         "test/typ/math/spacing-04.typ"
         ( line 6 , column 23 )
         (FuncCall
-           (Ident (Identifier "underline"))
-           [ NormalArg (Block (Content [ Text "+" ])) ])
+           (Ident (Identifier "underline")) [ BlockArg [ Text "+" ] ])
     , Text "c"
     , Code
         "test/typ/math/spacing-04.typ"
         ( line 6 , column 38 )
-        (FuncCall
-           (Ident (Identifier "grave"))
-           [ NormalArg (Block (Content [ Text "-" ])) ])
+        (FuncCall (Ident (Identifier "grave")) [ BlockArg [ Text "-" ] ])
     , Text "d"
     , Code
         "test/typ/math/spacing-04.typ"
         ( line 6 , column 49 )
         (FuncCall
-           (Ident (Identifier "underbracket"))
-           [ NormalArg (Block (Content [ Text "\8658" ])) ])
+           (Ident (Identifier "underbracket")) [ BlockArg [ Text "\8658" ] ])
     , Text "e"
     , Code
         "test/typ/math/spacing-04.typ"
         ( line 6 , column 68 )
         (FuncCall
            (Ident (Identifier "circle"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/math/spacing-04.typ"
-                         ( line 6 , column 75 )
-                         (Ident (Identifier "log"))
-                     ]))
+           [ BlockArg
+               [ Code
+                   "test/typ/math/spacing-04.typ"
+                   ( line 6 , column 75 )
+                   (Ident (Identifier "log"))
+               ]
            ])
     , Text "5"
     , Code
@@ -209,16 +186,12 @@
         ( line 6 , column 82 )
         (FuncCall
            (Ident (Identifier "caron"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/math/spacing-04.typ"
-                         ( line 6 , column 88 )
-                         (FuncCall
-                            (Ident (Identifier "op"))
-                            [ NormalArg (Block (Content [ Text "ln" ])) ])
-                     ]))
+           [ BlockArg
+               [ Code
+                   "test/typ/math/spacing-04.typ"
+                   ( line 6 , column 88 )
+                   (FuncCall (Ident (Identifier "op")) [ BlockArg [ Text "ln" ] ])
+               ]
            ])
     , Text "6"
     ]
@@ -233,14 +206,12 @@
         ( line 8 , column 4 )
         (FuncCall
            (Ident (Identifier "attach"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/math/spacing-04.typ"
-                         ( line 8 , column 11 )
-                         (Ident (Identifier "ident"))
-                     ]))
+           [ BlockArg
+               [ Code
+                   "test/typ/math/spacing-04.typ"
+                   ( line 8 , column 11 )
+                   (Ident (Identifier "ident"))
+               ]
            , KeyValArg (Identifier "tl") (Block (Content [ Text "a" ]))
            , KeyValArg (Identifier "tr") (Block (Content [ Text "b" ]))
            ])
@@ -250,16 +221,12 @@
         ( line 8 , column 34 )
         (FuncCall
            (Ident (Identifier "attach"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/math/spacing-04.typ"
-                         ( line 8 , column 41 )
-                         (FuncCall
-                            (Ident (Identifier "limits"))
-                            [ NormalArg (Block (Content [ Text "+" ])) ])
-                     ]))
+           [ BlockArg
+               [ Code
+                   "test/typ/math/spacing-04.typ"
+                   ( line 8 , column 41 )
+                   (FuncCall (Ident (Identifier "limits")) [ BlockArg [ Text "+" ] ])
+               ]
            , KeyValArg (Identifier "t") (Block (Content [ Text "a" ]))
            , KeyValArg (Identifier "b") (Block (Content [ Text "b" ]))
            ])
@@ -267,40 +234,33 @@
     , Code
         "test/typ/math/spacing-04.typ"
         ( line 8 , column 66 )
-        (FuncCall
-           (Ident (Identifier "tilde"))
-           [ NormalArg (Block (Content [ Text "-" ])) ])
+        (FuncCall (Ident (Identifier "tilde")) [ BlockArg [ Text "-" ] ])
     , Text "d"
     , Code
         "test/typ/math/spacing-04.typ"
         ( line 8 , column 77 )
         (FuncCall
-           (Ident (Identifier "breve"))
-           [ NormalArg (Block (Content [ Text "\8658" ])) ])
+           (Ident (Identifier "breve")) [ BlockArg [ Text "\8658" ] ])
     , Text "e"
     , Code
         "test/typ/math/spacing-04.typ"
         ( line 8 , column 89 )
         (FuncCall
            (Ident (Identifier "attach"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/math/spacing-04.typ"
-                         ( line 8 , column 96 )
-                         (FuncCall
-                            (Ident (Identifier "limits"))
-                            [ NormalArg
-                                (Block
-                                   (Content
-                                      [ Code
-                                          "test/typ/math/spacing-04.typ"
-                                          ( line 8 , column 103 )
-                                          (Ident (Identifier "log"))
-                                      ]))
-                            ])
-                     ]))
+           [ BlockArg
+               [ Code
+                   "test/typ/math/spacing-04.typ"
+                   ( line 8 , column 96 )
+                   (FuncCall
+                      (Ident (Identifier "limits"))
+                      [ BlockArg
+                          [ Code
+                              "test/typ/math/spacing-04.typ"
+                              ( line 8 , column 103 )
+                              (Ident (Identifier "log"))
+                          ]
+                      ])
+               ]
            , KeyValArg (Identifier "t") (Block (Content [ Text "a" ]))
            , KeyValArg (Identifier "b") (Block (Content [ Text "b" ]))
            ])
@@ -310,16 +270,12 @@
         ( line 8 , column 123 )
         (FuncCall
            (Ident (Identifier "attach"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/math/spacing-04.typ"
-                         ( line 8 , column 130 )
-                         (FuncCall
-                            (Ident (Identifier "op"))
-                            [ NormalArg (Block (Content [ Text "ln" ])) ])
-                     ]))
+           [ BlockArg
+               [ Code
+                   "test/typ/math/spacing-04.typ"
+                   ( line 8 , column 130 )
+                   (FuncCall (Ident (Identifier "op")) [ BlockArg [ Text "ln" ] ])
+               ]
            , KeyValArg (Identifier "tr") (Block (Content [ Text "a" ]))
            , KeyValArg (Identifier "bl") (Block (Content [ Text "b" ]))
            ])

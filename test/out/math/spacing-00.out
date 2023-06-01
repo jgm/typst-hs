@@ -132,9 +132,7 @@
     , Code
         "test/typ/math/spacing-00.typ"
         ( line 10 , column 9 )
-        (FuncCall
-           (Ident (Identifier "sum"))
-           [ NormalArg (Block (Content [ Text "x" ])) ])
+        (FuncCall (Ident (Identifier "sum")) [ BlockArg [ Text "x" ] ])
     ]
 , Space
 , HardBreak
@@ -162,9 +160,7 @@
     , Code
         "test/typ/math/spacing-00.typ"
         ( line 12 , column 8 )
-        (FuncCall
-           (Ident (Identifier "zeta"))
-           [ NormalArg (Block (Content [ Text "x" ])) ])
+        (FuncCall (Ident (Identifier "zeta")) [ BlockArg [ Text "x" ] ])
     , Text ","
     , MGroup
         Nothing

@@ -63,9 +63,7 @@
     , Code
         "test/typ/math/op-01.typ"
         ( line 4 , column 5 )
-        (FuncCall
-           (Ident (Identifier "sin"))
-           [ NormalArg (Block (Content [ Text "x" ])) ])
+        (FuncCall (Ident (Identifier "sin")) [ BlockArg [ Text "x" ] ])
     , Text "+"
     , MGroup
         Nothing

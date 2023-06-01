@@ -47,20 +47,18 @@
         ( line 3 , column 3 )
         (FuncCall
            (Ident (Identifier "lr"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Text "]"
-                     , MAttach
-                         (Just (MGroup Nothing Nothing [ Text "x" , Text "=" , Text "1" ]))
-                         (Just (Text "n"))
-                         (Code
-                            "test/typ/math/delimited-06.typ"
-                            ( line 3 , column 7 )
-                            (Ident (Identifier "sum")))
-                     , Text "x"
-                     , Text "]"
-                     ]))
+           [ BlockArg
+               [ Text "]"
+               , MAttach
+                   (Just (MGroup Nothing Nothing [ Text "x" , Text "=" , Text "1" ]))
+                   (Just (Text "n"))
+                   (Code
+                      "test/typ/math/delimited-06.typ"
+                      ( line 3 , column 7 )
+                      (Ident (Identifier "sum")))
+               , Text "x"
+               , Text "]"
+               ]
            , KeyValArg (Identifier "size") (Literal (Numeric 70.0 Percent))
            ])
     , Text "<"
@@ -69,11 +67,8 @@
         ( line 4 , column 5 )
         (FuncCall
            (Ident (Identifier "lr"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ MGroup (Just "(") (Just ")") [ Text "1" , Text "," , Text "2" ]
-                     ]))
+           [ BlockArg
+               [ MGroup (Just "(") (Just ")") [ Text "1" , Text "," , Text "2" ] ]
            , KeyValArg (Identifier "size") (Literal (Numeric 200.0 Percent))
            ])
     ]

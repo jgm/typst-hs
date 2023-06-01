@@ -52,13 +52,11 @@
         ( line 3 , column 14 )
         (FuncCall
            (Ident (Identifier "lr"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ MGroup
-                         (Just "|") (Just "|") [ Text "]" , MFrac (Text "a") (Text "b") ]
-                     , Text "]"
-                     ]))
+           [ BlockArg
+               [ MGroup
+                   (Just "|") (Just "|") [ Text "]" , MFrac (Text "a") (Text "b") ]
+               , Text "]"
+               ]
            ])
     , Text "\8800"
     , MGroup
@@ -72,21 +70,19 @@
         ( line 4 , column 3 )
         (FuncCall
            (Ident (Identifier "lr"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ MGroup
-                         (Just "|")
-                         (Just "|")
-                         [ Text "]"
-                         , Text "1"
-                         , Text ","
-                         , Text "2"
-                         , Text "["
-                         , Text "+"
-                         , MFrac (Text "1") (Text "2")
-                         ]
-                     ]))
+           [ BlockArg
+               [ MGroup
+                   (Just "|")
+                   (Just "|")
+                   [ Text "]"
+                   , Text "1"
+                   , Text ","
+                   , Text "2"
+                   , Text "["
+                   , Text "+"
+                   , MFrac (Text "1") (Text "2")
+                   ]
+               ]
            ])
     ]
 , ParBreak

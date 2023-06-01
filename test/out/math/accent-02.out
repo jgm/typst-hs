@@ -47,33 +47,27 @@
         ( line 3 , column 2 )
         (FuncCall
            (Ident (Identifier "accent"))
-           [ NormalArg (Block (Content [ Text "\246" ]))
-           , NormalArg (Block (Content [ Text "." ]))
-           ])
+           [ BlockArg [ Text "\246" ] , BlockArg [ Text "." ] ])
     , Text ","
     , Code
         "test/typ/math/accent-02.typ"
         ( line 3 , column 16 )
         (FuncCall
            (Ident (Identifier "accent"))
-           [ NormalArg (Block (Content [ Text "v" ]))
-           , NormalArg (Block (Content [ Text "\8592" ]))
-           ])
+           [ BlockArg [ Text "v" ] , BlockArg [ Text "\8592" ] ])
     , Text ","
     , Code
         "test/typ/math/accent-02.typ"
         ( line 3 , column 31 )
         (FuncCall
            (Ident (Identifier "accent"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/math/accent-02.typ"
-                         ( line 3 , column 38 )
-                         (Ident (Identifier "ZZ"))
-                     ]))
-           , NormalArg (Block (Content [ Text "\771" ]))
+           [ BlockArg
+               [ Code
+                   "test/typ/math/accent-02.typ"
+                   ( line 3 , column 38 )
+                   (Ident (Identifier "ZZ"))
+               ]
+           , BlockArg [ Text "\771" ]
            ])
     ]
 , ParBreak

@@ -49,7 +49,7 @@
         ( line 3 , column 6 )
         (FuncCall
            (Ident (Identifier "cancel"))
-           [ NormalArg (Block (Content [ Text "y" ]))
+           [ BlockArg [ Text "y" ]
            , KeyValArg (Identifier "rotation") (Literal (Numeric 90.0 Deg))
            ])
     , Text "-"
@@ -58,7 +58,7 @@
         ( line 3 , column 36 )
         (FuncCall
            (Ident (Identifier "cancel"))
-           [ NormalArg (Block (Content [ Text "z" ]))
+           [ BlockArg [ Text "z" ]
            , KeyValArg (Identifier "rotation") (Literal (Numeric 135.0 Deg))
            ])
     ]
@@ -72,13 +72,11 @@
         ( line 4 , column 7 )
         (FuncCall
            (Ident (Identifier "cancel"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ MFrac
-                         (MGroup (Just "(") (Just ")") [ Text "j" , Text "+" , Text "e" ])
-                         (MGroup Nothing Nothing [ Text "f" , Text "+" , Text "e" ])
-                     ]))
+           [ BlockArg
+               [ MFrac
+                   (MGroup (Just "(") (Just ")") [ Text "j" , Text "+" , Text "e" ])
+                   (MGroup Nothing Nothing [ Text "f" , Text "+" , Text "e" ])
+               ]
            ])
     , Text "-"
     , Code
@@ -86,13 +84,11 @@
         ( line 4 , column 33 )
         (FuncCall
            (Ident (Identifier "cancel"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ MFrac
-                         (MGroup (Just "(") (Just ")") [ Text "j" , Text "+" , Text "e" ])
-                         (MGroup Nothing Nothing [ Text "f" , Text "+" , Text "e" ])
-                     ]))
+           [ BlockArg
+               [ MFrac
+                   (MGroup (Just "(") (Just ")") [ Text "j" , Text "+" , Text "e" ])
+                   (MGroup Nothing Nothing [ Text "f" , Text "+" , Text "e" ])
+               ]
            , KeyValArg (Identifier "rotation") (Literal (Numeric 30.0 Deg))
            ])
     ]

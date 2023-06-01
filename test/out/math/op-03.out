@@ -52,7 +52,7 @@
            ( line 3 , column 3 )
            (FuncCall
               (Ident (Identifier "op"))
-              [ NormalArg (Block (Content [ Text "myop" ]))
+              [ BlockArg [ Text "myop" ]
               , KeyValArg (Identifier "limits") (Literal (Boolean False))
               ]))
     , Text "x"
@@ -67,7 +67,7 @@
            ( line 4 , column 3 )
            (FuncCall
               (Ident (Identifier "op"))
-              [ NormalArg (Block (Content [ Text "myop" ]))
+              [ BlockArg [ Text "myop" ]
               , KeyValArg (Identifier "limits") (Literal (Boolean True))
               ]))
     , Text "x"

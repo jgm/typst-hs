@@ -47,16 +47,12 @@
     , Code
         "test/typ/math/style-02.typ"
         ( line 3 , column 5 )
-        (FuncCall
-           (Ident (Identifier "bb"))
-           [ NormalArg (Block (Content [ Text "N" ])) ])
+        (FuncCall (Ident (Identifier "bb")) [ BlockArg [ Text "N" ] ])
     , Text ","
     , Code
         "test/typ/math/style-02.typ"
         ( line 3 , column 12 )
-        (FuncCall
-           (Ident (Identifier "cal"))
-           [ NormalArg (Block (Content [ Text "R" ])) ])
+        (FuncCall (Ident (Identifier "cal")) [ BlockArg [ Text "R" ] ])
     , Text ","
     , Code
         "test/typ/math/style-02.typ"
@@ -68,14 +64,12 @@
         ( line 3 , column 27 )
         (FuncCall
            (Ident (Identifier "italic"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/math/style-02.typ"
-                         ( line 3 , column 34 )
-                         (Ident (Identifier "Theta"))
-                     ]))
+           [ BlockArg
+               [ Code
+                   "test/typ/math/style-02.typ"
+                   ( line 3 , column 34 )
+                   (Ident (Identifier "Theta"))
+               ]
            ])
     , Text ","
     , Code
@@ -83,14 +77,12 @@
         ( line 3 , column 42 )
         (FuncCall
            (Ident (Identifier "sans"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/math/style-02.typ"
-                         ( line 3 , column 47 )
-                         (Ident (Identifier "Theta"))
-                     ]))
+           [ BlockArg
+               [ Code
+                   "test/typ/math/style-02.typ"
+                   ( line 3 , column 47 )
+                   (Ident (Identifier "Theta"))
+               ]
            ])
     , Text ","
     , Code
@@ -98,24 +90,20 @@
         ( line 3 , column 55 )
         (FuncCall
            (Ident (Identifier "sans"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/math/style-02.typ"
-                         ( line 3 , column 60 )
-                         (FuncCall
-                            (Ident (Identifier "italic"))
-                            [ NormalArg
-                                (Block
-                                   (Content
-                                      [ Code
-                                          "test/typ/math/style-02.typ"
-                                          ( line 3 , column 67 )
-                                          (Ident (Identifier "Theta"))
-                                      ]))
-                            ])
-                     ]))
+           [ BlockArg
+               [ Code
+                   "test/typ/math/style-02.typ"
+                   ( line 3 , column 60 )
+                   (FuncCall
+                      (Ident (Identifier "italic"))
+                      [ BlockArg
+                          [ Code
+                              "test/typ/math/style-02.typ"
+                              ( line 3 , column 67 )
+                              (Ident (Identifier "Theta"))
+                          ]
+                      ])
+               ]
            ])
     ]
 , ParBreak

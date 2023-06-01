@@ -64,8 +64,8 @@
                          ( line 8 , column 5 )
                          (FuncCall
                             (Ident (Identifier "mat"))
-                            [ NormalArg (Block (Content [ Text "1" ]))
-                            , NormalArg (Block (Content [ Text "2" ]))
+                            [ BlockArg [ Text "1" ]
+                            , BlockArg [ Text "2" ]
                             , KeyValArg (Identifier "delim") (Block (Content [ Text " [" ]))
                             ])
                      ]
@@ -96,8 +96,8 @@
                          (FuncCall
                             (Ident (Identifier "mat"))
                             [ KeyValArg (Identifier "delim") (Block (Content [ Text " [" ]))
-                            , NormalArg (Block (Content [ Text "1" ]))
-                            , NormalArg (Block (Content [ Text "2" ]))
+                            , BlockArg [ Text "1" ]
+                            , BlockArg [ Text "2" ]
                             ])
                      ]
                  ]))
@@ -128,7 +128,7 @@
                             (Ident (Identifier "mat"))
                             [ ArrayArg [ [ Text "1" ] ]
                             , KeyValArg (Identifier "delim") (Block (Content [ Text " [" ]))
-                            , NormalArg (Block (Content [ Text "2" ]))
+                            , BlockArg [ Text "2" ]
                             ])
                      ]
                  ]))
@@ -159,8 +159,8 @@
                             (Ident (Identifier "mat"))
                             [ ArrayArg [ [ Text "1" , Text "2" ] ]
                             , KeyValArg (Identifier "delim") (Block (Content [ Text " [" ]))
-                            , NormalArg (Block (Content [ Text "3" ]))
-                            , NormalArg (Block (Content [ Text "4" ]))
+                            , BlockArg [ Text "3" ]
+                            , BlockArg [ Text "4" ]
                             ])
                      ]
                  ]))

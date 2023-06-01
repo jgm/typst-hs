@@ -49,7 +49,7 @@
         ( line 3 , column 6 )
         (FuncCall
            (Ident (Identifier "cancel"))
-           [ NormalArg (Block (Content [ Text "x" ]))
+           [ BlockArg [ Text "x" ]
            , KeyValArg (Identifier "inverted") (Literal (Boolean True))
            ])
     , Text "-"
@@ -58,7 +58,7 @@
         ( line 3 , column 35 )
         (FuncCall
            (Ident (Identifier "cancel"))
-           [ NormalArg (Block (Content [ Text "x" ]))
+           [ BlockArg [ Text "x" ]
            , KeyValArg (Identifier "inverted") (Literal (Boolean True))
            ])
     , Text "+"
@@ -67,16 +67,12 @@
     , Code
         "test/typ/math/cancel-02.typ"
         ( line 3 , column 69 )
-        (FuncCall
-           (Ident (Identifier "cancel"))
-           [ NormalArg (Block (Content [ Text "y" ])) ])
+        (FuncCall (Ident (Identifier "cancel")) [ BlockArg [ Text "y" ] ])
     , Text "-"
     , Code
         "test/typ/math/cancel-02.typ"
         ( line 3 , column 81 )
-        (FuncCall
-           (Ident (Identifier "cancel"))
-           [ NormalArg (Block (Content [ Text "y" ])) ])
+        (FuncCall (Ident (Identifier "cancel")) [ BlockArg [ Text "y" ] ])
     ]
 , SoftBreak
 , Equation
@@ -88,7 +84,7 @@
         ( line 4 , column 7 )
         (FuncCall
            (Ident (Identifier "cancel"))
-           [ NormalArg (Block (Content [ Text "abcdefg" ]))
+           [ BlockArg [ Text "abcdefg" ]
            , KeyValArg (Identifier "inverted") (Literal (Boolean True))
            ])
     ]

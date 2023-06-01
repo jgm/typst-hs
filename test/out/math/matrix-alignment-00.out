@@ -47,33 +47,27 @@
         ( line 3 , column 3 )
         (FuncCall
            (Ident (Identifier "vec"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Text " a "
-                     , MAlignPoint
-                     , Text " a a a "
-                     , MAlignPoint
-                     , Text " a a"
-                     ]))
-           , NormalArg
-               (Block
-                  (Content
-                     [ Text " a a "
-                     , MAlignPoint
-                     , Text " a a "
-                     , MAlignPoint
-                     , Text " a"
-                     ]))
-           , NormalArg
-               (Block
-                  (Content
-                     [ Text " a a a "
-                     , MAlignPoint
-                     , Text " a "
-                     , MAlignPoint
-                     , Text " a a a"
-                     ]))
+           [ BlockArg
+               [ Text " a "
+               , MAlignPoint
+               , Text " a a a "
+               , MAlignPoint
+               , Text " a a"
+               ]
+           , BlockArg
+               [ Text " a a "
+               , MAlignPoint
+               , Text " a a "
+               , MAlignPoint
+               , Text " a"
+               ]
+           , BlockArg
+               [ Text " a a a "
+               , MAlignPoint
+               , Text " a "
+               , MAlignPoint
+               , Text " a a a"
+               ]
            ])
     ]
 , ParBreak

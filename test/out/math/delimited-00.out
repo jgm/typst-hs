@@ -65,16 +65,14 @@
         ( line 4 , column 11 )
         (FuncCall
            (Ident (Identifier "zeta"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ MAttach Nothing (Just (Text "2")) (Text "c")
-                     , Text "+"
-                     , MGroup
-                         (Just "|")
-                         (Just "|")
-                         [ Text "a" , Text "+" , MFrac (Text "b") (Text "2") ]
-                     ]))
+           [ BlockArg
+               [ MAttach Nothing (Just (Text "2")) (Text "c")
+               , Text "+"
+               , MGroup
+                   (Just "|")
+                   (Just "|")
+                   [ Text "a" , Text "+" , MFrac (Text "b") (Text "2") ]
+               ]
            ])
     ]
 , ParBreak

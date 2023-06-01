@@ -58,37 +58,29 @@
         ( line 4 , column 11 )
         (FuncCall
            (Ident (Identifier "cancel"))
-           [ NormalArg (Block (Content [ Text "b" , Text "+" , Text "c" ])) ])
+           [ BlockArg [ Text "b" , Text "+" , Text "c" ] ])
     , Text "-"
     , Code
         "test/typ/math/cancel-01.typ"
         ( line 4 , column 27 )
-        (FuncCall
-           (Ident (Identifier "cancel"))
-           [ NormalArg (Block (Content [ Text "b" ])) ])
+        (FuncCall (Ident (Identifier "cancel")) [ BlockArg [ Text "b" ] ])
     , Text "-"
     , Code
         "test/typ/math/cancel-01.typ"
         ( line 4 , column 39 )
-        (FuncCall
-           (Ident (Identifier "cancel"))
-           [ NormalArg (Block (Content [ Text "c" ])) ])
+        (FuncCall (Ident (Identifier "cancel")) [ BlockArg [ Text "c" ] ])
     , Text "-"
     , Text "5"
     , Text "+"
     , Code
         "test/typ/math/cancel-01.typ"
         ( line 4 , column 55 )
-        (FuncCall
-           (Ident (Identifier "cancel"))
-           [ NormalArg (Block (Content [ Text "6" ])) ])
+        (FuncCall (Ident (Identifier "cancel")) [ BlockArg [ Text "6" ] ])
     , Text "-"
     , Code
         "test/typ/math/cancel-01.typ"
         ( line 4 , column 67 )
-        (FuncCall
-           (Ident (Identifier "cancel"))
-           [ NormalArg (Block (Content [ Text "6" ])) ])
+        (FuncCall (Ident (Identifier "cancel")) [ BlockArg [ Text "6" ] ])
     ]
 , SoftBreak
 , Equation
@@ -109,14 +101,12 @@
                ( line 5 , column 16 )
                (FuncCall
                   (Ident (Identifier "cancel"))
-                  [ NormalArg
-                      (Block
-                         (Content
-                            [ MGroup
-                                (Just "(")
-                                (Just ")")
-                                [ Text "b" , Text "+" , Text "c" , Text "+" , Text "d" ]
-                            ]))
+                  [ BlockArg
+                      [ MGroup
+                          (Just "(")
+                          (Just ")")
+                          [ Text "b" , Text "+" , Text "c" , Text "+" , Text "d" ]
+                      ]
                   ])
            ])
         (MGroup
@@ -127,9 +117,7 @@
                ( line 5 , column 38 )
                (FuncCall
                   (Ident (Identifier "cancel"))
-                  [ NormalArg
-                      (Block
-                         (Content [ Text "b" , Text "+" , Text "c" , Text "+" , Text "d" ]))
+                  [ BlockArg [ Text "b" , Text "+" , Text "c" , Text "+" , Text "d" ]
                   ])
            ])
     ]

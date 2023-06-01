@@ -278,7 +278,8 @@ mArgs = inParens $
     NormalArg <$> (char '#' *> pExpr <* sep)
   mKeyValArg = do
     ident <- try $ pIdentifier <* sym ":"
-    KeyValArg ident <$> (char '#' *> pExpr <* sep)
+    KeyValArg ident <$> ((char '#' *> pExpr <* sep)
+                        <|> Block . Content <$> mathContent)
   mathContent = do
     xs <- maths
     if null xs

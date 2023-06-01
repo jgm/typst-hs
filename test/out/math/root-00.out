@@ -49,7 +49,7 @@
         ( line 3 , column 6 )
         (FuncCall
            (Ident (Identifier "sqrt"))
-           [ NormalArg (Block (Content [ Text "x" , Text "+" , Text "y" ])) ])
+           [ BlockArg [ Text "x" , Text "+" , Text "y" ] ])
     , Text "="
     , Text "c"
     ]

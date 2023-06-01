@@ -143,32 +143,26 @@
         ( line 18 , column 11 )
         (FuncCall
            (Ident (Identifier "foo"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/bugs/math-realize-02.typ"
-                         ( line 18 , column 15 )
-                         (Ident (Identifier "alpha"))
-                     ]))
-           , NormalArg
-               (Block
-                  (Content
-                     [ MGroup
-                         (Just "(")
-                         (Just ")")
-                         [ Text "M"
-                         , Text "+"
-                         , Code
-                             "test/typ/bugs/math-realize-02.typ"
-                             ( line 18 , column 25 )
-                             (FuncCall
-                                (Ident (Identifier "foo"))
-                                [ NormalArg (Block (Content [ Text "a" ]))
-                                , NormalArg (Block (Content [ Text "b" ]))
-                                ])
-                         ]
-                     ]))
+           [ BlockArg
+               [ Code
+                   "test/typ/bugs/math-realize-02.typ"
+                   ( line 18 , column 15 )
+                   (Ident (Identifier "alpha"))
+               ]
+           , BlockArg
+               [ MGroup
+                   (Just "(")
+                   (Just ")")
+                   [ Text "M"
+                   , Text "+"
+                   , Code
+                       "test/typ/bugs/math-realize-02.typ"
+                       ( line 18 , column 25 )
+                       (FuncCall
+                          (Ident (Identifier "foo"))
+                          [ BlockArg [ Text "a" ] , BlockArg [ Text "b" ] ])
+                   ]
+               ]
            ])
     ]
 , Text "."
@@ -183,32 +177,26 @@
         ( line 20 , column 11 )
         (FuncCall
            (Ident (Identifier "bar"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/bugs/math-realize-02.typ"
-                         ( line 20 , column 15 )
-                         (Ident (Identifier "alpha"))
-                     ]))
-           , NormalArg
-               (Block
-                  (Content
-                     [ MGroup
-                         (Just "(")
-                         (Just ")")
-                         [ Text "M"
-                         , Text "+"
-                         , Code
-                             "test/typ/bugs/math-realize-02.typ"
-                             ( line 20 , column 25 )
-                             (FuncCall
-                                (Ident (Identifier "foo"))
-                                [ NormalArg (Block (Content [ Text "a" ]))
-                                , NormalArg (Block (Content [ Text "b" ]))
-                                ])
-                         ]
-                     ]))
+           [ BlockArg
+               [ Code
+                   "test/typ/bugs/math-realize-02.typ"
+                   ( line 20 , column 15 )
+                   (Ident (Identifier "alpha"))
+               ]
+           , BlockArg
+               [ MGroup
+                   (Just "(")
+                   (Just ")")
+                   [ Text "M"
+                   , Text "+"
+                   , Code
+                       "test/typ/bugs/math-realize-02.typ"
+                       ( line 20 , column 25 )
+                       (FuncCall
+                          (Ident (Identifier "foo"))
+                          [ BlockArg [ Text "a" ] , BlockArg [ Text "b" ] ])
+                   ]
+               ]
            ])
     ]
 , Text "."
@@ -223,20 +211,16 @@
         ( line 22 , column 11 )
         (FuncCall
            (Ident (Identifier "baz"))
-           [ NormalArg (Block (Content [ Text "x" ]))
-           , NormalArg (Block (Content [ Text "y" ]))
-           , NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/bugs/math-realize-02.typ"
-                         ( line 22 , column 19 )
-                         (FuncCall
-                            (Ident (Identifier "baz"))
-                            [ NormalArg (Block (Content [ Text "u" ]))
-                            , NormalArg (Block (Content [ Text "v" ]))
-                            ])
-                     ]))
+           [ BlockArg [ Text "x" ]
+           , BlockArg [ Text "y" ]
+           , BlockArg
+               [ Code
+                   "test/typ/bugs/math-realize-02.typ"
+                   ( line 22 , column 19 )
+                   (FuncCall
+                      (Ident (Identifier "baz"))
+                      [ BlockArg [ Text "u" ] , BlockArg [ Text "v" ] ])
+               ]
            ])
     ]
 , Text "."
@@ -249,32 +233,26 @@
         ( line 24 , column 5 )
         (FuncCall
            (Ident (Identifier "foo"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/bugs/math-realize-02.typ"
-                         ( line 24 , column 9 )
-                         (Ident (Identifier "alpha"))
-                     ]))
-           , NormalArg
-               (Block
-                  (Content
-                     [ MGroup
-                         (Just "(")
-                         (Just ")")
-                         [ Text "M"
-                         , Text "+"
-                         , Code
-                             "test/typ/bugs/math-realize-02.typ"
-                             ( line 24 , column 19 )
-                             (FuncCall
-                                (Ident (Identifier "foo"))
-                                [ NormalArg (Block (Content [ Text "a" ]))
-                                , NormalArg (Block (Content [ Text "b" ]))
-                                ])
-                         ]
-                     ]))
+           [ BlockArg
+               [ Code
+                   "test/typ/bugs/math-realize-02.typ"
+                   ( line 24 , column 9 )
+                   (Ident (Identifier "alpha"))
+               ]
+           , BlockArg
+               [ MGroup
+                   (Just "(")
+                   (Just ")")
+                   [ Text "M"
+                   , Text "+"
+                   , Code
+                       "test/typ/bugs/math-realize-02.typ"
+                       ( line 24 , column 19 )
+                       (FuncCall
+                          (Ident (Identifier "foo"))
+                          [ BlockArg [ Text "a" ] , BlockArg [ Text "b" ] ])
+                   ]
+               ]
            ])
     ]
 , SoftBreak
@@ -286,32 +264,26 @@
         ( line 25 , column 5 )
         (FuncCall
            (Ident (Identifier "bar"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/bugs/math-realize-02.typ"
-                         ( line 25 , column 9 )
-                         (Ident (Identifier "alpha"))
-                     ]))
-           , NormalArg
-               (Block
-                  (Content
-                     [ MGroup
-                         (Just "(")
-                         (Just ")")
-                         [ Text "M"
-                         , Text "+"
-                         , Code
-                             "test/typ/bugs/math-realize-02.typ"
-                             ( line 25 , column 19 )
-                             (FuncCall
-                                (Ident (Identifier "foo"))
-                                [ NormalArg (Block (Content [ Text "a" ]))
-                                , NormalArg (Block (Content [ Text "b" ]))
-                                ])
-                         ]
-                     ]))
+           [ BlockArg
+               [ Code
+                   "test/typ/bugs/math-realize-02.typ"
+                   ( line 25 , column 9 )
+                   (Ident (Identifier "alpha"))
+               ]
+           , BlockArg
+               [ MGroup
+                   (Just "(")
+                   (Just ")")
+                   [ Text "M"
+                   , Text "+"
+                   , Code
+                       "test/typ/bugs/math-realize-02.typ"
+                       ( line 25 , column 19 )
+                       (FuncCall
+                          (Ident (Identifier "foo"))
+                          [ BlockArg [ Text "a" ] , BlockArg [ Text "b" ] ])
+                   ]
+               ]
            ])
     ]
 , SoftBreak
@@ -323,20 +295,16 @@
         ( line 26 , column 5 )
         (FuncCall
            (Ident (Identifier "baz"))
-           [ NormalArg (Block (Content [ Text "x" ]))
-           , NormalArg (Block (Content [ Text "y" ]))
-           , NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/bugs/math-realize-02.typ"
-                         ( line 26 , column 13 )
-                         (FuncCall
-                            (Ident (Identifier "baz"))
-                            [ NormalArg (Block (Content [ Text "u" ]))
-                            , NormalArg (Block (Content [ Text "v" ]))
-                            ])
-                     ]))
+           [ BlockArg [ Text "x" ]
+           , BlockArg [ Text "y" ]
+           , BlockArg
+               [ Code
+                   "test/typ/bugs/math-realize-02.typ"
+                   ( line 26 , column 13 )
+                   (FuncCall
+                      (Ident (Identifier "baz"))
+                      [ BlockArg [ Text "u" ] , BlockArg [ Text "v" ] ])
+               ]
            ])
     ]
 , ParBreak

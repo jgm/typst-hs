@@ -54,62 +54,55 @@
         ( line 2 , column 14 )
         (FuncCall
            (Ident (Identifier "cases"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Text "1"
-                     , Code
-                         "test/typ/math/cases-00.typ"
-                         ( line 3 , column 5 )
-                         (Ident (Identifier "quad"))
-                     , MAlignPoint
-                     , Text "if "
-                     , MFrac
-                         (MGroup
-                            (Just "(")
-                            (Just ")")
-                            [ Text "x"
-                            , Code
-                                "test/typ/math/cases-00.typ"
-                                ( line 3 , column 19 )
-                                (Ident (Identifier "dot"))
-                            , Text "y"
-                            ])
-                         (Text "2")
-                     , Text "\8804"
-                     , Text "0"
-                     ]))
-           , NormalArg
-               (Block
-                  (Content
-                     [ Text "2"
-                     , MAlignPoint
-                     , Text "if "
-                     , Text "x"
-                     , Code
-                         "test/typ/math/cases-00.typ"
-                         ( line 4 , column 13 )
-                         (Ident (Identifier "divides"))
-                     , Text "2"
-                     ]))
-           , NormalArg
-               (Block
-                  (Content
-                     [ Text "3"
-                     , MAlignPoint
-                     , Text "if "
-                     , Text "x"
-                     , Code
-                         "test/typ/math/cases-00.typ"
-                         ( line 5 , column 13 )
-                         (Ident (Identifier "in"))
-                     , Code
-                         "test/typ/math/cases-00.typ"
-                         ( line 5 , column 16 )
-                         (Ident (Identifier "NN"))
-                     ]))
-           , NormalArg
-               (Block (Content [ Text "4" , MAlignPoint , Text "else" ]))
+           [ BlockArg
+               [ Text "1"
+               , Code
+                   "test/typ/math/cases-00.typ"
+                   ( line 3 , column 5 )
+                   (Ident (Identifier "quad"))
+               , MAlignPoint
+               , Text "if "
+               , MFrac
+                   (MGroup
+                      (Just "(")
+                      (Just ")")
+                      [ Text "x"
+                      , Code
+                          "test/typ/math/cases-00.typ"
+                          ( line 3 , column 19 )
+                          (Ident (Identifier "dot"))
+                      , Text "y"
+                      ])
+                   (Text "2")
+               , Text "\8804"
+               , Text "0"
+               ]
+           , BlockArg
+               [ Text "2"
+               , MAlignPoint
+               , Text "if "
+               , Text "x"
+               , Code
+                   "test/typ/math/cases-00.typ"
+                   ( line 4 , column 13 )
+                   (Ident (Identifier "divides"))
+               , Text "2"
+               ]
+           , BlockArg
+               [ Text "3"
+               , MAlignPoint
+               , Text "if "
+               , Text "x"
+               , Code
+                   "test/typ/math/cases-00.typ"
+                   ( line 5 , column 13 )
+                   (Ident (Identifier "in"))
+               , Code
+                   "test/typ/math/cases-00.typ"
+                   ( line 5 , column 16 )
+                   (Ident (Identifier "NN"))
+               ]
+           , BlockArg [ Text "4" , MAlignPoint , Text "else" ]
            ])
     ]
 , ParBreak

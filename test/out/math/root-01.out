@@ -45,9 +45,7 @@
     [ Code
         "test/typ/math/root-01.typ"
         ( line 3 , column 3 )
-        (FuncCall
-           (Ident (Identifier "sqrt"))
-           [ NormalArg (Block (Content [ Text "a" ])) ])
+        (FuncCall (Ident (Identifier "sqrt")) [ BlockArg [ Text "a" ] ])
     , Code
         "test/typ/math/root-01.typ"
         ( line 3 , column 11 )
@@ -55,9 +53,7 @@
     , Code
         "test/typ/math/root-01.typ"
         ( line 4 , column 3 )
-        (FuncCall
-           (Ident (Identifier "sqrt"))
-           [ NormalArg (Block (Content [ Text "f" ])) ])
+        (FuncCall (Ident (Identifier "sqrt")) [ BlockArg [ Text "f" ] ])
     , Code
         "test/typ/math/root-01.typ"
         ( line 4 , column 11 )
@@ -65,9 +61,7 @@
     , Code
         "test/typ/math/root-01.typ"
         ( line 5 , column 3 )
-        (FuncCall
-           (Ident (Identifier "sqrt"))
-           [ NormalArg (Block (Content [ Text "q" ])) ])
+        (FuncCall (Ident (Identifier "sqrt")) [ BlockArg [ Text "q" ] ])
     , Code
         "test/typ/math/root-01.typ"
         ( line 5 , column 11 )
@@ -77,18 +71,14 @@
         ( line 6 , column 3 )
         (FuncCall
            (Ident (Identifier "sqrt"))
-           [ NormalArg
-               (Block (Content [ MAttach Nothing (Just (Text "2")) (Text "a") ]))
-           ])
+           [ BlockArg [ MAttach Nothing (Just (Text "2")) (Text "a") ] ])
     , HardBreak
     , Code
         "test/typ/math/root-01.typ"
         ( line 7 , column 3 )
         (FuncCall
            (Ident (Identifier "sqrt"))
-           [ NormalArg
-               (Block (Content [ MAttach (Just (Text "0")) Nothing (Text "n") ]))
-           ])
+           [ BlockArg [ MAttach (Just (Text "0")) Nothing (Text "n") ] ])
     , Code
         "test/typ/math/root-01.typ"
         ( line 7 , column 13 )
@@ -98,10 +88,8 @@
         ( line 8 , column 3 )
         (FuncCall
            (Ident (Identifier "sqrt"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ MAttach Nothing (Just (MGroup Nothing Nothing [])) (Text "b") ]))
+           [ BlockArg
+               [ MAttach Nothing (Just (MGroup Nothing Nothing [])) (Text "b") ]
            ])
     , Code
         "test/typ/math/root-01.typ"
@@ -112,9 +100,7 @@
         ( line 9 , column 3 )
         (FuncCall
            (Ident (Identifier "sqrt"))
-           [ NormalArg
-               (Block (Content [ MAttach Nothing (Just (Text "2")) (Text "b") ]))
-           ])
+           [ BlockArg [ MAttach Nothing (Just (Text "2")) (Text "b") ] ])
     , Code
         "test/typ/math/root-01.typ"
         ( line 9 , column 13 )
@@ -124,10 +110,8 @@
         ( line 10 , column 3 )
         (FuncCall
            (Ident (Identifier "sqrt"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ MAttach (Just (Text "1")) (Just (Text "2")) (Text "q") ]))
+           [ BlockArg
+               [ MAttach (Just (Text "1")) (Just (Text "2")) (Text "q") ]
            ])
     ]
 , ParBreak

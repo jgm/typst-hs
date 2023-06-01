@@ -56,9 +56,7 @@
         ( line 3 , column 10 )
         (FuncCall
            (Ident (Identifier "sqrt"))
-           [ NormalArg
-               (Block (Content [ MAttach Nothing (Just (Text "3")) (Text "2") ]))
-           ])
+           [ BlockArg [ MAttach Nothing (Just (Text "3")) (Text "2") ] ])
     ]
 , SoftBreak
 , Equation
@@ -103,9 +101,7 @@
         [ Code
             "test/typ/math/root-05.typ"
             ( line 5 , column 13 )
-            (FuncCall
-               (Ident (Identifier "sqrt"))
-               [ NormalArg (Block (Content [ Text "2" ])) ])
+            (FuncCall (Ident (Identifier "sqrt")) [ BlockArg [ Text "2" ] ])
         , Text "+"
         , Text "3"
         ]

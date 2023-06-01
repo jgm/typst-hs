@@ -53,7 +53,7 @@
         ( line 3 , column 22 )
         (FuncCall
            (Ident (Identifier "attach"))
-           [ NormalArg (Block (Content [ Text "A" ]))
+           [ BlockArg [ Text "A" ]
            , KeyValArg
                (Identifier "t")
                (Block

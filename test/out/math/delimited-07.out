@@ -47,28 +47,24 @@
         ( line 3 , column 2 )
         (FuncCall
            (Ident (Identifier "floor"))
-           [ NormalArg (Block (Content [ MFrac (Text "x") (Text "2") ])) ])
+           [ BlockArg [ MFrac (Text "x") (Text "2") ] ])
     , Text ","
     , Code
         "test/typ/math/delimited-07.typ"
         ( line 3 , column 14 )
         (FuncCall
            (Ident (Identifier "ceil"))
-           [ NormalArg (Block (Content [ MFrac (Text "x") (Text "2") ])) ])
+           [ BlockArg [ MFrac (Text "x") (Text "2") ] ])
     , Text ","
     , Code
         "test/typ/math/delimited-07.typ"
         ( line 3 , column 25 )
-        (FuncCall
-           (Ident (Identifier "abs"))
-           [ NormalArg (Block (Content [ Text "x" ])) ])
+        (FuncCall (Ident (Identifier "abs")) [ BlockArg [ Text "x" ] ])
     , Text ","
     , Code
         "test/typ/math/delimited-07.typ"
         ( line 3 , column 33 )
-        (FuncCall
-           (Ident (Identifier "norm"))
-           [ NormalArg (Block (Content [ Text "x" ])) ])
+        (FuncCall (Ident (Identifier "norm")) [ BlockArg [ Text "x" ] ])
     ]
 , ParBreak
 ]

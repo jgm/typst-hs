@@ -47,25 +47,23 @@
         ( line 3 , column 3 )
         (FuncCall
            (Ident (Identifier "sqrt"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ MAttach
-                         Nothing
-                         (Just (Text "2"))
-                         (MGroup
-                            (Just "[")
-                            (Just "]")
-                            [ MGroup (Just "|") (Just "|") [ Text "x" ] ])
-                     , Text "+"
-                     , MAttach
-                         Nothing
-                         (Just (Text "2"))
-                         (MGroup
-                            (Just "[")
-                            (Just "]")
-                            [ MGroup (Just "|") (Just "|") [ Text "y" ] ])
-                     ]))
+           [ BlockArg
+               [ MAttach
+                   Nothing
+                   (Just (Text "2"))
+                   (MGroup
+                      (Just "[")
+                      (Just "]")
+                      [ MGroup (Just "|") (Just "|") [ Text "x" ] ])
+               , Text "+"
+               , MAttach
+                   Nothing
+                   (Just (Text "2"))
+                   (MGroup
+                      (Just "[")
+                      (Just "]")
+                      [ MGroup (Just "|") (Just "|") [ Text "y" ] ])
+               ]
            ])
     , Text "<"
     , MGroup
@@ -81,13 +79,11 @@
         ( line 4 , column 7 )
         (FuncCall
            (Ident (Identifier "sqrt"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ MFrac
-                         (MGroup (Just "(") (Just ")") [ MFrac (Text "1") (Text "2") ])
-                         (MGroup Nothing Nothing [ MFrac (Text "4") (Text "5") ])
-                     ]))
+           [ BlockArg
+               [ MFrac
+                   (MGroup (Just "(") (Just ")") [ MFrac (Text "1") (Text "2") ])
+                   (MGroup Nothing Nothing [ MFrac (Text "4") (Text "5") ])
+               ]
            ])
     , Text "="
     , Code
@@ -95,18 +91,16 @@
         ( line 5 , column 6 )
         (FuncCall
            (Ident (Identifier "root"))
-           [ NormalArg (Block (Content [ Text "3" ]))
-           , NormalArg
-               (Block
-                  (Content
-                     [ MFrac
-                         (MGroup
-                            (Just "(")
-                            (Just ")")
-                            [ MFrac (MFrac (Text "1") (Text "2")) (Text "3") ])
-                         (MGroup
-                            Nothing Nothing [ MFrac (MFrac (Text "4") (Text "5")) (Text "6") ])
-                     ]))
+           [ BlockArg [ Text "3" ]
+           , BlockArg
+               [ MFrac
+                   (MGroup
+                      (Just "(")
+                      (Just ")")
+                      [ MFrac (MFrac (Text "1") (Text "2")) (Text "3") ])
+                   (MGroup
+                      Nothing Nothing [ MFrac (MFrac (Text "4") (Text "5")) (Text "6") ])
+               ]
            ])
     , Text "="
     , Code
@@ -114,26 +108,24 @@
         ( line 6 , column 6 )
         (FuncCall
            (Ident (Identifier "root"))
-           [ NormalArg (Block (Content [ Text "4" ]))
-           , NormalArg
-               (Block
-                  (Content
-                     [ MFrac
-                         (MGroup
-                            (Just "(")
-                            (Just ")")
-                            [ MFrac
-                                (MGroup (Just "(") (Just ")") [ MFrac (Text "1") (Text "2") ])
-                                (MGroup Nothing Nothing [ MFrac (Text "3") (Text "4") ])
-                            ])
-                         (MGroup
-                            Nothing
-                            Nothing
-                            [ MFrac
-                                (MGroup (Just "(") (Just ")") [ MFrac (Text "1") (Text "2") ])
-                                (MGroup Nothing Nothing [ MFrac (Text "3") (Text "4") ])
-                            ])
-                     ]))
+           [ BlockArg [ Text "4" ]
+           , BlockArg
+               [ MFrac
+                   (MGroup
+                      (Just "(")
+                      (Just ")")
+                      [ MFrac
+                          (MGroup (Just "(") (Just ")") [ MFrac (Text "1") (Text "2") ])
+                          (MGroup Nothing Nothing [ MFrac (Text "3") (Text "4") ])
+                      ])
+                   (MGroup
+                      Nothing
+                      Nothing
+                      [ MFrac
+                          (MGroup (Just "(") (Just ")") [ MFrac (Text "1") (Text "2") ])
+                          (MGroup Nothing Nothing [ MFrac (Text "3") (Text "4") ])
+                      ])
+               ]
            ])
     ]
 , ParBreak

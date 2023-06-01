@@ -59,21 +59,19 @@
         ( line 4 , column 5 )
         (FuncCall
            (Ident (Identifier "lr"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/math/delimited-04.typ"
-                         ( line 4 , column 8 )
-                         (FieldAccess
-                            (Ident (Identifier "l")) (Ident (Identifier "bracket")))
-                     , MFrac (Text "a") (Text "b")
-                     , Code
-                         "test/typ/math/delimited-04.typ"
-                         ( line 4 , column 22 )
-                         (FieldAccess
-                            (Ident (Identifier "r")) (Ident (Identifier "bracket")))
-                     ]))
+           [ BlockArg
+               [ Code
+                   "test/typ/math/delimited-04.typ"
+                   ( line 4 , column 8 )
+                   (FieldAccess
+                      (Ident (Identifier "l")) (Ident (Identifier "bracket")))
+               , MFrac (Text "a") (Text "b")
+               , Code
+                   "test/typ/math/delimited-04.typ"
+                   ( line 4 , column 22 )
+                   (FieldAccess
+                      (Ident (Identifier "r")) (Ident (Identifier "bracket")))
+               ]
            ])
     ]
 , ParBreak

@@ -66,7 +66,7 @@
            ( line 4 , column 5 )
            (FuncCall
               (Ident (Identifier "attach"))
-              [ NormalArg (Block (Content [ Text "V" ]))
+              [ BlockArg [ Text "V" ]
               , KeyValArg
                   (Identifier "tl")
                   (Block
@@ -76,7 +76,7 @@
                             ( line 4 , column 19 )
                             (FuncCall
                                (Ident (Identifier "attach"))
-                               [ NormalArg (Block (Content [ Text "2" ]))
+                               [ BlockArg [ Text "2" ]
                                , KeyValArg
                                    (Identifier "tl")
                                    (Block
@@ -86,7 +86,7 @@
                                              ( line 4 , column 33 )
                                              (FuncCall
                                                 (Ident (Identifier "attach"))
-                                                [ NormalArg (Block (Content [ Text "3" ]))
+                                                [ BlockArg [ Text "3" ]
                                                 , KeyValArg
                                                     (Identifier "tl")
                                                     (Block
@@ -96,8 +96,7 @@
                                                               ( line 4 , column 47 )
                                                               (FuncCall
                                                                  (Ident (Identifier "attach"))
-                                                                 [ NormalArg
-                                                                     (Block (Content [ Text "4" ]))
+                                                                 [ BlockArg [ Text "4" ]
                                                                  , KeyValArg
                                                                      (Identifier "tl")
                                                                      (Block (Content [ Text "5" ]))
@@ -114,14 +113,12 @@
         ( line 5 , column 3 )
         (FuncCall
            (Ident (Identifier "attach"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/math/attach-04.typ"
-                         ( line 5 , column 10 )
-                         (Ident (Identifier "Omega"))
-                     ]))
+           [ BlockArg
+               [ Code
+                   "test/typ/math/attach-04.typ"
+                   ( line 5 , column 10 )
+                   (Ident (Identifier "Omega"))
+               ]
            , KeyValArg
                (Identifier "tl")
                (Block
@@ -131,7 +128,7 @@
                          ( line 6 , column 9 )
                          (FuncCall
                             (Ident (Identifier "attach"))
-                            [ NormalArg (Block (Content [ Text "2" ]))
+                            [ BlockArg [ Text "2" ]
                             , KeyValArg
                                 (Identifier "tl")
                                 (Block
@@ -141,7 +138,7 @@
                                           ( line 6 , column 23 )
                                           (FuncCall
                                              (Ident (Identifier "attach"))
-                                             [ NormalArg (Block (Content [ Text "3" ]))
+                                             [ BlockArg [ Text "3" ]
                                              , KeyValArg
                                                  (Identifier "tl")
                                                  (Block
@@ -151,8 +148,7 @@
                                                            ( line 6 , column 37 )
                                                            (FuncCall
                                                               (Ident (Identifier "attach"))
-                                                              [ NormalArg
-                                                                  (Block (Content [ Text "4" ]))
+                                                              [ BlockArg [ Text "4" ]
                                                               , KeyValArg
                                                                   (Identifier "tl")
                                                                   (Block (Content [ Text "5" ]))
@@ -171,7 +167,7 @@
                          ( line 7 , column 9 )
                          (FuncCall
                             (Ident (Identifier "attach"))
-                            [ NormalArg (Block (Content [ Text "2" ]))
+                            [ BlockArg [ Text "2" ]
                             , KeyValArg
                                 (Identifier "tr")
                                 (Block
@@ -181,7 +177,7 @@
                                           ( line 7 , column 23 )
                                           (FuncCall
                                              (Ident (Identifier "attach"))
-                                             [ NormalArg (Block (Content [ Text "3" ]))
+                                             [ BlockArg [ Text "3" ]
                                              , KeyValArg
                                                  (Identifier "tr")
                                                  (Block
@@ -191,8 +187,7 @@
                                                            ( line 7 , column 37 )
                                                            (FuncCall
                                                               (Ident (Identifier "attach"))
-                                                              [ NormalArg
-                                                                  (Block (Content [ Text "4" ]))
+                                                              [ BlockArg [ Text "4" ]
                                                               , KeyValArg
                                                                   (Identifier "tr")
                                                                   (Block (Content [ Text "5" ]))
@@ -211,7 +206,7 @@
                          ( line 8 , column 9 )
                          (FuncCall
                             (Ident (Identifier "attach"))
-                            [ NormalArg (Block (Content [ Text "2" ]))
+                            [ BlockArg [ Text "2" ]
                             , KeyValArg
                                 (Identifier "bl")
                                 (Block
@@ -221,7 +216,7 @@
                                           ( line 8 , column 23 )
                                           (FuncCall
                                              (Ident (Identifier "attach"))
-                                             [ NormalArg (Block (Content [ Text "3" ]))
+                                             [ BlockArg [ Text "3" ]
                                              , KeyValArg
                                                  (Identifier "bl")
                                                  (Block
@@ -231,8 +226,7 @@
                                                            ( line 8 , column 37 )
                                                            (FuncCall
                                                               (Ident (Identifier "attach"))
-                                                              [ NormalArg
-                                                                  (Block (Content [ Text "4" ]))
+                                                              [ BlockArg [ Text "4" ]
                                                               , KeyValArg
                                                                   (Identifier "bl")
                                                                   (Block (Content [ Text "5" ]))
@@ -251,7 +245,7 @@
                          ( line 9 , column 9 )
                          (FuncCall
                             (Ident (Identifier "attach"))
-                            [ NormalArg (Block (Content [ Text "2" ]))
+                            [ BlockArg [ Text "2" ]
                             , KeyValArg
                                 (Identifier "br")
                                 (Block
@@ -261,7 +255,7 @@
                                           ( line 9 , column 23 )
                                           (FuncCall
                                              (Ident (Identifier "attach"))
-                                             [ NormalArg (Block (Content [ Text "3" ]))
+                                             [ BlockArg [ Text "3" ]
                                              , KeyValArg
                                                  (Identifier "br")
                                                  (Block
@@ -271,8 +265,7 @@
                                                            ( line 9 , column 37 )
                                                            (FuncCall
                                                               (Ident (Identifier "attach"))
-                                                              [ NormalArg
-                                                                  (Block (Content [ Text "4" ]))
+                                                              [ BlockArg [ Text "4" ]
                                                               , KeyValArg
                                                                   (Identifier "br")
                                                                   (Block (Content [ Text "5" ]))

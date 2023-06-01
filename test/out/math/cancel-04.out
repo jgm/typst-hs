@@ -58,7 +58,7 @@
         ( line 4 , column 6 )
         (FuncCall
            (Ident (Identifier "cancel"))
-           [ NormalArg (Block (Content [ Text "x" ]))
+           [ BlockArg [ Text "x" ]
            , KeyValArg (Identifier "length") (Literal (Numeric 200.0 Percent))
            ])
     , Text "-"
@@ -67,7 +67,7 @@
         ( line 4 , column 33 )
         (FuncCall
            (Ident (Identifier "cancel"))
-           [ NormalArg (Block (Content [ Text "x" ]))
+           [ BlockArg [ Text "x" ]
            , KeyValArg (Identifier "length") (Literal (Numeric 50.0 Percent))
            , KeyValArg
                (Identifier "stroke")
@@ -86,7 +86,7 @@
         ( line 5 , column 7 )
         (FuncCall
            (Ident (Identifier "cancel"))
-           [ NormalArg (Block (Content [ Text "x" ]))
+           [ BlockArg [ Text "x" ]
            , KeyValArg (Identifier "length") (Literal (Numeric 150.0 Percent))
            ])
     , Text "-"
@@ -95,9 +95,7 @@
         ( line 5 , column 34 )
         (FuncCall
            (Ident (Identifier "cancel"))
-           [ NormalArg
-               (Block
-                  (Content [ Text "a" , Text "+" , Text "b" , Text "+" , Text "c" ]))
+           [ BlockArg [ Text "a" , Text "+" , Text "b" , Text "+" , Text "c" ]
            , KeyValArg (Identifier "length") (Literal (Numeric 50.0 Percent))
            , KeyValArg
                (Identifier "stroke")

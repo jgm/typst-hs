@@ -47,22 +47,18 @@
         ( line 3 , column 3 )
         (FuncCall
            (Ident (Identifier "binom"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/math/frac-03.typ"
-                         ( line 3 , column 9 )
-                         (Ident (Identifier "circle"))
-                     ]))
-           , NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/math/frac-03.typ"
-                         ( line 3 , column 17 )
-                         (Ident (Identifier "square"))
-                     ]))
+           [ BlockArg
+               [ Code
+                   "test/typ/math/frac-03.typ"
+                   ( line 3 , column 9 )
+                   (Ident (Identifier "circle"))
+               ]
+           , BlockArg
+               [ Code
+                   "test/typ/math/frac-03.typ"
+                   ( line 3 , column 17 )
+                   (Ident (Identifier "square"))
+               ]
            ])
     ]
 , ParBreak

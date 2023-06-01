@@ -47,18 +47,16 @@
         ( line 3 , column 3 )
         (FuncCall
            (Ident (Identifier "sqrt"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ MAttach
-                         (Just (MGroup Nothing Nothing [ MFrac (Text "1") (Text "2") ]))
-                         (Just
-                            (Code
-                               "test/typ/math/attach-05.typ"
-                               ( line 3 , column 16 )
-                               (Ident (Identifier "zeta"))))
-                         (Text "a")
-                     ]))
+           [ BlockArg
+               [ MAttach
+                   (Just (MGroup Nothing Nothing [ MFrac (Text "1") (Text "2") ]))
+                   (Just
+                      (Code
+                         "test/typ/math/attach-05.typ"
+                         ( line 3 , column 16 )
+                         (Ident (Identifier "zeta"))))
+                   (Text "a")
+               ]
            ])
     , Text ","
     , Code
@@ -66,18 +64,16 @@
         ( line 3 , column 23 )
         (FuncCall
            (Ident (Identifier "sqrt"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ MAttach
-                         (Just
-                            (Code
-                               "test/typ/math/attach-05.typ"
-                               ( line 3 , column 30 )
-                               (Ident (Identifier "alpha"))))
-                         (Just (MGroup Nothing Nothing [ MFrac (Text "1") (Text "2") ]))
-                         (Text "a")
-                     ]))
+           [ BlockArg
+               [ MAttach
+                   (Just
+                      (Code
+                         "test/typ/math/attach-05.typ"
+                         ( line 3 , column 30 )
+                         (Ident (Identifier "alpha"))))
+                   (Just (MGroup Nothing Nothing [ MFrac (Text "1") (Text "2") ]))
+                   (Text "a")
+               ]
            ])
     , Text ","
     , Code
@@ -85,14 +81,12 @@
         ( line 3 , column 44 )
         (FuncCall
            (Ident (Identifier "sqrt"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ MAttach
-                         (Just (MGroup Nothing Nothing [ MFrac (Text "1") (Text "2") ]))
-                         (Just (MGroup Nothing Nothing [ MFrac (Text "3") (Text "4") ]))
-                         (Text "a")
-                     ]))
+           [ BlockArg
+               [ MAttach
+                   (Just (MGroup Nothing Nothing [ MFrac (Text "1") (Text "2") ]))
+                   (Just (MGroup Nothing Nothing [ MFrac (Text "3") (Text "4") ]))
+                   (Text "a")
+               ]
            ])
     , HardBreak
     , Code
@@ -100,21 +94,19 @@
         ( line 4 , column 3 )
         (FuncCall
            (Ident (Identifier "sqrt"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/math/attach-05.typ"
-                         ( line 4 , column 8 )
-                         (FuncCall
-                            (Ident (Identifier "attach"))
-                            [ NormalArg (Block (Content [ Text "a" ]))
-                            , KeyValArg
-                                (Identifier "tl") (Block (Content [ MFrac (Text "1") (Text "2") ]))
-                            , KeyValArg
-                                (Identifier "bl") (Block (Content [ MFrac (Text "3") (Text "4") ]))
-                            ])
-                     ]))
+           [ BlockArg
+               [ Code
+                   "test/typ/math/attach-05.typ"
+                   ( line 4 , column 8 )
+                   (FuncCall
+                      (Ident (Identifier "attach"))
+                      [ BlockArg [ Text "a" ]
+                      , KeyValArg
+                          (Identifier "tl") (Block (Content [ MFrac (Text "1") (Text "2") ]))
+                      , KeyValArg
+                          (Identifier "bl") (Block (Content [ MFrac (Text "3") (Text "4") ]))
+                      ])
+               ]
            ])
     , Text ","
     , Code
@@ -122,25 +114,23 @@
         ( line 5 , column 3 )
         (FuncCall
            (Ident (Identifier "sqrt"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/math/attach-05.typ"
-                         ( line 5 , column 8 )
-                         (FuncCall
-                            (Ident (Identifier "attach"))
-                            [ NormalArg (Block (Content [ Text "a" ]))
-                            , KeyValArg
-                                (Identifier "tl") (Block (Content [ MFrac (Text "1") (Text "2") ]))
-                            , KeyValArg
-                                (Identifier "bl") (Block (Content [ MFrac (Text "3") (Text "4") ]))
-                            , KeyValArg
-                                (Identifier "tr") (Block (Content [ MFrac (Text "1") (Text "2") ]))
-                            , KeyValArg
-                                (Identifier "br") (Block (Content [ MFrac (Text "3") (Text "4") ]))
-                            ])
-                     ]))
+           [ BlockArg
+               [ Code
+                   "test/typ/math/attach-05.typ"
+                   ( line 5 , column 8 )
+                   (FuncCall
+                      (Ident (Identifier "attach"))
+                      [ BlockArg [ Text "a" ]
+                      , KeyValArg
+                          (Identifier "tl") (Block (Content [ MFrac (Text "1") (Text "2") ]))
+                      , KeyValArg
+                          (Identifier "bl") (Block (Content [ MFrac (Text "3") (Text "4") ]))
+                      , KeyValArg
+                          (Identifier "tr") (Block (Content [ MFrac (Text "1") (Text "2") ]))
+                      , KeyValArg
+                          (Identifier "br") (Block (Content [ MFrac (Text "3") (Text "4") ]))
+                      ])
+               ]
            ])
     ]
 , ParBreak

@@ -47,9 +47,7 @@
         ( line 3 , column 3 )
         (FuncCall
            (Ident (Identifier "lr"))
-           [ NormalArg
-               (Block (Content [ MFrac (Text "a") (Text "b") , Text "]" ]))
-           ])
+           [ BlockArg [ MFrac (Text "a") (Text "b") , Text "]" ] ])
     , Text "="
     , Text "a"
     , Text "="
@@ -58,9 +56,7 @@
         ( line 3 , column 19 )
         (FuncCall
            (Ident (Identifier "lr"))
-           [ NormalArg
-               (Block (Content [ Text "{" , MFrac (Text "a") (Text "b") ]))
-           ])
+           [ BlockArg [ Text "{" , MFrac (Text "a") (Text "b") ] ])
     ]
 , ParBreak
 ]

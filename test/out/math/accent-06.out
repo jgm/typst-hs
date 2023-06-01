@@ -47,14 +47,12 @@
         ( line 3 , column 3 )
         (FuncCall
            (Ident (Identifier "tilde"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/math/accent-06.typ"
-                         ( line 3 , column 9 )
-                         (Ident (Identifier "integral"))
-                     ]))
+           [ BlockArg
+               [ Code
+                   "test/typ/math/accent-06.typ"
+                   ( line 3 , column 9 )
+                   (Ident (Identifier "integral"))
+               ]
            ])
     , Text ","
     , MAttach
@@ -65,14 +63,12 @@
            ( line 3 , column 20 )
            (FuncCall
               (Ident (Identifier "tilde"))
-              [ NormalArg
-                  (Block
-                     (Content
-                        [ Code
-                            "test/typ/math/accent-06.typ"
-                            ( line 3 , column 26 )
-                            (Ident (Identifier "integral"))
-                        ]))
+              [ BlockArg
+                  [ Code
+                      "test/typ/math/accent-06.typ"
+                      ( line 3 , column 26 )
+                      (Ident (Identifier "integral"))
+                  ]
               ]))
     , Text ","
     , Code
@@ -80,17 +76,15 @@
         ( line 3 , column 41 )
         (FuncCall
            (Ident (Identifier "tilde"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ MAttach
-                         (Just (Text "a"))
-                         (Just (Text "b"))
-                         (Code
-                            "test/typ/math/accent-06.typ"
-                            ( line 3 , column 47 )
-                            (Ident (Identifier "integral")))
-                     ]))
+           [ BlockArg
+               [ MAttach
+                   (Just (Text "a"))
+                   (Just (Text "b"))
+                   (Code
+                      "test/typ/math/accent-06.typ"
+                      ( line 3 , column 47 )
+                      (Ident (Identifier "integral")))
+               ]
            ])
     ]
 , ParBreak

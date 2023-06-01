@@ -57,9 +57,7 @@
         (Code
            "test/typ/math/attach-07.typ"
            ( line 5 , column 11 )
-           (FuncCall
-              (Ident (Identifier "frak"))
-              [ NormalArg (Block (Content [ Text "p" ])) ]))
+           (FuncCall (Ident (Identifier "frak")) [ BlockArg [ Text "p" ] ]))
     , MAttach (Just (Text "1")) Nothing (Text "2")
     , MAttach
         (Just (Text "1"))
@@ -85,9 +83,7 @@
         (Code
            "test/typ/math/attach-07.typ"
            ( line 5 , column 56 )
-           (FuncCall
-              (Ident (Identifier "op"))
-              [ NormalArg (Block (Content [ Text "iq" ])) ]))
+           (FuncCall (Ident (Identifier "op")) [ BlockArg [ Text "iq" ] ]))
     , HardBreak
     , MAttach Nothing (Just (Text "1")) (Text "x")
     , MAttach Nothing (Just (Text "1")) (Text "b")
@@ -97,9 +93,7 @@
         (Code
            "test/typ/math/attach-07.typ"
            ( line 6 , column 11 )
-           (FuncCall
-              (Ident (Identifier "frak"))
-              [ NormalArg (Block (Content [ Text "b" ])) ]))
+           (FuncCall (Ident (Identifier "frak")) [ BlockArg [ Text "b" ] ]))
     , MAttach Nothing (Just (Text "1")) (Text "2")
     , MAttach
         Nothing
@@ -125,9 +119,7 @@
         (Code
            "test/typ/math/attach-07.typ"
            ( line 6 , column 56 )
-           (FuncCall
-              (Ident (Identifier "op"))
-              [ NormalArg (Block (Content [ Text "id" ])) ]))
+           (FuncCall (Ident (Identifier "op")) [ BlockArg [ Text "id" ] ]))
     , HardBreak
     , MAttach (Just (Text "1")) Nothing (Text "x")
     , MAttach (Just (Text "1")) Nothing (Text "y")
@@ -140,7 +132,7 @@
         ( line 7 , column 31 )
         (FuncCall
            (Ident (Identifier "attach"))
-           [ NormalArg (Block (Content [ Text "I" ]))
+           [ BlockArg [ Text "I" ]
            , KeyValArg (Identifier "tl") (Block (Content [ Text "1" ]))
            , KeyValArg (Identifier "bl") (Block (Content [ Text "1" ]))
            , KeyValArg (Identifier "tr") (Block (Content [ Text "1" ]))
@@ -154,14 +146,12 @@
            ( line 8 , column 3 )
            (FuncCall
               (Ident (Identifier "scripts"))
-              [ NormalArg
-                  (Block
-                     (Content
-                        [ Code
-                            "test/typ/math/attach-07.typ"
-                            ( line 8 , column 11 )
-                            (Ident (Identifier "sum"))
-                        ]))
+              [ BlockArg
+                  [ Code
+                      "test/typ/math/attach-07.typ"
+                      ( line 8 , column 11 )
+                      (Ident (Identifier "sum"))
+                  ]
               ]))
     , MAttach
         (Just (Text "1"))

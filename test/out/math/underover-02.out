@@ -47,15 +47,13 @@
         ( line 3 , column 3 )
         (FuncCall
            (Ident (Identifier "underbracket"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ MGroup
-                         (Just "[")
-                         (Just "]")
-                         [ Text "1" , Text "," , MFrac (Text "2") (Text "3") ]
-                     ]))
-           , NormalArg (Block (Content [ Text " relevant stuff" ]))
+           [ BlockArg
+               [ MGroup
+                   (Just "[")
+                   (Just "]")
+                   [ Text "1" , Text "," , MFrac (Text "2") (Text "3") ]
+               ]
+           , BlockArg [ Text " relevant stuff" ]
            ])
     , Code
         "test/typ/math/underover-02.typ"
@@ -73,15 +71,13 @@
         ( line 5 , column 3 )
         (FuncCall
            (Ident (Identifier "overbracket"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ MGroup
-                         (Just "[")
-                         (Just "]")
-                         [ MFrac (Text "4") (Text "5") , Text "," , Text "6" ]
-                     ]))
-           , NormalArg (Block (Content [ Text " irrelevant stuff" ]))
+           [ BlockArg
+               [ MGroup
+                   (Just "[")
+                   (Just "]")
+                   [ MFrac (Text "4") (Text "5") , Text "," , Text "6" ]
+               ]
+           , BlockArg [ Text " irrelevant stuff" ]
            ])
     ]
 , ParBreak

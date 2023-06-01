@@ -47,22 +47,19 @@
         ( line 3 , column 2 )
         (FuncCall
            (Ident (Identifier "arrow"))
-           [ NormalArg (Block (Content [ Text "ABC " , Text "+" , Text "d" ]))
-           ])
+           [ BlockArg [ Text "ABC " , Text "+" , Text "d" ] ])
     , Text ","
     , Code
         "test/typ/math/accent-04.typ"
         ( line 3 , column 20 )
         (FuncCall
            (Ident (Identifier "tilde"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/math/accent-04.typ"
-                         ( line 3 , column 26 )
-                         (Ident (Identifier "sum"))
-                     ]))
+           [ BlockArg
+               [ Code
+                   "test/typ/math/accent-04.typ"
+                   ( line 3 , column 26 )
+                   (Ident (Identifier "sum"))
+               ]
            ])
     ]
 , ParBreak

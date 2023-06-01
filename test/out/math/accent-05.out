@@ -50,9 +50,7 @@
         (Code
            "test/typ/math/accent-05.typ"
            ( line 3 , column 9 )
-           (FuncCall
-              (Ident (Identifier "hat"))
-              [ NormalArg (Block (Content [ Text "A" ])) ]))
+           (FuncCall (Ident (Identifier "hat")) [ BlockArg [ Text "A" ] ]))
     , Text "\8800"
     , MAttach
         Nothing
@@ -62,16 +60,12 @@
            ( line 3 , column 21 )
            (FuncCall
               (Ident (Identifier "hat"))
-              [ NormalArg
-                  (Block
-                     (Content
-                        [ Code
-                            "test/typ/math/accent-05.typ"
-                            ( line 3 , column 25 )
-                            (FuncCall
-                               (Ident (Identifier "hat"))
-                               [ NormalArg (Block (Content [ Text "A" ])) ])
-                        ]))
+              [ BlockArg
+                  [ Code
+                      "test/typ/math/accent-05.typ"
+                      ( line 3 , column 25 )
+                      (FuncCall (Ident (Identifier "hat")) [ BlockArg [ Text "A" ] ])
+                  ]
               ]))
     ]
 , ParBreak

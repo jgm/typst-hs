@@ -48,9 +48,7 @@
         (Code
            "test/typ/math/attach-09.typ"
            ( line 3 , column 3 )
-           (FuncCall
-              (Ident (Identifier "limits"))
-              [ NormalArg (Block (Content [ Text "A" ])) ]))
+           (FuncCall (Ident (Identifier "limits")) [ BlockArg [ Text "A" ] ]))
     , Text "\8800"
     , MAttach (Just (Text "1")) (Just (Text "2")) (Text "A")
     ]
@@ -65,14 +63,12 @@
            ( line 4 , column 3 )
            (FuncCall
               (Ident (Identifier "scripts"))
-              [ NormalArg
-                  (Block
-                     (Content
-                        [ Code
-                            "test/typ/math/attach-09.typ"
-                            ( line 4 , column 11 )
-                            (Ident (Identifier "sum"))
-                        ]))
+              [ BlockArg
+                  [ Code
+                      "test/typ/math/attach-09.typ"
+                      ( line 4 , column 11 )
+                      (Ident (Identifier "sum"))
+                  ]
               ]))
     , Text "\8800"
     , MAttach
@@ -94,14 +90,12 @@
            ( line 5 , column 3 )
            (FuncCall
               (Ident (Identifier "limits"))
-              [ NormalArg
-                  (Block
-                     (Content
-                        [ Code
-                            "test/typ/math/attach-09.typ"
-                            ( line 5 , column 10 )
-                            (Ident (Identifier "integral"))
-                        ]))
+              [ BlockArg
+                  [ Code
+                      "test/typ/math/attach-09.typ"
+                      ( line 5 , column 10 )
+                      (Ident (Identifier "integral"))
+                  ]
               ]))
     , Text "\8800"
     , MAttach

@@ -47,27 +47,25 @@
         ( line 3 , column 3 )
         (FuncCall
            (Ident (Identifier "lr"))
-           [ NormalArg
-               (Block
-                  (Content
-                     [ Code
-                         "test/typ/math/delimited-08.typ"
-                         ( line 4 , column 5 )
-                         (FuncCall
-                            (Ident (Identifier "text"))
-                            [ NormalArg (Block (Content [ Text "(" ]))
-                            , KeyValArg (Identifier "fill") (Ident (Identifier "green"))
-                            ])
-                     , MFrac (Text "a") (Text "b")
-                     , Code
-                         "test/typ/math/delimited-08.typ"
-                         ( line 5 , column 5 )
-                         (FuncCall
-                            (Ident (Identifier "text"))
-                            [ NormalArg (Block (Content [ Text ")" ]))
-                            , KeyValArg (Identifier "fill") (Ident (Identifier "blue"))
-                            ])
-                     ]))
+           [ BlockArg
+               [ Code
+                   "test/typ/math/delimited-08.typ"
+                   ( line 4 , column 5 )
+                   (FuncCall
+                      (Ident (Identifier "text"))
+                      [ BlockArg [ Text "(" ]
+                      , KeyValArg (Identifier "fill") (Ident (Identifier "green"))
+                      ])
+               , MFrac (Text "a") (Text "b")
+               , Code
+                   "test/typ/math/delimited-08.typ"
+                   ( line 5 , column 5 )
+                   (FuncCall
+                      (Ident (Identifier "text"))
+                      [ BlockArg [ Text ")" ]
+                      , KeyValArg (Identifier "fill") (Ident (Identifier "blue"))
+                      ])
+               ]
            ])
     ]
 , ParBreak

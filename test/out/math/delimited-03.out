@@ -57,9 +57,7 @@
             ( line 4 , column 8 )
             (FuncCall
                (Ident (Identifier "lr"))
-               [ NormalArg
-                   (Block (Content [ MGroup (Just "|") (Just "|") [ Text "y" ] ]))
-               ])
+               [ BlockArg [ MGroup (Just "|") (Just "|") [ Text "y" ] ] ])
         , Text "+"
         , MFrac (Text "z") (Text "a")
         ]

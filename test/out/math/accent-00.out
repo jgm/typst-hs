@@ -45,88 +45,68 @@
     [ Code
         "test/typ/math/accent-00.typ"
         ( line 3 , column 2 )
-        (FuncCall
-           (Ident (Identifier "grave"))
-           [ NormalArg (Block (Content [ Text "a" ])) ])
+        (FuncCall (Ident (Identifier "grave")) [ BlockArg [ Text "a" ] ])
     , Text ","
     , Code
         "test/typ/math/accent-00.typ"
         ( line 3 , column 12 )
-        (FuncCall
-           (Ident (Identifier "acute"))
-           [ NormalArg (Block (Content [ Text "b" ])) ])
+        (FuncCall (Ident (Identifier "acute")) [ BlockArg [ Text "b" ] ])
     , Text ","
     , Code
         "test/typ/math/accent-00.typ"
         ( line 3 , column 22 )
-        (FuncCall
-           (Ident (Identifier "hat"))
-           [ NormalArg (Block (Content [ Text "f" ])) ])
+        (FuncCall (Ident (Identifier "hat")) [ BlockArg [ Text "f" ] ])
     , Text ","
     , Code
         "test/typ/math/accent-00.typ"
         ( line 3 , column 30 )
         (FuncCall
-           (Ident (Identifier "tilde"))
-           [ NormalArg (Block (Content [ Text "\167" ])) ])
+           (Ident (Identifier "tilde")) [ BlockArg [ Text "\167" ] ])
     , Text ","
     , Code
         "test/typ/math/accent-00.typ"
         ( line 3 , column 40 )
         (FuncCall
-           (Ident (Identifier "macron"))
-           [ NormalArg (Block (Content [ Text "\228" ])) ])
+           (Ident (Identifier "macron")) [ BlockArg [ Text "\228" ] ])
     , Text ","
     , Code
         "test/typ/math/accent-00.typ"
         ( line 3 , column 51 )
-        (FuncCall
-           (Ident (Identifier "diaer"))
-           [ NormalArg (Block (Content [ Text "a" ])) ])
+        (FuncCall (Ident (Identifier "diaer")) [ BlockArg [ Text "a" ] ])
     , Text ","
     , Text "\228"
     , HardBreak
     , Code
         "test/typ/math/accent-00.typ"
         ( line 4 , column 2 )
-        (FuncCall
-           (Ident (Identifier "breve"))
-           [ NormalArg (Block (Content [ Text "&" ])) ])
+        (FuncCall (Ident (Identifier "breve")) [ BlockArg [ Text "&" ] ])
     , Text ","
     , Code
         "test/typ/math/accent-00.typ"
         ( line 4 , column 13 )
-        (FuncCall
-           (Ident (Identifier "dot"))
-           [ NormalArg (Block (Content [ Text "!" ])) ])
+        (FuncCall (Ident (Identifier "dot")) [ BlockArg [ Text "!" ] ])
     , Text ","
     , Code
         "test/typ/math/accent-00.typ"
         ( line 4 , column 21 )
-        (FuncCall
-           (Ident (Identifier "circle"))
-           [ NormalArg (Block (Content [ Text "a" ])) ])
+        (FuncCall (Ident (Identifier "circle")) [ BlockArg [ Text "a" ] ])
     , Text ","
     , Code
         "test/typ/math/accent-00.typ"
         ( line 4 , column 32 )
-        (FuncCall
-           (Ident (Identifier "caron"))
-           [ NormalArg (Block (Content [ Text "@" ])) ])
+        (FuncCall (Ident (Identifier "caron")) [ BlockArg [ Text "@" ] ])
     , Text ","
     , Code
         "test/typ/math/accent-00.typ"
         ( line 4 , column 42 )
-        (FuncCall
-           (Ident (Identifier "arrow"))
-           [ NormalArg (Block (Content [ Text "Z" ])) ])
+        (FuncCall (Ident (Identifier "arrow")) [ BlockArg [ Text "Z" ] ])
     , Text ","
     , Code
         "test/typ/math/accent-00.typ"
         ( line 4 , column 52 )
         (FuncCall
            (FieldAccess (Ident (Identifier "l")) (Ident (Identifier "arrow")))
-           [ NormalArg (Block (Content [ Text "Z" ])) ])
+           [ BlockArg [ Text "Z" ] ])
     ]
 , ParBreak
 ]

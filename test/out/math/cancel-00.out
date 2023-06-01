@@ -49,18 +49,14 @@
     , Code
         "test/typ/math/cancel-00.typ"
         ( line 3 , column 10 )
-        (FuncCall
-           (Ident (Identifier "cancel"))
-           [ NormalArg (Block (Content [ Text "x" ])) ])
+        (FuncCall (Ident (Identifier "cancel")) [ BlockArg [ Text "x" ] ])
     , Text "+"
     , Text "b"
     , Text "-"
     , Code
         "test/typ/math/cancel-00.typ"
         ( line 3 , column 26 )
-        (FuncCall
-           (Ident (Identifier "cancel"))
-           [ NormalArg (Block (Content [ Text "x" ])) ])
+        (FuncCall (Ident (Identifier "cancel")) [ BlockArg [ Text "x" ] ])
     ]
 , ParBreak
 , Equation
@@ -81,16 +77,14 @@
                ( line 5 , column 15 )
                (FuncCall
                   (Ident (Identifier "cancel"))
-                  [ NormalArg
-                      (Block
-                         (Content
-                            [ Text "b"
-                            , Code
-                                "test/typ/math/cancel-00.typ"
-                                ( line 5 , column 24 )
-                                (FieldAccess (Ident (Identifier "c")) (Ident (Identifier "dot")))
-                            , Text "c"
-                            ]))
+                  [ BlockArg
+                      [ Text "b"
+                      , Code
+                          "test/typ/math/cancel-00.typ"
+                          ( line 5 , column 24 )
+                          (FieldAccess (Ident (Identifier "c")) (Ident (Identifier "dot")))
+                      , Text "c"
+                      ]
                   ])
            ])
         (MGroup
@@ -101,16 +95,14 @@
                ( line 5 , column 35 )
                (FuncCall
                   (Ident (Identifier "cancel"))
-                  [ NormalArg
-                      (Block
-                         (Content
-                            [ Text "b"
-                            , Code
-                                "test/typ/math/cancel-00.typ"
-                                ( line 5 , column 44 )
-                                (FieldAccess (Ident (Identifier "c")) (Ident (Identifier "dot")))
-                            , Text "c"
-                            ]))
+                  [ BlockArg
+                      [ Text "b"
+                      , Code
+                          "test/typ/math/cancel-00.typ"
+                          ( line 5 , column 44 )
+                          (FieldAccess (Ident (Identifier "c")) (Ident (Identifier "dot")))
+                      , Text "c"
+                      ]
                   ])
            ])
     ]
