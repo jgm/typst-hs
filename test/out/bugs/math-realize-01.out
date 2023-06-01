@@ -111,10 +111,10 @@
                                     base: [x], 
                                     t: [2]), 
                         hide(body: math.equation(block: false, 
-                                                 body: { math.lr(body: { [(], 
-                                                                         [≥], 
-                                                                         [ϕ], 
-                                                                         [)] }), 
+                                                 body: { math.lr(body: ({ [(], 
+                                                                          [≥], 
+                                                                          [ϕ], 
+                                                                          [)] })), 
                                                          [∪], 
                                                          math.attach(b: none, 
                                                                      base: [y], 
@@ -135,9 +135,9 @@ Hello ],
 and ], 
   hide(body: math.equation(block: true, 
                            body: { [f], 
-                                   math.lr(body: { [(], 
-                                                   [x], 
-                                                   [)] }), 
+                                   math.lr(body: ({ [(], 
+                                                    [x], 
+                                                    [)] })), 
                                    [:], 
                                    [=], 
                                    math.attach(b: none, 
@@ -150,8 +150,7 @@ Pandoc
   Meta { unMeta = fromList [] }
   [ Para
       [ Math
-          DisplayMath
-          "x^{2}\\phantom{\\left( {\\geq \\phi} \\right) \\cup y^{2}0}z^{2}"
+          DisplayMath "x^{2}\\phantom{( \\geq \\phi) \\cup y^{2}0}z^{2}"
       , SoftBreak
       , Str "Hello"
       , SoftBreak

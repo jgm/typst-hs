@@ -144,11 +144,11 @@
                         [≡], 
                         [c], 
                         [ ], 
-                        math.lr(body: { [(], 
-                                        math.op(limits: false, 
-                                                text: "mod"), 
-                                        [2], 
-                                        [)] }) }, 
+                        math.lr(body: ({ [(], 
+                                         math.op(limits: false, 
+                                                 text: "mod"), 
+                                         [2], 
+                                         [)] })) }, 
                 numbering: none), 
   parbreak() }
 --- pandoc ---
@@ -161,6 +161,6 @@ Pandoc
       , LineBreak
       , Math
           InlineMath
-          "a - b \\equiv c\\quad\\left( {\\operatorname{mod}2} \\right)"
+          "a - b \\equiv c\\quad\\left( \\operatorname{mod}2 \\right)"
       ]
   ]

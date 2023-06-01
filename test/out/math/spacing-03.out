@@ -81,20 +81,20 @@
   [
 ], 
   math.equation(block: true, 
-                body: math.lr(body: { [{], 
-                                      [x], 
-                                      [∈], 
-                                      [ℝ], 
-                                      [ ], 
-                                      [|], 
-                                      [ ], 
-                                      [x], 
-                                      [ is natural ], 
-                                      [∧], 
-                                      [x], 
-                                      [<], 
-                                      [10], 
-                                      [}] }), 
+                body: math.lr(body: ({ [{], 
+                                       [x], 
+                                       [∈], 
+                                       [ℝ], 
+                                       [ ], 
+                                       [|], 
+                                       [ ], 
+                                       [x], 
+                                       [ is natural ], 
+                                       [∧], 
+                                       [x], 
+                                       [<], 
+                                       [10], 
+                                       [}] })), 
                 numbering: none), 
   parbreak() }
 --- pandoc ---
@@ -103,6 +103,6 @@ Pandoc
   [ Para
       [ Math
           DisplayMath
-          "\\left\\{ {x \\in {\\mathbb{R}}~|~x\\text{ is natural } \\land x < 10} \\right\\}"
+          "\\left\\{ x \\in {\\mathbb{R}}~|~x\\text{ is natural } \\land x < 10 \\right\\}"
       ]
   ]

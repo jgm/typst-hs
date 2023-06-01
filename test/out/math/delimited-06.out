@@ -78,21 +78,21 @@
 { [
 ], 
   math.equation(block: true, 
-                body: { math.lr(body: { []], 
-                                        math.attach(b: { [x], 
-                                                         [=], 
-                                                         [1] }, 
-                                                    base: [∑], 
-                                                    t: [n]), 
-                                        [x], 
-                                        []] }, 
+                body: { math.lr(body: ({ []], 
+                                         math.attach(b: { [x], 
+                                                          [=], 
+                                                          [1] }, 
+                                                     base: [∑], 
+                                                     t: [n]), 
+                                         [x], 
+                                         []] }), 
                                 size: 70%), 
                         [<], 
-                        math.lr(body: math.lr(body: { [(], 
-                                                      [1], 
-                                                      [,], 
-                                                      [2], 
-                                                      [)] }), 
+                        math.lr(body: (math.lr(body: ({ [(], 
+                                                        [1], 
+                                                        [,], 
+                                                        [2], 
+                                                        [)] }))), 
                                 size: 200%) }, 
                 numbering: none), 
   parbreak() }
@@ -102,6 +102,6 @@ Pandoc
   [ Para
       [ Math
           DisplayMath
-          "\\left\\rbrack {\\sum_{x = 1}^{n}x} \\right\\rbrack < \\left. \\left( {1,2} \\right) \\right."
+          "\\left\\rbrack \\sum_{x = 1}^{n}x \\right\\rbrack < \\left. (1,2) \\right."
       ]
   ]

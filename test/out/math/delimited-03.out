@@ -68,27 +68,27 @@
 { [
 ], 
   math.equation(block: true, 
-                body: { math.lr(body: { [|], 
-                                        [x], 
-                                        [+], 
-                                        [|] }), 
+                body: { math.lr(body: ({ [|], 
+                                         [x], 
+                                         [+], 
+                                         [|] })), 
                         [y], 
-                        math.lr(body: { [|], 
-                                        [+], 
-                                        math.frac(denom: [a], 
-                                                  num: [z]), 
-                                        [|] }), 
+                        math.lr(body: ({ [|], 
+                                         [+], 
+                                         math.frac(denom: [a], 
+                                                   num: [z]), 
+                                         [|] })), 
                         linebreak(), 
-                        math.lr(body: { [|], 
-                                        [x], 
-                                        [+], 
-                                        math.lr(body: math.lr(body: { [|], 
-                                                                      [y], 
-                                                                      [|] })), 
-                                        [+], 
-                                        math.frac(denom: [a], 
-                                                  num: [z]), 
-                                        [|] }) }, 
+                        math.lr(body: ({ [|], 
+                                         [x], 
+                                         [+], 
+                                         math.lr(body: (math.lr(body: ({ [|], 
+                                                                         [y], 
+                                                                         [|] })))), 
+                                         [+], 
+                                         math.frac(denom: [a], 
+                                                   num: [z]), 
+                                         [|] })) }, 
                 numbering: none), 
   parbreak() }
 --- pandoc ---
@@ -97,6 +97,6 @@ Pandoc
   [ Para
       [ Math
           DisplayMath
-          "\\begin{array}{r}\n\\left| {x +} \\right|y\\left| {+ \\frac{z}{a}} \\right| \\\\\n\\left| {x + \\left. |y| \\right. + \\frac{z}{a}} \\right|\n\\end{array}"
+          "\\begin{array}{r}\n|x + |y\\left| + \\frac{z}{a} \\right| \\\\\n\\left| x + \\left. |y| \\right. + \\frac{z}{a} \\right|\n\\end{array}"
       ]
   ]

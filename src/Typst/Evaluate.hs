@@ -312,7 +312,8 @@ wrapIn :: Maybe Text -> Maybe Text -> Seq Content -> Seq Content
 wrapIn Nothing Nothing cs = cs
 wrapIn (Just op) (Just cl) cs =
   Seq.singleton $
-    Elt "math.lr" Nothing [("body", VContent $ Txt op Seq.<| (cs Seq.|> Txt cl))]
+    Elt "math.lr" Nothing [("body", VArray $ V.fromList
+                              [VContent $ Txt op Seq.<| (cs Seq.|> Txt cl)])]
 wrapIn Nothing (Just cl) cs = cs Seq.|> Txt cl
 wrapIn (Just op) Nothing cs = Txt op Seq.<| cs
 

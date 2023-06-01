@@ -93,9 +93,9 @@
   math.equation(block: true, 
                 body: math.frac(denom: { [(], 
                                          [2], 
-                                         math.lr(body: { [(], 
-                                                         [x], 
-                                                         [)] }) }, 
+                                         math.lr(body: ({ [(], 
+                                                          [x], 
+                                                          [)] })) }, 
                                 num: [1]), 
                 numbering: none), 
   [
@@ -104,11 +104,11 @@
                 body: math.attach(b: { [(], 
                                        [2], 
                                        [y], 
-                                       math.lr(body: { [(], 
-                                                       [x], 
-                                                       [)] }), 
-                                       math.lr(body: { [(], 
-                                                       [)] }) }, 
+                                       math.lr(body: ({ [(], 
+                                                        [x], 
+                                                        [)] })), 
+                                       math.lr(body: ({ [(], 
+                                                        [)] })) }, 
                                   base: [1], 
                                   t: none), 
                 numbering: none), 
@@ -118,15 +118,15 @@
                 body: math.frac(denom: { [(], 
                                          [2], 
                                          [y], 
-                                         math.lr(body: { [(], 
-                                                         [x], 
-                                                         [)] }), 
-                                         math.lr(body: { [(], 
-                                                         [2], 
-                                                         math.lr(body: { [(], 
-                                                                         [3], 
-                                                                         [)] }), 
-                                                         [)] }) }, 
+                                         math.lr(body: ({ [(], 
+                                                          [x], 
+                                                          [)] })), 
+                                         math.lr(body: ({ [(], 
+                                                          [2], 
+                                                          math.lr(body: ({ [(], 
+                                                                           [3], 
+                                                                           [)] })), 
+                                                          [)] })) }, 
                                 num: [1]), 
                 numbering: none), 
   parbreak() }
@@ -136,8 +136,8 @@ Pandoc
   [ Para
       [ Math DisplayMath "\\frac{1}{(2(x)}"
       , SoftBreak
-      , Math DisplayMath "1_{(2y(x)\\left( {} \\right)}"
+      , Math DisplayMath "1_{(2y(x)()}"
       , SoftBreak
-      , Math DisplayMath "\\frac{1}{(2y(x)\\left( {2(3)} \\right)}"
+      , Math DisplayMath "\\frac{1}{(2y(x)\\left( 2(3) \\right)}"
       ]
   ]

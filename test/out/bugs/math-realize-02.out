@@ -323,16 +323,16 @@
                         math.equation(block: false, 
                                       body: { [α], 
                                               math.attach(b: none, 
-                                                          base: math.lr(body: { [(], 
-                                                                                [M], 
-                                                                                [+], 
-                                                                                math.equation(block: false, 
-                                                                                              body: { [a], 
-                                                                                                      math.attach(b: none, 
-                                                                                                                  base: [b], 
-                                                                                                                  t: [2]) }, 
-                                                                                              numbering: none), 
-                                                                                [)] }), 
+                                                          base: math.lr(body: ({ [(], 
+                                                                                 [M], 
+                                                                                 [+], 
+                                                                                 math.equation(block: false, 
+                                                                                               body: { [a], 
+                                                                                                       math.attach(b: none, 
+                                                                                                                   base: [b], 
+                                                                                                                   t: [2]) }, 
+                                                                                               numbering: none), 
+                                                                                 [)] })), 
                                                           t: [2]) }, 
                                       numbering: none) }, 
                 numbering: none), 
@@ -345,16 +345,16 @@
                         [(], 
                         [α], 
                         [,], 
-                        math.lr(body: { [(], 
-                                        [M], 
-                                        [+], 
-                                        math.equation(block: false, 
-                                                      body: { [a], 
-                                                              math.attach(b: none, 
-                                                                          base: [b], 
-                                                                          t: [2]) }, 
-                                                      numbering: none), 
-                                        [)] }), 
+                        math.lr(body: ({ [(], 
+                                         [M], 
+                                         [+], 
+                                         math.equation(block: false, 
+                                                       body: { [a], 
+                                                               math.attach(b: none, 
+                                                                           base: [b], 
+                                                                           t: [2]) }, 
+                                                       numbering: none), 
+                                         [)] })), 
                         [)] }, 
                 numbering: none), 
   [.], 
@@ -392,16 +392,16 @@
                         math.equation(block: false, 
                                       body: { [α], 
                                               math.attach(b: none, 
-                                                          base: math.lr(body: { [(], 
-                                                                                [M], 
-                                                                                [+], 
-                                                                                math.equation(block: false, 
-                                                                                              body: { [a], 
-                                                                                                      math.attach(b: none, 
-                                                                                                                  base: [b], 
-                                                                                                                  t: [2]) }, 
-                                                                                              numbering: none), 
-                                                                                [)] }), 
+                                                          base: math.lr(body: ({ [(], 
+                                                                                 [M], 
+                                                                                 [+], 
+                                                                                 math.equation(block: false, 
+                                                                                               body: { [a], 
+                                                                                                       math.attach(b: none, 
+                                                                                                                   base: [b], 
+                                                                                                                   t: [2]) }, 
+                                                                                               numbering: none), 
+                                                                                 [)] })), 
                                                           t: [2]) }, 
                                       numbering: none) }, 
                 numbering: none), 
@@ -413,16 +413,16 @@
                         [(], 
                         [α], 
                         [,], 
-                        math.lr(body: { [(], 
-                                        [M], 
-                                        [+], 
-                                        math.equation(block: false, 
-                                                      body: { [a], 
-                                                              math.attach(b: none, 
-                                                                          base: [b], 
-                                                                          t: [2]) }, 
-                                                      numbering: none), 
-                                        [)] }), 
+                        math.lr(body: ({ [(], 
+                                         [M], 
+                                         [+], 
+                                         math.equation(block: false, 
+                                                       body: { [a], 
+                                                               math.attach(b: none, 
+                                                                           base: [b], 
+                                                                           t: [2]) }, 
+                                                       numbering: none), 
+                                         [)] })), 
                         [)] }, 
                 numbering: none), 
   [
@@ -460,13 +460,13 @@ Pandoc
   , Para
       [ Str "Inline"
       , Space
-      , Math InlineMath "2{\\alpha\\left( {M + {ab^{2}}} \\right)^{2}}"
+      , Math InlineMath "2{\\alpha\\left( M + {ab^{2}} \\right)^{2}}"
       , Str "."
       ]
   , Para
       [ Str "Inline"
       , Space
-      , Math InlineMath "2|(\\alpha,\\left( {M + {ab^{2}}} \\right))"
+      , Math InlineMath "2|(\\alpha,\\left( M + {ab^{2}} \\right))"
       , Str "."
       ]
   , Para
@@ -478,9 +478,9 @@ Pandoc
       , Str "."
       ]
   , Para
-      [ Math DisplayMath "2{\\alpha\\left( {M + {ab^{2}}} \\right)^{2}}"
+      [ Math DisplayMath "2{\\alpha\\left( M + {ab^{2}} \\right)^{2}}"
       , SoftBreak
-      , Math DisplayMath "2|(\\alpha,\\left( {M + {ab^{2}}} \\right))"
+      , Math DisplayMath "2|(\\alpha,\\left( M + {ab^{2}} \\right))"
       , SoftBreak
       , Math
           DisplayMath

@@ -372,12 +372,12 @@
                                             size: 8.0pt)), 
                         math.attach(b: text(body: [1], 
                                             size: 8.0pt), 
-                                    base: math.lr(body: { [|], 
-                                                          math.frac(denom: text(body: [2], 
-                                                                                size: 8.0pt), 
-                                                                    num: text(body: [1], 
-                                                                              size: 8.0pt)), 
-                                                          [|] }), 
+                                    base: math.lr(body: ({ [|], 
+                                                           math.frac(denom: text(body: [2], 
+                                                                                 size: 8.0pt), 
+                                                                     num: text(body: [1], 
+                                                                               size: 8.0pt)), 
+                                                           [|] })), 
                                     t: text(body: [1], 
                                             size: 8.0pt)), 
                         linebreak(), 
@@ -406,12 +406,12 @@
                         math.attach(b: text(body: [1], 
                                             size: 8.0pt), 
                                     base: math.attach(b: none, 
-                                                      base: math.lr(body: { [(], 
-                                                                            text(body: [b], 
-                                                                                 size: 8.0pt), 
-                                                                            text(body: [y], 
-                                                                                 size: 8.0pt), 
-                                                                            [)] }), 
+                                                      base: math.lr(body: ({ [(], 
+                                                                             text(body: [b], 
+                                                                                  size: 8.0pt), 
+                                                                             text(body: [y], 
+                                                                                  size: 8.0pt), 
+                                                                             [)] })), 
                                                       t: text(body: [1], 
                                                               size: 8.0pt)), 
                                     t: none), 
@@ -423,10 +423,10 @@
                                     t: none), 
                         math.attach(b: text(body: [1], 
                                             size: 8.0pt), 
-                                    base: math.lr(body: { [[], 
-                                                          text(body: [∫], 
-                                                               size: 8.0pt), 
-                                                          []] }), 
+                                    base: math.lr(body: ({ [[], 
+                                                           text(body: [∫], 
+                                                                size: 8.0pt), 
+                                                           []] })), 
                                     t: none) }, 
                 numbering: none), 
   parbreak() }
@@ -437,6 +437,6 @@ Pandoc
   , Para
       [ Math
           DisplayMath
-          "\\begin{array}{r}\nx_{1}p_{1}\\mathfrak{p}_{1}2_{1} \\cdot_{1}\\lg_{1}!_{1}\\backslash_{1}\\rbrack_{1}\\text{ ip}_{1}\\operatorname{iq}_{1} \\\\\nx^{1}b^{1}\\mathfrak{b}^{1}2^{1} \\cdot^{1}\\lg^{1}!^{1}\\backslash^{1}\\rbrack^{1}\\text{ ib}^{1}\\operatorname{id}^{1} \\\\\nx_{1}y_{1}\\text{ \\_}_{1}x^{1}l^{1}\\text{ `}^{1}{{}_{1}^{1}I_{1}^{1}}\\sum_{1}^{1}\\int_{1}^{1}\\left| \\frac{1}{2} \\right|_{1}^{1} \\\\\n{x^{1}}_{1},\\text{ (}by{)^{1}}_{1} \\neq {\\left( {by} \\right)^{1}}_{1},\\text{ [\8747]}_{1}\\lbrack\\int\\rbrack_{1}\n\\end{array}"
+          "\\begin{array}{r}\nx_{1}p_{1}\\mathfrak{p}_{1}2_{1} \\cdot_{1}\\lg_{1}!_{1}\\backslash_{1}\\rbrack_{1}\\text{ ip}_{1}\\operatorname{iq}_{1} \\\\\nx^{1}b^{1}\\mathfrak{b}^{1}2^{1} \\cdot^{1}\\lg^{1}!^{1}\\backslash^{1}\\rbrack^{1}\\text{ ib}^{1}\\operatorname{id}^{1} \\\\\nx_{1}y_{1}\\text{ \\_}_{1}x^{1}l^{1}\\text{ `}^{1}{{}_{1}^{1}I_{1}^{1}}\\sum_{1}^{1}\\int_{1}^{1}\\left| \\frac{1}{2} \\right|_{1}^{1} \\\\\n{x^{1}}_{1},\\text{ (}by{)^{1}}_{1} \\neq {(by)^{1}}_{1},\\text{ [\8747]}_{1}\\lbrack\\int\\rbrack_{1}\n\\end{array}"
       ]
   ]

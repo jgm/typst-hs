@@ -29,7 +29,7 @@ mathModule =
                           ("radicand", One TContent)]
     , makeElement (Just "math") "sqrt" [("radicand", One TContent)]
     , makeElement (Just "math") "cases" [("children", Many TContent)]
-    , makeElement (Just "math") "lr" [("body", One TContent)]
+    , makeElement (Just "math") "lr" [("body", Many TContent)]
     , makeElement (Just "math") "abs" [("body", One TContent)]
     , makeElement (Just "math") "norm" [("body", One TContent)]
     , makeElement (Just "math") "floor" [("body", One TContent)]

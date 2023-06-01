@@ -20,14 +20,16 @@ import Typst.Methods (applyPureFunction, formatNumber)
 import Text.Parsec
 import Text.TeXMath (writeTeX)
 import Text.TeXMath.Types (Exp(..), FractionType(..), TextType(..),
-                           TeXSymbolType(..), Alignment(..))
+                           TeXSymbolType(..), Alignment(..), TeXSymbolType(Pun))
 import Text.TeXMath.Unicode.ToTeX (getSymbolType)
 import Text.TeXMath.Shared (getSpaceChars)
 import Text.Pandoc.Walk
 import Control.Monad (MonadPlus(mplus))
 import Control.Monad.Reader (lift)
 import qualified Data.Map as M
+import Data.List (intercalate)
 import Data.Maybe (fromMaybe, isNothing)
+import Debug.Trace
 
 contentToPandoc :: Monad m => (Text -> m ()) -> Seq Content -> m (Either ParseError B.Pandoc)
 contentToPandoc warn' = runParserT pPandoc warn' "" . F.toList
@@ -471,16 +473,17 @@ handleMath tok =
       body <- getField "body" fields >>= pMathGrouped
       pure $ EDelimited "\8970" "\8969" [ Right body ]
     Elt "math.lr" _ fields -> do
-      rawbody <- getField "body" fields >>= pMathMany
+      bodyparts <- getField "body" fields >>= mapM pMathMany . V.toList . traceShowId
+      let rawbody = intercalate [ESymbol Pun ","] bodyparts
       let (op, rest) =
             case rawbody of
               (ESymbol _ t:xs) -> (t, xs)
               _ -> ("", rawbody)
       let (body, cl) =
             case reverse rest of
-              (ESymbol _ t:_) -> (withGroup (init rest), t)
-              _ -> (withGroup rest, "")
-      pure $ EDelimited op cl [ Right body ]
+              (ESymbol _ t:_) -> (map Right (init rest), t)
+              _ -> (map Right rest, "")
+      pure $ EDelimited op cl body
     Elt "math.binom" _ fields -> do
       up <- getField "upper" fields >>= pMathGrouped
       low <- getField "lower" fields >>= pMathGrouped

@@ -112,11 +112,11 @@
 ], 
   math.equation(block: true, 
                 body: { [f], 
-                        math.lr(body: { [(], 
-                                        [x], 
-                                        [,], 
-                                        [y], 
-                                        [)] }), 
+                        math.lr(body: ({ [(], 
+                                         [x], 
+                                         [,], 
+                                         [y], 
+                                         [)] })), 
                         [:], 
                         [=], 
                         math.cases(children: ({ [1], 
@@ -152,6 +152,6 @@ Pandoc
   [ Para
       [ Math
           DisplayMath
-          "f\\left( {x,y} \\right): = \\begin{cases}\n1\\quad & \\text{if }\\frac{x \\cdot y}{2} \\leq 0 \\\\\n2 & \\text{if }x \\mid 2 \\\\\n3 & \\text{if }x \\in {\\mathbb{N}} \\\\\n4 & \\text{else}\n\\end{cases}"
+          "f(x,y): = \\begin{cases}\n1\\quad & \\text{if }\\frac{x \\cdot y}{2} \\leq 0 \\\\\n2 & \\text{if }x \\mid 2 \\\\\n3 & \\text{if }x \\in {\\mathbb{N}} \\\\\n4 & \\text{else}\n\\end{cases}"
       ]
   ]

@@ -64,15 +64,15 @@
 { [
 ], 
   math.equation(block: true, 
-                body: { math.lr(body: { math.frac(denom: [b], 
-                                                  num: [a]), 
-                                        []] }), 
+                body: { math.lr(body: ({ math.frac(denom: [b], 
+                                                   num: [a]), 
+                                         []] })), 
                         [=], 
                         [a], 
                         [=], 
-                        math.lr(body: { [{], 
-                                        math.frac(denom: [b], 
-                                                  num: [a]) }) }, 
+                        math.lr(body: ({ [{], 
+                                         math.frac(denom: [b], 
+                                                   num: [a]) })) }, 
                 numbering: none), 
   parbreak() }
 --- pandoc ---

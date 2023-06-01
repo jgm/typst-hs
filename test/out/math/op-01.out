@@ -107,9 +107,9 @@
                                     base: math.op(limits: false, 
                                                   text: "log"), 
                                     t: none), 
-                        math.lr(body: { [(], 
-                                        [x], 
-                                        [)] }) }, 
+                        math.lr(body: ({ [(], 
+                                         [x], 
+                                         [)] })) }, 
                 numbering: none), 
   parbreak() }
 --- pandoc ---

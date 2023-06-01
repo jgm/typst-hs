@@ -159,13 +159,13 @@
                                                              [d] }), 
                                   num: { [a], 
                                          [·], 
-                                         math.cancel(body: math.lr(body: { [(], 
-                                                                           [b], 
-                                                                           [+], 
-                                                                           [c], 
-                                                                           [+], 
-                                                                           [d], 
-                                                                           [)] })) }) }, 
+                                         math.cancel(body: math.lr(body: ({ [(], 
+                                                                            [b], 
+                                                                            [+], 
+                                                                            [c], 
+                                                                            [+], 
+                                                                            [d], 
+                                                                            [)] }))) }) }, 
                 numbering: none), 
   parbreak() }
 --- pandoc ---
@@ -174,8 +174,6 @@ Pandoc
   [ Para
       [ Math DisplayMath "a + b + {b + c} - b - c - 5 + 6 - 6"
       , SoftBreak
-      , Math
-          DisplayMath
-          "e + \\frac{a \\cdot \\left( {b + c + d} \\right)}{b + c + d}"
+      , Math DisplayMath "e + \\frac{a \\cdot (b + c + d)}{b + c + d}"
       ]
   ]

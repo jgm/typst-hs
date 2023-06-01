@@ -63,20 +63,20 @@
 ], 
   math.equation(block: true, 
                 body: { math.frac(denom: [2], 
-                                  num: { math.lr(body: { [|], 
-                                                         [x], 
-                                                         [|] }), 
+                                  num: { math.lr(body: ({ [|], 
+                                                          [x], 
+                                                          [|] })), 
                                          [+], 
-                                         math.lr(body: { [|], 
-                                                         [y], 
-                                                         [|] }) }), 
+                                         math.lr(body: ({ [|], 
+                                                          [y], 
+                                                          [|] })) }), 
                         [<], 
                         math.frac(denom: [3], 
-                                  num: math.lr(body: { [[], 
-                                                       [1], 
-                                                       [+], 
-                                                       [2], 
-                                                       []] })) }, 
+                                  num: math.lr(body: ({ [[], 
+                                                        [1], 
+                                                        [+], 
+                                                        [2], 
+                                                        []] }))) }, 
                 numbering: none), 
   parbreak() }
 --- pandoc ---
@@ -85,6 +85,6 @@ Pandoc
   [ Para
       [ Math
           DisplayMath
-          "\\frac{|x| + |y|}{2} < \\frac{\\left\\lbrack {1 + 2} \\right\\rbrack}{3}"
+          "\\frac{|x| + |y|}{2} < \\frac{\\lbrack 1 + 2\\rbrack}{3}"
       ]
   ]

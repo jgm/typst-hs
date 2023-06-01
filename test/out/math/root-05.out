@@ -125,11 +125,11 @@
 ], 
   math.equation(block: true, 
                 body: { [], 
-                        math.lr(body: { [(], 
-                                        [x], 
-                                        [+], 
-                                        [y], 
-                                        [)] }), 
+                        math.lr(body: ({ [(], 
+                                         [x], 
+                                         [+], 
+                                         [y], 
+                                         [)] })), 
                         [ ], 
                         [∛], 
                         [x], 
@@ -140,18 +140,18 @@
   [
 ], 
   math.equation(block: true, 
-                body: { math.lr(body: { [(], 
-                                        math.root(index: [2], 
-                                                  radicand: none), 
-                                        [+], 
-                                        [3], 
-                                        [)] }), 
+                body: { math.lr(body: ({ [(], 
+                                         math.root(index: [2], 
+                                                   radicand: none), 
+                                         [+], 
+                                         [3], 
+                                         [)] })), 
                         [=], 
-                        math.lr(body: { [(], 
-                                        math.sqrt(radicand: [2]), 
-                                        [+], 
-                                        [3], 
-                                        [)] }) }, 
+                        math.lr(body: ({ [(], 
+                                         math.sqrt(radicand: [2]), 
+                                         [+], 
+                                         [3], 
+                                         [)] })) }, 
                 numbering: none), 
   parbreak() }
 --- pandoc ---
@@ -160,12 +160,10 @@ Pandoc
   [ Para
       [ Math DisplayMath "\\sqrt[2^{3}]{} = \\sqrt{2^{3}}"
       , SoftBreak
-      , Math
-          DisplayMath
-          "\\left( {x + y} \\right)\\quad\\sqrt[3]{}x\\quad\\sqrt[4]{}x"
+      , Math DisplayMath "(x + y)\\quad\\sqrt[3]{}x\\quad\\sqrt[4]{}x"
       , SoftBreak
       , Math
           DisplayMath
-          "\\left( {\\sqrt[2]{} + 3} \\right) = \\left( {\\sqrt{2} + 3} \\right)"
+          "\\left( \\sqrt[2]{} + 3 \\right) = \\left( \\sqrt{2} + 3 \\right)"
       ]
   ]
