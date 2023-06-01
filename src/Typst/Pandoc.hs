@@ -29,7 +29,7 @@ import Control.Monad.Reader (lift)
 import qualified Data.Map as M
 import Data.List (intercalate)
 import Data.Maybe (fromMaybe, isNothing)
-import Debug.Trace
+-- import Debug.Trace
 
 contentToPandoc :: Monad m => (Text -> m ()) -> Seq Content -> m (Either ParseError B.Pandoc)
 contentToPandoc warn' = runParserT pPandoc warn' "" . F.toList
@@ -473,7 +473,7 @@ handleMath tok =
       body <- getField "body" fields >>= pMathGrouped
       pure $ EDelimited "\8970" "\8969" [ Right body ]
     Elt "math.lr" _ fields -> do
-      bodyparts <- getField "body" fields >>= mapM pMathMany . V.toList . traceShowId
+      bodyparts <- getField "body" fields >>= mapM pMathMany . V.toList
       let rawbody = intercalate [ESymbol Pun ","] bodyparts
       let (op, rest) =
             case rawbody of
