@@ -63,7 +63,7 @@ import Data.Scientific (floatingOrInteger)
 import Data.String
 import Typst.Syntax (Identifier(..), Markup)
 import Text.Parsec
-import Control.Monad.State
+import Control.Monad (MonadPlus(..))
 import Data.Aeson (FromJSON, parseJSON)
 import qualified Data.Aeson as Aeson
 import qualified Text.PrettyPrint as P

@@ -14,7 +14,7 @@ import qualified Data.Map as M
 import Typst.Syntax
 import Typst.Types
 import Typst.Regex (makeLiteralRE)
-import Control.Monad.State
+import Control.Monad (foldM)
 import Text.Parsec ( (<|>), getState, updateState )
 import Typst.Regex (RE(..))
 import qualified Text.Regex.TDFA as TDFA

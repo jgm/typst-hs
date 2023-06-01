@@ -15,7 +15,8 @@ module Typst.Util (
     , allArgs
   )
 where
-import Control.Monad.Reader
+import Control.Monad.Reader (ReaderT(runReaderT), asks)
+import Control.Monad (foldM)
 import Typst.Types
 import qualified Data.Sequence as Seq
 import qualified Data.Set as Set

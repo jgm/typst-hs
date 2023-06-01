@@ -24,7 +24,8 @@ import Text.TeXMath.Types (Exp(..), FractionType(..), TextType(..),
 import Text.TeXMath.Unicode.ToTeX (getSymbolType)
 import Text.TeXMath.Shared (getSpaceChars)
 import Text.Pandoc.Walk
-import Control.Monad.Reader
+import Control.Monad (MonadPlus(mplus))
+import Control.Monad.Reader (lift)
 import qualified Data.Map as M
 import Data.Maybe (fromMaybe, isNothing)
 

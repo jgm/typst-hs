@@ -22,7 +22,8 @@ import Data.Maybe (fromMaybe)
 import Data.Text (Text)
 import qualified Data.Text as T
 import Typst.Types
-import Control.Monad.Reader
+import Control.Monad (MonadPlus(mplus), foldM)
+import Control.Monad.Reader (MonadTrans(lift), MonadReader(ask))
 import Typst.Regex (replaceRegex, splitRegex, match, matchAll,
                     makeRE, RE(..), RegexMatch(..), extract)
 import qualified Data.Array as Array

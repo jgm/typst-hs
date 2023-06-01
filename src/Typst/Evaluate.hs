@@ -31,7 +31,8 @@ import Typst.Bind (destructuringBind)
 import Typst.Show (applyShowRules)
 import Typst.Methods (getMethod)
 import Typst.Module.Standard (standardModule, loadFileText)
-import Control.Monad.State
+import Control.Monad.State (MonadTrans(lift))
+import Control.Monad (MonadPlus(mplus), foldM, foldM_)
 import Text.Parsec
 import System.FilePath (takeBaseName, replaceFileName)
 import Typst.Regex (match)

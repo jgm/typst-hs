@@ -1,6 +1,5 @@
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE TupleSections #-}
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE OverloadedStrings #-}
 module Typst.Parse (
  parseTypst
@@ -10,7 +9,6 @@ import Control.Monad.Identity (Identity)
 import Text.Parsec hiding (string)
 import qualified Text.Parsec as P
 import Text.Parsec.Expr
-import Control.Monad.State
 import Typst.Syntax
 import Data.Text (Text)
 import Control.Applicative (some)
@@ -18,6 +16,7 @@ import qualified  Data.Text as T
 import Data.Char hiding (Space)
 import Text.Read (readMaybe)
 import Data.Maybe (isJust)
+import Control.Monad ( guard, MonadPlus(mzero), when, void )
 -- import Debug.Trace
 
 parseTypst :: FilePath -> Text -> Either ParseError [Markup]
