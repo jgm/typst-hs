@@ -686,7 +686,15 @@ handleInline tok =
                  pure "#"
                _ -> fail $ "Expected string or label for dest"
       body <- getField "body" fields
-      B.link src "" <$> pWithContents pInlines body
+      description <- if null body
+                        then pure $ B.text $
+                             if "mailto:" `T.isPrefixOf` src
+                                then T.drop 7 src
+                                else if "tel:" `T.isPrefixOf` src
+                                        then T.drop 4 src
+                                        else src
+                        else pWithContents pInlines body
+      pure $ B.link src "" description
     Elt "image" _ fields -> do
       path <- getField "path" fields
       alt <- (B.text <$> getField "alt" fields) `mplus` pure mempty

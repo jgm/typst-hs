@@ -189,13 +189,16 @@ Pandoc
   , Para
       [ Str "Contact"
       , Space
-      , Link ( "" , [] , [] ) [] ( "mailto:hi@typst.app" , "" )
+      , Link
+          ( "" , [] , [] )
+          [ Str "hi@typst.app" ]
+          ( "mailto:hi@typst.app" , "" )
       , Space
       , Str "or"
       , SoftBreak
       , Str "call"
       , Space
-      , Link ( "" , [] , [] ) [] ( "tel:123" , "" )
+      , Link ( "" , [] , [] ) [ Str "123" ] ( "tel:123" , "" )
       , Space
       , Str "for"
       , Space
