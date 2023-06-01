@@ -275,28 +275,26 @@ mArgs = inParens $
  where
   sep = void (sym ",") <|> void (lookAhead (char ')'))
   mNormArg =
-    NormalArg <$> try mathexp
+    NormalArg <$> (char '#' *> pExpr <* sep)
   mKeyValArg = do
     ident <- try $ pIdentifier <* sym ":"
-    KeyValArg ident <$> mathexp
-  mMathArg = BlockArg <$> (do xs <- maths
-                              if null xs
-                                 then void $ sym ","
-                                 else sep
-                              pure xs)
+    KeyValArg ident <$> (char '#' *> pExpr <* sep)
+  mathContent = do
+    xs <- maths
+    if null xs
+       then void $ sym ","
+       else sep
+    pure xs
+  mMathArg = BlockArg <$> mathContent
   mArrayArg = try $ do
     let pRow = sepBy' (toGroup <$> maths) (sym ",")
     rows <- many1 $ try (pRow <* sym ";")
     -- parse any regular items and form a last row
-    lastrow <- many (do BlockArg xs <- mMathArg
-                        pure $ toGroup xs)
+    lastrow <- many (toGroup <$> mathContent)
     let rows' = if null lastrow
                    then rows
                    else rows ++ [lastrow]
     pure $ ArrayArg rows'
-  mathexp = (char '#' *> pExpr <* sep)
-           <|> (do BlockArg xs <- mMathArg
-                   pure $ Block $ Content xs)
   maths = many (notFollowedBy (oneOf ",;)") *> notFollowedBy mKeyValArg *> pMath)
   toGroup [m] = m
   toGroup ms = MGroup Nothing Nothing ms
