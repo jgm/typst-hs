@@ -59,10 +59,11 @@ mathModule =
                                  ("annotation", One (TNone :|: TContent))]
     , makeElement (Just "math") "vec" [("children", Many TContent)]
     , makeElement (Just "math") "alignpoint" [] -- not a real element, but needed internally
-    , makeElement (Just "math") "dif" [] -- not a real element
-    , makeElement (Just "math") "Dif" [] -- not a real element
     ] <> M.map (VContent . Seq.singleton) predefinedOperators
       <> M.map (VContent . Seq.singleton) spaceConstants
+      <> [ ("dif", VSymbol (Symbol "d" False mempty))
+         , ("Dif", VSymbol (Symbol "D" False mempty))
+         ]
 
 matrixElement :: Val
 matrixElement = VFunction (Just "mat") mempty $ Function $ \args -> do

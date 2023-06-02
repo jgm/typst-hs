@@ -1,7 +1,7 @@
 * TODO improve output for undergraduate.typ
 - column flow:
   use css "columns: 2" ; we'll also need to adjust pandoc CSS in this case
-- integral x^2 dif x
+- FIx dif: integral x^2 dif x
   is missing the dif
 - diaer(a) seems wrong (accent too high)
 - "Fences scale by default" seems not to be true?
