@@ -5,9 +5,6 @@
 - "Fences scale by default" seems not to be true?
 - the thing for LaTeX doesn't work
 - the headings lose boldface; is that right?  More generally: should the show rules for headings result in no h1? that seems wrong.  Better to change in CSS via attributes?
-- make sure we get widths for columns in the tables at the beginning
-- figure out how to deal with
-  // #show raw.where(block: false): it => { it.text }
 - compare result with typst output
 * TODO deal with styles (VStyles), styles (for set)
 * TEST progress
