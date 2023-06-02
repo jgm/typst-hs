@@ -98,6 +98,7 @@ data Val =
   | VCounter !Counter
   | VSelector !Selector
   | VModule Identifier (M.Map Identifier Val)
+  | VStyles -- just a placeholder for now
   deriving (Show, Eq, Typeable)
 
 instance FromJSON Val where
@@ -170,6 +171,7 @@ valType v =
     VArguments{} -> TArguments
     VModule{} -> TModule
     VSelector{} -> TSelector
+    VStyles{} -> TStyles
 
 hasType :: ValType -> Val -> Bool
 hasType TAny _ = True
@@ -711,6 +713,7 @@ prettyVal expr =
       )
     VSymbol (Symbol t _ _) -> text t
     VSelector _ -> mempty
+    VStyles -> mempty
 
 escString :: Text -> P.Doc
 escString =

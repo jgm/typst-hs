@@ -111,7 +111,7 @@ layout =
            ("body", One TContent)] ]
   , makeElementWithScope Nothing "list" [("children", Many TContent)]
       [ makeElement (Just "list") "item" [("body", One TContent)] ]
-  , makeElement Nothing "measure" [("content", One TContent), ("styles", One TStyles)]
+  -- for "measure" see below
   , makeElement Nothing "move" [("body", One TContent)]
   , makeElement Nothing "pad" [("body", One TContent)]
   , makeElement Nothing "page" [("body", One TContent)]
@@ -129,6 +129,12 @@ layout =
       [ makeElement (Just "terms") "item"
          [("term", One TContent),
           ("description", One TContent)] ]
+  , ("measure", makeFunction $ do
+        -- content <- nthArg 1
+        -- styles <- nthArg 2
+        pure $ VDict $ OM.fromList [ ("width", VLength (LExact 1.0 LEm))
+                                   , ("height", VLength (LExact 1.0 LEm)) ] )
+        -- these are fake widths so we don't crash...
   ]
 
 visualize :: [(Identifier, Val)]

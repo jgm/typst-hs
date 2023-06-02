@@ -738,6 +738,12 @@ handleInline tok =
                         LExact x LPt -> toRational x / 12
                         _ -> 1/3 -- guess!
       pure $ B.text $ getSpaceChars em
+    Elt "style" _ fields -> do
+      Function f <- getField "func" fields
+      case applyPureFunction (Function f) [VStyles] of
+           Success (VContent cs) -> pWithContents pInlines cs
+           Success x -> pure $ B.text $ repr x
+           Failure e -> fail e
     Elt (Identifier tname) _ _ -> do
       warn ("Skipping unknown inline element " <> tname)
       pure mempty
