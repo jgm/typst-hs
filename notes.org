@@ -1,10 +1,18 @@
+* TODO improve output for undergraduate.typ
+- column flow:
+  use css "columns: 2" ; we'll also need to adjust pandoc CSS in this case
+- integral x^2 dif x
+  is missing the dif
+- diaer(a) seems wrong (accent too high)
+- "Fences scale by default" seems not to be true?
+- the thing for LaTeX doesn't work
+- the headings lose boldface; is that right?  More generally: should the show rules for headings result in no h1? that seems wrong.  Better to change in CSS via attributes?
+- make sure we get widths for columns in the tables at the beginning
+- figure out how to deal with
+  // #show raw.where(block: false): it => { it.text }
+- compare result with typst output
 * TEST progress
 ** major things
-*** TODO ugh, body in lr and maybe others can contain unescaped commas?!
-$lr(a,b,c)$
-so how is the parser supposed to know we have a single param?
-does the parser need to be aware of elements?
-currently we're DROPPING everything after first comma!
 *** TODO operator precedence?
 #assert(3-4 * 5 < -10)
 *** TODO see how the function replace regex works in string-16

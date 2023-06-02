@@ -326,7 +326,12 @@ handleMath tok =
     Elt "math.dif" _ _ -> pure $ EIdentifier "d"
     Elt "math.Dif" _ _ -> pure $ EIdentifier "D"
     Elt "math.equation" _ fields -> getField "body" fields >>= pMathGrouped
-    Elt "text" _ fields -> getField "body" fields >>= pMathGrouped
+    Elt "text" _ fields -> do
+      body <- getField "body" fields
+      (mbweight :: Maybe Text) <- getField "weight" fields
+      case mbweight of
+        Just "bold" -> EStyled TextBold <$> pMathMany body
+        _ -> pMathGrouped body
     Elt "math.op" _ fields -> EMathOperator <$> getField "text" fields
     Elt "math.frac" _ fields -> do
       num <- getField "num" fields >>= pMathGrouped
@@ -630,7 +635,12 @@ handleInline tok =
     Txt t -> pure $ B.text t
     Lab name -> pure $ B.spanWith (name, [], []) mempty
     Elt "linebreak" _ _ -> pure B.linebreak
-    Elt "text" _ fields -> getField "body" fields >>= pWithContents pInlines
+    Elt "text" _ fields -> do
+      body <- getField "body" fields
+      (mbweight :: Maybe Text) <- getField "weight" fields
+      case mbweight of
+        Just "bold" -> B.strong <$> pWithContents pInlines body
+        _ -> pWithContents pInlines body
     Elt "raw" _ fields -> B.code <$> getField "text" fields
     Elt "footnote" _ fields ->
       B.note <$> (getField "body" fields >>= pWithContents pBlocks)
