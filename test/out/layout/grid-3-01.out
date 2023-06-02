@@ -138,10 +138,10 @@ Pandoc
   , Table
       ( "" , [] , [] )
       (Caption Nothing [])
-      [ ( AlignDefault , ColWidthDefault )
-      , ( AlignDefault , ColWidthDefault )
-      , ( AlignDefault , ColWidthDefault )
-      , ( AlignDefault , ColWidthDefault )
+      [ ( AlignDefault , ColWidth 0.25 )
+      , ( AlignDefault , ColWidth 0.25 )
+      , ( AlignDefault , ColWidth 0.25 )
+      , ( AlignDefault , ColWidth 0.25 )
       ]
       (TableHead ( "" , [] , [] ) [])
       [ TableBody

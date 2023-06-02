@@ -246,12 +246,12 @@ Pandoc
   , Table
       ( "" , [] , [] )
       (Caption Nothing [])
-      [ ( AlignDefault , ColWidthDefault )
-      , ( AlignDefault , ColWidthDefault )
-      , ( AlignDefault , ColWidthDefault )
-      , ( AlignDefault , ColWidthDefault )
-      , ( AlignDefault , ColWidthDefault )
-      , ( AlignDefault , ColWidthDefault )
+      [ ( AlignDefault , ColWidth 0.16666666666666666 )
+      , ( AlignDefault , ColWidth 8.333333333333333e-2 )
+      , ( AlignDefault , ColWidth 0.25 )
+      , ( AlignDefault , ColWidth 0.16666666666666666 )
+      , ( AlignDefault , ColWidth 0.16666666666666666 )
+      , ( AlignDefault , ColWidth 0.16666666666666666 )
       ]
       (TableHead ( "" , [] , [] ) [])
       [ TableBody

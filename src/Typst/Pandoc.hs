@@ -159,10 +159,16 @@ handleBlock tok =
       let toWidth (VFraction f) = Just (floor $ 1000 * f)
           toWidth _ = Nothing
       let normalizeWidths xs =
-            let (totwidth :: Int) = sum $ catMaybes xs
-             in map (\case
-                        Just x -> B.ColWidth (fromIntegral x / fromIntegral totwidth)
-                        Nothing -> B.ColWidthDefault) xs
+            let givenwidths = catMaybes xs
+                (totgivenwidth :: Int) = sum givenwidths
+                avgwidth = totgivenwidth `div` length givenwidths
+                totwidth = avgwidth * length xs
+             in if null givenwidths
+                   then replicate (length xs) B.ColWidthDefault
+                   else map (\case
+                          Just x -> B.ColWidth (fromIntegral x / fromIntegral totwidth)
+                          Nothing ->
+                            B.ColWidth (fromIntegral avgwidth / fromIntegral totwidth)) xs
       widths <- case columns of
                       VInteger x -> pure $ replicate (fromIntegral x) B.ColWidthDefault
                       VArray x -> pure $ normalizeWidths $ map toWidth (V.toList x)

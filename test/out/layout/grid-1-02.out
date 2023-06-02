@@ -104,7 +104,7 @@ Pandoc
   , Table
       ( "" , [] , [] )
       (Caption Nothing [])
-      [ ( AlignDefault , ColWidthDefault ) ]
+      [ ( AlignDefault , ColWidth 1.0 ) ]
       (TableHead ( "" , [] , [] ) [])
       [ TableBody
           ( "" , [] , [] )

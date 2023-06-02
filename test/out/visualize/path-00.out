@@ -215,9 +215,7 @@ Pandoc
   , Table
       ( "" , [] , [] )
       (Caption Nothing [])
-      [ ( AlignCenter , ColWidthDefault )
-      , ( AlignCenter , ColWidthDefault )
-      ]
+      [ ( AlignCenter , ColWidth 0.5 ) , ( AlignCenter , ColWidth 0.5 ) ]
       (TableHead ( "" , [] , [] ) [])
       [ TableBody
           ( "" , [] , [] )
