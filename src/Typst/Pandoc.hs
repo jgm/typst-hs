@@ -28,7 +28,7 @@ import Control.Monad (MonadPlus(mplus))
 import Control.Monad.Reader (lift)
 import qualified Data.Map as M
 import Data.List (intercalate)
-import Data.Maybe (fromMaybe, isNothing)
+import Data.Maybe (fromMaybe, isNothing, catMaybes)
 -- import Debug.Trace
 
 contentToPandoc :: Monad m => (Text -> m ()) -> Seq Content -> m (Either ParseError B.Pandoc)
@@ -156,12 +156,20 @@ handleBlock tok =
     Elt "grid" _ fields -> do
       children <- getField "children" fields >>= mapM (pWithContents pBlocks) . V.toList
       (columns :: Val) <- getField "columns" fields
-      align <- getField "align" fields
-      numcols <- case columns of
-                      VInteger x -> pure $ fromIntegral x
-                      VArray x -> pure $ V.length x
-                      VNone -> pure 1
+      let toWidth (VFraction f) = Just (floor $ 1000 * f)
+          toWidth _ = Nothing
+      let normalizeWidths xs =
+            let (totwidth :: Int) = sum $ catMaybes xs
+             in map (\case
+                        Just x -> B.ColWidth (fromIntegral x / fromIntegral totwidth)
+                        Nothing -> B.ColWidthDefault) xs
+      widths <- case columns of
+                      VInteger x -> pure $ replicate (fromIntegral x) B.ColWidthDefault
+                      VArray x -> pure $ normalizeWidths $ map toWidth (V.toList x)
+                      VNone -> pure [B.ColWidthDefault]
                       _ -> fail $ "Could not determine number of columns: " <> show columns
+      let numcols = length widths
+      align <- getField "align" fields
       let toAlign (VAlignment (Just horiz) _) =
              case horiz of
                   HorizStart -> B.AlignLeft
@@ -170,21 +178,18 @@ handleBlock tok =
                   HorizRight -> B.AlignRight
                   HorizCenter -> B.AlignCenter
           toAlign _ = B.AlignDefault
-      colspecs <-
+      aligns <-
         case align of
-          VAlignment{} -> pure $ replicate numcols (toAlign align, B.ColWidthDefault)
-          VArray v -> pure $
-             zip (map toAlign (V.toList v) ++ repeat B.AlignDefault)
-                     (replicate numcols B.ColWidthDefault)
+          VAlignment{} -> pure $ replicate numcols (toAlign align)
+          VArray v -> pure $ map toAlign (V.toList v)
           VFunction _ _ f -> do
-            aligns <- mapM (\colnum ->
-                              case applyPureFunction f
+            mapM (\colnum -> case applyPureFunction f
                                       [VInteger colnum, VInteger 0] of
                                 Success x -> pure $ toAlign x
                                 Failure e -> fail e)
                         [0..(fromIntegral numcols - 1)]
-            pure $ zip aligns (replicate numcols B.ColWidthDefault)
-          _ -> pure $ replicate numcols (B.AlignDefault, B.ColWidthDefault)
+          _ -> pure $ replicate numcols B.AlignDefault
+      let colspecs = zip (aligns ++ repeat B.AlignDefault) widths
       let rows = map (B.Row B.nullAttr) $ chunks numcols $
                   map (B.Cell B.nullAttr B.AlignDefault
                         (B.RowSpan 1) (B.ColSpan 1) . B.toList) children
