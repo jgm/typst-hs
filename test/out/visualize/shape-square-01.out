@@ -79,5 +79,7 @@ Typst],
 Pandoc
   Meta { unMeta = fromList [] }
   [ Para []
-  , Div ( "" , [ "square" ] , [] ) [ Para [ Str "Typst" ] ]
+  , Div
+      ( "" , [ "square" ] , [] )
+      [ Para [ Strong [ SoftBreak , Str "Typst" ] ] ]
   ]

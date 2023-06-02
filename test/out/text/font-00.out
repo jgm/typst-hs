@@ -243,7 +243,7 @@ Pandoc
   [ Para [ Str "A" , SoftBreak , Str "A" , SoftBreak , Str "A" ]
   , Para [ Str "Normal" ]
   , Para [ Str "Italic" ]
-  , Para [ Str "Bold" ]
+  , Para [ Strong [ Str "Bold" ] ]
   , Para [ Str "Condensed" ]
   , Para [ Str "Serif" ]
   , Para
