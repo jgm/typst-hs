@@ -1,8 +1,6 @@
 * TODO improve output for undergraduate.typ
 - column flow:
   use css "columns: 2" ; we'll also need to adjust pandoc CSS in this case
-- FIx dif: integral x^2 dif x
-  is missing the dif
 - diaer(a) seems wrong (accent too high)
 - "Fences scale by default" seems not to be true?
 - the thing for LaTeX doesn't work
@@ -11,6 +9,7 @@
 - figure out how to deal with
   // #show raw.where(block: false): it => { it.text }
 - compare result with typst output
+* TODO deal with styles (VStyles), styles (for set)
 * TEST progress
 ** major things
 *** TODO operator precedence?
