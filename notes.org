@@ -1,3 +1,10 @@
+* TODO split out typst-symbols as a separate module
+and import it into texmath instead of hardcoding a symbol list there.
+include the code to update the symbols.
+Or, alternatively:
+remove the dependency on texmath, moving the Pandoc module to pandoc itself.
+then texmath could just depend on typst
+testing would be a little trickier
 * TODO improve output for undergraduate.typ
 - column flow:
   use css "columns: 2" ; we'll also need to adjust pandoc CSS in this case
