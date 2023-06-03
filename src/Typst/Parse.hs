@@ -115,7 +115,14 @@ pMarkup =
   <|> pLabelInContent
   <|> pRef
   <|> pHash
+  <|> pBracketed
   <|> pSymbol
+
+-- We need to group paired brackets or the closing bracketed may be
+-- taken to close a pContent block:
+pBracketed :: P Markup
+pBracketed =
+  Bracketed <$> try (between (char '[') (char ']') (many pMarkup))
 
 pSymbol :: P Markup
 pSymbol = do
