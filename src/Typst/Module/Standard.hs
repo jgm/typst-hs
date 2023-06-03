@@ -118,7 +118,7 @@ layout =
   , makeElement Nothing "pagebreak" []
   , makeElement Nothing "par" [("body", One TContent)]
   , makeElement Nothing "parbreak" []
-  , makeElement Nothing "place" [("body", One TContent)]
+  , makeElement Nothing "place" [("alignment", Many TAlignment), ("body", One TContent)]
   , makeElement Nothing "repeat" [("body", One TContent)]
   , makeElement Nothing "rotate" [("body", One TContent)]
   , makeElement Nothing "scale" [("body", One TContent)]

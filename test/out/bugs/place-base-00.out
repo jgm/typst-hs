@@ -89,17 +89,20 @@
 ], 
   [
 ], 
-  place(body: [right], 
+  place(alignment: (right), 
+        body: [First], 
         dx: -70%, 
         dy: 20%), 
   [
 ], 
-  place(body: [left], 
+  place(alignment: (left), 
+        body: [Second], 
         dx: 20%, 
         dy: 60%), 
   [
 ], 
-  place(body: [Axes(center, horizon)], 
+  place(alignment: (Axes(center, horizon)), 
+        body: [Third], 
         dx: 25%, 
         dy: 25%), 
   parbreak() }
@@ -107,11 +110,9 @@
 Pandoc
   Meta { unMeta = fromList [] }
   [ Para []
-  , Div ( "" , [] , [] ) [ Para [ Str "right" ] ]
+  , Div ( "" , [] , [] ) [ Para [ Str "First" ] ]
   , Para []
-  , Div ( "" , [] , [] ) [ Para [ Str "left" ] ]
+  , Div ( "" , [] , [] ) [ Para [ Str "Second" ] ]
   , Para []
-  , Div
-      ( "" , [] , [] )
-      [ Para [ Str "Axes(center," , Space , Str "horizon)" ] ]
+  , Div ( "" , [] , [] ) [ Para [ Str "Third" ] ]
   ]

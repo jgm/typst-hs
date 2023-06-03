@@ -85,20 +85,19 @@
 ], 
   [
 ], 
-  place(body: [Axes(left, top)]), 
+  place(alignment: (Axes(left, top)), 
+        body: [TL]), 
   [
 ], 
-  place(body: [Axes(right, bottom)]), 
+  place(alignment: (Axes(right, bottom)), 
+        body: [BR]), 
   parbreak(), 
   parbreak() }
 --- pandoc ---
 Pandoc
   Meta { unMeta = fromList [] }
   [ Para []
-  , Div
-      ( "" , [] , [] ) [ Para [ Str "Axes(left," , Space , Str "top)" ] ]
+  , Div ( "" , [] , [] ) [ Para [ Str "TL" ] ]
   , Para []
-  , Div
-      ( "" , [] , [] )
-      [ Para [ Str "Axes(right," , Space , Str "bottom)" ] ]
+  , Div ( "" , [] , [] ) [ Para [ Str "BR" ] ]
   ]

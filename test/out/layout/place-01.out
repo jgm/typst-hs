@@ -70,7 +70,8 @@
   parbreak(), 
   [First], 
   parbreak(), 
-  place(body: [Axes(right, bottom)]), 
+  place(alignment: (Axes(right, bottom)), 
+        body: [Placed]), 
   parbreak(), 
   [Second], 
   parbreak() }
@@ -79,8 +80,6 @@ Pandoc
   Meta { unMeta = fromList [] }
   [ Para []
   , Para [ Str "First" ]
-  , Div
-      ( "" , [] , [] )
-      [ Para [ Str "Axes(right," , Space , Str "bottom)" ] ]
+  , Div ( "" , [] , [] ) [ Para [ Str "Placed" ] ]
   , Para [ Str "Second" ]
   ]

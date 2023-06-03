@@ -191,11 +191,14 @@
 ], 
   [
 ], 
-  place(body: [Axes(center, bottom)]), 
+  place(alignment: (Axes(center, bottom)), 
+        body: [© Typst]), 
   parbreak(), 
   heading(body: [Placement], 
           level: 1), 
-  place(body: [right]), 
+  place(alignment: (right), 
+        body: image(path: "test/assets/files/tiger.jpg", 
+                    width: 1.8cm)), 
   [
 Hi there. This is ], 
   linebreak(), 
@@ -209,7 +212,8 @@ Hi there. This is ],
                         fill: rgb(13%,61%,67%,100%), 
                         height: 10.0pt, 
                         width: 100%), 
-                   place(body: [right], 
+                   place(alignment: (right), 
+                         body: [ABC], 
                          dy: 1.5pt), 
                    rect(body: none, 
                         fill: rgb(18%,80%,25%,100%), 
@@ -222,12 +226,14 @@ Hi there. This is ],
                    10.0pt, 
                    block(body: { [
 ], 
-                                 place(body: [center], 
+                                 place(alignment: (center), 
+                                       body: [Hello], 
                                        dx: -7.0pt, 
                                        dy: -5.0pt), 
                                  [
 ], 
-                                 place(body: [center], 
+                                 place(alignment: (center), 
+                                       body: [Hello], 
                                        dx: 7.0pt, 
                                        dy: 5.0pt), 
                                  [
@@ -241,10 +247,17 @@ Pandoc
   Meta { unMeta = fromList [] }
   [ Para []
   , Div
-      ( "" , [] , [] )
-      [ Para [ Str "Axes(center," , Space , Str "bottom)" ] ]
+      ( "" , [] , [] ) [ Para [ Str "\169" , Space , Str "Typst" ] ]
   , Header 1 ( "" , [] , [] ) [ Str "Placement" ]
-  , Div ( "" , [] , [] ) [ Para [ Str "right" ] ]
+  , Div
+      ( "" , [] , [] )
+      [ Para
+          [ Image
+              ( "" , [] , [ ( "width" , "1.8cm" ) ] )
+              []
+              ( "test/assets/files/tiger.jpg" , "" )
+          ]
+      ]
   , Para
       [ Str "Hi"
       , Space
@@ -284,7 +297,7 @@ Pandoc
       ( "" , [] , [ ( "stack" , "ltr" ) ] )
       [ Div ( "" , [] , [] ) [ Div ( "" , [ "rect" ] , [] ) [] ]
       , Div
-          ( "" , [] , [] ) [ Div ( "" , [] , [] ) [ Para [ Str "right" ] ] ]
+          ( "" , [] , [] ) [ Div ( "" , [] , [] ) [ Para [ Str "ABC" ] ] ]
       , Div ( "" , [] , [] ) [ Div ( "" , [ "rect" ] , [] ) [] ]
       , Div ( "" , [] , [] ) [ Div ( "" , [ "rect" ] , [] ) [] ]
       , Div ( "" , [] , [] ) [ Para [ Str "10.0pt" ] ]
@@ -293,9 +306,9 @@ Pandoc
           [ Div
               ( "" , [] , [] )
               [ Para []
-              , Div ( "" , [] , [] ) [ Para [ Str "center" ] ]
+              , Div ( "" , [] , [] ) [ Para [ Str "Hello" ] ]
               , Para []
-              , Div ( "" , [] , [] ) [ Para [ Str "center" ] ]
+              , Div ( "" , [] , [] ) [ Para [ Str "Hello" ] ]
               , Para
                   [ Str "Hello" , Space , Str "\8202\8193" , Space , Str "Hello" ]
               ]
