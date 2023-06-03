@@ -724,7 +724,7 @@ basicOperatorTable = take 16 (cycle [ [restrictedFieldAccess], [functionCall] ])
 operatorTable :: [[Operator Text PState Identity Expr]]
 operatorTable  =
   -- precedence 8 (real field access, perhaps  with space after .)
-  replicate 6 [ fieldAccess ]
+  take 12 (cycle [ [fieldAccess], [functionCall] ])
   ++
   -- precedence 7 (repeated because of parsec's quirks with postfix, prefix)
   replicate 6 [ Postfix (ToPower <$> try (char 'e' *> notFollowedBy letter *> pExpr)) ]
