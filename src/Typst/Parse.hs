@@ -701,6 +701,10 @@ pLiteral = Literal <$>
 fieldAccess :: Operator Text PState Identity Expr
 fieldAccess = Postfix (FieldAccess <$> try (sym "." *> pIdent))
 
+-- don't allow space after .
+restrictedFieldAccess :: Operator Text PState Identity Expr
+restrictedFieldAccess = Postfix (FieldAccess <$> try (char '.' *> pIdent))
+
 functionCall :: Operator Text PState Identity Expr
 functionCall =
     Postfix (do mbBeforeSpace <- stBeforeSpace <$> getState
@@ -715,10 +719,13 @@ functionCall =
 -- be repeatable at the same precedence level...see docs for
 -- buildExpressionParser.
 basicOperatorTable :: [[Operator Text PState Identity Expr]]
-basicOperatorTable = take 16 (cycle [ [fieldAccess], [functionCall] ])
+basicOperatorTable = take 16 (cycle [ [restrictedFieldAccess], [functionCall] ])
 
 operatorTable :: [[Operator Text PState Identity Expr]]
 operatorTable  =
+  -- precedence 8 (real field access, perhaps  with space after .)
+  replicate 6 [ fieldAccess ]
+  ++
   -- precedence 7 (repeated because of parsec's quirks with postfix, prefix)
   replicate 6 [ Postfix (ToPower <$> try (char 'e' *> notFollowedBy letter *> pExpr)) ]
   ++
