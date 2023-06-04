@@ -392,12 +392,13 @@ class Multipliable a where
 
 instance Multipliable Val where
   maybeTimes (VInteger i1) (VInteger i2) = pure $ VInteger (i1 * i2)
+  maybeTimes (VFloat x1) (VFloat x2) = pure $ VFloat (x1 * x2)
   maybeTimes (VInteger i1) (VFloat f2) = pure $ VFloat (fromIntegral i1 * f2)
+  maybeTimes (VFloat f1) (VInteger i2) = pure $ VFloat (f1 * fromIntegral i2)
   maybeTimes (VInteger i) (VArray v) =
     pure $ VArray (mconcat $ replicate (fromIntegral i) v)
   maybeTimes (VArray v) (VInteger i) =
     pure $ VArray (mconcat $ replicate (fromIntegral i) v)
-  maybeTimes (VFloat f1) (VInteger i2) = pure $ VFloat (f1 * fromIntegral i2)
   maybeTimes (VInteger i) (VString s)
     | i >= 0 = pure $ VString (T.replicate (fromIntegral i) s)
   maybeTimes (VString s) (VInteger i)
@@ -416,24 +417,45 @@ instance Multipliable Val where
   maybeTimes (VAngle a) (VFloat f) = pure $ VAngle (f * a)
   maybeTimes (VInteger i) (VFraction f) = pure $ VFraction (fromIntegral i * f)
   maybeTimes (VFraction f) (VInteger i) = pure $ VFraction (fromIntegral i * f)
+  maybeTimes (VFloat x) (VFraction f) = pure $ VFraction (x * f)
+  maybeTimes (VFraction f) (VFloat x) = pure $ VFraction (x * f)
   maybeTimes (VFraction f1) (VFraction f2) = pure $ VFraction (f1 * f2)
   maybeTimes (VRatio r1) (VRatio r2) = pure $ VRatio (r1 * r2)
   maybeTimes (VInteger i) (VRatio r) = pure $ VRatio (fromIntegral i * r)
   maybeTimes (VRatio r) (VInteger i) = pure $ VRatio (fromIntegral i * r)
+  maybeTimes (VFloat x) (VRatio r) = pure $ VRatio (realToFrac x * r)
+  maybeTimes (VRatio r) (VFloat x) = pure $ VRatio (realToFrac x * r)
   maybeTimes v1 v2 = fail $ "could not multiply " <> show v1 <> " and " <> show v2
 
   maybeDividedBy (VInteger i1) (VInteger i2) =
     if i1 `mod` i2 == 0
        then pure $ VInteger (i1 `div` i2)
        else pure $ VFloat (fromIntegral i1 / fromIntegral i2)
+  maybeDividedBy (VFloat x1) (VFloat x2) = maybeTimes (VFloat x1) (VFloat (1 / x2))
   maybeDividedBy (VInteger i1) (VFloat f2) = pure $ VFloat (fromIntegral i1 / f2)
   maybeDividedBy (VFloat f1) (VInteger i2) = pure $ VFloat (f1 / fromIntegral i2)
   maybeDividedBy (VLength l) (VInteger i)
     | i >= 0 = pure $ VLength (mconcat $ replicate (fromIntegral i) l)
+  maybeDividedBy (VLength l) (VFloat f) = pure $ VLength $ timesLength (1 / f) l
   maybeDividedBy (VAngle a) (VInteger i) = pure $ VAngle (fromIntegral i / a)
   maybeDividedBy (VInteger i) (VFraction f) = pure $ VFraction (fromIntegral i / f)
   maybeDividedBy (VFraction f) (VInteger i) = pure $ VFraction (fromIntegral i / f)
   maybeDividedBy (VFraction f1) (VFraction f2) = pure $ VFraction (f1 / f2)
+  maybeDividedBy (VLength l1) (VLength l2)
+    | l1 == l2 = pure $ VInteger 1
+  maybeDividedBy (VLength (LExact l1 u1)) (VLength (LExact l2 u2))
+    | u1 == u2 = pure $ VFloat (l1 / l2)
+    | Just pts1 <- toPts u1 l1
+    , Just pts2 <- toPts u2 l2 = pure $ VFloat (pts1 / pts2)
+  maybeDividedBy (VLength (LRatio r)) x
+    | Just (VRatio r') <- maybeDividedBy (VRatio r) x
+      = pure $ VLength (LRatio r')
+  maybeDividedBy (VRatio r1) (VLength (LRatio r2)) = pure $ VRatio (r1 / r2)
+  maybeDividedBy (VAngle a1) (VAngle a2) = pure $ VFloat (a1 / a2)
+  maybeDividedBy (VRatio a1) (VRatio a2) = pure $ VRatio (a1 / a2)
+  maybeDividedBy (VRatio r) (VInteger i) = pure $ VRatio (r / fromIntegral i)
+  maybeDividedBy (VRatio r) (VFloat x) =
+    pure $ VRatio (r / realToFrac x)
   maybeDividedBy v1 v2 = fail $ "could not divide " <> show v1 <> " by " <> show v2
 
 data Content =
@@ -581,6 +603,8 @@ instance Monoid Length where
   mempty = LExact 0.0 LPt
 
 addLengths :: (Double, LUnit) -> (Double, LUnit) -> Maybe (Double, LUnit)
+addLengths (0, _xu) (y, yu) = pure (y, yu)
+addLengths (x, xu) (0, _yu) = pure (x, xu)
 addLengths (x, xu) (y, yu) =
   if xu == yu then
     pure (x + y, xu)

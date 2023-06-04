@@ -420,5 +420,725 @@
              ])))
 , ParBreak
 ]
-"test/typ/compiler/ops-03.typ" (line 5, column 2):
-Couldn't exponentiate VInteger 1 to VFloat 1.99
+--- evaluated ---
+{ [
+], 
+  [✅], 
+  [
+], 
+  [✅], 
+  [
+], 
+  [❌(], 
+  [1.0], 
+  [ /= ], 
+  [99.99], 
+  [)], 
+  parbreak(), 
+  [✅], 
+  parbreak(), 
+  [✅], 
+  [
+], 
+  [✅], 
+  parbreak(), 
+  [✅], 
+  [
+], 
+  [✅], 
+  parbreak(), 
+  [✅], 
+  parbreak(), 
+  parbreak(), 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [❌(], 
+  [((12.0pt + 3.0em) + (12.0pt + 3.0em)) + (-12.0pt + -3.0em)], 
+  [ /= ], 
+  [12.0pt + 3.0em], 
+  [)], 
+  [❌(], 
+  [((12.0pt + 3.0em) + (-12.0pt + -3.0em)) + (-12.0pt + -3.0em)], 
+  [ /= ], 
+  [-12.0pt + -3.0em], 
+  [)], 
+  [❌(], 
+  [(12.0pt + 3.0em) + (-12.0pt + -3.0em)], 
+  [ /= ], 
+  [0.0pt + 0.0em], 
+  [)], 
+  [❌(], 
+  [(12.0pt + 3.0em) + (12.0pt + 3.0em)], 
+  [ /= ], 
+  [24.0pt + 6.0em], 
+  [)], 
+  [❌(], 
+  [(12.0pt + 3.0em) + (12.0pt + 3.0em)], 
+  [ /= ], 
+  [24.0pt + 6.0em], 
+  [)], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [❌(], 
+  [((10.0pt + 13%) + (10.0pt + 13%)) + (-10.0pt + -13%)], 
+  [ /= ], 
+  [10.0pt + 13%], 
+  [)], 
+  [❌(], 
+  [((10.0pt + 13%) + (-10.0pt + -13%)) + (-10.0pt + -13%)], 
+  [ /= ], 
+  [-10.0pt + -13%], 
+  [)], 
+  [❌(], 
+  [(10.0pt + 13%) + (-10.0pt + -13%)], 
+  [ /= ], 
+  [0.0pt + 0%], 
+  [)], 
+  [❌(], 
+  [(10.0pt + 13%) + (10.0pt + 13%)], 
+  [ /= ], 
+  [20.0pt + 26%], 
+  [)], 
+  [❌(], 
+  [(10.0pt + 13%) + (10.0pt + 13%)], 
+  [ /= ], 
+  [20.0pt + 26%], 
+  [)], 
+  [✅], 
+  [❌(], 
+  [(((1.0em + 5%) + 3.0pt) + ((1.0em + 5%) + 3.0pt)) + ((-1.0em + -5%) + -3.0pt)], 
+  [ /= ], 
+  [(1.0em + 5%) + 3.0pt], 
+  [)], 
+  [❌(], 
+  [(((1.0em + 5%) + 3.0pt) + ((-1.0em + -5%) + -3.0pt)) + ((-1.0em + -5%) + -3.0pt)], 
+  [ /= ], 
+  [(-1.0em + -5%) + -3.0pt], 
+  [)], 
+  [❌(], 
+  [((1.0em + 5%) + 3.0pt) + ((-1.0em + -5%) + -3.0pt)], 
+  [ /= ], 
+  [(0.0em + 0%) + 0.0pt], 
+  [)], 
+  [❌(], 
+  [((1.0em + 5%) + 3.0pt) + ((1.0em + 5%) + 3.0pt)], 
+  [ /= ], 
+  [(2.0em + 10%) + 6.0pt], 
+  [)], 
+  [❌(], 
+  [((1.0em + 5%) + 3.0pt) + ((1.0em + 5%) + 3.0pt)], 
+  [ /= ], 
+  [(2.0em + 10%) + 6.0pt], 
+  [)], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [❌(], 
+  [1.0fr], 
+  [ /= ], 
+  [1.0], 
+  [)], 
+  parbreak(), 
+  [
+], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  parbreak(), 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [❌(], 
+  [200%], 
+  [ /= ], 
+  [2], 
+  [)], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [❌(], 
+  [200%], 
+  [ /= ], 
+  [2], 
+  [)], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para
+      [ Str "\9989"
+      , SoftBreak
+      , Str "\9989"
+      , SoftBreak
+      , Str "\10060(1.0"
+      , Space
+      , Str "/="
+      , Space
+      , Str "99.99)"
+      ]
+  , Para [ Str "\9989" ]
+  , Para [ Str "\9989" , SoftBreak , Str "\9989" ]
+  , Para [ Str "\9989" , SoftBreak , Str "\9989" ]
+  , Para [ Str "\9989" ]
+  , Para
+      [ Str
+          "\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\10060(((12.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "3.0em)"
+      , Space
+      , Str "+"
+      , Space
+      , Str "(12.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "3.0em))"
+      , Space
+      , Str "+"
+      , Space
+      , Str "(-12.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "-3.0em)"
+      , Space
+      , Str "/="
+      , Space
+      , Str "12.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "3.0em)\10060(((12.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "3.0em)"
+      , Space
+      , Str "+"
+      , Space
+      , Str "(-12.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "-3.0em))"
+      , Space
+      , Str "+"
+      , Space
+      , Str "(-12.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "-3.0em)"
+      , Space
+      , Str "/="
+      , Space
+      , Str "-12.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "-3.0em)\10060((12.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "3.0em)"
+      , Space
+      , Str "+"
+      , Space
+      , Str "(-12.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "-3.0em)"
+      , Space
+      , Str "/="
+      , Space
+      , Str "0.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "0.0em)\10060((12.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "3.0em)"
+      , Space
+      , Str "+"
+      , Space
+      , Str "(12.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "3.0em)"
+      , Space
+      , Str "/="
+      , Space
+      , Str "24.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "6.0em)\10060((12.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "3.0em)"
+      , Space
+      , Str "+"
+      , Space
+      , Str "(12.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "3.0em)"
+      , Space
+      , Str "/="
+      , Space
+      , Str "24.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str
+          "6.0em)\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\10060(((10.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "13%)"
+      , Space
+      , Str "+"
+      , Space
+      , Str "(10.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "13%))"
+      , Space
+      , Str "+"
+      , Space
+      , Str "(-10.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "-13%)"
+      , Space
+      , Str "/="
+      , Space
+      , Str "10.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "13%)\10060(((10.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "13%)"
+      , Space
+      , Str "+"
+      , Space
+      , Str "(-10.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "-13%))"
+      , Space
+      , Str "+"
+      , Space
+      , Str "(-10.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "-13%)"
+      , Space
+      , Str "/="
+      , Space
+      , Str "-10.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "-13%)\10060((10.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "13%)"
+      , Space
+      , Str "+"
+      , Space
+      , Str "(-10.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "-13%)"
+      , Space
+      , Str "/="
+      , Space
+      , Str "0.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "0%)\10060((10.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "13%)"
+      , Space
+      , Str "+"
+      , Space
+      , Str "(10.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "13%)"
+      , Space
+      , Str "/="
+      , Space
+      , Str "20.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "26%)\10060((10.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "13%)"
+      , Space
+      , Str "+"
+      , Space
+      , Str "(10.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "13%)"
+      , Space
+      , Str "/="
+      , Space
+      , Str "20.0pt"
+      , Space
+      , Str "+"
+      , Space
+      , Str "26%)\9989\10060((((1.0em"
+      , Space
+      , Str "+"
+      , Space
+      , Str "5%)"
+      , Space
+      , Str "+"
+      , Space
+      , Str "3.0pt)"
+      , Space
+      , Str "+"
+      , Space
+      , Str "((1.0em"
+      , Space
+      , Str "+"
+      , Space
+      , Str "5%)"
+      , Space
+      , Str "+"
+      , Space
+      , Str "3.0pt))"
+      , Space
+      , Str "+"
+      , Space
+      , Str "((-1.0em"
+      , Space
+      , Str "+"
+      , Space
+      , Str "-5%)"
+      , Space
+      , Str "+"
+      , Space
+      , Str "-3.0pt)"
+      , Space
+      , Str "/="
+      , Space
+      , Str "(1.0em"
+      , Space
+      , Str "+"
+      , Space
+      , Str "5%)"
+      , Space
+      , Str "+"
+      , Space
+      , Str "3.0pt)\10060((((1.0em"
+      , Space
+      , Str "+"
+      , Space
+      , Str "5%)"
+      , Space
+      , Str "+"
+      , Space
+      , Str "3.0pt)"
+      , Space
+      , Str "+"
+      , Space
+      , Str "((-1.0em"
+      , Space
+      , Str "+"
+      , Space
+      , Str "-5%)"
+      , Space
+      , Str "+"
+      , Space
+      , Str "-3.0pt))"
+      , Space
+      , Str "+"
+      , Space
+      , Str "((-1.0em"
+      , Space
+      , Str "+"
+      , Space
+      , Str "-5%)"
+      , Space
+      , Str "+"
+      , Space
+      , Str "-3.0pt)"
+      , Space
+      , Str "/="
+      , Space
+      , Str "(-1.0em"
+      , Space
+      , Str "+"
+      , Space
+      , Str "-5%)"
+      , Space
+      , Str "+"
+      , Space
+      , Str "-3.0pt)\10060(((1.0em"
+      , Space
+      , Str "+"
+      , Space
+      , Str "5%)"
+      , Space
+      , Str "+"
+      , Space
+      , Str "3.0pt)"
+      , Space
+      , Str "+"
+      , Space
+      , Str "((-1.0em"
+      , Space
+      , Str "+"
+      , Space
+      , Str "-5%)"
+      , Space
+      , Str "+"
+      , Space
+      , Str "-3.0pt)"
+      , Space
+      , Str "/="
+      , Space
+      , Str "(0.0em"
+      , Space
+      , Str "+"
+      , Space
+      , Str "0%)"
+      , Space
+      , Str "+"
+      , Space
+      , Str "0.0pt)\10060(((1.0em"
+      , Space
+      , Str "+"
+      , Space
+      , Str "5%)"
+      , Space
+      , Str "+"
+      , Space
+      , Str "3.0pt)"
+      , Space
+      , Str "+"
+      , Space
+      , Str "((1.0em"
+      , Space
+      , Str "+"
+      , Space
+      , Str "5%)"
+      , Space
+      , Str "+"
+      , Space
+      , Str "3.0pt)"
+      , Space
+      , Str "/="
+      , Space
+      , Str "(2.0em"
+      , Space
+      , Str "+"
+      , Space
+      , Str "10%)"
+      , Space
+      , Str "+"
+      , Space
+      , Str "6.0pt)\10060(((1.0em"
+      , Space
+      , Str "+"
+      , Space
+      , Str "5%)"
+      , Space
+      , Str "+"
+      , Space
+      , Str "3.0pt)"
+      , Space
+      , Str "+"
+      , Space
+      , Str "((1.0em"
+      , Space
+      , Str "+"
+      , Space
+      , Str "5%)"
+      , Space
+      , Str "+"
+      , Space
+      , Str "3.0pt)"
+      , Space
+      , Str "/="
+      , Space
+      , Str "(2.0em"
+      , Space
+      , Str "+"
+      , Space
+      , Str "10%)"
+      , Space
+      , Str "+"
+      , Space
+      , Str "6.0pt)\9989\9989\9989\9989\9989\10060(1.0fr"
+      , Space
+      , Str "/="
+      , Space
+      , Str "1.0)"
+      ]
+  , Para
+      [ Str
+          "\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989"
+      ]
+  , Para
+      [ Str "\9989\9989\9989\9989\9989\9989\9989\10060(200%"
+      , Space
+      , Str "/="
+      , Space
+      , Str "2)\9989\9989\9989\9989\9989\9989\9989\9989\10060(200%"
+      , Space
+      , Str "/="
+      , Space
+      , Str "2)\9989\9989\9989\9989\9989\9989\9989\9989\9989\9989"
+      ]
+  ]

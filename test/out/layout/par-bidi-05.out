@@ -79,13 +79,13 @@ Pandoc
   [ Para
       [ Str "L"
       , Space
-      , Str "\8196\8193\8193"
+      , Str "\8196"
       , Space
       , Str "\1512\1497\1493\1493\1495R"
       , LineBreak
       , Str "L\1512\1497\1493\1493\1495"
       , Space
-      , Str "\8196\8193\8193"
+      , Str "\8196"
       , Space
       , Str "R"
       ]

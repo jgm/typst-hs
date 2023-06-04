@@ -146,7 +146,7 @@
   linebreak(), 
   [1.7em], 
   linebreak(), 
-  [1.0cm + 0.0em], 
+  [1.0cm], 
   [ ], 
   linebreak(), 
   [2.0em + 10.0pt], 
@@ -181,10 +181,6 @@ Pandoc
       , Str "1.7em"
       , LineBreak
       , Str "1.0cm"
-      , Space
-      , Str "+"
-      , Space
-      , Str "0.0em"
       , LineBreak
       , Str "2.0em"
       , Space
