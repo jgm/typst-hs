@@ -67,8 +67,8 @@ sym :: String -> P String
 sym = lexeme . string
 
 op :: String -> P ()
-op s = try $ do
-  void $ sym s
+op s = try $ lexeme $ do
+  void $ string s
   when (s == "+" || s == "-" || s == "*" || s == "/" || s == "=" ||
         s == "<" || s == ">" || s == "!") $
     notFollowedBy (char '=')
@@ -726,7 +726,8 @@ functionCall =
 -- be repeatable at the same precedence level...see docs for
 -- buildExpressionParser.
 basicOperatorTable :: [[Operator Text PState Identity Expr]]
-basicOperatorTable = take 16 (cycle [ [restrictedFieldAccess], [functionCall] ])
+basicOperatorTable =
+  take 16 (cycle [ [restrictedFieldAccess], [functionCall] ])
 
 operatorTable :: [[Operator Text PState Identity Expr]]
 operatorTable  =

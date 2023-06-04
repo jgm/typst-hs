@@ -7,8 +7,6 @@
 * TODO deal with styles (VStyles), styles (for set)
 * TEST progress
 ** major things
-*** TODO operator precedence?
-#assert(2 < -1)
 *** TODO see how the function replace regex works in string-16
 we're doing better but we still don't handel m.captures
 *** TODO mutable dict

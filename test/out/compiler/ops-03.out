@@ -1,3 +1,424 @@
-"test/typ/compiler/ops-03.typ" (line 15, column 18):
-unexpected '-'
-expecting operator
+--- parse tree ---
+[ Code
+    "test/typ/compiler/ops-03.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060"
+                             , Text "("
+                             , Code
+                                 "test/typ/compiler/ops-03.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/ops-03.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compiler/ops-03.typ"
+    ( line 3 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg (Minus (Literal (Int 1)) (Literal (Int 4)))
+       , NormalArg (Times (Literal (Int 3)) (Negated (Literal (Int 1))))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/ops-03.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Minus (Literal (Numeric 4.0 Cm)) (Literal (Numeric 2.0 Cm)))
+       , NormalArg (Literal (Numeric 2.0 Cm))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/ops-03.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (ToPower
+              (Minus (Literal (Int 2)) (Literal (Float 1.0e-2)))
+              (Literal (Int 1)))
+       , NormalArg (Literal (Float 99.99))
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/ops-03.typ"
+    ( line 8 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg (Times (Literal (Int 2)) (Literal (Int 4)))
+       , NormalArg (Literal (Int 8))
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/ops-03.typ"
+    ( line 11 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Divided (Literal (Numeric 12.0 Pt)) (Literal (Float 0.4)))
+       , NormalArg (Literal (Numeric 30.0 Pt))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/ops-03.typ"
+    ( line 12 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg (Divided (Literal (Int 7)) (Literal (Int 2)))
+       , NormalArg (Literal (Float 3.5))
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/ops-03.typ"
+    ( line 15 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (LessThan
+              (Minus
+                 (Literal (Int 3)) (Times (Literal (Int 4)) (Literal (Int 5))))
+              (Negated (Literal (Int 10))))
+       , NormalArg (Literal (Boolean True))
+       ])
+, SoftBreak
+, Code
+    "test/typ/compiler/ops-03.typ"
+    ( line 16 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Block
+              (CodeBlock
+                 [ Let (BasicBind (Just (Identifier "x"))) (Literal None)
+                 , Assign
+                     (Binding (BasicBind (Just (Identifier "x"))))
+                     (And
+                        (GreaterThanOrEqual
+                           (Plus
+                              (Literal (Int 1)) (Times (Literal (Int 4)) (Literal (Int 5))))
+                           (Literal (Int 21)))
+                        (Block
+                           (CodeBlock
+                              [ Assign
+                                  (Binding (BasicBind (Just (Identifier "x"))))
+                                  (Literal (String "a"))
+                              , Equals
+                                  (Plus (Ident (Identifier "x")) (Literal (String "b")))
+                                  (Literal (String "ab"))
+                              ])))
+                 , Ident (Identifier "x")
+                 ]))
+       , NormalArg (Literal (Boolean True))
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/ops-03.typ"
+    ( line 19 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Plus
+              (If
+                 [ ( Literal (Boolean True)
+                   , Block (CodeBlock [ Literal (Int 1) ])
+                   )
+                 ])
+              (Literal (Int 2)))
+       , NormalArg (Literal (Int 3))
+       ])
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/ops-03.typ"
+    ( line 24 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "nums")))
+       (Array
+          [ Literal (Int 1)
+          , Literal (Float 3.14)
+          , Literal (Numeric 12.0 Pt)
+          , Literal (Numeric 3.0 Em)
+          , Plus (Literal (Numeric 12.0 Pt)) (Literal (Numeric 3.0 Em))
+          , Literal (Numeric 45.0 Deg)
+          , Literal (Numeric 90.0 Percent)
+          , Plus (Literal (Numeric 13.0 Percent)) (Literal (Numeric 10.0 Pt))
+          , Plus
+              (Plus (Literal (Numeric 5.0 Percent)) (Literal (Numeric 1.0 Em)))
+              (Literal (Numeric 3.0 Pt))
+          , Literal (Numeric 2.3 Fr)
+          ]))
+, ParBreak
+, Code
+    "test/typ/compiler/ops-03.typ"
+    ( line 33 , column 2 )
+    (For
+       (BasicBind (Just (Identifier "v")))
+       (Ident (Identifier "nums"))
+       (Block
+          (CodeBlock
+             [ FuncCall
+                 (Ident (Identifier "test"))
+                 [ NormalArg
+                     (Minus
+                        (Plus (Ident (Identifier "v")) (Ident (Identifier "v")))
+                        (Ident (Identifier "v")))
+                 , NormalArg (Ident (Identifier "v"))
+                 ]
+             , FuncCall
+                 (Ident (Identifier "test"))
+                 [ NormalArg
+                     (Minus
+                        (Minus (Ident (Identifier "v")) (Ident (Identifier "v")))
+                        (Ident (Identifier "v")))
+                 , NormalArg (Negated (Ident (Identifier "v")))
+                 ]
+             , FuncCall
+                 (Ident (Identifier "test"))
+                 [ NormalArg
+                     (Minus (Ident (Identifier "v")) (Ident (Identifier "v")))
+                 , NormalArg (Times (Literal (Int 0)) (Ident (Identifier "v")))
+                 ]
+             , FuncCall
+                 (Ident (Identifier "test"))
+                 [ NormalArg
+                     (Plus (Ident (Identifier "v")) (Ident (Identifier "v")))
+                 , NormalArg (Times (Literal (Int 2)) (Ident (Identifier "v")))
+                 ]
+             , If
+                 [ ( Not
+                       (Equals
+                          (FuncCall
+                             (Ident (Identifier "type")) [ NormalArg (Ident (Identifier "v")) ])
+                          (Literal (String "integer")))
+                   , Block
+                       (CodeBlock
+                          [ FuncCall
+                              (Ident (Identifier "test"))
+                              [ NormalArg
+                                  (Plus (Ident (Identifier "v")) (Ident (Identifier "v")))
+                              , NormalArg (Times (Literal (Float 2.0)) (Ident (Identifier "v")))
+                              ]
+                          ])
+                   )
+                 ]
+             , If
+                 [ ( And
+                       (Not
+                          (InCollection
+                             (Literal (String "relative"))
+                             (FuncCall
+                                (Ident (Identifier "type"))
+                                [ NormalArg (Ident (Identifier "v")) ])))
+                       (Or
+                          (Not
+                             (InCollection
+                                (Literal (String "pt"))
+                                (FuncCall
+                                   (Ident (Identifier "repr"))
+                                   [ NormalArg (Ident (Identifier "v")) ])))
+                          (Not
+                             (InCollection
+                                (Literal (String "em"))
+                                (FuncCall
+                                   (Ident (Identifier "repr"))
+                                   [ NormalArg (Ident (Identifier "v")) ]))))
+                   , Block
+                       (CodeBlock
+                          [ FuncCall
+                              (Ident (Identifier "test"))
+                              [ NormalArg
+                                  (Divided (Ident (Identifier "v")) (Ident (Identifier "v")))
+                              , NormalArg (Literal (Float 1.0))
+                              ]
+                          ])
+                   )
+                 ]
+             ])))
+, ParBreak
+, Comment
+, Comment
+, Comment
+, Comment
+, Code
+    "test/typ/compiler/ops-03.typ"
+    ( line 56 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "dims")))
+       (Array
+          [ Literal (Numeric 10.0 Pt)
+          , Literal (Numeric 1.0 Em)
+          , Plus (Literal (Numeric 10.0 Pt)) (Literal (Numeric 1.0 Em))
+          , Literal (Numeric 30.0 Percent)
+          , Plus (Literal (Numeric 50.0 Percent)) (Literal (Numeric 3.0 Cm))
+          , Plus
+              (Plus (Literal (Numeric 40.0 Percent)) (Literal (Numeric 2.0 Em)))
+              (Literal (Numeric 1.0 Cm))
+          ]))
+, SoftBreak
+, Code
+    "test/typ/compiler/ops-03.typ"
+    ( line 57 , column 2 )
+    (For
+       (BasicBind (Just (Identifier "a")))
+       (Ident (Identifier "dims"))
+       (Block
+          (CodeBlock
+             [ For
+                 (BasicBind (Just (Identifier "b")))
+                 (Ident (Identifier "dims"))
+                 (Block
+                    (CodeBlock
+                       [ FuncCall
+                           (Ident (Identifier "test"))
+                           [ NormalArg
+                               (FuncCall
+                                  (Ident (Identifier "type"))
+                                  [ NormalArg
+                                      (Plus (Ident (Identifier "a")) (Ident (Identifier "b")))
+                                  ])
+                           , NormalArg
+                               (FuncCall
+                                  (Ident (Identifier "type"))
+                                  [ NormalArg
+                                      (Minus (Ident (Identifier "a")) (Ident (Identifier "b")))
+                                  ])
+                           ]
+                       ]))
+             , For
+                 (BasicBind (Just (Identifier "b")))
+                 (Array [ Literal (Int 7) , Literal (Float 3.14) ])
+                 (Block
+                    (CodeBlock
+                       [ FuncCall
+                           (Ident (Identifier "test"))
+                           [ NormalArg
+                               (FuncCall
+                                  (Ident (Identifier "type"))
+                                  [ NormalArg
+                                      (Times (Ident (Identifier "a")) (Ident (Identifier "b")))
+                                  ])
+                           , NormalArg
+                               (FuncCall
+                                  (Ident (Identifier "type"))
+                                  [ NormalArg (Ident (Identifier "a")) ])
+                           ]
+                       , FuncCall
+                           (Ident (Identifier "test"))
+                           [ NormalArg
+                               (FuncCall
+                                  (Ident (Identifier "type"))
+                                  [ NormalArg
+                                      (Times (Ident (Identifier "b")) (Ident (Identifier "a")))
+                                  ])
+                           , NormalArg
+                               (FuncCall
+                                  (Ident (Identifier "type"))
+                                  [ NormalArg (Ident (Identifier "a")) ])
+                           ]
+                       , FuncCall
+                           (Ident (Identifier "test"))
+                           [ NormalArg
+                               (FuncCall
+                                  (Ident (Identifier "type"))
+                                  [ NormalArg
+                                      (Divided (Ident (Identifier "a")) (Ident (Identifier "b")))
+                                  ])
+                           , NormalArg
+                               (FuncCall
+                                  (Ident (Identifier "type"))
+                                  [ NormalArg (Ident (Identifier "a")) ])
+                           ]
+                       ]))
+             ])))
+, ParBreak
+, Comment
+, Code
+    "test/typ/compiler/ops-03.typ"
+    ( line 70 , column 2 )
+    (For
+       (BasicBind (Just (Identifier "a")))
+       (Array
+          [ Literal (Numeric 0.0 Pt)
+          , Literal (Numeric 0.0 Em)
+          , Literal (Numeric 0.0 Percent)
+          ])
+       (Block
+          (CodeBlock
+             [ For
+                 (BasicBind (Just (Identifier "b")))
+                 (Array
+                    [ Literal (Numeric 10.0 Pt)
+                    , Literal (Numeric 10.0 Em)
+                    , Literal (Numeric 10.0 Percent)
+                    ])
+                 (Block
+                    (CodeBlock
+                       [ FuncCall
+                           (Ident (Identifier "test"))
+                           [ NormalArg
+                               (Divided
+                                  (Times (Literal (Int 2)) (Ident (Identifier "b")))
+                                  (Ident (Identifier "b")))
+                           , NormalArg (Literal (Int 2))
+                           ]
+                       , FuncCall
+                           (Ident (Identifier "test"))
+                           [ NormalArg
+                               (Divided
+                                  (Plus
+                                     (Ident (Identifier "a"))
+                                     (Times (Ident (Identifier "b")) (Literal (Int 2))))
+                                  (Ident (Identifier "b")))
+                           , NormalArg (Literal (Int 2))
+                           ]
+                       , FuncCall
+                           (Ident (Identifier "test"))
+                           [ NormalArg
+                               (Divided
+                                  (Ident (Identifier "b"))
+                                  (Plus
+                                     (Times (Ident (Identifier "b")) (Literal (Int 2)))
+                                     (Ident (Identifier "a"))))
+                           , NormalArg (Literal (Float 0.5))
+                           ]
+                       ]))
+             ])))
+, ParBreak
+]
+"test/typ/compiler/ops-03.typ" (line 5, column 2):
+Couldn't exponentiate VInteger 1 to VFloat 1.99
