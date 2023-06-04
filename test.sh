@@ -39,7 +39,7 @@ do
     echo ":::"
     echo "::: {.column .html}"
     echo '````````````{=html}'
-    (cabal run typst-hs --disable-optimization -- --html $t.rev 2>&1) & timeout_child 2
+    (cabal run typst-hs -fexecutable --disable-optimization -- --html $t.rev 2>&1) & timeout_child 2
     echo '````````````'
     echo ":::"
     echo "::::::"

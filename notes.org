@@ -61,8 +61,6 @@ ref-04
 ref-03, 05 element method
 *** TODO handle math elements directly in text
 content-02
-*** TODO case-01 fails but that is because of how 'test' is implemented
-should this be in the main module not pandoc?
 ** meta
 counter-00, 01, etc. (we don't support counter objects)
 figure-02 (counter)
@@ -73,10 +71,8 @@ repeat function needs to be implemented
 ** compiler
 content-field-00
 import-10,11 - check for cyclic import
-ops-04
-ops-12
-ops-13 should raise error
-ops-14  (not in)
+ops-03
+ops-11
 show-bare-00 (columns.with(2)?)
 show-node-08 : '#show text: none' should affect text
 show-selector-01 (just needs show set to be implemented)
@@ -113,28 +109,3 @@ break-continue-11 (break in set rule...not supported but not crucial)
   }
 }))
 * TODO in math $|x|$ = lr(|x|) - probably also with others?
-* TODO tests for let bindings
-https://typst.app/docs/reference/scripting/#bindings
-#let (x,y) = (1,2)
-#let  (a, .., b) = (1, 2, 3, 4)
-#let books = (
-  Shakespeare: "Hamlet",
-  Homer: "The Odyssey",
-  Austen: "Persuasion"
-)
-#let (Austen,) = books
-Now #Austen is "Persuasion"
-#let (Homer: h) = books
-Now #h is "The Odyssey"
-#let (Homer, ..other) = books
-now #other is the dictionary books but without Homer.
-#let (Homer, Austen) = books
-now #Austen is "Persuasion"
-#let (_, y, _) = (1, 2, 3)
-
-* TODO tests for loops
-#for letter in "abc"
-#for value in array
-#for pair in dict
-or
-#for (key, val) in dict
