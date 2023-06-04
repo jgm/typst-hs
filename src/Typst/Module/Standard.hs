@@ -14,8 +14,8 @@ import Control.Applicative ((<|>))
 import Typst.Types
 import Typst.Regex (makeRE)
 import Typst.Module.Math (mathModule)
-import Typst.Module.Sym (typstSymbols)
-import Typst.Module.Emoji (typstEmojis)
+import Typst.Symbols (typstSymbols)
+import Typst.Emoji (typstEmojis)
 import Typst.Module.Calc (calcModule)
 import Typst.Util
 import Data.Maybe (mapMaybe)
