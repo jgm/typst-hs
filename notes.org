@@ -59,8 +59,6 @@ label-05
 label-06
 ref-04
 ref-03, 05 element method
-*** TODO handle math elements directly in text
-content-02
 ** meta
 counter-00, 01, etc. (we don't support counter objects)
 figure-02 (counter)

@@ -693,10 +693,6 @@ handleInline tok =
     Elt "underline" _ fields -> do
       body <- getField "body" fields
       B.underline <$> pWithContents pInlines body
-    Elt "math.equation" _ fields -> do
-      body <- getField "body" fields
-      display <- getField "block" fields
-      (if display then B.displayMath else B.math) . writeTeX <$> pMathMany body
     Elt "link" _ fields -> do
       dest <- getField "dest" fields
       src <- case dest of
@@ -744,6 +740,13 @@ handleInline tok =
            Success (VContent cs) -> pWithContents pInlines cs
            Success x -> pure $ B.text $ repr x
            Failure e -> fail e
+    Elt "math.equation" _ fields -> do
+      body <- getField "body" fields
+      display <- getField "block" fields
+      (if display then B.displayMath else B.math) . writeTeX <$> pMathMany body
+    Elt (Identifier tname) _ _
+      | "math." `T.isPrefixOf` tname
+      -> B.math . writeTeX . (:[]) <$> handleMath tok
     Elt (Identifier tname) _ _ -> do
       warn ("Skipping unknown inline element " <> tname)
       pure mempty
