@@ -1,17 +1,8 @@
-* TODO improve output for undergraduate.typ
-- column flow:
-  use css "columns: 2" ; we'll also need to adjust pandoc CSS in this case
-- diaer(a) seems wrong (accent too high)
-- the headings lose boldface; is that right?  More generally: should the show rules for headings result in no h1? that seems wrong.  Better to change in CSS via attributes?
-- compare result with typst output
-* TODO deal with styles (VStyles), styles (for set)
-* TEST progress
-** major things
-*** TODO see how the function replace regex works in string-16
+* TODO see how the function replace regex works in string-16
 we're doing better but we still don't handel m.captures
-*** TODO mutable dict
+* TODO mutable dict
 dict-02, 09,10 (assign bind - need mutable dict)
-*** TODO mutable array
+* TODO mutable array
 Notes on this:
 By the time we get to Pandoc (i.e. the evaluated result) we should have no mutable values; we need 'getField' in pandoc to be able to retrieve pure values.
 So, maybe we need a ValMutable type for the processing?
@@ -37,7 +28,7 @@ you can mutate nested arrays
   x
 }
 We can't currently handle that because they're not mutable for us.
-*** TODO show should be confined properly to blocks:
+* TODO show should be confined properly to blocks:
 show-text-07
 #+begin_example
 #show list: it => [
@@ -51,7 +42,7 @@ World
 
 should substituet World in the list but not out of it. currently does neither.
 It doesn't work because we are evaluating "it" first, so the show can't affect it.
-*** TODO label and ref
+* TODO label and ref
 label-02
 label-03
 label-04
@@ -59,6 +50,25 @@ label-05
 label-06
 ref-04
 ref-03, 05 element method
+* TODO deal with styles (VStyles), styles (for set)
+* TODO show set rules
+* TODO locate and query
+#set page(header: locate(loc => {
+  let elems = query(
+    selector(heading).before(loc),
+    loc,
+  )
+  let academy = smallcaps[
+    Typst Academy
+  ]
+  if elems == () {
+    align(right, academy)
+  } else {
+    let body = elems.last().body
+    academy + h(1fr) + emph(body)
+  }
+}))
+* small test issues
 ** meta
 counter-00, 01, etc. (we don't support counter objects)
 figure-02 (counter)
@@ -89,21 +99,9 @@ color-00 (negate)
 color-01 (lighten)
 break-continue-10 (#break inside a text block instead of a code block, not currently supported)
 break-continue-11 (break in set rule...not supported but not crucial)
-* TODO show set rules
-* TODO locate and query
-#set page(header: locate(loc => {
-  let elems = query(
-    selector(heading).before(loc),
-    loc,
-  )
-  let academy = smallcaps[
-    Typst Academy
-  ]
-  if elems == () {
-    align(right, academy)
-  } else {
-    let body = elems.last().body
-    academy + h(1fr) + emph(body)
-  }
-}))
-* TODO in math $|x|$ = lr(|x|) - probably also with others?
+* TODO improve output for undergraduate.typ
+- column flow:
+  use css "columns: 2" ; we'll also need to adjust pandoc CSS in this case
+- diaer(a) seems wrong (accent too high)
+- the headings lose boldface; is that right?  More generally: should the show rules for headings result in no h1? that seems wrong.  Better to change in CSS via attributes?
+- compare result with typst output
