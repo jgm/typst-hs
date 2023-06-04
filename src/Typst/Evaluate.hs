@@ -529,8 +529,10 @@ evalExpr expr =
           VFloat (fromRational i ** (fromIntegral j :: Double))
         (VRatio i, VRatio j) -> pure $ VFloat (fromRational i ** fromRational j)
         (VFloat i, VInteger j) -> pure $ VFloat (i ** (fromIntegral j :: Double))
+        (VFloat i, VFloat j) -> pure $ VFloat (i ** j)
+        (VInteger i, VFloat j) -> pure $ VFloat ((fromIntegral i :: Double) ** j)
         (VFloat i, VRatio j) -> pure $ VFloat (i ** fromRational j)
-        _ -> fail $ "Couldn't exponentiate " <> show b <> " to " <> show e
+        _ -> fail $ "Can't exponentiate " <> show b <> " to " <> show e
 
 
     Plus e1 e2 -> do
