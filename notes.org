@@ -2,15 +2,13 @@
 - column flow:
   use css "columns: 2" ; we'll also need to adjust pandoc CSS in this case
 - diaer(a) seems wrong (accent too high)
-- "Fences scale by default" seems not to be true?
-- the thing for LaTeX doesn't work
 - the headings lose boldface; is that right?  More generally: should the show rules for headings result in no h1? that seems wrong.  Better to change in CSS via attributes?
 - compare result with typst output
 * TODO deal with styles (VStyles), styles (for set)
 * TEST progress
 ** major things
 *** TODO operator precedence?
-#assert(3-4 * 5 < -10)
+#assert(2 < -1)
 *** TODO see how the function replace regex works in string-16
 we're doing better but we still don't handel m.captures
 *** TODO mutable dict
@@ -63,7 +61,6 @@ label-05
 label-06
 ref-04
 ref-03, 05 element method
-*** TODO data: xml? toml? yaml?
 *** TODO handle math elements directly in text
 content-02
 *** TODO case-01 fails but that is because of how 'test' is implemented
