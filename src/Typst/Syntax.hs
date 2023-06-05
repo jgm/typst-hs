@@ -1,27 +1,29 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE DeriveDataTypeable #-}
-module Typst.Syntax (
-    Markup(..)
-  , Identifier(..)
-  , Imports(..)
-  , Arg(..)
-  , Param(..)
-  , Bind(..)
-  , BindPart(..)
-  , Literal(..)
-  , Block(..)
-  , Expr(..)
-  , Unit(..)
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+module Typst.Syntax
+  ( Markup (..),
+    Identifier (..),
+    Imports (..),
+    Arg (..),
+    Param (..),
+    Bind (..),
+    BindPart (..),
+    Literal (..),
+    Block (..),
+    Expr (..),
+    Unit (..),
   )
 where
+
+import Data.Data (Data, Typeable)
+import Data.String
 import Data.Text (Text)
 import qualified Data.Text as T
-import Data.Data (Data, Typeable)
 import Text.Parsec (SourcePos)
-import Data.String
 
-data Markup =
-    Space
+data Markup
+  = Space
   | SoftBreak
   | HardBreak
   | ParBreak
@@ -33,7 +35,7 @@ data Markup =
   | Ellipsis
   | Quote Char
   | Ref Text Expr
-  | Equation Bool [Markup]  -- Bool is True for displayed format
+  | Equation Bool [Markup] -- Bool is True for displayed format
   | Strong [Markup]
   | Emph [Markup]
   | Bracketed [Markup]
@@ -58,29 +60,29 @@ newtype Identifier = Identifier Text
 instance IsString Identifier where
   fromString = Identifier . T.pack
 
-data Arg =
-    KeyValArg Identifier Expr
+data Arg
+  = KeyValArg Identifier Expr
   | NormalArg Expr
   | ArrayArg [[Markup]]
   | SpreadArg Expr
   | BlockArg [Markup]
   deriving (Show, Ord, Eq, Data, Typeable)
 
-data Param =
-    DefaultParam Identifier Expr
+data Param
+  = DefaultParam Identifier Expr
   | NormalParam Identifier
   | DestructuringParam [BindPart]
   | SinkParam (Maybe Identifier)
   | SkipParam -- _
   deriving (Show, Ord, Eq, Data, Typeable)
 
-data Bind =
-    BasicBind (Maybe Identifier)
+data Bind
+  = BasicBind (Maybe Identifier)
   | DestructuringBind [BindPart]
   deriving (Show, Ord, Eq, Data, Typeable)
 
-data BindPart =
-    Simple (Maybe Identifier)
+data BindPart
+  = Simple (Maybe Identifier)
   | WithKey Identifier (Maybe Identifier)
   | Sink (Maybe Identifier)
   deriving (Show, Ord, Eq, Data, Typeable)
@@ -88,8 +90,8 @@ data BindPart =
 data Unit = Pt | Mm | Cm | In | Deg | Rad | Em | Fr | Percent
   deriving (Show, Ord, Eq, Data, Typeable)
 
-data Literal =
-    String Text
+data Literal
+  = String Text
   | Boolean Bool
   | Float Double
   | Int Integer
@@ -98,8 +100,8 @@ data Literal =
   | Auto
   deriving (Show, Ord, Eq, Data, Typeable)
 
-data Block =
-    Content [Markup]
+data Block
+  = Content [Markup]
   | CodeBlock [Expr]
   deriving (Show, Ord, Eq, Data, Typeable)
 
@@ -107,8 +109,8 @@ data Block =
 --   '+' | '-' | '*' | '/' | 'and' | 'or' | '==' | '!=' |
 --   '<' | '<=' | '>' | '>=' | '=' | 'in' | ('not' 'in') |
 --   '+=' | '-=' | '*=' | '/='
-data Expr =
-    Literal Literal
+data Expr
+  = Literal Literal
   | Negated Expr
   | ToPower Expr Expr
   | Times Expr Expr
@@ -149,8 +151,8 @@ data Expr =
   | Continue
   deriving (Show, Ord, Eq, Data, Typeable)
 
-data Imports =
-    AllIdentifiers
+data Imports
+  = AllIdentifiers
   | SomeIdentifiers [Identifier]
   | NoIdentifiers
   deriving (Show, Ord, Eq, Data, Typeable)

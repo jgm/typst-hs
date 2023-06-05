@@ -1,50 +1,61 @@
-{-# LANGUAGE ScopedTypeVariables #-}
-{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE OverloadedLists #-}
-module Typst.Math (
-    contentToMath
-  , pMathMany
-  , P
-  , pTok
-  , warn
-) where
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE ScopedTypeVariables #-}
 
-import Typst.Types
-import Typst.Util (getField, chunks)
-import qualified Data.Sequence as Seq
-import Data.Sequence (Seq)
-import qualified Data.Vector as V
+module Typst.Math
+  ( contentToMath,
+    pMathMany,
+    P,
+    pTok,
+    warn,
+  )
+where
+
+import Control.Monad (MonadPlus (mplus))
+import Control.Monad.Reader (lift)
+import Data.Char (isAlphaNum, isDigit)
 import qualified Data.Foldable as F
+import Data.List (intercalate)
+import qualified Data.Map as M
+import Data.Maybe (fromMaybe)
+import Data.Sequence (Seq)
+import qualified Data.Sequence as Seq
 import Data.Text (Text)
 import qualified Data.Text as T
-import Data.Char (isDigit, isAlphaNum)
+import qualified Data.Vector as V
 import Text.Parsec
-import Text.TeXMath.Types (Exp(..), FractionType(..), TextType(..),
-                           TeXSymbolType(..), Alignment(..), TeXSymbolType(Pun))
+import Text.TeXMath.Types
+  ( Alignment (..),
+    Exp (..),
+    FractionType (..),
+    TeXSymbolType (..),
+    TextType (..),
+  )
 import Text.TeXMath.Unicode.ToTeX (getSymbolType)
-import Control.Monad (MonadPlus(mplus))
-import Control.Monad.Reader (lift)
-import qualified Data.Map as M
-import Data.List (intercalate)
-import Data.Maybe (fromMaybe)
+import Typst.Types
+import Typst.Util (chunks, getField)
+
 -- import Debug.Trace
 
 -- | Convert a sequence of content elements to a TeXMath expression.
-contentToMath :: Monad m
-              => (Text -> m ()) -- ^ Function to issue warnings
-              -> Seq Content -- ^ Contents to convert
-              -> m (Either ParseError [Exp])
+contentToMath ::
+  Monad m =>
+  -- | Function to issue warnings
+  (Text -> m ()) ->
+  -- | Contents to convert
+  Seq Content ->
+  m (Either ParseError [Exp])
 contentToMath warn' cs = runParserT (pMathMany cs) warn' "" mempty
 
 type P m a = ParsecT [Content] (Text -> m ()) m a
 
 pTok :: Monad m => (Content -> Bool) -> P m Content
 pTok f = tokenPrim show showPos match
- where
-   showPos _oldpos (Elt _ (Just pos) _) _ = pos
-   showPos oldpos _ _ = oldpos
-   match x | f x = Just x
-   match _ = Nothing
+  where
+    showPos _oldpos (Elt _ (Just pos) _) _ = pos
+    showPos oldpos _ _ = oldpos
+    match x | f x = Just x
+    match _ = Nothing
 
 warn :: Monad m => Text -> P m ()
 warn msg = do
@@ -86,9 +97,9 @@ handleMath tok =
     Txt t
       | T.any isDigit t -> pure $ ENumber t
       | T.length t == 1 ->
-         case T.unpack t of
-           [c] | not (isAlphaNum c) -> pure $ ESymbol (getSymbolType c) t
-           _ -> pure $ EIdentifier t
+          case T.unpack t of
+            [c] | not (isAlphaNum c) -> pure $ ESymbol (getSymbolType c) t
+            _ -> pure $ EIdentifier t
       | otherwise -> pure $ EText TextNormal t
     Elt "math.dif" _ _ -> pure $ EIdentifier "d"
     Elt "math.Dif" _ _ -> pure $ EIdentifier "D"
@@ -108,8 +119,8 @@ handleMath tok =
       base <- getField "base" fields >>= pMathGrouped
       acc <- getField "accent" fields >>= pMathGrouped
       let acc' = case acc of
-                       ESymbol _ t -> ESymbol Accent t
-                       _ -> acc
+            ESymbol _ t -> ESymbol Accent t
+            _ -> acc
       pure $ EOver False base acc'
     Elt "math.attach" _ fields -> do
       attachmentStyle <- getAttachmentStyle fields
@@ -164,7 +175,6 @@ handleMath tok =
         (Just top, Just bot) -> EUnderover False base' <$> pMathGrouped bot <*> pMathGrouped top
 
       addPrefix suffix
-
     Elt "math.serif" _ fields ->
       EStyled TextNormal <$> (getField "body" fields >>= pMathMany)
     Elt "math.sans" _ fields ->
@@ -184,11 +194,13 @@ handleMath tok =
     Elt "math.italic" _ fields ->
       EStyled TextItalic <$> (getField "body" fields >>= pMathMany)
     Elt "math.underline" _ fields ->
-      EUnder False <$> (getField "body" fields >>= pMathGrouped)
-                   <*>  pure (ESymbol TUnder "_")
+      EUnder False
+        <$> (getField "body" fields >>= pMathGrouped)
+        <*> pure (ESymbol TUnder "_")
     Elt "math.overline" _ fields ->
-      EUnder False <$> (getField "body" fields >>= pMathGrouped)
-                   <*>  pure (ESymbol TOver "\175")
+      EUnder False
+        <$> (getField "body" fields >>= pMathGrouped)
+        <*> pure (ESymbol TOver "\175")
     Elt "math.underbrace" _ fields -> do
       mbAnn <- getField "annotation" fields
       body <- getField "body" fields >>= pMathGrouped
@@ -218,7 +230,7 @@ handleMath tok =
         Nothing -> pure x
         Just ann -> EOver False x <$> pMathGrouped ann
     Elt "math.scripts" _ fields -> getField "body" fields >>= pMathGrouped
-    Elt "math.limits" _ fields ->  getField "body" fields >>= pMathGrouped
+    Elt "math.limits" _ fields -> getField "body" fields >>= pMathGrouped
     Elt "math.root" _ fields -> do
       mbindex <- getField "index" fields
       radicand <- getField "radicand" fields >>= pMathGrouped
@@ -231,35 +243,35 @@ handleMath tok =
       ESqrt <$> (getField "radicand" fields >>= pMathGrouped)
     Elt "math.abs" _ fields -> do
       body <- getField "body" fields >>= pMathGrouped
-      pure $ EDelimited "|" "|" [ Right body ]
+      pure $ EDelimited "|" "|" [Right body]
     Elt "math.floor" _ fields -> do
       body <- getField "body" fields >>= pMathGrouped
-      pure $ EDelimited "\8970" "\8971" [ Right body ]
+      pure $ EDelimited "\8970" "\8971" [Right body]
     Elt "math.ceil" _ fields -> do
       body <- getField "body" fields >>= pMathGrouped
-      pure $ EDelimited "\8968" "\8969" [ Right body ]
+      pure $ EDelimited "\8968" "\8969" [Right body]
     Elt "math.norm" _ fields -> do
       body <- getField "body" fields >>= pMathGrouped
-      pure $ EDelimited "\8741" "\8741" [ Right body ]
+      pure $ EDelimited "\8741" "\8741" [Right body]
     Elt "math.round" _ fields -> do
       body <- getField "body" fields >>= pMathGrouped
-      pure $ EDelimited "\8970" "\8969" [ Right body ]
+      pure $ EDelimited "\8970" "\8969" [Right body]
     Elt "math.lr" _ fields -> do
       bodyparts <- getField "body" fields >>= mapM pMathMany . V.toList
       let rawbody = intercalate [ESymbol Pun ","] bodyparts
       let (op, rest) =
             case rawbody of
-              (ESymbol _ t:xs) -> (t, xs)
+              (ESymbol _ t : xs) -> (t, xs)
               _ -> ("", rawbody)
       let (body, cl) =
             case reverse rest of
-              (ESymbol _ t:_) -> (map Right (init rest), t)
+              (ESymbol _ t : _) -> (map Right (init rest), t)
               _ -> (map Right rest, "")
       pure $ EDelimited op cl body
     Elt "math.binom" _ fields -> do
       up <- getField "upper" fields >>= pMathGrouped
       low <- getField "lower" fields >>= pMathGrouped
-      pure $ EDelimited "(" ")" [ Right (EFraction NoLineFrac up low) ]
+      pure $ EDelimited "(" ")" [Right (EFraction NoLineFrac up low)]
     Elt "math.cases" _ fields -> do
       (delim :: Maybe Text) <- getField "delim" fields
       (children :: [Seq Content]) <-
@@ -267,61 +279,71 @@ handleMath tok =
       let isAlignPoint (Elt "math.alignpoint" _ _) = True
           isAlignPoint _ = False
       let formatRow vs = case Seq.breakl isAlignPoint vs of
-                            (xs, ys) -> do
-                              case Seq.viewl ys of
-                                _ Seq.:< rest -> do
-                                  xs' <- pMathMany xs
-                                  ys' <- pMathMany rest
-                                  pure [xs', ys']
-                                _ -> (:[]) <$> pMathMany vs
+            (xs, ys) -> do
+              case Seq.viewl ys of
+                _ Seq.:< rest -> do
+                  xs' <- pMathMany xs
+                  ys' <- pMathMany rest
+                  pure [xs', ys']
+                _ -> (: []) <$> pMathMany vs
       rows <- mapM formatRow children
-      pure $ EDelimited (fromMaybe "{" delim) ""
-              [ Right (EArray [AlignLeft, AlignLeft] rows) ]
+      pure $
+        EDelimited
+          (fromMaybe "{" delim)
+          ""
+          [Right (EArray [AlignLeft, AlignLeft] rows)]
     Elt "math.vec" _ fields -> do
       (op, cl) <- arrayDelims fields
-      rows <- getField  "children" fields >>=
-                 mapM (fmap (:[]) . pMathMany) . V.toList
-      pure $ EDelimited op cl
-              [ Right (EArray [AlignCenter] rows) ]
+      rows <-
+        getField "children" fields
+          >>= mapM (fmap (: []) . pMathMany) . V.toList
+      pure $
+        EDelimited
+          op
+          cl
+          [Right (EArray [AlignCenter] rows)]
     Elt "math.mat" _ fields -> do
       (op, cl) <- arrayDelims fields
       let formatCell x = do
             let content = valToContent x
             let align = case Seq.viewl content of
-                          Elt "math.alignpoint" _ _ Seq.:< _ -> AlignLeft
-                          _ -> case Seq.viewr content of
-                                 _ Seq.:> Elt "math.alignpoint" _ _ -> AlignRight
-                                 _ -> AlignCenter
+                  Elt "math.alignpoint" _ _ Seq.:< _ -> AlignLeft
+                  _ -> case Seq.viewr content of
+                    _ Seq.:> Elt "math.alignpoint" _ _ -> AlignRight
+                    _ -> AlignCenter
             exp' <- pMathMany content
             pure (align, exp')
       let formatRow (VArray vs) = mapM formatCell (V.toList vs)
           formatRow _ = fail "mat expected array"
-      (rawrows :: V.Vector Val) <- getField  "rows" fields
+      (rawrows :: V.Vector Val) <- getField "rows" fields
       rows <- mapM formatRow (V.toList rawrows)
       let aligns =
-             case rows of
-                 [] -> []
-                 (r:_) -> map fst r
-      pure $ EDelimited op cl
-              [ Right (EArray aligns (map (map snd) rows)) ]
+            case rows of
+              [] -> []
+              (r : _) -> map fst r
+      pure $
+        EDelimited
+          op
+          cl
+          [Right (EArray aligns (map (map snd) rows))]
     Elt "hide" _ fields -> do
       EPhantom <$> (getField "body" fields >>= pMathGrouped)
     Elt "h" _ fields -> do
       amount <- getField "amount" fields
       let em = case amount of
-                 LExact x LEm -> toRational x
-                 _ -> case amount <> LExact 0 LPt of -- force to Pt
-                        LExact x LPt -> toRational x / 12
-                        _ -> 1/3 -- guess!
+            LExact x LEm -> toRational x
+            _ -> case amount <> LExact 0 LPt of -- force to Pt
+              LExact x LPt -> toRational x / 12
+              _ -> 1 / 3 -- guess!
       pure $ ESpace em
     Elt "grid" _ fields -> do
       children <- getField "children" fields >>= mapM pMathMany . V.toList
       (columns :: Val) <- getField "columns" fields
       numcols <- case columns of
-                      VInteger x -> pure $ fromIntegral x
-                      VArray x -> pure $ V.length x
-                      VNone -> pure 1
-                      _ -> fail $ "Could not determine number of columns: " <> show columns
+        VInteger x -> pure $ fromIntegral x
+        VArray x -> pure $ V.length x
+        VNone -> pure 1
+        _ -> fail $ "Could not determine number of columns: " <> show columns
       let rows = chunks numcols children
       pure $ EArray (replicate numcols AlignLeft) rows
     Elt "table" pos fields -> handleMath (Elt "grid" pos fields)
@@ -338,12 +360,12 @@ arrayDelims :: Monad m => M.Map Identifier Val -> P m (Text, Text)
 arrayDelims fields = do
   (mbdelim :: Maybe Text) <- getField "delim" fields
   pure $ case mbdelim of
-    Just "(" -> ( "(", ")" )
-    Just "[" -> ( "[", "]" )
-    Just "{" -> ( "{", "}" )
-    Just "|" -> ( "|", "|" )
-    Just "||" -> ( "\8741", "\8741" )
-    _ -> ( "(", ")" )
+    Just "(" -> ("(", ")")
+    Just "[" -> ("[", "]")
+    Just "{" -> ("{", "}")
+    Just "|" -> ("|", "|")
+    Just "||" -> ("\8741", "\8741")
+    _ -> ("(", ")")
 
 pMathMany :: Monad m => Seq Content -> P m [Exp]
 pMathMany cs = do
@@ -365,28 +387,27 @@ pMathGrouped = fmap withGroup . pMathMany
 splitOnLinebreaks :: Seq Content -> [Seq Content]
 splitOnLinebreaks xs =
   if Seq.null bs
-     then
-       if null as
-          then []
-          else [as]
-     else as : splitOnLinebreaks (Seq.drop 1 bs)
- where
-  (as, bs) = Seq.breakl isLinebreak xs
-  isLinebreak (Elt "linebreak" _ _) = True
-  isLinebreak _ = False
+    then
+      if null as
+        then []
+        else [as]
+    else as : splitOnLinebreaks (Seq.drop 1 bs)
+  where
+    (as, bs) = Seq.breakl isLinebreak xs
+    isLinebreak (Elt "linebreak" _ _) = True
+    isLinebreak _ = False
 
 splitOnAlignpoints :: Seq Content -> [Seq Content]
 splitOnAlignpoints xs =
   if Seq.null bs
-     then
-       if null as
-          then []
-          else [as]
-     else as : splitOnAlignpoints (Seq.drop 1 bs)
- where
-  (as, bs) = Seq.breakl isAlignpoint xs
+    then
+      if null as
+        then []
+        else [as]
+    else as : splitOnAlignpoints (Seq.drop 1 bs)
+  where
+    (as, bs) = Seq.breakl isAlignpoint xs
 
 isAlignpoint :: Content -> Bool
 isAlignpoint (Elt "math.alignpoint" _ _) = True
 isAlignpoint _ = False
-

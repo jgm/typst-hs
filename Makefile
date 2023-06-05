@@ -29,7 +29,12 @@ regen-tests:
         ! -path 'test/typ/compiler/modules/*' \
         ! -path 'test/typ/compiler/module.typ' \
         -exec bash -c "echo {} && awk -f split.awk {} && rm {}" \;
+.PHONY: regen-tests
 
 rm-golden:
 	rm -rf test/out
+.PHONY: rm-golden
 
+reformat:
+	ormolu -m inplace src/**/*.hs app/Main.hs test/Main.hs
+.PHONY: reformat
