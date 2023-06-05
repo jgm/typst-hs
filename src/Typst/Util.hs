@@ -10,6 +10,7 @@ module Typst.Util (
     , makeFunction
     , makeFunctionWithScope
     , makeSymbolMap
+    , argsToFields
     , nthArg
     , namedArg
     , allArgs
@@ -53,12 +54,18 @@ makeElementWithScope mbNamespace name specs scope =
   (name, VFunction (Just qname) scope
     $ Function $ \args -> do
       pos <- getPosition
-      fields <- OM.toMap . named <$> foldM go args specs
+      fields <- argsToFields specs args
       pure $ VContent . Seq.singleton $ Elt qname (Just pos) fields)
  where
    qname = case mbNamespace of
              Nothing -> name
              Just ns -> ns <> "." <> name
+
+argsToFields :: MonadFail m =>
+  [(Identifier, TypeSpec)] -> Arguments -> m (M.Map Identifier Val)
+argsToFields specs args' =
+  OM.toMap . named <$> foldM go args' specs
+ where
    hasType' TContent VContent{} = True
    hasType' TContent VString{} = True
    hasType' TString (VContent _) = True
