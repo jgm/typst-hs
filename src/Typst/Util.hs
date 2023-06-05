@@ -13,10 +13,12 @@ module Typst.Util (
     , nthArg
     , namedArg
     , allArgs
+    , getField
+    , chunks
   )
 where
 import Control.Monad.Reader (ReaderT(runReaderT), asks)
-import Control.Monad (foldM)
+import Control.Monad (foldM, MonadPlus)
 import Typst.Types
 import qualified Data.Sequence as Seq
 import qualified Data.Set as Set
@@ -27,6 +29,7 @@ import qualified Data.Map as M
 import qualified Data.Map.Ordered as OM
 import qualified Data.Vector as V
 import Text.Parsec (getPosition)
+import Data.Maybe (fromMaybe)
 
 data TypeSpec =
   One ValType | Many ValType
@@ -159,3 +162,13 @@ makeSymbolMap = foldl' go mempty
    addVariant :: [Text] -> Text -> [(Set.Set Text, Text)]
               -> [(Set.Set Text, Text)]
    addVariant ks v = ((Set.fromList ks, v) :)
+
+-- | Get field value from element, defaulting to VNone.
+getField :: (MonadFail m, MonadPlus m, FromVal a) =>
+            Identifier -> M.Map Identifier Val -> m a
+getField name fields = fromVal $ fromMaybe VNone $ M.lookup name fields
+
+-- | Split a list into chunks of a given size. The last chunk may be smaller.
+chunks :: Int -> [a] -> [[a]]
+chunks _ [] = []
+chunks n xs = take n xs : chunks n (drop n xs)

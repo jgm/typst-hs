@@ -43,6 +43,7 @@ library
                       Typst.Regex
                       Typst.Bind
                       Typst.Show
+                      Typst.Math
                       Typst.Pandoc
                       Typst.Module.Standard
                       Typst.Module.Math

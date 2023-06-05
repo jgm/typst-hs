@@ -1,3 +1,5 @@
+* TODO deal with styles (VStyles), styles (for set)
+* TODO show set rules
 * TODO label and ref
 label-02
 label-03
@@ -6,9 +8,7 @@ label-05
 label-06
 ref-04
 ref-03, 05 element method
-* TODO deal with styles (VStyles), styles (for set)
-* TODO show set rules
-* TODO locate and query
+* TODO locate and query - SKIP instead of error?
 #set page(header: locate(loc => {
   let elems = query(
     selector(heading).before(loc),
