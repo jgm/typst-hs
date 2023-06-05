@@ -74,18 +74,15 @@
 --- evaluated ---
 { [
 ], 
-  rect(body: none, 
-       height: 1.0em, 
+  rect(height: 1.0em, 
        width: 100%), 
   [
 ], 
-  list(children: ({ rect(body: none, 
-                         height: 1.0em, 
+  list(children: ({ rect(height: 1.0em, 
                          width: 100%), 
                     [
 ], 
-                    list(children: ({ rect(body: none, 
-                                           height: 1.0em, 
+                    list(children: ({ rect(height: 1.0em, 
                                            width: 100%), 
                                       parbreak() })) })) }
 --- pandoc ---

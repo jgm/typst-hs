@@ -82,6 +82,7 @@
   scale(body: list(children: ([Actual], 
                               [Tight], 
                               [List])), 
+        factor: none, 
         origin: left, 
         x: 80%) }
 --- pandoc ---

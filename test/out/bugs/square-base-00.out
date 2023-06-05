@@ -66,8 +66,7 @@
 ], 
   [
 ], 
-  square(body: rect(body: none, 
-                    height: 80%, 
+  square(body: rect(height: 80%, 
                     width: 60%), 
          width: 40%), 
   parbreak() }

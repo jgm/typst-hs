@@ -174,15 +174,13 @@ Hi ],
   [Our cockatoo was one of the
 ], 
   text(baseline: -0.2em, 
-       body: { box(body: circle(body: none, 
-                                radius: 2.0pt)), 
+       body: { box(body: circle(radius: 2.0pt)), 
                [ first] }), 
   [
 ], 
   text(baseline: 0.2em, 
        body: { [birds ], 
-               box(body: circle(body: none, 
-                                radius: 2.0pt)) }), 
+               box(body: circle(radius: 2.0pt)) }), 
   [
 that ever learned to mimic a human voice.], 
   parbreak(), 

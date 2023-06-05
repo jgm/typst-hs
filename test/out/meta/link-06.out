@@ -94,7 +94,10 @@
 ], 
   [
 My cool ], 
-  box(body: move(body: rotate(body: [10.0deg]), 
+  box(body: move(body: rotate(angle: 10.0deg, 
+                              body: scale(body: link(body: [LINK], 
+                                                     dest: "https://typst.org/"), 
+                                          factor: 200%)), 
                  dx: 0.7cm, 
                  dy: 0.7cm)), 
   parbreak() }

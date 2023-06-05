@@ -108,7 +108,7 @@
   text(body: [
 ], 
        fill: rgb(100%,100%,100%,100%)), 
-  place(alignment: (), 
+  place(alignment: none, 
         body: image(fit: "cover", 
                     height: 20.0pt + 100%, 
                     path: "/tiger.jpg", 

@@ -48,9 +48,7 @@
 ]
 --- evaluated ---
 { [
-], 
-  rect(body: none), 
-  parbreak() }
+], rect(), parbreak() }
 --- pandoc ---
 Pandoc
   Meta { unMeta = fromList [] }

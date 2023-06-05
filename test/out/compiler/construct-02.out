@@ -71,8 +71,7 @@
 --- evaluated ---
 { [
 ], 
-  text(body: rect(body: rect(body: none, 
-                             fill: rgb(100%,86%,0%,100%)), 
+  text(body: rect(body: rect(fill: rgb(100%,86%,0%,100%)), 
                   fill: rgb(100%,86%,0%,100%), 
                   inset: 5.0pt), 
        size: 1.0em), 

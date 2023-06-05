@@ -1,18 +1,3 @@
-* TODO revise specs for elements
-elements don't have an order!
-#text(40pt, [hi])
-#text([hi],40pt)
-are the same!
-
-we'd previously recognized this for text, but it works for all elements, e.g.
-
-#pad(24pt, [hi])
-#pad([hi], 24pt)
-
-so what we do is check all the arguments and populate fields by type.
-(as in makeTextElement)
-
-this may end up being a lot simpler than what we do now.
 * TODO show set rules
 show set rules: apply the style to existing elements
 This probably requires evalStyles to be a Map Identifier (Map Identifier Val)

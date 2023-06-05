@@ -109,7 +109,9 @@
 Hey there, ], 
                                 size: 8.0pt), 
                            align(alignment: Axes(center, bottom), 
-                                 body: rotate(body: [180.0deg])), 
+                                 body: rotate(angle: 180.0deg, 
+                                              body: text(body: [you!], 
+                                                         size: 8.0pt))), 
                            parbreak() }, 
                    inset: 4.0pt)), 
   text(body: [

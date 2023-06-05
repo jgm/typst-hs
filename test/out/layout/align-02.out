@@ -106,7 +106,8 @@
 --- evaluated ---
 { [
 ], 
-  rotate(body: [-30.0deg], 
+  rotate(angle: -30.0deg, 
+         body: [Hello], 
          origin: Axes(end, horizon)), 
   parbreak(), 
   text(body: [

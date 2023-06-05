@@ -73,8 +73,7 @@
 ], 
   [
 ], 
-  square(body: none, 
-         width: 100%), 
+  square(width: 100%), 
   [
 ], 
   square(body: [Hello there], 

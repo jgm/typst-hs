@@ -77,18 +77,16 @@ makeElementWithScope mbNamespace name specs scope =
                           (named args)
                 , positional = bs }
    go args (posname, One ty) =
-     case positional args of
-       (a:as)
-         | hasType' ty a
-         -> pure $ args{ named = insertOM posname (toType ty a) (named args)
-                       , positional = as }
-         | otherwise
-         -> if hasType' ty VNone
-               then pure $ args{ named = insertOM posname VNone (named args)
-                               , positional = a:as }
-               else fail $ "Unexpected argument: " <> show a
-       _ -> pure $ args{ named = insertOM posname VNone (named args)
-                       , positional = [] }
+     case break (hasType' ty) (positional args) of
+       ([], []) -> pure args
+       (as, b:bs) ->
+         pure $ args { named = insertOM posname (toType ty b) (named args)
+                     , positional = as ++ bs }
+       (a:as, [])
+         | hasType' ty VNone
+         -> pure $ args{ named = insertOM posname VNone (named args)
+                       , positional = a:as }
+         | otherwise -> fail $ "Unexpected argument: " <> show a
 
 -- The text element seems to need special treatment; you can do
 -- text(24pt, blue, [hi]) instead of text(size: 24pt, etc....)

@@ -118,14 +118,12 @@
   [
 ], 
   stack(children: (square(body: align(alignment: bottom, 
-                                      body: [Axes(center, horizon)]), 
+                                      body: [A]), 
                           width: 50%), 
-                   square(body: none, 
-                          height: 50%), 
-                   stack(children: (square(body: none, 
-                                           size: 10.0pt), 
+                   square(height: 50%), 
+                   stack(children: (square(size: 10.0pt), 
                                     square(body: align(alignment: bottom, 
-                                                       body: [Axes(center, horizon)]), 
+                                                       body: [B]), 
                                            size: 20.0pt)))), 
         dir: ltr, 
         spacing: 1.0fr), 
@@ -140,9 +138,7 @@ Pandoc
           ( "" , [] , [] )
           [ Div
               ( "" , [ "square" ] , [] )
-              [ Div
-                  ( "" , [] , [ ( "align" , "bottom" ) ] )
-                  [ Para [ Str "Axes(center," , Space , Str "horizon)" ] ]
+              [ Div ( "" , [] , [ ( "align" , "bottom" ) ] ) [ Para [ Str "A" ] ]
               ]
           ]
       , Div ( "" , [] , [] ) [ Div ( "" , [ "square" ] , [] ) [] ]
@@ -155,9 +151,7 @@ Pandoc
                   ( "" , [] , [] )
                   [ Div
                       ( "" , [ "square" ] , [] )
-                      [ Div
-                          ( "" , [] , [ ( "align" , "bottom" ) ] )
-                          [ Para [ Str "Axes(center," , Space , Str "horizon)" ] ]
+                      [ Div ( "" , [] , [ ( "align" , "bottom" ) ] ) [ Para [ Str "B" ] ]
                       ]
                   ]
               ]

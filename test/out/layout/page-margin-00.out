@@ -85,11 +85,11 @@
 ], 
   [
 ], 
-  place(alignment: (Axes(left, top)), 
+  place(alignment: Axes(left, top), 
         body: [TL]), 
   [
 ], 
-  place(alignment: (Axes(right, bottom)), 
+  place(alignment: Axes(right, bottom), 
         body: [BR]), 
   parbreak(), 
   parbreak() }

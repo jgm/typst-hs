@@ -57,8 +57,7 @@
 --- evaluated ---
 { [
 ], 
-  repeat(body: rect(body: none, 
-                    height: 1.0em, 
+  repeat(body: rect(height: 1.0em, 
                     width: 2.0em)), 
   parbreak() }
 --- pandoc ---

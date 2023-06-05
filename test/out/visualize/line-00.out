@@ -122,11 +122,11 @@
 ], 
   [
 ], 
-  box(body: { place(alignment: (), 
+  box(body: { place(alignment: none, 
                     body: line(end: (0.4em, 
                                      0.0pt), 
                                stroke: 0.75pt)), 
-              place(alignment: (), 
+              place(alignment: none, 
                     body: line(end: (0.0pt, 
                                      0.0pt), 
                                start: (0.0pt, 0.4em), 

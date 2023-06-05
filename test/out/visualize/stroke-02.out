@@ -101,8 +101,7 @@
 --- evaluated ---
 { [
 ], 
-  rect(body: none, 
-       height: 20.0pt, 
+  rect(height: 20.0pt, 
        stroke: rgb(100%,25%,21%,100%), 
        width: 20.0pt), 
   [
@@ -110,8 +109,7 @@
   v(amount: 3.0pt), 
   [
 ], 
-  rect(body: none, 
-       height: 20.0pt, 
+  rect(height: 20.0pt, 
        stroke: (rest: rgb(100%,25%,21%,100%),
                 top: (paint: rgb(0%,45%,85%,100%),
                       dash: "dashed")), 
@@ -121,8 +119,7 @@
   v(amount: 3.0pt), 
   [
 ], 
-  rect(body: none, 
-       height: 20.0pt, 
+  rect(height: 20.0pt, 
        stroke: (thickness: 5.0pt,
                 join: "round"), 
        width: 20.0pt), 

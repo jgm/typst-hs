@@ -89,19 +89,19 @@
 ], 
   [
 ], 
-  place(alignment: (right), 
+  place(alignment: right, 
         body: [First], 
         dx: -70%, 
         dy: 20%), 
   [
 ], 
-  place(alignment: (left), 
+  place(alignment: left, 
         body: [Second], 
         dx: 20%, 
         dy: 60%), 
   [
 ], 
-  place(alignment: (Axes(center, horizon)), 
+  place(alignment: Axes(center, horizon), 
         body: [Third], 
         dx: 25%, 
         dy: 25%), 

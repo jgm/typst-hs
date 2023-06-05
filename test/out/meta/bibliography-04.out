@@ -110,8 +110,7 @@
           numbering: "1."), 
   [Now we have multiple bibliographies containing ], 
   cite(keys: ("glacier-melt", 
-              "keshav2007read"), 
-       supplement: none), 
+              "keshav2007read")), 
   [
 ], 
   bibliography(path: ("/works.bib", 

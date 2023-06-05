@@ -61,7 +61,9 @@
 --- evaluated ---
 { [
 ], 
-  rotate(body: [10.0deg], 
+  rotate(angle: 10.0deg, 
+         body: image(path: "test/assets/files/tiger.jpg", 
+                     width: 50%), 
          origin: Axes(left, top)), 
   parbreak() }
 --- pandoc ---

@@ -65,11 +65,9 @@
 --- evaluated ---
 { [
 ], 
-  stack(children: (square(body: none, 
-                          height: 40.0pt, 
+  stack(children: (square(height: 40.0pt, 
                           width: 20.0pt), 
-                   circle(body: none, 
-                          height: 100.0pt, 
+                   circle(height: 100.0pt, 
                           width: 20%)), 
         dir: ltr, 
         spacing: 2.0pt), 

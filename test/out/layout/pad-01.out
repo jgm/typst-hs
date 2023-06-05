@@ -68,6 +68,7 @@
               h(amount: 1.0fr), 
               [ PR] }, 
       left: 10.0pt, 
+      rest: none, 
       right: 10.0pt), 
   parbreak() }
 --- pandoc ---

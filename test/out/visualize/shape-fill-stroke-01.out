@@ -128,39 +128,35 @@
   parbreak(), 
   [
 ], 
-  box(body: square(body: none, 
-                   size: 10.0pt)), 
+  box(body: square(size: 10.0pt, 
+                   stroke: none)), 
   [
 ], 
   [
 ], 
-  box(body: square(body: none, 
-                   size: 10.0pt)), 
+  box(body: square(size: 10.0pt, 
+                   stroke: auto)), 
   [
 ], 
-  box(body: square(body: none, 
-                   fill: rgb(22%,80%,80%,100%), 
-                   size: 10.0pt)), 
-  [
-], 
-  box(body: square(body: none, 
+  box(body: square(fill: rgb(22%,80%,80%,100%), 
                    size: 10.0pt, 
+                   stroke: auto)), 
+  [
+], 
+  box(body: square(size: 10.0pt, 
                    stroke: 2.0pt)), 
   [
 ], 
-  box(body: square(body: none, 
+  box(body: square(size: 10.0pt, 
+                   stroke: rgb(0%,45%,85%,100%))), 
+  [
+], 
+  box(body: square(fill: rgb(22%,80%,80%,100%), 
                    size: 10.0pt, 
                    stroke: rgb(0%,45%,85%,100%))), 
   [
 ], 
-  box(body: square(body: none, 
-                   fill: rgb(22%,80%,80%,100%), 
-                   size: 10.0pt, 
-                   stroke: rgb(0%,45%,85%,100%))), 
-  [
-], 
-  box(body: square(body: none, 
-                   fill: rgb(22%,80%,80%,100%), 
+  box(body: square(fill: rgb(22%,80%,80%,100%), 
                    size: 10.0pt, 
                    stroke: (thickness: 2.0pt,
                             color: rgb(0%,45%,85%,100%)))), 

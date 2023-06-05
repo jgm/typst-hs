@@ -60,12 +60,10 @@
 --- evaluated ---
 { [
 ], 
-  rect(body: none, 
-       radius: -20.0pt), 
+  rect(radius: -20.0pt), 
   [
 ], 
-  square(body: none, 
-         radius: 30.0pt), 
+  square(radius: 30.0pt), 
   parbreak() }
 --- pandoc ---
 Pandoc

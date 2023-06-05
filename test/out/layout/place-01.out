@@ -70,7 +70,7 @@
   parbreak(), 
   [First], 
   parbreak(), 
-  place(alignment: (Axes(right, bottom)), 
+  place(alignment: Axes(right, bottom), 
         body: [Placed]), 
   parbreak(), 
   [Second], 

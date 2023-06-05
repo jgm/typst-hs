@@ -149,14 +149,12 @@
                    { [x], super(body: [5n]) }, 
                    { [x], 
                      super(body: { [2 ], 
-                                   box(body: square(body: none, 
-                                                    size: 6.0pt)) }) }, 
+                                   box(body: square(size: 6.0pt)) }) }, 
                    { [x], sub(body: [1]) }, 
                    { [x], sub(body: [5n]) }, 
                    { [x], 
                      sub(body: { [2 ], 
-                                 box(body: square(body: none, 
-                                                  size: 6.0pt)) }) }), 
+                                 box(body: square(size: 6.0pt)) }) }), 
         columns: 3), 
   parbreak() }
 --- pandoc ---

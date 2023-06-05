@@ -205,6 +205,7 @@
   parbreak(), 
   figure(body: pad(body: image(height: 2.0cm, 
                                path: "test/assets/files/cylinder.svg"), 
+                   rest: none, 
                    y: -6.0pt), 
          caption: [The basic shapes.], 
          numbering: "I"), 

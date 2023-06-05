@@ -61,7 +61,7 @@
 --- evaluated ---
 { [
 ], 
-  box(body: circle(body: none)), 
+  box(body: circle()), 
   [
 ], 
   box(body: circle(body: [Hey])), 

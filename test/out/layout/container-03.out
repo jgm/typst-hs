@@ -63,8 +63,7 @@
 { [
 ], 
   [Hello ], 
-  box(body: rect(body: none, 
-                 height: 0.7em, 
+  box(body: rect(height: 0.7em, 
                  width: 100%), 
       width: 1.0fr), 
   [ World], 

@@ -61,7 +61,7 @@
 --- evaluated ---
 { [
 ], 
-  box(body: square(body: none)), 
+  box(body: square()), 
   [
 ], 
   box(body: square(body: [hey!])), 

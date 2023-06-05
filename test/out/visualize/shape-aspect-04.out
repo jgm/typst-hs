@@ -78,12 +78,9 @@
 ], 
   [
 ], 
-  stack(children: (circle(body: none, 
-                          radius: 5.0pt), 
-                   circle(body: none, 
-                          width: 10%), 
-                   circle(body: none, 
-                          height: 50%)), 
+  stack(children: (circle(radius: 5.0pt), 
+                   circle(width: 10%), 
+                   circle(height: 50%)), 
         dir: ltr, 
         spacing: 2.0pt), 
   parbreak() }

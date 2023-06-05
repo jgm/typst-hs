@@ -70,10 +70,8 @@
 --- evaluated ---
 { [
 ], 
-  stack(children: (rect(body: none, 
-                        fill: luma(0%)), 
-                   rect(body: none, 
-                        fill: luma(80%))), 
+  stack(children: (rect(fill: luma(0%)), 
+                   rect(fill: luma(80%))), 
         dir: ltr), 
   parbreak() }
 --- pandoc ---

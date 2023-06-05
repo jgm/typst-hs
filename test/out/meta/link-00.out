@@ -133,12 +133,10 @@
   [ a paragraph.], 
   parbreak(), 
   [Contact ], 
-  link(body: none, 
-       dest: "mailto:hi@typst.app"), 
+  link(dest: "mailto:hi@typst.app"), 
   [ or
 call ], 
-  link(body: none, 
-       dest: "tel:123"), 
+  link(dest: "tel:123"), 
   [ for more information.], 
   parbreak() }
 --- pandoc ---

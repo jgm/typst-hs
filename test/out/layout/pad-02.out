@@ -87,7 +87,8 @@
         body: [Before]), 
   [
 ], 
-  pad(body: [10.0pt]), 
+  pad(body: image(path: "test/assets/files/tiger.jpg"), 
+      rest: 10.0pt), 
   [
 ], 
   align(alignment: right, 
