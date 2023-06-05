@@ -1,17 +1,3 @@
-* TODO show should be confined properly to blocks:
-show-text-07
-#+begin_example
-#show list: it => [
-  #show "World": [🌎]
-  #it
-]
-
-World
-- World
-#+end_example
-
-should substituet World in the list but not out of it. currently does neither.
-It doesn't work because we are evaluating "it" first, so the show can't affect it.
 * TODO mutable dict
 dict-02, 09,10 (assign bind - need mutable dict)
 * TODO mutable array

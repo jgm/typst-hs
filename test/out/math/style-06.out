@@ -91,7 +91,13 @@
                         [], 
                         math.equation(block: false, 
                                       body: { h(amount: 1.0em), 
-                                              [⊢], 
+                                              [], 
+                                              math.equation(block: false, 
+                                                            body: { h(amount: 1.0em), 
+                                                                    [⊢], 
+                                                                    h(amount: 1.0em) }, 
+                                                            numbering: none), 
+                                              [], 
                                               h(amount: 1.0em) }, 
                                       numbering: none), 
                         [], 
@@ -101,4 +107,6 @@
 --- pandoc ---
 Pandoc
   Meta { unMeta = fromList [] }
-  [ Para [ Math DisplayMath "a{\\quad \\vdash \\quad}b" ] ]
+  [ Para
+      [ Math DisplayMath "a{\\quad{\\quad \\vdash \\quad}\\quad}b" ]
+  ]

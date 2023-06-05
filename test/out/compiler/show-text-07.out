@@ -78,7 +78,9 @@
 ], 
   [
 ], 
-  list(children: ({ [World], 
+  list(children: ({ [], 
+                    [🌎], 
+                    [], 
                     parbreak() })), 
   parbreak() }
 --- pandoc ---
@@ -86,5 +88,5 @@ Pandoc
   Meta { unMeta = fromList [] }
   [ Para []
   , Para [ Str "World" ]
-  , BulletList [ [ Para [ Str "World" ] ] ]
+  , BulletList [ [ Para [ Str "\127758" ] ] ]
   ]

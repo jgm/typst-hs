@@ -95,8 +95,8 @@
   parbreak(), 
   block(body: list(children: ({ [List
 ], 
-                                block(body: list(children: ([Nested], 
-                                                            [List]))) }, 
+                                block(body: block(body: list(children: ([Nested], 
+                                                                        [List])))) }, 
                               { [Recursive!], 
                                 parbreak() }))) }
 --- pandoc ---
@@ -109,8 +109,11 @@ Pandoc
           [ [ Para [ Str "List" ]
             , Div
                 ( "" , [] , [] )
-                [ BulletList
-                    [ [ Para [ Str "Nested" ] ] , [ Para [ Str "List" ] ] ]
+                [ Div
+                    ( "" , [] , [] )
+                    [ BulletList
+                        [ [ Para [ Str "Nested" ] ] , [ Para [ Str "List" ] ] ]
+                    ]
                 ]
             ]
           , [ Para [ Str "Recursive!" ] ]

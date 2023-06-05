@@ -1,3 +1,4 @@
+{-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE RankNTypes #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE ScopedTypeVariables #-}
@@ -17,6 +18,7 @@ import Control.Monad (foldM)
 import Text.Parsec ( (<|>), getState, updateState )
 import Typst.Regex (RE(..), makeLiteralRE)
 import qualified Text.Regex.TDFA as TDFA
+-- import Debug.Trace
 
 applyShowRules :: Monad m => Seq Content -> MP m (Seq Content)
 applyShowRules cs = do
@@ -39,16 +41,25 @@ withoutShowRule selector pa = do
 tryShowRules :: Monad m =>
   [ShowRule] -> Seq Content -> Content -> MP m (Seq Content)
 tryShowRules [] cs c = pure $ cs Seq.|> c
-tryShowRules (ShowRule sel f : rs) cs c =
-  case (sel, c) of
+tryShowRules (ShowRule sel f : rs) cs c = do
+  c' <- case c of
+          Elt name pos fields -> do
+            let applyToVal (VContent cs') = VContent <$>
+                   foldMap (tryShowRules [ShowRule sel f] mempty) cs'
+                applyToVal (VArray as) = VArray <$> mapM applyToVal as
+                applyToVal x = pure x
+            fields' <- mapM applyToVal fields
+            pure $ Elt name pos fields'
+          _ -> pure c
+  case (sel, c') of
    (SelectString s, Txt t) -> (do
      re <- makeLiteralRE s
      withoutShowRule sel
        ((cs <>) <$> (replaceRegexContent re t f >>= applyShowRules)))
-       <|> tryShowRules rs cs c
+       <|> tryShowRules rs cs c'
    (SelectRegex re, Txt t) -> (withoutShowRule sel
      ((cs <>) <$> (replaceRegexContent re t f >>= applyShowRules)))
-       <|> tryShowRules rs cs c
+       <|> tryShowRules rs cs c'
    (SelectLabel s, elt@(Elt _ _ fields))
      | Just (VLabel s') <- M.lookup "label" fields
      , s' == s
@@ -65,7 +76,7 @@ tryShowRules (ShowRule sel f : rs) cs c =
      fail "before is not yet implemented for select"
    (SelectAfter _sel1 _sel2, _elt) ->
      fail "after is not yet implemented for select"
-   _ -> tryShowRules rs cs c
+   _ -> tryShowRules rs cs c'
 
 fieldsMatch :: [(Identifier, Val)] -> (M.Map Identifier Val) -> Bool
 fieldsMatch [] _ = True
