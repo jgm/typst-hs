@@ -40,8 +40,10 @@ import qualified Data.ByteString as BS
 -- | Evaluate a parsed typst expression, evaluating the code and
 -- replacing it with content.
 evaluateTypst :: Monad m
-                 => (FilePath -> m BS.ByteString) -> FilePath -> [Markup]
-                 -> m (Either ParseError (Seq Content))
+              => (FilePath -> m BS.ByteString) -- ^ Function for warnings
+              -> FilePath -- ^ Path of parsed content
+              -> [Markup] -- ^ Markup produced by 'parseTypst'
+              -> m (Either ParseError (Seq Content))
 evaluateTypst loadBytes =
   runParserT (mconcat <$> many pContent <* eof)
     initialEvalState{ evalLoadBytes = loadBytes }

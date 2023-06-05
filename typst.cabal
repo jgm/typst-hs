@@ -38,21 +38,22 @@ common warnings
 library
     import:           warnings
     exposed-modules:  Typst
-                      Typst.Parse
-                      Typst.Evaluate
-                      Typst.Types
-                      Typst.Methods
                       Typst.Syntax
-                      Typst.Util
-                      Typst.Regex
-                      Typst.Bind
-                      Typst.Show
-                      Typst.Math
+                      Typst.Parse
+                      Typst.Types
+                      Typst.Evaluate
                       Typst.Pandoc
+    other-modules:
+                      Typst.Bind
+                      Typst.Regex
+                      Typst.Show
+                      Typst.Util
+                      Typst.Methods
                       Typst.Module.Standard
                       Typst.Module.Math
                       Typst.Module.Calc
-    -- other-modules:
+                      Typst.Math
+
     -- other-extensions:
     build-depends:    base >= 4.14 && <= 5,
                       typst-symbols >= 0.1 && < 0.2,

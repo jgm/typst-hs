@@ -29,9 +29,11 @@ import Data.List (intercalate)
 import Data.Maybe (fromMaybe)
 -- import Debug.Trace
 
--- | Convert a sequence of content elements to a TeXMath expression. First parameter
--- is a function used for emitting warnings.
-contentToMath :: Monad m => (Text -> m ()) -> Seq Content -> m (Either ParseError [Exp])
+-- | Convert a sequence of content elements to a TeXMath expression.
+contentToMath :: Monad m
+              => (Text -> m ()) -- ^ Function to issue warnings
+              -> Seq Content -- ^ Contents to convert
+              -> m (Either ParseError [Exp])
 contentToMath warn' cs = runParserT (pMathMany cs) warn' "" mempty
 
 type P m a = ParsecT [Content] (Text -> m ()) m a

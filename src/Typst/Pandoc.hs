@@ -4,6 +4,7 @@
 {-# LANGUAGE OverloadedLists #-}
 module Typst.Pandoc (
     contentToPandoc
+  , contentToMath
 ) where
 
 import Typst.Types
@@ -16,19 +17,21 @@ import qualified Data.Foldable as F
 import Data.Text (Text)
 import qualified Data.Text as T
 import Typst.Methods (applyPureFunction, formatNumber)
-import Typst.Math (pMathMany, P, warn, pTok)
+import Typst.Math (pMathMany, P, warn, pTok, contentToMath)
 import Text.Parsec
 import Text.TeXMath (writeTeX)
 import Text.TeXMath.Shared (getSpaceChars)
 import Text.Pandoc.Walk
-import Control.Monad (MonadPlus(mplus))
+import Control.Monad (MonadPlus(mplus), void)
 import qualified Data.Map as M
 import Data.Maybe (fromMaybe, isNothing, catMaybes)
 -- import Debug.Trace
 
--- | Convert a sequence of content elements to a Pandoc document. First parameter
--- is a function used for emitting warnings.
-contentToPandoc :: Monad m => (Text -> m ()) -> Seq Content -> m (Either ParseError B.Pandoc)
+-- | Convert a sequence of content elements to a Pandoc document.
+contentToPandoc :: Monad m
+                => (Text -> m ()) -- ^ Function to issue warnings
+                -> Seq Content -- ^ Contents to convert
+                -> m (Either ParseError B.Pandoc)
 contentToPandoc warn' = runParserT pPandoc warn' "" . F.toList
 
 pPandoc :: Monad m => P m B.Pandoc
@@ -224,7 +227,7 @@ pPara =
   B.para . B.trimInlines . mconcat <$> (many1 pInline <* optional pParBreak)
 
 pParBreak :: Monad m => P m ()
-pParBreak = () <$ pTok (\case
+pParBreak = void $ pTok (\case
                            Elt "parbreak" _ _ -> True
                            _  -> False)
 
