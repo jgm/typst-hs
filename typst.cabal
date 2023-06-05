@@ -28,6 +28,10 @@ extra-source-files: test/typ/**/*.typ
                     test/assets/files/*.yaml
                     test/assets/files/*.html
 
+source-repository head
+  type: git
+  location: https://github.com/jgm/typst-hs.git
+
 common warnings
     ghc-options: -Wall
 
