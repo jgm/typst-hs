@@ -1,31 +1,3 @@
-* TODO mutable dict
-dict-02, 09,10 (assign bind - need mutable dict)
-* TODO mutable array
-Notes on this:
-By the time we get to Pandoc (i.e. the evaluated result) we should have no mutable values; we need 'getField' in pandoc to be able to retrieve pure values.
-So, maybe we need a ValMutable type for the processing?
-
-Perhaps easier to add a Ref VType Int constructor to Val.
-Then, in addition to fromVal, we get have resolveVal which lives in MP m.
-Pandoc module would just need fromVal.  (fromVal can just spit out an error if called on a Ref)
-
-What about things like joinValues, maybePlus?
-These can all be moved to MP m.
-
-FromVal stays in more generic type but we supplement it with
-resolveVal?  And some of the utility functions that use fromVal need to use resolveVal.
-
-array-03-08,11 (assign bind - need mutable arrays for this)
-methods-02
-"Push doesn't do anything special to not break purity, it's just that variables from outside of a closure can't be modified in general (also not through assignment). It is a bit special because it can modify its receiver while normal functions can't do such a thing."
-also:
-you can mutate nested arrays
-#{
-  let x = ((1, 2), (3, 4))
-  x.at(1).at(0) += 2
-  x
-}
-We can't currently handle that because they're not mutable for us.
 * TODO label and ref
 label-02
 label-03
