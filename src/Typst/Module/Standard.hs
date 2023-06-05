@@ -114,7 +114,7 @@ layout =
   -- for "measure" see below
   , makeElement Nothing "move" [("body", One TContent)]
   -- the fact that pad can take a positional param for a length (= rest) is undocumented!
-  , makeElement Nothing "pad" [("rest", One (TLength :|: TNone)), ("body", One TContent)]
+  , makeElement Nothing "pad" [("rest", One (TLength :|: TRatio :|: TNone)), ("body", One TContent)]
   , makeElement Nothing "page" [("body", One TContent)]
   , makeElement Nothing "pagebreak" []
   , makeElement Nothing "par" [("body", One TContent)]
