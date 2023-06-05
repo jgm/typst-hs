@@ -784,9 +784,11 @@ loadModule modname = do
   case parseTypst fp txt of
     Left err -> fail $ show err
     Right ms -> do
+      loadBytes <- evalLoadBytes <$> getState
       res <- lift $
         runParserT (openBlock BlockScope *> -- add new identifiers list
-                    many pContent *> eof *> getState) initialEvalState fp ms
+                    many pContent *> eof *> getState)
+           initialEvalState{ evalLoadBytes = loadBytes }  fp ms
       case res of
         Left err' -> fail $ show err'
         Right st ->
