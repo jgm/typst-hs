@@ -13,10 +13,9 @@ import qualified Data.Text as T
 import qualified Data.Map as M
 import Typst.Syntax
 import Typst.Types
-import Typst.Regex (makeLiteralRE)
 import Control.Monad (foldM)
 import Text.Parsec ( (<|>), getState, updateState )
-import Typst.Regex (RE(..))
+import Typst.Regex (RE(..), makeLiteralRE)
 import qualified Text.Regex.TDFA as TDFA
 
 applyShowRules :: Monad m => Seq Content -> MP m (Seq Content)
