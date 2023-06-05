@@ -78,5 +78,8 @@
           ]))
 , ParBreak
 ]
-"test/typ/compiler/methods-01.typ" (line 3, column 2):
-named argument default not defined or Cannot update expression FuncCall (FieldAccess (Ident (Identifier "at")) (FuncCall (FieldAccess (Ident (Identifier "at")) (Ident (Identifier "matrix"))) [NormalArg (Literal (Int 1))])) [NormalArg (Literal (Int 0))]
+--- evaluated ---
+{ [
+], [✅], parbreak() }
+--- pandoc ---
+Pandoc Meta { unMeta = fromList [] } [ Para [ Str "\9989" ] ]

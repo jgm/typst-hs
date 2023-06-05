@@ -75,4 +75,4 @@
 , ParBreak
 ]
 "test/typ/compiler/array-03.typ" (line 3, column 2):
-Unimplemented Assign for non-bind on left
+Cannot update expression FuncCall (FieldAccess (Ident (Identifier "first")) (Ident (Identifier "array"))) []

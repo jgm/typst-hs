@@ -72,5 +72,8 @@
           ]))
 , ParBreak
 ]
-"test/typ/compiler/array-02.typ" (line 3, column 2):
-named argument default not defined or Unimplemented Assign for non-bind on left
+--- evaluated ---
+{ [
+], [✅], parbreak() }
+--- pandoc ---
+Pandoc Meta { unMeta = fromList [] } [ Para [ Str "\9989" ] ]

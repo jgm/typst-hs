@@ -1,3 +1,4 @@
+{-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE RankNTypes #-}
 {-# LANGUAGE FlexibleContexts #-}
@@ -622,12 +623,11 @@ evalExpr expr =
     Assign e1 e2 -> do
       val <- evalExpr e2
       case e1 of
-        Ident ident -> updateIdentifier ident val
         Binding (BasicBind (Just ident)) -> updateIdentifier ident val
         Binding (BasicBind Nothing) -> pure ()
         Binding (DestructuringBind parts) ->
           destructuringBind updateIdentifier parts val
-        _ -> fail "Unimplemented Assign for non-bind on left"
+        x -> updateExpression x val
       pure VNone
 
     If clauses -> do
@@ -889,6 +889,27 @@ updateExpression :: Monad m => Expr -> Val -> MP m ()
 updateExpression e val =
   case e of
     Ident i -> updateIdentifier i val
+    FuncCall (FieldAccess (Ident (Identifier "at")) e')
+             [NormalArg (Literal (Int idx))]
+            -> do
+                ival <- evalExpr e'
+                case ival of
+                  VArray v ->
+                    updateExpression e' $ VArray $ v V.// [(fromIntegral idx, val)]
+                  _ -> fail $ "Cannot update expression " <> show e
+    FuncCall (FieldAccess (Ident (Identifier "at")) e')
+             [NormalArg (Literal (String fld))]
+            -> do
+                ival <- evalExpr e'
+                case ival of
+                  VDict d ->
+                    updateExpression e' $ VDict $
+                      OM.alter
+                        (\case
+                          Just _ -> Just val
+                          Nothing -> Just val)
+                        (Identifier fld) d
+                  _ -> fail $ "Cannot update expression " <> show e
     _ -> fail $ "Cannot update expression " <> show e
 
 toSelector :: Monad m => Val -> MP m Selector

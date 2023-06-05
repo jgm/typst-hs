@@ -120,4 +120,4 @@
 , ParBreak
 ]
 "test/typ/compiler/dict-01.typ" (line 3, column 2):
-named argument default not defined or Unimplemented Assign for non-bind on left
+named argument default not defined or Cannot update expression FieldAccess (Ident (Identifier "state")) (Ident (Identifier "dict"))

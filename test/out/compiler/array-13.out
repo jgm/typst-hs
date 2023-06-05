@@ -99,4 +99,6 @@
 , ParBreak
 ]
 "test/typ/compiler/array-13.typ" (line 3, column 2):
-named argument default not defined or Cannot update expression FuncCall (FieldAccess (Ident (Identifier "at")) (Ident (Identifier "tasks"))) [NormalArg (Literal (String "a"))]
+unexpected end of input
+expecting end of input
+Cannot update expression FieldAccess (Ident (Identifier "b")) (Ident (Identifier "tasks"))
