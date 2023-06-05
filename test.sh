@@ -1,16 +1,5 @@
 #!/bin/bash
 
-function timeout_child {
-    trap -- "" SIGTERM
-    child=$!
-    timeout=$1
-    (
-            sleep $timeout
-            kill $child 2>/dev/null
-    ) &
-    wait $child
-}
-
 cat <<EOF
 <style>
 body { min-width: 100%; max-width: 100% }
@@ -39,7 +28,7 @@ do
     echo ":::"
     echo "::: {.column .html}"
     echo '````````````{=html}'
-    (cabal run typst-hs -fexecutable --disable-optimization -- --html $t.rev 2>&1) & timeout_child 2
+    cabal run typst-hs -fexecutable --disable-optimization -v0 -- --html --timeout 1000 $t.rev 2>&1
     echo '````````````'
     echo ":::"
     echo "::::::"
