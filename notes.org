@@ -1,5 +1,17 @@
-* TODO see how the function replace regex works in string-16
-we're doing better but we still don't handel m.captures
+* TODO show should be confined properly to blocks:
+show-text-07
+#+begin_example
+#show list: it => [
+  #show "World": [🌎]
+  #it
+]
+
+World
+- World
+#+end_example
+
+should substituet World in the list but not out of it. currently does neither.
+It doesn't work because we are evaluating "it" first, so the show can't affect it.
 * TODO mutable dict
 dict-02, 09,10 (assign bind - need mutable dict)
 * TODO mutable array
@@ -28,20 +40,6 @@ you can mutate nested arrays
   x
 }
 We can't currently handle that because they're not mutable for us.
-* TODO show should be confined properly to blocks:
-show-text-07
-#+begin_example
-#show list: it => [
-  #show "World": [🌎]
-  #it
-]
-
-World
-- World
-#+end_example
-
-should substituet World in the list but not out of it. currently does neither.
-It doesn't work because we are evaluating "it" first, so the show can't affect it.
 * TODO label and ref
 label-02
 label-03
