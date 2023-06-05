@@ -897,6 +897,12 @@ updateExpression e val =
                   VArray v ->
                     updateExpression e' $ VArray $ v V.// [(fromIntegral idx, val)]
                   _ -> fail $ "Cannot update expression " <> show e
+    FuncCall (FieldAccess (Ident (Identifier "first")) e') [] ->
+      updateExpression (FuncCall (FieldAccess (Ident (Identifier "at")) e')
+                          [NormalArg (Literal (Int 0))]) val
+    FuncCall (FieldAccess (Ident (Identifier "last")) e') [] ->
+      updateExpression (FuncCall (FieldAccess (Ident (Identifier "at")) e')
+                          [NormalArg (Literal (Int (-1)))]) val
     FuncCall (FieldAccess (Ident (Identifier "at")) e')
              [NormalArg (Literal (String fld))]
             -> do
@@ -907,9 +913,11 @@ updateExpression e val =
                       OM.alter
                         (\case
                           Just _ -> Just val
-                          Nothing -> Just val)
-                        (Identifier fld) d
+                          Nothing -> Just val) (Identifier fld) d
                   _ -> fail $ "Cannot update expression " <> show e
+    FieldAccess (Ident (Identifier fld)) e'
+            -> updateExpression (FuncCall (FieldAccess (Ident (Identifier "at")) e')
+                                  [NormalArg (Literal (String fld))]) val
     _ -> fail $ "Cannot update expression " <> show e
 
 toSelector :: Monad m => Val -> MP m Selector

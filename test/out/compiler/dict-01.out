@@ -119,5 +119,15 @@
           ]))
 , ParBreak
 ]
-"test/typ/compiler/dict-01.typ" (line 3, column 2):
-named argument default not defined or Cannot update expression FieldAccess (Ident (Identifier "state")) (Ident (Identifier "dict"))
+--- evaluated ---
+{ [
+], 
+  [✅], 
+  [✅], 
+  [✅], 
+  [✅], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] }
+  [ Para [ Str "\9989\9989\9989\9989" ] ]

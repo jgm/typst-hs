@@ -98,7 +98,13 @@
           ]))
 , ParBreak
 ]
-"test/typ/compiler/array-13.typ" (line 3, column 2):
-unexpected end of input
-expecting end of input
-Cannot update expression FieldAccess (Ident (Identifier "b")) (Ident (Identifier "tasks"))
+--- evaluated ---
+{ [
+], 
+  [✅], 
+  [✅], 
+  [✅], 
+  parbreak() }
+--- pandoc ---
+Pandoc
+  Meta { unMeta = fromList [] } [ Para [ Str "\9989\9989\9989" ] ]
