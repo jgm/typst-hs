@@ -578,6 +578,7 @@ initialEvalState =
   , evalCounters = mempty
   , evalMath = False
   , evalShowRules = []
+  , evalStyles = mempty
   , evalFlowDirective = FlowNormal
   , evalLoadBytes = \_ -> pure mempty
   }

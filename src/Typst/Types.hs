@@ -510,6 +510,7 @@ data EvalState m =
   , evalCounters :: M.Map Counter Integer
   , evalMath :: Bool
   , evalShowRules :: [ShowRule]
+  , evalStyles :: M.Map Identifier Arguments
   , evalFlowDirective :: FlowDirective
   , evalLoadBytes :: FilePath -> m BS.ByteString
   }

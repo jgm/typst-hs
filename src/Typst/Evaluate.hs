@@ -53,6 +53,7 @@ initialEvalState =
   , evalCounters = mempty
   , evalMath = False
   , evalShowRules = []
+  , evalStyles = mempty
   , evalFlowDirective = FlowNormal
   , evalLoadBytes = undefined
   }
@@ -156,11 +157,19 @@ pInnerContents ms = do
 single :: Content -> Seq Content
 single = Seq.singleton
 
+applyElementFunction :: Monad m => Identifier -> Function -> Arguments -> MP m Val
+applyElementFunction name (Function f) args = do
+  -- lookup styles set by "set" and apply them as defaults:
+  mbSty <- M.lookup name . evalStyles <$> getState
+  f $ maybe args (<> args) mbSty
+
 element :: Monad m => Identifier -> Arguments -> MP m (Seq Content)
 element name@(Identifier n) args = do
   eltfn <- lookupIdentifier name
   case eltfn of
-    VFunction _ _ (Function f) -> valToContent <$> f args
+    VFunction Nothing _ (Function f) -> valToContent <$> f args
+    VFunction (Just i) _ (Function f) ->
+      valToContent <$> applyElementFunction i (Function f) args
     _ -> fail $ T.unpack n <> " is not an element function"
 
 pElt :: Monad m => MP m (Seq Content)
@@ -435,7 +444,10 @@ evalExpr expr =
       val <- evalExpr e
       mathMode <- evalMath <$> getState
       case val of
-        VFunction _ _ (Function f) -> toArguments args >>= f
+        VFunction (Just i) _ (Function f) -> do
+          arguments <- toArguments args
+          applyElementFunction i (Function f) arguments
+        VFunction Nothing _ (Function f) -> toArguments args >>= f
         VSymbol (Symbol _ True _) | mathMode
             -> do val' <- lookupIdentifier "accent"
                   case val' of
@@ -568,24 +580,11 @@ evalExpr expr =
       v <- evalExpr e
       as' <- toArguments args
       case v of
-        VFunction mbname _ (Function f) -> do
-          case e of
-            Ident i ->
-              addIdentifier i $ VFunction mbname mempty
-                              $ Function (\as -> f (as' <> as))
-            FieldAccess (Ident i) (Ident m) -> do
-              mval <- lookupIdentifier m
-              case mval of
-                VModule mn mmap ->
-                  updateIdentifier m $ VModule mn $
-                    M.insert i (VFunction mbname mempty $
-                                 Function (\as -> f (as' <> as))) mmap
-                VFunction fname scope fn ->
-                  updateIdentifier m $ VFunction fname
-                    (M.insert i (VFunction mbname mempty $
-                                 Function (\as -> f (as' <> as))) scope) fn
-                _ -> fail "Set expects an element name"
-            _ -> fail $ "Set expects an element name"
+        VFunction (Just name) _ _ ->
+            updateState $ \st -> st{ evalStyles =
+              M.alter (\case
+                          Nothing -> Just as'
+                          Just as'' -> Just (as'' <> as')) name $ evalStyles st }
         _ -> fail $ "Set expects an element name"
       pure VNone
 
@@ -783,7 +782,7 @@ loadModule modname = do
     Right ms -> do
       loadBytes <- evalLoadBytes <$> getState
       res <- lift $
-        runParserT (openBlock BlockScope *> -- add new identifiers list
+        runParserT (inBlock BlockScope $ -- add new identifiers list
                     many pContent *> eof *> getState)
            initialEvalState{ evalLoadBytes = loadBytes }  fp ms
       case res of
@@ -871,19 +870,17 @@ updateIdentifier ident val = do
      then updateState $ \st -> st{ evalIdentifiers = reverse newmaps }
      else fail $ show ident <> " not defined"
 
--- When we open a block, we add a new identifiers map.
-openBlock :: Monad m => Scope -> MP m ()
-openBlock scope =
+inBlock :: Monad m => Scope -> MP m a -> MP m a
+inBlock scope pa = do
+  oldStyles <- evalStyles <$> getState
+  -- add a new identifiers map
   updateState $ \st -> st{
     evalIdentifiers = (scope, mempty) : evalIdentifiers st }
-
-closeBlock :: Monad m => MP m ()
-closeBlock =
+  result <- pa
   updateState $ \st -> st{
-    evalIdentifiers = drop 1 (evalIdentifiers st) }
-
-inBlock :: Monad m => Scope -> MP m a -> MP m a
-inBlock scope pa = openBlock scope *> pa <* closeBlock
+    evalIdentifiers = drop 1 (evalIdentifiers st),
+    evalStyles = oldStyles }
+  pure result
 
 updateExpression :: Monad m => Expr -> Val -> MP m ()
 updateExpression e val =

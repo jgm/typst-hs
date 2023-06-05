@@ -1,5 +1,5 @@
 build:
-	cabal build --disable-optimization -fexecutable
+	cabal build --enable-tests --disable-optimization -fexecutable
 .PHONY: build
 
 test:

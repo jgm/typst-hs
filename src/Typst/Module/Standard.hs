@@ -113,15 +113,17 @@ layout =
       [ makeElement (Just "list") "item" [("body", One TContent)] ]
   -- for "measure" see below
   , makeElement Nothing "move" [("body", One TContent)]
-  , makeElement Nothing "pad" [("body", One TContent)]
+  -- the fact that pad can take a positional param for a length (= rest) is undocumented!
+  , makeElement Nothing "pad" [("rest", One (TLength :|: TNone)), ("body", One TContent)]
   , makeElement Nothing "page" [("body", One TContent)]
   , makeElement Nothing "pagebreak" []
   , makeElement Nothing "par" [("body", One TContent)]
   , makeElement Nothing "parbreak" []
-  , makeElement Nothing "place" [("alignment", Many TAlignment), ("body", One TContent)]
+  , makeElement Nothing "place" [("alignment", One (TAlignment :|: TNone)), ("body", One TContent)]
   , makeElement Nothing "repeat" [("body", One TContent)]
-  , makeElement Nothing "rotate" [("body", One TContent)]
-  , makeElement Nothing "scale" [("body", One TContent)]
+  , makeElement Nothing "rotate" [("angle", One TAngle), ("body", One TContent)]
+  -- the fact that scale can take a positional factor is undocumented!
+  , makeElement Nothing "scale" [("factor", One (TRatio :|: TNone)), ("body", One TContent)]
   , makeElement Nothing "stack"
      [("children", Many (TLength :|: TRatio :|: TFraction :|: TContent))]
   , makeElement Nothing "table" [("children", Many TContent)]

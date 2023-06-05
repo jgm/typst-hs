@@ -1,4 +1,7 @@
 * TODO deal with styles (VStyles), styles (for set)
+set rules add a style to the style lookup in state
+when we create an element, we look this up and apply the style
+show set rules: apply the style to existing elements
 * TODO show set rules
 * TODO label and ref
 label-02

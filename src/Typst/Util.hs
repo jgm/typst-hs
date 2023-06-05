@@ -59,7 +59,8 @@ makeElementWithScope mbNamespace name specs scope =
    qname = case mbNamespace of
              Nothing -> name
              Just ns -> ns <> "." <> name
-   hasType' TContent _ = True
+   hasType' TContent VContent{} = True
+   hasType' TContent VString{} = True
    hasType' TString (VContent _) = True
    hasType' TTermItem VArray{} = True
    hasType' x y = hasType x y
@@ -82,7 +83,10 @@ makeElementWithScope mbNamespace name specs scope =
          -> pure $ args{ named = insertOM posname (toType ty a) (named args)
                        , positional = as }
          | otherwise
-         -> fail $ "Unexpected argument: " <> show a
+         -> if hasType' ty VNone
+               then pure $ args{ named = insertOM posname VNone (named args)
+                               , positional = a:as }
+               else fail $ "Unexpected argument: " <> show a
        _ -> pure $ args{ named = insertOM posname VNone (named args)
                        , positional = [] }
 
