@@ -1,8 +1,10 @@
-* TODO deal with styles (VStyles), styles (for set)
-set rules add a style to the style lookup in state
-when we create an element, we look this up and apply the style
-show set rules: apply the style to existing elements
 * TODO show set rules
+show set rules: apply the style to existing elements
+This probably requires evalStyles to be a Map Identifier (Map Identifier Val)
+and go directly to fields.
+But for this we need to know how to populate fields from positional.
+This info is in the modules.
+If we do this we cn also remove the kludgy Semigroup instance for Arguments.
 * TODO label and ref
 label-02
 label-03
