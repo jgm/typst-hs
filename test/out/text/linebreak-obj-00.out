@@ -84,14 +84,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   parbreak(), 
-  [They can look for the details in ], 
+  text(body: [They can look for the details in ]), 
   ref(supplement: [auto], 
       target: ), 
-  [,
-which is the authoritative source.], 
+  text(body: [,
+which is the authoritative source.]), 
   parbreak(), 
   bibliography(path: "/works.bib"), 
   parbreak() }

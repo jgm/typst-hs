@@ -63,11 +63,11 @@
     ]
 ]
 --- evaluated ---
-{ [
-], 
-  [ - A with 2 spaces
-], 
-  list(children: ({ [B with 2 tabs], 
+{ text(body: [
+]), 
+  text(body: [ - A with 2 spaces
+]), 
+  list(children: ({ text(body: [B with 2 tabs]), 
                     parbreak() })) }
 --- pandoc ---
 Pandoc

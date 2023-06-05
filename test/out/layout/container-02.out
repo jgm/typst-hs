@@ -65,8 +65,8 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   box(body: path(fill: rgb(69%,5%,78%,100%), 
                  vertices: ((0.0pt, 0.0pt), 
                             (30.0pt, 30.0pt), 

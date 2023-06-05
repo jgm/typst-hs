@@ -49,8 +49,10 @@
 , Heading 1 [ Text "Heading" ]
 ]
 --- evaluated ---
-{ [
-], [
-], [1234] }
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [1234]) }
 --- pandoc ---
 Pandoc Meta { unMeta = fromList [] } [ Para [ Str "1234" ] ]

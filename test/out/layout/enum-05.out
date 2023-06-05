@@ -57,14 +57,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   enum(children: ({  })), 
-  [Empty ], 
+  text(body: [Empty ]), 
   linebreak(), 
-  [+Nope ], 
+  text(body: [+Nope ]), 
   linebreak(), 
-  [a + 0.], 
+  text(body: [a + 0.]), 
   parbreak() }
 --- pandoc ---
 Pandoc

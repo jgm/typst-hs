@@ -83,10 +83,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   text(body: [
 First
 ], 

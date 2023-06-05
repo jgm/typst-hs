@@ -169,30 +169,30 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [ ], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [ ]), 
   align(alignment: left, 
-        body: [Left]), 
-  [
-], 
-  [ ], 
+        body: text(body: [Left])), 
+  text(body: [
+]), 
+  text(body: [ ]), 
   align(alignment: right, 
-        body: [Right]), 
-  [
-], 
-  [ ], 
+        body: text(body: [Right])), 
+  text(body: [
+]), 
+  text(body: [ ]), 
   align(alignment: top, 
-        body: [Top]), 
-  [
-], 
-  [ ], 
+        body: text(body: [Top])), 
+  text(body: [
+]), 
+  text(body: [ ]), 
   align(alignment: bottom, 
-        body: [Bottom]), 
+        body: text(body: [Bottom])), 
   parbreak(), 
-  [ Overridden], 
+  text(body: [ Overridden]), 
   parbreak() }
 --- pandoc ---
 Pandoc

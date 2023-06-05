@@ -62,8 +62,8 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   text(body: [
 a b ], 
        font: "New Computer Modern"), 

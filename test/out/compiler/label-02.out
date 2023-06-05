@@ -92,13 +92,13 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   parbreak(), 
-  [This is a thing ], 
-  [that ], 
-  [], 
-  [ happened.], 
+  text(body: [This is a thing ]), 
+  text(body: [that ]), 
+  text(body: []), 
+  text(body: [ happened.]), 
   parbreak() }
 --- pandoc ---
 Pandoc

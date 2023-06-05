@@ -109,22 +109,22 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   math.equation(block: false, 
-                body: { [h], 
-                        [,], 
-                        math.bb(body: [N]), 
-                        [,], 
-                        math.cal(body: [R]), 
-                        [,], 
-                        [Θ], 
-                        [,], 
-                        math.italic(body: [Θ]), 
-                        [,], 
-                        math.sans(body: [Θ]), 
-                        [,], 
-                        math.sans(body: math.italic(body: [Θ])) }, 
+                body: { text(body: [h]), 
+                        text(body: [,]), 
+                        math.bb(body: text(body: [N])), 
+                        text(body: [,]), 
+                        math.cal(body: text(body: [R])), 
+                        text(body: [,]), 
+                        text(body: [Θ]), 
+                        text(body: [,]), 
+                        math.italic(body: text(body: [Θ])), 
+                        text(body: [,]), 
+                        math.sans(body: text(body: [Θ])), 
+                        text(body: [,]), 
+                        math.sans(body: math.italic(body: text(body: [Θ]))) }, 
                 numbering: none), 
   parbreak() }
 --- pandoc ---

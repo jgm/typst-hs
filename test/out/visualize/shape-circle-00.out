@@ -59,12 +59,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   box(body: circle()), 
-  [
-], 
-  box(body: circle(body: [Hey])), 
+  text(body: [
+]), 
+  box(body: circle(body: text(body: [Hey]))), 
   parbreak() }
 --- pandoc ---
 Pandoc

@@ -68,22 +68,22 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   math.equation(block: false, 
-                body: { [a], 
-                        [,], 
-                        [A], 
-                        [,], 
-                        [δ], 
-                        [,], 
-                        [ϵ], 
-                        [,], 
-                        [∂], 
-                        [,], 
-                        [Δ], 
-                        [,], 
-                        [ϴ] }, 
+                body: { text(body: [a]), 
+                        text(body: [,]), 
+                        text(body: [A]), 
+                        text(body: [,]), 
+                        text(body: [δ]), 
+                        text(body: [,]), 
+                        text(body: [ϵ]), 
+                        text(body: [,]), 
+                        text(body: [∂]), 
+                        text(body: [,]), 
+                        text(body: [Δ]), 
+                        text(body: [,]), 
+                        text(body: [ϴ]) }, 
                 numbering: none), 
   parbreak() }
 --- pandoc ---

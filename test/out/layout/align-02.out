@@ -104,10 +104,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   rotate(angle: -30.0deg, 
-         body: [Hello], 
+         body: text(body: [Hello]), 
          origin: Axes(end, horizon)), 
   parbreak(), 
   text(body: [

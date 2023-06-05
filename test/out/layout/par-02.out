@@ -89,17 +89,17 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
 Hello
-], 
-  table(children: ([A], 
-                   [B], 
-                   [C], 
-                   [D]), 
+]), 
+  table(children: (text(body: [A]), 
+                   text(body: [B]), 
+                   text(body: [C]), 
+                   text(body: [D])), 
         columns: 4, 
         fill: ), 
   parbreak() }

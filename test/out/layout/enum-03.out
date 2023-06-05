@@ -47,12 +47,13 @@
 , DescListItem [ Text "Term" ] [ Text "List" , ParBreak ]
 ]
 --- evaluated ---
-{ [
-], 
-  list(children: ([Bullet List])), 
-  enum(children: ([Numbered List])), 
-  terms(children: (([Term], 
-                    { [List], parbreak() }))) }
+{ text(body: [
+]), 
+  list(children: (text(body: [Bullet List]))), 
+  enum(children: (text(body: [Numbered List]))), 
+  terms(children: ((text(body: [Term]), 
+                    { text(body: [List]), 
+                      parbreak() }))) }
 --- pandoc ---
 Pandoc
   Meta { unMeta = fromList [] }

@@ -74,8 +74,8 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   text(body: [
 Life المطر هو الحياة ], 
        font: ("Noto Sans Arabic", 

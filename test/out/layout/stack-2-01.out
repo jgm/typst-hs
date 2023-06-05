@@ -82,10 +82,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   text(body: [
 ], 
        color: rgb(100%,100%,100%,100%)), 

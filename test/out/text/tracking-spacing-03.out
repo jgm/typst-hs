@@ -51,8 +51,8 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   text(body: [
 النص], 
        tracking: 0.3em), 

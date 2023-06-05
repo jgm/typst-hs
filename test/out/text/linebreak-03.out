@@ -51,10 +51,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-Hard ], 
+{ text(body: [
+Hard ]), 
   linebreak(), 
-  [ break.], 
+  text(body: [ break.]), 
   parbreak() }
 --- pandoc ---
 Pandoc

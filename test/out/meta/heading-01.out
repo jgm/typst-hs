@@ -78,22 +78,22 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [ = Level 1
-], 
-  heading(body: [Level 2], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [ = Level 1
+]), 
+  heading(body: text(body: [Level 2]), 
           level: 2), 
-  [
-], 
-  box(body: heading(body: [Level 3], 
+  text(body: [
+]), 
+  box(body: heading(body: text(body: [Level 3]), 
                     level: 3)), 
   parbreak(), 
-  [No = heading], 
+  text(body: [No = heading]), 
   parbreak(), 
-  [= No heading], 
+  text(body: [= No heading]), 
   parbreak() }
 --- pandoc ---
 Pandoc

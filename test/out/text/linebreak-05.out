@@ -59,15 +59,15 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [Two consecutive ], 
+{ text(body: [
+]), 
+  text(body: [Two consecutive ]), 
   linebreak(), 
   linebreak(), 
-  [breaks and three ], 
+  text(body: [breaks and three ]), 
   linebreak(), 
   linebreak(), 
-  [more.], 
+  text(body: [more.]), 
   parbreak() }
 --- pandoc ---
 Pandoc

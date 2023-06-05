@@ -138,29 +138,29 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   bibliography(path: "/works.bib", 
                style: "chicago-author-date", 
-               title: [Works to be cited]), 
-  [
-], 
+               title: text(body: [Works to be cited])), 
+  text(body: [
+]), 
   line(length: 100%), 
-  [
-], 
-  [
-As described by ], 
+  text(body: [
+]), 
+  text(body: [
+As described by ]), 
   ref(supplement: [auto], 
       target: ), 
-  [,
+  text(body: [,
 the net-work is a creature of its own.
-This is close to piratery! ], 
+This is close to piratery! ]), 
   ref(supplement: [auto], 
       target: ), 
-  [
-And quark! ], 
+  text(body: [
+And quark! ]), 
   ref(supplement: [auto], 
       target: ), 
   parbreak() }

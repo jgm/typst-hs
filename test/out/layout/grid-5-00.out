@@ -71,19 +71,19 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  grid(children: ({ [
-Hello ], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  grid(children: ({ text(body: [
+Hello ]), 
                     linebreak(), 
-                    [Hello ], 
+                    text(body: [Hello ]), 
                     linebreak(), 
-                    [Hello ], 
+                    text(body: [Hello ]), 
                     linebreak(), 
-                    [
-World], 
+                    text(body: [
+World]), 
                     parbreak() })), 
   parbreak() }
 --- pandoc ---

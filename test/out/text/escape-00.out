@@ -164,26 +164,26 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [\ / [ ] { } # * _ + = ~ ], 
+{ text(body: [
+]), 
+  text(body: [\ / [ ] { } # * _ + = ~ ]), 
   linebreak(), 
-  [` $ " ' < > @ ( ) A], 
+  text(body: [` $ " ' < > @ ( ) A]), 
   parbreak(), 
-  [( ) ;], 
+  text(body: [( ) ;]), 
   parbreak(), 
-  [//
+  text(body: [//
 /* */
-/], 
-  strong(body: [ */ ]), 
+/]), 
+  strong(body: text(body: [ */ ])), 
   parbreak(), 
-  [🏕 == 🏕], 
+  text(body: [🏕 == 🏕]), 
   parbreak(), 
-  [A vs. \u{41}], 
+  text(body: [A vs. \u{41}]), 
   parbreak(), 
-  [let f() , ; : | + - /= == 12 “string”], 
+  text(body: [let f() , ; : | + - /= == 12 “string”]), 
   parbreak(), 
-  [10. May], 
+  text(body: [10. May]), 
   parbreak() }
 --- pandoc ---
 Pandoc

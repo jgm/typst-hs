@@ -63,15 +63,15 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [L ], 
+{ text(body: [
+]), 
+  text(body: [L ]), 
   h(amount: 1.0cm), 
-  [ ריווחR ], 
+  text(body: [ ריווחR ]), 
   linebreak(), 
-  [Lריווח ], 
+  text(body: [Lריווח ]), 
   h(amount: 1.0cm), 
-  [ R], 
+  text(body: [ R]), 
   parbreak() }
 --- pandoc ---
 Pandoc

@@ -78,17 +78,17 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   parbreak(), 
-  heading(body: [Heading], 
+  heading(body: text(body: [Heading]), 
           level: 1), 
-  block(body: text(body: { [Heading 🌍], 
-                           [!] }, 
+  block(body: text(body: { text(body: [Heading 🌍]), 
+                           text(body: [!]) }, 
                    fill: rgb(13%,61%,67%,100%), 
                    font: "Roboto")), 
-  block(body: text(body: { [Heading], 
-                           [!] }, 
+  block(body: text(body: { text(body: [Heading]), 
+                           text(body: [!]) }, 
                    fill: rgb(13%,61%,67%,100%), 
                    font: "Roboto")), 
   parbreak() }

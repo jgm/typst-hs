@@ -411,12 +411,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
   parbreak(), 
   parbreak(), 
   parbreak(), 

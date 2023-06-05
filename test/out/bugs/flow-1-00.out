@@ -126,16 +126,16 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  block(body: [This file tests a bug where an almost empty page occurs.]), 
-  [
-], 
-  block(body: { [
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  block(body: text(body: [This file tests a bug where an almost empty page occurs.])), 
+  text(body: [
+]), 
+  block(body: { text(body: [
 The text in this second block was torn apart and split up for
-some reason beyond my knowledge.], 
+some reason beyond my knowledge.]), 
                 parbreak() }), 
   parbreak() }
 --- pandoc ---

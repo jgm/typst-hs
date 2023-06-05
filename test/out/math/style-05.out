@@ -82,25 +82,25 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   math.equation(block: true, 
-                body: { [v], 
-                        [:], 
-                        [=], 
-                        math.vec(children: ({ [1], 
-                                              [+], 
-                                              [2] }, 
-                                            { [2], 
-                                              [-], 
-                                              [4] }, 
-                                            math.sqrt(radicand: [3]), 
+                body: { text(body: [v]), 
+                        text(body: [:]), 
+                        text(body: [=]), 
+                        math.vec(children: ({ text(body: [1]), 
+                                              text(body: [+]), 
+                                              text(body: [2]) }, 
+                                            { text(body: [2]), 
+                                              text(body: [-]), 
+                                              text(body: [4]) }, 
+                                            math.sqrt(radicand: text(body: [3])), 
                                             math.accent(accent: →, 
-                                                        base: [x]))), 
-                        [+], 
-                        [1] }, 
+                                                        base: text(body: [x])))), 
+                        text(body: [+]), 
+                        text(body: [1]) }, 
                 numbering: none), 
   parbreak() }
 --- pandoc ---

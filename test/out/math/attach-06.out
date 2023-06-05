@@ -60,26 +60,26 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   math.equation(block: true, 
                 body: { math.attach(b: none, 
                                     base: math.lr(body: ({ [(], 
-                                                           [-], 
-                                                           [1], 
+                                                           text(body: [-]), 
+                                                           text(body: [1]), 
                                                            [)] })), 
-                                    t: [n]), 
-                        [+], 
+                                    t: text(body: [n])), 
+                        text(body: [+]), 
                         math.attach(b: none, 
                                     base: math.lr(body: ({ [(], 
-                                                           math.frac(denom: [2], 
-                                                                     num: [1]), 
-                                                           [+], 
-                                                           [3], 
+                                                           math.frac(denom: text(body: [2]), 
+                                                                     num: text(body: [1])), 
+                                                           text(body: [+]), 
+                                                           text(body: [3]), 
                                                            [)] })), 
-                                    t: { [-], 
-                                         math.frac(denom: [2], 
-                                                   num: [1]) }) }, 
+                                    t: { text(body: [-]), 
+                                         math.frac(denom: text(body: [2]), 
+                                                   num: text(body: [1])) }) }, 
                 numbering: none), 
   parbreak() }
 --- pandoc ---

@@ -80,8 +80,8 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   text(body: [
 ], lang: "he"), 
   numbering(numbering: "א.", 

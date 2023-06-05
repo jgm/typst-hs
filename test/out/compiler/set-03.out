@@ -61,11 +61,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   text(body: [Blue ], 
        color: rgb(0%,45%,85%,100%)), 
-  [Not blue], 
+  text(body: [Not blue]), 
   parbreak() }
 --- pandoc ---
 Pandoc

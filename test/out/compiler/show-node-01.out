@@ -69,15 +69,15 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [
-A ], 
-  heading(body: [Heading], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+A ]), 
+  heading(body: text(body: [Heading]), 
           level: 1), 
-  [ C], 
+  text(body: [ C]), 
   parbreak() }
 --- pandoc ---
 Pandoc

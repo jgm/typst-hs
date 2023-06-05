@@ -151,10 +151,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   stack(children: (rect(fill: cmyk(69%,11%,69%,41%), 
                         width: 1.0cm), 
                    rect(fill: cmyk(50%,64%,16%,17%), 
@@ -186,8 +186,8 @@
                    size: 9.0pt)), 
   box(body: square(fill: cmyk(100%,100%,100%,100%), 
                    size: 9.0pt)), 
-  [
-], 
+  text(body: [
+]), 
   box(body: square(fill: cmyk(50%,64%,16%,17%), 
                    size: 9.0pt)), 
   box(body: square(fill: cmyk(45%,57%,14%,15%), 

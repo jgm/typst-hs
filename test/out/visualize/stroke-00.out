@@ -125,39 +125,39 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   line(length: 60.0pt, 
        stroke: rgb(100%,25%,21%,100%)), 
-  [
-], 
+  text(body: [
+]), 
   v(amount: 3.0pt), 
-  [
-], 
+  text(body: [
+]), 
   line(length: 60.0pt, 
        stroke: 2.0pt), 
-  [
-], 
+  text(body: [
+]), 
   v(amount: 3.0pt), 
-  [
-], 
+  text(body: [
+]), 
   line(length: 60.0pt, 
        stroke: (thickness: 1.5pt,
                 color: rgb(0%,45%,85%,100%))), 
-  [
-], 
+  text(body: [
+]), 
   v(amount: 3.0pt), 
-  [
-], 
+  text(body: [
+]), 
   line(length: 60.0pt, 
        stroke: (paint: rgb(100%,25%,21%,100%),
                 thickness: 1.0pt,
                 dash: "dashed")), 
-  [
-], 
+  text(body: [
+]), 
   v(amount: 3.0pt), 
-  [
-], 
+  text(body: [
+]), 
   line(length: 60.0pt, 
        stroke: (paint: rgb(100%,25%,21%,100%),
                 thickness: 4.0pt,

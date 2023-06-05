@@ -152,10 +152,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   parbreak(), 
   parbreak(), 
   rect(body: { text(body: [

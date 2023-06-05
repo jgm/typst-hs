@@ -66,26 +66,26 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   math.equation(block: true, 
-                body: math.mat(rows: (({ [ a], 
+                body: math.mat(rows: (({ text(body: [ a]), 
                                          math.alignpoint() }, 
-                                       { [ a a a], 
+                                       { text(body: [ a a a]), 
                                          math.alignpoint() }, 
-                                       { [ a a], 
+                                       { text(body: [ a a]), 
                                          math.alignpoint() }), 
-                                      ({ [ a a], 
+                                      ({ text(body: [ a a]), 
                                          math.alignpoint() }, 
-                                       { [ a a], 
+                                       { text(body: [ a a]), 
                                          math.alignpoint() }, 
-                                       { [ a], 
+                                       { text(body: [ a]), 
                                          math.alignpoint() }), 
-                                      ({ [ a a a], 
+                                      ({ text(body: [ a a a]), 
                                          math.alignpoint() }, 
-                                       { [ a], 
+                                       { text(body: [ a]), 
                                          math.alignpoint() }, 
-                                       { [ a a a], 
+                                       { text(body: [ a a a]), 
                                          math.alignpoint() }))), 
                 numbering: none), 
   parbreak() }

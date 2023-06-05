@@ -50,9 +50,9 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  emph(body: [Hello World!]), 
+{ text(body: [
+]), 
+  emph(body: text(body: [Hello World!])), 
   parbreak() }
 --- pandoc ---
 Pandoc

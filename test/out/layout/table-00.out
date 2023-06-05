@@ -111,26 +111,26 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   parbreak(), 
-  table(children: ([A], 
-                   [B], 
-                   [C], 
+  table(children: (text(body: [A]), 
+                   text(body: [B]), 
+                   text(body: [C]), 
                    {  }, 
                    {  }, 
-                   { [D ], 
+                   { text(body: [D ]), 
                      linebreak(), 
-                     [E ], 
+                     text(body: [E ]), 
                      linebreak(), 
-                     [F ], 
+                     text(body: [F ]), 
                      linebreak(), 
                      linebreak(), 
                      linebreak(), 
-                     [G] }, 
-                   [H]), 
+                     text(body: [G]) }, 
+                   text(body: [H])), 
         columns: (1.0fr, 
                   1.0fr, 
                   1.0fr), 

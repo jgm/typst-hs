@@ -70,18 +70,18 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   math.equation(block: true, 
-                body: { [⋅], 
+                body: { text(body: [⋅]), 
                         linebreak(), 
-                        [⋯], 
+                        text(body: [⋯]), 
                         linebreak(), 
-                        [∗], 
+                        text(body: [∗]), 
                         linebreak(), 
-                        [∼], 
+                        text(body: [∼]), 
                         linebreak(), 
-                        [⋆] }, 
+                        text(body: [⋆]) }, 
                 numbering: none), 
   parbreak() }
 --- pandoc ---

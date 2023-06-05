@@ -79,18 +79,18 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
   place(alignment: Axes(left, top), 
-        body: [TL]), 
-  [
-], 
+        body: text(body: [TL])), 
+  text(body: [
+]), 
   place(alignment: Axes(right, bottom), 
-        body: [BR]), 
+        body: text(body: [BR])), 
   parbreak(), 
   parbreak() }
 --- pandoc ---

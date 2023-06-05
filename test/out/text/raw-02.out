@@ -49,16 +49,16 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
+{ text(body: [
+]), 
+  text(body: [
 Text
-], 
+]), 
   raw(block: true, 
       lang: "rust", 
       text: "fn code() {}\n"), 
-  [
-Text], 
+  text(body: [
+Text]), 
   parbreak() }
 --- pandoc ---
 Pandoc

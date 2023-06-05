@@ -130,28 +130,28 @@
 , HardBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  underline(body: { [The claim], 
-                    super(body: [[4]]) }, 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  underline(body: { text(body: [The claim]), 
+                    super(body: text(body: [[4]])) }, 
             offset: 0.15em, 
             stroke: 0.5pt), 
-  [ has been disputed. ], 
+  text(body: [ has been disputed. ]), 
   linebreak(), 
-  [The claim], 
-  super(body: underline(body: [[4]], 
+  text(body: [The claim]), 
+  super(body: underline(body: text(body: [[4]]), 
                         offset: 0.15em, 
                         stroke: 0.5pt)), 
-  [ has been disputed. ], 
+  text(body: [ has been disputed. ]), 
   linebreak(), 
-  [It really has been], 
+  text(body: [It really has been]), 
   super(body: box(body: text(baseline: 0.0pt, 
-                             body: underline(body: [[4]], 
+                             body: underline(body: text(body: [[4]]), 
                                              offset: 0.15em, 
                                              stroke: 0.5pt)))), 
-  [ ], 
+  text(body: [ ]), 
   linebreak() }
 --- pandoc ---
 Pandoc

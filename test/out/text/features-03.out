@@ -56,10 +56,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [fi vs. ], 
-  text(body: [No fi], 
+{ text(body: [
+]), 
+  text(body: [fi vs. ]), 
+  text(body: text(body: [No fi]), 
        ligatures: false), 
   parbreak() }
 --- pandoc ---

@@ -60,15 +60,15 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   math.equation(block: false, 
                 body: { text(body: math.attach(b: none, 
-                                               base: [ time], 
-                                               t: [2]), 
+                                               base: text(body: [ time]), 
+                                               t: text(body: [2])), 
                              color: rgb(100%,25%,21%,100%)), 
-                        [+], 
-                        math.sqrt(radicand: [place]) }, 
+                        text(body: [+]), 
+                        math.sqrt(radicand: text(body: [place])) }, 
                 numbering: none), 
   parbreak() }
 --- pandoc ---

@@ -69,8 +69,10 @@
 , BulletListItem [ Text "C" , ParBreak ]
 ]
 --- evaluated ---
-{ [
-], parbreak(), [✅] }
+{ text(body: [
+]), 
+  parbreak(), 
+  text(body: [✅]) }
 --- pandoc ---
 Pandoc
   Meta { unMeta = fromList [] } [ Para [] , Para [ Str "\9989" ] ]

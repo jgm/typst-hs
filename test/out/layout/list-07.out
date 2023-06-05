@@ -53,11 +53,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   list(children: ({  })), 
-  [Not in list
--Nope], 
+  text(body: [Not in list
+-Nope]), 
   parbreak() }
 --- pandoc ---
 Pandoc

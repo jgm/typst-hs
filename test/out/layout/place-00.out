@@ -187,32 +187,32 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   place(alignment: Axes(center, bottom), 
-        body: [© Typst]), 
+        body: text(body: [© Typst])), 
   parbreak(), 
-  heading(body: [Placement], 
+  heading(body: text(body: [Placement]), 
           level: 1), 
   place(alignment: right, 
         body: image(path: "test/assets/files/tiger.jpg", 
                     width: 1.8cm)), 
-  [
-Hi there. This is ], 
+  text(body: [
+Hi there. This is ]), 
   linebreak(), 
-  [a placed element. ], 
+  text(body: [a placed element. ]), 
   linebreak(), 
-  [Unfortunately, ], 
+  text(body: [Unfortunately, ]), 
   linebreak(), 
-  [the line breaks still had to be inserted manually.], 
+  text(body: [the line breaks still had to be inserted manually.]), 
   parbreak(), 
   stack(children: (rect(fill: rgb(13%,61%,67%,100%), 
                         height: 10.0pt, 
                         width: 100%), 
                    place(alignment: right, 
-                         body: [ABC], 
+                         body: text(body: [ABC]), 
                          dy: 1.5pt), 
                    rect(fill: rgb(18%,80%,25%,100%), 
                         height: 10.0pt, 
@@ -221,22 +221,22 @@ Hi there. This is ],
                         height: 10.0pt, 
                         width: 100%), 
                    10.0pt, 
-                   block(body: { [
-], 
+                   block(body: { text(body: [
+]), 
                                  place(alignment: center, 
-                                       body: [Hello], 
+                                       body: text(body: [Hello]), 
                                        dx: -7.0pt, 
                                        dy: -5.0pt), 
-                                 [
-], 
+                                 text(body: [
+]), 
                                  place(alignment: center, 
-                                       body: [Hello], 
+                                       body: text(body: [Hello]), 
                                        dx: 7.0pt, 
                                        dy: 5.0pt), 
-                                 [
-Hello ], 
+                                 text(body: [
+Hello ]), 
                                  h(amount: 1.0fr), 
-                                 [ Hello], 
+                                 text(body: [ Hello]), 
                                  parbreak() }))), 
   parbreak() }
 --- pandoc ---

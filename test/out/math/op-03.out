@@ -75,26 +75,26 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   math.equation(block: true, 
-                body: { math.attach(b: { [x], 
-                                         [:], 
-                                         [=], 
-                                         [1] }, 
+                body: { math.attach(b: { text(body: [x]), 
+                                         text(body: [:]), 
+                                         text(body: [=]), 
+                                         text(body: [1]) }, 
                                     base: math.op(limits: false, 
-                                                  text: [myop]), 
+                                                  text: text(body: [myop])), 
                                     t: none), 
-                        [x], 
+                        text(body: [x]), 
                         linebreak(), 
-                        math.attach(b: { [x], 
-                                         [:], 
-                                         [=], 
-                                         [1] }, 
+                        math.attach(b: { text(body: [x]), 
+                                         text(body: [:]), 
+                                         text(body: [=]), 
+                                         text(body: [1]) }, 
                                     base: math.op(limits: true, 
-                                                  text: [myop]), 
+                                                  text: text(body: [myop])), 
                                     t: none), 
-                        [x] }, 
+                        text(body: [x]) }, 
                 numbering: none), 
   parbreak() }
 --- pandoc ---

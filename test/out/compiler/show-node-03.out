@@ -127,35 +127,35 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   parbreak(), 
   block(body: { box(body: move(body: text(body: [📖], 
                                           size: 10.0pt), 
                                dy: -1.0pt)), 
                 h(amount: 5.0pt), 
-                underline(body: text(body: [Task 1], 
+                underline(body: text(body: text(body: [Task 1]), 
                                      color: rgb(0%,45%,85%,100%), 
                                      size: 1.25em)) }), 
-  [Some text.], 
+  text(body: [Some text.]), 
   parbreak(), 
   block(body: { box(body: move(body: text(body: [📖], 
                                           size: 10.0pt), 
                                dy: -1.0pt)), 
                 h(amount: 5.0pt), 
-                text(body: [Subtask], 
+                text(body: text(body: [Subtask]), 
                      color: rgb(100%,25%,21%,100%), 
                      size: 10.0pt) }), 
-  [Some more text.], 
+  text(body: [Some more text.]), 
   parbreak(), 
   block(body: { box(body: move(body: text(body: [📖], 
                                           size: 10.0pt), 
                                dy: -1.0pt)), 
                 h(amount: 5.0pt), 
-                underline(body: text(body: [Task 2], 
+                underline(body: text(body: text(body: [Task 2]), 
                                      color: rgb(0%,45%,85%,100%), 
                                      size: 1.25em)) }), 
-  [Another text.], 
+  text(body: [Another text.]), 
   parbreak() }
 --- pandoc ---
 Pandoc

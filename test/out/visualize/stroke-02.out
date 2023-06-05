@@ -99,26 +99,26 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   rect(height: 20.0pt, 
        stroke: rgb(100%,25%,21%,100%), 
        width: 20.0pt), 
-  [
-], 
+  text(body: [
+]), 
   v(amount: 3.0pt), 
-  [
-], 
+  text(body: [
+]), 
   rect(height: 20.0pt, 
        stroke: (rest: rgb(100%,25%,21%,100%),
                 top: (paint: rgb(0%,45%,85%,100%),
                       dash: "dashed")), 
        width: 20.0pt), 
-  [
-], 
+  text(body: [
+]), 
   v(amount: 3.0pt), 
-  [
-], 
+  text(body: [
+]), 
   rect(height: 20.0pt, 
        stroke: (thickness: 5.0pt,
                 join: "round"), 

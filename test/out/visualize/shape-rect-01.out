@@ -238,10 +238,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   parbreak(), 
-  rect(body: [Textbox], 
+  rect(body: text(body: [Textbox]), 
        fill: rgb(18%,80%,25%,100%)), 
   parbreak(), 
   block(body: rect(fill: rgb(27%,70%,76%,100%), 
@@ -249,30 +249,30 @@
                    stroke: (thickness: 2.0pt,
                             color: rgb(13%,28%,58%,100%)))), 
   parbreak(), 
-  rect(body: [Fixed and padded], 
+  rect(body: text(body: [Fixed and padded]), 
        fill: rgb(58%,31%,83%,100%), 
        width: 2.0cm), 
   parbreak(), 
-  rect(body: [Topleft], 
+  rect(body: text(body: [Topleft]), 
        fill: rgb(45%,29%,92%,100%), 
        height: 1.0cm, 
        width: 100%), 
   parbreak(), 
-  [{], 
+  text(body: [{]), 
   box(body: rect(fill: rgb(83%,80%,40%,100%), 
                  height: 7.0pt, 
                  width: 0.5in)), 
-  [
-], 
+  text(body: [
+]), 
   box(body: rect(fill: rgb(92%,83%,40%,100%), 
                  height: 7.0pt, 
                  width: 0.5in)), 
-  [
-], 
+  text(body: [
+]), 
   box(body: rect(fill: rgb(89%,74%,38%,100%), 
                  height: 7.0pt, 
                  width: 0.5in)), 
-  [}], 
+  text(body: [}]), 
   parbreak(), 
   stack(children: (rect(radius: 60%, 
                         width: 2.0cm), 
@@ -287,8 +287,8 @@
         dir: ltr, 
         spacing: 1.0fr), 
   parbreak(), 
-  [
-], 
+  text(body: [
+]), 
   rect(fill: rgb(0%,100%,43%,100%), 
        stroke: (x: 5.0pt, y: 1.0pt), 
        width: 100%), 

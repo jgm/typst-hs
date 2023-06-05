@@ -52,19 +52,19 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   link(body: [https://[::1]:8080/], 
        dest: "https://[::1]:8080/"), 
-  [ ], 
+  text(body: [ ]), 
   linebreak(), 
   link(body: [https://example.com/(paren)], 
        dest: "https://example.com/(paren)"), 
-  [ ], 
+  text(body: [ ]), 
   linebreak(), 
   link(body: [https://example.com/#(((nested)))], 
        dest: "https://example.com/#(((nested)))"), 
-  [ ], 
+  text(body: [ ]), 
   linebreak(), 
   parbreak() }
 --- pandoc ---

@@ -62,14 +62,14 @@
     ]
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [Lorem ipsum dolor sit amet,], 
-  [
-], 
-  list(children: ({ [Lorem ipsum dolor sit amet,], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [Lorem ipsum dolor sit amet,]), 
+  text(body: [
+]), 
+  list(children: ({ text(body: [Lorem ipsum dolor sit amet,]), 
                     parbreak() })) }
 --- pandoc ---
 Pandoc

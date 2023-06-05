@@ -65,19 +65,19 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [A😀B], 
+{ text(body: [
+]), 
+  text(body: [A😀B]), 
   parbreak(), 
-  [دع النص يمطر عليك], 
+  text(body: [دع النص يمطر عليك]), 
   parbreak(), 
-  [ب🐈😀سم], 
+  text(body: [ب🐈😀سم]), 
   parbreak(), 
-  [Aب😀🏞سمB], 
+  text(body: [Aب😀🏞سمB]), 
   parbreak(), 
-  [01️⃣2], 
+  text(body: [01️⃣2]), 
   parbreak(), 
-  [A🐈ዲሞB], 
+  text(body: [A🐈ዲሞB]), 
   parbreak() }
 --- pandoc ---
 Pandoc

@@ -61,13 +61,13 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  text(body: [Tq], 
+{ text(body: [
+]), 
+  text(body: text(body: [Tq]), 
        kerning: true), 
-  [ ], 
+  text(body: [ ]), 
   linebreak(), 
-  text(body: [Tq], 
+  text(body: text(body: [Tq]), 
        kerning: false), 
   parbreak() }
 --- pandoc ---

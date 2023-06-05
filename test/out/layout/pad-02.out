@@ -79,20 +79,20 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   align(alignment: left, 
-        body: [Before]), 
-  [
-], 
+        body: text(body: [Before])), 
+  text(body: [
+]), 
   pad(body: image(path: "test/assets/files/tiger.jpg"), 
       rest: 10.0pt), 
-  [
-], 
+  text(body: [
+]), 
   align(alignment: right, 
-        body: [After]), 
+        body: text(body: [After])), 
   parbreak() }
 --- pandoc ---
 Pandoc

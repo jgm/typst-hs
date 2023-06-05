@@ -72,16 +72,16 @@
     ]
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   rect(height: 1.0em, 
        width: 100%), 
-  [
-], 
+  text(body: [
+]), 
   list(children: ({ rect(height: 1.0em, 
                          width: 100%), 
-                    [
-], 
+                    text(body: [
+]), 
                     list(children: ({ rect(height: 1.0em, 
                                            width: 100%), 
                                       parbreak() })) })) }

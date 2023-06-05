@@ -107,10 +107,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   page(body: { layout(func: ), 
                h(amount: 1.0em), 
                place(alignment: left, 

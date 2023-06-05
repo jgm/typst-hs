@@ -71,14 +71,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   math.equation(block: true, 
-                body: math.lr(body: ({ text(body: [(], 
+                body: math.lr(body: ({ text(body: text(body: [(]), 
                                             fill: rgb(18%,80%,25%,100%)), 
-                                       math.frac(denom: [b], 
-                                                 num: [a]), 
-                                       text(body: [)], 
+                                       math.frac(denom: text(body: [b]), 
+                                                 num: text(body: [a])), 
+                                       text(body: text(body: [)]), 
                                             fill: rgb(0%,45%,85%,100%)) })), 
                 numbering: none), 
   parbreak() }

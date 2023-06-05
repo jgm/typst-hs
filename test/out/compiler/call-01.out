@@ -101,16 +101,16 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [✅], 
+{ text(body: [
+]), 
+  text(body: [✅]), 
   parbreak(), 
-  [
-], 
-  [✅], 
+  text(body: [
+]), 
+  text(body: [✅]), 
   parbreak(), 
-  [✅], 
-  [✅], 
+  text(body: [✅]), 
+  text(body: [✅]), 
   parbreak() }
 --- pandoc ---
 Pandoc

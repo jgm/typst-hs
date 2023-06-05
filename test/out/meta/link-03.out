@@ -51,15 +51,15 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   link(body: [https://example.com/], 
        dest: "https://example.com/"), 
-  [ ], 
+  text(body: [ ]), 
   linebreak(), 
   link(body: [https://example.com/], 
        dest: "https://example.com/"), 
-  [)], 
+  text(body: [)]), 
   parbreak() }
 --- pandoc ---
 Pandoc

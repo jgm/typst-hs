@@ -74,19 +74,19 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-n], 
+{ text(body: [
+]), 
+  text(body: [
+n]), 
   super(baseline: -0.25em, 
-        body: [1], 
+        body: text(body: [1]), 
         size: 0.7em, 
         typographic: false), 
-  [, n], 
-  sub(body: [2]), 
-  [, … n], 
+  text(body: [, n]), 
+  sub(body: text(body: [2])), 
+  text(body: [, … n]), 
   super(baseline: -0.25em, 
-        body: [N], 
+        body: text(body: [N]), 
         size: 0.7em, 
         typographic: false), 
   parbreak() }

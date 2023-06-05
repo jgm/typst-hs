@@ -105,23 +105,23 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   parbreak(), 
-  [Sometimes, we work ], 
-  strike(body: [in secret], 
+  text(body: [Sometimes, we work ]), 
+  strike(body: text(body: [in secret]), 
          extent: 5.0e-2em, 
          stroke: 10.0pt), 
-  [.
-There might be ], 
-  strike(body: [redacted], 
+  text(body: [.
+There might be ]), 
+  strike(body: text(body: [redacted]), 
          extent: 5.0e-2em, 
          stroke: (thickness: 10.0pt,
                   color: rgb(67%,80%,93%,53%))), 
-  [ things.
-underline()], 
+  text(body: [ things.
+underline()]), 
   parbreak() }
 --- pandoc ---
 Pandoc

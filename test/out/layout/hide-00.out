@@ -70,16 +70,16 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-AB ], 
+{ text(body: [
+AB ]), 
   h(amount: 1.0fr), 
-  [ CD ], 
+  text(body: [ CD ]), 
   linebreak(), 
-  hide(body: [A]), 
-  [B ], 
+  hide(body: text(body: [A])), 
+  text(body: [B ]), 
   h(amount: 1.0fr), 
-  [ C], 
-  hide(body: [D]), 
+  text(body: [ C]), 
+  hide(body: text(body: [D])), 
   parbreak() }
 --- pandoc ---
 Pandoc

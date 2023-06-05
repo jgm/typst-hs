@@ -81,17 +81,17 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  text(body: smallcaps(body: [Typst]), 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: smallcaps(body: text(body: [Typst])), 
        fill: rgb(100%,100%,100%,100%), 
        font: "Roboto", 
        size: 15.0pt), 
-  [
-], 
-  page(body: [Hi], 
+  text(body: [
+]), 
+  page(body: text(body: [Hi]), 
        fill: none, 
        height: 40.0pt, 
        margin: (top: 10.0pt,

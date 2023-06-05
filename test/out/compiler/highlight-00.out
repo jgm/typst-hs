@@ -52,8 +52,8 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   parbreak(), 
   raw(block: true, 
       lang: "typ", 

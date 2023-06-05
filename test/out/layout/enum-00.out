@@ -51,11 +51,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  enum(children: ([Embrace], 
-                  [Extend], 
-                  [Extinguish])), 
+{ text(body: [
+]), 
+  enum(children: (text(body: [Embrace]), 
+                  text(body: [Extend]), 
+                  text(body: [Extinguish]))), 
   parbreak() }
 --- pandoc ---
 Pandoc

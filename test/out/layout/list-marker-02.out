@@ -71,20 +71,21 @@
 , BulletListItem [ Text "F" , ParBreak ]
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  list(children: ([A], 
-                  { [B
-], 
-                    list(children: ([C], 
-                                    { [D
-], 
-                                      list(children: ([E]), 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  list(children: (text(body: [A]), 
+                  { text(body: [B
+]), 
+                    list(children: (text(body: [C]), 
+                                    { text(body: [D
+]), 
+                                      list(children: (text(body: [E])), 
                                            marker: ) }), 
                          marker: ) }, 
-                  { [F], parbreak() }), 
+                  { text(body: [F]), 
+                    parbreak() }), 
        marker: ) }
 --- pandoc ---
 Pandoc

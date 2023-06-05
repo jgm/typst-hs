@@ -173,62 +173,65 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
   parbreak(), 
   math.equation(block: true, 
-                body: { [π], [a] }, 
+                body: { text(body: [π]), 
+                        text(body: [a]) }, 
                 numbering: none), 
-  [
-], 
+  text(body: [
+]), 
   math.equation(block: true, 
                 body: { math.equation(block: false, 
-                                      body: [π], 
+                                      body: text(body: [π]), 
                                       numbering: none), 
-                        [a] }, 
+                        text(body: [a]) }, 
                 numbering: none), 
-  [
-], 
+  text(body: [
+]), 
   math.equation(block: true, 
-                body: { [1], 
-                        [+], 
-                        math.sqrt(radicand: math.frac(denom: [2], 
-                                                      num: [x])), 
-                        [+], 
+                body: { text(body: [1]), 
+                        text(body: [+]), 
+                        math.sqrt(radicand: math.frac(denom: text(body: [2]), 
+                                                      num: text(body: [x]))), 
+                        text(body: [+]), 
                         math.sqrt(radicand: hide(body: math.equation(block: false, 
-                                                                     body: math.frac(denom: [2], 
-                                                                                     num: [x]), 
+                                                                     body: math.frac(denom: text(body: [2]), 
+                                                                                     num: text(body: [x])), 
                                                                      numbering: none))) }, 
                 numbering: none), 
-  [
-], 
+  text(body: [
+]), 
   math.equation(block: true, 
-                body: { [a], 
-                        [x], 
+                body: { text(body: [a]), 
+                        text(body: [x]), 
                         link(body: math.equation(block: false, 
-                                                 body: { [+], 
-                                                         [b] }, 
+                                                 body: { text(body: [+]), 
+                                                         text(body: [b]) }, 
                                                  numbering: none), 
                              dest: "url") }, 
                 numbering: none), 
-  [
-], 
+  text(body: [
+]), 
   math.equation(block: true, 
-                body: { [f], 
+                body: { text(body: [f]), 
                         box(baseline: 10.0pt, 
-                            body: [f]), 
+                            body: text(body: [f])), 
                         style(func: ) }, 
                 numbering: none), 
-  [
-], 
+  text(body: [
+]), 
   math.equation(block: true, 
-                body: { [nope], [*], [2] }, 
+                body: { text(body: [nope]), 
+                        text(body: [*]), 
+                        text(body: [2]) }, 
                 numbering: none), 
   parbreak() }
 --- pandoc ---

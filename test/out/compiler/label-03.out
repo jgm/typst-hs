@@ -81,22 +81,22 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   parbreak(), 
-  strong(body: [A]), 
-  [ ], 
-  strong(body: [B]), 
-  [ ], 
-  [], 
-  [ ], 
-  strong(body: [C]), 
-  [ ], 
-  [], 
-  [ ], 
-  strong(body: [D]), 
+  strong(body: text(body: [A])), 
+  text(body: [ ]), 
+  strong(body: text(body: [B])), 
+  text(body: [ ]), 
+  text(body: []), 
+  text(body: [ ]), 
+  strong(body: text(body: [C])), 
+  text(body: [ ]), 
+  text(body: []), 
+  text(body: [ ]), 
+  strong(body: text(body: [D])), 
   parbreak() }
 --- pandoc ---
 Pandoc

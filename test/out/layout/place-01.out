@@ -65,15 +65,15 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   parbreak(), 
-  [First], 
+  text(body: [First]), 
   parbreak(), 
   place(alignment: Axes(right, bottom), 
-        body: [Placed]), 
+        body: text(body: [Placed])), 
   parbreak(), 
-  [Second], 
+  text(body: [Second]), 
   parbreak() }
 --- pandoc ---
 Pandoc

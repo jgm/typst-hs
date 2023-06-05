@@ -56,11 +56,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [Hard break directly after ], 
+{ text(body: [
+]), 
+  text(body: [Hard break directly after ]), 
   linebreak(), 
-  [normal break.], 
+  text(body: [normal break.]), 
   parbreak() }
 --- pandoc ---
 Pandoc

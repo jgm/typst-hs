@@ -58,14 +58,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [A], 
-  footnote(body: [A]), 
-  [ ], 
+{ text(body: [
+]), 
+  text(body: [A]), 
+  footnote(body: text(body: [A])), 
+  text(body: [ ]), 
   linebreak(), 
-  [A ], 
-  footnote(body: [A]), 
+  text(body: [A ]), 
+  footnote(body: text(body: [A])), 
   parbreak() }
 --- pandoc ---
 Pandoc

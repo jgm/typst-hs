@@ -81,24 +81,25 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   math.equation(block: true, 
-                body: math.mat(rows: (([a], 
+                body: math.mat(rows: ((text(body: [a]), 
                                        math.attach(b: none, 
-                                                   base: [b], 
-                                                   t: [2])), 
-                                      ({ math.attach(b: { [x], 
+                                                   base: text(body: [b]), 
+                                                   t: text(body: [2]))), 
+                                      ({ math.attach(b: { text(body: [x]), 
                                                           linebreak(), 
-                                                          [y] }, 
-                                                     base: [∑], 
+                                                          text(body: [y]) }, 
+                                                     base: text(body: [∑]), 
                                                      t: none), 
-                                         [x] }, 
+                                         text(body: [x]) }, 
                                        math.attach(b: none, 
-                                                   base: [a], 
-                                                   t: math.frac(denom: [2], 
-                                                                num: [1]))), 
-                                      ([ζ], [α]))), 
+                                                   base: text(body: [a]), 
+                                                   t: math.frac(denom: text(body: [2]), 
+                                                                num: text(body: [1])))), 
+                                      (text(body: [ζ]), 
+                                       text(body: [α])))), 
                 numbering: none), 
   parbreak() }
 --- pandoc ---

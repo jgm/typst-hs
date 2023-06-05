@@ -59,8 +59,8 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   text(body: [
 This is tight.], 
        spacing: 1.0pt + 50%), 

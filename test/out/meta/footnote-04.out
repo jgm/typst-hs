@@ -99,15 +99,15 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
   parbreak(), 
-  [Beautiful footnotes. ], 
-  footnote(body: [Wonderful, aren’t they?]), 
+  text(body: [Beautiful footnotes. ]), 
+  footnote(body: text(body: [Wonderful, aren’t they?])), 
   parbreak() }
 --- pandoc ---
 Pandoc

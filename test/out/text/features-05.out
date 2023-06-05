@@ -74,17 +74,17 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  text(body: [0123456789], 
+{ text(body: [
+]), 
+  text(body: text(body: [0123456789]), 
        number-width: "proportional"), 
-  [ ], 
+  text(body: [ ]), 
   linebreak(), 
-  text(body: [3456789123], 
+  text(body: text(body: [3456789123]), 
        number-width: "tabular"), 
-  [ ], 
+  text(body: [ ]), 
   linebreak(), 
-  text(body: [0123456789], 
+  text(body: text(body: [0123456789]), 
        number-width: "tabular"), 
   parbreak() }
 --- pandoc ---

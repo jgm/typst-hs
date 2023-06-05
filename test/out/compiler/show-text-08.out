@@ -61,14 +61,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   parbreak(), 
-  [The ], 
+  text(body: [The ]), 
   image(path: "test/assets/files/graph.png"), 
-  [ has nodes.], 
+  text(body: [ has nodes.]), 
   parbreak() }
 --- pandoc ---
 Pandoc

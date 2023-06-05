@@ -82,20 +82,20 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   parbreak(), 
-  [()], 
+  text(body: [()]), 
   parbreak(), 
-  [1], 
+  text(body: [1]), 
   parbreak(), 
-  [(-1)], 
+  text(body: [(-1)]), 
   parbreak(), 
-  [(true, false)], 
+  text(body: [(true, false)]), 
   parbreak(), 
-  [("1", rgb(0%,0%,0%,100%))], 
+  text(body: [("1", rgb(0%,0%,0%,100%))]), 
   parbreak() }
 --- pandoc ---
 Pandoc

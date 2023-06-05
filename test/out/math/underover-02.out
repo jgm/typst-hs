@@ -83,23 +83,23 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   math.equation(block: true, 
-                body: { math.underbracket(annotation: [ relevant stuff], 
+                body: { math.underbracket(annotation: text(body: [ relevant stuff]), 
                                           body: math.lr(body: ({ [[], 
-                                                                 [1], 
-                                                                 [,], 
-                                                                 math.frac(denom: [3], 
-                                                                           num: [2]), 
+                                                                 text(body: [1]), 
+                                                                 text(body: [,]), 
+                                                                 math.frac(denom: text(body: [3]), 
+                                                                           num: text(body: [2])), 
                                                                  []] }))), 
-                        [⟺], 
-                        math.overbracket(annotation: [ irrelevant stuff], 
+                        text(body: [⟺]), 
+                        math.overbracket(annotation: text(body: [ irrelevant stuff]), 
                                          body: math.lr(body: ({ [[], 
-                                                                math.frac(denom: [5], 
-                                                                          num: [4]), 
-                                                                [,], 
-                                                                [6], 
+                                                                math.frac(denom: text(body: [5]), 
+                                                                          num: text(body: [4])), 
+                                                                text(body: [,]), 
+                                                                text(body: [6]), 
                                                                 []] }))) }, 
                 numbering: none), 
   parbreak() }

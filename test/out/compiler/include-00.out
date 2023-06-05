@@ -77,17 +77,17 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   parbreak(), 
-  heading(body: [Document], 
+  heading(body: text(body: [Document]), 
           level: 1), 
   parbreak(), 
   parbreak(), 
-  [– ], 
-  emph(body: [Intermission]), 
-  [ –
-], 
+  text(body: [– ]), 
+  emph(body: text(body: [Intermission])), 
+  text(body: [ –
+]), 
   parbreak() }
 --- pandoc ---
 Pandoc

@@ -202,8 +202,8 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   parbreak(), 
   math.equation(block: true, 
                 body: { math.attach(b: text(body: [1], 

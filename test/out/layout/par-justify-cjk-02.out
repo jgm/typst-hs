@@ -89,10 +89,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   text(body: [
 ], 
        font: "Noto Serif CJK SC", 

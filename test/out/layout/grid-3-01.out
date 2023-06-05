@@ -100,29 +100,29 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   grid(children: (align(alignment: top, 
                         body: image(path: "test/assets/files/rhino.png")), 
                   align(alignment: top, 
                         body: rect(body: align(alignment: right, 
-                                               body: [LoL]), 
+                                               body: text(body: [LoL])), 
                                    fill: rgb(13%,61%,67%,100%), 
                                    inset: 0.0pt)), 
-                  [rofl], 
+                  text(body: [rofl]), 
                   { linebreak(), 
-                    [A], 
+                    text(body: [A]), 
                     linebreak(), 
-                    [A], 
+                    text(body: [A]), 
                     linebreak(), 
-                    [A] }, 
-                  { [Ha!], 
+                    text(body: [A]) }, 
+                  { text(body: [Ha!]), 
                     linebreak(), 
-                    [Ha!], 
+                    text(body: [Ha!]), 
                     linebreak(), 
-                    [Ha!], 
+                    text(body: [Ha!]), 
                     linebreak() }), 
        column-gutter: (0.0pt, 10%), 
        columns: (1.0fr, 

@@ -66,18 +66,18 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   underline(body: link(body: [https://a.b.?q=%10#.], 
                        dest: "https://a.b.?q=%10#.")), 
-  [ ], 
+  text(body: [ ]), 
   linebreak(), 
-  [Wahttp:], 
-  [Nohttps://link ], 
+  text(body: [Wahttp:]), 
+  text(body: [Nohttps://link ]), 
   linebreak(), 
-  [Nohttp:], 
+  text(body: [Nohttp:]), 
   parbreak() }
 --- pandoc ---
 Pandoc

@@ -71,18 +71,17 @@
 , Heading 1 [ Text "Nope" ]
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [
-], 
-  [
-], 
-  scale(body: list(children: ([Actual], 
-                              [Tight], 
-                              [List])), 
-        factor: none, 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
+  scale(body: list(children: (text(body: [Actual]), 
+                              text(body: [Tight]), 
+                              text(body: [List]))), 
         origin: left, 
         x: 80%) }
 --- pandoc ---

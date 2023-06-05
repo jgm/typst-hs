@@ -89,7 +89,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], [✅], [✅], parbreak() }
+{ text(body: [
+]), 
+  text(body: [✅]), 
+  text(body: [✅]), 
+  parbreak() }
 --- pandoc ---
 Pandoc Meta { unMeta = fromList [] } [ Para [ Str "\9989\9989" ] ]

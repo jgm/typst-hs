@@ -140,20 +140,24 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  table(children: ([Typo.], 
-                   [Fallb.], 
-                   [Synth], 
-                   { [x], super(body: [1]) }, 
-                   { [x], super(body: [5n]) }, 
-                   { [x], 
-                     super(body: { [2 ], 
+{ text(body: [
+]), 
+  table(children: (text(body: [Typo.]), 
+                   text(body: [Fallb.]), 
+                   text(body: [Synth]), 
+                   { text(body: [x]), 
+                     super(body: text(body: [1])) }, 
+                   { text(body: [x]), 
+                     super(body: text(body: [5n])) }, 
+                   { text(body: [x]), 
+                     super(body: { text(body: [2 ]), 
                                    box(body: square(size: 6.0pt)) }) }, 
-                   { [x], sub(body: [1]) }, 
-                   { [x], sub(body: [5n]) }, 
-                   { [x], 
-                     sub(body: { [2 ], 
+                   { text(body: [x]), 
+                     sub(body: text(body: [1])) }, 
+                   { text(body: [x]), 
+                     sub(body: text(body: [5n])) }, 
+                   { text(body: [x]), 
+                     sub(body: { text(body: [2 ]), 
                                  box(body: square(size: 6.0pt)) }) }), 
         columns: 3), 
   parbreak() }

@@ -58,11 +58,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
+{ text(body: [
+]), 
+  text(body: [
 Stuff
-], 
+]), 
   image(path: "test/assets/files/rhino.png"), 
   parbreak() }
 --- pandoc ---

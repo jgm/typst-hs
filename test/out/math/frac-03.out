@@ -64,11 +64,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   math.equation(block: true, 
-                body: math.binom(lower: [□], 
-                                 upper: [○]), 
+                body: math.binom(lower: text(body: [□]), 
+                                 upper: text(body: [○])), 
                 numbering: none), 
   parbreak() }
 --- pandoc ---

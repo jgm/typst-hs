@@ -62,13 +62,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  pad(body: { [PL ], 
+{ text(body: [
+]), 
+  pad(body: { text(body: [PL ]), 
               h(amount: 1.0fr), 
-              [ PR] }, 
+              text(body: [ PR]) }, 
       left: 10.0pt, 
-      rest: none, 
       right: 10.0pt), 
   parbreak() }
 --- pandoc ---

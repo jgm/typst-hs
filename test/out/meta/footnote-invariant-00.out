@@ -66,12 +66,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   parbreak(), 
-  [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt], 
+  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt]), 
   parbreak(), 
-  [There ], 
+  text(body: [There ]), 
   footnote(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut]), 
   parbreak() }
 --- pandoc ---

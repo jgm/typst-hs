@@ -69,12 +69,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   parbreak(), 
-  [Where is
-], 
-  [my heading?], 
+  text(body: [Where is
+]), 
+  text(body: [my heading?]), 
   parbreak() }
 --- pandoc ---
 Pandoc

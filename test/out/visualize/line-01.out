@@ -327,17 +327,17 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
   parbreak(), 
   parbreak(), 
   align(alignment: center, 
-        body: grid(children: (box(body: { [
-], 
+        body: grid(children: (box(body: { text(body: [
+]), 
                                           text(body: [
 ], 
                                                spacing: 0%), 
@@ -351,16 +351,14 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(length: 30%, 
+                                          place(body: line(length: 30%, 
                                                            start: (9%, 
                                                                    2%), 
                                                            stroke: 0.5pt)), 
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -72.0deg, 
+                                          place(body: line(angle: -72.0deg, 
                                                            length: 30%, 
                                                            start: (38%, 
                                                                    2%), 
@@ -368,8 +366,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 252.0deg, 
+                                          place(body: line(angle: 252.0deg, 
                                                            length: 30%, 
                                                            start: (57%, 
                                                                    2%), 
@@ -377,16 +374,14 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(length: 30%, 
+                                          place(body: line(length: 30%, 
                                                            start: (57%, 
                                                                    2%), 
                                                            stroke: 0.5pt)), 
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -36.0deg, 
+                                          place(body: line(angle: -36.0deg, 
                                                            length: -30%, 
                                                            start: (88%, 
                                                                    2%), 
@@ -394,8 +389,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 252.0deg, 
+                                          place(body: line(angle: 252.0deg, 
                                                            length: 30%, 
                                                            start: (73%, 
                                                                    48%), 
@@ -403,8 +397,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 36.0deg, 
+                                          place(body: line(angle: 36.0deg, 
                                                            length: -30%, 
                                                            start: (73%, 
                                                                    48%), 
@@ -412,8 +405,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -36.0deg, 
+                                          place(body: line(angle: -36.0deg, 
                                                            length: 30%, 
                                                            start: (25%, 
                                                                    48%), 
@@ -421,8 +413,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -72.0deg, 
+                                          place(body: line(angle: -72.0deg, 
                                                            length: 30%, 
                                                            start: (25%, 
                                                                    48%), 
@@ -430,8 +421,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 34.0deg, 
+                                          place(body: line(angle: 34.0deg, 
                                                            length: 32%, 
                                                            start: (8%, 
                                                                    2%), 
@@ -439,8 +429,8 @@
                                           parbreak() }, 
                                   height: 20.0pt, 
                                   width: 20.0pt), 
-                              box(body: { [
-], 
+                              box(body: { text(body: [
+]), 
                                           text(body: [
 ], 
                                                spacing: 0%), 
@@ -454,16 +444,14 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(length: 30%, 
+                                          place(body: line(length: 30%, 
                                                            start: (9%, 
                                                                    2%), 
                                                            stroke: 0.5pt)), 
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -72.0deg, 
+                                          place(body: line(angle: -72.0deg, 
                                                            length: 30%, 
                                                            start: (38%, 
                                                                    2%), 
@@ -471,8 +459,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 252.0deg, 
+                                          place(body: line(angle: 252.0deg, 
                                                            length: 30%, 
                                                            start: (57%, 
                                                                    2%), 
@@ -480,16 +467,14 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(length: 30%, 
+                                          place(body: line(length: 30%, 
                                                            start: (57%, 
                                                                    2%), 
                                                            stroke: 0.5pt)), 
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -36.0deg, 
+                                          place(body: line(angle: -36.0deg, 
                                                            length: -30%, 
                                                            start: (88%, 
                                                                    2%), 
@@ -497,8 +482,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 252.0deg, 
+                                          place(body: line(angle: 252.0deg, 
                                                            length: 30%, 
                                                            start: (73%, 
                                                                    48%), 
@@ -506,8 +490,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 36.0deg, 
+                                          place(body: line(angle: 36.0deg, 
                                                            length: -30%, 
                                                            start: (73%, 
                                                                    48%), 
@@ -515,8 +498,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -36.0deg, 
+                                          place(body: line(angle: -36.0deg, 
                                                            length: 30%, 
                                                            start: (25%, 
                                                                    48%), 
@@ -524,8 +506,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -72.0deg, 
+                                          place(body: line(angle: -72.0deg, 
                                                            length: 30%, 
                                                            start: (25%, 
                                                                    48%), 
@@ -533,8 +514,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 34.0deg, 
+                                          place(body: line(angle: 34.0deg, 
                                                            length: 32%, 
                                                            start: (8%, 
                                                                    2%), 
@@ -542,8 +522,8 @@
                                           parbreak() }, 
                                   height: 20.0pt, 
                                   width: 20.0pt), 
-                              box(body: { [
-], 
+                              box(body: { text(body: [
+]), 
                                           text(body: [
 ], 
                                                spacing: 0%), 
@@ -557,16 +537,14 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(length: 30%, 
+                                          place(body: line(length: 30%, 
                                                            start: (9%, 
                                                                    2%), 
                                                            stroke: 0.5pt)), 
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -72.0deg, 
+                                          place(body: line(angle: -72.0deg, 
                                                            length: 30%, 
                                                            start: (38%, 
                                                                    2%), 
@@ -574,8 +552,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 252.0deg, 
+                                          place(body: line(angle: 252.0deg, 
                                                            length: 30%, 
                                                            start: (57%, 
                                                                    2%), 
@@ -583,16 +560,14 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(length: 30%, 
+                                          place(body: line(length: 30%, 
                                                            start: (57%, 
                                                                    2%), 
                                                            stroke: 0.5pt)), 
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -36.0deg, 
+                                          place(body: line(angle: -36.0deg, 
                                                            length: -30%, 
                                                            start: (88%, 
                                                                    2%), 
@@ -600,8 +575,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 252.0deg, 
+                                          place(body: line(angle: 252.0deg, 
                                                            length: 30%, 
                                                            start: (73%, 
                                                                    48%), 
@@ -609,8 +583,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 36.0deg, 
+                                          place(body: line(angle: 36.0deg, 
                                                            length: -30%, 
                                                            start: (73%, 
                                                                    48%), 
@@ -618,8 +591,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -36.0deg, 
+                                          place(body: line(angle: -36.0deg, 
                                                            length: 30%, 
                                                            start: (25%, 
                                                                    48%), 
@@ -627,8 +599,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -72.0deg, 
+                                          place(body: line(angle: -72.0deg, 
                                                            length: 30%, 
                                                            start: (25%, 
                                                                    48%), 
@@ -636,8 +607,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 34.0deg, 
+                                          place(body: line(angle: 34.0deg, 
                                                            length: 32%, 
                                                            start: (8%, 
                                                                    2%), 
@@ -645,8 +615,8 @@
                                           parbreak() }, 
                                   height: 20.0pt, 
                                   width: 20.0pt), 
-                              box(body: { [
-], 
+                              box(body: { text(body: [
+]), 
                                           text(body: [
 ], 
                                                spacing: 0%), 
@@ -660,16 +630,14 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(length: 30%, 
+                                          place(body: line(length: 30%, 
                                                            start: (9%, 
                                                                    2%), 
                                                            stroke: 0.5pt)), 
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -72.0deg, 
+                                          place(body: line(angle: -72.0deg, 
                                                            length: 30%, 
                                                            start: (38%, 
                                                                    2%), 
@@ -677,8 +645,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 252.0deg, 
+                                          place(body: line(angle: 252.0deg, 
                                                            length: 30%, 
                                                            start: (57%, 
                                                                    2%), 
@@ -686,16 +653,14 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(length: 30%, 
+                                          place(body: line(length: 30%, 
                                                            start: (57%, 
                                                                    2%), 
                                                            stroke: 0.5pt)), 
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -36.0deg, 
+                                          place(body: line(angle: -36.0deg, 
                                                            length: -30%, 
                                                            start: (88%, 
                                                                    2%), 
@@ -703,8 +668,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 252.0deg, 
+                                          place(body: line(angle: 252.0deg, 
                                                            length: 30%, 
                                                            start: (73%, 
                                                                    48%), 
@@ -712,8 +676,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 36.0deg, 
+                                          place(body: line(angle: 36.0deg, 
                                                            length: -30%, 
                                                            start: (73%, 
                                                                    48%), 
@@ -721,8 +684,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -36.0deg, 
+                                          place(body: line(angle: -36.0deg, 
                                                            length: 30%, 
                                                            start: (25%, 
                                                                    48%), 
@@ -730,8 +692,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -72.0deg, 
+                                          place(body: line(angle: -72.0deg, 
                                                            length: 30%, 
                                                            start: (25%, 
                                                                    48%), 
@@ -739,8 +700,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 34.0deg, 
+                                          place(body: line(angle: 34.0deg, 
                                                            length: 32%, 
                                                            start: (8%, 
                                                                    2%), 
@@ -748,8 +708,8 @@
                                           parbreak() }, 
                                   height: 20.0pt, 
                                   width: 20.0pt), 
-                              box(body: { [
-], 
+                              box(body: { text(body: [
+]), 
                                           text(body: [
 ], 
                                                spacing: 0%), 
@@ -763,16 +723,14 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(length: 30%, 
+                                          place(body: line(length: 30%, 
                                                            start: (9%, 
                                                                    2%), 
                                                            stroke: 0.5pt)), 
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -72.0deg, 
+                                          place(body: line(angle: -72.0deg, 
                                                            length: 30%, 
                                                            start: (38%, 
                                                                    2%), 
@@ -780,8 +738,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 252.0deg, 
+                                          place(body: line(angle: 252.0deg, 
                                                            length: 30%, 
                                                            start: (57%, 
                                                                    2%), 
@@ -789,16 +746,14 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(length: 30%, 
+                                          place(body: line(length: 30%, 
                                                            start: (57%, 
                                                                    2%), 
                                                            stroke: 0.5pt)), 
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -36.0deg, 
+                                          place(body: line(angle: -36.0deg, 
                                                            length: -30%, 
                                                            start: (88%, 
                                                                    2%), 
@@ -806,8 +761,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 252.0deg, 
+                                          place(body: line(angle: 252.0deg, 
                                                            length: 30%, 
                                                            start: (73%, 
                                                                    48%), 
@@ -815,8 +769,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 36.0deg, 
+                                          place(body: line(angle: 36.0deg, 
                                                            length: -30%, 
                                                            start: (73%, 
                                                                    48%), 
@@ -824,8 +777,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -36.0deg, 
+                                          place(body: line(angle: -36.0deg, 
                                                            length: 30%, 
                                                            start: (25%, 
                                                                    48%), 
@@ -833,8 +785,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -72.0deg, 
+                                          place(body: line(angle: -72.0deg, 
                                                            length: 30%, 
                                                            start: (25%, 
                                                                    48%), 
@@ -842,8 +793,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 34.0deg, 
+                                          place(body: line(angle: 34.0deg, 
                                                            length: 32%, 
                                                            start: (8%, 
                                                                    2%), 
@@ -851,8 +801,8 @@
                                           parbreak() }, 
                                   height: 20.0pt, 
                                   width: 20.0pt), 
-                              box(body: { [
-], 
+                              box(body: { text(body: [
+]), 
                                           text(body: [
 ], 
                                                spacing: 0%), 
@@ -866,16 +816,14 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(length: 30%, 
+                                          place(body: line(length: 30%, 
                                                            start: (9%, 
                                                                    2%), 
                                                            stroke: 0.5pt)), 
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -72.0deg, 
+                                          place(body: line(angle: -72.0deg, 
                                                            length: 30%, 
                                                            start: (38%, 
                                                                    2%), 
@@ -883,8 +831,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 252.0deg, 
+                                          place(body: line(angle: 252.0deg, 
                                                            length: 30%, 
                                                            start: (57%, 
                                                                    2%), 
@@ -892,16 +839,14 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(length: 30%, 
+                                          place(body: line(length: 30%, 
                                                            start: (57%, 
                                                                    2%), 
                                                            stroke: 0.5pt)), 
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -36.0deg, 
+                                          place(body: line(angle: -36.0deg, 
                                                            length: -30%, 
                                                            start: (88%, 
                                                                    2%), 
@@ -909,8 +854,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 252.0deg, 
+                                          place(body: line(angle: 252.0deg, 
                                                            length: 30%, 
                                                            start: (73%, 
                                                                    48%), 
@@ -918,8 +862,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 36.0deg, 
+                                          place(body: line(angle: 36.0deg, 
                                                            length: -30%, 
                                                            start: (73%, 
                                                                    48%), 
@@ -927,8 +870,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -36.0deg, 
+                                          place(body: line(angle: -36.0deg, 
                                                            length: 30%, 
                                                            start: (25%, 
                                                                    48%), 
@@ -936,8 +878,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -72.0deg, 
+                                          place(body: line(angle: -72.0deg, 
                                                            length: 30%, 
                                                            start: (25%, 
                                                                    48%), 
@@ -945,8 +886,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 34.0deg, 
+                                          place(body: line(angle: 34.0deg, 
                                                            length: 32%, 
                                                            start: (8%, 
                                                                    2%), 
@@ -954,8 +894,8 @@
                                           parbreak() }, 
                                   height: 20.0pt, 
                                   width: 20.0pt), 
-                              box(body: { [
-], 
+                              box(body: { text(body: [
+]), 
                                           text(body: [
 ], 
                                                spacing: 0%), 
@@ -969,16 +909,14 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(length: 30%, 
+                                          place(body: line(length: 30%, 
                                                            start: (9%, 
                                                                    2%), 
                                                            stroke: 0.5pt)), 
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -72.0deg, 
+                                          place(body: line(angle: -72.0deg, 
                                                            length: 30%, 
                                                            start: (38%, 
                                                                    2%), 
@@ -986,8 +924,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 252.0deg, 
+                                          place(body: line(angle: 252.0deg, 
                                                            length: 30%, 
                                                            start: (57%, 
                                                                    2%), 
@@ -995,16 +932,14 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(length: 30%, 
+                                          place(body: line(length: 30%, 
                                                            start: (57%, 
                                                                    2%), 
                                                            stroke: 0.5pt)), 
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -36.0deg, 
+                                          place(body: line(angle: -36.0deg, 
                                                            length: -30%, 
                                                            start: (88%, 
                                                                    2%), 
@@ -1012,8 +947,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 252.0deg, 
+                                          place(body: line(angle: 252.0deg, 
                                                            length: 30%, 
                                                            start: (73%, 
                                                                    48%), 
@@ -1021,8 +955,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 36.0deg, 
+                                          place(body: line(angle: 36.0deg, 
                                                            length: -30%, 
                                                            start: (73%, 
                                                                    48%), 
@@ -1030,8 +963,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -36.0deg, 
+                                          place(body: line(angle: -36.0deg, 
                                                            length: 30%, 
                                                            start: (25%, 
                                                                    48%), 
@@ -1039,8 +971,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -72.0deg, 
+                                          place(body: line(angle: -72.0deg, 
                                                            length: 30%, 
                                                            start: (25%, 
                                                                    48%), 
@@ -1048,8 +979,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 34.0deg, 
+                                          place(body: line(angle: 34.0deg, 
                                                            length: 32%, 
                                                            start: (8%, 
                                                                    2%), 
@@ -1057,8 +987,8 @@
                                           parbreak() }, 
                                   height: 20.0pt, 
                                   width: 20.0pt), 
-                              box(body: { [
-], 
+                              box(body: { text(body: [
+]), 
                                           text(body: [
 ], 
                                                spacing: 0%), 
@@ -1072,16 +1002,14 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(length: 30%, 
+                                          place(body: line(length: 30%, 
                                                            start: (9%, 
                                                                    2%), 
                                                            stroke: 0.5pt)), 
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -72.0deg, 
+                                          place(body: line(angle: -72.0deg, 
                                                            length: 30%, 
                                                            start: (38%, 
                                                                    2%), 
@@ -1089,8 +1017,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 252.0deg, 
+                                          place(body: line(angle: 252.0deg, 
                                                            length: 30%, 
                                                            start: (57%, 
                                                                    2%), 
@@ -1098,16 +1025,14 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(length: 30%, 
+                                          place(body: line(length: 30%, 
                                                            start: (57%, 
                                                                    2%), 
                                                            stroke: 0.5pt)), 
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -36.0deg, 
+                                          place(body: line(angle: -36.0deg, 
                                                            length: -30%, 
                                                            start: (88%, 
                                                                    2%), 
@@ -1115,8 +1040,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 252.0deg, 
+                                          place(body: line(angle: 252.0deg, 
                                                            length: 30%, 
                                                            start: (73%, 
                                                                    48%), 
@@ -1124,8 +1048,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 36.0deg, 
+                                          place(body: line(angle: 36.0deg, 
                                                            length: -30%, 
                                                            start: (73%, 
                                                                    48%), 
@@ -1133,8 +1056,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -36.0deg, 
+                                          place(body: line(angle: -36.0deg, 
                                                            length: 30%, 
                                                            start: (25%, 
                                                                    48%), 
@@ -1142,8 +1064,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -72.0deg, 
+                                          place(body: line(angle: -72.0deg, 
                                                            length: 30%, 
                                                            start: (25%, 
                                                                    48%), 
@@ -1151,8 +1072,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 34.0deg, 
+                                          place(body: line(angle: 34.0deg, 
                                                            length: 32%, 
                                                            start: (8%, 
                                                                    2%), 
@@ -1160,8 +1080,8 @@
                                           parbreak() }, 
                                   height: 20.0pt, 
                                   width: 20.0pt), 
-                              box(body: { [
-], 
+                              box(body: { text(body: [
+]), 
                                           text(body: [
 ], 
                                                spacing: 0%), 
@@ -1175,16 +1095,14 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(length: 30%, 
+                                          place(body: line(length: 30%, 
                                                            start: (9%, 
                                                                    2%), 
                                                            stroke: 0.5pt)), 
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -72.0deg, 
+                                          place(body: line(angle: -72.0deg, 
                                                            length: 30%, 
                                                            start: (38%, 
                                                                    2%), 
@@ -1192,8 +1110,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 252.0deg, 
+                                          place(body: line(angle: 252.0deg, 
                                                            length: 30%, 
                                                            start: (57%, 
                                                                    2%), 
@@ -1201,16 +1118,14 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(length: 30%, 
+                                          place(body: line(length: 30%, 
                                                            start: (57%, 
                                                                    2%), 
                                                            stroke: 0.5pt)), 
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -36.0deg, 
+                                          place(body: line(angle: -36.0deg, 
                                                            length: -30%, 
                                                            start: (88%, 
                                                                    2%), 
@@ -1218,8 +1133,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 252.0deg, 
+                                          place(body: line(angle: 252.0deg, 
                                                            length: 30%, 
                                                            start: (73%, 
                                                                    48%), 
@@ -1227,8 +1141,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 36.0deg, 
+                                          place(body: line(angle: 36.0deg, 
                                                            length: -30%, 
                                                            start: (73%, 
                                                                    48%), 
@@ -1236,8 +1149,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -36.0deg, 
+                                          place(body: line(angle: -36.0deg, 
                                                            length: 30%, 
                                                            start: (25%, 
                                                                    48%), 
@@ -1245,8 +1157,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: -72.0deg, 
+                                          place(body: line(angle: -72.0deg, 
                                                            length: 30%, 
                                                            start: (25%, 
                                                                    48%), 
@@ -1254,8 +1165,7 @@
                                           text(body: [
 ], 
                                                spacing: 0%), 
-                                          place(alignment: none, 
-                                                body: line(angle: 34.0deg, 
+                                          place(body: line(angle: 34.0deg, 
                                                            length: 32%, 
                                                            start: (8%, 
                                                                    2%), 

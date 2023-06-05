@@ -47,8 +47,8 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   table(children: ()), 
   parbreak() }
 --- pandoc ---

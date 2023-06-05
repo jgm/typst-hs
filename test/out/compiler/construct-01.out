@@ -74,19 +74,19 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  list(children: ({ [
-], 
-                    rect(body: list(children: ([A]), 
-                                    marker: [>]), 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  list(children: ({ text(body: [
+]), 
+                    rect(body: list(children: (text(body: [A])), 
+                                    marker: text(body: [>])), 
                          fill: rgb(18%,80%,25%,100%), 
                          inset: 4.0pt, 
                          width: 2.0cm), 
                     parbreak() }), 
-       marker: [–]), 
+       marker: text(body: [–])), 
   parbreak() }
 --- pandoc ---
 Pandoc

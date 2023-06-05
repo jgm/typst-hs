@@ -66,17 +66,17 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  enum(children: ([first], 
-                  [second], 
-                  [fifth
+{ text(body: [
 ]), 
+  enum(children: (text(body: [first]), 
+                  text(body: [second]), 
+                  text(body: [fifth
+])), 
        start: 1), 
-  enum(children: (enum.item(body: [First], 
+  enum(children: (enum.item(body: text(body: [First]), 
                             number: 1), 
-                  [Second], 
-                  enum.item(body: [Fifth], 
+                  text(body: [Second]), 
+                  enum.item(body: text(body: [Fifth]), 
                             number: 5))), 
   parbreak() }
 --- pandoc ---

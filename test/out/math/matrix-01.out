@@ -75,22 +75,25 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   math.equation(block: true, 
-                body: math.mat(rows: (([1], 
-                                       [2], 
-                                       […], 
-                                       [10]), 
-                                      ([2], 
-                                       [2], 
-                                       […], 
-                                       [10]), 
-                                      ([⋮], [⋮], [⋱], [⋮]), 
-                                      ([10], 
-                                       [10], 
-                                       […], 
-                                       [10]))), 
+                body: math.mat(rows: ((text(body: [1]), 
+                                       text(body: [2]), 
+                                       text(body: […]), 
+                                       text(body: [10])), 
+                                      (text(body: [2]), 
+                                       text(body: [2]), 
+                                       text(body: […]), 
+                                       text(body: [10])), 
+                                      (text(body: [⋮]), 
+                                       text(body: [⋮]), 
+                                       text(body: [⋱]), 
+                                       text(body: [⋮])), 
+                                      (text(body: [10]), 
+                                       text(body: [10]), 
+                                       text(body: […]), 
+                                       text(body: [10])))), 
                 numbering: none), 
   parbreak() }
 --- pandoc ---

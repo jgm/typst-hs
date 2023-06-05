@@ -101,28 +101,28 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   grid(children: (align(alignment: bottom, 
-                        body: [A]), 
-                  { [
+                        body: text(body: [A])), 
+                  { text(body: [
 Top
-], 
+]), 
                     align(alignment: bottom, 
-                          body: { [
-Bottom ], 
+                          body: { text(body: [
+Bottom ]), 
                                   linebreak(), 
-                                  [Bottom ], 
+                                  text(body: [Bottom ]), 
                                   linebreak(), 
                                   v(amount: 0.0pt), 
-                                  [
-Top], 
+                                  text(body: [
+Top]), 
                                   parbreak() }), 
                     parbreak() }, 
                   align(alignment: top, 
-                        body: [B])), 
+                        body: text(body: [B]))), 
        columns: 2, 
        gutter: 10.0pt), 
   parbreak() }

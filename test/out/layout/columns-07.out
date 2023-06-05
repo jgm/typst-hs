@@ -58,10 +58,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   parbreak(), 
-  [Arbitrary horizontal growth.], 
+  text(body: [Arbitrary horizontal growth.]), 
   parbreak() }
 --- pandoc ---
 Pandoc

@@ -57,14 +57,14 @@
     ]
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   parbreak(), 
-  list(children: ({ [ABCDEF], 
+  list(children: ({ text(body: [ABCDEF]), 
                     linebreak(), 
-                    [GHIJKL], 
+                    text(body: [GHIJKL]), 
                     linebreak(), 
-                    [MNOPQR], 
+                    text(body: [MNOPQR]), 
                     parbreak() })) }
 --- pandoc ---
 Pandoc

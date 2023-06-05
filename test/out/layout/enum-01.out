@@ -52,15 +52,16 @@
 , EnumListItem Nothing [ Text "Second" , ParBreak ]
 ]
 --- evaluated ---
-{ [
-], 
-  enum(children: ([Before first!], 
-                  { [First.
-], 
-                    enum(children: ([Indented
+{ text(body: [
 ]), 
+  enum(children: (text(body: [Before first!]), 
+                  { text(body: [First.
+]), 
+                    enum(children: (text(body: [Indented
+])), 
                          start: 2) }, 
-                  { [Second], parbreak() }), 
+                  { text(body: [Second]), 
+                    parbreak() }), 
        start: 0) }
 --- pandoc ---
 Pandoc

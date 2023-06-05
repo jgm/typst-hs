@@ -69,10 +69,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   text(body: [
 It’s a ], 
        hyphenate: true), 

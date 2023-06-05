@@ -77,17 +77,17 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   parbreak(), 
-  figure(body: table(children: ([a], 
-                                [b], 
-                                [c], 
-                                [d], 
-                                [e])), 
-         caption: [A table]), 
+  figure(body: table(children: (text(body: [a]), 
+                                text(body: [b]), 
+                                text(body: [c]), 
+                                text(body: [d]), 
+                                text(body: [e]))), 
+         caption: text(body: [A table])), 
   parbreak() }
 --- pandoc ---
 Pandoc

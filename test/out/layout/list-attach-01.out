@@ -58,15 +58,15 @@
 , BulletListItem [ Text "B" , ParBreak ]
 ]
 --- evaluated ---
-{ [
-], 
-  [
+{ text(body: [
+]), 
+  text(body: [
 Hello
-], 
-  list(children: ([A])), 
-  [World
-], 
-  list(children: ({ [B], 
+]), 
+  list(children: (text(body: [A]))), 
+  text(body: [World
+]), 
+  list(children: ({ text(body: [B]), 
                     parbreak() })) }
 --- pandoc ---
 Pandoc

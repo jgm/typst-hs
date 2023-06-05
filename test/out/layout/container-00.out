@@ -68,20 +68,20 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [A ], 
-  box(body: { [B ], 
+{ text(body: [
+]), 
+  text(body: [A ]), 
+  box(body: { text(body: [B ]), 
               linebreak(), 
-              [C] }), 
-  [ D.], 
+              text(body: [C]) }), 
+  text(body: [ D.]), 
   parbreak(), 
-  [Spaced ], 
+  text(body: [Spaced ]), 
   linebreak(), 
   box(height: 0.5cm), 
-  [ ], 
+  text(body: [ ]), 
   linebreak(), 
-  [Apart], 
+  text(body: [Apart]), 
   parbreak() }
 --- pandoc ---
 Pandoc

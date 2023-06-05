@@ -73,20 +73,20 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
   parbreak(), 
   raw(block: true, 
       lang: "rust", 
       text: "fn main() {}\n"), 
   parbreak(), 
-  list(children: ([List
-])), 
-  [Paragraph], 
+  list(children: (text(body: [List
+]))), 
+  text(body: [Paragraph]), 
   parbreak() }
 --- pandoc ---
 Pandoc

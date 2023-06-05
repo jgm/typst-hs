@@ -90,21 +90,21 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
   parbreak(), 
-  enum(children: (enum.item(body: [First], 
+  enum(children: (enum.item(body: text(body: [First]), 
                             number: 1), 
-                  enum.item(body: [Fifth], 
+                  enum.item(body: text(body: [Fifth]), 
                             number: 5))), 
-  [
-], 
-  [
-], 
+  text(body: [
+]), 
+  text(body: [
+]), 
   parbreak() }
 --- pandoc ---
 Pandoc

@@ -70,12 +70,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-Oh, ], 
-  [|H|E|L|L|O|], 
-  [ there!], 
+{ text(body: [
+]), 
+  text(body: [
+Oh, ]), 
+  text(body: [|H|E|L|L|O|]), 
+  text(body: [ there!]), 
   parbreak() }
 --- pandoc ---
 Pandoc

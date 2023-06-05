@@ -71,12 +71,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-Why would anybody ever …], 
+{ text(body: [
+]), 
+  text(body: [
+Why would anybody ever …]), 
   parbreak(), 
-  [… want spacing and indent?], 
+  text(body: [… want spacing and indent?]), 
   parbreak() }
 --- pandoc ---
 Pandoc

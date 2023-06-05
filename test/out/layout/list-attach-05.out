@@ -56,14 +56,15 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [Hello
-], 
-  list(children: ([A], [B]), 
+{ text(body: [
+]), 
+  text(body: [Hello
+]), 
+  list(children: (text(body: [A]), 
+                  text(body: [B])), 
        tight: false), 
-  [
-World], 
+  text(body: [
+World]), 
   parbreak() }
 --- pandoc ---
 Pandoc

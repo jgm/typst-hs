@@ -56,11 +56,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [This is partly emp], 
-  emph(body: [has]), 
-  [ized.], 
+{ text(body: [
+]), 
+  text(body: [This is partly emp]), 
+  emph(body: text(body: [has])), 
+  text(body: [ized.]), 
   parbreak() }
 --- pandoc ---
 Pandoc

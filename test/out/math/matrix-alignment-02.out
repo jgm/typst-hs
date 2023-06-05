@@ -57,18 +57,18 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   math.equation(block: true, 
-                body: math.mat(rows: (([ a], 
-                                       [ a a a], 
-                                       [ a a]), 
-                                      ([ a a], 
-                                       [ a a], 
-                                       [ a]), 
-                                      ([ a a a], 
-                                       [ a], 
-                                       [ a a a]))), 
+                body: math.mat(rows: ((text(body: [ a]), 
+                                       text(body: [ a a a]), 
+                                       text(body: [ a a])), 
+                                      (text(body: [ a a]), 
+                                       text(body: [ a a]), 
+                                       text(body: [ a])), 
+                                      (text(body: [ a a a]), 
+                                       text(body: [ a]), 
+                                       text(body: [ a a a])))), 
                 numbering: none), 
   parbreak() }
 --- pandoc ---

@@ -64,9 +64,9 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  link(body: [Back to the start], 
+{ text(body: [
+]), 
+  link(body: text(body: [Back to the start]), 
        dest: (page: 1,
               x: 10.0pt,
               y: 20.0pt)), 

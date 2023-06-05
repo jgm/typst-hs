@@ -61,18 +61,18 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   math.equation(block: true, 
-                body: { math.lr(body: ({ math.frac(denom: [b], 
-                                                   num: [a]), 
-                                         []] })), 
-                        [=], 
-                        [a], 
-                        [=], 
-                        math.lr(body: ({ [{], 
-                                         math.frac(denom: [b], 
-                                                   num: [a]) })) }, 
+                body: { math.lr(body: ({ math.frac(denom: text(body: [b]), 
+                                                   num: text(body: [a])), 
+                                         text(body: []]) })), 
+                        text(body: [=]), 
+                        text(body: [a]), 
+                        text(body: [=]), 
+                        math.lr(body: ({ text(body: [{]), 
+                                         math.frac(denom: text(body: [b]), 
+                                                   num: text(body: [a])) })) }, 
                 numbering: none), 
   parbreak() }
 --- pandoc ---

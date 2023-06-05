@@ -95,29 +95,29 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   text(body: "Text"), 
-  [ ], 
+  text(body: [ ]), 
   linebreak(), 
   text(body: "Text", 
        color: rgb(100%,25%,21%,100%)), 
-  [ ], 
+  text(body: [ ]), 
   linebreak(), 
   text(body: "Text", 
        color: rgb(0%,45%,85%,100%), 
        font: "Ubuntu"), 
-  [ ], 
+  text(body: [ ]), 
   linebreak(), 
-  text(body: [Text], 
+  text(body: text(body: [Text]), 
        color: rgb(22%,80%,80%,100%), 
        font: "IBM Plex Serif"), 
-  [ ], 
+  text(body: [ ]), 
   linebreak(), 
-  text(body: [Text], 
+  text(body: text(body: [Text]), 
        color: rgb(100%,25%,21%,100%), 
        font: "New Computer Modern"), 
-  [ ], 
+  text(body: [ ]), 
   linebreak(), 
   parbreak() }
 --- pandoc ---

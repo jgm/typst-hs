@@ -61,14 +61,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-Hello], 
+{ text(body: [
+]), 
+  text(body: [
+Hello]), 
   parbreak(), 
-  [There], 
+  text(body: [There]), 
   parbreak(), 
-  block(body: [Further down], 
+  block(body: text(body: [Further down]), 
         spacing: 20.0pt), 
   parbreak() }
 --- pandoc ---

@@ -109,35 +109,35 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  stack(children: ([A], 
-                   [B], 
-                   [C], 
-                   [D], 
-                   [E], 
-                   [F], 
-                   [G], 
-                   [H], 
-                   [I]), 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  stack(children: (text(body: [A]), 
+                   text(body: [B]), 
+                   text(body: [C]), 
+                   text(body: [D]), 
+                   text(body: [E]), 
+                   text(body: [F]), 
+                   text(body: [G]), 
+                   text(body: [H]), 
+                   text(body: [I])), 
         dir: ltr, 
         spacing: 1.0fr), 
   parbreak(), 
-  [Hello
-], 
+  text(body: [Hello
+]), 
   v(amount: 2.0fr), 
-  [
-from ], 
+  text(body: [
+from ]), 
   h(amount: 1.0fr), 
-  [ the ], 
+  text(body: [ the ]), 
   h(amount: 1.0fr), 
-  [ wonderful
-], 
+  text(body: [ wonderful
+]), 
   v(amount: 1.0fr), 
-  [
-World! 🌍], 
+  text(body: [
+World! 🌍]), 
   parbreak() }
 --- pandoc ---
 Pandoc

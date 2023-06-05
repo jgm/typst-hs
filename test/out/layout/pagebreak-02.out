@@ -75,18 +75,18 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   pagebreak(weak: true), 
-  [
+  text(body: [
 First
-], 
+]), 
   pagebreak(weak: true), 
-  [
+  text(body: [
 Second
-], 
+]), 
   pagebreak(weak: true), 
   parbreak() }
 --- pandoc ---

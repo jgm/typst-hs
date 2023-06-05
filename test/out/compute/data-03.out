@@ -98,14 +98,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
   table(children: (strong(body: [Name]), 
                    strong(body: [Species]), 
                    strong(body: [Weight]), 

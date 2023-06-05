@@ -211,33 +211,33 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
   parbreak(), 
-  [The first paragraph has no indent.], 
+  text(body: [The first paragraph has no indent.]), 
   parbreak(), 
-  [But the second one does.], 
+  text(body: [But the second one does.]), 
   parbreak(), 
   box(body: image(height: 6.0pt, 
                   path: "test/assets/files/tiger.jpg")), 
-  [
-starts a paragraph, also with indent.], 
+  text(body: [
+starts a paragraph, also with indent.]), 
   parbreak(), 
   align(alignment: center, 
         body: image(path: "test/assets/files/rhino.png", 
                     width: 1.0cm)), 
   parbreak(), 
-  heading(body: [Headings], 
+  heading(body: text(body: [Headings]), 
           level: 1), 
-  list(children: ([And lists.], 
-                  { [Have no indent.], 
+  list(children: (text(body: [And lists.]), 
+                  { text(body: [Have no indent.]), 
                     parbreak(), 
-                    [Except if you have another paragraph in them.
-] })), 
+                    text(body: [Except if you have another paragraph in them.
+]) })), 
   text(body: [
 ], 
        font: ("Noto Sans Arabic", 

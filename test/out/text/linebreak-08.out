@@ -60,13 +60,13 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [First part], 
-  [Second part], 
+{ text(body: [
+]), 
+  text(body: [First part]), 
+  text(body: [Second part]), 
   parbreak(), 
-  [First part ], 
-  [Second part], 
+  text(body: [First part ]), 
+  text(body: [Second part]), 
   parbreak() }
 --- pandoc ---
 Pandoc

@@ -75,12 +75,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [A ], 
-  emph(body: { [B ], 
-               strong(body: [ C]) }), 
-  [ D], 
+{ text(body: [
+]), 
+  text(body: [A ]), 
+  emph(body: { text(body: [B ]), 
+               strong(body: text(body: [ C])) }), 
+  text(body: [ D]), 
   parbreak() }
 --- pandoc ---
 Pandoc

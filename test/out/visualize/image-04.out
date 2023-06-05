@@ -60,13 +60,13 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [A ], 
+{ text(body: [
+]), 
+  text(body: [A ]), 
   box(body: image(height: 1.0cm, 
                   path: "test/assets/files/tiger.jpg", 
                   width: 80%)), 
-  [ B], 
+  text(body: [ B]), 
   parbreak() }
 --- pandoc ---
 Pandoc

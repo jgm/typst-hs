@@ -82,19 +82,19 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   parbreak(), 
-  heading(body: { [Introduction ], 
-                  [] }, 
+  heading(body: { text(body: [Introduction ]), 
+                  text(body: []) }, 
           level: 1), 
-  [The beginning.], 
+  text(body: [The beginning.]), 
   parbreak(), 
-  heading(body: [Conclusion], 
+  heading(body: text(body: [Conclusion]), 
           level: 1), 
-  [The end.], 
+  text(body: [The end.]), 
   parbreak() }
 --- pandoc ---
 Pandoc

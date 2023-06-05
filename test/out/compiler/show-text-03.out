@@ -69,14 +69,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   parbreak(), 
-  [Treeworld, the ], 
-  [🌍], 
-  [ of worlds, is a ], 
-  [🌍], 
-  [.], 
+  text(body: [Treeworld, the ]), 
+  text(body: [🌍]), 
+  text(body: [ of worlds, is a ]), 
+  text(body: [🌍]), 
+  text(body: [.]), 
   parbreak() }
 --- pandoc ---
 Pandoc

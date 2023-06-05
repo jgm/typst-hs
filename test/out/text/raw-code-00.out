@@ -59,10 +59,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   text(body: [
 ], size: 6.0pt), 
   raw(block: true, 

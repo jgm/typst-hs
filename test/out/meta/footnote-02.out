@@ -95,22 +95,22 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [First ], 
+{ text(body: [
+]), 
+  text(body: [First ]), 
   linebreak(), 
-  [Second ], 
-  footnote(body: { [A, ], 
-                   footnote(body: { [B, ], 
-                                    footnote(body: [C]) }) }), 
-  [ ], 
+  text(body: [Second ]), 
+  footnote(body: { text(body: [A, ]), 
+                   footnote(body: { text(body: [B, ]), 
+                                    footnote(body: text(body: [C])) }) }), 
+  text(body: [ ]), 
   linebreak(), 
-  [Third ], 
-  footnote(body: { [D, ], 
-                   footnote(body: [E]) }), 
-  [ ], 
+  text(body: [Third ]), 
+  footnote(body: { text(body: [D, ]), 
+                   footnote(body: text(body: [E])) }), 
+  text(body: [ ]), 
   linebreak(), 
-  [Fourth], 
+  text(body: [Fourth]), 
   parbreak() }
 --- pandoc ---
 Pandoc

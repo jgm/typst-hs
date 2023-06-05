@@ -93,12 +93,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
+{ text(body: [
+]), 
+  text(body: [
 You could also make the
-], 
-  underline(body: text(body: link(body: [link look way more typical.], 
+]), 
+  underline(body: text(body: link(body: text(body: [link look way more typical.]), 
                                   dest: "https://html5zombo.com/"), 
                        fill: rgb(15%,21%,38%,100%))), 
   parbreak() }

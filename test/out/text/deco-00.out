@@ -151,22 +151,22 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   parbreak(), 
-  strike(body: [Statements dreamt up by the utterly deranged.]), 
+  strike(body: text(body: [Statements dreamt up by the utterly deranged.])), 
   parbreak(), 
-  underline(body: [Further below.], 
+  underline(body: text(body: [Further below.]), 
             offset: 5.0pt), 
   parbreak(), 
-  underline(body: [Critical information is conveyed here.], 
+  underline(body: text(body: [Critical information is conveyed here.]), 
             evade: false, 
             stroke: rgb(98%,0%,18%,100%)), 
   parbreak(), 
-  text(body: underline(body: [Change with the wind.]), 
+  text(body: underline(body: text(body: [Change with the wind.])), 
        fill: rgb(98%,0%,18%,100%)), 
   parbreak(), 
-  overline(body: underline(body: [Running amongst the wolves.])), 
+  overline(body: underline(body: text(body: [Running amongst the wolves.]))), 
   parbreak() }
 --- pandoc ---
 Pandoc

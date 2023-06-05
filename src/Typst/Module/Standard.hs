@@ -62,7 +62,9 @@ emojiModule = M.map VSymbol $ makeSymbolMap typstEmojis
 
 textual :: [(Identifier, Val)]
 textual =
-  [ makeTextElement Nothing "text"
+  [ makeElement Nothing "text" [("color", One TColor),
+                                ("size", One TLength),
+                                ("body", One (TContent :|: TString :|: TSymbol))]
   , makeElement Nothing "emph" [("body", One TContent)]
   , makeElement Nothing "linebreak" []
   , makeElement Nothing "strong" [("body", One TContent)]

@@ -58,8 +58,8 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   text(body: [
 My text has spaces.], 
        spacing: 1.0em), 

@@ -99,16 +99,16 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [High], 
-  [
-], 
-  [Wide], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [High]), 
+  text(body: [
+]), 
+  text(body: [Wide]), 
   parbreak(), 
-  [Flipped A11], 
+  text(body: [Flipped A11]), 
   parbreak() }
 --- pandoc ---
 Pandoc

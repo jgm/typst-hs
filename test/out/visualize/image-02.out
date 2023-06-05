@@ -91,10 +91,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   grid(children: (image(fit: "contain", 
                         height: 100%, 
                         path: "test/assets/files/tiger.jpg", 

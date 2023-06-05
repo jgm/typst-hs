@@ -59,22 +59,22 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   math.equation(block: true, 
-                body: { [ abc ], 
+                body: { text(body: [ abc ]), 
                         math.alignpoint(), 
-                        [=], 
-                        [c], 
+                        text(body: [=]), 
+                        text(body: [c]), 
                         linebreak(), 
                         math.alignpoint(), 
-                        [=], 
-                        [d], 
-                        [+], 
-                        [1], 
+                        text(body: [=]), 
+                        text(body: [d]), 
+                        text(body: [+]), 
+                        text(body: [1]), 
                         linebreak(), 
-                        [=], 
-                        [x] }, 
+                        text(body: [=]), 
+                        text(body: [x]) }, 
                 numbering: none), 
   parbreak() }
 --- pandoc ---

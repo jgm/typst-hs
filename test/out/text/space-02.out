@@ -53,12 +53,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [A], 
-  text(body: [ ], 
+{ text(body: [
+]), 
+  text(body: [A]), 
+  text(body: text(body: [ ]), 
        font: "IBM Plex Serif"), 
-  [B], 
+  text(body: [B]), 
   parbreak() }
 --- pandoc ---
 Pandoc

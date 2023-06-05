@@ -92,20 +92,24 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   table(align: (left, 
                 center, 
                 right), 
-        children: ([A], [B], [C]), 
+        children: (text(body: [A]), 
+                   text(body: [B]), 
+                   text(body: [C])), 
         columns: (1.0fr, 
                   1.0fr, 
                   1.0fr)), 
   parbreak(), 
-  [
-], 
+  text(body: [
+]), 
   table(align: (), 
-        children: ([A], [B], [C]), 
+        children: (text(body: [A]), 
+                   text(body: [B]), 
+                   text(body: [C])), 
         columns: (1.0fr, 
                   1.0fr, 
                   1.0fr)), 

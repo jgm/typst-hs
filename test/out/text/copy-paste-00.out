@@ -61,8 +61,8 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-The after fira 🏳️‍🌈!], 
+{ text(body: [
+The after fira 🏳️‍🌈!]), 
   parbreak(), 
   text(body: [
 مرحبًا], 

@@ -93,22 +93,22 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   parbreak(), 
-  [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do], 
-  [
-], 
+  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do]), 
+  text(body: [
+]), 
   block(fill: rgb(49%,85%,100%,100%), 
         height: 60.0pt, 
         width: 80%), 
-  [
-], 
-  [Lorem ipsum dolor sit amet, consectetur], 
-  [
-], 
+  text(body: [
+]), 
+  text(body: [Lorem ipsum dolor sit amet, consectetur]), 
+  text(body: [
+]), 
   block(body: { [Lorem ipsum dolor sit amet, consectetur adipiscing elit,], 
                 colbreak() }, 
         breakable: false, 

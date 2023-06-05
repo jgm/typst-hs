@@ -57,13 +57,13 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [Text ], 
-  [], 
-  [
-], 
-  link(body: [Go to text.], 
+{ text(body: [
+]), 
+  text(body: [Text ]), 
+  text(body: []), 
+  text(body: [
+]), 
+  link(body: text(body: [Go to text.]), 
        dest: ), 
   parbreak() }
 --- pandoc ---

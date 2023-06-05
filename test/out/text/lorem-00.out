@@ -48,9 +48,9 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.], 
+{ text(body: [
+]), 
+  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.]), 
   parbreak() }
 --- pandoc ---
 Pandoc

@@ -60,13 +60,13 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   math.equation(block: true, 
-                body: math.vec(children: ([1], 
-                                          [2]), 
+                body: math.vec(children: (text(body: [1]), 
+                                          text(body: [2])), 
                                delim: "["), 
                 numbering: none), 
   parbreak() }

@@ -51,9 +51,9 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [This is a spaceexceedinglylongy.], 
+{ text(body: [
+]), 
+  text(body: [This is a spaceexceedinglylongy.]), 
   parbreak() }
 --- pandoc ---
 Pandoc

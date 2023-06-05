@@ -170,36 +170,36 @@
 , Comment
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   parbreak(), 
-  [Lorem ipsum dolor sit amet,], 
-  [
-], 
-  footnote(body: { [ ], 
-                   [ A simple footnote.
-], 
-                   footnote(body: [Well, not that simple …]), 
-                   [ ] }), 
-  [
-], 
-  [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore], 
-  [
-], 
-  footnote(body: { [Another footnote: ], 
-                   [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi] }), 
-  [ ], 
-  [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore], 
-  [
-], 
-  footnote(body: { [My fourth footnote: ], 
-                   [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat] }), 
-  [ ], 
-  [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore], 
-  [
-], 
-  footnote(body: [And a final footnote.]), 
-  [ ] }
+  text(body: [Lorem ipsum dolor sit amet,]), 
+  text(body: [
+]), 
+  footnote(body: { text(body: [ ]), 
+                   text(body: [ A simple footnote.
+]), 
+                   footnote(body: text(body: [Well, not that simple …])), 
+                   text(body: [ ]) }), 
+  text(body: [
+]), 
+  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore]), 
+  text(body: [
+]), 
+  footnote(body: { text(body: [Another footnote: ]), 
+                   text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi]) }), 
+  text(body: [ ]), 
+  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore]), 
+  text(body: [
+]), 
+  footnote(body: { text(body: [My fourth footnote: ]), 
+                   text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat]) }), 
+  text(body: [ ]), 
+  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore]), 
+  text(body: [
+]), 
+  footnote(body: text(body: [And a final footnote.])), 
+  text(body: [ ]) }
 --- pandoc ---
 Pandoc
   Meta { unMeta = fromList [] }

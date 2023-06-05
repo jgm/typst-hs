@@ -69,21 +69,21 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   math.equation(block: false, 
-                body: { text(body: [f], 
+                body: { text(body: text(body: [f]), 
                              font: "Noto Sans"), 
-                        [:], 
-                        [=], 
-                        text(body: { [Hi], 
-                                     [ ], 
-                                     [there] }, 
+                        text(body: [:]), 
+                        text(body: [=]), 
+                        text(body: { text(body: [Hi]), 
+                                     text(body: [ ]), 
+                                     text(body: [there]) }, 
                              font: "Noto Sans") }, 
                 numbering: none), 
-  [.], 
+  text(body: [.]), 
   parbreak() }
 --- pandoc ---
 Pandoc

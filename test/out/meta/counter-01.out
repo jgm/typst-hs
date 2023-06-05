@@ -110,27 +110,27 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [ ], 
-  [], 
-  [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [ ]), 
+  text(body: []), 
+  text(body: [
+]), 
+  text(body: [
+]), 
   parbreak(), 
-  box(body: [hey, there!]), 
-  [ ], 
-  [], 
-  [ ], 
-  [0], 
-  [ ], 
+  box(body: text(body: [hey, there!])), 
+  text(body: [ ]), 
+  text(body: []), 
+  text(body: [ ]), 
+  text(body: [0]), 
+  text(body: [ ]), 
   linebreak(), 
-  box(body: [more here!]), 
-  [ ], 
-  [], 
-  [ ], 
-  [0], 
+  box(body: text(body: [more here!])), 
+  text(body: [ ]), 
+  text(body: []), 
+  text(body: [ ]), 
+  text(body: [0]), 
   parbreak() }
 --- pandoc ---
 Pandoc

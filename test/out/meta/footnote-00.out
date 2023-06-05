@@ -47,9 +47,9 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  footnote(body: [Hi]), 
+{ text(body: [
+]), 
+  footnote(body: text(body: [Hi])), 
   parbreak() }
 --- pandoc ---
 Pandoc

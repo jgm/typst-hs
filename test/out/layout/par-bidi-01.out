@@ -93,17 +93,17 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   text(body: [
 ], 
        font: ("PT Sans", 
               "Noto Sans Arabic")), 
-  text(body: par(body: { [أنت A], 
-                         emph(body: [B]), 
-                         [مطرC] }), 
+  text(body: par(body: { text(body: [أنت A]), 
+                         emph(body: text(body: [B])), 
+                         text(body: [مطرC]) }), 
        font: ("PT Sans", 
               "Noto Sans Arabic"), 
        lang: "ar"), 
@@ -111,9 +111,9 @@
 ], 
        font: ("PT Sans", 
               "Noto Sans Arabic")), 
-  text(body: par(body: { [أنت A], 
-                         emph(body: [B]), 
-                         [مطرC] }), 
+  text(body: par(body: { text(body: [أنت A]), 
+                         emph(body: text(body: [B])), 
+                         text(body: [مطرC]) }), 
        font: ("PT Sans", 
               "Noto Sans Arabic"), 
        lang: "de"), 

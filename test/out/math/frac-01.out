@@ -59,23 +59,23 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   math.equation(block: true, 
-                body: { math.frac(denom: [2], 
+                body: { math.frac(denom: text(body: [2]), 
                                   num: { math.lr(body: ({ [|], 
-                                                          [x], 
+                                                          text(body: [x]), 
                                                           [|] })), 
-                                         [+], 
+                                         text(body: [+]), 
                                          math.lr(body: ({ [|], 
-                                                          [y], 
+                                                          text(body: [y]), 
                                                           [|] })) }), 
-                        [<], 
-                        math.frac(denom: [3], 
+                        text(body: [<]), 
+                        math.frac(denom: text(body: [3]), 
                                   num: math.lr(body: ({ [[], 
-                                                        [1], 
-                                                        [+], 
-                                                        [2], 
+                                                        text(body: [1]), 
+                                                        text(body: [+]), 
+                                                        text(body: [2]), 
                                                         []] }))) }, 
                 numbering: none), 
   parbreak() }

@@ -68,12 +68,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [A B C ], 
+{ text(body: [
+]), 
+  text(body: [A B C ]), 
   linebreak(justify: true), 
-  [
-D E F ], 
+  text(body: [
+D E F ]), 
   linebreak(justify: true), 
   parbreak() }
 --- pandoc ---

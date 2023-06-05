@@ -91,34 +91,34 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   math.equation(block: false, 
-                body: math.sqrt(radicand: [x]), 
+                body: math.sqrt(radicand: text(body: [x])), 
                 numbering: none), 
-  [
-], 
+  text(body: [
+]), 
   math.equation(block: false, 
-                body: math.root(index: [2], 
-                                radicand: [x]), 
+                body: math.root(index: text(body: [2]), 
+                                radicand: text(body: [x])), 
                 numbering: none), 
-  [
-], 
+  text(body: [
+]), 
   math.equation(block: false, 
-                body: math.root(index: [3], 
-                                radicand: [x]), 
+                body: math.root(index: text(body: [3]), 
+                                radicand: text(body: [x])), 
                 numbering: none), 
-  [
-], 
+  text(body: [
+]), 
   math.equation(block: false, 
-                body: math.root(index: [4], 
-                                radicand: [x]), 
+                body: math.root(index: text(body: [4]), 
+                                radicand: text(body: [x])), 
                 numbering: none), 
-  [
-], 
+  text(body: [
+]), 
   math.equation(block: false, 
-                body: math.root(index: [5], 
-                                radicand: [x]), 
+                body: math.root(index: text(body: [5]), 
+                                radicand: text(body: [x])), 
                 numbering: none), 
   parbreak() }
 --- pandoc ---

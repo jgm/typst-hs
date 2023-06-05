@@ -53,15 +53,15 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [👩‍👩‍👦], 
+{ text(body: [
+]), 
+  text(body: [👩‍👩‍👦]), 
   parbreak(), 
-  [🏳️‍🌈], 
+  text(body: [🏳️‍🌈]), 
   parbreak(), 
-  [👍🏿], 
+  text(body: [👍🏿]), 
   parbreak(), 
-  [1️⃣], 
+  text(body: [1️⃣]), 
   parbreak() }
 --- pandoc ---
 Pandoc

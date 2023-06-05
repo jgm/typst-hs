@@ -65,20 +65,21 @@
 , EnumListItem Nothing [ Text "Normal" , ParBreak ]
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  enum(children: ([First], 
-                  { [Second
-], 
-                    enum(children: ({ [Nested
-], 
-                                      enum(children: ([Deep]), 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  enum(children: (text(body: [First]), 
+                  { text(body: [Second
+]), 
+                    enum(children: ({ text(body: [Nested
+]), 
+                                      enum(children: (text(body: [Deep])), 
                                            numbering: "(1.a.*)") }), 
                          numbering: "(1.a.*)", 
                          start: 2) }, 
-                  { [Normal], parbreak() }), 
+                  { text(body: [Normal]), 
+                    parbreak() }), 
        numbering: "(1.a.*)") }
 --- pandoc ---
 Pandoc

@@ -93,22 +93,22 @@
     ]
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   parbreak(), 
-  list(children: ([Fruit])), 
-  [
-], 
-  [
-], 
-  list(children: ([Apple], 
-                  [Orange])), 
+  list(children: (text(body: [Fruit]))), 
+  text(body: [
+]), 
+  text(body: [
+]), 
+  list(children: (text(body: [Apple]), 
+                  text(body: [Orange]))), 
   list(body-indent: 20.0pt, 
-       children: ([Pear])), 
+       children: (text(body: [Pear]))), 
   parbreak(), 
-  [
-], 
-  list(children: ({ [No more fruit], 
+  text(body: [
+]), 
+  list(children: ({ text(body: [No more fruit]), 
                     parbreak() }), 
        indent: 10.0pt) }
 --- pandoc ---

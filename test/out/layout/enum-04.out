@@ -64,13 +64,13 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [1.2 ], 
+{ text(body: [
+]), 
+  text(body: [1.2 ]), 
   linebreak(), 
-  [This is 0. ], 
+  text(body: [This is 0. ]), 
   linebreak(), 
-  [See 0.3. ], 
+  text(body: [See 0.3. ]), 
   linebreak(), 
   parbreak() }
 --- pandoc ---

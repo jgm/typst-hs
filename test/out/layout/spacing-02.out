@@ -70,8 +70,8 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   text(body: [
 A ], dir: rtl), 
   h(amount: 10.0pt), 

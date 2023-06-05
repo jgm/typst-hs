@@ -68,11 +68,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   parbreak(), 
-  [Interacting
-], 
+  text(body: [Interacting
+]), 
   text(body: { text(body: [
 Blue ], 
                     color: rgb(0%,45%,85%,100%)), 

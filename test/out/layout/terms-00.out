@@ -59,11 +59,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  terms(children: (([One], 
-                    [First]), 
-                   ([Two], [Second]))), 
+{ text(body: [
+]), 
+  terms(children: ((text(body: [One]), 
+                    text(body: [First])), 
+                   (text(body: [Two]), 
+                    text(body: [Second])))), 
   parbreak() }
 --- pandoc ---
 Pandoc

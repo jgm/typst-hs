@@ -134,17 +134,17 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
   parbreak(), 
-  [This text is justified, meaning that spaces are stretched so that the text
-forms a “block” with flush edges at both sides.], 
+  text(body: [This text is justified, meaning that spaces are stretched so that the text
+forms a “block” with flush edges at both sides.]), 
   parbreak(), 
-  [First line indents and hyphenation play nicely with justified text.], 
+  text(body: [First line indents and hyphenation play nicely with justified text.]), 
   parbreak() }
 --- pandoc ---
 Pandoc

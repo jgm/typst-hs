@@ -69,18 +69,18 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   math.equation(block: false, 
-                body: { math.floor(body: math.frac(denom: [2], 
-                                                   num: [x])), 
-                        [,], 
-                        math.ceil(body: math.frac(denom: [2], 
-                                                  num: [x])), 
-                        [,], 
-                        math.abs(body: [x]), 
-                        [,], 
-                        math.norm(body: [x]) }, 
+                body: { math.floor(body: math.frac(denom: text(body: [2]), 
+                                                   num: text(body: [x]))), 
+                        text(body: [,]), 
+                        math.ceil(body: math.frac(denom: text(body: [2]), 
+                                                  num: text(body: [x]))), 
+                        text(body: [,]), 
+                        math.abs(body: text(body: [x])), 
+                        text(body: [,]), 
+                        math.norm(body: text(body: [x])) }, 
                 numbering: none), 
   parbreak() }
 --- pandoc ---

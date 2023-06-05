@@ -55,15 +55,15 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   math.equation(block: true, 
-                body: { [よ], 
-                        [∧], 
-                        [🏳], 
-                        [️], 
-                        [‍], 
-                        [🌈] }, 
+                body: { text(body: [よ]), 
+                        text(body: [∧]), 
+                        text(body: [🏳]), 
+                        text(body: [️]), 
+                        text(body: [‍]), 
+                        text(body: [🌈]) }, 
                 numbering: none), 
   parbreak() }
 --- pandoc ---

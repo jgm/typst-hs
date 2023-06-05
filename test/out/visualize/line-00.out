@@ -118,24 +118,22 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  box(body: { place(alignment: none, 
-                    body: line(end: (0.4em, 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  box(body: { place(body: line(end: (0.4em, 
                                      0.0pt), 
                                stroke: 0.75pt)), 
-              place(alignment: none, 
-                    body: line(end: (0.0pt, 
+              place(body: line(end: (0.0pt, 
                                      0.0pt), 
                                start: (0.0pt, 0.4em), 
                                stroke: 0.75pt)), 
               line(end: (0.6em, 0.6em), 
                    stroke: 0.75pt) }), 
-  [ Hello ], 
+  text(body: [ Hello ]), 
   box(body: line(length: 1.0cm)), 
-  [!], 
+  text(body: [!]), 
   parbreak(), 
   line(end: (70%, 50%)), 
   parbreak() }

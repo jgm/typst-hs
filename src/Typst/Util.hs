@@ -6,7 +6,6 @@ module Typst.Util (
       TypeSpec(..)
     , makeElement
     , makeElementWithScope
-    , makeTextElement
     , makeFunction
     , makeFunctionWithScope
     , makeSymbolMap
@@ -68,6 +67,7 @@ argsToFields specs args' =
  where
    hasType' TContent VContent{} = True
    hasType' TContent VString{} = True
+   hasType' TContent VSymbol{} = True
    hasType' TString (VContent _) = True
    hasType' TTermItem VArray{} = True
    hasType' x y = hasType x y
@@ -89,34 +89,8 @@ argsToFields specs args' =
        (as, b:bs) ->
          pure $ args { named = insertOM posname (toType ty b) (named args)
                      , positional = as ++ bs }
-       (a:as, [])
-         | hasType' ty VNone
-         -> pure $ args{ named = insertOM posname VNone (named args)
-                       , positional = a:as }
-         | otherwise -> fail $ "Unexpected argument: " <> show a
-
--- The text element seems to need special treatment; you can do
--- text(24pt, blue, [hi]) instead of text(size: 24pt, etc....)
-makeTextElement :: Maybe Identifier -> Identifier -> (Identifier, Val)
-makeTextElement mbNamespace name =
-  (name, VFunction (Just qname) mempty $ Function $ \args ->
-     case (positional args, named args) of
-       ([VContent cs], m) | OM.null m -> pure $ VContent cs
-       (posargs, _) -> do
-         pos <- getPosition
-         fields <- OM.toMap . named
-                    <$> foldM go args{ positional = []} posargs
-         pure $ VContent . Seq.singleton $ Elt qname (Just pos) fields)
- where
-  qname = case mbNamespace of
-             Nothing -> name
-             Just ns -> ns <> "." <> name
-  go args x@(VContent{}) = pure $ args{ named = insertOM "body" x (named args) }
-  go args x@(VString{}) = pure $ args{ named = insertOM "body" x (named args) }
-  go args x@(VSymbol{}) = pure $ args{ named = insertOM "body" x (named args) }
-  go args x@(VLength{}) = pure $ args{ named = insertOM "size" x (named args) }
-  go args x@(VColor{}) = pure $ args{ named = insertOM "color" x (named args) }
-  go _ x = fail $ "Unexpected argument: " <> show x
+       (_, [])
+         -> pure args
 
 makeFunction ::
   (forall m'. Monad m' => ReaderT Arguments (MP m') Val) -> Val

@@ -57,13 +57,13 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [الغالب ], 
+{ text(body: [
+]), 
+  text(body: [الغالب ]), 
   h(amount: 70.0pt), 
-  [ ن], 
-  [ ], 
-  [ة], 
+  text(body: [ ن]), 
+  text(body: [ ]), 
+  text(body: [ة]), 
   parbreak() }
 --- pandoc ---
 Pandoc

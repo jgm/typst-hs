@@ -59,12 +59,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [I’m in], 
-  text(body: [ spaace], 
+{ text(body: [
+]), 
+  text(body: [I’m in]), 
+  text(body: text(body: [ spaace]), 
        tracking: 0.15em + 1.5pt), 
-  [!], 
+  text(body: [!]), 
   parbreak() }
 --- pandoc ---
 Pandoc

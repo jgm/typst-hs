@@ -69,14 +69,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   square(width: 100%), 
-  [
-], 
-  square(body: [Hello there], 
+  text(body: [
+]), 
+  square(body: text(body: [Hello there]), 
          width: 100%), 
   parbreak() }
 --- pandoc ---

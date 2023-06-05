@@ -113,23 +113,23 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [
-], 
-  block(body: { [
-], 
-                [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt], 
-                [
-], 
-                box(body: [tempor], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
+  block(body: { text(body: [
+]), 
+                text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt]), 
+                text(body: [
+]), 
+                box(body: text(body: [tempor]), 
                     fill: rgb(22%,80%,80%,100%), 
                     outset: 2.0pt), 
-                [
-], 
-                [ut labore et dolore magna], 
+                text(body: [
+]), 
+                text(body: [ut labore et dolore magna]), 
                 parbreak() }, 
         fill: rgb(49%,85%,100%,100%), 
         inset: 8.0pt, 

@@ -47,8 +47,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], rect(), parbreak() }
+{ text(body: [
+]), 
+  rect(), 
+  parbreak() }
 --- pandoc ---
 Pandoc
   Meta { unMeta = fromList [] }

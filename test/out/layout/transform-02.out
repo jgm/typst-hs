@@ -59,8 +59,8 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   rotate(angle: 10.0deg, 
          body: image(path: "test/assets/files/tiger.jpg", 
                      width: 50%), 

@@ -72,15 +72,15 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor]), 
   parbreak(), 
-  heading(body: [Introduction], 
+  heading(body: text(body: [Introduction]), 
           level: 1), 
-  [This is the start and it goes on.], 
+  text(body: [This is the start and it goes on.]), 
   parbreak() }
 --- pandoc ---
 Pandoc

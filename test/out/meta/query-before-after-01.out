@@ -169,18 +169,18 @@
   heading(body: [A], 
           numbering: "1.", 
           outlined: false), 
-  [
-], 
+  text(body: [
+]), 
   heading(body: [B], 
           numbering: "1.", 
           outlined: true), 
-  [
-], 
+  text(body: [
+]), 
   heading(body: [C], 
           numbering: "1.", 
           outlined: true), 
-  [
-], 
+  text(body: [
+]), 
   heading(body: [D], 
           numbering: "1.", 
           outlined: false), 

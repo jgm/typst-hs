@@ -64,11 +64,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   parbreak(), 
   figure(body: image(path: "test/assets/files/diagram.svg"), 
-         caption: [A textful diagram]), 
+         caption: text(body: [A textful diagram])), 
   parbreak() }
 --- pandoc ---
 Pandoc

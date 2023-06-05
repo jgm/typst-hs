@@ -119,25 +119,25 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   link(body: [https://example.com/], 
        dest: "https://example.com/"), 
   parbreak(), 
-  link(body: [Some text text text], 
+  link(body: text(body: [Some text text text]), 
        dest: "https://typst.org/"), 
   parbreak(), 
-  [This link appears ], 
-  link(body: [in the middle of], 
+  text(body: [This link appears ]), 
+  link(body: text(body: [in the middle of]), 
        dest: "https://google.com/"), 
-  [ a paragraph.], 
+  text(body: [ a paragraph.]), 
   parbreak(), 
-  [Contact ], 
+  text(body: [Contact ]), 
   link(dest: "mailto:hi@typst.app"), 
-  [ or
-call ], 
+  text(body: [ or
+call ]), 
   link(dest: "tel:123"), 
-  [ for more information.], 
+  text(body: [ for more information.]), 
   parbreak() }
 --- pandoc ---
 Pandoc

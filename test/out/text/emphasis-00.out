@@ -70,17 +70,17 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  emph(body: { [Emphasized and ], 
-               strong(body: [strong]), 
-               [ words!] }), 
+{ text(body: [
+]), 
+  emph(body: { text(body: [Emphasized and ]), 
+               strong(body: text(body: [strong])), 
+               text(body: [ words!]) }), 
   parbreak(), 
-  [hello_world Nutzer*innen], 
+  text(body: [hello_world Nutzer*innen]), 
   parbreak(), 
-  emph(body: { [Still ], 
+  emph(body: { text(body: [Still ]), 
                parbreak(), 
-               [ emphasized.] }), 
+               text(body: [ emphasized.]) }), 
   parbreak() }
 --- pandoc ---
 Pandoc

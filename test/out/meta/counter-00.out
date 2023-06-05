@@ -159,32 +159,32 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   parbreak(), 
-  [Final: ], 
+  text(body: [Final: ]), 
   locate(func: ), 
-  [ ], 
+  text(body: [ ]), 
   linebreak(), 
-  [
-First: ], 
-  [1], 
-  [ ], 
+  text(body: [
+First: ]), 
+  text(body: [1]), 
+  text(body: [ ]), 
   linebreak(), 
-  [
-], 
-  [7], 
-  [ ], 
+  text(body: [
+]), 
+  text(body: [7]), 
+  text(body: [ ]), 
   linebreak(), 
-  [
-], 
-  [
-Second: ], 
-  [9], 
-  [
-], 
-  [
-], 
+  text(body: [
+]), 
+  text(body: [
+Second: ]), 
+  text(body: [9]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
   parbreak() }
 --- pandoc ---
 Pandoc

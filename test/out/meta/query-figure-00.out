@@ -233,28 +233,28 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   parbreak(), 
-  [
-], 
+  text(body: [
+]), 
   parbreak(), 
-  heading(body: [List of Figures], 
+  heading(body: text(body: [List of Figures]), 
           level: 1), 
   locate(func: ), 
   parbreak(), 
   figure(body: image(path: "test/assets/files/glacier.jpg"), 
-         caption: [Glacier melting], 
+         caption: text(body: [Glacier melting]), 
          numbering: "I"), 
   parbreak(), 
-  figure(body: rect(body: [Just some stand-in text]), 
-         caption: [Stand-in text], 
+  figure(body: rect(body: text(body: [Just some stand-in text])), 
+         caption: text(body: [Stand-in text]), 
          kind: , 
          numbering: "I", 
          supplement: "Figure"), 
   parbreak(), 
   figure(body: image(path: "test/assets/files/tiger.jpg"), 
-         caption: [Tiger world], 
+         caption: text(body: [Tiger world]), 
          numbering: "I"), 
   parbreak() }
 --- pandoc ---

@@ -67,15 +67,16 @@
 , EnumListItem Nothing [ Text "C" , ParBreak ]
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  enum(children: ({ [A
-], 
-                    enum(children: ([B]), 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  enum(children: ({ text(body: [A
+]), 
+                    enum(children: (text(body: [B])), 
                          numbering: ) }, 
-                  { [C], parbreak() }), 
+                  { text(body: [C]), 
+                    parbreak() }), 
        numbering: ) }
 --- pandoc ---
 Pandoc

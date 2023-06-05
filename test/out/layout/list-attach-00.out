@@ -63,14 +63,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [Attached to:
-], 
-  list(children: ([the bottom], 
-                  [of the paragraph
-])), 
-  [Next paragraph.], 
+{ text(body: [
+]), 
+  text(body: [Attached to:
+]), 
+  list(children: (text(body: [the bottom]), 
+                  text(body: [of the paragraph
+]))), 
+  text(body: [Next paragraph.]), 
   parbreak() }
 --- pandoc ---
 Pandoc

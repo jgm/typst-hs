@@ -77,8 +77,8 @@
     ]
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   text(body: [
 ], size: 8.0pt), 
   terms(children: ((text(body: [First list], 

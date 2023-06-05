@@ -107,11 +107,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   text(body: [
-], 
-       font: "Roboto"), 
+]), 
   text(body: [
 ], 
        font: "Roboto"), 

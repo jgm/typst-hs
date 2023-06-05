@@ -47,12 +47,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   raw(block: true, 
       lang: "typ", 
       text: "#let x = 1"), 
-  [ ], 
+  text(body: [ ]), 
   linebreak(), 
   raw(block: true, 
       lang: "typ", 

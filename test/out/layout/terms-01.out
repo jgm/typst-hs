@@ -75,27 +75,27 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  terms(children: (([Lorem], 
-                    { [Latin stuff.], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  terms(children: ((text(body: [Lorem]), 
+                    { text(body: [Latin stuff.]), 
                       parbreak() }))), 
-  [
-], 
-  terms(children: (([ipsum], 
-                    { [Latin stuff.], 
+  text(body: [
+]), 
+  terms(children: ((text(body: [ipsum]), 
+                    { text(body: [Latin stuff.]), 
                       parbreak() }))), 
-  [
-], 
-  terms(children: (([dolor], 
-                    { [Latin stuff.], 
+  text(body: [
+]), 
+  terms(children: ((text(body: [dolor]), 
+                    { text(body: [Latin stuff.]), 
                       parbreak() }))), 
-  [
-], 
-  terms(children: (([sit], 
-                    { [Latin stuff.], 
+  text(body: [
+]), 
+  terms(children: ((text(body: [sit]), 
+                    { text(body: [Latin stuff.]), 
                       parbreak() }))), 
   parbreak() }
 --- pandoc ---

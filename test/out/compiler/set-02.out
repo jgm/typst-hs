@@ -91,10 +91,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   text(body: [
 ], 
        fill: rgb(13%,61%,67%,100%), 

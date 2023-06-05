@@ -80,25 +80,25 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   parbreak(), 
-  [A
-], 
+  text(body: [A
+]), 
   colbreak(), 
-  [
-], 
+  text(body: [
+]), 
   colbreak(), 
-  [
+  text(body: [
 B
-], 
+]), 
   pagebreak(), 
-  [
+  text(body: [
 C
-], 
+]), 
   colbreak(), 
-  [
-D], 
+  text(body: [
+D]), 
   parbreak() }
 --- pandoc ---
 Pandoc

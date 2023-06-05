@@ -86,13 +86,13 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   grid(children: ({  }, 
                   align(alignment: center, 
-                        body: [A bit more to the top]), 
+                        body: text(body: [A bit more to the top])), 
                   {  }), 
        columns: (1.0fr), 
        rows: (1.0fr, auto, 2.0fr)), 

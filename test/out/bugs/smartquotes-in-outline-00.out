@@ -71,13 +71,13 @@
     ]
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   outline(), 
   parbreak(), 
-  heading(body: [“This” “is” “a” “test”], 
+  heading(body: text(body: [“This” “is” “a” “test”]), 
           level: 1) }
 --- pandoc ---
 Pandoc

@@ -151,10 +151,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   parbreak(), 
   text(body: [Welcome to wonderful experiences. ], 
        hyphenate: true), 

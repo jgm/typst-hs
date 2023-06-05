@@ -91,14 +91,15 @@
 , EnumListItem Nothing [ Text "Tiger" , ParBreak ]
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   parbreak(), 
-  enum(children: ([Monkey], 
-                  [Rhino], 
-                  { [Tiger], parbreak() }), 
+  enum(children: (text(body: [Monkey]), 
+                  text(body: [Rhino]), 
+                  { text(body: [Tiger]), 
+                    parbreak() }), 
        numbering: ) }
 --- pandoc ---
 Pandoc

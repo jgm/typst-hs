@@ -48,9 +48,9 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  smallcaps(body: [Smallcaps]), 
+{ text(body: [
+]), 
+  smallcaps(body: text(body: [Smallcaps])), 
   parbreak() }
 --- pandoc ---
 Pandoc

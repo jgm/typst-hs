@@ -62,10 +62,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   square(body: rect(height: 80%, 
                     width: 60%), 
          width: 40%), 

@@ -71,21 +71,21 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [Normal], 
+{ text(body: [
+]), 
+  text(body: [Normal]), 
   parbreak(), 
-  [
-], 
-  strong(body: [Bold], 
+  text(body: [
+]), 
+  strong(body: text(body: [Bold]), 
          delta: 300), 
   parbreak(), 
-  [
-], 
-  strong(body: [Medium], 
+  text(body: [
+]), 
+  strong(body: text(body: [Medium]), 
          delta: 150), 
-  [ and ], 
-  strong(body: strong(body: [Bold], 
+  text(body: [ and ]), 
+  strong(body: strong(body: text(body: [Bold]), 
                       delta: 150), 
          delta: 150), 
   parbreak() }

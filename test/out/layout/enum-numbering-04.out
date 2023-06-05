@@ -86,8 +86,8 @@
 , EnumListItem Nothing [ Text "F" , ParBreak ]
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   text(body: [
 ], 
        font: "New Computer Modern"), 

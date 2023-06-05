@@ -83,19 +83,19 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [Hello, ], 
-  [my fri], 
-  [end.], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [Hello, ]), 
+  text(body: [my fri]), 
+  text(body: [end.]), 
   parbreak(), 
-  [How], 
-  [ are], 
-  [ ], 
-  [you], 
-  [?], 
+  text(body: [How]), 
+  text(body: [ are]), 
+  text(body: [ ]), 
+  text(body: [you]), 
+  text(body: [?]), 
   parbreak() }
 --- pandoc ---
 Pandoc

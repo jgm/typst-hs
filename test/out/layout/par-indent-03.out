@@ -64,12 +64,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-Welcome ], 
+{ text(body: [
+]), 
+  text(body: [
+Welcome ]), 
   linebreak(), 
-  [here. Does this work well?], 
+  text(body: [here. Does this work well?]), 
   parbreak() }
 --- pandoc ---
 Pandoc

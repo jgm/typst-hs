@@ -66,12 +66,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  footnote(body: { [A, ], 
-                   footnote(body: [B]) }), 
-  [, ], 
-  footnote(body: [C]), 
+{ text(body: [
+]), 
+  footnote(body: { text(body: [A, ]), 
+                   footnote(body: text(body: [B])) }), 
+  text(body: [, ]), 
+  footnote(body: text(body: [C])), 
   parbreak() }
 --- pandoc ---
 Pandoc

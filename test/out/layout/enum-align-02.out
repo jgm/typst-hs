@@ -74,22 +74,23 @@
     ]
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   parbreak(), 
-  enum(children: ([ c], 
-                  [ d], 
-                  { [e], 
+  enum(children: (text(body: [ c]), 
+                  text(body: [ d]), 
+                  { text(body: [e]), 
                     linebreak(), 
-                    [f
-], 
-                    enum(children: ({ [ f], 
+                    text(body: [f
+]), 
+                    enum(children: ({ text(body: [ f]), 
                                       linebreak(), 
-                                      [g] }, 
-                                    [g], 
-                                    { [h], parbreak() }), 
+                                      text(body: [g]) }, 
+                                    text(body: [g]), 
+                                    { text(body: [h]), 
+                                      parbreak() }), 
                          number-align: start, 
                          start: 2) }), 
        number-align: start, 

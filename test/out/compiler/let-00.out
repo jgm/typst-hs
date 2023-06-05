@@ -96,21 +96,21 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [✅], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [✅]), 
   parbreak(), 
-  [
-], 
-  [✅], 
+  text(body: [
+]), 
+  text(body: [✅]), 
   parbreak(), 
-  [
-], 
-  [
-], 
-  rect(body: [Hi!], 
+  text(body: [
+]), 
+  text(body: [
+]), 
+  rect(body: text(body: [Hi!]), 
        fill: rgb(18%,80%,25%,100%), 
        inset: 5.0pt, 
        width: 2.0cm), 

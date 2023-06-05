@@ -253,52 +253,52 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   parbreak(), 
-  [
-], 
-  [Name], 
-  [: ], 
-  [Typst], 
-  [.], 
+  text(body: [
+]), 
+  text(body: [Name]), 
+  text(body: [: ]), 
+  text(body: [Typst]), 
+  text(body: [.]), 
   parbreak(), 
-  [
-], 
-  [Age], 
-  [: ], 
-  [2], 
-  [.], 
+  text(body: [
+]), 
+  text(body: [Age]), 
+  text(body: [: ]), 
+  text(body: [2]), 
+  text(body: [.]), 
   parbreak(), 
   parbreak(), 
-  [[], 
-  [1], 
-  [st], 
-  [, ], 
-  [2], 
-  [nd], 
-  [, ], 
-  [3], 
-  [rd], 
-  [, ], 
-  [4], 
-  [th], 
-  []], 
+  text(body: [[]), 
+  text(body: [1]), 
+  text(body: [st]), 
+  text(body: [, ]), 
+  text(body: [2]), 
+  text(body: [nd]), 
+  text(body: [, ]), 
+  text(body: [3]), 
+  text(body: [rd]), 
+  text(body: [, ]), 
+  text(body: [4]), 
+  text(body: [th]), 
+  text(body: []]), 
   parbreak(), 
-  [2], 
-  [3], 
-  [4], 
-  [5], 
+  text(body: [2]), 
+  text(body: [3]), 
+  text(body: [4]), 
+  text(body: [5]), 
   parbreak(), 
-  [
-], 
-  [
-], 
-  [
-], 
-  [1, "a": 2], 
+  text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [1, "a": 2]), 
   parbreak() }
 --- pandoc ---
 Pandoc

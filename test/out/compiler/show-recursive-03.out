@@ -84,20 +84,20 @@
 , BulletListItem [ Text "Recursive!" , ParBreak ]
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
   parbreak(), 
-  block(body: list(children: ({ [List
-], 
-                                block(body: block(body: list(children: ([Nested], 
-                                                                        [List])))) }, 
-                              { [Recursive!], 
+  block(body: list(children: ({ text(body: [List
+]), 
+                                block(body: block(body: list(children: (text(body: [Nested]), 
+                                                                        text(body: [List]))))) }, 
+                              { text(body: [Recursive!]), 
                                 parbreak() }))) }
 --- pandoc ---
 Pandoc

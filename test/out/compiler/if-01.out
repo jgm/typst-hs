@@ -138,27 +138,27 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-One.], 
+{ text(body: [
+]), 
+  text(body: [
+One.]), 
   parbreak(), 
   parbreak(), 
-  [
-Two.], 
+  text(body: [
+Two.]), 
   parbreak(), 
   parbreak(), 
-  [Three.], 
+  text(body: [Three.]), 
   parbreak(), 
-  [Four.], 
+  text(body: [Four.]), 
   parbreak(), 
-  [Fi], 
-  [ve.], 
+  text(body: [Fi]), 
+  text(body: [ve.]), 
   parbreak(), 
-  [
-], 
-  [
-Six.], 
+  text(body: [
+]), 
+  text(body: [
+Six.]), 
   parbreak(), 
   parbreak() }
 --- pandoc ---

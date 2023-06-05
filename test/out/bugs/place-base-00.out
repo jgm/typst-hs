@@ -85,24 +85,24 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   place(alignment: right, 
-        body: [First], 
+        body: text(body: [First]), 
         dx: -70%, 
         dy: 20%), 
-  [
-], 
+  text(body: [
+]), 
   place(alignment: left, 
-        body: [Second], 
+        body: text(body: [Second]), 
         dx: 20%, 
         dy: 60%), 
-  [
-], 
+  text(body: [
+]), 
   place(alignment: Axes(center, horizon), 
-        body: [Third], 
+        body: text(body: [Third]), 
         dx: 25%, 
         dy: 25%), 
   parbreak() }

@@ -63,13 +63,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   list(body-indent: 20.0pt, 
-       children: ([First], 
-                  list(children: ([A], [B])))), 
+       children: (text(body: [First]), 
+                  list(children: (text(body: [A]), 
+                                  text(body: [B]))))), 
   parbreak() }
 --- pandoc ---
 Pandoc

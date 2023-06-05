@@ -170,10 +170,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   table(align: Axes(center, horizon), 
         children: (path(closed: true, 
                         fill: rgb(100%,25%,21%,100%), 

@@ -52,13 +52,14 @@
 , BulletListItem [ Text "B" , ParBreak ]
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  list(children: ([A], 
-                  { [B], parbreak() }), 
-       marker: [–]) }
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  list(children: (text(body: [A]), 
+                  { text(body: [B]), 
+                    parbreak() }), 
+       marker: text(body: [–])) }
 --- pandoc ---
 Pandoc
   Meta { unMeta = fromList [] }

@@ -48,10 +48,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [LLLLLLLLLLLLLLLLLL R ], 
-  emph(body: [L]), 
+{ text(body: [
+]), 
+  text(body: [LLLLLLLLLLLLLLLLLL R ]), 
+  emph(body: text(body: [L])), 
   parbreak() }
 --- pandoc ---
 Pandoc

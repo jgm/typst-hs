@@ -75,16 +75,16 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
   parbreak(), 
-  enum.item(body: [a], 
+  enum.item(body: text(body: [a]), 
             number: 2), 
   parbreak() }
 --- pandoc ---

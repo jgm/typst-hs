@@ -84,21 +84,21 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   parbreak(), 
-  [
-], 
-  rect(body: [Like and Subscribe!], 
+  text(body: [
+]), 
+  rect(body: text(body: [Like and Subscribe!]), 
        fill: rgb(18%,80%,25%,100%), 
        inset: 5.0pt), 
-  [
-], 
-  [hi], 
+  text(body: [
+]), 
+  text(body: [hi]), 
   parbreak(), 
-  [bye], 
+  text(body: [bye]), 
   parbreak() }
 --- pandoc ---
 Pandoc

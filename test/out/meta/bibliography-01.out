@@ -84,24 +84,24 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  heading(body: [Details], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  heading(body: text(body: [Details]), 
           level: 1), 
-  [See also ], 
+  text(body: [See also ]), 
   cite(keys: ("arrgh", 
               "distress", 
-              [p. 22])), 
-  [, ], 
-  ref(supplement: [p. 4], 
+              text(body: [p. 22]))), 
+  text(body: [, ]), 
+  ref(supplement: text(body: [p. 4]), 
       target: ), 
-  [, and ], 
-  ref(supplement: [p. 5], 
+  text(body: [, and ]), 
+  ref(supplement: text(body: [p. 5]), 
       target: ), 
-  [.
-], 
+  text(body: [.
+]), 
   bibliography(path: "/works.bib"), 
   parbreak() }
 --- pandoc ---

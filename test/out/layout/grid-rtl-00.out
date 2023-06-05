@@ -54,8 +54,8 @@
     ]
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   text(body: [
 ], dir: rtl), 
   list(children: ({ text(body: [מימין לשמאל], 

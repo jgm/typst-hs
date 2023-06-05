@@ -90,21 +90,21 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  rect(body: columns(body: { [
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  rect(body: columns(body: { text(body: [
 Text
-], 
+]), 
                              v(amount: 12.0pt), 
-                             [
+                             text(body: [
 Hi
-], 
+]), 
                              v(amount: 10.0pt, 
                                weak: true), 
-                             [
-At column break.], 
+                             text(body: [
+At column break.]), 
                              parbreak() }, 
                      count: 2), 
        inset: 0.0pt), 

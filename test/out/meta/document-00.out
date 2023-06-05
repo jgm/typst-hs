@@ -55,10 +55,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-What’s up?], 
+{ text(body: [
+]), 
+  text(body: [
+What’s up?]), 
   parbreak() }
 --- pandoc ---
 Pandoc

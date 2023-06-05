@@ -79,12 +79,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   parbreak(), 
-  [@], 
-  [ from the ], 
-  [@], 
+  text(body: [@]), 
+  text(body: [ from the ]), 
+  text(body: [@]), 
   parbreak() }
 --- pandoc ---
 Pandoc

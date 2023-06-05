@@ -116,20 +116,20 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [A], 
+{ text(body: [
+]), 
+  text(body: [A]), 
   box(body: repeat(body: rect(height: 0.7em, 
                               width: 6.0em)), 
       width: 1.0fr), 
-  [B], 
+  text(body: [B]), 
   parbreak(), 
-  [
-A], 
+  text(body: [
+A]), 
   box(body: repeat(body: rect(height: 0.7em, 
                               width: 6.0em)), 
       width: 1.0fr), 
-  [B], 
+  text(body: [B]), 
   parbreak(), 
   text(body: [
 ريجين], 

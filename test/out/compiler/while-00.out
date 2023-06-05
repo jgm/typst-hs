@@ -96,44 +96,44 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [
-], 
-  [
-], 
-  [2], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [2]), 
   parbreak(), 
-  [
-], 
-  [
-], 
-  [4], 
+  text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [4]), 
   parbreak(), 
-  [
-], 
-  [
-], 
-  [6], 
+  text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [6]), 
   parbreak(), 
-  [
-], 
-  [
-], 
-  [8], 
+  text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [8]), 
   parbreak(), 
-  [
-], 
-  [
-], 
-  [10], 
+  text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [10]), 
   parbreak(), 
   parbreak(), 
-  [
-], 
-  [Hi.], 
+  text(body: [
+]), 
+  text(body: [Hi.]), 
   parbreak(), 
   parbreak() }
 --- pandoc ---

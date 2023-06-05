@@ -71,18 +71,18 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [ ], 
-  strong(body: [W]), 
-  [orld ], 
+{ text(body: [
+]), 
+  text(body: { [ ], 
+               strong(body: [W]), 
+               [orld ] }), 
   parbreak(), 
-  [ ], 
-  strong(body: [W]), 
-  [orld ], 
-  [ ], 
-  strong(body: [W]), 
-  [orld ] }
+  text(body: { [ ], 
+               strong(body: [W]), 
+               [orld ] }), 
+  text(body: { [ ], 
+               strong(body: [W]), 
+               [orld ] }) }
 --- pandoc ---
 Pandoc
   Meta { unMeta = fromList [] }

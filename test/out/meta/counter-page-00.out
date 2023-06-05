@@ -105,28 +105,28 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [
-], 
-  [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor], 
-  [
-], 
-  [
-], 
-  [Lorem ipsum dolor sit amet, consectetur], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [Lorem ipsum dolor sit amet, consectetur]), 
+  text(body: [
+]), 
   pagebreak(), 
-  [
-], 
-  [
-], 
-  [
-], 
-  [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut], 
+  text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut]), 
   parbreak() }
 --- pandoc ---
 Pandoc

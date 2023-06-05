@@ -59,13 +59,13 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   align(alignment: center, 
-        body: { [
-Lorem Ipsum], 
+        body: { text(body: [
+Lorem Ipsum]), 
                 parbreak(), 
-                [Dolor], 
+                text(body: [Dolor]), 
                 parbreak() }), 
   parbreak() }
 --- pandoc ---

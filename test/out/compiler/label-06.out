@@ -64,11 +64,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [1 < 2 is ], 
-  [not], 
-  [ a label.], 
+{ text(body: [
+]), 
+  text(body: [1 < 2 is ]), 
+  text(body: [not]), 
+  text(body: [ a label.]), 
   parbreak() }
 --- pandoc ---
 Pandoc

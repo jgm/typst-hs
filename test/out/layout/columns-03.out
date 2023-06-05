@@ -81,17 +81,17 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   parbreak(), 
-  rect(body: columns(body: { [
-ABC ], 
+  rect(body: columns(body: { text(body: [
+ABC ]), 
                              linebreak(), 
-                             [BCD
-], 
+                             text(body: [BCD
+]), 
                              colbreak(), 
-                             [
-DEF], 
+                             text(body: [
+DEF]), 
                              parbreak() }, 
                      count: 2), 
        inset: 6.0pt), 

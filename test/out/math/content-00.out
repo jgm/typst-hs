@@ -95,19 +95,19 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   math.equation(block: true, 
-                body: { math.attach(b: { [i], 
-                                         [=], 
-                                         [🍏] }, 
-                                    base: [∑], 
-                                    t: [🍎]), 
-                        [i], 
-                        [+], 
-                        math.frac(denom: [2], 
+                body: { math.attach(b: { text(body: [i]), 
+                                         text(body: [=]), 
+                                         text(body: [🍏]) }, 
+                                    base: text(body: [∑]), 
+                                    t: text(body: [🍎])), 
+                        text(body: [i]), 
+                        text(body: [+]), 
+                        math.frac(denom: text(body: [2]), 
                                   num: move(body: image(height: 1.0em, 
                                                         path: "test/assets/files/monkey.svg"), 
                                             dy: 0.2em)) }, 

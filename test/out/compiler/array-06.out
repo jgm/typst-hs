@@ -74,12 +74,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [✅], 
-  [
-], 
-  [✅], 
+{ text(body: [
+]), 
+  text(body: [✅]), 
+  text(body: [
+]), 
+  text(body: [✅]), 
   parbreak() }
 --- pandoc ---
 Pandoc

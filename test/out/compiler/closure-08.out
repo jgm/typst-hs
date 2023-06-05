@@ -71,13 +71,13 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [❌(], 
-  [16], 
-  [ /= ], 
-  [13], 
-  [)], 
+{ text(body: [
+]), 
+  text(body: [❌(]), 
+  text(body: [16]), 
+  text(body: [ /= ]), 
+  text(body: [13]), 
+  text(body: [)]), 
   parbreak() }
 --- pandoc ---
 Pandoc

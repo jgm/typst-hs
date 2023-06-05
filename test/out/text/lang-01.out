@@ -73,8 +73,8 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   parbreak(), 
   text(body: [Бб
 ], 

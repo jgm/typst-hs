@@ -101,8 +101,8 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   text(body: [
 ], size: 8.0pt), 
   box(body: square(body: { text(body: [

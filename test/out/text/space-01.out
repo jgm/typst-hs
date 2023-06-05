@@ -66,19 +66,19 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [A], 
-  [B], 
-  [C ], 
+{ text(body: [
+]), 
+  text(body: [A]), 
+  text(body: [B]), 
+  text(body: [C ]), 
   linebreak(), 
-  [A ], 
-  [ B], 
-  [C ], 
+  text(body: [A ]), 
+  text(body: [ B]), 
+  text(body: [C ]), 
   linebreak(), 
-  [A ], 
-  [B], 
-  [ C], 
+  text(body: [A ]), 
+  text(body: [B]), 
+  text(body: [ C]), 
   parbreak() }
 --- pandoc ---
 Pandoc

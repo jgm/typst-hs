@@ -57,8 +57,8 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   text(body: [
 א⁦A⁧Bב⁩?], 
        dir: rtl), 

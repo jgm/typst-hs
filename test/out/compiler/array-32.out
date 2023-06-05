@@ -61,14 +61,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [One], 
-  [, ], 
-  [Two], 
-  [ and ], 
-  [Three], 
-  [.], 
+{ text(body: [
+]), 
+  text(body: [One]), 
+  text(body: [, ]), 
+  text(body: [Two]), 
+  text(body: [ and ]), 
+  text(body: [Three]), 
+  text(body: [.]), 
   parbreak() }
 --- pandoc ---
 Pandoc

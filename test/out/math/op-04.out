@@ -66,14 +66,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   math.equation(block: true, 
-                body: { math.attach(b: [x], 
+                body: { math.attach(b: text(body: [x]), 
                                     base: math.bold(body: math.op(limits: true, 
-                                                                  text: [bold])), 
+                                                                  text: text(body: [bold]))), 
                                     t: none), 
-                        [y] }, 
+                        text(body: [y]) }, 
                 numbering: none), 
   parbreak() }
 --- pandoc ---

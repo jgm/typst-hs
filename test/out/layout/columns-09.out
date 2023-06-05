@@ -68,10 +68,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   parbreak(), 
-  [This is a normal page. Very normal.], 
+  text(body: [This is a normal page. Very normal.]), 
   parbreak() }
 --- pandoc ---
 Pandoc

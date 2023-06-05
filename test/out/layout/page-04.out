@@ -59,13 +59,13 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   page(body: [a11], 
        fill: rgb(100%,25%,21%,100%), 
        flipped: true), 
-  [
-], 
+  text(body: [
+]), 
   pagebreak(), 
   parbreak() }
 --- pandoc ---

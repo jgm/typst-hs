@@ -66,8 +66,8 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   text(body: [
 I saw Zoe yӛsterday, on the tram.], 
        tracking: -1.0e-2em), 

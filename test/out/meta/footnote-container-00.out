@@ -134,26 +134,26 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [Read the docs ], 
+{ text(body: [
+]), 
+  text(body: [Read the docs ]), 
   footnote(body: link(body: [https://typst.app/docs], 
                       dest: "https://typst.app/docs")), 
-  [!
-], 
+  text(body: [!
+]), 
   figure(body: image(path: "test/assets/files/graph.png", 
                      width: 70%), 
-         caption: { [
-A graph ], 
-                    footnote(body: { [A ], 
-                                     emph(body: [graph]), 
-                                     [ is a structure with nodes and edges.] }), 
+         caption: { text(body: [
+A graph ]), 
+                    footnote(body: { text(body: [A ]), 
+                                     emph(body: text(body: [graph])), 
+                                     text(body: [ is a structure with nodes and edges.]) }), 
                     parbreak() }), 
-  [
-More ], 
-  footnote(body: [just for …]), 
-  [ footnotes ], 
-  footnote(body: [… testing. :)]), 
+  text(body: [
+More ]), 
+  footnote(body: text(body: [just for …])), 
+  text(body: [ footnotes ]), 
+  footnote(body: text(body: [… testing. :)])), 
   parbreak() }
 --- pandoc ---
 Pandoc

@@ -96,27 +96,27 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   line(length: 60.0pt, 
        stroke: (paint: rgb(100%,25%,21%,100%),
                 thickness: 1.0pt,
                 cap: "butt",
                 dash: "dash-dotted")), 
-  [
-], 
+  text(body: [
+]), 
   v(amount: 3.0pt), 
-  [
-], 
+  text(body: [
+]), 
   line(length: 60.0pt, 
        stroke: rgb(0%,45%,85%,100%)), 
-  [
-], 
+  text(body: [
+]), 
   v(amount: 3.0pt), 
-  [
-], 
+  text(body: [
+]), 
   line(length: 60.0pt, 
        stroke: (dash: none)), 
   parbreak() }

@@ -76,24 +76,27 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   math.equation(block: true, 
-                body: math.mat(rows: (([1], 
-                                       [2]), 
-                                      ([3], [4]))), 
+                body: math.mat(rows: ((text(body: [1]), 
+                                       text(body: [2])), 
+                                      (text(body: [3]), 
+                                       text(body: [4])))), 
                 numbering: none), 
-  [
-], 
+  text(body: [
+]), 
   math.equation(block: true, 
-                body: { [a], 
-                        [+], 
-                        math.mat(rows: (([1], [2]), 
-                                        ([3], [4]))), 
-                        [+], 
-                        [b] }, 
+                body: { text(body: [a]), 
+                        text(body: [+]), 
+                        math.mat(rows: ((text(body: [1]), 
+                                         text(body: [2])), 
+                                        (text(body: [3]), 
+                                         text(body: [4])))), 
+                        text(body: [+]), 
+                        text(body: [b]) }, 
                 numbering: none), 
   parbreak() }
 --- pandoc ---

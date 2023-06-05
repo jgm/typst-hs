@@ -46,10 +46,11 @@
     [ Text "is" , Space , Text "fine" , Text "." , ParBreak ]
 ]
 --- evaluated ---
-{ [
-], 
-  list(children: ([Top-level indent], 
-                  { [is fine.], parbreak() })) }
+{ text(body: [
+]), 
+  list(children: (text(body: [Top-level indent]), 
+                  { text(body: [is fine.]), 
+                    parbreak() })) }
 --- pandoc ---
 Pandoc
   Meta { unMeta = fromList [] }

@@ -78,8 +78,8 @@
     ]
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   parbreak(), 
   terms(children: ((text(body: [Fruit], 
                          size: 8.0pt), 

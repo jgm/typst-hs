@@ -54,8 +54,8 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-The non-breaking space does work.], 
+{ text(body: [
+The non-breaking space does work.]), 
   parbreak() }
 --- pandoc ---
 Pandoc

@@ -91,11 +91,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [The 5’11” ‘quick” brown fox jumps over the “lazy” dog’s ear.], 
+{ text(body: [
+]), 
+  text(body: [The 5’11” ‘quick” brown fox jumps over the “lazy” dog’s ear.]), 
   parbreak(), 
-  [He said “I’m a big fella.”], 
+  text(body: [He said “I’m a big fella.”]), 
   parbreak() }
 --- pandoc ---
 Pandoc

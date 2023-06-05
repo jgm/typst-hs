@@ -52,12 +52,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   math.attach(base: math.equation(block: false, 
-                                  body: [a], 
+                                  body: text(body: [a]), 
                                   numbering: none), 
-              t: [b]), 
+              t: text(body: [b])), 
   parbreak() }
 --- pandoc ---
 Pandoc

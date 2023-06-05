@@ -55,17 +55,17 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   math.equation(block: true, 
-                body: { [ abc ], 
+                body: { text(body: [ abc ]), 
                         math.alignpoint(), 
-                        [=], 
-                        [c], 
+                        text(body: [=]), 
+                        text(body: [c]), 
                         linebreak() }, 
                 numbering: none), 
-  [
-One trailing line break.], 
+  text(body: [
+One trailing line break.]), 
   parbreak() }
 --- pandoc ---
 Pandoc

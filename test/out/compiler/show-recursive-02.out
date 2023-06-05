@@ -107,18 +107,19 @@
 , BulletListItem [ Text "Normal" , Space , Text "list" , ParBreak ]
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   parbreak(), 
-  list(children: ([Normal list
-])), 
-  [
-], 
-  list(children: ([Star], 
-                  [Wars], 
-                  { [List], parbreak() })), 
+  list(children: (text(body: [Normal list
+]))), 
+  text(body: [
+]), 
+  list(children: (text(body: [Star]), 
+                  text(body: [Wars]), 
+                  { text(body: [List]), 
+                    parbreak() })), 
   parbreak(), 
-  list(children: ({ [Normal list], 
+  list(children: ({ text(body: [Normal list]), 
                     parbreak() })) }
 --- pandoc ---
 Pandoc

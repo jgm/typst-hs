@@ -116,15 +116,15 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [“She suddenly started speaking french: ], 
-  text(body: [‘Je suis une banane.’], 
+{ text(body: [
+]), 
+  text(body: [“She suddenly started speaking french: ]), 
+  text(body: text(body: [‘Je suis une banane.’]), 
        lang: "fr"), 
-  [” Roman told me.], 
+  text(body: [” Roman told me.]), 
   parbreak(), 
-  [Some people’s thought on this would be ], 
-  [ “strange.”], 
+  text(body: [Some people’s thought on this would be ]), 
+  text(body: [ “strange.”]), 
   parbreak() }
 --- pandoc ---
 Pandoc

@@ -74,10 +74,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   stack(children: (circle(radius: 5.0pt), 
                    circle(width: 10%), 
                    circle(height: 50%)), 

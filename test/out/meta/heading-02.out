@@ -65,18 +65,18 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  heading(body: { [This
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  heading(body: { text(body: [This
 is
-multiline.], 
+multiline.]), 
                   parbreak() }, 
           level: 1), 
-  heading(body: [This], 
+  heading(body: text(body: [This]), 
           level: 1), 
-  [is not.], 
+  text(body: [is not.]), 
   parbreak() }
 --- pandoc ---
 Pandoc

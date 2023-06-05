@@ -99,25 +99,25 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   parbreak(), 
-  [🖂], 
-  [
-], 
-  [🖃], 
-  [
-], 
-  [🖆], 
-  [
-], 
-  [🖆], 
-  [
-], 
-  [🖄], 
-  [
-], 
-  [🖅], 
+  text(body: [🖂]), 
+  text(body: [
+]), 
+  text(body: [🖃]), 
+  text(body: [
+]), 
+  text(body: [🖆]), 
+  text(body: [
+]), 
+  text(body: [🖆]), 
+  text(body: [
+]), 
+  text(body: [🖄]), 
+  text(body: [
+]), 
+  text(body: [🖅]), 
   parbreak() }
 --- pandoc ---
 Pandoc

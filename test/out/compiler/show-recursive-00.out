@@ -51,11 +51,11 @@
 , Heading 1 [ Text "Heading" ]
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  heading(body: [Heading], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  heading(body: text(body: [Heading]), 
           level: 1) }
 --- pandoc ---
 Pandoc

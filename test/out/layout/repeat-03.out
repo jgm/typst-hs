@@ -55,8 +55,8 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   repeat(body: rect(height: 1.0em, 
                     width: 2.0em)), 
   parbreak() }

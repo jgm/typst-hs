@@ -62,13 +62,13 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   pagebreak(), 
-  [
-], 
-  [
-], 
+  text(body: [
+]), 
+  text(body: [
+]), 
   pagebreak(), 
   parbreak() }
 --- pandoc ---

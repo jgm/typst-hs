@@ -91,25 +91,25 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   math.equation(block: true, 
-                body: { math.root(index: [2], 
-                                  radicand: [x]), 
-                        [ ], 
-                        math.root(index: math.frac(denom: math.frac(denom: [1], 
-                                                                    num: [2]), 
-                                                   num: [3]), 
-                                  radicand: [x]), 
-                        [ ], 
-                        math.root(index: math.frac(denom: [11], 
-                                                   num: [1]), 
-                                  radicand: [x]), 
-                        [ ], 
-                        math.root(index: math.frac(denom: [3], 
-                                                   num: math.frac(denom: [2], 
-                                                                  num: [1])), 
-                                  radicand: [1]) }, 
+                body: { math.root(index: text(body: [2]), 
+                                  radicand: text(body: [x])), 
+                        text(body: [ ]), 
+                        math.root(index: math.frac(denom: math.frac(denom: text(body: [1]), 
+                                                                    num: text(body: [2])), 
+                                                   num: text(body: [3])), 
+                                  radicand: text(body: [x])), 
+                        text(body: [ ]), 
+                        math.root(index: math.frac(denom: text(body: [11]), 
+                                                   num: text(body: [1])), 
+                                  radicand: text(body: [x])), 
+                        text(body: [ ]), 
+                        math.root(index: math.frac(denom: text(body: [3]), 
+                                                   num: math.frac(denom: text(body: [2]), 
+                                                                  num: text(body: [1]))), 
+                                  radicand: text(body: [1])) }, 
                 numbering: none), 
   parbreak() }
 --- pandoc ---

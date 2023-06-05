@@ -47,9 +47,9 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [Supercalifragilisticexpialidocious Expialigoricmetrioxidation.], 
+{ text(body: [
+]), 
+  text(body: [Supercalifragilisticexpialidocious Expialigoricmetrioxidation.]), 
   parbreak() }
 --- pandoc ---
 Pandoc

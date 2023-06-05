@@ -97,22 +97,22 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [✅], 
-  [
-], 
-  [❌(], 
-  ["c🏡def"], 
-  [ /= ], 
-  ["c🏡"], 
-  [)], 
-  [
-], 
-  [✅], 
-  [
-], 
-  [✅], 
+{ text(body: [
+]), 
+  text(body: [✅]), 
+  text(body: [
+]), 
+  text(body: [❌(]), 
+  text(body: ["c🏡def"]), 
+  text(body: [ /= ]), 
+  text(body: ["c🏡"]), 
+  text(body: [)]), 
+  text(body: [
+]), 
+  text(body: [✅]), 
+  text(body: [
+]), 
+  text(body: [✅]), 
   parbreak() }
 --- pandoc ---
 Pandoc

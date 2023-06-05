@@ -65,16 +65,16 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   math.equation(block: false, 
                 body: { math.accent(accent: →, 
-                                    base: { [ABC ], 
-                                            [+], 
-                                            [d] }), 
-                        [,], 
+                                    base: { text(body: [ABC ]), 
+                                            text(body: [+]), 
+                                            text(body: [d]) }), 
+                        text(body: [,]), 
                         math.accent(accent: ∼, 
-                                    base: [∑]) }, 
+                                    base: text(body: [∑])) }, 
                 numbering: none), 
   parbreak() }
 --- pandoc ---

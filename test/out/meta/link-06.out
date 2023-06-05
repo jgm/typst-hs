@@ -88,14 +88,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [
-My cool ], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+My cool ]), 
   box(body: move(body: rotate(angle: 10.0deg, 
-                              body: scale(body: link(body: [LINK], 
+                              body: scale(body: link(body: text(body: [LINK]), 
                                                      dest: "https://typst.org/"), 
                                           factor: 200%)), 
                  dx: 0.7cm, 

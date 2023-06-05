@@ -188,37 +188,37 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  text(body: [A], 
+{ text(body: [
+]), 
+  text(body: text(body: [A]), 
        size: 20.0pt), 
-  [
-], 
-  text(body: [A], size: 2.0em), 
-  [
-], 
-  text(body: [A], 
+  text(body: [
+]), 
+  text(body: text(body: [A]), 
+       size: 2.0em), 
+  text(body: [
+]), 
+  text(body: text(body: [A]), 
        size: 15.0pt + 0.5em), 
   parbreak(), 
-  [Normal], 
+  text(body: text(body: [Normal])), 
   parbreak(), 
-  text(body: [Italic], 
+  text(body: text(body: [Italic]), 
        style: "italic"), 
   parbreak(), 
-  text(body: [Bold], 
+  text(body: text(body: [Bold]), 
        weight: "bold"), 
   parbreak(), 
-  text(body: [Condensed], 
+  text(body: text(body: [Condensed]), 
        stretch: 50%), 
   parbreak(), 
-  text(body: [Serif], 
+  text(body: text(body: [Serif]), 
        font: "IBM Plex Serif"), 
   parbreak(), 
-  [Emoji: 🐪, 🌋, 🏞], 
+  text(body: [Emoji: 🐪, 🌋, 🏞]), 
   parbreak(), 
   text(body: [
-], 
-       fill: rgb(13%,61%,67%,100%)), 
+]), 
   text(body: [
 This is ], 
        fill: rgb(13%,61%,67%,100%)), 

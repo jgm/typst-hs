@@ -178,12 +178,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
   grid(children: (rect(fill: rgb(16%,38%,10%,100%), 
                        height: 2.0cm, 
                        width: 0.5cm), 

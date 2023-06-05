@@ -67,11 +67,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
+{ text(body: [
 - Level 1
-- Level ], 
-  [
-2 through content block], 
+- Level ]), 
+  text(body: [
+2 through content block]), 
   parbreak(), 
   parbreak() }
 --- pandoc ---

@@ -90,21 +90,21 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   math.equation(block: true, 
                 body: { math.accent(accent: ∼, 
-                                    base: [∫]), 
-                        [,], 
-                        math.attach(b: [a], 
+                                    base: text(body: [∫])), 
+                        text(body: [,]), 
+                        math.attach(b: text(body: [a]), 
                                     base: math.accent(accent: ∼, 
-                                                      base: [∫]), 
-                                    t: [b]), 
-                        [,], 
+                                                      base: text(body: [∫])), 
+                                    t: text(body: [b])), 
+                        text(body: [,]), 
                         math.accent(accent: ∼, 
-                                    base: math.attach(b: [a], 
-                                                      base: [∫], 
-                                                      t: [b])) }, 
+                                    base: math.attach(b: text(body: [a]), 
+                                                      base: text(body: [∫]), 
+                                                      t: text(body: [b]))) }, 
                 numbering: none), 
   parbreak() }
 --- pandoc ---

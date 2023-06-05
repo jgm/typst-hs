@@ -61,13 +61,13 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [ABCअपार्टमेंट], 
+{ text(body: [
+]), 
+  text(body: [ABCअपार्टमेंट]), 
   parbreak(), 
-  [अपार्टमेंट], 
+  text(body: [अपार्टमेंट]), 
   parbreak(), 
-  [अ पा र् ट में ट], 
+  text(body: [अ पा र् ट में ट]), 
   parbreak() }
 --- pandoc ---
 Pandoc

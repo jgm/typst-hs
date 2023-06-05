@@ -71,15 +71,15 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  text(body: par(body: [Text טֶקסט]), 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: par(body: text(body: [Text טֶקסט])), 
        lang: "he"), 
-  [
-], 
-  text(body: par(body: [Text טֶקסט]), 
+  text(body: [
+]), 
+  text(body: par(body: text(body: [Text טֶקסט])), 
        lang: "de"), 
   parbreak() }
 --- pandoc ---

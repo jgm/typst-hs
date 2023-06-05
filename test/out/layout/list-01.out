@@ -98,20 +98,20 @@
     ]
 ]
 --- evaluated ---
-{ [
-], 
-  list(children: ({ [First level.], 
+{ text(body: [
+]), 
+  list(children: ({ text(body: [First level.]), 
                     parbreak(), 
-                    list(children: ({ [Second level.
-There are multiple paragraphs.], 
+                    list(children: ({ text(body: [Second level.
+There are multiple paragraphs.]), 
                                       parbreak(), 
-                                      list(children: ([Third level.
-])), 
-                                      [Still the same bullet point.
-] }, 
-                                    [Still level 2.
-])) }, 
-                  { [At the top.], 
+                                      list(children: (text(body: [Third level.
+]))), 
+                                      text(body: [Still the same bullet point.
+]) }, 
+                                    text(body: [Still level 2.
+]))) }, 
+                  { text(body: [At the top.]), 
                     parbreak() })) }
 --- pandoc ---
 Pandoc

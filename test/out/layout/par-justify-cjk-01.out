@@ -100,12 +100,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
   text(body: [
 ], lang: "jp"), 
   rect(body: { text(body: [

@@ -160,36 +160,36 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
+{ text(body: [
+]), 
+  text(body: [
 —
-Hi ], 
-  text(body: [You], 
+Hi ]), 
+  text(body: text(body: [You]), 
        size: 1.5em), 
-  [, ], 
-  text(body: [how are you?], 
+  text(body: [, ]), 
+  text(body: text(body: [how are you?]), 
        size: 0.75em), 
   parbreak(), 
-  [Our cockatoo was one of the
-], 
+  text(body: [Our cockatoo was one of the
+]), 
   text(baseline: -0.2em, 
        body: { box(body: circle(radius: 2.0pt)), 
-               [ first] }), 
-  [
-], 
+               text(body: [ first]) }), 
+  text(body: [
+]), 
   text(baseline: 0.2em, 
-       body: { [birds ], 
+       body: { text(body: [birds ]), 
                box(body: circle(radius: 2.0pt)) }), 
-  [
-that ever learned to mimic a human voice.], 
+  text(body: [
+that ever learned to mimic a human voice.]), 
   parbreak(), 
-  [—
-Hey ], 
+  text(body: [—
+Hey ]), 
   box(baseline: 40%, 
       body: image(path: "test/assets/files/tiger.jpg", 
                   width: 1.5cm)), 
-  [ there!], 
+  text(body: [ there!]), 
   parbreak() }
 --- pandoc ---
 Pandoc

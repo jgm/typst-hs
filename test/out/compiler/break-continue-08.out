@@ -64,11 +64,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [Hello ], 
-  [World ], 
-  [🌎], 
+{ text(body: [
+]), 
+  text(body: [Hello ]), 
+  text(body: [World ]), 
+  text(body: [🌎]), 
   parbreak() }
 --- pandoc ---
 Pandoc

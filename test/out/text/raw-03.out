@@ -44,8 +44,8 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   raw(block: true, 
       lang: none, 
       text: "```backticks```\n"), 

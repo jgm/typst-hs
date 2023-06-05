@@ -73,12 +73,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [
-This text can be fitted in one line.], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+This text can be fitted in one line.]), 
   parbreak() }
 --- pandoc ---
 Pandoc

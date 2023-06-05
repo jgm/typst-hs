@@ -53,10 +53,10 @@
     ]
 ]
 --- evaluated ---
-{ [
-], 
-  list(children: ([En dash: –], 
-                  { [Em dash: —], 
+{ text(body: [
+]), 
+  list(children: (text(body: [En dash: –]), 
+                  { text(body: [Em dash: —]), 
                     parbreak() })) }
 --- pandoc ---
 Pandoc

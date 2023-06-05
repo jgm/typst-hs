@@ -169,43 +169,43 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [❌(], 
-  [8], 
-  [ /= ], 
-  [7], 
-  [)], 
-  [
-], 
-  [✅], 
-  [
-], 
-  [✅], 
-  [
-], 
-  [✅], 
-  [
-], 
-  [✅], 
-  [
-], 
-  [✅], 
-  [
-], 
-  [✅], 
-  [
-], 
-  [✅], 
-  [
-], 
-  [❌(], 
-  [true], 
-  [ /= ], 
-  [false], 
-  [)], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [❌(]), 
+  text(body: [8]), 
+  text(body: [ /= ]), 
+  text(body: [7]), 
+  text(body: [)]), 
+  text(body: [
+]), 
+  text(body: [✅]), 
+  text(body: [
+]), 
+  text(body: [✅]), 
+  text(body: [
+]), 
+  text(body: [✅]), 
+  text(body: [
+]), 
+  text(body: [✅]), 
+  text(body: [
+]), 
+  text(body: [✅]), 
+  text(body: [
+]), 
+  text(body: [✅]), 
+  text(body: [
+]), 
+  text(body: [✅]), 
+  text(body: [
+]), 
+  text(body: [❌(]), 
+  text(body: [true]), 
+  text(body: [ /= ]), 
+  text(body: [false]), 
+  text(body: [)]), 
   parbreak() }
 --- pandoc ---
 Pandoc

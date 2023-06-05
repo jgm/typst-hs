@@ -73,17 +73,17 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   math.equation(block: false, 
-                body: { math.accent(accent: [.], 
-                                    base: [ö]), 
-                        [,], 
-                        math.accent(accent: [←], 
-                                    base: [v]), 
-                        [,], 
-                        math.accent(accent: [̃], 
-                                    base: [ℤ]) }, 
+                body: { math.accent(accent: text(body: [.]), 
+                                    base: text(body: [ö])), 
+                        text(body: [,]), 
+                        math.accent(accent: text(body: [←]), 
+                                    base: text(body: [v])), 
+                        text(body: [,]), 
+                        math.accent(accent: text(body: [̃]), 
+                                    base: text(body: [ℤ])) }, 
                 numbering: none), 
   parbreak() }
 --- pandoc ---

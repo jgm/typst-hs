@@ -66,24 +66,24 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   math.equation(block: true, 
-                body: { [f], 
-                        [:], 
-                        [=], 
-                        math.cases(children: ({ [1], 
-                                                [+], 
-                                                [2], 
+                body: { text(body: [f]), 
+                        text(body: [:]), 
+                        text(body: [=]), 
+                        math.cases(children: ({ text(body: [1]), 
+                                                text(body: [+]), 
+                                                text(body: [2]), 
                                                 math.alignpoint(), 
-                                                [iff ], 
+                                                text(body: [iff ]), 
                                                 math.alignpoint(), 
-                                                [x] }, 
-                                              { [3], 
+                                                text(body: [x]) }, 
+                                              { text(body: [3]), 
                                                 math.alignpoint(), 
-                                                [if ], 
+                                                text(body: [if ]), 
                                                 math.alignpoint(), 
-                                                [y] })) }, 
+                                                text(body: [y]) })) }, 
                 numbering: none), 
   parbreak() }
 --- pandoc ---

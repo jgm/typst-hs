@@ -79,10 +79,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   table(children: (rect(fill: rgb(100%,25%,21%,100%), 
                         width: 100%), 
                    rect(fill: rgb(0%,45%,85%,100%), 

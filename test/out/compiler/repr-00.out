@@ -68,17 +68,17 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [auto], 
-  [ ], 
+{ text(body: [
+]), 
+  text(body: [auto]), 
+  text(body: [ ]), 
   linebreak(), 
-  [ (empty) ], 
+  text(body: [ (empty) ]), 
   linebreak(), 
-  [true], 
-  [ ], 
+  text(body: [true]), 
+  text(body: [ ]), 
   linebreak(), 
-  [false], 
+  text(body: [false]), 
   parbreak() }
 --- pandoc ---
 Pandoc

@@ -136,14 +136,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   parbreak(), 
-  rect(body: columns(body: { [
+  rect(body: columns(body: { text(body: [
 A special plight has befallen our document.
 Columns in text boxes reigned down unto the soil
 to waste a year’s crop of rich layouts.
-The columns at least were graciously balanced.], 
+The columns at least were graciously balanced.]), 
                              parbreak() }, 
                      count: 2), 
        height: 100.0pt, 

@@ -402,75 +402,75 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   parbreak(), 
   parbreak(), 
-  [
-], 
+  text(body: [
+]), 
   parbreak(), 
-  box(body: { [
-], 
-              [ ], 
-              strong(body: { [Technische Universität ], 
-                             [Berlin] }), 
-              [ ], 
+  box(body: { text(body: [
+]), 
+              text(body: [ ]), 
+              strong(body: { text(body: [Technische Universität ]), 
+                             text(body: [Berlin]) }), 
+              text(body: [ ]), 
               linebreak(), 
-              strong(body: [Fakultät II, Institut for Mathematik]), 
-              [ ], 
+              strong(body: text(body: [Fakultät II, Institut for Mathematik])), 
+              text(body: [ ]), 
               linebreak(), 
-              [Sekretariat MA ], 
+              text(body: [Sekretariat MA ]), 
               linebreak(), 
-              [Dr. Max Mustermann ], 
+              text(body: [Dr. Max Mustermann ]), 
               linebreak(), 
-              [Ola Nordmann, John Doe], 
+              text(body: [Ola Nordmann, John Doe]), 
               parbreak() }), 
-  [
-], 
+  text(body: [
+]), 
   align(alignment: right, 
-        body: box(body: { strong(body: [WiSe 2019/2020]), 
-                          [ ], 
+        body: box(body: { strong(body: text(body: [WiSe 2019/2020])), 
+                          text(body: [ ]), 
                           linebreak(), 
-                          [Woche 3] })), 
+                          text(body: [Woche 3]) })), 
   parbreak(), 
   v(amount: 6.0mm), 
   parbreak(), 
   align(alignment: center, 
-        body: { [
-], 
-                [ ], 
-                heading(body: { [3. Übungsblatt Computerorientierte Mathematik II ], 
+        body: { text(body: [
+]), 
+                text(body: [ ]), 
+                heading(body: { text(body: [3. Übungsblatt Computerorientierte Mathematik II ]), 
                                 v(amount: 4.0mm) }, 
                         level: 4), 
-                strong(body: [Abgabe: 03.05.2019]), 
-                [ (bis 10:10 Uhr in MA 001) ], 
+                strong(body: text(body: [Abgabe: 03.05.2019])), 
+                text(body: [ (bis 10:10 Uhr in MA 001) ]), 
                 v(amount: 4.0mm), 
-                [
-], 
-                strong(body: [Alle Antworten sind zu beweisen.]), 
+                text(body: [
+]), 
+                strong(body: text(body: [Alle Antworten sind zu beweisen.])), 
                 parbreak() }), 
   parbreak(), 
-  strong(body: [1. Aufgabe]), 
-  [ ], 
+  strong(body: text(body: [1. Aufgabe])), 
+  text(body: [ ]), 
   align(alignment: right, 
-        body: [(1 + 1 + 2 Punkte)]), 
+        body: text(body: [(1 + 1 + 2 Punkte)])), 
   parbreak(), 
-  [Ein ], 
-  emph(body: [Binärbaum]), 
-  [ ist ein Wurzelbaum, in dem jeder Knoten ≤ 2 Kinder hat.
-Die Tiefe eines Knotens ], 
-  emph(body: [v]), 
-  [ ist die Länge des eindeutigen Weges von der Wurzel
-zu ], 
-  emph(body: [v]), 
-  [, und die Höhe von ], 
-  emph(body: [v]), 
-  [ ist die Länge eines längsten (absteigenden) Weges
-von ], 
-  emph(body: [v]), 
-  [ zu einem Blatt. Die Höhe des Baumes ist die Höhe der Wurzel.], 
+  text(body: [Ein ]), 
+  emph(body: text(body: [Binärbaum])), 
+  text(body: [ ist ein Wurzelbaum, in dem jeder Knoten ≤ 2 Kinder hat.
+Die Tiefe eines Knotens ]), 
+  emph(body: text(body: [v])), 
+  text(body: [ ist die Länge des eindeutigen Weges von der Wurzel
+zu ]), 
+  emph(body: text(body: [v])), 
+  text(body: [, und die Höhe von ]), 
+  emph(body: text(body: [v])), 
+  text(body: [ ist die Länge eines längsten (absteigenden) Weges
+von ]), 
+  emph(body: text(body: [v])), 
+  text(body: [ zu einem Blatt. Die Höhe des Baumes ist die Höhe der Wurzel.]), 
   parbreak(), 
   v(amount: 6.0mm), 
   parbreak() }

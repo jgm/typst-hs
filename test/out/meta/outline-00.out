@@ -165,45 +165,45 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
   parbreak(), 
   outline(), 
   parbreak(), 
-  heading(body: [Einleitung], 
+  heading(body: text(body: [Einleitung]), 
           level: 1, 
           numbering: "(1/a)"), 
-  [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor], 
+  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor]), 
   parbreak(), 
-  heading(body: [Analyse], 
+  heading(body: text(body: [Analyse]), 
           level: 1, 
           numbering: "(1/a)"), 
-  [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do], 
+  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do]), 
   parbreak(), 
-  [
-], 
-  [
-], 
-  heading(body: [Methodik], 
+  text(body: [
+]), 
+  text(body: [
+]), 
+  heading(body: text(body: [Methodik]), 
           level: 2, 
           numbering: "(1/a)", 
           outlined: false), 
-  [Lorem ipsum dolor sit amet, consectetur], 
+  text(body: [Lorem ipsum dolor sit amet, consectetur]), 
   parbreak(), 
   parbreak(), 
-  heading(body: [Verarbeitung], 
+  heading(body: text(body: [Verarbeitung]), 
           level: 2, 
           numbering: "(1/a)", 
           outlined: false), 
-  [Lorem ipsum dolor sit], 
+  text(body: [Lorem ipsum dolor sit]), 
   parbreak(), 
-  heading(body: [Programmierung], 
+  heading(body: text(body: [Programmierung]), 
           level: 2, 
           numbering: "(1/a)", 
           outlined: false), 
@@ -211,20 +211,20 @@
       lang: "rust", 
       text: "fn main() {\n  panic!(\"in the disco\");\n}\n"), 
   parbreak(), 
-  heading(body: [Deep Stuff], 
+  heading(body: text(body: [Deep Stuff]), 
           level: 4, 
           numbering: "(1/a)", 
           outlined: false), 
-  [Ok …], 
+  text(body: [Ok …]), 
   parbreak(), 
   parbreak(), 
-  heading(body: { text(body: [Zusammen], 
+  heading(body: { text(body: text(body: [Zusammen]), 
                        color: rgb(0%,45%,85%,100%)), 
-                  [fassung] }, 
+                  text(body: [fassung]) }, 
           level: 1, 
           numbering: "(I)", 
           outlined: false), 
-  [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do], 
+  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do]), 
   parbreak() }
 --- pandoc ---
 Pandoc

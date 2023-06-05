@@ -66,14 +66,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   image(path: "test/assets/files/rhino.png"), 
   parbreak(), 
-  [
-], 
+  text(body: [
+]), 
   image(path: "test/assets/files/tiger.jpg"), 
   parbreak() }
 --- pandoc ---

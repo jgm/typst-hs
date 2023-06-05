@@ -59,14 +59,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   align(alignment: center, 
-        body: { [A ], 
+        body: { text(body: [A ]), 
                 linebreak(), 
-                [B ], 
+                text(body: [B ]), 
                 linebreak(), 
-                [C] }), 
+                text(body: [C]) }), 
   parbreak() }
 --- pandoc ---
 Pandoc

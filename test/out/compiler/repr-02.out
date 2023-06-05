@@ -123,8 +123,8 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   text(body: [
 ], size: 0.8em), 
   text(body: [rgb(96%,63%,1%,100%)], 

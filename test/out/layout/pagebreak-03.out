@@ -102,27 +102,27 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [ First], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [ First]), 
+  text(body: [
+]), 
   pagebreak(), 
-  [
-], 
+  text(body: [
+]), 
   pagebreak(), 
-  [
+  text(body: [
 Third
-], 
+]), 
   page(body: {  }, 
        fill: rgb(100%,25%,21%,100%), 
        height: 20.0pt, 
        width: 60.0pt), 
-  [
-Fif], 
-  [th], 
+  text(body: [
+Fif]), 
+  text(body: [th]), 
   parbreak() }
 --- pandoc ---
 Pandoc

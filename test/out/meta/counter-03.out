@@ -148,32 +148,32 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  figure(body: emph(body: [AAAA!]), 
-         caption: [Four ‘A’s], 
+{ text(body: [
+]), 
+  figure(body: emph(body: text(body: [AAAA!])), 
+         caption: text(body: [Four ‘A’s]), 
          kind: , 
          numbering: "A", 
          supplement: "Figure"), 
-  [
-], 
-  figure(body: emph(body: [BBBB!]), 
-         caption: [Four ‘B’s], 
+  text(body: [
+]), 
+  figure(body: emph(body: text(body: [BBBB!])), 
+         caption: text(body: [Four ‘B’s]), 
          kind: , 
          numbering: none, 
          supplement: "Figure"), 
-  [
-], 
-  figure(body: emph(body: [CCCC!]), 
-         caption: [Four ‘C’s], 
+  text(body: [
+]), 
+  figure(body: emph(body: text(body: [CCCC!])), 
+         caption: text(body: [Four ‘C’s]), 
          kind: , 
          supplement: "Figure"), 
-  [
-], 
-  [
-], 
-  figure(body: emph(body: [DDDD!]), 
-         caption: [Four ‘D’s], 
+  text(body: [
+]), 
+  text(body: [
+]), 
+  figure(body: emph(body: text(body: [DDDD!])), 
+         caption: text(body: [Four ‘D’s]), 
          kind: , 
          supplement: "Figure"), 
   parbreak() }

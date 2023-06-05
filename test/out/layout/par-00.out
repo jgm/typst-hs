@@ -70,10 +70,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-To the right! Where the sunlight peeks behind the mountain.], 
+{ text(body: [
+]), 
+  text(body: [
+To the right! Where the sunlight peeks behind the mountain.]), 
   parbreak() }
 --- pandoc ---
 Pandoc

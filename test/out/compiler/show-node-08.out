@@ -48,8 +48,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], [
-Hey], parbreak() }
+{ text(body: [
+]), 
+  text(body: [
+Hey]), 
+  parbreak() }
 --- pandoc ---
 Pandoc Meta { unMeta = fromList [] } [ Para [ Str "Hey" ] ]

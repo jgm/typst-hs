@@ -63,20 +63,20 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   parbreak(), 
-  emph(body: [Hidden]), 
-  [
-], 
-  [], 
+  emph(body: text(body: [Hidden])), 
+  text(body: [
+]), 
+  text(body: []), 
   parbreak(), 
-  emph(body: [Hidden]), 
+  emph(body: text(body: [Hidden])), 
   parbreak(), 
-  [], 
-  [
-], 
-  emph(body: [Visible]), 
+  text(body: []), 
+  text(body: [
+]), 
+  emph(body: text(body: [Visible])), 
   parbreak() }
 --- pandoc ---
 Pandoc

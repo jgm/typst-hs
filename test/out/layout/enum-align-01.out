@@ -62,18 +62,19 @@
 , EnumListItem (Just 16) [ Text "c" , ParBreak ]
 ]
 --- evaluated ---
-{ [
-], 
-  enum(children: ([a], 
-                  [b], 
-                  [c
+{ text(body: [
 ]), 
+  enum(children: (text(body: [a]), 
+                  text(body: [b]), 
+                  text(body: [c
+])), 
        start: 1), 
-  [
-], 
-  enum(children: ([ a], 
-                  [ b], 
-                  { [c], parbreak() }), 
+  text(body: [
+]), 
+  enum(children: (text(body: [ a]), 
+                  text(body: [ b]), 
+                  { text(body: [c]), 
+                    parbreak() }), 
        number-align: start, 
        start: 1) }
 --- pandoc ---

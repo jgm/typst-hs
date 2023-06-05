@@ -77,8 +77,8 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   text(body: [
 a vs ], 
        font: "IBM Plex Serif"), 

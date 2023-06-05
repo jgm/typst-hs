@@ -62,12 +62,12 @@
     ]
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  list(children: ([Bare hyphen is], 
-                  { [a bad marker], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  list(children: (text(body: [Bare hyphen is]), 
+                  { text(body: [a bad marker]), 
                     parbreak() }), 
        marker: list(children: ({  }))) }
 --- pandoc ---

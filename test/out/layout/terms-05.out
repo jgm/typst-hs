@@ -52,12 +52,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  terms(children: (([Term], 
+{ text(body: [
+]), 
+  terms(children: ((text(body: [Term]), 
                     {  }))), 
-  [Not in list
-/Nope], 
+  text(body: [Not in list
+/Nope]), 
   parbreak() }
 --- pandoc ---
 Pandoc

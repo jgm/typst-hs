@@ -59,20 +59,22 @@
     ]
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  list(children: ({ [A
-], 
-                    list(children: ({ [B
-], 
-                                      list(children: ({ [C], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  list(children: ({ text(body: [A
+]), 
+                    list(children: ({ text(body: [B
+]), 
+                                      list(children: ({ text(body: [C]), 
                                                         parbreak() }), 
-                                           marker: ([–], 
-                                                    [•])) }), 
-                         marker: ([–], [•])) }), 
-       marker: ([–], [•])) }
+                                           marker: (text(body: [–]), 
+                                                    text(body: [•]))) }), 
+                         marker: (text(body: [–]), 
+                                  text(body: [•]))) }), 
+       marker: (text(body: [–]), 
+                text(body: [•]))) }
 --- pandoc ---
 Pandoc
   Meta { unMeta = fromList [] }

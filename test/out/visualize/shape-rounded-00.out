@@ -58,11 +58,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   rect(radius: -20.0pt), 
-  [
-], 
+  text(body: [
+]), 
   square(radius: 30.0pt), 
   parbreak() }
 --- pandoc ---

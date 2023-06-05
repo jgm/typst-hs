@@ -60,13 +60,13 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [A ], 
+{ text(body: [
+]), 
+  text(body: [A ]), 
   box(body: rect(body: rect(), 
                  fill: rgb(100%,86%,0%,100%), 
                  inset: 5.0pt)), 
-  [ B], 
+  text(body: [ B]), 
   parbreak() }
 --- pandoc ---
 Pandoc

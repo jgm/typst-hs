@@ -54,8 +54,8 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   text(body: [
 ], lang: "zh"), 
   outline(), 

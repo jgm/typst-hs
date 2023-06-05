@@ -159,14 +159,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   parbreak(), 
   parbreak(), 
-  [
-], 
+  text(body: [
+]), 
   parbreak(), 
-  [This code tests ], 
+  text(body: [This code tests ]), 
   box(body: raw(block: false, 
                 lang: none, 
                 text: "code"), 
@@ -174,8 +174,8 @@
       inset: (x: 3.0pt, y: 0.0pt), 
       outset: (y: 2.5pt), 
       radius: 2.0pt), 
-  [
-with selectors and justification.], 
+  text(body: [
+with selectors and justification.]), 
   parbreak(), 
   block(body: raw(block: true, 
                   lang: "rs", 
@@ -186,7 +186,7 @@ with selectors and justification.],
         stroke: (left: (thickness: 1.5pt,
                         color: luma(18000%)))), 
   parbreak(), 
-  [You can use the ], 
+  text(body: [You can use the ]), 
   block(body: raw(block: true, 
                   lang: "rs", 
                   text: "*const T"), 
@@ -195,8 +195,8 @@ with selectors and justification.],
         outset: -3.0pt, 
         stroke: (left: (thickness: 1.5pt,
                         color: luma(18000%)))), 
-  [ pointer or
-the ], 
+  text(body: [ pointer or
+the ]), 
   block(body: raw(block: true, 
                   lang: "rs", 
                   text: "&mut T"), 
@@ -205,7 +205,7 @@ the ],
         outset: -3.0pt, 
         stroke: (left: (thickness: 1.5pt,
                         color: luma(18000%)))), 
-  [ reference.], 
+  text(body: [ reference.]), 
   parbreak() }
 --- pandoc ---
 Pandoc

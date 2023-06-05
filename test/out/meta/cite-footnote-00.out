@@ -66,18 +66,18 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-Hello ], 
+{ text(body: [
+Hello ]), 
   ref(supplement: [auto], 
       target: ), 
-  [
-And again: ], 
+  text(body: [
+And again: ]), 
   ref(supplement: [auto], 
       target: ), 
   parbreak(), 
   pagebreak(), 
-  [
-], 
+  text(body: [
+]), 
   bibliography(path: "/works.bib", 
                style: "chicago-notes"), 
   parbreak() }

@@ -79,21 +79,21 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   math.equation(block: true, 
-                body: { [x], 
-                        [=], 
-                        math.overbracket(annotation: { [1], 
-                                                       [+], 
-                                                       [2], 
-                                                       [+], 
-                                                       […], 
-                                                       [+], 
-                                                       [5] }, 
-                                         body: math.overline(body: math.underline(body: { [x], 
-                                                                                          [+], 
-                                                                                          [y] }))) }, 
+                body: { text(body: [x]), 
+                        text(body: [=]), 
+                        math.overbracket(annotation: { text(body: [1]), 
+                                                       text(body: [+]), 
+                                                       text(body: [2]), 
+                                                       text(body: [+]), 
+                                                       text(body: […]), 
+                                                       text(body: [+]), 
+                                                       text(body: [5]) }, 
+                                         body: math.overline(body: math.underline(body: { text(body: [x]), 
+                                                                                          text(body: [+]), 
+                                                                                          text(body: [y]) }))) }, 
                 numbering: none), 
   parbreak() }
 --- pandoc ---

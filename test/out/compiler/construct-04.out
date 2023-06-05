@@ -63,12 +63,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  enum(children: ([A], 
-                  enum(children: ([B]))), 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  enum(children: (text(body: [A]), 
+                  enum(children: (text(body: [B])))), 
        numbering: "(a)"), 
   parbreak() }
 --- pandoc ---

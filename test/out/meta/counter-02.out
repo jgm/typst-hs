@@ -159,32 +159,32 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
   parbreak(), 
-  heading(body: [Alpha], 
+  heading(body: text(body: [Alpha]), 
           level: 1, 
           numbering: "1.a."), 
-  [In ], 
-  [1], 
-  [
-], 
-  heading(body: [Beta], 
+  text(body: [In ]), 
+  text(body: [1]), 
+  text(body: [
+]), 
+  heading(body: text(body: [Beta]), 
           level: 2, 
           numbering: "1.a."), 
-  [
-], 
-  heading(body: [Gamma], 
+  text(body: [
+]), 
+  heading(body: text(body: [Gamma]), 
           level: 1, 
           numbering: none), 
-  heading(body: [Delta], 
+  heading(body: text(body: [Delta]), 
           numbering: "I."), 
   parbreak(), 
-  [At Beta, it was ], 
+  text(body: [At Beta, it was ]), 
   locate(func: ), 
   parbreak() }
 --- pandoc ---

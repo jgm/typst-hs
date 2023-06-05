@@ -82,26 +82,26 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   math.equation(block: true, 
-                body: { [a], 
-                        [], 
+                body: { text(body: [a]), 
+                        text(body: []), 
                         math.equation(block: false, 
                                       body: { h(amount: 1.0em), 
-                                              [], 
-                                              math.equation(block: false, 
-                                                            body: { h(amount: 1.0em), 
-                                                                    [⊢], 
-                                                                    h(amount: 1.0em) }, 
-                                                            numbering: none), 
-                                              [], 
+                                              text(body: { [], 
+                                                           math.equation(block: false, 
+                                                                         body: { h(amount: 1.0em), 
+                                                                                 text(body: [⊢]), 
+                                                                                 h(amount: 1.0em) }, 
+                                                                         numbering: none), 
+                                                           [] }), 
                                               h(amount: 1.0em) }, 
                                       numbering: none), 
-                        [], 
-                        [b] }, 
+                        text(body: []), 
+                        text(body: [b]) }, 
                 numbering: none), 
   parbreak() }
 --- pandoc ---

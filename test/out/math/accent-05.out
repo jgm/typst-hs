@@ -71,23 +71,23 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   math.equation(block: false, 
                 body: { math.attach(b: none, 
-                                    base: [A], 
-                                    t: [x]), 
-                        [≠], 
+                                    base: text(body: [A]), 
+                                    t: text(body: [x])), 
+                        text(body: [≠]), 
                         math.attach(b: none, 
                                     base: math.accent(accent: ^, 
-                                                      base: [A]), 
-                                    t: [x]), 
-                        [≠], 
+                                                      base: text(body: [A])), 
+                                    t: text(body: [x])), 
+                        text(body: [≠]), 
                         math.attach(b: none, 
                                     base: math.accent(accent: ^, 
                                                       base: math.accent(accent: ^, 
-                                                                        base: [A])), 
-                                    t: [x]) }, 
+                                                                        base: text(body: [A]))), 
+                                    t: text(body: [x])) }, 
                 numbering: none), 
   parbreak() }
 --- pandoc ---

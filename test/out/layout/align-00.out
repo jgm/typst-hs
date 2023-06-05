@@ -134,10 +134,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
   stack(children: (align(alignment: left, 
                          body: square(fill: rgb(13%,61%,67%,100%), 
                                       size: 15.0pt)), 
@@ -148,13 +148,13 @@
                          body: square(fill: rgb(13%,61%,67%,100%), 
                                       size: 15.0pt))), 
         dir: ltr), 
-  [
-], 
+  text(body: [
+]), 
   align(alignment: Axes(center, horizon), 
         body: rect(fill: rgb(13%,61%,67%,100%), 
                    height: 10.0pt)), 
-  [
-], 
+  text(body: [
+]), 
   align(alignment: bottom, 
         body: stack(children: (align(alignment: center, 
                                      body: rect(fill: rgb(18%,80%,25%,100%), 

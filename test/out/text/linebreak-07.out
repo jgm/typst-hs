@@ -97,19 +97,19 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-With a soft ], 
+{ text(body: [
+]), 
+  text(body: [
+With a soft ]), 
   linebreak(justify: true), 
-  [
-break you can force a break without ], 
+  text(body: [
+break you can force a break without ]), 
   linebreak(justify: true), 
-  [
-breaking justification. ], 
+  text(body: [
+breaking justification. ]), 
   linebreak(justify: false), 
-  [
-Nice!], 
+  text(body: [
+Nice!]), 
   parbreak() }
 --- pandoc ---
 Pandoc

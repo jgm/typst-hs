@@ -60,8 +60,8 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   text(body: [
 ], dir: rtl), 
   table(children: (text(body: [A], 

@@ -52,14 +52,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   math.equation(block: true, 
-                body: { [ right ], 
+                body: { text(body: [ right ]), 
                         linebreak(), 
-                        [a very long line ], 
+                        text(body: [a very long line ]), 
                         linebreak(), 
-                        [left ], 
+                        text(body: [left ]), 
                         linebreak() }, 
                 numbering: none), 
   parbreak() }

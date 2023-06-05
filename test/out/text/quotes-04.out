@@ -91,12 +91,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [He’s told some books contain questionable “example text”.], 
+{ text(body: [
+]), 
+  text(body: [He’s told some books contain questionable “example text”.]), 
   parbreak(), 
-  [
-He’s told some books contain questionable “example text”.], 
+  text(body: [
+He’s told some books contain questionable “example text”.]), 
   parbreak() }
 --- pandoc ---
 Pandoc

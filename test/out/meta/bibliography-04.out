@@ -98,21 +98,21 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
   parbreak(), 
-  heading(body: [Multiple Bibs], 
+  heading(body: text(body: [Multiple Bibs]), 
           level: 1, 
           numbering: "1."), 
-  [Now we have multiple bibliographies containing ], 
+  text(body: [Now we have multiple bibliographies containing ]), 
   cite(keys: ("glacier-melt", 
               "keshav2007read")), 
-  [
-], 
+  text(body: [
+]), 
   bibliography(path: ("/works.bib", 
                       "/works_too.bib")), 
   parbreak() }

@@ -56,16 +56,16 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   math.equation(block: false, 
-                body: { [A], 
-                        [=], 
-                        math.sqrt(radicand: { [x], 
-                                              [+], 
-                                              [y] }), 
-                        [=], 
-                        [c] }, 
+                body: { text(body: [A]), 
+                        text(body: [=]), 
+                        math.sqrt(radicand: { text(body: [x]), 
+                                              text(body: [+]), 
+                                              text(body: [y]) }), 
+                        text(body: [=]), 
+                        text(body: [c]) }, 
                 numbering: none), 
   parbreak() }
 --- pandoc ---

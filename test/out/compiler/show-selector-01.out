@@ -79,19 +79,19 @@
 , Heading 3 [ Text "Green" ]
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [
-], 
-  [
-], 
-  heading(body: [Red], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
+  heading(body: text(body: [Red]), 
           level: 1), 
-  heading(body: [Blue], 
+  heading(body: text(body: [Blue]), 
           level: 2), 
-  heading(body: [Green], 
+  heading(body: text(body: [Green]), 
           level: 3) }
 --- pandoc ---
 Pandoc

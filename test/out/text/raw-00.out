@@ -45,8 +45,8 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   raw(block: false, 
       lang: none, 
       text: "A"), 

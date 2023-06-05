@@ -186,12 +186,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  [
-], 
-  [
-], 
+{ text(body: [
+]), 
+  text(body: [
+]), 
+  text(body: [
+]), 
   text(body: [
 ], size: 9.0pt), 
   rect(body: { text(body: [

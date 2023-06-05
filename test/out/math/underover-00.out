@@ -73,22 +73,22 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
+{ text(body: [
+]), 
   math.equation(block: true, 
-                body: { [x], 
-                        [=], 
-                        math.underbrace(annotation: math.underbrace(annotation: { [x], 
-                                                                                  [+], 
-                                                                                  [y] }, 
-                                                                    body: [numbers]), 
-                                        body: { [1], 
-                                                [+], 
-                                                [2], 
-                                                [+], 
-                                                […], 
-                                                [+], 
-                                                [5] }) }, 
+                body: { text(body: [x]), 
+                        text(body: [=]), 
+                        math.underbrace(annotation: math.underbrace(annotation: { text(body: [x]), 
+                                                                                  text(body: [+]), 
+                                                                                  text(body: [y]) }, 
+                                                                    body: text(body: [numbers])), 
+                                        body: { text(body: [1]), 
+                                                text(body: [+]), 
+                                                text(body: [2]), 
+                                                text(body: [+]), 
+                                                text(body: […]), 
+                                                text(body: [+]), 
+                                                text(body: [5]) }) }, 
                 numbering: none), 
   parbreak() }
 --- pandoc ---

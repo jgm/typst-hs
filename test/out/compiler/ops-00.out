@@ -50,11 +50,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  strong(body: [Hello]), 
-  [ ], 
-  [world!], 
+{ text(body: [
+]), 
+  strong(body: text(body: [Hello])), 
+  text(body: [ ]), 
+  text(body: [world!]), 
   parbreak() }
 --- pandoc ---
 Pandoc

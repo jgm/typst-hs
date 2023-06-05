@@ -69,14 +69,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  text(body: [Smcp], 
+{ text(body: [
+]), 
+  text(body: text(body: [Smcp]), 
        features: ("smcp")), 
-  [ ], 
+  text(body: [ ]), 
   linebreak(), 
-  [fi vs. ], 
-  text(body: [No fi], 
+  text(body: [fi vs. ]), 
+  text(body: text(body: [No fi]), 
        features: (liga: 0)), 
   parbreak() }
 --- pandoc ---

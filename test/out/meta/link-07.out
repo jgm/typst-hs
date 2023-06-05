@@ -81,11 +81,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ [
-], 
-  link(body: block(body: { [
+{ text(body: [
+]), 
+  link(body: block(body: { text(body: [
 My cool rhino
-], 
+]), 
                            box(body: move(body: image(path: "test/assets/files/rhino.png", 
                                                       width: 1.0cm), 
                                           dx: 10.0pt)), 
