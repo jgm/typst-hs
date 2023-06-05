@@ -553,7 +553,20 @@ data Arguments = Arguments{
 
 instance Semigroup Arguments where
   Arguments ps1 ns1 <> Arguments ps2 ns2 =
-    Arguments (ps1 <> ps2) (OM.unionWithR (\_ _ v -> v) ns1 ns2)
+    Arguments (combinePositional ps1 ps2) (OM.unionWithR (\_ _ v -> v) ns1 ns2)
+
+-- we want to let a later alignment, color, or length supersede rather than
+-- adding to an earlier one. For #set.
+combinePositional :: [Val] -> [Val] -> [Val]
+combinePositional [] ys = ys
+combinePositional xs (y :  ys) =
+  case (valType y , valType (last xs)) of
+     (TAlignment, TAlignment) -> init xs ++ y:ys
+     (TLength, TLength) -> init xs ++ y:ys
+     (TAngle, TAngle) -> init xs ++ y:ys
+     (TColor, TColor) -> init xs ++ y:ys
+     _ -> xs ++ y:ys
+combinePositional xs ys = xs ++ ys
 
 instance Monoid Arguments where
   mappend = (<>)

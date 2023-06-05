@@ -584,7 +584,8 @@ evalExpr expr =
             updateState $ \st -> st{ evalStyles =
               M.alter (\case
                           Nothing -> Just as'
-                          Just as'' -> Just (as'' <> as')) name $ evalStyles st }
+                          Just as'' -> Just (as'' <> as'))
+                      name $ evalStyles st }
         _ -> fail $ "Set expects an element name"
       pure VNone
 
