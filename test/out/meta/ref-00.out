@@ -102,20 +102,16 @@ As seen in ]),
 Pandoc
   Meta { unMeta = fromList [] }
   [ Para []
-  , Header 1 ( "" , [] , [] ) [ Str "Introduction" ]
+  , Header 1 ( "intro" , [] , [] ) [ Str "Introduction" ]
   , Para
-      [ Span ( "intro" , [] , [] ) []
-      , SoftBreak
-      , Str "See"
+      [ Str "See"
       , Space
       , Link ( "" , [ "ref" ] , [] ) [ Str "[setup]" ] ( "#setup" , "" )
       , Str "."
       ]
-  , Header 2 ( "" , [] , [] ) [ Str "Setup" ]
+  , Header 2 ( "setup" , [] , [] ) [ Str "Setup" ]
   , Para
-      [ Span ( "setup" , [] , [] ) []
-      , SoftBreak
-      , Str "As"
+      [ Str "As"
       , Space
       , Str "seen"
       , Space
