@@ -628,15 +628,7 @@ applyPureFunction (Function f) vals =
 
 initialEvalState :: MonadFail m => EvalState m
 initialEvalState =
-  EvalState
-    { evalIdentifiers = [(BlockScope, standardModule)],
-      evalCounters = mempty,
-      evalMath = False,
-      evalShowRules = [],
-      evalStyles = mempty,
-      evalFlowDirective = FlowNormal,
-      evalLoadBytes = \_ -> pure mempty
-    }
+  emptyEvalState { evalIdentifiers = [(BlockScope, standardModule)] }
 
 formatNumber :: Text -> Int -> Text
 formatNumber t n = F.foldMap go $ T.unpack t

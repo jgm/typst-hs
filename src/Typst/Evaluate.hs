@@ -57,15 +57,7 @@ evaluateTypst loadBytes =
 
 initialEvalState :: EvalState m
 initialEvalState =
-  EvalState
-    { evalIdentifiers = [(BlockScope, standardModule')],
-      evalCounters = mempty,
-      evalMath = False,
-      evalShowRules = [],
-      evalStyles = mempty,
-      evalFlowDirective = FlowNormal,
-      evalLoadBytes = undefined
-    }
+  emptyEvalState { evalIdentifiers = [(BlockScope, standardModule')] }
   where
     standardModule' = M.insert "eval" evalFunction standardModule
     evalFunction = makeFunction $ do

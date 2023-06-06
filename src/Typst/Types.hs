@@ -28,6 +28,7 @@ module Typst.Types
     Scope (..),
     FlowDirective (..),
     EvalState (..),
+    emptyEvalState,
     ShowRule (..),
     Counter (..),
     LUnit (..),
@@ -518,12 +519,25 @@ data EvalState m = EvalState
   { evalIdentifiers :: [(Scope, M.Map Identifier Val)],
     -- first item is current block, then superordinate block, etc.
     evalCounters :: M.Map Counter Integer,
+    evalLabels :: M.Map Text Content,
     evalMath :: Bool,
     evalShowRules :: [ShowRule],
     evalStyles :: M.Map Identifier Arguments,
     evalFlowDirective :: FlowDirective,
     evalLoadBytes :: FilePath -> m BS.ByteString
   }
+
+emptyEvalState :: EvalState m
+emptyEvalState = EvalState
+    { evalIdentifiers = [],
+      evalCounters = mempty,
+      evalLabels = mempty,
+      evalMath = False,
+      evalShowRules = [],
+      evalStyles = mempty,
+      evalFlowDirective = FlowNormal,
+      evalLoadBytes = undefined
+    }
 
 data Attempt a
   = Success a
