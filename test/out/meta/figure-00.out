@@ -201,7 +201,6 @@
          caption: text(body: [The basic table.]), 
          numbering: "I"), 
   text(body: [ ]), 
-  text(body: []), 
   parbreak(), 
   figure(body: pad(body: image(height: 2.0cm, 
                                path: "test/assets/files/cylinder.svg"), 
@@ -209,7 +208,6 @@
          caption: text(body: [The basic shapes.]), 
          numbering: "I"), 
   text(body: [ ]), 
-  text(body: []), 
   parbreak(), 
   figure(body: table(children: (text(body: [a]), 
                                 text(body: [b]), 
@@ -221,7 +219,6 @@
          caption: text(body: [The complex table.]), 
          numbering: "I"), 
   text(body: [ ]), 
-  text(body: []), 
   parbreak() }
 --- pandoc ---
 Pandoc

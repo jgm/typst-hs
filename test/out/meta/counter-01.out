@@ -113,7 +113,6 @@
 { text(body: [
 ]), 
   text(body: [ ]), 
-  text(body: []), 
   text(body: [
 ]), 
   text(body: [
@@ -121,14 +120,12 @@
   parbreak(), 
   box(body: text(body: [hey, there!])), 
   text(body: [ ]), 
-  text(body: []), 
   text(body: [ ]), 
   text(body: [0]), 
   text(body: [ ]), 
   linebreak(), 
   box(body: text(body: [more here!])), 
   text(body: [ ]), 
-  text(body: []), 
   text(body: [ ]), 
   text(body: [0]), 
   parbreak() }

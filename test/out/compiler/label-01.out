@@ -91,7 +91,6 @@
 ]), 
   strong(body: text(body: [A])), 
   text(body: [ ]), 
-  text(body: []), 
   text(body: [ ]), 
   strong(body: text(body: [B])), 
   parbreak() }

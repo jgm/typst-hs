@@ -90,11 +90,9 @@
   text(body: [ ]), 
   strong(body: text(body: [B])), 
   text(body: [ ]), 
-  text(body: []), 
   text(body: [ ]), 
   strong(body: text(body: [C])), 
   text(body: [ ]), 
-  text(body: []), 
   text(body: [ ]), 
   strong(body: text(body: [D])), 
   parbreak() }

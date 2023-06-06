@@ -60,7 +60,6 @@
 { text(body: [
 ]), 
   text(body: [Text ]), 
-  text(body: []), 
   text(body: [
 ]), 
   link(body: text(body: [Go to text.]), 

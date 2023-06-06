@@ -87,8 +87,7 @@
   text(body: [
 ]), 
   parbreak(), 
-  heading(body: { text(body: [Introduction ]), 
-                  text(body: []) }, 
+  heading(body: text(body: [Introduction ]), 
           level: 1), 
   text(body: [The beginning.]), 
   parbreak(), 

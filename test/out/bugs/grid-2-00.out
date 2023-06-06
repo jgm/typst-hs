@@ -142,7 +142,6 @@
                   { text(body: [hello ]), 
                     linebreak(), 
                     text(body: [darkness ]), 
-                    text(body: []), 
                     text(body: [ my ]), 
                     linebreak(), 
                     text(body: [old ]), 

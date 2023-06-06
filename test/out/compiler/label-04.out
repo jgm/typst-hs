@@ -69,11 +69,9 @@
   emph(body: text(body: [Hidden])), 
   text(body: [
 ]), 
-  text(body: []), 
   parbreak(), 
   emph(body: text(body: [Hidden])), 
   parbreak(), 
-  text(body: []), 
   text(body: [
 ]), 
   emph(body: text(body: [Visible])), 

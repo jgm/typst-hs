@@ -94,6 +94,7 @@ pContent = (pTxt <|> pElt) >>= applyShowRules >>= addTextElement
 addTextElement :: Monad m => Seq Content -> MP m (Seq Content)
 addTextElement = foldM go mempty
   where
+    go acc (Txt "") = pure acc
     go acc (Txt t) = (acc <>) <$> element "text" (Arguments [VContent [Txt t]] OM.empty)
     go acc x = pure (acc Seq.|> x)
 

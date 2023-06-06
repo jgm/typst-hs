@@ -97,7 +97,6 @@
   parbreak(), 
   text(body: [This is a thing ]), 
   text(body: [that ]), 
-  text(body: []), 
   text(body: [ happened.]), 
   parbreak() }
 --- pandoc ---

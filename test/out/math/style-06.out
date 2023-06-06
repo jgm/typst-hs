@@ -88,7 +88,6 @@
 ]), 
   math.equation(block: true, 
                 body: { text(body: [a]), 
-                        text(body: []), 
                         math.equation(block: false, 
                                       body: { h(amount: 1.0em), 
                                               text(body: { [], 
@@ -100,7 +99,6 @@
                                                            [] }), 
                                               h(amount: 1.0em) }, 
                                       numbering: none), 
-                        text(body: []), 
                         text(body: [b]) }, 
                 numbering: none), 
   parbreak() }

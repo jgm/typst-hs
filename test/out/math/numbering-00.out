@@ -164,7 +164,6 @@
                                          math.sqrt(radicand: text(body: [5])) }) }, 
                 numbering: none), 
   text(body: [ ]), 
-  text(body: []), 
   parbreak(), 
   text(body: [With ]), 
   ref(supplement: auto, 
@@ -183,7 +182,6 @@
                                                        t: text(body: [n])) }) }, 
                 numbering: none), 
   text(body: [ ]), 
-  text(body: []), 
   parbreak() }
 --- pandoc ---
 Pandoc

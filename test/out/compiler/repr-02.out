@@ -150,13 +150,10 @@
        size: 0.8em), 
   text(body: [
 ], size: 0.8em), 
-  text(body: [], size: 0.8em), 
   text(body: [
 ], size: 0.8em), 
-  text(body: [], size: 0.8em), 
   text(body: [
 ], size: 0.8em), 
-  text(body: [], size: 0.8em), 
   parbreak() }
 --- pandoc ---
 Pandoc

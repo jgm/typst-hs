@@ -76,14 +76,12 @@
 ]), 
   strong(body: text(body: [This is])), 
   text(body: [ ]), 
-  text(body: []), 
   text(body: [ ]), 
   strong(body: text(body: [protected.])), 
   text(body: [
 ]), 
   strong(body: text(body: [This is not.])), 
   text(body: [ ]), 
-  text(body: []), 
   parbreak() }
 --- pandoc ---
 Pandoc

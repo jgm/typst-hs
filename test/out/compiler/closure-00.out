@@ -61,7 +61,6 @@
   text(body: [
 ]), 
   parbreak(), 
-  text(body: []), 
   parbreak() }
 --- pandoc ---
-Pandoc Meta { unMeta = fromList [] } [ Para [] , Para [] ]
+Pandoc Meta { unMeta = fromList [] } [ Para [] ]
