@@ -43,13 +43,13 @@ library
                       Typst.Parse
                       Typst.Types
                       Typst.Evaluate
+                      Typst.Methods
+                      Typst.Util
                       Typst.Pandoc
     other-modules:
                       Typst.Bind
                       Typst.Regex
                       Typst.Show
-                      Typst.Util
-                      Typst.Methods
                       Typst.Module.Standard
                       Typst.Module.Math
                       Typst.Module.Calc
