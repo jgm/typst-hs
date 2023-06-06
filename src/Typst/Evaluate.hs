@@ -780,12 +780,7 @@ evalExpr expr =
     Break -> do
       updateState (\st -> st {evalFlowDirective = FlowBreak})
       pure VNone
-    Label t -> do
-      updateState $ \st -> st{ evalLabels =
-          case evalLastElement st of
-            Nothing -> evalLabels st
-            Just e' -> M.insert t e' $ evalLabels st }
-      pure $ VLabel t
+    Label t -> pure $ VLabel t
     Import e imports -> do
       argval <- evalExpr e
       (modid, modmap) <-
