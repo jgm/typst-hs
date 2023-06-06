@@ -62,7 +62,7 @@ library
                       filepath,
                       containers,
                       ordered-containers,
-                      text >= 2,
+                      text,
                       bytestring,
                       cassava,
                       aeson,
