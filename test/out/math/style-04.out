@@ -71,9 +71,3 @@
                         math.sqrt(radicand: text(body: [place])) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math InlineMath "\\text{ time}^{2} + \\sqrt{\\text{place}}" ]
-  ]

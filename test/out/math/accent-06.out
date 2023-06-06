@@ -107,12 +107,3 @@
                                                       t: text(body: [b]))) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "\\int\\limits^{\\sim},{\\int\\limits^{\\sim}}_{a}^{b},\\overset{\\sim}{\\int_{a}^{b}}"
-      ]
-  ]

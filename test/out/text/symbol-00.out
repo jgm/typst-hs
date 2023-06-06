@@ -162,25 +162,3 @@
   text(body: [←], 
        font: "New Computer Modern Math"), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "\128512"
-      , SoftBreak
-      , Str "\128117"
-      , SoftBreak
-      , Str "\128034"
-      ]
-  , Para
-      [ Str "\8594"
-      , SoftBreak
-      , Str "\8592"
-      , SoftBreak
-      , Str "\8669"
-      , SoftBreak
-      , Str "\10532"
-      ]
-  , Para
-      [ Str "\8594this" , Space , Str "and" , Space , Str "this\8592" ]
-  ]

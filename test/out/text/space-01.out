@@ -80,20 +80,3 @@
   text(body: [B]), 
   text(body: [ C]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "ABC"
-      , LineBreak
-      , Str "A"
-      , Space
-      , Str "BC"
-      , LineBreak
-      , Str "A"
-      , Space
-      , Str "B"
-      , Space
-      , Str "C"
-      ]
-  ]

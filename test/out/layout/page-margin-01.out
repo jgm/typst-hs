@@ -194,19 +194,3 @@
   parbreak(), 
   text(body: [ Overridden]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Div
-      ( "" , [] , [ ( "align" , "left" ) ] ) [ Para [ Str "Left" ] ]
-  , Para []
-  , Div
-      ( "" , [] , [ ( "align" , "right" ) ] ) [ Para [ Str "Right" ] ]
-  , Para []
-  , Div ( "" , [] , [ ( "align" , "top" ) ] ) [ Para [ Str "Top" ] ]
-  , Para []
-  , Div
-      ( "" , [] , [ ( "align" , "bottom" ) ] ) [ Para [ Str "Bottom" ] ]
-  , Para [ Str "Overridden" ]
-  ]

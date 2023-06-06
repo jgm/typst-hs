@@ -86,9 +86,3 @@
                         text(body: [ϴ]) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math InlineMath "a,A,\\delta,\\epsilon,\\partial,\\Delta,\1012" ]
-  ]

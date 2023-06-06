@@ -89,7 +89,3 @@ Second
 ]), 
   pagebreak(weak: true), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [] , Para [ Str "First" ] , Para [ Str "Second" ] ]

@@ -59,6 +59,3 @@
                                   numbering: none), 
               t: text(body: [b])), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] } [ Para [ Math InlineMath "a^{b}" ] ]

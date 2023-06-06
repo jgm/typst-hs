@@ -70,9 +70,3 @@
                                delim: "["), 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math DisplayMath "\\begin{bmatrix}\n1 \\\\\n2\n\\end{bmatrix}" ]
-  ]

@@ -262,23 +262,3 @@
                      (20.0pt, 0.0pt), 
                      (20.0pt, 35.0pt))), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Div ( "" , [ "polygon" ] , [] ) []
-  , Para []
-  , Div ( "" , [ "polygon" ] , [] ) []
-  , Para []
-  , Div ( "" , [ "polygon" ] , [] ) []
-  , Div ( "" , [ "polygon" ] , [] ) []
-  , Para []
-  , Div ( "" , [ "polygon" ] , [] ) []
-  , Para []
-  , Div ( "" , [ "polygon" ] , [] ) []
-  , Para []
-  , Div ( "" , [ "polygon" ] , [] ) []
-  , Div ( "" , [ "polygon" ] , [] ) []
-  , Div ( "" , [ "polygon" ] , [] ) []
-  , Div ( "" , [ "polygon" ] , [] ) []
-  ]

@@ -153,12 +153,3 @@
                                     base: text(body: [Z])) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          InlineMath
-          "\\begin{array}{r}\n\\grave{a},\\acute{b},\\hat{f},\\overset{\\sim}{\167},\\overline{\228},\\overset{\168}{a},\228 \\\\\n\\breve{\\&},\\overset{\\cdot}{!},\\overset{\9675}{a},\\overset{\711}{@},\\overset{\\rightarrow}{Z},\\overset{\\leftarrow}{Z}\n\\end{array}"
-      ]
-  ]

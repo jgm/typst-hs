@@ -105,12 +105,3 @@
                         text(body: [e]) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math InlineMath "a + {b + c + d} + e"
-      , SoftBreak
-      , Math DisplayMath "a + {b + c + d} + e"
-      ]
-  ]

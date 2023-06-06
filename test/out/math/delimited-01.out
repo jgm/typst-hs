@@ -96,12 +96,3 @@
                         text(body: [)]) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          InlineMath
-          "\\lbrack 1,2\\lbrack = \\lbrack 1,2) \\neq \\zeta(\\frac{x}{2})"
-      ]
-  ]

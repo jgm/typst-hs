@@ -95,37 +95,3 @@ which is the authoritative source.]),
   parbreak(), 
   bibliography(path: "/works.bib"), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Para
-      [ Str "They"
-      , Space
-      , Str "can"
-      , Space
-      , Str "look"
-      , Space
-      , Str "for"
-      , Space
-      , Str "the"
-      , Space
-      , Str "details"
-      , Space
-      , Str "in"
-      , Space
-      , Link
-          ( "" , [ "ref" ] , [] ) [ Str "[netwok]" ] ( "#netwok" , "" )
-      , Str ","
-      , SoftBreak
-      , Str "which"
-      , Space
-      , Str "is"
-      , Space
-      , Str "the"
-      , Space
-      , Str "authoritative"
-      , Space
-      , Str "source."
-      ]
-  ]

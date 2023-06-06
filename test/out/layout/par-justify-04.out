@@ -80,24 +80,3 @@
   text(body: [
 This text can be fitted in one line.]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "This"
-      , Space
-      , Str "text"
-      , Space
-      , Str "can"
-      , Space
-      , Str "be"
-      , Space
-      , Str "fitted"
-      , Space
-      , Str "in"
-      , Space
-      , Str "one"
-      , Space
-      , Str "line."
-      ]
-  ]

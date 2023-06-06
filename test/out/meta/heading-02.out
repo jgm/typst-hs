@@ -78,19 +78,3 @@ multiline.]),
           level: 1), 
   text(body: [is not.]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Header
-      1
-      ( "" , [] , [] )
-      [ Str "This"
-      , SoftBreak
-      , Str "is"
-      , SoftBreak
-      , Str "multiline."
-      ]
-  , Header 1 ( "" , [] , [] ) [ Str "This" ]
-  , Para [ Str "is" , Space , Str "not." ]
-  ]

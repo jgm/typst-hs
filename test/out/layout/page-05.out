@@ -119,5 +119,3 @@
        height: 100.0pt, 
        width: 100.0pt), 
   parbreak() }
---- pandoc ---
-Pandoc Meta { unMeta = fromList [] } [ Para [] ]

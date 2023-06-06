@@ -469,12 +469,3 @@
                                     tr: text(body: [v])) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "\\begin{array}{r}\n{{}^{u}a},a^{v},{{}_{x}a},a_{y},a^{t},a_{b} \\\\\n\\overset{t}{a^{v}},a_{y}^{v},\\underset{b}{a_{y}},{{}_{x}a_{b}},{{}_{x}^{u}a},{{}^{u}a^{t}} \\\\\n{{}^{u}a^{v}},a_{y}^{t},a_{b}^{v},{{}_{x}a_{y}},{{}^{u}a_{b}},{{}_{u}a^{t}},{a^{t}}_{b} \\\\\n{{}_{x}^{u}a_{y}^{v}},{{}_{x}\\underset{b}{a_{y}^{t}}},{{}^{u}\\overset{t}{a_{b}^{v}}},{{}_{x}^{u}a_{b}^{t}},\\underset{b}{\\overset{t}{a_{y}^{v}}},{{}_{x}^{u}\\underset{b}{\\overset{t}{a_{y}^{v}}}}\n\\end{array}"
-      ]
-  ]

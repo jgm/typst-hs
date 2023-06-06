@@ -121,16 +121,3 @@
                         text(body: [b]) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math InlineMath "f(x),f(x)"
-      , LineBreak
-      , Math
-          InlineMath
-          "\\left\\lbrack a|b \\right\\rbrack,\\left\\lbrack a~|~b \\right\\rbrack"
-      , LineBreak
-      , Math InlineMath "a\\text{is}b,a\\text{ is }b"
-      ]
-  ]

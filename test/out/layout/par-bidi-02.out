@@ -118,5 +118,3 @@
               "Noto Serif Hebrew"), 
        lang: "de"), 
   parbreak() }
---- pandoc ---
-Pandoc Meta { unMeta = fromList [] } [ Para [] ]

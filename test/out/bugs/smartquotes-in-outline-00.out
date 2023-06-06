@@ -79,19 +79,3 @@
   parbreak(), 
   heading(body: text(body: [“This” “is” “a” “test”]), 
           level: 1) }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Header
-      1
-      ( "" , [] , [] )
-      [ Str "\8220This\8221"
-      , Space
-      , Str "\8220is\8221"
-      , Space
-      , Str "\8220a\8221"
-      , Space
-      , Str "\8220test\8221"
-      ]
-  ]

@@ -113,15 +113,3 @@
         spacing: 0.0pt, 
         width: 90.0pt), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Div
-      ( "" , [] , [] )
-      [ Para []
-      , Div ( "" , [] , [] ) []
-      , Para []
-      , Div ( "" , [] , [] ) []
-      ]
-  ]

@@ -64,16 +64,3 @@
 My text has spaces.], 
        spacing: 1.0em), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "My"
-      , Space
-      , Str "text"
-      , Space
-      , Str "has"
-      , Space
-      , Str "spaces."
-      ]
-  ]

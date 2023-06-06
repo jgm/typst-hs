@@ -111,17 +111,3 @@
   list(children: ({ text(body: [No more fruit]), 
                     parbreak() }), 
        indent: 10.0pt) }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , BulletList [ [ Para [ Str "Fruit" ] ] ]
-  , Para []
-  , BulletList
-      [ [ Para [ Str "Apple" ] ] , [ Para [ Str "Orange" ] ] ]
-  , BulletList [ [ Para [ Str "Pear" ] ] ]
-  , Para []
-  , BulletList
-      [ [ Para [ Str "No" , Space , Str "more" , Space , Str "fruit" ] ]
-      ]
-  ]

@@ -69,12 +69,3 @@
                                             text(body: [4]))) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "v = \\begin{pmatrix}\n1 \\\\\n2 + 3 \\\\\n4\n\\end{pmatrix}"
-      ]
-  ]

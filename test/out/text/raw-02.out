@@ -60,10 +60,3 @@ Text
   text(body: [
 Text]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "Text" ]
-  , CodeBlock ( "" , [ "rust" ] , [] ) "fn code() {}\n"
-  , Para [ Str "Text" ]
-  ]

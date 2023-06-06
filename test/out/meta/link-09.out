@@ -66,17 +66,3 @@
   link(body: text(body: [Go to text.]), 
        dest: ), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "Text"
-      , Space
-      , Span ( "hey" , [] , [] ) []
-      , SoftBreak
-      , Link
-          ( "" , [] , [] )
-          [ Str "Go" , Space , Str "to" , Space , Str "text." ]
-          ( "#hey" , "" )
-      ]
-  ]

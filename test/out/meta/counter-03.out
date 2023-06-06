@@ -177,31 +177,3 @@
          kind: , 
          supplement: "Figure"), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Figure
-      ( "" , [] , [] )
-      (Caption
-         Nothing [ Para [ Str "Four" , Space , Str "\8216A\8217s" ] ])
-      [ Para [ Emph [ Str "AAAA!" ] ] ]
-  , Para []
-  , Figure
-      ( "" , [] , [] )
-      (Caption
-         Nothing [ Para [ Str "Four" , Space , Str "\8216B\8217s" ] ])
-      [ Para [ Emph [ Str "BBBB!" ] ] ]
-  , Para []
-  , Figure
-      ( "" , [] , [] )
-      (Caption
-         Nothing [ Para [ Str "Four" , Space , Str "\8216C\8217s" ] ])
-      [ Para [ Emph [ Str "CCCC!" ] ] ]
-  , Para []
-  , Figure
-      ( "" , [] , [] )
-      (Caption
-         Nothing [ Para [ Str "Four" , Space , Str "\8216D\8217s" ] ])
-      [ Para [ Emph [ Str "DDDD!" ] ] ]
-  ]

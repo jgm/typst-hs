@@ -95,21 +95,3 @@
                          start: 2) }), 
        number-align: start, 
        start: 4) }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , OrderedList
-      ( 4 , DefaultStyle , DefaultDelim )
-      [ [ Para [ Str "c" ] ]
-      , [ Para [ Str "d" ] ]
-      , [ Para [ Str "e" , LineBreak , Str "f" ]
-        , OrderedList
-            ( 2 , DefaultStyle , DefaultDelim )
-            [ [ Para [ Str "f" , LineBreak , Str "g" ] ]
-            , [ Para [ Str "g" ] ]
-            , [ Para [ Str "h" ] ]
-            ]
-        ]
-      ]
-  ]

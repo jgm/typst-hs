@@ -161,13 +161,3 @@ Two.]),
 Six.]), 
   parbreak(), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "One." ]
-  , Para [ Str "Two." ]
-  , Para [ Str "Three." ]
-  , Para [ Str "Four." ]
-  , Para [ Str "Five." ]
-  , Para [ Str "Six." ]
-  ]

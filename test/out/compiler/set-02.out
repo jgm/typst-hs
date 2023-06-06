@@ -113,7 +113,3 @@
        fill: rgb(100%,25%,21%,100%), 
        style: "italic"), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "And" , Space , Str "the" , Space , Str "red" ] ]

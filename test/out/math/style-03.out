@@ -66,9 +66,3 @@
                         text(body: [🌈]) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math DisplayMath "\12424 \\land \127987\65039\8205\127752" ]
-  ]

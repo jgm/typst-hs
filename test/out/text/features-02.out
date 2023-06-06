@@ -96,20 +96,3 @@ a vs ],
        font: "IBM Plex Serif", 
        stylistic-set: 5), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "a"
-      , Space
-      , Str "vs"
-      , Space
-      , Str "a"
-      , LineBreak
-      , Str "\223"
-      , Space
-      , Str "vs"
-      , Space
-      , Str "\223"
-      ]
-  ]

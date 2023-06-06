@@ -162,15 +162,3 @@
         dir: ltr, 
         spacing: 1.0em), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Div
-      ( "" , [] , [ ( "stack" , "ltr" ) ] )
-      [ Div ( "" , [] , [] ) [ Div ( "" , [ "polygon" ] , [] ) [] ]
-      , Div ( "" , [] , [] ) [ Div ( "" , [ "polygon" ] , [] ) [] ]
-      , Div ( "" , [] , [] ) [ Div ( "" , [ "polygon" ] , [] ) [] ]
-      , Div ( "" , [] , [] ) [ Div ( "" , [ "polygon" ] , [] ) [] ]
-      ]
-  ]

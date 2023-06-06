@@ -65,12 +65,3 @@ Stuff
 ]), 
   image(path: "test/assets/files/rhino.png"), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "Stuff"
-      , SoftBreak
-      , Image ( "" , [] , [] ) [] ( "test/assets/files/rhino.png" , "" )
-      ]
-  ]

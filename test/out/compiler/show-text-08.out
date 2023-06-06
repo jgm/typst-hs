@@ -70,17 +70,3 @@
   image(path: "test/assets/files/graph.png"), 
   text(body: [ has nodes.]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Para
-      [ Str "The"
-      , Space
-      , Image ( "" , [] , [] ) [] ( "test/assets/files/graph.png" , "" )
-      , Space
-      , Str "has"
-      , Space
-      , Str "nodes."
-      ]
-  ]

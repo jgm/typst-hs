@@ -155,12 +155,3 @@
                                          text(body: [4])))) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          InlineMath
-          "\\begin{array}{r}\n\\begin{pmatrix}\n\\end{pmatrix} \\cdot \\begin{pmatrix}\n\n\\end{pmatrix} \\cdot \\begin{pmatrix}\n1 & 2\n\\end{pmatrix} \\cdot \\begin{pmatrix}\n1 & 2\n\\end{pmatrix} \\\\\n\\begin{pmatrix}\n1 \\\\\n2\n\\end{pmatrix} \\cdot \\begin{pmatrix}\n1 & 2 \\\\\n3 & 4\n\\end{pmatrix} \\cdot \\begin{pmatrix}\n\\begin{aligned}\n1 + & 2\n\\end{aligned} & \\frac{1}{2} \\\\\n\\begin{aligned}\n & 3\n\\end{aligned} & 4\n\\end{pmatrix}\n\\end{array}"
-      ]
-  ]

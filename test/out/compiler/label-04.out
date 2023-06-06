@@ -78,19 +78,3 @@
 ]), 
   emph(body: text(body: [Visible])), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Para
-      [ Emph [ Str "Hidden" ]
-      , SoftBreak
-      , Span ( "hide" , [] , [] ) []
-      ]
-  , Para [ Emph [ Str "Hidden" ] ]
-  , Para
-      [ Span ( "hide" , [] , [] ) []
-      , SoftBreak
-      , Emph [ Str "Visible" ]
-      ]
-  ]

@@ -53,11 +53,3 @@
 ]), 
   image(path: "test/assets/files/pattern.svg"), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Image
-          ( "" , [] , [] ) [] ( "test/assets/files/pattern.svg" , "" )
-      ]
-  ]

@@ -54,7 +54,3 @@
       lang: none, 
       text: "B"), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Code ( "" , [] , [] ) "A" , Code ( "" , [] , [] ) "B" ] ]

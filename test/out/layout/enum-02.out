@@ -80,18 +80,3 @@
   enum(children: (numbering(numbering: "I", 
                             numbers: (5)))), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , OrderedList
-      ( 1 , DefaultStyle , DefaultDelim ) [ [ Plain [ Str "I" ] ] ]
-  , OrderedList
-      ( 1 , DefaultStyle , DefaultDelim ) [ [ Plain [ Str "II" ] ] ]
-  , OrderedList
-      ( 1 , DefaultStyle , DefaultDelim ) [ [ Plain [ Str "III" ] ] ]
-  , OrderedList
-      ( 1 , DefaultStyle , DefaultDelim ) [ [ Plain [ Str "IV" ] ] ]
-  , OrderedList
-      ( 1 , DefaultStyle , DefaultDelim ) [ [ Plain [ Str "V" ] ] ]
-  ]

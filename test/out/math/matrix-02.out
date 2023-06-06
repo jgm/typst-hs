@@ -102,12 +102,3 @@
                                        text(body: [α])))), 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "\\begin{pmatrix}\na & b^{2} \\\\\n\\sum_{\\begin{array}{r}\nx \\\\\ny\n\\end{array}}x & a^{\\frac{1}{2}} \\\\\n\\zeta & \\alpha\n\\end{pmatrix}"
-      ]
-  ]

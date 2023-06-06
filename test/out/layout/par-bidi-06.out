@@ -74,18 +74,3 @@
   text(body: [inoחיים], 
        lang: "he"), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "\1511\1512\1504\1508\1497\1501Rh"
-      , Span
-          ( "" , [ "box" ] , [] )
-          [ Image
-              ( "" , [] , [ ( "height" , "11.0pt" ) ] )
-              []
-              ( "test/assets/files/rhino.png" , "" )
-          ]
-      , Str "ino\1495\1497\1497\1501"
-      ]
-  ]

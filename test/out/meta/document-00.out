@@ -60,7 +60,3 @@
   text(body: [
 What’s up?]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "What\8217s" , Space , Str "up?" ] ]

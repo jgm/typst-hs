@@ -139,14 +139,3 @@ A]),
       width: 1.0fr), 
   text(body: [سون], dir: rtl), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "A" , Span ( "" , [ "box" ] , [] ) [] , Str "B" ]
-  , Para [ Str "A" , Span ( "" , [ "box" ] , [] ) [] , Str "B" ]
-  , Para
-      [ Str "\1585\1610\1580\1610\1606"
-      , Span ( "" , [ "box" ] , [] ) []
-      , Str "\1587\1608\1606"
-      ]
-  ]

@@ -56,5 +56,3 @@
 { text(body: [
 ]), 
   parbreak() }
---- pandoc ---
-Pandoc Meta { unMeta = fromList [] } [ Para [] ]

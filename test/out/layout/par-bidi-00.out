@@ -82,5 +82,3 @@
   text(body: par(body: text(body: [Text טֶקסט])), 
        lang: "de"), 
   parbreak() }
---- pandoc ---
-Pandoc Meta { unMeta = fromList [] } [ Para [] ]

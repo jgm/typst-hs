@@ -154,36 +154,3 @@
                  font: "New Computer Modern")), 
   text(body: [!]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Para
-      [ Span
-          ( "" , [ "box" ] , [] )
-          [ Str "T\8202" , Span ( "" , [ "box" ] , [] ) [] , Str "\8202X" ]
-      , Str ","
-      , Space
-      , Span
-          ( "" , [ "box" ] , [] )
-          [ Str "LaT\8202" , Span ( "" , [ "box" ] , [] ) [] , Str "\8202X" ]
-      , Str ","
-      , Space
-      , Span
-          ( "" , [ "box" ] , [] )
-          [ Str "LuaT\8202"
-          , Span ( "" , [ "box" ] , [] ) []
-          , Str "\8202X"
-          ]
-      , Space
-      , Str "and"
-      , Space
-      , Span
-          ( "" , [ "box" ] , [] )
-          [ Str "LuaLaT\8202"
-          , Span ( "" , [ "box" ] , [] ) []
-          , Str "\8202X"
-          ]
-      , Str "!"
-      ]
-  ]

@@ -207,34 +207,3 @@
   text(body: [false]), 
   text(body: [)]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "\10060(8"
-      , Space
-      , Str "/="
-      , Space
-      , Str "7)"
-      , SoftBreak
-      , Str "\9989"
-      , SoftBreak
-      , Str "\9989"
-      , SoftBreak
-      , Str "\9989"
-      , SoftBreak
-      , Str "\9989"
-      , SoftBreak
-      , Str "\9989"
-      , SoftBreak
-      , Str "\9989"
-      , SoftBreak
-      , Str "\9989"
-      , SoftBreak
-      , Str "\10060(true"
-      , Space
-      , Str "/="
-      , Space
-      , Str "false)"
-      ]
-  ]

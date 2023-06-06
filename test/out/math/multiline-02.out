@@ -89,12 +89,3 @@
                         text(body: [3]) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "\\begin{array}{rlr}\na + b & = 2 + 3 & = 5 \\\\\nb & = c & = 3\n\\end{array}"
-      ]
-  ]

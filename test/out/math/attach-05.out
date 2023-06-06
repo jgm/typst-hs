@@ -172,12 +172,3 @@
                                                                       num: text(body: [1])))) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "\\begin{array}{r}\n\\sqrt{a_{\\frac{1}{2}}^{\\zeta}},\\sqrt{a_{\\alpha}^{\\frac{1}{2}}},\\sqrt{a_{\\frac{1}{2}}^{\\frac{3}{4}}} \\\\\n\\sqrt{{}_{\\frac{3}{4}}^{\\frac{1}{2}}a},\\sqrt{{}_{\\frac{3}{4}}^{\\frac{1}{2}}a_{\\frac{3}{4}}^{\\frac{1}{2}}}\n\\end{array}"
-      ]
-  ]

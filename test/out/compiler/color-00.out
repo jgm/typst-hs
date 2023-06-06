@@ -211,39 +211,3 @@
   box(body: square(fill: cmyk(0%,0%,0%,0%), 
                    size: 9.0pt)), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Div
-      ( "" , [] , [ ( "stack" , "ltr" ) ] )
-      [ Div ( "" , [] , [] ) [ Div ( "" , [ "rect" ] , [] ) [] ]
-      , Div ( "" , [] , [] ) [ Div ( "" , [ "rect" ] , [] ) [] ]
-      , Div ( "" , [] , [] ) [ Div ( "" , [ "rect" ] , [] ) [] ]
-      ]
-  , Para
-      [ Span ( "" , [ "box" ] , [] ) []
-      , Span ( "" , [ "box" ] , [] ) []
-      , Span ( "" , [ "box" ] , [] ) []
-      , Span ( "" , [ "box" ] , [] ) []
-      , Span ( "" , [ "box" ] , [] ) []
-      , Span ( "" , [ "box" ] , [] ) []
-      , Span ( "" , [ "box" ] , [] ) []
-      , Span ( "" , [ "box" ] , [] ) []
-      , Span ( "" , [ "box" ] , [] ) []
-      , Span ( "" , [ "box" ] , [] ) []
-      , Span ( "" , [ "box" ] , [] ) []
-      , SoftBreak
-      , Span ( "" , [ "box" ] , [] ) []
-      , Span ( "" , [ "box" ] , [] ) []
-      , Span ( "" , [ "box" ] , [] ) []
-      , Span ( "" , [ "box" ] , [] ) []
-      , Span ( "" , [ "box" ] , [] ) []
-      , Span ( "" , [ "box" ] , [] ) []
-      , Span ( "" , [ "box" ] , [] ) []
-      , Span ( "" , [ "box" ] , [] ) []
-      , Span ( "" , [ "box" ] , [] ) []
-      , Span ( "" , [ "box" ] , [] ) []
-      , Span ( "" , [ "box" ] , [] ) []
-      ]
-  ]

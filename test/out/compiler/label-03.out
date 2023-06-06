@@ -98,21 +98,3 @@
   text(body: [ ]), 
   strong(body: text(body: [D])), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Para
-      [ Strong [ Str "A" ]
-      , Space
-      , Strong [ Str "B" ]
-      , Space
-      , Span ( "red" , [] , [] ) []
-      , Space
-      , Strong [ Str "C" ]
-      , Space
-      , Span ( "blue" , [] , [] ) []
-      , Space
-      , Strong [ Str "D" ]
-      ]
-  ]

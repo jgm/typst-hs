@@ -217,12 +217,3 @@
                                           text(body: [456]) }) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          InlineMath
-          "\\begin{array}{r}\nA,\\mathit{A},\\mathrm{A},\\mathbf{A},\\mathbf{\\mathrm{A}}, \\\\\n\\mathrm{A},\\mathsf{A},\\mathcal{A},\\mathfrak{A},\\mathtt{A},\\mathbb{A}, \\\\\n\\mathit{\\partial},\\mathrm{\\partial}, \\\\\n\\mathbb{\\text{hello}} + \\mathbf{\\mathcal{\\text{world}}}, \\\\\n\\mathtt{\\text{SQRT}}(x) \\wr \\mathtt{123 + 456}\n\\end{array}"
-      ]
-  ]

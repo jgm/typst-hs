@@ -86,17 +86,3 @@
   text(body: [ from the ]), 
   text(body: [@]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Para
-      [ Str "@"
-      , Space
-      , Str "from"
-      , Space
-      , Str "the"
-      , Space
-      , Str "@"
-      ]
-  ]

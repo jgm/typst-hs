@@ -71,20 +71,3 @@ Welcome ]),
   linebreak(), 
   text(body: [here. Does this work well?]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "Welcome"
-      , LineBreak
-      , Str "here."
-      , Space
-      , Str "Does"
-      , Space
-      , Str "this"
-      , Space
-      , Str "work"
-      , Space
-      , Str "well?"
-      ]
-  ]

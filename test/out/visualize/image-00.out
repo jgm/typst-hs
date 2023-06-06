@@ -76,13 +76,3 @@
 ]), 
   image(path: "test/assets/files/tiger.jpg"), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Image ( "" , [] , [] ) [] ( "test/assets/files/rhino.png" , "" )
-      ]
-  , Para
-      [ Image ( "" , [] , [] ) [] ( "test/assets/files/tiger.jpg" , "" )
-      ]
-  ]

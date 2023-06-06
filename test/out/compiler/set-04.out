@@ -101,14 +101,3 @@
                   { text(body: [Tiger]), 
                     parbreak() }), 
        numbering: ) }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , OrderedList
-      ( 1 , DefaultStyle , DefaultDelim )
-      [ [ Para [ Str "Monkey" ] ]
-      , [ Para [ Str "Rhino" ] ]
-      , [ Para [ Str "Tiger" ] ]
-      ]
-  ]

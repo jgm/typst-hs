@@ -63,7 +63,3 @@
 א⁦A⁧Bב⁩?], 
        dir: rtl), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "\1488\8294A\8295B\1489\8297?" ] ]

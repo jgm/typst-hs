@@ -124,15 +124,3 @@
                 join: "round"), 
        width: 20.0pt), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Div ( "" , [ "rect" ] , [] ) []
-  , Para []
-  , Para []
-  , Div ( "" , [ "rect" ] , [] ) []
-  , Para []
-  , Para []
-  , Div ( "" , [ "rect" ] , [] ) []
-  ]

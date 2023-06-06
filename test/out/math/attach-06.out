@@ -82,12 +82,3 @@
                                                    num: text(body: [1])) }) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "( - 1)^{n} + \\left( \\frac{1}{2} + 3 \\right)^{- \\frac{1}{2}}"
-      ]
-  ]

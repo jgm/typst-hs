@@ -155,36 +155,3 @@
       inset: 2.0pt, 
       stroke: 1.0pt), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Span ( "" , [ "box" ] , [] ) [ Str "L" ]
-      , Span ( "" , [ "box" ] , [] ) [ Str "O" ]
-      , Span ( "" , [ "box" ] , [] ) [ Str "R" ]
-      , Span ( "" , [ "box" ] , [] ) [ Str "E" ]
-      , Span ( "" , [ "box" ] , [] ) [ Str "M" ]
-      , Space
-      , Span ( "" , [ "box" ] , [] ) [ Str "I" ]
-      , Span ( "" , [ "box" ] , [] ) [ Str "P" ]
-      , Span ( "" , [ "box" ] , [] ) [ Str "S" ]
-      , Span ( "" , [ "box" ] , [] ) [ Str "U" ]
-      , Span ( "" , [ "box" ] , [] ) [ Str "M" ]
-      , Space
-      , Span ( "" , [ "box" ] , [] ) [ Str "D" ]
-      , Span ( "" , [ "box" ] , [] ) [ Str "O" ]
-      , Span ( "" , [ "box" ] , [] ) [ Str "L" ]
-      , Span ( "" , [ "box" ] , [] ) [ Str "O" ]
-      , Span ( "" , [ "box" ] , [] ) [ Str "R" ]
-      , Space
-      , Span ( "" , [ "box" ] , [] ) [ Str "S" ]
-      , Span ( "" , [ "box" ] , [] ) [ Str "I" ]
-      , Span ( "" , [ "box" ] , [] ) [ Str "T" ]
-      , Space
-      , Span ( "" , [ "box" ] , [] ) [ Str "A" ]
-      , Span ( "" , [ "box" ] , [] ) [ Str "M" ]
-      , Span ( "" , [ "box" ] , [] ) [ Str "E" ]
-      , Span ( "" , [ "box" ] , [] ) [ Str "T" ]
-      , Span ( "" , [ "box" ] , [] ) [ Str "," ]
-      ]
-  ]

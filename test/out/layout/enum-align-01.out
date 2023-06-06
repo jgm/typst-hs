@@ -77,21 +77,3 @@
                     parbreak() }), 
        number-align: start, 
        start: 1) }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , OrderedList
-      ( 1 , DefaultStyle , DefaultDelim )
-      [ [ Para [ Str "a" ] ]
-      , [ Para [ Str "b" ] ]
-      , [ Para [ Str "c" ] ]
-      ]
-  , Para []
-  , OrderedList
-      ( 1 , DefaultStyle , DefaultDelim )
-      [ [ Para [ Str "a" ] ]
-      , [ Para [ Str "b" ] ]
-      , [ Para [ Str "c" ] ]
-      ]
-  ]

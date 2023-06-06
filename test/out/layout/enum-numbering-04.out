@@ -115,23 +115,3 @@
                     parbreak() }), 
        full: true, 
        numbering: ) }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , OrderedList
-      ( 1 , DefaultStyle , DefaultDelim )
-      [ [ Para [ Str "A" ]
-        , OrderedList
-            ( 1 , DefaultStyle , DefaultDelim )
-            [ [ Para [ Str "B" ] ]
-            , [ Para [ Str "C" ]
-              , OrderedList
-                  ( 1 , DefaultStyle , DefaultDelim ) [ [ Para [ Str "D" ] ] ]
-              ]
-            ]
-        ]
-      , [ Para [ Str "E" ] ]
-      , [ Para [ Str "F" ] ]
-      ]
-  ]

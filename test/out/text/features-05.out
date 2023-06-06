@@ -87,14 +87,3 @@
   text(body: text(body: [0123456789]), 
        number-width: "tabular"), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "0123456789"
-      , LineBreak
-      , Str "3456789123"
-      , LineBreak
-      , Str "0123456789"
-      ]
-  ]

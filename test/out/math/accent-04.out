@@ -77,12 +77,3 @@
                                     base: text(body: [∑])) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          InlineMath
-          "\\overset{\\rightarrow}{\\text{ABC } + d},\\sum\\limits^{\\sim}"
-      ]
-  ]

@@ -55,16 +55,3 @@
 ]), 
   text(body: [This is a spaceexceedinglylongy.]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "This"
-      , Space
-      , Str "is"
-      , Space
-      , Str "a"
-      , Space
-      , Str "spaceexceedinglylongy."
-      ]
-  ]

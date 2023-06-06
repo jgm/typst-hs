@@ -63,14 +63,3 @@
       width: 1.0fr), 
   text(body: [ B]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "A"
-      , Space
-      , Span ( "" , [ "box" ] , [] ) []
-      , Space
-      , Str "B"
-      ]
-  ]

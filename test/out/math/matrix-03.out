@@ -99,15 +99,3 @@
                         text(body: [b]) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath "\\begin{pmatrix}\n1 & 2 \\\\\n3 & 4\n\\end{pmatrix}"
-      , SoftBreak
-      , Math
-          DisplayMath
-          "a + \\begin{pmatrix}\n1 & 2 \\\\\n3 & 4\n\\end{pmatrix} + b"
-      ]
-  ]

@@ -68,20 +68,3 @@
                   width: 80%)), 
   text(body: [ B]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "A"
-      , Space
-      , Span
-          ( "" , [ "box" ] , [] )
-          [ Image
-              ( "" , [] , [ ( "width" , "80%" ) , ( "height" , "1.0cm" ) ] )
-              []
-              ( "test/assets/files/tiger.jpg" , "" )
-          ]
-      , Space
-      , Str "B"
-      ]
-  ]

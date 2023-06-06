@@ -83,21 +83,3 @@
   linebreak(), 
   text(body: [Apart]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "A"
-      , Space
-      , Span ( "" , [ "box" ] , [] ) [ Str "B" , LineBreak , Str "C" ]
-      , Space
-      , Str "D."
-      ]
-  , Para
-      [ Str "Spaced"
-      , LineBreak
-      , Span ( "" , [ "box" ] , [] ) []
-      , LineBreak
-      , Str "Apart"
-      ]
-  ]

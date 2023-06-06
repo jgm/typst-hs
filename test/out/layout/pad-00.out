@@ -122,17 +122,3 @@
                 left: 10.0pt)), 
   text(body: [ there]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Para []
-  , Div ( "" , [ "rect" ] , [] ) [ Para [] ]
-  , Para
-      [ Str "Hi"
-      , Space
-      , Span ( "" , [ "box" ] , [] ) []
-      , Space
-      , Str "there"
-      ]
-  ]

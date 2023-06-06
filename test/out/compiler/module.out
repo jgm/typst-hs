@@ -129,15 +129,3 @@
   emph(body: text(body: [includable])), 
   text(body: [ text.]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Para
-      [ Str "Some"
-      , Space
-      , Emph [ Str "includable" ]
-      , Space
-      , Str "text."
-      ]
-  ]

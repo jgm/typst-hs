@@ -187,23 +187,3 @@
   text(body: [At Beta, it was ]), 
   locate(func: ), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Header 1 ( "" , [] , [] ) [ Str "Alpha" ]
-  , Para [ Str "In" , Space , Str "1" ]
-  , Header 2 ( "" , [] , [] ) [ Str "Beta" ]
-  , Para []
-  , Header 1 ( "" , [] , [] ) [ Str "Gamma" ]
-  , Header 1 ( "" , [] , [] ) [ Str "Delta" ]
-  , Para
-      [ Str "At"
-      , Space
-      , Str "Beta,"
-      , Space
-      , Str "it"
-      , Space
-      , Str "was"
-      ]
-  ]

@@ -106,12 +106,3 @@
   text(body: [
 ]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , OrderedList
-      ( 1 , DefaultStyle , DefaultDelim )
-      [ [ Para [ Str "First" ] ] , [ Para [ Str "Fifth" ] ] ]
-  , Para []
-  ]

@@ -94,13 +94,3 @@
   align(alignment: right, 
         body: text(body: [After])), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Div
-      ( "" , [] , [ ( "align" , "left" ) ] ) [ Para [ Str "Before" ] ]
-  , Para []
-  , Div
-      ( "" , [] , [ ( "align" , "right" ) ] ) [ Para [ Str "After" ] ]
-  ]

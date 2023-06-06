@@ -103,12 +103,3 @@
                                                                 []] }))) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "\\underset{\\text{ relevant stuff}}{\\underset{\9141}{\\left\\lbrack 1,\\frac{2}{3} \\right\\rbrack}} \\Longleftrightarrow \\overset{\\text{ irrelevant stuff}}{\\overset{\9140}{\\left\\lbrack \\frac{4}{5},6 \\right\\rbrack}}"
-      ]
-  ]

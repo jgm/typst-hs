@@ -100,20 +100,3 @@
        font: "IBM Plex Serif", 
        fractions: true), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "0"
-      , Space
-      , Str "vs."
-      , Space
-      , Str "0"
-      , LineBreak
-      , Str "1/2"
-      , Space
-      , Str "vs."
-      , Space
-      , Str "1/2"
-      ]
-  ]

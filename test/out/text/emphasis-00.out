@@ -82,20 +82,3 @@
                parbreak(), 
                text(body: [ emphasized.]) }), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Emph
-          [ Str "Emphasized"
-          , Space
-          , Str "and"
-          , Space
-          , Strong [ Str "strong" ]
-          , Space
-          , Str "words!"
-          ]
-      ]
-  , Para [ Str "hello_world" , Space , Str "Nutzer*innen" ]
-  , Para [ Emph [ Str "Still" , Space ] ]
-  ]

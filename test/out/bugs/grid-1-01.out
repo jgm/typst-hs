@@ -85,16 +85,3 @@
                     list(children: ({ rect(height: 1.0em, 
                                            width: 100%), 
                                       parbreak() })) })) }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Div ( "" , [ "rect" ] , [] ) []
-  , Para []
-  , BulletList
-      [ [ Div ( "" , [ "rect" ] , [] ) []
-        , Para []
-        , BulletList [ [ Div ( "" , [ "rect" ] , [] ) [] ] ]
-        ]
-      ]
-  ]

@@ -67,6 +67,3 @@
        dir: rtl, 
        font: "Noto Serif Hebrew"), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] } [ Para [ LineBreak , Str "\1496" ] ]

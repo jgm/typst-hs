@@ -123,30 +123,3 @@ There might be ]),
   text(body: [ things.
 underline()]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Para
-      [ Str "Sometimes,"
-      , Space
-      , Str "we"
-      , Space
-      , Str "work"
-      , Space
-      , Strikeout [ Str "in" , Space , Str "secret" ]
-      , Str "."
-      , SoftBreak
-      , Str "There"
-      , Space
-      , Str "might"
-      , Space
-      , Str "be"
-      , Space
-      , Strikeout [ Str "redacted" ]
-      , Space
-      , Str "things."
-      , SoftBreak
-      , Str "underline()"
-      ]
-  ]

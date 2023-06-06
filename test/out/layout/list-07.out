@@ -59,18 +59,3 @@
   text(body: [Not in list
 -Nope]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , BulletList [ [] ]
-  , Para
-      [ Str "Not"
-      , Space
-      , Str "in"
-      , Space
-      , Str "list"
-      , SoftBreak
-      , Str "-Nope"
-      ]
-  ]

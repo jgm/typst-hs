@@ -124,11 +124,3 @@ Third
 Fif]), 
   text(body: [th]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "First" ]
-  , Para []
-  , Para [ Str "Third" ]
-  , Para [ Str "Fifth" ]
-  ]

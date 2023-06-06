@@ -69,15 +69,3 @@
                          numbering: "1.a.") }), 
        full: true, 
        numbering: "1.a.") }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , OrderedList
-      ( 1 , DefaultStyle , DefaultDelim )
-      [ [ Para [ Str "First" ]
-        , OrderedList
-            ( 1 , DefaultStyle , DefaultDelim ) [ [ Para [ Str "Nested" ] ] ]
-        ]
-      ]
-  ]

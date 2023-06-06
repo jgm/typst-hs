@@ -185,16 +185,3 @@
                                                                                     num: text(body: [1]))))) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "\\sqrt{\\left\\lbrack |x| \\right\\rbrack^{2} + \\left\\lbrack |y| \\right\\rbrack^{2}} < \\left\\lbrack |z| \\right\\rbrack"
-      , SoftBreak
-      , Math
-          DisplayMath
-          "v = \\sqrt{\\frac{\\frac{1}{2}}{\\frac{4}{5}}} = \\sqrt[3]{\\frac{\\frac{\\frac{1}{2}}{3}}{\\frac{\\frac{4}{5}}{6}}} = \\sqrt[4]{\\frac{\\frac{\\frac{1}{2}}{\\frac{3}{4}}}{\\frac{\\frac{1}{2}}{\\frac{3}{4}}}}"
-      ]
-  ]

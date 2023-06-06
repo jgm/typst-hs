@@ -185,15 +185,3 @@
           numbering: "1.", 
           outlined: false), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Header 1 ( "" , [] , [] ) [ Str "A" ]
-  , Para []
-  , Header 1 ( "" , [] , [] ) [ Str "B" ]
-  , Para []
-  , Header 1 ( "" , [] , [] ) [ Str "C" ]
-  , Para []
-  , Header 1 ( "" , [] , [] ) [ Str "D" ]
-  ]

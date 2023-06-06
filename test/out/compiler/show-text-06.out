@@ -77,9 +77,3 @@ Oh, ]),
   text(body: [|H|E|L|L|O|]), 
   text(body: [ there!]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "Oh," , Space , Str "|H|E|L|L|O|" , Space , Str "there!" ]
-  ]

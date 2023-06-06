@@ -62,13 +62,3 @@
                   text(body: [Potatoes]), 
                   text(body: [Juice]))), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Emph [ Str "Shopping" , Space , Str "list" ] ]
-  , BulletList
-      [ [ Para [ Str "Apples" ] ]
-      , [ Para [ Str "Potatoes" ] ]
-      , [ Para [ Str "Juice" ] ]
-      ]
-  ]

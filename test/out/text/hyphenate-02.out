@@ -81,15 +81,3 @@ It’s a ],
   text(body: [beard.], 
        hyphenate: true), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "It\8217s"
-      , Space
-      , Str "a"
-      , Space
-      , Emph [ Str "Tree" ]
-      , Str "beard."
-      ]
-  ]

@@ -75,5 +75,3 @@ Forest],
                     size: 1.5em), 
                parbreak() }, 
        fill: rgb(100%,25%,21%,100%)) }
---- pandoc ---
-Pandoc Meta { unMeta = fromList [] } [ Para [ Str "Forest" ] ]

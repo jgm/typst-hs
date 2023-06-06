@@ -51,12 +51,3 @@
   list(children: (text(body: [Top-level indent]), 
                   { text(body: [is fine.]), 
                     parbreak() })) }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , BulletList
-      [ [ Para [ Str "Top-level" , Space , Str "indent" ] ]
-      , [ Para [ Str "is" , Space , Str "fine." ] ]
-      ]
-  ]

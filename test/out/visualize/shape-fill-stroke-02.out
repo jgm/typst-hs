@@ -97,14 +97,3 @@
                   right: rgb(18%,80%,25%,100%),
                   bottom: rgb(0%,45%,85%,100%))), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Div
-      ( "" , [ "square" ] , [] )
-      [ Div
-          ( "" , [] , [ ( "align" , "Axes(center, horizon)" ) ] )
-          [ Para [ Strong [ Str "G" ] ] ]
-      ]
-  ]

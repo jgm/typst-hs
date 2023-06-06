@@ -61,19 +61,3 @@
        dest: "https://example.com/"), 
   text(body: [)]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Link
-          ( "" , [] , [] )
-          [ Str "https://example.com/" ]
-          ( "https://example.com/" , "" )
-      , LineBreak
-      , Link
-          ( "" , [] , [] )
-          [ Str "https://example.com/" ]
-          ( "https://example.com/" , "" )
-      , Str ")"
-      ]
-  ]

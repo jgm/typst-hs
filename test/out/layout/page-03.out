@@ -98,7 +98,3 @@
                 rest: auto), 
        width: 40.0pt), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ SmallCaps [ Str "Typst" ] ] ]

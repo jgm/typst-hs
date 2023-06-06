@@ -293,31 +293,3 @@
        stroke: (x: 5.0pt, y: 1.0pt), 
        width: 100%), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Div ( "" , [ "rect" ] , [] ) [ Para [ Str "Textbox" ] ]
-  , Div ( "" , [] , [] ) [ Div ( "" , [ "rect" ] , [] ) [] ]
-  , Div
-      ( "" , [ "rect" ] , [] )
-      [ Para [ Str "Fixed" , Space , Str "and" , Space , Str "padded" ] ]
-  , Div ( "" , [ "rect" ] , [] ) [ Para [ Str "Topleft" ] ]
-  , Para
-      [ Str "{"
-      , Span ( "" , [ "box" ] , [] ) []
-      , SoftBreak
-      , Span ( "" , [ "box" ] , [] ) []
-      , SoftBreak
-      , Span ( "" , [ "box" ] , [] ) []
-      , Str "}"
-      ]
-  , Div
-      ( "" , [] , [ ( "stack" , "ltr" ) ] )
-      [ Div ( "" , [] , [] ) [ Div ( "" , [ "rect" ] , [] ) [] ]
-      , Div ( "" , [] , [] ) [ Div ( "" , [ "rect" ] , [] ) [] ]
-      , Div ( "" , [] , [] ) [ Div ( "" , [ "rect" ] , [] ) [] ]
-      ]
-  , Para []
-  , Div ( "" , [ "rect" ] , [] ) []
-  ]

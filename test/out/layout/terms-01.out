@@ -98,31 +98,3 @@
                     { text(body: [Latin stuff.]), 
                       parbreak() }))), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , DefinitionList
-      [ ( [ Str "Lorem" ]
-        , [ [ Para [ Str "Latin" , Space , Str "stuff." ] ] ]
-        )
-      ]
-  , Para []
-  , DefinitionList
-      [ ( [ Str "ipsum" ]
-        , [ [ Para [ Str "Latin" , Space , Str "stuff." ] ] ]
-        )
-      ]
-  , Para []
-  , DefinitionList
-      [ ( [ Str "dolor" ]
-        , [ [ Para [ Str "Latin" , Space , Str "stuff." ] ] ]
-        )
-      ]
-  , Para []
-  , DefinitionList
-      [ ( [ Str "sit" ]
-        , [ [ Para [ Str "Latin" , Space , Str "stuff." ] ] ]
-        )
-      ]
-  ]

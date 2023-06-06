@@ -84,17 +84,3 @@
                   parbreak() }, 
           count: 2), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Para [ Str "Hallo" ]
-  , Div
-      ( "" , [ "columns-flow" ] , [ ( "count" , "2" ) ] )
-      [ Para []
-      , Header 1 ( "" , [] , [] ) [ Str "A" ]
-      , Para [ Str "Text" ]
-      , Header 1 ( "" , [] , [] ) [ Str "B" ]
-      , Para [ Str "Text" ]
-      ]
-  ]

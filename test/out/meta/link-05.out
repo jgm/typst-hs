@@ -102,34 +102,3 @@ You could also make the
                                   dest: "https://html5zombo.com/"), 
                        fill: rgb(15%,21%,38%,100%))), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "You"
-      , Space
-      , Str "could"
-      , Space
-      , Str "also"
-      , Space
-      , Str "make"
-      , Space
-      , Str "the"
-      , SoftBreak
-      , Underline
-          [ Link
-              ( "" , [] , [] )
-              [ Str "link"
-              , Space
-              , Str "look"
-              , Space
-              , Str "way"
-              , Space
-              , Str "more"
-              , Space
-              , Str "typical."
-              ]
-              ( "https://html5zombo.com/" , "" )
-          ]
-      ]
-  ]

@@ -51,7 +51,3 @@
 ]), 
   footnote(body: text(body: [Hi])), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Note [ Para [ Str "Hi" ] ] ] ]

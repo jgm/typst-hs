@@ -70,12 +70,3 @@
                   { text(body: [a bad marker]), 
                     parbreak() }), 
        marker: list(children: ({  }))) }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , BulletList
-      [ [ Para [ Str "Bare" , Space , Str "hyphen" , Space , Str "is" ] ]
-      , [ Para [ Str "a" , Space , Str "bad" , Space , Str "marker" ] ]
-      ]
-  ]

@@ -186,21 +186,3 @@ Second: ]),
   text(body: [
 ]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Para
-      [ Str "Final:"
-      , LineBreak
-      , Str "First:"
-      , Space
-      , Str "1"
-      , LineBreak
-      , Str "7"
-      , LineBreak
-      , Str "Second:"
-      , Space
-      , Str "9"
-      ]
-  ]

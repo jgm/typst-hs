@@ -127,25 +127,3 @@
   text(body: [ ], lang: "he"), 
   linebreak(), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Plain [ Str "9." ]
-  , Para [ Str "\1506\1489\1493\1512" , Space , Str "9" , LineBreak ]
-  , Plain [ Str "11." ]
-  , Para
-      [ Str "\1506\1489\1493\1512" , Space , Str "11" , LineBreak ]
-  , Plain [ Str "13." ]
-  , Para
-      [ Str "\1506\1489\1493\1512" , Space , Str "13" , LineBreak ]
-  , Plain [ Str "15." ]
-  , Para
-      [ Str "\1506\1489\1493\1512" , Space , Str "15" , LineBreak ]
-  , Plain [ Str "17." ]
-  , Para
-      [ Str "\1506\1489\1493\1512" , Space , Str "17" , LineBreak ]
-  , Plain [ Str "19." ]
-  , Para
-      [ Str "\1506\1489\1493\1512" , Space , Str "19" , LineBreak ]
-  ]

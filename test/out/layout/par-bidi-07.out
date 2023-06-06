@@ -65,16 +65,3 @@
   text(body: [ ]), 
   text(body: [ة]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "\1575\1604\1594\1575\1604\1576"
-      , Space
-      , Str "\8192\8196\8193\8193\8193\8193\8193"
-      , Space
-      , Str "\1606"
-      , Space
-      , Str "\1577"
-      ]
-  ]

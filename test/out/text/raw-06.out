@@ -52,9 +52,3 @@
       lang: none, 
       text: "  A\n        B\n       C\n     "), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , CodeBlock ( "" , [] , [] ) "  A\n        B\n       C\n     "
-  ]

@@ -153,39 +153,3 @@
                                              stroke: 0.5pt)))), 
   text(body: [ ]), 
   linebreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Underline
-          [ Str "The" , Space , Str "claim" , Superscript [ Str "[4]" ] ]
-      , Space
-      , Str "has"
-      , Space
-      , Str "been"
-      , Space
-      , Str "disputed."
-      , LineBreak
-      , Str "The"
-      , Space
-      , Str "claim"
-      , Superscript [ Underline [ Str "[4]" ] ]
-      , Space
-      , Str "has"
-      , Space
-      , Str "been"
-      , Space
-      , Str "disputed."
-      , LineBreak
-      , Str "It"
-      , Space
-      , Str "really"
-      , Space
-      , Str "has"
-      , Space
-      , Str "been"
-      , Superscript
-          [ Span ( "" , [ "box" ] , [] ) [ Underline [ Str "[4]" ] ] ]
-      , LineBreak
-      ]
-  ]

@@ -287,28 +287,3 @@
                                          [)] })) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math InlineMath "\228, + ,c,(,)"
-      , LineBreak
-      , Math InlineMath "= ),( + ),\\left\\{ \\times \\right\\}"
-      , SoftBreak
-      , Math InlineMath "\10215 < \10214,| - |,\\lbrack ="
-      , LineBreak
-      , Math InlineMath "a = b,a = = b"
-      , LineBreak
-      , Math InlineMath "- a, + a"
-      , LineBreak
-      , Math InlineMath "a\\neg b"
-      , LineBreak
-      , Math InlineMath "a + b,a*b"
-      , LineBreak
-      , Math InlineMath "\\sum x,\\sum(x)"
-      , LineBreak
-      , Math InlineMath "\\sum\\prod x"
-      , LineBreak
-      , Math InlineMath "f(x),\\zeta(x),\\text{ frac}(x)"
-      ]
-  ]

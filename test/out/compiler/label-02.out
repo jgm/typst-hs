@@ -100,23 +100,3 @@
   <last>, 
   text(body: [ happened.]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Para
-      [ Str "This"
-      , Space
-      , Str "is"
-      , Space
-      , Str "a"
-      , Space
-      , Str "thing"
-      , Space
-      , Str "that"
-      , Space
-      , Span ( "last" , [] , [] ) []
-      , Space
-      , Str "happened."
-      ]
-  ]

@@ -300,21 +300,3 @@
 ]), 
   text(body: [1, "a": 2]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Para [ Str "Name:" , Space , Str "Typst." ]
-  , Para [ Str "Age:" , Space , Str "2." ]
-  , Para
-      [ Str "[1st,"
-      , Space
-      , Str "2nd,"
-      , Space
-      , Str "3rd,"
-      , Space
-      , Str "4th]"
-      ]
-  , Para [ Str "2345" ]
-  , Para [ Str "1," , Space , Str "\"a\":" , Space , Str "2" ]
-  ]

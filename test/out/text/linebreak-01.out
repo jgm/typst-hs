@@ -51,12 +51,3 @@
 ]), 
   text(body: [Supercalifragilisticexpialidocious Expialigoricmetrioxidation.]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "Supercalifragilisticexpialidocious"
-      , Space
-      , Str "Expialigoricmetrioxidation."
-      ]
-  ]

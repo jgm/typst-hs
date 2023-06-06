@@ -90,21 +90,3 @@ n]),
         size: 0.7em, 
         typographic: false), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "n"
-      , Superscript [ Str "1" ]
-      , Str ","
-      , Space
-      , Str "n"
-      , Subscript [ Str "2" ]
-      , Str ","
-      , Space
-      , Str "\8230"
-      , Space
-      , Str "n"
-      , Superscript [ Str "N" ]
-      ]
-  ]

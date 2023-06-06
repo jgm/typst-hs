@@ -81,10 +81,3 @@
                      body: scale(body: image(path: "test/assets/files/tiger.jpg"), 
                                  factor: 70%))), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Div
-      ( "" , [] , [ ( "align" , "Axes(center, horizon)" ) ] ) [ Para [] ]
-  ]

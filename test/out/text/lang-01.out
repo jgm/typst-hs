@@ -91,15 +91,3 @@
        font: "Ubuntu", 
        lang: "sr"), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Para
-      [ Str "\1041\1073"
-      , SoftBreak
-      , Str "\1041\1073"
-      , SoftBreak
-      , Str "\1041\1073"
-      ]
-  ]

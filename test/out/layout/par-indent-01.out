@@ -78,29 +78,3 @@ Why would anybody ever …]),
   parbreak(), 
   text(body: [… want spacing and indent?]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "Why"
-      , Space
-      , Str "would"
-      , Space
-      , Str "anybody"
-      , Space
-      , Str "ever"
-      , Space
-      , Str "\8230"
-      ]
-  , Para
-      [ Str "\8230"
-      , Space
-      , Str "want"
-      , Space
-      , Str "spacing"
-      , Space
-      , Str "and"
-      , Space
-      , Str "indent?"
-      ]
-  ]

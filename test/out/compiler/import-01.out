@@ -113,24 +113,3 @@ test(b, 1)
   parbreak(), 
   text(body: [✅]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "\9989" ]
-  , Para
-      [ Str "{"
-      , SoftBreak
-      , Str "import"
-      , Space
-      , Str "\8220module.typ\8221:"
-      , Space
-      , Str "b"
-      , SoftBreak
-      , Str "test(b,"
-      , Space
-      , Str "1)"
-      , SoftBreak
-      , Str "}"
-      ]
-  , Para [ Str "\9989" ]
-  ]

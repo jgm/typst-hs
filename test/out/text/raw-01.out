@@ -58,11 +58,3 @@
       lang: "typ", 
       text: "#f(1)"), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , CodeBlock ( "" , [ "typ" ] , [] ) "#let x = 1"
-  , Para [ LineBreak ]
-  , CodeBlock ( "" , [ "typ" ] , [] ) "#f(1)"
-  ]

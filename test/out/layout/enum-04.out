@@ -73,21 +73,3 @@
   text(body: [See 0.3. ]), 
   linebreak(), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "1.2"
-      , LineBreak
-      , Str "This"
-      , Space
-      , Str "is"
-      , Space
-      , Str "0."
-      , LineBreak
-      , Str "See"
-      , Space
-      , Str "0.3."
-      , LineBreak
-      ]
-  ]

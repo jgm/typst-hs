@@ -112,26 +112,3 @@
   linebreak(), 
   text(body: [Fourth]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "First"
-      , LineBreak
-      , Str "Second"
-      , Space
-      , Note
-          [ Para
-              [ Str "A,"
-              , Space
-              , Note [ Para [ Str "B," , Space , Note [ Para [ Str "C" ] ] ] ]
-              ]
-          ]
-      , LineBreak
-      , Str "Third"
-      , Space
-      , Note [ Para [ Str "D," , Space , Note [ Para [ Str "E" ] ] ] ]
-      , LineBreak
-      , Str "Fourth"
-      ]
-  ]

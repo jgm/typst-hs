@@ -100,13 +100,3 @@ C
   text(body: [
 D]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Para [ Str "A" ]
-  , Para []
-  , Para [ Str "B" ]
-  , Para [ Str "C" ]
-  , Para [ Str "D" ]
-  ]

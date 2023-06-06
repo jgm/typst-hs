@@ -70,12 +70,3 @@
                                   num: text(body: [1])) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "\\frac{\\frac{1}{2}}{3} = \\frac{\\frac{1}{2}}{3} = \\frac{1}{\\frac{2}{3}}"
-      ]
-  ]

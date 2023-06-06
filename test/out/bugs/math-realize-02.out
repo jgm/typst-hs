@@ -453,37 +453,3 @@
                                       numbering: none) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Para
-      [ Str "Inline"
-      , Space
-      , Math InlineMath "2{\\alpha\\left( M + {ab^{2}} \\right)^{2}}"
-      , Str "."
-      ]
-  , Para
-      [ Str "Inline"
-      , Space
-      , Math InlineMath "2|(\\alpha,\\left( M + {ab^{2}} \\right))"
-      , Str "."
-      ]
-  , Para
-      [ Str "Inline"
-      , Space
-      , Math
-          InlineMath
-          "2\\hat{x} \\land \\hat{y} \\land \\hat{\\hat{u} \\land \\hat{v}}"
-      , Str "."
-      ]
-  , Para
-      [ Math DisplayMath "2{\\alpha\\left( M + {ab^{2}} \\right)^{2}}"
-      , SoftBreak
-      , Math DisplayMath "2|(\\alpha,\\left( M + {ab^{2}} \\right))"
-      , SoftBreak
-      , Math
-          DisplayMath
-          "2\\hat{x} \\land \\hat{y} \\land \\hat{\\hat{u} \\land \\hat{v}}"
-      ]
-  ]

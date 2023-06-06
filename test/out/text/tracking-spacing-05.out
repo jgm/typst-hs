@@ -65,7 +65,3 @@
 This is tight.], 
        spacing: 1.0pt + 50%), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "This" , Space , Str "is" , Space , Str "tight." ] ]

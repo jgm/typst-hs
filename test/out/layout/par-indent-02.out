@@ -64,28 +64,3 @@
 ]), 
   text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "Lorem"
-      , Space
-      , Str "ipsum"
-      , Space
-      , Str "dolor"
-      , Space
-      , Str "sit"
-      , Space
-      , Str "amet,"
-      , Space
-      , Str "consectetur"
-      , Space
-      , Str "adipiscing"
-      , Space
-      , Str "elit,"
-      , Space
-      , Str "sed"
-      , Space
-      , Str "do"
-      ]
-  ]

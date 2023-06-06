@@ -137,14 +137,3 @@
                   x: 50%, 
                   y: 200%)), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Span ( "" , [ "box" ] , [] ) []
-      , SoftBreak
-      , Span ( "" , [ "box" ] , [] ) []
-      , SoftBreak
-      , Span ( "" , [ "box" ] , [] ) []
-      ]
-  ]

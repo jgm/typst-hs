@@ -50,7 +50,3 @@
       lang: none, 
       text: "```backticks```\n"), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [] , CodeBlock ( "" , [] , [] ) "```backticks```\n" ]

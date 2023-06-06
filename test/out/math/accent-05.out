@@ -90,11 +90,3 @@
                                     t: text(body: [x])) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          InlineMath "A^{x} \\neq {\\hat{A}}^{x} \\neq {\\hat{\\hat{A}}}^{x}"
-      ]
-  ]

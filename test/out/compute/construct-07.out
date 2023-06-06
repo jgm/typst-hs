@@ -119,21 +119,3 @@
 ]), 
   text(body: [🖅]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Para
-      [ Str "\128386"
-      , SoftBreak
-      , Str "\128387"
-      , SoftBreak
-      , Str "\128390"
-      , SoftBreak
-      , Str "\128390"
-      , SoftBreak
-      , Str "\128388"
-      , SoftBreak
-      , Str "\128389"
-      ]
-  ]

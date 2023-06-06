@@ -161,12 +161,3 @@
                                     t: none) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          InlineMath
-          "\\begin{array}{r}\n\\pi_{1}(Y),a_{f}(x),a^{\\zeta(x)} \\\\\na^{\\subseteq (x)},a_{\\zeta(x)},\\pi_{1(Y)}\n\\end{array}"
-      ]
-  ]

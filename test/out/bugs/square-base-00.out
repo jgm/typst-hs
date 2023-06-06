@@ -70,10 +70,3 @@
                     width: 60%), 
          width: 40%), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Div
-      ( "" , [ "square" ] , [] ) [ Div ( "" , [ "rect" ] , [] ) [] ]
-  ]

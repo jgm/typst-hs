@@ -54,14 +54,3 @@
   terms(children: ((text(body: [Term]), 
                     { text(body: [List]), 
                       parbreak() }))) }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , BulletList [ [ Para [ Str "Bullet" , Space , Str "List" ] ] ]
-  , OrderedList
-      ( 1 , DefaultStyle , DefaultDelim )
-      [ [ Para [ Str "Numbered" , Space , Str "List" ] ] ]
-  , DefinitionList
-      [ ( [ Str "Term" ] , [ [ Para [ Str "List" ] ] ] ) ]
-  ]

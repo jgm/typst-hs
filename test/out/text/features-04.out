@@ -73,7 +73,3 @@
                   number-type: "old-style"), 
        number-type: auto), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "0123456789" , LineBreak , Str "0123456789" ] ]

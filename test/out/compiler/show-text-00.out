@@ -79,16 +79,3 @@ Die Zeitung ],
   text(body: [ existiert.], 
        font: "Roboto"), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "Die"
-      , Space
-      , Str "Zeitung"
-      , Space
-      , SmallCaps [ Str "Der" , Space , Str "Spiegel" ]
-      , Space
-      , Str "existiert."
-      ]
-  ]

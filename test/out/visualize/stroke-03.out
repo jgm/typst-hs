@@ -220,21 +220,3 @@
                        3.0pt, 
                        9.0pt))), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , HorizontalRule
-  , Para []
-  , Para []
-  , HorizontalRule
-  , Para []
-  , Para []
-  , HorizontalRule
-  , Para []
-  , Para []
-  , HorizontalRule
-  , Para []
-  , Para []
-  , HorizontalRule
-  ]

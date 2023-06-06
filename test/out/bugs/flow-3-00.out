@@ -109,17 +109,3 @@ At column break.]),
                      count: 2), 
        inset: 0.0pt), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Div
-      ( "" , [ "rect" ] , [] )
-      [ Div
-          ( "" , [ "columns-flow" ] , [ ( "count" , "2" ) ] )
-          [ Para [ Str "Text" ]
-          , Para [ Str "Hi" ]
-          , Para [ Str "At" , Space , Str "column" , Space , Str "break." ]
-          ]
-      ]
-  ]

@@ -74,13 +74,3 @@
                    rect(fill: luma(80%))), 
         dir: ltr), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Div
-      ( "" , [] , [ ( "stack" , "ltr" ) ] )
-      [ Div ( "" , [] , [] ) [ Div ( "" , [ "rect" ] , [] ) [] ]
-      , Div ( "" , [] , [] ) [ Div ( "" , [ "rect" ] , [] ) [] ]
-      ]
-  ]

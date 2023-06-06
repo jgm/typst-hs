@@ -54,7 +54,3 @@
 ]), 
   emph(body: text(body: [Hello World!])), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Emph [ Str "Hello" , Space , Str "World!" ] ] ]

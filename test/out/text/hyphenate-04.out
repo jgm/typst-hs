@@ -83,16 +83,3 @@
   text(body: [ networks, the rest.], 
        hyphenate: true), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "\8192"
-      , Space
-      , Str "networks,"
-      , Space
-      , Str "the"
-      , Space
-      , Str "rest."
-      ]
-  ]

@@ -208,34 +208,3 @@
         columns: (1.0fr, 1.0fr), 
         rows: (1.0fr, 1.0fr)), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Table
-      ( "" , [] , [] )
-      (Caption Nothing [])
-      [ ( AlignCenter , ColWidth 0.5 ) , ( AlignCenter , ColWidth 0.5 ) ]
-      (TableHead ( "" , [] , [] ) [])
-      [ TableBody
-          ( "" , [] , [] )
-          (RowHeadColumns 0)
-          []
-          [ Row
-              ( "" , [] , [] )
-              [ Cell
-                  ( "" , [] , [] ) AlignDefault (RowSpan 1) (ColSpan 1) [ Para [] ]
-              , Cell
-                  ( "" , [] , [] ) AlignDefault (RowSpan 1) (ColSpan 1) [ Para [] ]
-              ]
-          , Row
-              ( "" , [] , [] )
-              [ Cell
-                  ( "" , [] , [] ) AlignDefault (RowSpan 1) (ColSpan 1) [ Para [] ]
-              , Cell
-                  ( "" , [] , [] ) AlignDefault (RowSpan 1) (ColSpan 1) [ Para [] ]
-              ]
-          ]
-      ]
-      (TableFoot ( "" , [] , [] ) [])
-  ]

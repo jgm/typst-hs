@@ -157,32 +157,3 @@
   text(body: [ ], lang: "zh"), 
   linebreak(), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Plain [ Str "\19968" ]
-  , Para [ Str "and" ]
-  , Plain [ Str "\22777" ]
-  , Para [ Str "for" , Space , Str "9" , LineBreak ]
-  , Plain [ Str "\19968" ]
-  , Para [ Str "and" ]
-  , Plain [ Str "\22777" ]
-  , Para [ Str "for" , Space , Str "11" , LineBreak ]
-  , Plain [ Str "\19968" ]
-  , Para [ Str "and" ]
-  , Plain [ Str "\22777" ]
-  , Para [ Str "for" , Space , Str "13" , LineBreak ]
-  , Plain [ Str "\19968" ]
-  , Para [ Str "and" ]
-  , Plain [ Str "\22777" ]
-  , Para [ Str "for" , Space , Str "15" , LineBreak ]
-  , Plain [ Str "\19968" ]
-  , Para [ Str "and" ]
-  , Plain [ Str "\22777" ]
-  , Para [ Str "for" , Space , Str "17" , LineBreak ]
-  , Plain [ Str "\19968" ]
-  , Para [ Str "and" ]
-  , Plain [ Str "\22777" ]
-  , Para [ Str "for" , Space , Str "19" , LineBreak ]
-  ]

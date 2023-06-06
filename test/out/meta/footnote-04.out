@@ -109,23 +109,3 @@
   text(body: [Beautiful footnotes. ]), 
   footnote(body: text(body: [Wonderful, aren’t they?])), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Para
-      [ Str "Beautiful"
-      , Space
-      , Str "footnotes."
-      , Space
-      , Note
-          [ Para
-              [ Str "Wonderful,"
-              , Space
-              , Str "aren\8217t"
-              , Space
-              , Str "they?"
-              ]
-          ]
-      ]
-  ]

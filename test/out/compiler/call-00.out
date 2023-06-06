@@ -201,12 +201,3 @@
   text(body: [A]), 
   text(body: [B]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Strong [ Str "Bold" ] ]
-  , Para [ Str "123" ]
-  , Para [ Str "(it)" ]
-  , Para [ Str "A" , SoftBreak , Str "A" , SoftBreak , Str "A" ]
-  , Para [ Str "AB" , SoftBreak , Str "AB" , SoftBreak , Str "AB" ]
-  ]

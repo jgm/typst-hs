@@ -68,11 +68,3 @@
       lang: "rust", 
       text: "/// A carefully designed state machine.\n#[derive(Debug)]\nenum State<'a> { A(u8), B(&'a str) }\n\nfn advance(state: State<'_>) -> State<'_> {\n    unimplemented!(\"state machine\")\n}\n"), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , CodeBlock
-      ( "" , [ "rust" ] , [] )
-      "/// A carefully designed state machine.\n#[derive(Debug)]\nenum State<'a> { A(u8), B(&'a str) }\n\nfn advance(state: State<'_>) -> State<'_> {\n    unimplemented!(\"state machine\")\n}\n"
-  ]

@@ -62,20 +62,3 @@
   linebreak(), 
   text(body: [normal break.]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "Hard"
-      , Space
-      , Str "break"
-      , Space
-      , Str "directly"
-      , Space
-      , Str "after"
-      , LineBreak
-      , Str "normal"
-      , Space
-      , Str "break."
-      ]
-  ]

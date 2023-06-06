@@ -218,24 +218,3 @@
                                          text(body: [1]) }))), 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "\\begin{pmatrix}\n - 1 & 1 & 1 \\\\\n1 & - 1 & 1 \\\\\n1 & 1 & - 1\n\\end{pmatrix}"
-      , SoftBreak
-      , Math
-          DisplayMath
-          "\\left( \\begin{array}{rrr}\n\\begin{array}{r}\n - 1\n\\end{array} & \\begin{array}{r}\n1\n\\end{array} & \\begin{array}{r}\n1\n\\end{array} \\\\\n\\begin{array}{r}\n1\n\\end{array} & \\begin{array}{r}\n - 1\n\\end{array} & \\begin{array}{r}\n1\n\\end{array} \\\\\n\\begin{array}{r}\n1\n\\end{array} & \\begin{array}{r}\n1\n\\end{array} & \\begin{array}{r}\n - 1\n\\end{array}\n\\end{array} \\right)"
-      , SoftBreak
-      , Math
-          DisplayMath
-          "\\left( \\begin{array}{rrr}\n\\begin{array}{r}\n - 1\n\\end{array} & \\begin{array}{r}\n1\n\\end{array} & \\begin{array}{r}\n1\n\\end{array} \\\\\n1 & - 1 & 1 \\\\\n1 & 1 & - 1\n\\end{array} \\right)"
-      , SoftBreak
-      , Math
-          DisplayMath
-          "\\left( \\begin{array}{lll}\n\\begin{aligned}\n & - 1\n\\end{aligned} & \\begin{aligned}\n & 1\n\\end{aligned} & \\begin{aligned}\n & 1\n\\end{aligned} \\\\\n1 & - 1 & 1 \\\\\n1 & 1 & - 1\n\\end{array} \\right)"
-      ]
-  ]

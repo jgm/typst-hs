@@ -100,15 +100,3 @@
        inset: (x: 4.0pt, y: 5.0pt), 
        radius: 4.0pt), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Div
-      ( "" , [ "rect" ] , [] )
-      [ Para []
-      , CodeBlock
-          ( "" , [ "html" ] , [] )
-          "<!DOCTYPE html>\n  <html>\n    <head>\n      <meta charset=\"utf-8\">\n    </head>\n    <body>\n      <h1>Topic</h1>\n      <p>The Hypertext Markup Language.</p>\n      <script>\n        function foo(a, b) {\n          return a + b + \"string\";\n        }\n      </script>\n    </body>\n  </html>\n  "
-      ]
-  ]

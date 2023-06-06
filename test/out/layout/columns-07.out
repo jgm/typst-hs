@@ -63,15 +63,3 @@
   parbreak(), 
   text(body: [Arbitrary horizontal growth.]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Para
-      [ Str "Arbitrary"
-      , Space
-      , Str "horizontal"
-      , Space
-      , Str "growth."
-      ]
-  ]

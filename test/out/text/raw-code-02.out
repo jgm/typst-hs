@@ -66,11 +66,3 @@
       lang: "py", 
       text: "import this\n\ndef hi():\n  print(\"Hi!\")\n"), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , CodeBlock
-      ( "" , [ "py" ] , [] )
-      "import this\n\ndef hi():\n  print(\"Hi!\")\n"
-  ]

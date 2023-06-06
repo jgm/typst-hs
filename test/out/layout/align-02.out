@@ -132,21 +132,3 @@
         body: text(body: [نهاية], 
                    lang: "ar")), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Para []
-  , Div
-      ( "" , [] , [ ( "align" , "start" ) ] ) [ Para [ Str "Start" ] ]
-  , Para []
-  , Div ( "" , [] , [ ( "align" , "end" ) ] ) [ Para [ Str "Ende" ] ]
-  , Para []
-  , Div
-      ( "" , [] , [ ( "align" , "start" ) ] )
-      [ Para [ Str "\1610\1576\1583\1571" ] ]
-  , Para []
-  , Div
-      ( "" , [] , [ ( "align" , "end" ) ] )
-      [ Para [ Str "\1606\1607\1575\1610\1577" ] ]
-  ]

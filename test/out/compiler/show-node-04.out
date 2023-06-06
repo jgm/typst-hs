@@ -65,6 +65,3 @@
 ]), 
   parbreak(), 
   text(body: [Heading]) }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] } [ Para [] , Para [ Str "Heading" ] ]

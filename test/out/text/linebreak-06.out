@@ -55,9 +55,3 @@
   linebreak(), 
   linebreak(), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "Trailing" , Space , Str "break" , LineBreak , LineBreak ]
-  ]

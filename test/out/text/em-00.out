@@ -148,22 +148,3 @@ F ],
 G ], 
        size: 1.5em + 1.0pt), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "A"
-      , SoftBreak
-      , Str "B"
-      , SoftBreak
-      , Str "C"
-      , Space
-      , Str "D"
-      , Space
-      , Str "E"
-      , SoftBreak
-      , Str "F"
-      , SoftBreak
-      , Str "G"
-      ]
-  ]

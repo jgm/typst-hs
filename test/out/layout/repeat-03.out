@@ -60,5 +60,3 @@
   repeat(body: rect(height: 1.0em, 
                     width: 2.0em)), 
   parbreak() }
---- pandoc ---
-Pandoc Meta { unMeta = fromList [] } [ Para [] ]

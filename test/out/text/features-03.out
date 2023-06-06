@@ -62,16 +62,3 @@
   text(body: text(body: [No fi]), 
        ligatures: false), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "fi"
-      , Space
-      , Str "vs."
-      , Space
-      , Str "No"
-      , Space
-      , Str "fi"
-      ]
-  ]

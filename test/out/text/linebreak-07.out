@@ -111,34 +111,3 @@ breaking justification. ]),
   text(body: [
 Nice!]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "With"
-      , Space
-      , Str "a"
-      , Space
-      , Str "soft"
-      , LineBreak
-      , Str "break"
-      , Space
-      , Str "you"
-      , Space
-      , Str "can"
-      , Space
-      , Str "force"
-      , Space
-      , Str "a"
-      , Space
-      , Str "break"
-      , Space
-      , Str "without"
-      , LineBreak
-      , Str "breaking"
-      , Space
-      , Str "justification."
-      , LineBreak
-      , Str "Nice!"
-      ]
-  ]

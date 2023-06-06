@@ -76,5 +76,3 @@
                   inset: 5.0pt), 
        size: 1.0em), 
   parbreak() }
---- pandoc ---
-Pandoc Meta { unMeta = fromList [] } [ Para [] ]

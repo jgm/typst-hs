@@ -155,29 +155,3 @@
   text(body: [
 ], size: 0.8em), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "rgb(96%,63%,1%,100%)"
-      , LineBreak
-      , Str "(thickness:"
-      , Space
-      , Str "2.0pt,"
-      , SoftBreak
-      , Str "color:"
-      , Space
-      , Str "rgb(96%,63%,1%,100%))"
-      ]
-  , Para
-      [ Code ( "" , [] , [] ) "\"hi\""
-      , SoftBreak
-      , Str "\"a\\n[]\\\"\128640string\""
-      ]
-  , Para
-      [ Code
-          ( "" , [] , [] )
-          "strong(body: text(body: [Hey], \n                  size: 0.8em))"
-      ]
-  , Para [ Str "Nothing" ]
-  ]

@@ -97,9 +97,3 @@
   text(body: [you]), 
   text(body: [?]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "Hello," , Space , Str "my" , Space , Str "friend." ]
-  , Para [ Str "How" , Space , Str "are" , Space , Str "you?" ]
-  ]

@@ -76,7 +76,3 @@
               "Noto Serif Hebrew"), 
        tracking: 0.3em), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "\1496\1462\1511\1505\1496" ] ]

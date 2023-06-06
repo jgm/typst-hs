@@ -81,20 +81,3 @@ A ], dir: rtl),
   h(amount: 1.0fr), 
   text(body: [ B], dir: rtl), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "A"
-      , Space
-      , Str "\8192\8196"
-      , Space
-      , Str "B"
-      , LineBreak
-      , Str "A"
-      , Space
-      , Str "\8202\8193"
-      , Space
-      , Str "B"
-      ]
-  ]

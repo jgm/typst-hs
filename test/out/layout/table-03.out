@@ -51,15 +51,3 @@
 ]), 
   table(children: ()), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Table
-      ( "" , [] , [] )
-      (Caption Nothing [])
-      [ ( AlignDefault , ColWidthDefault ) ]
-      (TableHead ( "" , [] , [] ) [])
-      [ TableBody ( "" , [] , [] ) (RowHeadColumns 0) [] [] ]
-      (TableFoot ( "" , [] , [] ) [])
-  ]

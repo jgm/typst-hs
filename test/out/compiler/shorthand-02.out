@@ -58,12 +58,3 @@
   list(children: (text(body: [En dash: –]), 
                   { text(body: [Em dash: —]), 
                     parbreak() })) }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , BulletList
-      [ [ Para [ Str "En" , Space , Str "dash:" , Space , Str "\8211" ] ]
-      , [ Para [ Str "Em" , Space , Str "dash:" , Space , Str "\8212" ] ]
-      ]
-  ]

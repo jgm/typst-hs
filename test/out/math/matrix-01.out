@@ -96,12 +96,3 @@
                                        text(body: [10])))), 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "\\begin{pmatrix}\n1 & 2 & \\ldots & 10 \\\\\n2 & 2 & \\ldots & 10 \\\\\n \\vdots & \\vdots & \\ddots & \\vdots \\\\\n10 & 10 & \\ldots & 10\n\\end{pmatrix}"
-      ]
-  ]

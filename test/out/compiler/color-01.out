@@ -114,18 +114,3 @@
 ]), 
   text(body: [✅]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "\9989"
-      , SoftBreak
-      , Str "\10060(luma(64%)"
-      , Space
-      , Str "/="
-      , Space
-      , Str "luma(63%))"
-      , SoftBreak
-      , Str "\9989"
-      ]
-  ]

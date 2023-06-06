@@ -57,7 +57,3 @@
 ]), 
   heading(body: text(body: [Heading]), 
           level: 1) }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [] , Header 1 ( "" , [] , [] ) [ Str "Heading" ] ]

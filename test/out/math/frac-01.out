@@ -79,12 +79,3 @@
                                                         []] }))) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "\\frac{|x| + |y|}{2} < \\frac{\\lbrack 1 + 2\\rbrack}{3}"
-      ]
-  ]

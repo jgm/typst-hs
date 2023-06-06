@@ -66,20 +66,3 @@
   linebreak(), 
   text(body: [a + 0.]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , OrderedList ( 1 , DefaultStyle , DefaultDelim ) [ [] ]
-  , Para
-      [ Str "Empty"
-      , LineBreak
-      , Str "+Nope"
-      , LineBreak
-      , Str "a"
-      , Space
-      , Str "+"
-      , Space
-      , Str "0."
-      ]
-  ]

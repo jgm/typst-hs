@@ -69,17 +69,3 @@ The after fira 🏳️‍🌈!]),
        font: "Noto Sans Arabic", 
        lang: "ar"), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "The"
-      , Space
-      , Str "after"
-      , Space
-      , Str "fira"
-      , Space
-      , Str "\127987\65039\8205\127752!"
-      ]
-  , Para [ Str "\1605\1585\1581\1576\1611\1575" ]
-  ]

@@ -99,12 +99,3 @@
                         text(body: [z]) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "\\begin{aligned}\nx & = x + y \\\\\n & = x + 2z \\\\\n & = \\sum x \\cdot 2z\n\\end{aligned}"
-      ]
-  ]

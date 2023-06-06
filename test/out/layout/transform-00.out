@@ -212,23 +212,3 @@ Neither ],
        font: "New Computer Modern", 
        size: 11.0pt), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Para
-      [ Str "Neither"
-      , Space
-      , Str "T\8202"
-      , Span ( "" , [ "box" ] , [] ) []
-      , Str "\8202X,"
-      , LineBreak
-      , Str "nor"
-      , Space
-      , Str "X\8202"
-      , Span ( "" , [ "box" ] , [] ) []
-      , Str "\8202T\8202"
-      , Span ( "" , [ "box" ] , [] ) []
-      , Str "\8202X!"
-      ]
-  ]

@@ -102,34 +102,3 @@
   text(body: [ (🚀)]), 
   text(body: [.]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "Rust"
-      , Space
-      , Str "(\128640)"
-      , Space
-      , Str "is"
-      , Space
-      , Str "memory-safe"
-      , Space
-      , Str "and"
-      , Space
-      , Str "blazingly"
-      , Space
-      , Str "fast."
-      , Space
-      , Str "Let\8217s"
-      , Space
-      , Str "rewrite"
-      , Space
-      , Str "everything"
-      , Space
-      , Str "in"
-      , Space
-      , Str "rust"
-      , Space
-      , Str "(\128640)."
-      ]
-  ]

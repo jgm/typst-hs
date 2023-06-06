@@ -100,15 +100,3 @@
        start: 3, 
        tight: false), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , OrderedList
-      ( 3 , DefaultStyle , DefaultDelim )
-      [ [ Para [ Str "Red" ] ]
-      , [ Para [ Str "Green" ] ]
-      , [ Para [ Str "Blue" ] ]
-      , [ Para [ Str "Red" ] ]
-      ]
-  ]

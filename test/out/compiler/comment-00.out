@@ -86,12 +86,3 @@
   parbreak(), 
   text(body: [E]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "AB" ]
-  , Para [ Str "CD" ]
-  , Para [ Str "\9989" ]
-  , Para []
-  , Para [ Str "E" ]
-  ]

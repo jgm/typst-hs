@@ -79,19 +79,3 @@
   linebreak(), 
   text(body: [Nohttp:]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Underline
-          [ Link
-              ( "" , [] , [] )
-              [ Str "https://a.b.?q=%10#." ]
-              ( "https://a.b.?q=%10#." , "" )
-          ]
-      , LineBreak
-      , Str "Wahttp:Nohttps://link"
-      , LineBreak
-      , Str "Nohttp:"
-      ]
-  ]

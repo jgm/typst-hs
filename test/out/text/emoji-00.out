@@ -63,11 +63,3 @@
   parbreak(), 
   text(body: [1️⃣]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "\128105\8205\128105\8205\128102" ]
-  , Para [ Str "\127987\65039\8205\127752" ]
-  , Para [ Str "\128077\127999" ]
-  , Para [ Str "1\65039\8419" ]
-  ]

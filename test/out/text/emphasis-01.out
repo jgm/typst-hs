@@ -66,16 +66,3 @@
   emph(body: text(body: [phas])), 
   text(body: [ized.]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "P"
-      , Strong [ Str "art" ]
-      , Str "ly"
-      , Space
-      , Str "em"
-      , Emph [ Str "phas" ]
-      , Str "ized."
-      ]
-  ]

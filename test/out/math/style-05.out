@@ -103,12 +103,3 @@
                         text(body: [1]) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "v: = \\begin{pmatrix}\n1 + 2 \\\\\n2 - 4 \\\\\n\\sqrt{3} \\\\\n\\overset{\\rightarrow}{x}\n\\end{pmatrix} + 1"
-      ]
-  ]

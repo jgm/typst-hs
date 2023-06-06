@@ -75,11 +75,3 @@
   parbreak(), 
   text(body: [Second]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Para [ Str "First" ]
-  , Div ( "" , [] , [] ) [ Para [ Str "Placed" ] ]
-  , Para [ Str "Second" ]
-  ]

@@ -72,13 +72,3 @@
         dir: ltr, 
         spacing: 2.0pt), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Div
-      ( "" , [] , [ ( "stack" , "ltr" ) ] )
-      [ Div ( "" , [] , [] ) [ Div ( "" , [ "square" ] , [] ) [] ]
-      , Div ( "" , [] , [] ) [ Div ( "" , [ "circle" ] , [] ) [] ]
-      ]
-  ]

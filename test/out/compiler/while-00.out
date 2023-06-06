@@ -136,13 +136,3 @@
   text(body: [Hi.]), 
   parbreak(), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "2" ]
-  , Para [ Str "4" ]
-  , Para [ Str "6" ]
-  , Para [ Str "8" ]
-  , Para [ Str "10" ]
-  , Para [ Str "Hi." ]
-  ]

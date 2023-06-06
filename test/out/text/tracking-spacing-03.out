@@ -57,7 +57,3 @@
 النص], 
        tracking: 0.3em), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "\1575\1604\1606\1589" ] ]

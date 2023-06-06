@@ -12,7 +12,6 @@ import Test.Tasty (TestTree, Timeout (..), defaultMain, localOption, testGroup)
 import Test.Tasty.Golden (findByExtension, goldenVsStringDiff)
 import Text.Show.Pretty (ppShow)
 import Typst.Evaluate (evaluateTypst)
-import Typst.Pandoc (contentToPandoc)
 import Typst.Parse (parseTypst)
 import Typst.Types (Val (VContent), repr)
 
@@ -60,14 +59,5 @@ writeTest input = do
                 fromText $
                   parseOutput <> T.pack (show e)
             Right cs -> do
-              let evalOutput = "--- evaluated ---\n" <> repr (VContent cs) <> "\n"
-              pandocResult <- contentToPandoc (const (pure ())) cs
-              case pandocResult of
-                Left e ->
-                  pure $
-                    fromText $
-                      parseOutput <> evalOutput <> T.pack (show e)
-                Right bls ->
-                  pure $
-                    fromText $
-                      parseOutput <> evalOutput <> "--- pandoc ---\n" <> T.pack (ppShow bls)
+              let evalOutput = "--- evaluated ---\n" <> repr (VContent cs)
+              pure $ fromText $ parseOutput <> evalOutput

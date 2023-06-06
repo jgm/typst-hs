@@ -120,39 +120,3 @@
                     path: "test/assets/files/tiger.jpg", 
                     width: 40.0pt)), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Span
-          ( "" , [ "box" ] , [] )
-          [ Image
-              ( "" , [] , [ ( "width" , "30.0pt" ) ] )
-              []
-              ( "test/assets/files/rhino.png" , "" )
-          ]
-      , SoftBreak
-      , Span
-          ( "" , [ "box" ] , [] )
-          [ Image
-              ( "" , [] , [ ( "height" , "30.0pt" ) ] )
-              []
-              ( "test/assets/files/rhino.png" , "" )
-          ]
-      ]
-  , Para
-      [ Image
-          ( "" , [] , [ ( "width" , "100%" ) , ( "height" , "20.0pt" ) ] )
-          []
-          ( "test/assets/files/monkey.svg" , "" )
-      ]
-  , Div
-      ( "" , [] , [ ( "align" , "Axes(right, bottom)" ) ] )
-      [ Para
-          [ Image
-              ( "" , [] , [ ( "width" , "40.0pt" ) ] )
-              [ Str "A" , Space , Str "tiger" ]
-              ( "test/assets/files/tiger.jpg" , "" )
-          ]
-      ]
-  ]

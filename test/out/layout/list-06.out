@@ -69,30 +69,3 @@
 ]), 
   list(children: ({ text(body: [B with 2 tabs]), 
                     parbreak() })) }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "-"
-      , Space
-      , Str "A"
-      , Space
-      , Str "with"
-      , Space
-      , Str "2"
-      , Space
-      , Str "spaces"
-      ]
-  , BulletList
-      [ [ Para
-            [ Str "B"
-            , Space
-            , Str "with"
-            , Space
-            , Str "2"
-            , Space
-            , Str "tabs"
-            ]
-        ]
-      ]
-  ]

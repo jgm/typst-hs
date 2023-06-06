@@ -97,12 +97,3 @@
                         text(body: [x]) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "\\begin{array}{r}\n\\operatorname{myop}_{x: = 1}x \\\\\n\\operatorname{myop}_{x: = 1}x\n\\end{array}"
-      ]
-  ]

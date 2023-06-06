@@ -71,32 +71,3 @@
 ]), 
   list(children: ({ text(body: [Lorem ipsum dolor sit amet,]), 
                     parbreak() })) }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "Lorem"
-      , Space
-      , Str "ipsum"
-      , Space
-      , Str "dolor"
-      , Space
-      , Str "sit"
-      , Space
-      , Str "amet,"
-      ]
-  , BulletList
-      [ [ Para
-            [ Str "Lorem"
-            , Space
-            , Str "ipsum"
-            , Space
-            , Str "dolor"
-            , Space
-            , Str "sit"
-            , Space
-            , Str "amet,"
-            ]
-        ]
-      ]
-  ]

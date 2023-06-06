@@ -120,19 +120,3 @@
   text(body: [ ]), 
   linebreak(), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "Text"
-      , LineBreak
-      , Str "Text"
-      , LineBreak
-      , Str "Text"
-      , LineBreak
-      , Str "Text"
-      , LineBreak
-      , Str "Text"
-      , LineBreak
-      ]
-  ]

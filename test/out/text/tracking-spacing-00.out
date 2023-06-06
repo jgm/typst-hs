@@ -72,22 +72,3 @@
 I saw Zoe yӛsterday, on the tram.], 
        tracking: -1.0e-2em), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "I"
-      , Space
-      , Str "saw"
-      , Space
-      , Str "Zoe"
-      , Space
-      , Str "y\1243sterday,"
-      , Space
-      , Str "on"
-      , Space
-      , Str "the"
-      , Space
-      , Str "tram."
-      ]
-  ]

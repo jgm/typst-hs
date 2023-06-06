@@ -96,14 +96,3 @@ DEF]),
                      count: 2), 
        inset: 6.0pt), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Div
-      ( "" , [ "rect" ] , [] )
-      [ Div
-          ( "" , [ "columns-flow" ] , [ ( "count" , "2" ) ] )
-          [ Para [ Str "ABC" , LineBreak , Str "BCD" ] , Para [ Str "DEF" ] ]
-      ]
-  ]

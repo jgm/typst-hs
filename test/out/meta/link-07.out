@@ -92,8 +92,3 @@ My cool rhino
                            parbreak() }), 
        dest: "https://example.com/"), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Link ( "" , [] , [] ) [] ( "https://example.com/" , "" ) ]
-  ]

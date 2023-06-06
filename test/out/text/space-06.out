@@ -53,14 +53,3 @@
   text(body: [LLLLLLLLLLLLLLLLLL R ]), 
   emph(body: text(body: [L])), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "LLLLLLLLLLLLLLLLLL"
-      , Space
-      , Str "R"
-      , Space
-      , Emph [ Str "L" ]
-      ]
-  ]

@@ -91,12 +91,3 @@
                                          [|] })) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "\\begin{array}{r}\n|x + |y\\left| + \\frac{z}{a} \\right| \\\\\n\\left| x + \\left. |y| \\right. + \\frac{z}{a} \\right|\n\\end{array}"
-      ]
-  ]

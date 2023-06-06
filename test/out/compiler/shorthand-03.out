@@ -66,7 +66,3 @@ A… vs ],
   text(body: [A...], 
        font: "Roboto"), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "A\8230" , Space , Str "vs" , Space , Str "A..." ] ]

@@ -98,30 +98,3 @@ As seen in ]),
       target: ), 
   text(body: [, we proceed.]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Header 1 ( "intro" , [] , [] ) [ Str "Introduction" ]
-  , Para
-      [ Str "See"
-      , Space
-      , Link ( "" , [ "ref" ] , [] ) [ Str "[setup]" ] ( "#setup" , "" )
-      , Str "."
-      ]
-  , Header 2 ( "setup" , [] , [] ) [ Str "Setup" ]
-  , Para
-      [ Str "As"
-      , Space
-      , Str "seen"
-      , Space
-      , Str "in"
-      , Space
-      , Link ( "" , [ "ref" ] , [] ) [ Str "[intro]" ] ( "#intro" , "" )
-      , Str ","
-      , Space
-      , Str "we"
-      , Space
-      , Str "proceed."
-      ]
-  ]

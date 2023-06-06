@@ -87,5 +87,3 @@
   enum.item(body: text(body: [a]), 
             number: 2), 
   parbreak() }
---- pandoc ---
-Pandoc Meta { unMeta = fromList [] } [ Para [] , Para [ Str "a" ] ]

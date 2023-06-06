@@ -99,24 +99,3 @@
                                                                         text(body: [List]))))) }, 
                               { text(body: [Recursive!]), 
                                 parbreak() }))) }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Div
-      ( "" , [] , [] )
-      [ BulletList
-          [ [ Para [ Str "List" ]
-            , Div
-                ( "" , [] , [] )
-                [ Div
-                    ( "" , [] , [] )
-                    [ BulletList
-                        [ [ Para [ Str "Nested" ] ] , [ Para [ Str "List" ] ] ]
-                    ]
-                ]
-            ]
-          , [ Para [ Str "Recursive!" ] ]
-          ]
-      ]
-  ]

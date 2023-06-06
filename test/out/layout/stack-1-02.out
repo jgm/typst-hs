@@ -88,7 +88,3 @@
                                   height: 13.0pt, 
                                   width: 30.0pt)))), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Span ( "" , [ "box" ] , [] ) [] ] ]

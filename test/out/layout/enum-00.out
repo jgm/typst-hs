@@ -57,14 +57,3 @@
                   text(body: [Extend]), 
                   text(body: [Extinguish]))), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , OrderedList
-      ( 1 , DefaultStyle , DefaultDelim )
-      [ [ Para [ Str "Embrace" ] ]
-      , [ Para [ Str "Extend" ] ]
-      , [ Para [ Str "Extinguish" ] ]
-      ]
-  ]

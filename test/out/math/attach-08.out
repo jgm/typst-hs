@@ -115,12 +115,3 @@
                         text(body: [k]) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "\\lim_{\\begin{array}{r}\nn \\rightarrow \\infty \\\\\nn\\text{ grows}\n\\end{array}}\\sum_{\\begin{array}{r}\nk = 0 \\\\\nk \\in {\\mathbb{N}}\n\\end{array}}^{n}k"
-      ]
-  ]

@@ -95,39 +95,3 @@ World]),
   text(body: ["nope"]), 
   text(body: [)]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Para
-      [ Str "\10060({"
-      , Space
-      , Str "text(body:"
-      , Space
-      , Str "["
-      , SoftBreak
-      , Str "Hello"
-      , Space
-      , Str "\128512"
-      , SoftBreak
-      , Str "]),"
-      , SoftBreak
-      , Str "text(body:"
-      , Space
-      , Str "[nope]),"
-      , SoftBreak
-      , Str "text(body:"
-      , Space
-      , Str "["
-      , SoftBreak
-      , Str "World]),"
-      , SoftBreak
-      , Str "parbreak()"
-      , Space
-      , Str "}"
-      , Space
-      , Str "/="
-      , Space
-      , Str "\"nope\")"
-      ]
-  ]

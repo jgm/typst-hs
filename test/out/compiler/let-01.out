@@ -114,12 +114,3 @@ Three]),
 ]), 
   text(body: [✅]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "One" ]
-  , Para [ Str "Two" ]
-  , Para [ Str "Three" ]
-  , Para
-      [ Str "\9989" , SoftBreak , Str "\9989" , SoftBreak , Str "\9989" ]
-  ]

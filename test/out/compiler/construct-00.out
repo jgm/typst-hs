@@ -72,12 +72,3 @@
                   list(children: (text(body: [A]), 
                                   text(body: [B]))))), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , BulletList
-      [ [ Para [ Str "First" ] ]
-      , [ BulletList [ [ Para [ Str "A" ] ] , [ Para [ Str "B" ] ] ] ]
-      ]
-  ]

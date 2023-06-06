@@ -147,12 +147,3 @@
                                                         t: text(body: [2]))) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "\\begin{array}{r}\n\\sqrt{a}\\quad\\sqrt{f}\\quad\\sqrt{q}\\quad\\sqrt{a^{2}} \\\\\n\\sqrt{n_{0}}\\quad\\sqrt{b^{}}\\quad\\sqrt{b^{2}}\\quad\\sqrt{q_{1}^{2}}\n\\end{array}"
-      ]
-  ]

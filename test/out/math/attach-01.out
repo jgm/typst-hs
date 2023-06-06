@@ -125,12 +125,3 @@
                         linebreak() }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "{{}_{8}^{16}\\mathrm{O}_{2}^{2 -}},{{}_{82}^{207}\\text{Pb}} + {{}_{- 1}^{0}\\mathrm{e}} + {\\overline{v}}_{e}"
-      ]
-  ]

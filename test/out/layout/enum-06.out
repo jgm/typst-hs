@@ -79,20 +79,3 @@
                   enum.item(body: text(body: [Fifth]), 
                             number: 5))), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , OrderedList
-      ( 1 , DefaultStyle , DefaultDelim )
-      [ [ Para [ Str "first" ] ]
-      , [ Para [ Str "second" ] ]
-      , [ Para [ Str "fifth" ] ]
-      ]
-  , OrderedList
-      ( 1 , DefaultStyle , DefaultDelim )
-      [ [ Para [ Str "First" ] ]
-      , [ Para [ Str "Second" ] ]
-      , [ Para [ Str "Fifth" ] ]
-      ]
-  ]

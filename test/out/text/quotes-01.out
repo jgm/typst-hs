@@ -49,5 +49,3 @@
 ]), 
   text(body: [””]), 
   parbreak() }
---- pandoc ---
-Pandoc Meta { unMeta = fromList [] } [ Para [ Str "\8221\8221" ] ]

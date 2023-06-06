@@ -78,16 +78,3 @@
                   { text(body: [C]), 
                     parbreak() }), 
        numbering: ) }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , OrderedList
-      ( 1 , DefaultStyle , DefaultDelim )
-      [ [ Para [ Str "A" ]
-        , OrderedList
-            ( 1 , DefaultStyle , DefaultDelim ) [ [ Para [ Str "B" ] ] ]
-        ]
-      , [ Para [ Str "C" ] ]
-      ]
-  ]

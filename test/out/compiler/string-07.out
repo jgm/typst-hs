@@ -114,20 +114,3 @@
 ]), 
   text(body: [✅]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "\9989"
-      , SoftBreak
-      , Str "\10060(\"c\127969def\""
-      , Space
-      , Str "/="
-      , Space
-      , Str "\"c\127969\")"
-      , SoftBreak
-      , Str "\9989"
-      , SoftBreak
-      , Str "\9989"
-      ]
-  ]

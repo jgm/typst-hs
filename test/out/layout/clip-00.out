@@ -123,26 +123,3 @@ world 1]),
   text(body: [ 
 world 2]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "Hello"
-      , Space
-      , Span ( "" , [ "box" ] , [] ) []
-      , SoftBreak
-      , Str "world"
-      , Space
-      , Str "1"
-      ]
-  , Para [ Str "Space" ]
-  , Para
-      [ Str "Hello"
-      , Space
-      , Span ( "" , [ "box" ] , [] ) []
-      , SoftBreak
-      , Str "world"
-      , Space
-      , Str "2"
-      ]
-  ]

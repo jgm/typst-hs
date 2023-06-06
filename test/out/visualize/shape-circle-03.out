@@ -141,28 +141,3 @@
        height: 50.0pt, 
        inset: 0.0pt, 
        width: 100.0pt) }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Div
-      ( "" , [ "rect" ] , [] )
-      [ Para []
-      , Div
-          ( "" , [] , [ ( "stack" , "ltr" ) ] )
-          [ Div
-              ( "" , [] , [] ) [ Div ( "" , [] , [ ( "space" , "1.0fr" ) ] ) [] ]
-          , Div
-              ( "" , [] , [] )
-              [ Div ( "" , [ "circle" ] , [] ) [ Para [ Str "A" ] ] ]
-          , Div
-              ( "" , [] , [] )
-              [ Div ( "" , [ "circle" ] , [] ) [ Para [ Str "B" ] ] ]
-          , Div
-              ( "" , [] , [] )
-              [ Div ( "" , [ "circle" ] , [] ) [ Para [ Str "C" ] ] ]
-          , Div
-              ( "" , [] , [] ) [ Div ( "" , [] , [ ( "space" , "1.0fr" ) ] ) [] ]
-          ]
-      ]
-  ]

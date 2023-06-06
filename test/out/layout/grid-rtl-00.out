@@ -61,16 +61,3 @@
   list(children: ({ text(body: [מימין לשמאל], 
                          dir: rtl), 
                     parbreak() })) }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , BulletList
-      [ [ Para
-            [ Str "\1502\1497\1502\1497\1503"
-            , Space
-            , Str "\1500\1513\1502\1488\1500"
-            ]
-        ]
-      ]
-  ]

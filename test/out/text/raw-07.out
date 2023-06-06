@@ -61,7 +61,3 @@
       lang: none, 
       text: "Roboto"), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Code ( "" , [] , [] ) "Roboto" ] ]

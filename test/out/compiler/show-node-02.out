@@ -76,17 +76,3 @@
 ]), 
   text(body: [my heading?]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Para
-      [ Str "Where"
-      , Space
-      , Str "is"
-      , SoftBreak
-      , Str "my"
-      , Space
-      , Str "heading?"
-      ]
-  ]

@@ -100,16 +100,3 @@
   parbreak(), 
   text(body: [bye]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Para []
-  , Div
-      ( "" , [ "rect" ] , [] )
-      [ Para
-          [ Str "Like" , Space , Str "and" , Space , Str "Subscribe!" ]
-      ]
-  , Para [ Str "hi" ]
-  , Para [ Str "bye" ]
-  ]

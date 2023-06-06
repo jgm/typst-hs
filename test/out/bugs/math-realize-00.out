@@ -234,23 +234,3 @@
                         text(body: [2]) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Para
-      [ Math DisplayMath "\\pi a"
-      , SoftBreak
-      , Math DisplayMath "\\pi a"
-      , SoftBreak
-      , Math
-          DisplayMath
-          "1 + \\sqrt{\\frac{x}{2}} + \\sqrt{\\phantom{\\frac{x}{2}}}"
-      , SoftBreak
-      , Math DisplayMath "ax{+ b}"
-      , SoftBreak
-      , Math DisplayMath "ff{}"
-      , SoftBreak
-      , Math DisplayMath "\\text{nope}*2"
-      ]
-  ]

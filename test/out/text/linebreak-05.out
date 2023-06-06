@@ -69,22 +69,3 @@
   linebreak(), 
   text(body: [more.]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "Two"
-      , Space
-      , Str "consecutive"
-      , LineBreak
-      , LineBreak
-      , Str "breaks"
-      , Space
-      , Str "and"
-      , Space
-      , Str "three"
-      , LineBreak
-      , LineBreak
-      , Str "more."
-      ]
-  ]

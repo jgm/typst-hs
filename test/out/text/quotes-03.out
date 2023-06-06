@@ -78,30 +78,3 @@
 ]), 
   text(body: [The 5'11" ‘quick' brown fox jumps over the "lazy” dog's ear.]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "The"
-      , Space
-      , Str "5'11\""
-      , Space
-      , Str "\8216quick'"
-      , Space
-      , Str "brown"
-      , Space
-      , Str "fox"
-      , Space
-      , Str "jumps"
-      , Space
-      , Str "over"
-      , Space
-      , Str "the"
-      , Space
-      , Str "\"lazy\8221"
-      , Space
-      , Str "dog's"
-      , Space
-      , Str "ear."
-      ]
-  ]

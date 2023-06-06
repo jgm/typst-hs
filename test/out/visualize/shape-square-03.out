@@ -87,28 +87,3 @@ But, soft! what light through yonder window breaks?]),
                  parbreak() }, 
          fill: rgb(18%,80%,25%,100%)), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Div
-      ( "" , [ "square" ] , [] )
-      [ Para
-          [ Str "But,"
-          , Space
-          , Str "soft!"
-          , Space
-          , Str "what"
-          , Space
-          , Str "light"
-          , Space
-          , Str "through"
-          , Space
-          , Str "yonder"
-          , Space
-          , Str "window"
-          , Space
-          , Str "breaks?"
-          ]
-      ]
-  ]

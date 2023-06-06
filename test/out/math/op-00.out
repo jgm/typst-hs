@@ -72,7 +72,3 @@
                         text(body: [n]) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Math DisplayMath "\\max_{1 \\leq n \\leq m}n" ] ]

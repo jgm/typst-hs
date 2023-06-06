@@ -101,14 +101,3 @@ My cool ]),
                  dx: 0.7cm, 
                  dy: 0.7cm)), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "My"
-      , Space
-      , Str "cool"
-      , Space
-      , Span ( "" , [ "box" ] , [] ) []
-      ]
-  ]

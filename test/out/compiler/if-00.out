@@ -80,5 +80,3 @@ One.]),
   parbreak(), 
   parbreak(), 
   parbreak() }
---- pandoc ---
-Pandoc Meta { unMeta = fromList [] } [ Para [ Str "One." ] ]

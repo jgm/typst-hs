@@ -143,14 +143,3 @@
                                     t: text(body: [b])) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math DisplayMath "A_{1}^{2} \\neq A_{1}^{2}"
-      , SoftBreak
-      , Math DisplayMath "\\sum_{1}^{2} \\neq \\sum_{1}^{2}"
-      , SoftBreak
-      , Math DisplayMath "\\int_{a}^{b} \\neq \\int_{a}^{b}"
-      ]
-  ]

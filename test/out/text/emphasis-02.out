@@ -89,16 +89,3 @@
                       delta: 150), 
          delta: 150), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "Normal" ]
-  , Para [ Strong [ Str "Bold" ] ]
-  , Para
-      [ Strong [ Str "Medium" ]
-      , Space
-      , Str "and"
-      , Space
-      , Strong [ Strong [ Str "Bold" ] ]
-      ]
-  ]

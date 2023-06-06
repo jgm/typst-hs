@@ -69,11 +69,3 @@
       lang: "typ", 
       text: "= Chapter 1\n#lorem(100)\n\n#let hi = \"Hello World\"\n#show heading: emph\n"), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , CodeBlock
-      ( "" , [ "typ" ] , [] )
-      "= Chapter 1\n#lorem(100)\n\n#let hi = \"Hello World\"\n#show heading: emph\n"
-  ]

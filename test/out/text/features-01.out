@@ -52,7 +52,3 @@
 ]), 
   smallcaps(body: text(body: [Smallcaps])), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ SmallCaps [ Str "Smallcaps" ] ] ]

@@ -94,12 +94,3 @@
                         text(body: [h]) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "\\begin{aligned}\na & = b & \\quad c & = d \\\\\ne & = f & g & = h\n\\end{aligned}"
-      ]
-  ]

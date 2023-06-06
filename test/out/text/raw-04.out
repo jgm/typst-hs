@@ -119,27 +119,3 @@
   text(body: [) ]), 
   linebreak(), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "The" , Space , Str "keyword" ]
-  , CodeBlock ( "" , [ "rust" ] , [] ) "let"
-  , Para [ Str "." ]
-  , Para
-      [ Str "("
-      , Code ( "" , [] , [] ) ""
-      , Str ")"
-      , LineBreak
-      , Str "("
-      , Code ( "" , [] , [] ) " untrimmed "
-      , Str ")"
-      , LineBreak
-      , Str "("
-      ]
-  , CodeBlock ( "" , [] , [] ) "trimmed` "
-  , Para [ Str ")" , LineBreak , Str "(" ]
-  , CodeBlock ( "" , [] , [] ) "trimmed "
-  , Para [ Str ")" , LineBreak , Str "(" ]
-  , CodeBlock ( "" , [] , [] ) "trimmed"
-  , Para [ Str ")" , LineBreak ]
-  ]

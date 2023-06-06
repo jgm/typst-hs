@@ -68,11 +68,3 @@
       lang: "cpp", 
       text: "#include <iostream>\n\nint main() {\n  std::cout << \"Hello, world!\";\n}\n"), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , CodeBlock
-      ( "" , [ "cpp" ] , [] )
-      "#include <iostream>\n\nint main() {\n  std::cout << \"Hello, world!\";\n}\n"
-  ]

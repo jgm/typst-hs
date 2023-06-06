@@ -70,9 +70,3 @@
   text(body: [World ]), 
   text(body: [🌎]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "Hello" , Space , Str "World" , Space , Str "\127758" ]
-  ]

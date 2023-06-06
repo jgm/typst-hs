@@ -93,11 +93,3 @@
           level: 2), 
   heading(body: text(body: [Green]), 
           level: 3) }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Header 1 ( "" , [] , [] ) [ Str "Red" ]
-  , Header 2 ( "" , [] , [] ) [ Str "Blue" ]
-  , Header 3 ( "" , [] , [] ) [ Str "Green" ]
-  ]

@@ -117,15 +117,3 @@
 ]), 
   circle(fill: rgb(13%,61%,67%,100%)), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Div ( "" , [ "rect" ] , [] ) []
-  , Para []
-  , Para []
-  , Div ( "" , [ "rect" ] , [] ) []
-  , Para []
-  , Para []
-  , Div ( "" , [ "circle" ] , [] ) []
-  ]

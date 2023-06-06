@@ -72,14 +72,3 @@
 ]))), 
   text(body: [Next paragraph.]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "Attached" , Space , Str "to:" ]
-  , BulletList
-      [ [ Para [ Str "the" , Space , Str "bottom" ] ]
-      , [ Para [ Str "of" , Space , Str "the" , Space , Str "paragraph" ]
-        ]
-      ]
-  , Para [ Str "Next" , Space , Str "paragraph." ]
-  ]

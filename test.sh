@@ -4,7 +4,7 @@ cat <<EOF
 <style>
 body { min-width: 100%; max-width: 100% }
 .typst { width: 50%; min-width: 50%; }
-.html { width: 50%; min-width: 50%; }
+.eval { width: 50%; min-width: 50%; }
 </style>
 EOF
 
@@ -26,9 +26,9 @@ do
     cat $t
     echo '````````````'
     echo ":::"
-    echo "::: {.column .html}"
-    echo '````````````{=html}'
-    cabal run typst-hs -fexecutable --disable-optimization -v0 -- --html --timeout 1000 $t.rev 2>&1
+    echo "::: {.column .eval}"
+    echo '````````````'
+    cabal run typst-hs -fexecutable --disable-optimization -v0 -- --repr --timeout 1000 $t.rev 2>&1
     echo '````````````'
     echo ":::"
     echo "::::::"

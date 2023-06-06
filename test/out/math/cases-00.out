@@ -146,12 +146,3 @@
                                                 text(body: [else]) })) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "f(x,y): = \\begin{cases}\n1\\quad & \\text{if }\\frac{x \\cdot y}{2} \\leq 0 \\\\\n2 & \\text{if }x \\mid 2 \\\\\n3 & \\text{if }x \\in {\\mathbb{N}} \\\\\n4 & \\text{else}\n\\end{cases}"
-      ]
-  ]

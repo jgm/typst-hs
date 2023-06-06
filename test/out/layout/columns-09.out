@@ -73,23 +73,3 @@
   parbreak(), 
   text(body: [This is a normal page. Very normal.]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Para
-      [ Str "This"
-      , Space
-      , Str "is"
-      , Space
-      , Str "a"
-      , Space
-      , Str "normal"
-      , Space
-      , Str "page."
-      , Space
-      , Str "Very"
-      , Space
-      , Str "normal."
-      ]
-  ]

@@ -102,13 +102,3 @@
                parbreak() }, 
        fill: rgb(100%,25%,21%,100%)), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Div
-      ( "" , [ "rect" ] , [] )
-      [ Para []
-      , Para [ Str "\8202\8193" , Space , Str "Hi" , Space , Str "you!" ]
-      ]
-  ]

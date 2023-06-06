@@ -86,12 +86,3 @@
                                     base: text(body: [ℤ])) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          InlineMath
-          "\\overset{.}{\246},\\overset{\\leftarrow}{v},\\widetilde{\\mathbb{Z}}"
-      ]
-  ]

@@ -115,11 +115,3 @@
        inset: 5.0pt, 
        width: 2.0cm), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "\9989" ]
-  , Para [ Str "\9989" ]
-  , Para []
-  , Div ( "" , [ "rect" ] , [] ) [ Para [ Str "Hi!" ] ]
-  ]

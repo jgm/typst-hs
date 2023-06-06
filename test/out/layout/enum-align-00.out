@@ -87,26 +87,3 @@
                     linebreak(), 
                     text(body: [HERE]), 
                     parbreak() })) }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , OrderedList
-      ( 1 , DefaultStyle , DefaultDelim )
-      [ [ Para
-            [ Str "ABCDEF"
-            , LineBreak
-            , Str "GHIJKL"
-            , LineBreak
-            , Str "MNOPQR"
-            ]
-        , OrderedList
-            ( 1 , DefaultStyle , DefaultDelim )
-            [ [ Para
-                  [ Str "INNER" , LineBreak , Str "INNER" , LineBreak , Str "INNER" ]
-              ]
-            ]
-        ]
-      , [ Para [ Str "BACK" , LineBreak , Str "HERE" ] ]
-      ]
-  ]

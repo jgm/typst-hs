@@ -221,12 +221,3 @@
                                                         []] }))) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "\\begin{array}{r}\n\\frac{a_{1}}{b_{2}},\\frac{1}{f(x)},\\frac{\\zeta(x)}{2},\\text{ foo}\\frac{\\left\\lbrack |x| \\right\\rbrack}{2} \\\\\n\\frac{1.2}{3.7},2.3^{3.4} \\\\\n\127987\65039\8205\127752\\frac{\\lbrack x\\rbrack}{2},f\\frac{\\lbrack x\\rbrack}{2},\\varphi\\frac{\\lbrack x\\rbrack}{2},\127987\65039\8205\127752\\frac{\\lbrack x\\rbrack}{2} \\\\\n + \\frac{\\lbrack x\\rbrack}{2},\\frac{1(x)}{2},2\\frac{\\lbrack x\\rbrack}{2} \\\\\n(a)\\frac{b}{2},b(a)\\frac{\\lbrack b\\rbrack}{2}\n\\end{array}"
-      ]
-  ]

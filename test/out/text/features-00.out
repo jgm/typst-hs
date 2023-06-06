@@ -70,7 +70,3 @@
   text(body: text(body: [Tq]), 
        kerning: false), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "Tq" , LineBreak , Str "Tq" ] ]

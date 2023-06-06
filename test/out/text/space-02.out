@@ -60,7 +60,3 @@
        font: "IBM Plex Serif"), 
   text(body: [B]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "A" , Space , Str "B" ] ]

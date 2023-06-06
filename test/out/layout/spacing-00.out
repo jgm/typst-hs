@@ -198,38 +198,3 @@
   h(amount: 1.0fr), 
   text(body: [ |]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Span ( "" , [ "box" ] , [] ) [ Str "A" , LineBreak , Str "B" ]
-      , Space
-      , Span ( "" , [ "box" ] , [] ) [ Str "A" , Space ]
-      ]
-  , Para [ Str "Inv\8202isible" ]
-  , Para
-      [ Str "Add"
-      , Space
-      , Str "\8192\8196"
-      , Space
-      , Str "\8192\8196"
-      , Space
-      , Str "up"
-      ]
-  , Para [ Str "|\8196|\8196|\8196|\8196|" ]
-  , Para
-      [ Str "|"
-      , Space
-      , Str "\8202\8193"
-      , Space
-      , Str "|"
-      , Space
-      , Str "\8202\8193"
-      , Space
-      , Str "|"
-      , Space
-      , Str "\8202\8193"
-      , Space
-      , Str "|"
-      ]
-  ]

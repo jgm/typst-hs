@@ -71,20 +71,3 @@
               x: 10.0pt,
               y: 20.0pt)), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Link
-          ( "" , [] , [] )
-          [ Str "Back"
-          , Space
-          , Str "to"
-          , Space
-          , Str "the"
-          , Space
-          , Str "start"
-          ]
-          ( "#" , "" )
-      ]
-  ]

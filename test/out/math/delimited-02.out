@@ -125,16 +125,3 @@
                                                       [|] })))), 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "\\left\\lbrack \\left| \\frac{a}{b} \\right| \\right\\rbrack \\neq \\left. \\left| \\rbrack\\frac{a}{b} \\right| \\right\\rbrack \\neq \\lbrack\\frac{a}{b})"
-      , SoftBreak
-      , Math
-          DisplayMath
-          "\\left. \\left| \\rbrack 1,2\\lbrack + \\frac{1}{2} \\right| \\right."
-      ]
-  ]

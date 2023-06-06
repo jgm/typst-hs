@@ -66,5 +66,3 @@
                      width: 50%), 
          origin: Axes(left, top)), 
   parbreak() }
---- pandoc ---
-Pandoc Meta { unMeta = fromList [] } [ Para [] ]

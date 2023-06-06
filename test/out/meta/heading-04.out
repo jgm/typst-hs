@@ -69,18 +69,3 @@
   text(body: [Not in heading
 =Nope]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Header 1 ( "" , [] , [] ) []
-  , Para
-      [ Str "Not"
-      , Space
-      , Str "in"
-      , Space
-      , Str "heading"
-      , SoftBreak
-      , Str "=Nope"
-      ]
-  ]

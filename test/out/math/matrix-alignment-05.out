@@ -215,24 +215,3 @@
                                        text(body: [e])))), 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "\\left( \\begin{array}{lc}\n\\begin{aligned}\n & a + b\n\\end{aligned} & c \\\\\n\\begin{aligned}\n & d\n\\end{aligned} & e\n\\end{array} \\right)"
-      , SoftBreak
-      , Math
-          DisplayMath
-          "\\left( \\begin{array}{lc}\n\\begin{aligned}\n & a + b\n\\end{aligned} & c \\\\\n\\begin{aligned}\n & d\n\\end{aligned} & e\n\\end{array} \\right)"
-      , SoftBreak
-      , Math
-          DisplayMath
-          "\\left( \\begin{array}{lc}\n\\begin{aligned}\n & & & a + b\n\\end{aligned} & c \\\\\n\\begin{aligned}\n & & & d\n\\end{aligned} & e\n\\end{array} \\right)"
-      , SoftBreak
-      , Math
-          DisplayMath
-          "\\begin{pmatrix}\n\\begin{array}{rlr}\n. & a + b & .\n\\end{array} & c \\\\\n\\begin{array}{rlr}\n\\ldots.. & d & \\ldots..\n\\end{array} & e\n\\end{pmatrix}"
-      ]
-  ]

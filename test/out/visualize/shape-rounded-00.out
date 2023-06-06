@@ -65,11 +65,3 @@
 ]), 
   square(radius: 30.0pt), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Div ( "" , [ "rect" ] , [] ) []
-  , Para []
-  , Div ( "" , [ "square" ] , [] ) []
-  ]

@@ -96,12 +96,3 @@
                                          text(body: [C]))) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "x: = \\frac{\\begin{array}{ll}\nx & y\n\\end{array}}{\\begin{pmatrix}\n1 & 2 & 3\n\\end{pmatrix}} = \\begin{array}{l}\nA \\\\\nB \\\\\nC\n\\end{array}"
-      ]
-  ]

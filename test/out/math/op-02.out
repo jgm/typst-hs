@@ -145,16 +145,3 @@ Discuss ],
                              font: "New Computer Modern") }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "Discuss"
-      , Space
-      , Math InlineMath "\\lim_{n \\rightarrow \\infty}\\frac{1}{n}"
-      , Space
-      , Str "now."
-      , SoftBreak
-      , Math DisplayMath "\\lim_{n \\rightarrow \\infty}\\frac{1}{n} = 0"
-      ]
-  ]

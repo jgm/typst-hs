@@ -48,7 +48,3 @@
 ]), 
   text(body: [🏞‍🌋]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "\127966\8205\127755" ] ]

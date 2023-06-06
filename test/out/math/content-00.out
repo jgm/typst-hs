@@ -113,9 +113,3 @@
                                             dy: 0.2em)) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math DisplayMath "\\sum_{i = \127823}^{\127822}i + \\frac{}{2}" ]
-  ]

@@ -57,16 +57,3 @@
 { text(body: [
 The non-breaking space does work.]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "The"
-      , Space
-      , Str "non-breaking\160space"
-      , Space
-      , Str "does"
-      , Space
-      , Str "work."
-      ]
-  ]

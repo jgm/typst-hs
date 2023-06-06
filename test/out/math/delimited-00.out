@@ -123,16 +123,3 @@
                         text(body: [)]) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "(a) + \\left\\{ \\frac{b}{2} \\right\\} + \\frac{|a|}{2} + (b)"
-      , SoftBreak
-      , Math
-          InlineMath
-          "f\\left( \\frac{x}{2} \\right) < \\zeta(c^{2} + \\left| a + \\frac{b}{2} \\right|)"
-      ]
-  ]

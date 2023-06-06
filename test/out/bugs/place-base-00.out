@@ -106,13 +106,3 @@
         dx: 25%, 
         dy: 25%), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Div ( "" , [] , [] ) [ Para [ Str "First" ] ]
-  , Para []
-  , Div ( "" , [] , [] ) [ Para [ Str "Second" ] ]
-  , Para []
-  , Div ( "" , [] , [] ) [ Para [ Str "Third" ] ]
-  ]

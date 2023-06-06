@@ -89,12 +89,3 @@
                                          text(body: [a a a]) }))), 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "\\left( \\begin{array}{lll}\n\\begin{aligned}\n & a\n\\end{aligned} & \\begin{aligned}\n & \\text{a a a}\n\\end{aligned} & \\begin{aligned}\n & \\text{a a}\n\\end{aligned} \\\\\n\\begin{aligned}\n & \\text{a a}\n\\end{aligned} & \\begin{aligned}\n & \\text{a a}\n\\end{aligned} & \\begin{aligned}\n & a\n\\end{aligned} \\\\\n\\begin{aligned}\n & \\text{a a a}\n\\end{aligned} & \\begin{aligned}\n & a\n\\end{aligned} & \\begin{aligned}\n & \\text{a a a}\n\\end{aligned}\n\\end{array} \\right)"
-      ]
-  ]

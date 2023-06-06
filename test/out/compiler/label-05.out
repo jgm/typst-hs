@@ -85,18 +85,3 @@
   text(body: [ ]), 
   <strike>, 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Strong [ Str "This" , Space , Str "is" ]
-      , Space
-      , Span ( "strike" , [] , [] ) []
-      , Space
-      , Strong [ Str "protected." ]
-      , SoftBreak
-      , Strong [ Str "This" , Space , Str "is" , Space , Str "not." ]
-      , Space
-      , Span ( "strike" , [] , [] ) []
-      ]
-  ]

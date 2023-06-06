@@ -376,23 +376,3 @@
                         text(body: [6]) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math InlineMath "a \\equiv b + c - d \\Rightarrow e\\log 5\\ln 6"
-      , LineBreak
-      , Math
-          InlineMath
-          "a \\equiv b\\underset{\175}{+}c\\overset{\\rightarrow}{-}d\\hat{\\Rightarrow}e\\log 5\\ln\\limits^{\\cdot}6"
-      , LineBreak
-      , Math
-          InlineMath
-          "a\\overbrace{\\equiv}b\\underline{+}c\\grave{-}d\\underset{\9141}{\\Rightarrow}e\\log\\limits^{\9675}5\\ln\\limits^{\711}6"
-      , LineBreak
-      , LineBreak
-      , Math
-          InlineMath
-          "a{{}^{a} \\equiv^{b}}b +_{b}^{a}c\\overset{\\sim}{-}d\\breve{\\Rightarrow}e\\log_{b}^{a}5{{}_{b}\\ln^{a}}6"
-      ]
-  ]

@@ -71,11 +71,3 @@ Hello]),
   block(body: text(body: [Further down]), 
         spacing: 20.0pt), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "Hello" ]
-  , Para [ Str "There" ]
-  , Div
-      ( "" , [] , [] ) [ Para [ Str "Further" , Space , Str "down" ] ]
-  ]

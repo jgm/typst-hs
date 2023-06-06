@@ -89,16 +89,3 @@
   text(body: [ –
 ]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Header 1 ( "" , [] , [] ) [ Str "Document" ]
-  , Para
-      [ Str "\8211"
-      , Space
-      , Emph [ Str "Intermission" ]
-      , Space
-      , Str "\8211"
-      ]
-  ]

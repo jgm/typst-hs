@@ -137,16 +137,3 @@
   parbreak(), 
   line(end: (70%, 50%)), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Span ( "" , [ "box" ] , [] ) []
-      , Space
-      , Str "Hello"
-      , Space
-      , Span ( "" , [ "box" ] , [] ) []
-      , Str "!"
-      ]
-  , HorizontalRule
-  ]

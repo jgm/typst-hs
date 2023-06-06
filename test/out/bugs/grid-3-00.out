@@ -73,12 +73,3 @@ The following:
   enum(children: (text(body: [A]), 
                   { text(body: [B]), 
                     parbreak() })) }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Para [ Str "The" , Space , Str "following:" ]
-  , OrderedList
-      ( 1 , DefaultStyle , DefaultDelim )
-      [ [ Para [ Str "A" ] ] , [ Para [ Str "B" ] ] ]
-  ]

@@ -149,12 +149,3 @@
                                                 text(body: […]) })) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "\\begin{array}{r}\n\\underline{f\\prime:{\\mathbb{N}} \\rightarrow {\\mathbb{R}}} \\\\\nn| \\rightarrow \\begin{cases}\n\\left\\lbrack |1| \\right\\rbrack & \\text{if }n > > > 10 \\\\\n2*3 & \\text{if }n \\neq 5 \\\\\n1 - 0\\: & \\ldots\n\\end{cases}\n\\end{array}"
-      ]
-  ]

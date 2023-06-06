@@ -77,20 +77,3 @@
 ]), 
   text(body: [(1, 2, 3, 4, 5, 6)]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "(1,"
-      , Space
-      , Str "2,"
-      , Space
-      , Str "3,"
-      , Space
-      , Str "4,"
-      , Space
-      , Str "5,"
-      , Space
-      , Str "6)"
-      ]
-  ]

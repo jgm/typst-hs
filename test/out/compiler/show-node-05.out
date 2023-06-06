@@ -83,15 +83,3 @@
   text(body: { [ ], 
                strong(body: [W]), 
                [orld ] }) }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Strong [ Str "W" ] , Str "orld" ]
-  , Para
-      [ Strong [ Str "W" ]
-      , Str "orld"
-      , Space
-      , Strong [ Str "W" ]
-      , Str "orld"
-      ]
-  ]

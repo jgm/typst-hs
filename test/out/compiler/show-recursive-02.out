@@ -121,16 +121,3 @@
   parbreak(), 
   list(children: ({ text(body: [Normal list]), 
                     parbreak() })) }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , BulletList [ [ Para [ Str "Normal" , Space , Str "list" ] ] ]
-  , Para []
-  , BulletList
-      [ [ Para [ Str "Star" ] ]
-      , [ Para [ Str "Wars" ] ]
-      , [ Para [ Str "List" ] ]
-      ]
-  , BulletList [ [ Para [ Str "Normal" , Space , Str "list" ] ] ]
-  ]

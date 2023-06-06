@@ -74,26 +74,3 @@
 2 through content block]), 
   parbreak(), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "-"
-      , Space
-      , Str "Level"
-      , Space
-      , Str "1"
-      , SoftBreak
-      , Str "-"
-      , Space
-      , Str "Level"
-      , SoftBreak
-      , Str "2"
-      , Space
-      , Str "through"
-      , Space
-      , Str "content"
-      , Space
-      , Str "block"
-      ]
-  ]

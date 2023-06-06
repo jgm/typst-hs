@@ -79,10 +79,3 @@ A ]),
           level: 1), 
   text(body: [ C]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "A" ]
-  , Header 1 ( "" , [] , [] ) [ Str "Heading" ]
-  , Para [ Str "C" ]
-  ]

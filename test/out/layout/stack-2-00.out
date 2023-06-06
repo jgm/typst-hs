@@ -139,33 +139,3 @@ from ]),
   text(body: [
 World! 🌍]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Div
-      ( "" , [] , [ ( "stack" , "ltr" ) ] )
-      [ Div ( "" , [] , [] ) [ Para [ Str "A" ] ]
-      , Div ( "" , [] , [] ) [ Para [ Str "B" ] ]
-      , Div ( "" , [] , [] ) [ Para [ Str "C" ] ]
-      , Div ( "" , [] , [] ) [ Para [ Str "D" ] ]
-      , Div ( "" , [] , [] ) [ Para [ Str "E" ] ]
-      , Div ( "" , [] , [] ) [ Para [ Str "F" ] ]
-      , Div ( "" , [] , [] ) [ Para [ Str "G" ] ]
-      , Div ( "" , [] , [] ) [ Para [ Str "H" ] ]
-      , Div ( "" , [] , [] ) [ Para [ Str "I" ] ]
-      ]
-  , Para [ Str "Hello" ]
-  , Para
-      [ Str "from"
-      , Space
-      , Str "\8202\8193"
-      , Space
-      , Str "the"
-      , Space
-      , Str "\8202\8193"
-      , Space
-      , Str "wonderful"
-      ]
-  , Para [ Str "World!" , Space , Str "\127757" ]
-  ]

@@ -50,7 +50,3 @@
       lang: none, 
       text: "rust let"), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Code ( "" , [] , [] ) "rust let" ] ]

@@ -68,13 +68,3 @@ Lorem Ipsum]),
                 text(body: [Dolor]), 
                 parbreak() }), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Div
-      ( "" , [] , [ ( "align" , "center" ) ] )
-      [ Para [ Str "Lorem" , Space , Str "Ipsum" ]
-      , Para [ Str "Dolor" ]
-      ]
-  ]

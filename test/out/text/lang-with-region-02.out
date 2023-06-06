@@ -64,5 +64,3 @@
        region: "TW"), 
   outline(), 
   parbreak() }
---- pandoc ---
-Pandoc Meta { unMeta = fromList [] } [ Para [] ]

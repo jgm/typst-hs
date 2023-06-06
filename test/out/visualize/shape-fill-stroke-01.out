@@ -161,23 +161,3 @@
                    stroke: (thickness: 2.0pt,
                             color: rgb(0%,45%,85%,100%)))), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Para
-      [ Span ( "" , [ "box" ] , [] ) []
-      , SoftBreak
-      , Span ( "" , [ "box" ] , [] ) []
-      , SoftBreak
-      , Span ( "" , [ "box" ] , [] ) []
-      , SoftBreak
-      , Span ( "" , [ "box" ] , [] ) []
-      , SoftBreak
-      , Span ( "" , [ "box" ] , [] ) []
-      , SoftBreak
-      , Span ( "" , [ "box" ] , [] ) []
-      , SoftBreak
-      , Span ( "" , [ "box" ] , [] ) []
-      ]
-  ]

@@ -67,15 +67,3 @@
   text(body: [A ]), 
   footnote(body: text(body: [A])), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "A"
-      , Note [ Para [ Str "A" ] ]
-      , LineBreak
-      , Str "A"
-      , Space
-      , Note [ Para [ Str "A" ] ]
-      ]
-  ]

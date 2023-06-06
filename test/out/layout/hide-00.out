@@ -81,20 +81,3 @@ AB ]),
   text(body: [ C]), 
   hide(body: text(body: [D])), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "AB"
-      , Space
-      , Str "\8202\8193"
-      , Space
-      , Str "CD"
-      , LineBreak
-      , Str "B"
-      , Space
-      , Str "\8202\8193"
-      , Space
-      , Str "C"
-      ]
-  ]

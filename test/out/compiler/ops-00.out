@@ -56,7 +56,3 @@
   text(body: [ ]), 
   text(body: [world!]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Strong [ Str "Hello" ] , Space , Str "world!" ] ]

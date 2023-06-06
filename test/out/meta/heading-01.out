@@ -95,12 +95,3 @@
   parbreak(), 
   text(body: [= No heading]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "=" , Space , Str "Level" , Space , Str "1" ]
-  , Header 2 ( "" , [] , [] ) [ Str "Level" , Space , Str "2" ]
-  , Para [ Span ( "" , [ "box" ] , [] ) [] ]
-  , Para [ Str "No" , Space , Str "=" , Space , Str "heading" ]
-  , Para [ Str "=" , Space , Str "No" , Space , Str "heading" ]
-  ]

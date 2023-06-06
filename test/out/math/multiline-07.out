@@ -67,19 +67,3 @@
   text(body: [
 One trailing line break.]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath "\\begin{aligned}\n\\text{ abc } & = c\n\\end{aligned}"
-      , SoftBreak
-      , Str "One"
-      , Space
-      , Str "trailing"
-      , Space
-      , Str "line"
-      , Space
-      , Str "break."
-      ]
-  ]

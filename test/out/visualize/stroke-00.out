@@ -163,21 +163,3 @@
                 thickness: 4.0pt,
                 cap: "round")), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , HorizontalRule
-  , Para []
-  , Para []
-  , HorizontalRule
-  , Para []
-  , Para []
-  , HorizontalRule
-  , Para []
-  , Para []
-  , HorizontalRule
-  , Para []
-  , Para []
-  , HorizontalRule
-  ]

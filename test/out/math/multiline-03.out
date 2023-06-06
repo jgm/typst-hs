@@ -86,12 +86,3 @@
                                                 text(body: [y]) })) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "f: = \\begin{cases}\n1 + 2 & \\begin{aligned}\n\\text{iff } & x\n\\end{aligned} \\\\\n3 & \\begin{aligned}\n\\text{if } & y\n\\end{aligned}\n\\end{cases}"
-      ]
-  ]

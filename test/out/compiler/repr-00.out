@@ -80,16 +80,3 @@
   linebreak(), 
   text(body: [false]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "auto"
-      , LineBreak
-      , Str "(empty)"
-      , LineBreak
-      , Str "true"
-      , LineBreak
-      , Str "false"
-      ]
-  ]

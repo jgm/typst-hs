@@ -71,15 +71,3 @@
                   enum(children: (text(body: [B])))), 
        numbering: "(a)"), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , OrderedList
-      ( 1 , LowerAlpha , TwoParens )
-      [ [ Para [ Str "A" ] ]
-      , [ OrderedList
-            ( 1 , DefaultStyle , DefaultDelim ) [ [ Para [ Str "B" ] ] ]
-        ]
-      ]
-  ]

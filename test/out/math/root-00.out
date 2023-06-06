@@ -68,7 +68,3 @@
                         text(body: [c]) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Math InlineMath "A = \\sqrt{x + y} = c" ] ]

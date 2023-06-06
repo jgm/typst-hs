@@ -136,10 +136,3 @@
                                                              text(body: [c]) }) }) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Math InlineMath "a + 5 + x + b - x" ]
-  , Para
-      [ Math InlineMath "c + \\frac{a \\cdot {b \\cdot c}}{b \\cdot c}" ]
-  ]

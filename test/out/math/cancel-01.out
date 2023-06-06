@@ -168,12 +168,3 @@
                                                                             [)] }))) }) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math DisplayMath "a + b + {b + c} - b - c - 5 + 6 - 6"
-      , SoftBreak
-      , Math DisplayMath "e + \\frac{a \\cdot (b + c + d)}{b + c + d}"
-      ]
-  ]

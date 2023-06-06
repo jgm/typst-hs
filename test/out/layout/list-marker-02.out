@@ -87,18 +87,3 @@
                   { text(body: [F]), 
                     parbreak() }), 
        marker: ) }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , BulletList
-      [ [ Para [ Str "A" ] ]
-      , [ Para [ Str "B" ]
-        , BulletList
-            [ [ Para [ Str "C" ] ]
-            , [ Para [ Str "D" ] , BulletList [ [ Para [ Str "E" ] ] ] ]
-            ]
-        ]
-      , [ Para [ Str "F" ] ]
-      ]
-  ]

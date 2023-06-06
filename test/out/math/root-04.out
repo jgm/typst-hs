@@ -112,12 +112,3 @@
                                   radicand: text(body: [1])) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "\\sqrt[2]{x}\\quad\\sqrt[\\frac{3}{\\frac{2}{1}}]{x}\\quad\\sqrt[\\frac{1}{11}]{x}\\quad\\sqrt[\\frac{\\frac{1}{2}}{3}]{1}"
-      ]
-  ]

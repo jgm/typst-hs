@@ -77,7 +77,3 @@
 ]), 
   text(body: [✅]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "\9989" , SoftBreak , Str "\9989" ] ]

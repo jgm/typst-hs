@@ -79,13 +79,3 @@
   square(body: text(body: [Hello there]), 
          width: 100%), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Div ( "" , [ "square" ] , [] ) []
-  , Para []
-  , Div
-      ( "" , [ "square" ] , [] )
-      [ Para [ Str "Hello" , Space , Str "there" ] ]
-  ]

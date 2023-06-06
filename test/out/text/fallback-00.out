@@ -79,21 +79,3 @@
   parbreak(), 
   text(body: [A🐈ዲሞB]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "A\128512B" ]
-  , Para
-      [ Str "\1583\1593"
-      , Space
-      , Str "\1575\1604\1606\1589"
-      , Space
-      , Str "\1610\1605\1591\1585"
-      , Space
-      , Str "\1593\1604\1610\1603"
-      ]
-  , Para [ Str "\1576\128008\128512\1587\1605" ]
-  , Para [ Str "A\1576\128512\127966\1587\1605B" ]
-  , Para [ Str "01\65039\8419\&2" ]
-  , Para [ Str "A\128008\4850\4638B" ]
-  ]

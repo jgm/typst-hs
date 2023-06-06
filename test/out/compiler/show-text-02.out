@@ -69,7 +69,3 @@
   text(body: [BB]), 
   text(body: [ (8)]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "BBBB" , Space , Str "(8)" ] ]

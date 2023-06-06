@@ -66,8 +66,3 @@
        tracking: 0.15em + 1.5pt), 
   text(body: [!]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "I\8217m" , Space , Str "in" , Space , Str "spaace!" ]
-  ]

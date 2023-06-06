@@ -110,12 +110,3 @@
                         text(body: [β]) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "\\begin{aligned}\nx + 1 & = a^{2} + b^{2} \\\\\ny & = a + b^{2} \\\\\nz & = \\alpha \\cdot \\beta\n\\end{aligned}"
-      ]
-  ]

@@ -127,12 +127,3 @@
                         math.sans(body: math.italic(body: text(body: [Θ]))) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          InlineMath
-          "h,\\mathbb{N},\\mathcal{R},\\Theta,\\mathit{\\Theta},\\mathsf{\\Theta},\\mathsf{\\mathit{\\Theta}}"
-      ]
-  ]

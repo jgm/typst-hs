@@ -100,21 +100,3 @@
       stroke: (thickness: 1.0pt,
                color: rgb(0%,0%,0%,100%))), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "Emoji:"
-      , Space
-      , Span
-          ( "" , [ "box" ] , [] )
-          [ Str "\128042," , Space , Str "\127755," , Space , Str "\127966" ]
-      ]
-  , Para
-      [ Str "Emoji:"
-      , Space
-      , Span
-          ( "" , [ "box" ] , [] )
-          [ Str "\128042," , Space , Str "\127755," , Space , Str "\127966" ]
-      ]
-  ]

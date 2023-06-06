@@ -88,11 +88,3 @@
 ]))), 
   text(body: [Paragraph]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , CodeBlock ( "" , [ "rust" ] , [] ) "fn main() {}\n"
-  , BulletList [ [ Para [ Str "List" ] ] ]
-  , Para [ Str "Paragraph" ]
-  ]

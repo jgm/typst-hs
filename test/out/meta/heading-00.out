@@ -60,12 +60,3 @@
           level: 3), 
   heading(body: text(body: [Level 11]), 
           level: 11) }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Header 1 ( "" , [] , [] ) [ Str "Level" , Space , Str "1" ]
-  , Header 2 ( "" , [] , [] ) [ Str "Level" , Space , Str "2" ]
-  , Header 3 ( "" , [] , [] ) [ Str "Level" , Space , Str "3" ]
-  , Header 11 ( "" , [] , [] ) [ Str "Level" , Space , Str "11" ]
-  ]

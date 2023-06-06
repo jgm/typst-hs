@@ -84,12 +84,3 @@
                         text(body: [⋆]) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "\\begin{array}{r}\n \\cdot \\\\\n\\cdots \\\\\n \\ast \\\\\n \\sim \\\\\n \\star \n\\end{array}"
-      ]
-  ]

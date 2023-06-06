@@ -67,7 +67,3 @@
        color: rgb(0%,45%,85%,100%)), 
   text(body: [Not blue]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "Blue" , Space , Str "Not" , Space , Str "blue" ] ]

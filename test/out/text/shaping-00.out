@@ -69,23 +69,3 @@
   parbreak(), 
   text(body: [अ पा र् ट में ट]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "ABC\2309\2346\2366\2352\2381\2335\2350\2375\2306\2335" ]
-  , Para [ Str "\2309\2346\2366\2352\2381\2335\2350\2375\2306\2335" ]
-  , Para
-      [ Str "\2309"
-      , Space
-      , Str "\2346\2366"
-      , Space
-      , Str "\2352\2381"
-      , Space
-      , Str "\2335"
-      , Space
-      , Str "\2350\2375\2306"
-      , Space
-      , Str "\2335"
-      ]
-  ]

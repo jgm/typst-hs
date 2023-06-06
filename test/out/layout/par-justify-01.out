@@ -65,16 +65,3 @@ A B C ]),
   linebreak(), 
   text(body: [D]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Str "A"
-      , Space
-      , Str "B"
-      , Space
-      , Str "C"
-      , LineBreak
-      , Str "D"
-      ]
-  ]

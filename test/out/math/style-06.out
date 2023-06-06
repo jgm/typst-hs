@@ -102,9 +102,3 @@
                         text(body: [b]) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math DisplayMath "a{\\quad{\\quad \\vdash \\quad}\\quad}b" ]
-  ]

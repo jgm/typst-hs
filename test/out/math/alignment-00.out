@@ -116,12 +116,3 @@
                         linebreak() }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math
-          DisplayMath
-          "\\begin{aligned}\n\\text{ a } & = c \\\\\n & = c + 1 & \\text{ By definition } \\\\\n & = d + 100 + 1000 \\\\\n & = x & & \\text{ Even longer }\n\\end{aligned}"
-      ]
-  ]

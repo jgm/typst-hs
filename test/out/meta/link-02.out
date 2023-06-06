@@ -67,24 +67,3 @@
   text(body: [ ]), 
   linebreak(), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Link
-          ( "" , [] , [] )
-          [ Str "https://[::1]:8080/" ]
-          ( "https://[::1]:8080/" , "" )
-      , LineBreak
-      , Link
-          ( "" , [] , [] )
-          [ Str "https://example.com/(paren)" ]
-          ( "https://example.com/(paren)" , "" )
-      , LineBreak
-      , Link
-          ( "" , [] , [] )
-          [ Str "https://example.com/#(((nested)))" ]
-          ( "https://example.com/#(((nested)))" , "" )
-      , LineBreak
-      ]
-  ]

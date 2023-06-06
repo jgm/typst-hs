@@ -63,17 +63,3 @@
                   { text(body: [Second]), 
                     parbreak() }), 
        start: 0) }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , OrderedList
-      ( 0 , DefaultStyle , DefaultDelim )
-      [ [ Para [ Str "Before" , Space , Str "first!" ] ]
-      , [ Para [ Str "First." ]
-        , OrderedList
-            ( 2 , DefaultStyle , DefaultDelim ) [ [ Para [ Str "Indented" ] ] ]
-        ]
-      , [ Para [ Str "Second" ] ]
-      ]
-  ]

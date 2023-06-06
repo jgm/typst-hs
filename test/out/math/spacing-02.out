@@ -154,16 +154,3 @@
                                          [)] })) }, 
                 numbering: none), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para
-      [ Math InlineMath "a\\, b,a\\: b,a\\:b,a\\quad b"
-      , LineBreak
-      , Math InlineMath "a = \\, b"
-      , LineBreak
-      , Math
-          InlineMath
-          "a - b \\equiv c\\quad\\left( \\operatorname{mod}2 \\right)"
-      ]
-  ]

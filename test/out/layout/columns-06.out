@@ -86,28 +86,3 @@
        inset: 3.0pt, 
        width: 100%), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Div
-      ( "" , [ "rect" ] , [] )
-      [ Para
-          [ Str "So"
-          , Space
-          , Str "there"
-          , Space
-          , Str "isn\8217t"
-          , Space
-          , Str "anything"
-          , Space
-          , Str "in"
-          , Space
-          , Str "the"
-          , Space
-          , Str "second"
-          , Space
-          , Str "column?"
-          ]
-      ]
-  ]

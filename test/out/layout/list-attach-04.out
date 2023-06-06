@@ -67,10 +67,3 @@ Hello
                   text(body: [B]))), 
   text(body: [World]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "Hello" ]
-  , BulletList [ [ Para [ Str "A" ] ] , [ Para [ Str "B" ] ] ]
-  , Para [ Str "World" ]
-  ]

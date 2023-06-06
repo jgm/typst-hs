@@ -78,25 +78,3 @@
   text(body: [🌍]), 
   text(body: [.]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Para
-      [ Str "Treeworld,"
-      , Space
-      , Str "the"
-      , Space
-      , Str "\127757"
-      , Space
-      , Str "of"
-      , Space
-      , Str "worlds,"
-      , Space
-      , Str "is"
-      , Space
-      , Str "a"
-      , Space
-      , Str "\127757."
-      ]
-  ]

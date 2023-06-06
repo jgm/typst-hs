@@ -63,10 +63,3 @@
        height: 30.0pt, 
        width: 40.0pt), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Div
-      ( "" , [ "rect" ] , [] ) [ Div ( "" , [ "circle" ] , [] ) [] ]
-  ]

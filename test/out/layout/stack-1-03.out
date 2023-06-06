@@ -126,30 +126,3 @@
                         size: 8.0pt)), 
         dir: rtl), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Div
-      ( "" , [] , [ ( "stack" , "rtl" ) ] )
-      [ Div
-          ( "" , [] , [] ) [ Div ( "" , [] , [ ( "space" , "1.0fr" ) ] ) [] ]
-      , Div ( "" , [] , [] ) [ Para [ Str "A" ] ]
-      , Div
-          ( "" , [] , [] ) [ Div ( "" , [] , [ ( "space" , "1.0fr" ) ] ) [] ]
-      , Div ( "" , [] , [] ) [ Para [ Str "B" ] ]
-      , Div ( "" , [] , [] ) [ Para [ Str "C" ] ]
-      ]
-  , Para []
-  , Div
-      ( "" , [] , [ ( "stack" , "rtl" ) ] )
-      [ Div
-          ( "" , [] , [] )
-          [ Div ( "" , [] , [ ( "align" , "center" ) ] ) [ Para [ Str "A" ] ]
-          ]
-      , Div
-          ( "" , [] , [] )
-          [ Div ( "" , [] , [ ( "align" , "left" ) ] ) [ Para [ Str "B" ] ] ]
-      , Div ( "" , [] , [] ) [ Para [ Str "C" ] ]
-      ]
-  ]

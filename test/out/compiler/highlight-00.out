@@ -59,11 +59,3 @@
       lang: "typ", 
       text: "#set hello()\n#set hello()\n#set hello.world()\n#set hello.my.world()\n#let foo(x) = x * 2\n#show heading: func\n#show module.func: func\n#show module.func: it => {}\n#foo(ident: ident)\n#hello\n#hello()\n#box[]\n#hello.world\n#hello.world()\n#hello().world()\n#hello.my.world\n#hello.my.world()\n#hello.my().world\n#hello.my().world()\n#{ hello }\n#{ hello() }\n#{ hello.world() }\n$ hello $\n$ hello() $\n$ box[] $\n$ hello.world $\n$ hello.world() $\n$ hello.my.world() $\n$ f_zeta(x), f_zeta(x)/1 $\n$ emph(hello.my.world()) $\n$ emph(hello.my().world) $\n$ emph(hello.my().world()) $\n$ #hello $\n$ #hello() $\n$ #hello.world $\n$ #hello.world() $\n$ #box[] $\n#if foo []\n"), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , CodeBlock
-      ( "" , [ "typ" ] , [] )
-      "#set hello()\n#set hello()\n#set hello.world()\n#set hello.my.world()\n#let foo(x) = x * 2\n#show heading: func\n#show module.func: func\n#show module.func: it => {}\n#foo(ident: ident)\n#hello\n#hello()\n#box[]\n#hello.world\n#hello.world()\n#hello().world()\n#hello.my.world\n#hello.my.world()\n#hello.my().world\n#hello.my().world()\n#{ hello }\n#{ hello() }\n#{ hello.world() }\n$ hello $\n$ hello() $\n$ box[] $\n$ hello.world $\n$ hello.world() $\n$ hello.my.world() $\n$ f_zeta(x), f_zeta(x)/1 $\n$ emph(hello.my.world()) $\n$ emph(hello.my().world) $\n$ emph(hello.my().world()) $\n$ #hello $\n$ #hello() $\n$ #hello.world $\n$ #hello.world() $\n$ #box[] $\n#if foo []\n"
-  ]

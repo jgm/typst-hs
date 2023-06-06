@@ -96,7 +96,3 @@
                        color: rgb(100%,100%,100%,100%), 
                        font: "Roboto")), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ SmallCaps [ Str "Typst" ] ] ]

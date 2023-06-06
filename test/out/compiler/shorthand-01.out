@@ -71,7 +71,3 @@ a b ],
   text(body: [a b], 
        font: "New Computer Modern"), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para [ Str "a" , Space , Str "b" , LineBreak , Str "a\160b" ] ]

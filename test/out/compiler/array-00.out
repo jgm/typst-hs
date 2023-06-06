@@ -97,13 +97,3 @@
   parbreak(), 
   text(body: [("1", rgb(0%,0%,0%,100%))]), 
   parbreak() }
---- pandoc ---
-Pandoc
-  Meta { unMeta = fromList [] }
-  [ Para []
-  , Para [ Str "()" ]
-  , Para [ Str "1" ]
-  , Para [ Str "(-1)" ]
-  , Para [ Str "(true," , Space , Str "false)" ]
-  , Para [ Str "(\"1\"," , Space , Str "rgb(0%,0%,0%,100%))" ]
-  ]
