@@ -93,7 +93,7 @@ executable typst-hs
         mtl,
         vector,
         containers,
-        text >= 2,
+        text,
         bytestring,
         pretty-show,
         ordered-containers,
@@ -112,7 +112,7 @@ test-suite typst-test
     build-depends:
         base,
         typst,
-        text >= 2,
+        text,
         bytestring,
         filepath,
         pretty-show,
