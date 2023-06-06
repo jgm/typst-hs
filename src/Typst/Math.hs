@@ -8,6 +8,8 @@ module Typst.Math
     P,
     pTok,
     warn,
+    getField,
+    chunks
   )
 where
 
@@ -33,7 +35,6 @@ import Text.TeXMath.Types
   )
 import Text.TeXMath.Unicode.ToTeX (getSymbolType)
 import Typst.Types
-import Typst.Util (chunks, getField)
 
 -- import Debug.Trace
 
@@ -411,3 +412,17 @@ splitOnAlignpoints xs =
 isAlignpoint :: Content -> Bool
 isAlignpoint (Elt "math.alignpoint" _ _) = True
 isAlignpoint _ = False
+
+
+-- | Get field value from element, defaulting to VNone.
+getField ::
+  (MonadFail m, MonadPlus m, FromVal a) =>
+  Identifier ->
+  M.Map Identifier Val ->
+  m a
+getField name fields = fromVal $ fromMaybe VNone $ M.lookup name fields
+
+-- | Split a list into chunks of a given size. The last chunk may be smaller.
+chunks :: Int -> [a] -> [[a]]
+chunks _ [] = []
+chunks n xs = take n xs : chunks n (drop n xs)

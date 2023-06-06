@@ -23,10 +23,9 @@ import Text.Pandoc.Walk
 import Text.Parsec
 import Text.TeXMath (writeTeX)
 import Text.TeXMath.Shared (getSpaceChars)
-import Typst.Math (P, contentToMath, pMathMany, pTok, warn)
+import Typst.Math (P, contentToMath, pMathMany, pTok, warn, chunks, getField)
 import Typst.Methods (applyPureFunction, formatNumber)
 import Typst.Types
-import Typst.Util (chunks, getField)
 
 -- import Debug.Trace
 
