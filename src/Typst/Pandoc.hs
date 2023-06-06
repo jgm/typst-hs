@@ -52,15 +52,35 @@ pBlock = pPara <|> pBlockElt
 pBlockElt :: Monad m => P m B.Blocks
 pBlockElt = pTok isBlock >>= handleBlock
 
+pSpace :: Monad m => P m Content
+pSpace = pTok
+      ( \case
+          Txt t | T.all (== ' ') t -> True
+          _ -> False
+      )
+
+
+pLab :: Monad m => P m Text
+pLab = try $ do
+  optional pSpace
+  Lab t <- pTok
+       ( \case
+           Lab _ -> True
+           _ -> False
+       )
+  pure t
+
 handleBlock :: Monad m => Content -> P m B.Blocks
-handleBlock tok =
+handleBlock tok = do
+  -- check for following label
+  mbident <- option Nothing $ Just <$> pLab
   case tok of
     Txt {} -> fail "pBlockElt encountered Txt"
     Lab {} -> pure mempty
     Elt "heading" _ fields -> do
       body <- getField "body" fields
       lev <- getField "level" fields <|> pure 1
-      B.header lev <$> pWithContents pInlines body
+      B.headerWith (fromMaybe "" mbident,[],[]) lev <$> pWithContents pInlines body
     Elt "list" _ fields -> do
       children <- V.toList <$> getField "children" fields
       B.bulletList <$> mapM (pWithContents pBlocks) children
@@ -114,11 +134,12 @@ handleBlock tok =
     Elt "raw" _ fields -> do
       txt <- getField "text" fields
       mblang <- getField "lang" fields
-      let attr = ("", maybe [] (\l -> [l]) mblang, [])
+      let attr = (fromMaybe "" mbident, maybe [] (\l -> [l]) mblang, [])
       pure $ B.codeBlockWith attr txt
     Elt "parbreak" _ _ -> pure mempty
     Elt "block" _ fields ->
-      B.divWith ("", [], []) <$> (getField "body" fields >>= pWithContents pBlocks)
+      B.divWith (fromMaybe "" mbident, [], [])
+        <$> (getField "body" fields >>= pWithContents pBlocks)
     Elt "place" pos fields -> do
       warn "Ignoring parameters of place"
       handleBlock (Elt "block" pos fields)
@@ -218,7 +239,8 @@ handleBlock tok =
                   )
                   children
       pure $
-        B.table
+        B.tableWith
+          (fromMaybe "" mbident, [], [])
           (B.Caption mempty mempty)
           colspecs
           (B.TableHead B.nullAttr [])
@@ -233,7 +255,8 @@ handleBlock tok =
         [B.Table attr _ colspecs thead tbodies tfoot] ->
           B.singleton
             (B.Table attr (B.Caption Nothing (B.toList caption)) colspecs thead tbodies tfoot)
-        _ -> B.figure (B.Caption Nothing (B.toList caption)) body
+        _ -> B.figureWith (fromMaybe "" mbident, [], [])
+                          (B.Caption Nothing (B.toList caption)) body
     Elt "line" _ fields
       | isNothing
           ( M.lookup "start" fields
@@ -273,9 +296,14 @@ pParBreak =
           _ -> False
       )
 
+isInline :: Content -> Bool
+isInline (Lab {}) = True
+isInline (Txt {}) = True
+isInline x = not (isBlock x)
+
 isBlock :: Content -> Bool
 isBlock (Txt {}) = False
-isBlock (Lab {}) = False
+isBlock (Lab {}) = True
 isBlock (Elt name _ fields) =
   case name of
     "align" -> True
@@ -330,7 +358,7 @@ pInlines :: Monad m => P m B.Inlines
 pInlines = mconcat <$> many pInline
 
 pInline :: Monad m => P m B.Inlines
-pInline = pTok (not . isBlock) >>= handleInline
+pInline = pTok isInline >>= handleInline
 
 handleInline :: Monad m => Content -> P m B.Inlines
 handleInline tok =
