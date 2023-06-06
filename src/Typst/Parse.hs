@@ -620,7 +620,7 @@ pLabel =
 pRef :: P Markup
 pRef =
   Ref
-    <$> (char '@' *> (T.pack <$> many1 (satisfy isIdentContinue <|> char '_' <|> char '.')))
+    <$> (char '@' *> (T.pack <$> many1 (satisfy isIdentContinue <|> char '_')))
     <*> option (Literal Auto) (Block <$> pContent)
 
 -- "If a character would continue the expression but should be interpreted as

@@ -275,7 +275,7 @@ pParBreak =
 
 isBlock :: Content -> Bool
 isBlock (Txt {}) = False
-isBlock (Lab {}) = True
+isBlock (Lab {}) = False
 isBlock (Elt name _ fields) =
   case name of
     "align" -> True
@@ -337,6 +337,17 @@ handleInline tok =
   case tok of
     Txt t -> pure $ B.text t
     Lab name -> pure $ B.spanWith (name, [], []) mempty
+    Elt "ref" _ fields -> do
+      VLabel target <- getField "target" fields
+      supplement' <- getField "supplement" fields
+      supplement <- case supplement' of
+                      VAuto -> -- TODO for now, until we can locate the element
+                        pure $ B.text ("[" <> target <> "]")
+                      VContent cs -> pWithContents pInlines cs
+                      VFunction _ _ _f -> -- TODO for now, until we can locate the element
+                           pure $ B.text ("[" <> target <> "]")
+                      _ -> pure mempty
+      pure $ B.link ("#" <> target) "" supplement
     Elt "linebreak" _ _ -> pure B.linebreak
     Elt "text" _ fields -> do
       body <- getField "body" fields

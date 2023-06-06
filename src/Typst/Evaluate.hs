@@ -290,19 +290,14 @@ pElt = do
     MGroup mbOp mbCl ms -> wrapIn mbOp mbCl <$> pInnerContents ms
     MAlignPoint -> element "alignpoint" mempty
     Ref ident supp -> do
-      supp' <- pExpr supp
+      supp' <- evalExpr supp
       element
         "ref"
         Arguments
           { positional = [VLabel ident],
             named =
               OM.fromList
-                [ ( "supplement",
-                    if supp' == mempty
-                      then VNone
-                      else VContent supp'
-                  )
-                ]
+                [ ( "supplement", supp' ) ]
           }
     BulletListItem ms -> do
       skipMany $ satisfyTok isBreak
