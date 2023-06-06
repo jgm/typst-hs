@@ -69,9 +69,11 @@
   emph(body: text(body: [Hidden])), 
   text(body: [
 ]), 
+  <hide>, 
   parbreak(), 
   emph(body: text(body: [Hidden])), 
   parbreak(), 
+  <hide>, 
   text(body: [
 ]), 
   emph(body: text(body: [Visible])), 
@@ -80,7 +82,15 @@
 Pandoc
   Meta { unMeta = fromList [] }
   [ Para []
+  , Para
+      [ Emph [ Str "Hidden" ]
+      , SoftBreak
+      , Span ( "hide" , [] , [] ) []
+      ]
   , Para [ Emph [ Str "Hidden" ] ]
-  , Para [ Emph [ Str "Hidden" ] ]
-  , Para [ Emph [ Str "Visible" ] ]
+  , Para
+      [ Span ( "hide" , [] , [] ) []
+      , SoftBreak
+      , Emph [ Str "Visible" ]
+      ]
   ]

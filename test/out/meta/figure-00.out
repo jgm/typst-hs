@@ -201,6 +201,7 @@
          caption: text(body: [The basic table.]), 
          numbering: "I"), 
   text(body: [ ]), 
+  <tab-basic>, 
   parbreak(), 
   figure(body: pad(body: image(height: 2.0cm, 
                                path: "test/assets/files/cylinder.svg"), 
@@ -208,6 +209,7 @@
          caption: text(body: [The basic shapes.]), 
          numbering: "I"), 
   text(body: [ ]), 
+  <fig-cylinder>, 
   parbreak(), 
   figure(body: table(children: (text(body: [a]), 
                                 text(body: [b]), 
@@ -219,6 +221,7 @@
          caption: text(body: [The complex table.]), 
          numbering: "I"), 
   text(body: [ ]), 
+  <tab-complex>, 
   parbreak() }
 --- pandoc ---
 Pandoc
@@ -289,7 +292,7 @@ Pandoc
           ]
       ]
       (TableFoot ( "" , [] , [] ) [])
-  , Para []
+  , Para [ Span ( "tab-basic" , [] , [] ) [] ]
   , Figure
       ( "" , [] , [] )
       (Caption
@@ -297,7 +300,7 @@ Pandoc
          [ Para [ Str "The" , Space , Str "basic" , Space , Str "shapes." ]
          ])
       [ Para [] ]
-  , Para []
+  , Para [ Span ( "fig-cylinder" , [] , [] ) [] ]
   , Table
       ( "" , [] , [] )
       (Caption
@@ -358,5 +361,5 @@ Pandoc
           ]
       ]
       (TableFoot ( "" , [] , [] ) [])
-  , Para []
+  , Para [ Span ( "tab-complex" , [] , [] ) [] ]
   ]

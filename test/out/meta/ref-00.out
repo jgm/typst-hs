@@ -84,7 +84,8 @@
 { text(body: [
 ]), 
   parbreak(), 
-  heading(body: text(body: [Introduction ]), 
+  heading(body: { text(body: [Introduction ]), 
+                  <intro> }, 
           level: 1, 
           numbering: "1."), 
   text(body: [See ]), 
@@ -92,7 +93,8 @@
       target: ), 
   text(body: [.]), 
   parbreak(), 
-  heading(body: text(body: [Setup ]), 
+  heading(body: { text(body: [Setup ]), 
+                  <setup> }, 
           level: 2, 
           numbering: "1."), 
   text(body: [As seen in ]), 
@@ -104,14 +106,20 @@
 Pandoc
   Meta { unMeta = fromList [] }
   [ Para []
-  , Header 1 ( "" , [] , [] ) [ Str "Introduction" , Space ]
+  , Header
+      1
+      ( "" , [] , [] )
+      [ Str "Introduction" , Space , Span ( "intro" , [] , [] ) [] ]
   , Para
       [ Str "See"
       , Space
       , Link ( "" , [ "ref" ] , [] ) [ Str "[setup]" ] ( "#setup" , "" )
       , Str "."
       ]
-  , Header 2 ( "" , [] , [] ) [ Str "Setup" , Space ]
+  , Header
+      2
+      ( "" , [] , [] )
+      [ Str "Setup" , Space , Span ( "setup" , [] , [] ) [] ]
   , Para
       [ Str "As"
       , Space

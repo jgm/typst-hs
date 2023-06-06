@@ -74,6 +74,7 @@
                      columns: 2), 
          caption: "A table containing images."), 
   text(body: [ ]), 
+  <fig-image-in-table>, 
   parbreak() }
 --- pandoc ---
 Pandoc
@@ -122,5 +123,5 @@ Pandoc
           ]
       ]
       (TableFoot ( "" , [] , [] ) [])
-  , Para []
+  , Para [ Span ( "fig-image-in-table" , [] , [] ) [] ]
   ]

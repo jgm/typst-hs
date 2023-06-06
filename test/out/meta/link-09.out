@@ -60,6 +60,7 @@
 { text(body: [
 ]), 
   text(body: [Text ]), 
+  <hey>, 
   text(body: [
 ]), 
   link(body: text(body: [Go to text.]), 
@@ -70,6 +71,8 @@ Pandoc
   Meta { unMeta = fromList [] }
   [ Para
       [ Str "Text"
+      , Space
+      , Span ( "hey" , [] , [] ) []
       , SoftBreak
       , Link
           ( "" , [] , [] )

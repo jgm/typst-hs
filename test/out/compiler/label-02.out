@@ -97,6 +97,7 @@
   parbreak(), 
   text(body: [This is a thing ]), 
   text(body: [that ]), 
+  <last>, 
   text(body: [ happened.]), 
   parbreak() }
 --- pandoc ---
@@ -113,6 +114,8 @@ Pandoc
       , Str "thing"
       , Space
       , Str "that"
+      , Space
+      , Span ( "last" , [] , [] ) []
       , Space
       , Str "happened."
       ]

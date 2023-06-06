@@ -840,6 +840,7 @@ valToContent :: Val -> Seq Content
 valToContent (VContent x) = x
 valToContent VNone = mempty
 valToContent (VString t) = Seq.singleton $ Txt t
+valToContent (VLabel t) = Seq.singleton $ Lab t
 valToContent x = Seq.singleton $ Txt $ repr x
 
 renderStyle :: P.Style

@@ -27,6 +27,7 @@ extra-source-files: test/typ/**/*.typ
                     test/assets/files/*.txt
                     test/assets/files/*.yaml
                     test/assets/files/*.html
+tested-with:        GHC == 8.10.7 || == 9.0.2 || == 9.2.7 || == 9.4.5 || == 9.6.2
 
 source-repository head
   type: git

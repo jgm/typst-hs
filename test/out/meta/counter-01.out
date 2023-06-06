@@ -113,6 +113,7 @@
 { text(body: [
 ]), 
   text(body: [ ]), 
+  <heya>, 
   text(body: [
 ]), 
   text(body: [
@@ -120,26 +121,32 @@
   parbreak(), 
   box(body: text(body: [hey, there!])), 
   text(body: [ ]), 
+  <heya>, 
   text(body: [ ]), 
   text(body: [0]), 
   text(body: [ ]), 
   linebreak(), 
   box(body: text(body: [more here!])), 
   text(body: [ ]), 
+  <heya>, 
   text(body: [ ]), 
   text(body: [0]), 
   parbreak() }
 --- pandoc ---
 Pandoc
   Meta { unMeta = fromList [] }
-  [ Para []
+  [ Para [ Span ( "heya" , [] , [] ) [] ]
   , Para
       [ Span
           ( "" , [ "box" ] , [] ) [ Str "hey," , Space , Str "there!" ]
       , Space
+      , Span ( "heya" , [] , [] ) []
+      , Space
       , Str "0"
       , LineBreak
       , Span ( "" , [ "box" ] , [] ) [ Str "more" , Space , Str "here!" ]
+      , Space
+      , Span ( "heya" , [] , [] ) []
       , Space
       , Str "0"
       ]

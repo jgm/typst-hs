@@ -76,12 +76,14 @@
 ]), 
   strong(body: text(body: [This is])), 
   text(body: [ ]), 
+  <strike>, 
   text(body: [ ]), 
   strong(body: text(body: [protected.])), 
   text(body: [
 ]), 
   strong(body: text(body: [This is not.])), 
   text(body: [ ]), 
+  <strike>, 
   parbreak() }
 --- pandoc ---
 Pandoc
@@ -89,8 +91,12 @@ Pandoc
   [ Para
       [ Strong [ Str "This" , Space , Str "is" ]
       , Space
+      , Span ( "strike" , [] , [] ) []
+      , Space
       , Strong [ Str "protected." ]
       , SoftBreak
       , Strong [ Str "This" , Space , Str "is" , Space , Str "not." ]
+      , Space
+      , Span ( "strike" , [] , [] ) []
       ]
   ]

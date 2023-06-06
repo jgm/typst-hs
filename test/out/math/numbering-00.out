@@ -164,6 +164,7 @@
                                          math.sqrt(radicand: text(body: [5])) }) }, 
                 numbering: none), 
   text(body: [ ]), 
+  <ratio>, 
   parbreak(), 
   text(body: [With ]), 
   ref(supplement: auto, 
@@ -182,6 +183,7 @@
                                                        t: text(body: [n])) }) }, 
                 numbering: none), 
   text(body: [ ]), 
+  <fib>, 
   parbreak() }
 --- pandoc ---
 Pandoc
@@ -204,6 +206,8 @@ Pandoc
       , Str ":"
       , SoftBreak
       , Math DisplayMath "\\phi: = \\frac{1 + \\sqrt{5}}{2}"
+      , Space
+      , Span ( "ratio" , [] , [] ) []
       ]
   , Para
       [ Str "With"
@@ -218,5 +222,7 @@ Pandoc
       , Math
           DisplayMath
           "F_{n} = \\left\\lfloor {\\frac{1}{\\sqrt{5}}\\phi^{n}} \\right\\rceil"
+      , Space
+      , Span ( "fib" , [] , [] ) []
       ]
   ]

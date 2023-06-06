@@ -91,6 +91,7 @@
 ]), 
   strong(body: text(body: [A])), 
   text(body: [ ]), 
+  <v>, 
   text(body: [ ]), 
   strong(body: text(body: [B])), 
   parbreak() }
@@ -98,5 +99,11 @@
 Pandoc
   Meta { unMeta = fromList [] }
   [ Para []
-  , Para [ Strong [ Str "A" ] , Space , Strong [ Str "B" ] ]
+  , Para
+      [ Strong [ Str "A" ]
+      , Space
+      , Span ( "v" , [] , [] ) []
+      , Space
+      , Strong [ Str "B" ]
+      ]
   ]
