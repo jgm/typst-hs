@@ -27,7 +27,7 @@ data Opts = Opts
     optShowLaTeX :: Bool,
     optShowHtml :: Bool,
     optStandalone :: Bool,
-    optTimeout :: Maybe Int
+    optTimeout :: Maybe (Maybe Int)
   }
   deriving (Show, Eq)
 
@@ -46,10 +46,10 @@ parseArgs = foldM go (Nothing, Opts False False False False False False False No
     go (f, opts) "--latex" = pure (f, opts {optShowLaTeX = True})
     go (f, opts) "--html" = pure (f, opts {optShowHtml = True})
     go (f, opts) "--standalone" = pure (f, opts {optStandalone = True})
-    go (f, opts) "--timeout" = pure (f, opts {optTimeout = Nothing})
+    go (f, opts) "--timeout" = pure (f, opts {optTimeout = Just Nothing })
     go (f, opts) x
-      | optTimeout opts == Nothing =
-          pure (f, opts {optTimeout = readMaybe x})
+      | optTimeout opts == Just Nothing =
+          pure (f, opts {optTimeout = Just (readMaybe x) })
     go _ ('-' : xs) = err $ "Unknown option -" ++ xs
     go (Nothing, opts) f = pure (Just f, opts)
     go _ _ = err $ "Only one file can be specified as input."
@@ -63,7 +63,8 @@ main =
           _ -> False
     ( case optTimeout opts of
         Nothing -> fmap Just
-        Just ms -> timeout (ms * 1000)
+        Just Nothing -> timeout 1000
+        Just (Just ms) -> timeout (ms * 1000)
       )
       $ do
         t <- maybe TIO.getContents TIO.readFile mbfile
