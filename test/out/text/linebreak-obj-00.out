@@ -114,7 +114,8 @@ Pandoc
       , Space
       , Str "in"
       , Space
-      , Link ( "" , [] , [] ) [ Str "[netwok]" ] ( "#netwok" , "" )
+      , Link
+          ( "" , [ "ref" ] , [] ) [ Str "[netwok]" ] ( "#netwok" , "" )
       , Str ","
       , SoftBreak
       , Str "which"

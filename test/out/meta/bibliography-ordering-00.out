@@ -138,42 +138,53 @@ Pandoc
   [ Para []
   , Para
       [ Link
-          ( "" , [] , [] )
+          ( "" , [ "ref" ] , [] )
           [ Str "[mcintosh_anxiety]" ]
           ( "#mcintosh_anxiety" , "" )
       , Str ","
       , Space
       , Link
-          ( "" , [] , [] ) [ Str "[psychology25]" ] ( "#psychology25" , "" )
+          ( "" , [ "ref" ] , [] )
+          [ Str "[psychology25]" ]
+          ( "#psychology25" , "" )
       , SoftBreak
-      , Link ( "" , [] , [] ) [ Str "[netwok]" ] ( "#netwok" , "" )
+      , Link
+          ( "" , [ "ref" ] , [] ) [ Str "[netwok]" ] ( "#netwok" , "" )
       , Str ","
       , Space
-      , Link ( "" , [] , [] ) [ Str "[issue201]" ] ( "#issue201" , "" )
+      , Link
+          ( "" , [ "ref" ] , [] ) [ Str "[issue201]" ] ( "#issue201" , "" )
       , Str ","
       , Space
-      , Link ( "" , [] , [] ) [ Str "[arrgh]" ] ( "#arrgh" , "" )
+      , Link ( "" , [ "ref" ] , [] ) [ Str "[arrgh]" ] ( "#arrgh" , "" )
       , Str ","
       , Space
-      , Link ( "" , [] , [] ) [ Str "[quark]" ] ( "#quark" , "" )
+      , Link ( "" , [ "ref" ] , [] ) [ Str "[quark]" ] ( "#quark" , "" )
       , Str ","
       , Space
-      , Link ( "" , [] , [] ) [ Str "[distress]" ] ( "#distress" , "" )
+      , Link
+          ( "" , [ "ref" ] , [] ) [ Str "[distress]" ] ( "#distress" , "" )
       , Str ","
       , SoftBreak
       , Link
-          ( "" , [] , [] ) [ Str "[glacier-melt]" ] ( "#glacier-melt" , "" )
+          ( "" , [ "ref" ] , [] )
+          [ Str "[glacier-melt]" ]
+          ( "#glacier-melt" , "" )
       , Str ","
       , Space
-      , Link ( "" , [] , [] ) [ Str "[issue201]" ] ( "#issue201" , "" )
+      , Link
+          ( "" , [ "ref" ] , [] ) [ Str "[issue201]" ] ( "#issue201" , "" )
       , Str ","
       , Space
-      , Link ( "" , [] , [] ) [ Str "[tolkien54]" ] ( "#tolkien54" , "" )
+      , Link
+          ( "" , [ "ref" ] , [] ) [ Str "[tolkien54]" ] ( "#tolkien54" , "" )
       , Str ","
       , Space
-      , Link ( "" , [] , [] ) [ Str "[sharing]" ] ( "#sharing" , "" )
+      , Link
+          ( "" , [ "ref" ] , [] ) [ Str "[sharing]" ] ( "#sharing" , "" )
       , Str ","
       , Space
-      , Link ( "" , [] , [] ) [ Str "[restful]" ] ( "#restful" , "" )
+      , Link
+          ( "" , [ "ref" ] , [] ) [ Str "[restful]" ] ( "#restful" , "" )
       ]
   ]

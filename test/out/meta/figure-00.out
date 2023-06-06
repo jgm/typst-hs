@@ -239,12 +239,16 @@ Pandoc
       , Str "that"
       , Space
       , Link
-          ( "" , [] , [] ) [ Str "[fig-cylinder]" ] ( "#fig-cylinder" , "" )
+          ( "" , [ "ref" ] , [] )
+          [ Str "[fig-cylinder]" ]
+          ( "#fig-cylinder" , "" )
       , Space
       , Str "and"
       , SoftBreak
       , Link
-          ( "" , [] , [] ) [ Str "[tab-complex]" ] ( "#tab-complex" , "" )
+          ( "" , [ "ref" ] , [] )
+          [ Str "[tab-complex]" ]
+          ( "#tab-complex" , "" )
       , Space
       , Str "are"
       , Space

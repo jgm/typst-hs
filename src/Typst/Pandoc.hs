@@ -347,7 +347,7 @@ handleInline tok =
                       VFunction _ _ _f -> -- TODO for now, until we can locate the element
                            pure $ B.text ("[" <> target <> "]")
                       _ -> pure mempty
-      pure $ B.link ("#" <> target) "" supplement
+      pure $ B.linkWith ("", ["ref"], []) ("#" <> target) "" supplement
     Elt "linebreak" _ _ -> pure B.linebreak
     Elt "text" _ fields -> do
       body <- getField "body" fields

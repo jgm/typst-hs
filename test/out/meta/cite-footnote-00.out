@@ -87,13 +87,15 @@ Pandoc
   [ Para
       [ Str "Hello"
       , Space
-      , Link ( "" , [] , [] ) [ Str "[netwok]" ] ( "#netwok" , "" )
+      , Link
+          ( "" , [ "ref" ] , [] ) [ Str "[netwok]" ] ( "#netwok" , "" )
       , SoftBreak
       , Str "And"
       , Space
       , Str "again:"
       , Space
-      , Link ( "" , [] , [] ) [ Str "[netwok]" ] ( "#netwok" , "" )
+      , Link
+          ( "" , [ "ref" ] , [] ) [ Str "[netwok]" ] ( "#netwok" , "" )
       ]
   , Para []
   ]

@@ -144,13 +144,15 @@ Pandoc
       , Str ","
       , Space
       , Link
-          ( "" , [] , [] ) [ Str "p." , Space , Str "4" ] ( "#arrgh" , "" )
+          ( "" , [ "ref" ] , [] )
+          [ Str "p." , Space , Str "4" ]
+          ( "#arrgh" , "" )
       , Str ","
       , Space
       , Str "and"
       , Space
       , Link
-          ( "" , [] , [] )
+          ( "" , [ "ref" ] , [] )
           [ Str "p." , Space , Str "5" ]
           ( "#distress" , "" )
       , Str "."

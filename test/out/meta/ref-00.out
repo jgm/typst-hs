@@ -110,7 +110,7 @@ Pandoc
   , Para
       [ Str "See"
       , Space
-      , Link ( "" , [] , [] ) [ Str "[setup]" ] ( "#setup" , "" )
+      , Link ( "" , [ "ref" ] , [] ) [ Str "[setup]" ] ( "#setup" , "" )
       , Str "."
       ]
   , Header 2 ( "" , [] , [] ) [ Str "Setup" , Space ]
@@ -121,7 +121,7 @@ Pandoc
       , Space
       , Str "in"
       , Space
-      , Link ( "" , [] , [] ) [ Str "[intro]" ] ( "#intro" , "" )
+      , Link ( "" , [ "ref" ] , [] ) [ Str "[intro]" ] ( "#intro" , "" )
       , Str ","
       , Space
       , Str "we"
