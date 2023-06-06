@@ -187,11 +187,11 @@
 ]), 
   parbreak(), 
   text(body: [We can clearly see that ]), 
-  ref(supplement: [auto], 
+  ref(supplement: auto, 
       target: ), 
   text(body: [ and
 ]), 
-  ref(supplement: [auto], 
+  ref(supplement: auto, 
       target: ), 
   text(body: [ are relevant in this context.]), 
   parbreak(), 
@@ -238,8 +238,14 @@ Pandoc
       , Space
       , Str "that"
       , Space
+      , Link
+          ( "" , [] , [] ) [ Str "[fig-cylinder]" ] ( "#fig-cylinder" , "" )
+      , Space
       , Str "and"
       , SoftBreak
+      , Link
+          ( "" , [] , [] ) [ Str "[tab-complex]" ] ( "#tab-complex" , "" )
+      , Space
       , Str "are"
       , Space
       , Str "relevant"

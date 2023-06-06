@@ -92,42 +92,42 @@
 { text(body: [
 ]), 
   parbreak(), 
-  ref(supplement: [auto], 
+  ref(supplement: auto, 
       target: ), 
   text(body: [, ]), 
-  ref(supplement: [auto], 
+  ref(supplement: auto, 
       target: ), 
   text(body: [
 ]), 
-  ref(supplement: [auto], 
+  ref(supplement: auto, 
       target: ), 
   text(body: [, ]), 
-  ref(supplement: [auto], 
+  ref(supplement: auto, 
       target: ), 
   text(body: [, ]), 
-  ref(supplement: [auto], 
+  ref(supplement: auto, 
       target: ), 
   text(body: [, ]), 
-  ref(supplement: [auto], 
+  ref(supplement: auto, 
       target: ), 
   text(body: [, ]), 
-  ref(supplement: [auto], 
+  ref(supplement: auto, 
       target: ), 
   text(body: [,
 ]), 
-  ref(supplement: [auto], 
+  ref(supplement: auto, 
       target: ), 
   text(body: [, ]), 
-  ref(supplement: [auto], 
+  ref(supplement: auto, 
       target: ), 
   text(body: [, ]), 
-  ref(supplement: [auto], 
+  ref(supplement: auto, 
       target: ), 
   text(body: [, ]), 
-  ref(supplement: [auto], 
+  ref(supplement: auto, 
       target: ), 
   text(body: [, ]), 
-  ref(supplement: [auto], 
+  ref(supplement: auto, 
       target: ), 
   parbreak(), 
   bibliography(path: "/works.bib"), 
@@ -137,24 +137,43 @@ Pandoc
   Meta { unMeta = fromList [] }
   [ Para []
   , Para
-      [ Str ","
+      [ Link
+          ( "" , [] , [] )
+          [ Str "[mcintosh_anxiety]" ]
+          ( "#mcintosh_anxiety" , "" )
+      , Str ","
+      , Space
+      , Link
+          ( "" , [] , [] ) [ Str "[psychology25]" ] ( "#psychology25" , "" )
       , SoftBreak
+      , Link ( "" , [] , [] ) [ Str "[netwok]" ] ( "#netwok" , "" )
       , Str ","
       , Space
+      , Link ( "" , [] , [] ) [ Str "[issue201]" ] ( "#issue201" , "" )
       , Str ","
       , Space
+      , Link ( "" , [] , [] ) [ Str "[arrgh]" ] ( "#arrgh" , "" )
       , Str ","
       , Space
+      , Link ( "" , [] , [] ) [ Str "[quark]" ] ( "#quark" , "" )
       , Str ","
       , Space
+      , Link ( "" , [] , [] ) [ Str "[distress]" ] ( "#distress" , "" )
       , Str ","
       , SoftBreak
+      , Link
+          ( "" , [] , [] ) [ Str "[glacier-melt]" ] ( "#glacier-melt" , "" )
       , Str ","
       , Space
+      , Link ( "" , [] , [] ) [ Str "[issue201]" ] ( "#issue201" , "" )
       , Str ","
       , Space
+      , Link ( "" , [] , [] ) [ Str "[tolkien54]" ] ( "#tolkien54" , "" )
       , Str ","
       , Space
+      , Link ( "" , [] , [] ) [ Str "[sharing]" ] ( "#sharing" , "" )
       , Str ","
+      , Space
+      , Link ( "" , [] , [] ) [ Str "[restful]" ] ( "#restful" , "" )
       ]
   ]

@@ -152,16 +152,16 @@
 ]), 
   text(body: [
 As described by ]), 
-  ref(supplement: [auto], 
+  ref(supplement: auto, 
       target: ), 
   text(body: [,
 the net-work is a creature of its own.
 This is close to piratery! ]), 
-  ref(supplement: [auto], 
+  ref(supplement: auto, 
       target: ), 
   text(body: [
 And quark! ]), 
-  ref(supplement: [auto], 
+  ref(supplement: auto, 
       target: ), 
   parbreak() }
 --- pandoc ---
@@ -177,6 +177,7 @@ Pandoc
       , Space
       , Str "by"
       , Space
+      , Link ( "" , [] , [] ) [ Str "[netwok]" ] ( "#netwok" , "" )
       , Str ","
       , SoftBreak
       , Str "the"
@@ -204,9 +205,13 @@ Pandoc
       , Str "to"
       , Space
       , Str "piratery!"
+      , Space
+      , Link ( "" , [] , [] ) [ Str "[arrgh]" ] ( "#arrgh" , "" )
       , SoftBreak
       , Str "And"
       , Space
       , Str "quark!"
+      , Space
+      , Link ( "" , [] , [] ) [ Str "[quark]" ] ( "#quark" , "" )
       ]
   ]

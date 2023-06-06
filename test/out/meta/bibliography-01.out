@@ -143,10 +143,16 @@ Pandoc
           [ Str "[arrgh,distress,p." , Space , Str "22]" ]
       , Str ","
       , Space
+      , Link
+          ( "" , [] , [] ) [ Str "p." , Space , Str "4" ] ( "#arrgh" , "" )
       , Str ","
       , Space
       , Str "and"
       , Space
+      , Link
+          ( "" , [] , [] )
+          [ Str "p." , Space , Str "5" ]
+          ( "#distress" , "" )
       , Str "."
       ]
   ]

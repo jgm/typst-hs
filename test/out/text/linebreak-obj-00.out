@@ -88,7 +88,7 @@
 ]), 
   parbreak(), 
   text(body: [They can look for the details in ]), 
-  ref(supplement: [auto], 
+  ref(supplement: auto, 
       target: ), 
   text(body: [,
 which is the authoritative source.]), 
@@ -114,6 +114,7 @@ Pandoc
       , Space
       , Str "in"
       , Space
+      , Link ( "" , [] , [] ) [ Str "[netwok]" ] ( "#netwok" , "" )
       , Str ","
       , SoftBreak
       , Str "which"

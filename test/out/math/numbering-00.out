@@ -150,7 +150,7 @@
                 body: text(body: [x]), 
                 numbering: none), 
   text(body: [ in preparation of ]), 
-  ref(supplement: [auto], 
+  ref(supplement: auto, 
       target: ), 
   text(body: [:
 ]), 
@@ -167,7 +167,7 @@
   text(body: []), 
   parbreak(), 
   text(body: [With ]), 
-  ref(supplement: [auto], 
+  ref(supplement: auto, 
       target: ), 
   text(body: [, we get
 ]), 
@@ -202,6 +202,7 @@ Pandoc
       , Space
       , Str "of"
       , Space
+      , Link ( "" , [] , [] ) [ Str "[fib]" ] ( "#fib" , "" )
       , Str ":"
       , SoftBreak
       , Math DisplayMath "\\phi: = \\frac{1 + \\sqrt{5}}{2}"
@@ -209,6 +210,7 @@ Pandoc
   , Para
       [ Str "With"
       , Space
+      , Link ( "" , [] , [] ) [ Str "[ratio]" ] ( "#ratio" , "" )
       , Str ","
       , Space
       , Str "we"

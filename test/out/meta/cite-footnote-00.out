@@ -68,11 +68,11 @@
 --- evaluated ---
 { text(body: [
 Hello ]), 
-  ref(supplement: [auto], 
+  ref(supplement: auto, 
       target: ), 
   text(body: [
 And again: ]), 
-  ref(supplement: [auto], 
+  ref(supplement: auto, 
       target: ), 
   parbreak(), 
   pagebreak(), 
@@ -85,6 +85,15 @@ And again: ]),
 Pandoc
   Meta { unMeta = fromList [] }
   [ Para
-      [ Str "Hello" , SoftBreak , Str "And" , Space , Str "again:" ]
+      [ Str "Hello"
+      , Space
+      , Link ( "" , [] , [] ) [ Str "[netwok]" ] ( "#netwok" , "" )
+      , SoftBreak
+      , Str "And"
+      , Space
+      , Str "again:"
+      , Space
+      , Link ( "" , [] , [] ) [ Str "[netwok]" ] ( "#netwok" , "" )
+      ]
   , Para []
   ]
