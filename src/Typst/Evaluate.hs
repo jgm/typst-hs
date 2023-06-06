@@ -169,11 +169,16 @@ applyElementFunction name (Function f) args = do
 element :: Monad m => Identifier -> Arguments -> MP m (Seq Content)
 element name@(Identifier n) args = do
   eltfn <- lookupIdentifier name
-  case eltfn of
-    VFunction Nothing _ (Function f) -> valToContent <$> f args
+  res <- case eltfn of
+    VFunction Nothing _ (Function f) -> f args
     VFunction (Just i) _ (Function f) ->
-      valToContent <$> applyElementFunction i (Function f) args
+      applyElementFunction i (Function f) args
     _ -> fail $ T.unpack n <> " is not an element function"
+  case res of
+    VContent [elt@(Elt{})] -> do
+      updateState $ \st -> st{ evalLastElement = Just elt }
+      pure [elt]
+    x -> pure $ valToContent x  -- shouldn't happen?
 
 pElt :: Monad m => MP m (Seq Content)
 pElt = do
