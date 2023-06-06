@@ -520,7 +520,6 @@ data EvalState m = EvalState
     -- first item is current block, then superordinate block, etc.
     evalCounters :: M.Map Counter Integer,
     evalLabels :: M.Map Text Content,
-    evalLastElement :: Maybe Content,
     evalMath :: Bool,
     evalShowRules :: [ShowRule],
     evalStyles :: M.Map Identifier Arguments,
@@ -533,7 +532,6 @@ emptyEvalState = EvalState
     { evalIdentifiers = [],
       evalCounters = mempty,
       evalLabels = mempty,
-      evalLastElement = Nothing,
       evalMath = False,
       evalShowRules = [],
       evalStyles = mempty,
