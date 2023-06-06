@@ -43,7 +43,7 @@ import Typst.Util (makeFunction, nthArg)
 -- replacing it with content.
 evaluateTypst ::
   Monad m =>
-  -- | Function for warnings
+  -- | Function to read a file
   (FilePath -> m BS.ByteString) ->
   -- | Path of parsed content
   FilePath ->
