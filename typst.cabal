@@ -96,10 +96,7 @@ executable typst-hs
         text,
         bytestring,
         pretty-show,
-        ordered-containers,
-        pandoc-types,
-        texmath,
-        pandoc
+        ordered-containers
     else
       Buildable:         False
 
