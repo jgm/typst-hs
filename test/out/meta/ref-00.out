@@ -46,25 +46,19 @@
        (Ident (Identifier "heading"))
        [ KeyValArg (Identifier "numbering") (Literal (String "1.")) ])
 , ParBreak
-, Heading
-    1
-    [ Text "Introduction"
-    , Space
-    , Code
-        "test/typ/meta/ref-00.typ" ( line 4 , column 16 ) (Label "intro")
-    ]
+, Heading 1 [ Text "Introduction" ]
+, Code
+    "test/typ/meta/ref-00.typ" ( line 4 , column 16 ) (Label "intro")
+, SoftBreak
 , Text "See"
 , Space
 , Ref "setup" (Literal Auto)
 , Text "."
 , ParBreak
-, Heading
-    2
-    [ Text "Setup"
-    , Space
-    , Code
-        "test/typ/meta/ref-00.typ" ( line 7 , column 10 ) (Label "setup")
-    ]
+, Heading 2 [ Text "Setup" ]
+, Code
+    "test/typ/meta/ref-00.typ" ( line 7 , column 10 ) (Label "setup")
+, SoftBreak
 , Text "As"
 , Space
 , Text "seen"
@@ -84,20 +78,22 @@
 { text(body: [
 ]), 
   parbreak(), 
-  heading(body: { text(body: [Introduction ]), 
-                  <intro> }, 
+  heading(body: text(body: [Introduction]), 
           level: 1, 
           numbering: "1."), 
-  text(body: [See ]), 
+  <intro>, 
+  text(body: [
+See ]), 
   ref(supplement: auto, 
       target: ), 
   text(body: [.]), 
   parbreak(), 
-  heading(body: { text(body: [Setup ]), 
-                  <setup> }, 
+  heading(body: text(body: [Setup]), 
           level: 2, 
           numbering: "1."), 
-  text(body: [As seen in ]), 
+  <setup>, 
+  text(body: [
+As seen in ]), 
   ref(supplement: auto, 
       target: ), 
   text(body: [, we proceed.]), 
@@ -106,22 +102,20 @@
 Pandoc
   Meta { unMeta = fromList [] }
   [ Para []
-  , Header
-      1
-      ( "" , [] , [] )
-      [ Str "Introduction" , Space , Span ( "intro" , [] , [] ) [] ]
+  , Header 1 ( "" , [] , [] ) [ Str "Introduction" ]
   , Para
-      [ Str "See"
+      [ Span ( "intro" , [] , [] ) []
+      , SoftBreak
+      , Str "See"
       , Space
       , Link ( "" , [ "ref" ] , [] ) [ Str "[setup]" ] ( "#setup" , "" )
       , Str "."
       ]
-  , Header
-      2
-      ( "" , [] , [] )
-      [ Str "Setup" , Space , Span ( "setup" , [] , [] ) [] ]
+  , Header 2 ( "" , [] , [] ) [ Str "Setup" ]
   , Para
-      [ Str "As"
+      [ Span ( "setup" , [] , [] ) []
+      , SoftBreak
+      , Str "As"
       , Space
       , Str "seen"
       , Space

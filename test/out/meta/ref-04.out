@@ -136,27 +136,18 @@
                     ]
                 ]))))
 , ParBreak
-, Heading
-    1
-    [ Text "Introduction"
-    , Space
-    , Code
-        "test/typ/meta/ref-04.typ" ( line 19 , column 16 ) (Label "intro")
-    ]
-, Heading
-    1
-    [ Text "Summary"
-    , Space
-    , Code
-        "test/typ/meta/ref-04.typ" ( line 21 , column 11 ) (Label "sum")
-    ]
-, Heading
-    2
-    [ Text "Subsection"
-    , Space
-    , Code
-        "test/typ/meta/ref-04.typ" ( line 23 , column 15 ) (Label "sub")
-    ]
+, Heading 1 [ Text "Introduction" ]
+, Code
+    "test/typ/meta/ref-04.typ" ( line 19 , column 16 ) (Label "intro")
+, ParBreak
+, Heading 1 [ Text "Summary" ]
+, Code
+    "test/typ/meta/ref-04.typ" ( line 21 , column 11 ) (Label "sum")
+, ParBreak
+, Heading 2 [ Text "Subsection" ]
+, Code
+    "test/typ/meta/ref-04.typ" ( line 23 , column 15 ) (Label "sub")
+, ParBreak
 , Ref "intro" (Literal Auto)
 , ParBreak
 , Ref "sum" (Literal Auto)
@@ -164,5 +155,5 @@
 , Ref "sub" (Literal Auto)
 , ParBreak
 ]
-"test/typ/meta/ref-04.typ" (line 6, column 2):
+"test/typ/meta/ref-04.typ" (line 23, column 15):
 Content does not have a method "element" or FieldAccess requires a dictionary

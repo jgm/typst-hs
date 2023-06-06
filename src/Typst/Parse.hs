@@ -529,7 +529,11 @@ pHeading = try $ do
   void (many1 (char ' ')) <|> void (lookAhead endOfLine)
   -- Note: == hi _foo
   -- bar_ is parsed as a heading with "hi emph(foobar)"
-  ms <- manyTill pMarkup (void pEol <|> pEndOfContent <|> void (lookAhead (char ']')))
+  ms <- manyTill pMarkup (    void pEol
+                          <|> pEndOfContent
+                          <|> void (lookAhead (try (spaces *> pLabel)))
+                          <|> void (lookAhead (char ']')))
+  skipMany spaceChar
   pure $ Heading lev ms
 
 pUrl :: P Markup

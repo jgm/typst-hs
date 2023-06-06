@@ -60,15 +60,12 @@
              [ KeyValArg (Identifier "label") (Label "intro") ]))
        (Ident (Identifier "underline")))
 , ParBreak
-, Heading
-    1
-    [ Text "Introduction"
-    , Space
-    , Code
-        "test/typ/compiler/label-00.typ"
-        ( line 6 , column 16 )
-        (Label "intro")
-    ]
+, Heading 1 [ Text "Introduction" ]
+, Code
+    "test/typ/compiler/label-00.typ"
+    ( line 6 , column 16 )
+    (Label "intro")
+, SoftBreak
 , Text "The"
 , Space
 , Text "beginning"
@@ -87,10 +84,11 @@
   text(body: [
 ]), 
   parbreak(), 
-  heading(body: { text(body: [Introduction ]), 
-                  <intro> }, 
+  heading(body: text(body: [Introduction]), 
           level: 1), 
-  text(body: [The beginning.]), 
+  <intro>, 
+  text(body: [
+The beginning.]), 
   parbreak(), 
   heading(body: text(body: [Conclusion]), 
           level: 1), 
@@ -100,11 +98,14 @@
 Pandoc
   Meta { unMeta = fromList [] }
   [ Para []
-  , Header
-      1
-      ( "" , [] , [] )
-      [ Str "Introduction" , Space , Span ( "intro" , [] , [] ) [] ]
-  , Para [ Str "The" , Space , Str "beginning." ]
+  , Header 1 ( "" , [] , [] ) [ Str "Introduction" ]
+  , Para
+      [ Span ( "intro" , [] , [] ) []
+      , SoftBreak
+      , Str "The"
+      , Space
+      , Str "beginning."
+      ]
   , Header 1 ( "" , [] , [] ) [ Str "Conclusion" ]
   , Para [ Str "The" , Space , Str "end." ]
   ]
