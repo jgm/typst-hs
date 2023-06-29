@@ -180,6 +180,8 @@ calcModule =
             then fail "can't take square root of negative number"
             else pure $ VFloat $ sqrt n
       ),
+      ("exp", makeFunction $ VFloat . exp <$> nthArg 1),
+      ("ln", makeFunction $ VFloat . log <$> nthArg 1),
       ("cos", makeFunction $ VFloat . cos <$> nthArg 1),
       ("cosh", makeFunction $ VFloat . cosh <$> nthArg 1),
       ("sin", makeFunction $ VFloat . sin <$> nthArg 1),
