@@ -527,7 +527,8 @@ data EvalState m = EvalState
     evalShowRules :: [ShowRule],
     evalStyles :: M.Map Identifier Arguments,
     evalFlowDirective :: FlowDirective,
-    evalLoadBytes :: FilePath -> m BS.ByteString
+    evalLoadBytes :: FilePath -> m BS.ByteString,
+    evalCurrentUTCTime :: m UTCTime
   }
 
 emptyEvalState :: EvalState m
@@ -538,7 +539,8 @@ emptyEvalState = EvalState
       evalShowRules = [],
       evalStyles = mempty,
       evalFlowDirective = FlowNormal,
-      evalLoadBytes = undefined
+      evalLoadBytes = undefined,
+      evalCurrentUTCTime = undefined
     }
 
 data Attempt a

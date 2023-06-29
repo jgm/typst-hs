@@ -38,6 +38,7 @@ import Typst.Regex (makeRE)
 import Typst.Symbols (typstSymbols)
 import Typst.Types
 import Typst.Util
+import Data.Time (UTCTime)
 
 standardModule :: M.Map Identifier Val
 standardModule =
@@ -56,6 +57,7 @@ standardModule =
       ++ meta
       ++ foundations
       ++ construct
+      ++ time
       ++ dataLoading
 
 symModule :: M.Map Identifier Val
@@ -457,6 +459,18 @@ loadFileText :: Monad m => FilePath -> MP m T.Text
 loadFileText fp = do
   loadBytes <- evalLoadBytes <$> getState
   lift $ TE.decodeUtf8 <$> loadBytes fp
+
+currentUTCTime :: Monad m => MP m UTCTime
+currentUTCTime = (evalCurrentUTCTime <$> getState) >>= lift
+
+time :: [(Identifier, Val)]
+time =
+  [ ( "datetime", makeFunctionWithScope
+      (do
+        pure VNone) -- TODO -- constructor for date
+      [ ("today", makeFunction $ VDateTime <$> lift currentUTCTime ) ]
+     )
+  ]
 
 dataLoading :: [(Identifier, Val)]
 dataLoading =

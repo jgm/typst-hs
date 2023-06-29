@@ -96,6 +96,7 @@ executable typst-hs
         containers,
         text,
         bytestring,
+        time,
         pretty-show,
         ordered-containers
     else
@@ -113,6 +114,7 @@ test-suite typst-test
         text,
         bytestring,
         filepath,
+        time,
         pretty-show,
         tasty,
         tasty-golden

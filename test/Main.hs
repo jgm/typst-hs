@@ -14,6 +14,7 @@ import Text.Show.Pretty (ppShow)
 import Typst.Evaluate (evaluateTypst)
 import Typst.Parse (parseTypst)
 import Typst.Types (Val (VContent), repr)
+import Data.Time (getCurrentTime)
 
 main :: IO ()
 main = defaultMain =<< goldenTests
@@ -51,7 +52,7 @@ writeTest input = do
       case parseResult of
         Left e -> pure $ fromText $ T.pack $ show e
         Right parsed -> do
-          evalResult <- evaluateTypst BS.readFile input parsed
+          evalResult <- evaluateTypst BS.readFile getCurrentTime input parsed
           let parseOutput = "--- parse tree ---\n" <> T.pack (ppShow parsed) <> "\n"
           case evalResult of
             Left e ->

@@ -15,6 +15,7 @@ import Text.Read (readMaybe)
 import Text.Show.Pretty (pPrint)
 import Typst (evaluateTypst, parseTypst)
 import Typst.Types (Val (..), repr)
+import Data.Time (getCurrentTime)
 
 data Opts = Opts
   { optShowParse :: Bool,
@@ -69,7 +70,7 @@ main =
             when (optShowParse opts || showAll) $ do
               when showAll $ putStrLn "--- parse tree ---"
               pPrint parseResult
-            result <- evaluateTypst BS.readFile "stdin" parseResult
+            result <- evaluateTypst BS.readFile getCurrentTime "stdin" parseResult
             case result of
               Left e -> err $ show e
               Right cs -> do

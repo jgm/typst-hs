@@ -36,6 +36,7 @@ import Typst.Show (applyShowRules)
 import Typst.Syntax
 import Typst.Types
 import Typst.Util (makeFunction, nthArg)
+import Data.Time (UTCTime)
 
 -- import Debug.Trace
 
@@ -45,15 +46,18 @@ evaluateTypst ::
   Monad m =>
   -- | Function to read a file
   (FilePath -> m BS.ByteString) ->
+  -- | Function to get current UTCTime
+  m UTCTime ->
   -- | Path of parsed content
   FilePath ->
   -- | Markup produced by 'parseTypst'
   [Markup] ->
   m (Either ParseError (Seq Content))
-evaluateTypst loadBytes =
+evaluateTypst loadBytes currentUTCTime =
   runParserT
     (mconcat <$> many pContent <* eof)
-    initialEvalState {evalLoadBytes = loadBytes}
+    initialEvalState { evalLoadBytes = loadBytes
+                     , evalCurrentUTCTime = currentUTCTime}
 
 initialEvalState :: EvalState m
 initialEvalState =
