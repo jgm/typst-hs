@@ -72,6 +72,7 @@ import qualified Text.PrettyPrint as P
 import Text.Read (readMaybe)
 import Typst.Regex (RE, makeLiteralRE)
 import Typst.Syntax (Identifier (..), Markup)
+import Data.Time (UTCTime)
 
 data Val
   = VNone
@@ -88,6 +89,7 @@ data Val
   | VSymbol !Symbol
   | VString !Text
   | VRegex !RE
+  | VDateTime UTCTime
   | VContent (Seq Content)
   | VArray (Vector Val)
   | VDict (OM.OMap Identifier Val)
@@ -129,6 +131,7 @@ data ValType
   | TSymbol
   | TString
   | TRegex
+  | TDateTime
   | TContent
   | TArray
   | TDict
@@ -163,6 +166,7 @@ valType v =
     VSymbol {} -> TSymbol
     VString {} -> TString
     VRegex {} -> TRegex
+    VDateTime {} -> TDateTime
     VContent {} -> TContent
     VArray {} -> TArray
     VDict {} -> TDict
@@ -719,6 +723,7 @@ prettyVal expr =
     VContent cs -> prettyContent cs
     VString t -> "\"" <> escString t <> "\""
     VRegex re -> P.text (show re)
+    VDateTime d -> P.text (show d)
     VAuto -> "auto"
     VNone -> "none"
     VBoolean True -> "true"
