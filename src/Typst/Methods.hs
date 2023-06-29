@@ -351,6 +351,11 @@ getMethod updateVal val fld = do
             [Elt _ _ fields]
               | Just x <- M.lookup "text" fields -> pure x
             _ -> fail "Content is not a single text element"
+        "fields" -> pure $ makeFunction $ do
+          VDict <$>
+            case F.toList cs of
+              (Elt _ _ fields:_) -> pure $ OM.fromList $ M.toList fields
+              _ -> pure OM.empty
         _ ->
           let childrenOrFallback =
                 if fld == "children"
