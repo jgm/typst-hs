@@ -10,6 +10,7 @@ module Typst.Module.Standard
   )
 where
 
+import Data.Char (ord, chr)
 import Control.Applicative ((<|>))
 import Control.Monad (mplus, unless)
 import Control.Monad.Reader (lift)
@@ -375,9 +376,22 @@ construct =
               )
     ),
     ( "str",
-      makeFunction $ do
+      makeFunctionWithScope
+      (do
         val <- nthArg 1
-        VString <$> (fromVal val `mplus` pure (repr val))
+        VString <$> (fromVal val `mplus` pure (repr val)))
+      [ ( "to-unicode",
+           makeFunction $ do
+             (val :: Text) <- nthArg 1
+             case T.uncons val of
+               Just (c, t) | T.null t ->
+                 pure $ VInteger $ fromIntegral $ ord c
+               _ -> fail "to-unicode expects a single character" )
+      , ( "from-unicode",
+           makeFunction $ do
+             (val :: Int) <- nthArg 1
+             pure $ VString $ T.pack [chr val] )
+      ]
     ),
     ( "symbol",
       makeFunction $ do
