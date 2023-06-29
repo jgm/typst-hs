@@ -45,6 +45,10 @@ mathModule =
         [ ("index", One (TNone :|: TContent :|: TInteger :|: TRatio)),
           ("radicand", One TContent)
         ],
+      makeElement (Just "math") "display" [("content", One TContent)],
+      makeElement (Just "math") "inline" [("content", One TContent)],
+      makeElement (Just "math") "script" [("content", One TContent)],
+      makeElement (Just "math") "sscript" [("content", One TContent)],
       makeElement (Just "math") "sqrt" [("radicand", One TContent)],
       makeElement (Just "math") "cases" [("children", Many TContent)],
       makeElement (Just "math") "lr" [("body", Many TContent)],
