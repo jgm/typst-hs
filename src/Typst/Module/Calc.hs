@@ -114,12 +114,6 @@ calcModule =
             [] -> fail "min requires one or more argument"
             _ : _ -> pure $ minimum vs
       ),
-      ( "mod",
-        makeFunction $ do
-          (a :: Integer) <- nthArg 1
-          (b :: Integer) <- nthArg 2
-          pure $ VInteger $ a `mod` b
-      ),
       ( "odd",
         makeFunction $ do
           v <- nthArg 1
