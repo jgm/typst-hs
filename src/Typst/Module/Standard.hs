@@ -41,6 +41,7 @@ import Typst.Util
 import Data.Time (UTCTime(..))
 import Data.Time.Calendar (fromGregorianValid)
 import Data.Time.Clock (secondsToDiffTime)
+import Data.Digits (mDigits)
 
 standardModule :: M.Map Identifier Val
 standardModule =
@@ -383,7 +384,20 @@ construct =
       makeFunctionWithScope
       (do
         val <- nthArg 1
-        VString <$> (fromVal val `mplus` pure (repr val)))
+        base <- namedArg "base" <|> pure (10 :: Integer)
+        let digitVector :: V.Vector Char
+            digitVector = V.fromList $ ['0'..'9'] ++ ['A'..'Z']
+        let renderDigit n = digitVector V.!? (fromIntegral n)
+        VString <$>
+          case val of
+            VInteger n | base /= 10
+              -> case mDigits base n of
+                   Nothing -> fail "Could not convert number to base"
+                   Just ds -> maybe
+                     (fail "Could not convert number to base")
+                     (pure . T.pack)
+                     (mapM renderDigit ds)
+            _ -> fromVal val `mplus` pure (repr val))
       [ ( "to-unicode",
            makeFunction $ do
              (val :: Text) <- nthArg 1
