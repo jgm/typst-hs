@@ -38,7 +38,9 @@ import Typst.Regex (makeRE)
 import Typst.Symbols (typstSymbols)
 import Typst.Types
 import Typst.Util
-import Data.Time (UTCTime)
+import Data.Time (UTCTime(..))
+import Data.Time.Calendar (fromGregorianValid)
+import Data.Time.Clock (secondsToDiffTime)
 
 standardModule :: M.Map Identifier Val
 standardModule =
@@ -467,8 +469,23 @@ time :: [(Identifier, Val)]
 time =
   [ ( "datetime", makeFunctionWithScope
       (do
-        pure VNone) -- TODO -- constructor for date
-      [ ("today", makeFunction $ VDateTime <$> lift currentUTCTime ) ]
+         mbyear <- namedArg "year" <|> pure Nothing
+         mbmonth <- namedArg "month" <|> pure Nothing
+         mbday <- namedArg "day" <|> pure Nothing
+         let mbdate = case (mbyear, mbmonth, mbday) of
+                        (Just yr, Just mo, Just da) -> fromGregorianValid yr mo da
+                        _ -> Nothing
+         mbhour <- namedArg "hour" <|> pure Nothing
+         mbminute <- namedArg "minute" <|> pure Nothing
+         mbsecond <- namedArg "second" <|> pure Nothing
+         let mbtime = case (mbhour, mbminute, mbsecond) of
+                        (Just hr, Just mi, Just se) ->
+                          Just $ secondsToDiffTime $ (hr * 60 * 60) + (mi * 60) + se
+                        _ -> Nothing
+         pure $ VDateTime mbdate mbtime)
+      [ ("today", makeFunction $ do
+            utcTime <- lift currentUTCTime
+            pure $ VDateTime (Just (utctDay utcTime)) (Just (utctDayTime utcTime)) ) ]
      )
   ]
 

@@ -57,7 +57,7 @@ import qualified Data.Foldable as F
 import Data.Functor.Classes (Ord1 (liftCompare))
 import qualified Data.Map as M
 import qualified Data.Map.Ordered as OM
-import Data.Maybe (fromMaybe, isJust)
+import Data.Maybe (fromMaybe, isJust, catMaybes)
 import Data.Scientific (floatingOrInteger)
 import Data.Sequence (Seq)
 import qualified Data.Sequence as Seq
@@ -72,7 +72,8 @@ import qualified Text.PrettyPrint as P
 import Text.Read (readMaybe)
 import Typst.Regex (RE, makeLiteralRE)
 import Typst.Syntax (Identifier (..), Markup)
-import Data.Time (UTCTime)
+import Data.Time (UTCTime, Day, DiffTime)
+import Data.Time.Format (defaultTimeLocale, formatTime)
 
 data Val
   = VNone
@@ -89,7 +90,7 @@ data Val
   | VSymbol !Symbol
   | VString !Text
   | VRegex !RE
-  | VDateTime UTCTime
+  | VDateTime (Maybe Day) (Maybe DiffTime)
   | VContent (Seq Content)
   | VArray (Vector Val)
   | VDict (OM.OMap Identifier Val)
@@ -725,7 +726,8 @@ prettyVal expr =
     VContent cs -> prettyContent cs
     VString t -> "\"" <> escString t <> "\""
     VRegex re -> P.text (show re)
-    VDateTime d -> P.text (show d)
+    VDateTime d t -> P.text (unwords (catMaybes
+       [show <$> d, formatTime defaultTimeLocale "%0H:%0M:%0S" <$> t]))
     VAuto -> "auto"
     VNone -> "none"
     VBoolean True -> "true"
