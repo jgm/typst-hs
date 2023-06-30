@@ -12,7 +12,7 @@ module Typst.Methods
   )
 where
 
-import Control.Monad (MonadPlus (mplus), foldM)
+import Control.Monad (MonadPlus (mplus), foldM, void)
 import Control.Monad.Reader (MonadReader (ask), MonadTrans (lift))
 import qualified Data.Array as Array
 import qualified Data.Foldable as F
@@ -23,7 +23,8 @@ import Data.Maybe (fromMaybe)
 import Data.Text (Text)
 import qualified Data.Text as T
 import qualified Data.Vector as V
-import Text.Parsec (getState, runParserT, updateState)
+import Text.Parsec
+import Text.Parsec.String (Parser)
 import Typst.Module.Standard (standardModule)
 import Typst.Regex
   ( RE (..),
@@ -37,7 +38,7 @@ import Typst.Regex
   )
 import Typst.Types
 import Typst.Util (allArgs, makeFunction, namedArg, nthArg)
-import Data.Time (toGregorian, dayOfWeek)
+import Data.Time (toGregorian, dayOfWeek, formatTime, defaultTimeLocale, UTCTime(..))
 
 -- import Debug.Trace
 
@@ -650,7 +651,21 @@ getMethod updateVal val fld = do
           pure $ case toSeconds <$> mbtime of
             Nothing -> VNone
             Just t -> VInteger $ t `mod` 60
-        "display" -> undefined
+        "display" -> pure $ makeFunction $ do
+          mbfmt <- nthArg 1 `mplus` pure Nothing
+          mbformat <- case mbfmt of
+            Nothing -> pure Nothing
+            Just fmt ->
+              case toTimeFormat <$> parseDisplayFormat fmt of
+                Left e -> fail $ "Could not parse display format: " <> show e
+                Right f -> pure $ Just f
+          pure $ VString $ T.pack $
+            case (mbdate, mbtime) of
+              (Nothing, Just t) -> formatTime defaultTimeLocale (fromMaybe "%X" mbformat) t
+              (Just d, Nothing) -> formatTime defaultTimeLocale (fromMaybe "%F" mbformat) d
+              (Nothing, Nothing) -> ""
+              (Just d, Just t) -> formatTime defaultTimeLocale (fromMaybe "%X %F" mbformat)
+                                    (UTCTime d t)
         _ -> noMethod "DateTime" fld
     _ -> noMethod (drop 1 $ takeWhile (/= ' ') $ show val) fld
 
@@ -703,3 +718,103 @@ toRomanNumeral x
   | x == 4 = "IV"
   | x >= 1 = "I" <> toRomanNumeral (x - 1)
   | otherwise = ""
+
+-- parser for DateTime display format
+
+data FormatPart =
+    Literal String
+  | Variable String [(String, String)]
+  deriving Show
+
+parseDisplayFormat :: String -> Either ParseError [FormatPart]
+parseDisplayFormat = parse (many pFormatPart <* eof) ""
+
+pFormatPart :: Parser FormatPart
+pFormatPart = pVariable <|> pLiteral
+
+pLiteral :: Parser FormatPart
+pLiteral = Literal <$> many1 (satisfy (/='['))
+
+pVariable :: Parser FormatPart
+pVariable = do
+  void $ char '['
+  name <- many1 letter
+  spaces
+  modifiers <- many pModifier
+  void $ char ']'
+  pure $ Variable name modifiers
+
+pModifier :: Parser (String, String)
+pModifier = do
+  name <- many1 letter
+  void $ char ':'
+  spaces
+  val <- many1 alphaNum
+  spaces
+  pure (name, val)
+
+-- convert formatparts into Data.Time format string
+
+toTimeFormat :: [FormatPart] -> String
+toTimeFormat = concatMap toTimeFormatPart
+
+toTimeFormatPart :: FormatPart -> String
+toTimeFormatPart (Literal s) = foldr esc "" s
+ where
+  esc '%' = ("%%" ++)
+  esc '\t' = ("%t" ++)
+  esc '\n' = ("%n" ++)
+  esc c = (c:)
+toTimeFormatPart (Variable "year" mods) =
+  withPadding mods $
+    case lookup "repr" mods of
+       Just "last_two" -> "y"
+       _ -> "Y"
+toTimeFormatPart (Variable "month" mods) =
+  withPadding mods $
+    case lookup "repr" mods of
+       Just "numerical" -> "%m"
+       Just "long" -> "b"
+       Just "short" -> "h"
+       _ -> "m"
+toTimeFormatPart (Variable "day" mods) =
+  case lookup "padding" mods of
+    Just "space" -> "%e"
+    Just "zero" -> "%d"
+    _ -> "%e"
+toTimeFormatPart (Variable "week_number" mods) =
+  withPadding mods $
+    case lookup "repr" mods of
+      Just "ISO" -> "V"
+      Just "sunday" -> "U"
+      Just "monday" -> "W"
+      _ -> "V"
+toTimeFormatPart (Variable "weekday" mods) =
+  withPadding mods $
+     case lookup "repr" mods of
+      Just "long" -> "A"
+      Just "short" -> "a"
+      Just "sunday" -> "w"
+      Just "monday" -> "u"
+      _ -> ""
+toTimeFormatPart (Variable "hour" mods) =
+  case lookup "hour" mods of
+    Just "24" | lookup "padding" mods == Just "zero" -> "%H"
+              | otherwise -> "%k"
+    Just "12" | lookup "padding" mods == Just "zero" -> "%I"
+              | otherwise -> "%l"
+    _ -> "%k"
+toTimeFormatPart (Variable "period" mods) =
+  case lookup "case" mods of
+    Just "lower" -> "%P"
+    _ -> "%p"
+toTimeFormatPart (Variable "minute" _) = "%M"
+toTimeFormatPart (Variable "second" _) = "%S"
+toTimeFormatPart _ = "?"
+
+withPadding :: [(String, String)] -> String -> String
+withPadding mods s = '%' :
+  case lookup "padding" mods of
+       Just "zero" -> '0' : s
+       Just "space" -> '_' : s
+       _ -> s
