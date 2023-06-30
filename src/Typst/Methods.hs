@@ -37,6 +37,7 @@ import Typst.Regex
   )
 import Typst.Types
 import Typst.Util (allArgs, makeFunction, namedArg, nthArg)
+import Data.Time (toGregorian, dayOfWeek)
 
 -- import Debug.Trace
 
@@ -618,6 +619,39 @@ getMethod updateVal val fld = do
         "pos" -> pure $ makeFunction $ pure $ VArray $ V.fromList (positional args)
         "named" -> pure $ makeFunction $ pure $ VDict $ named args
         _ -> noMethod "Arguments" fld
+    VDateTime mbdate mbtime -> do
+      let toSeconds = (floor :: Double -> Integer) . realToFrac
+      case fld of
+        "year" -> pure $ makeFunction $
+          pure $ case toGregorian <$> mbdate of
+                   Nothing -> VNone
+                   Just (y,_,_) -> VInteger (fromIntegral y)
+        "month" -> pure $ makeFunction $
+          pure $ case toGregorian <$> mbdate of
+                   Nothing -> VNone
+                   Just (_,m,_) -> VInteger (fromIntegral m)
+        "day" -> pure $ makeFunction $
+          pure $ case toGregorian <$> mbdate of
+                   Nothing -> VNone
+                   Just (_,_,d) -> VInteger (fromIntegral d)
+        "weekday" -> pure $ makeFunction $
+          pure $ case dayOfWeek <$> mbdate of
+                   Nothing -> VNone
+                   Just d-> VInteger (fromIntegral $ fromEnum d)
+        "hour" -> pure $ makeFunction $
+          pure $ case toSeconds <$> mbtime of
+            Nothing -> VNone
+            Just t -> VInteger $ t `div` 3600
+        "minute" -> pure $ makeFunction $
+          pure $ case toSeconds <$> mbtime of
+            Nothing -> VNone
+            Just t -> VInteger $ (t `mod` 3600) `div` 60
+        "second" -> pure $ makeFunction $
+          pure $ case toSeconds <$> mbtime of
+            Nothing -> VNone
+            Just t -> VInteger $ t `mod` 60
+        "display" -> undefined
+        _ -> noMethod "DateTime" fld
     _ -> noMethod (drop 1 $ takeWhile (/= ' ') $ show val) fld
 
 pairToArray :: (Val, Val) -> Val
