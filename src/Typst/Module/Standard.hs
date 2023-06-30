@@ -225,7 +225,14 @@ meta =
       [ ("numbering", One (TString :|: TFunction)),
         ("numbers", Many TInteger)
       ],
-    makeElement Nothing "outline" [],
+    makeElementWithScope Nothing "outline"
+      []
+      [makeElement (Just "outline") "entry"
+        [("level", One TInteger),
+         ("element", One TContent),
+         ("body", One TContent),
+         ("fill", One (TContent :|: TNone)),
+         ("page", One TContent)]],
     makeElement
       Nothing
       "query"
