@@ -171,6 +171,14 @@ mathOperatorTable =
             pure $ \expr -> MGroup Nothing Nothing [expr, args]
         )
     ],
+    -- precedence 4  -- factorial needs to take precedence over fraction
+    [ Postfix (try $ do
+                  mbBeforeSpace <- stBeforeSpace <$> getState
+                  guard $ mbBeforeSpace == Nothing
+                  void $ char '!'
+                  notFollowedBy (char '=')
+                  pure (\expr -> MGroup Nothing Nothing [expr, Text "!"]))
+    ],
     -- precedence 3
     [ Infix (makeFrac <$ op "/") AssocLeft
     ]
