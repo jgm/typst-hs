@@ -14,7 +14,6 @@ where
 
 import Control.Monad (MonadPlus (mplus), foldM, foldM_)
 import Control.Monad.State (MonadTrans (lift))
-import qualified Data.ByteString as BS
 import Data.List (intersperse, sortOn)
 import qualified Data.Map as M
 import qualified Data.Map.Ordered as OM
@@ -36,7 +35,6 @@ import Typst.Show (applyShowRules)
 import Typst.Syntax
 import Typst.Types
 import Typst.Util (makeFunction, nthArg)
-import Data.Time (UTCTime)
 
 -- import Debug.Trace
 
@@ -44,20 +42,17 @@ import Data.Time (UTCTime)
 -- replacing it with content.
 evaluateTypst ::
   Monad m =>
-  -- | Function to read a file
-  (FilePath -> m BS.ByteString) ->
-  -- | Function to get current UTCTime
-  m UTCTime ->
+  -- | Dictionary of functions for IO operations
+  Operations m ->
   -- | Path of parsed content
   FilePath ->
   -- | Markup produced by 'parseTypst'
   [Markup] ->
   m (Either ParseError (Seq Content))
-evaluateTypst loadBytes currentUTCTime =
+evaluateTypst operations =
   runParserT
     (mconcat <$> many pContent <* eof)
-    initialEvalState { evalLoadBytes = loadBytes
-                     , evalCurrentUTCTime = currentUTCTime}
+    initialEvalState { evalOperations = operations }
 
 initialEvalState :: EvalState m
 initialEvalState =
@@ -875,14 +870,14 @@ loadModule modname = do
   case parseTypst fp txt of
     Left err -> fail $ show err
     Right ms -> do
-      loadBytes <- evalLoadBytes <$> getState
+      operations <- evalOperations <$> getState
       res <-
         lift $
           runParserT
             ( inBlock BlockScope $ -- add new identifiers list
                 many pContent *> eof *> getState
             )
-            initialEvalState {evalLoadBytes = loadBytes}
+            initialEvalState{evalOperations = operations}
             fp
             ms
       case res of

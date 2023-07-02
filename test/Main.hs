@@ -13,11 +13,21 @@ import Test.Tasty.Golden (findByExtension, goldenVsStringDiff)
 import Text.Show.Pretty (ppShow)
 import Typst.Evaluate (evaluateTypst)
 import Typst.Parse (parseTypst)
-import Typst.Types (Val (VContent), repr)
+import Typst.Types (Val (VContent), repr, Operations(..))
 import Data.Time (getCurrentTime)
+import System.Directory (doesFileExist)
+import System.Environment (lookupEnv)
 
 main :: IO ()
 main = defaultMain =<< goldenTests
+
+operations :: Operations IO
+operations = Operations
+  { loadBytes = BS.readFile
+  , currentUTCTime = getCurrentTime
+  , getEnvVar = lookupEnv
+  , checkExistence = doesFileExist
+  }
 
 goldenTests :: IO TestTree
 goldenTests = do
@@ -52,7 +62,7 @@ writeTest input = do
       case parseResult of
         Left e -> pure $ fromText $ T.pack $ show e
         Right parsed -> do
-          evalResult <- evaluateTypst BS.readFile getCurrentTime input parsed
+          evalResult <- evaluateTypst operations input parsed
           let parseOutput = "--- parse tree ---\n" <> T.pack (ppShow parsed) <> "\n"
           case evalResult of
             Left e ->

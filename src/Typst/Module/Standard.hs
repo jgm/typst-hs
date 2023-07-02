@@ -468,16 +468,16 @@ hexToRGB _ = fail "expected string"
 
 loadFileLazyBytes :: Monad m => FilePath -> MP m BL.ByteString
 loadFileLazyBytes fp = do
-  loadBytes <- evalLoadBytes <$> getState
-  lift $ BL.fromStrict <$> loadBytes fp
+  operations <- evalOperations <$> getState
+  lift $ BL.fromStrict <$> loadBytes operations fp
 
 loadFileText :: Monad m => FilePath -> MP m T.Text
 loadFileText fp = do
-  loadBytes <- evalLoadBytes <$> getState
-  lift $ TE.decodeUtf8 <$> loadBytes fp
+  operations <- evalOperations <$> getState
+  lift $ TE.decodeUtf8 <$> loadBytes operations fp
 
-currentUTCTime :: Monad m => MP m UTCTime
-currentUTCTime = (evalCurrentUTCTime <$> getState) >>= lift
+getUTCTime :: Monad m => MP m UTCTime
+getUTCTime = (currentUTCTime . evalOperations <$> getState) >>= lift
 
 time :: [(Identifier, Val)]
 time =
@@ -498,7 +498,7 @@ time =
                         _ -> Nothing
          pure $ VDateTime mbdate mbtime)
       [ ("today", makeFunction $ do
-            utcTime <- lift currentUTCTime
+            utcTime <- lift getUTCTime
             pure $ VDateTime (Just (utctDay utcTime)) (Just (utctDayTime utcTime)) ) ]
      )
   ]

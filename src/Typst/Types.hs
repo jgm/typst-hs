@@ -27,6 +27,7 @@ module Typst.Types
     MP,
     Scope (..),
     FlowDirective (..),
+    Operations (..),
     EvalState (..),
     emptyEvalState,
     ShowRule (..),
@@ -520,6 +521,14 @@ data FlowDirective
   | FlowReturn Bool
   deriving (Show, Ord, Eq)
 
+data Operations m =
+  Operations
+  { loadBytes :: FilePath -> m BS.ByteString
+  , currentUTCTime :: m UTCTime
+  , getEnvVar :: String -> m (Maybe String)
+  , checkExistence :: FilePath -> m Bool
+  }
+
 data EvalState m = EvalState
   { evalIdentifiers :: [(Scope, M.Map Identifier Val)],
     -- first item is current block, then superordinate block, etc.
@@ -528,8 +537,7 @@ data EvalState m = EvalState
     evalShowRules :: [ShowRule],
     evalStyles :: M.Map Identifier Arguments,
     evalFlowDirective :: FlowDirective,
-    evalLoadBytes :: FilePath -> m BS.ByteString,
-    evalCurrentUTCTime :: m UTCTime
+    evalOperations :: Operations m
   }
 
 emptyEvalState :: EvalState m
@@ -540,8 +548,7 @@ emptyEvalState = EvalState
       evalShowRules = [],
       evalStyles = mempty,
       evalFlowDirective = FlowNormal,
-      evalLoadBytes = undefined,
-      evalCurrentUTCTime = undefined
+      evalOperations = undefined
     }
 
 data Attempt a

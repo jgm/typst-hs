@@ -7,14 +7,15 @@ import Control.Monad (foldM, when)
 import qualified Data.ByteString as BS
 import Data.Maybe (fromMaybe)
 import qualified Data.Text.IO as TIO
-import System.Environment (getArgs)
+import System.Environment (getArgs, lookupEnv)
+import System.Directory (doesFileExist)
 import System.Exit
 import System.IO (hPutStrLn, stderr)
 import System.Timeout (timeout)
 import Text.Read (readMaybe)
 import Text.Show.Pretty (pPrint)
 import Typst (evaluateTypst, parseTypst)
-import Typst.Types (Val (..), repr)
+import Typst.Types (Val (..), repr, Operations(..))
 import Data.Time (getCurrentTime)
 
 data Opts = Opts
@@ -50,6 +51,14 @@ parseArgs = foldM go (Nothing, Opts False False False False False False Nothing)
     go (Nothing, opts) f = pure (Just f, opts)
     go _ _ = err $ "Only one file can be specified as input."
 
+ops :: Operations IO
+ops = Operations
+  { loadBytes = BS.readFile
+  , currentUTCTime = getCurrentTime
+  , getEnvVar = lookupEnv
+  , checkExistence = doesFileExist
+  }
+
 main :: IO ()
 main =
   () <$ do
@@ -70,7 +79,7 @@ main =
             when (optShowParse opts || showAll) $ do
               when showAll $ putStrLn "--- parse tree ---"
               pPrint parseResult
-            result <- evaluateTypst BS.readFile getCurrentTime "stdin" parseResult
+            result <- evaluateTypst operations "stdin" parseResult
             case result of
               Left e -> err $ show e
               Right cs -> do
