@@ -70,7 +70,6 @@ library
                       scientific,
                       xml-conduit,
                       yaml,
-                      toml-parser,
                       regex-tdfa,
                       array,
                       time,
