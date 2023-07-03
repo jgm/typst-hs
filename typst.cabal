@@ -70,12 +70,15 @@ library
                       scientific,
                       xml-conduit,
                       yaml,
+                      toml-parser,
                       regex-tdfa,
                       array,
                       time,
                       pretty,
                       digits
     hs-source-dirs:   src
+    if os(darwin)
+      cpp-options: -D__MACOS__
     default-language: Haskell2010
 
 Flag executable

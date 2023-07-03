@@ -8,7 +8,7 @@ import qualified Data.ByteString as BS
 import Data.Maybe (fromMaybe)
 import qualified Data.Text.IO as TIO
 import System.Environment (getArgs)
-import System.Directory (doesFileExist, getXdgDirectory)
+import System.Directory (doesFileExist, getXdgDirectory, getHomeDirectory)
 import System.Exit
 import System.IO (hPutStrLn, stderr)
 import System.Timeout (timeout)
@@ -56,6 +56,7 @@ operations = Operations
   { loadBytes = BS.readFile
   , currentUTCTime = getCurrentTime
   , getXdgDir = getXdgDirectory
+  , getHomeDir = getHomeDirectory
   , checkExistence = doesFileExist
   }
 

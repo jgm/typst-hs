@@ -15,7 +15,7 @@ import Typst.Evaluate (evaluateTypst)
 import Typst.Parse (parseTypst)
 import Typst.Types (Val (VContent), repr, Operations(..))
 import Data.Time (getCurrentTime)
-import System.Directory (doesFileExist, getXdgDirectory)
+import System.Directory (doesFileExist, getXdgDirectory, getHomeDirectory)
 
 main :: IO ()
 main = defaultMain =<< goldenTests
@@ -25,6 +25,7 @@ operations = Operations
   { loadBytes = BS.readFile
   , currentUTCTime = getCurrentTime
   , getXdgDir = getXdgDirectory
+  , getHomeDir = getHomeDirectory
   , checkExistence = doesFileExist
   }
 

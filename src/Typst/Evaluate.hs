@@ -1,3 +1,4 @@
+{-# LANGUAGE CPP #-}
 {-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE LambdaCase #-}
@@ -17,14 +18,15 @@ import Control.Monad.State (MonadTrans (lift))
 import Data.List (intersperse, sortOn)
 import qualified Data.Map as M
 import qualified Data.Map.Ordered as OM
-import Data.Maybe (isJust)
+import Data.Maybe (isJust, fromMaybe)
 import Data.Sequence (Seq)
 import qualified Data.Sequence as Seq
 import qualified Data.Set as Set
 import Data.Text (Text)
 import qualified Data.Text as T
+import qualified Data.Text.Encoding as TE
 import qualified Data.Vector as V
-import System.FilePath (replaceFileName, takeBaseName)
+import System.FilePath (replaceFileName, takeBaseName, takeDirectory, (</>))
 import Text.Parsec
 import Typst.Bind (destructuringBind)
 import Typst.Methods (getMethod)
@@ -35,6 +37,7 @@ import Typst.Show (applyShowRules)
 import Typst.Syntax
 import Typst.Types
 import Typst.Util (makeFunction, nthArg)
+import qualified Toml as Toml
 
 -- import Debug.Trace
 
@@ -49,10 +52,12 @@ evaluateTypst ::
   -- | Markup produced by 'parseTypst'
   [Markup] ->
   m (Either ParseError (Seq Content))
-evaluateTypst operations =
+evaluateTypst operations fp =
   runParserT
     (mconcat <$> many pContent <* eof)
-    initialEvalState { evalOperations = operations }
+    initialEvalState { evalOperations = operations,
+                       evalPackageRoot = takeDirectory fp }
+    fp
 
 initialEvalState :: EvalState m
 initialEvalState =
@@ -861,10 +866,56 @@ toFunction mbname params e = do
           pure res
   pure fn
 
+findPackageEntryPoint :: Monad m => Text -> MP m FilePath
+findPackageEntryPoint modname = do
+  let (namespace, rest) = break (=='/') (drop 1 $ T.unpack modname)
+  let (name, rest') = break (==':') $ drop 1 rest
+  let version = drop 1 rest'
+  operations <- evalOperations <$> getState
+#ifdef __MACOS__
+  homeDir <- lift $ getHomeDir operations
+  let localDir = homeDir </> "Library" </> "Application Support" </> "typst"
+  let cacheDir = homeDir </> "Library" </> "Caches" </> "typst"
+#else
+  localDir <- lift $ getXdgDir operations XdgData "typst"
+  cacheDir <- lift $ getXdgDir operations XdgCache "typst"
+#endif
+  let subpath = "packages" </> namespace </> (name <> "-" <> version)
+  inLocal <- lift $ checkExistence operations (localDir </> subpath </> "typst.toml")
+  tomlPath <-
+     if inLocal
+        then pure (localDir </> subpath </> "typst.toml")
+        else do
+          inCache <- lift $ checkExistence operations (cacheDir </> subpath </> "typst.toml")
+          if inCache
+             then pure (cacheDir </> subpath </> "typst.toml")
+             else fail $ "Could not find package in local packages or cache. Looked in " ++
+                    (localDir </> subpath) ++ ", " ++ (cacheDir </> subpath)
+             -- TODO? fetch from CDN if not present in cache?
+  tomlString <- T.unpack . TE.decodeUtf8Lenient <$> lift (loadBytes operations tomlPath)
+  case Toml.parse tomlString of
+    Left e -> fail e
+    Right toptbl ->
+      case M.lookup "package" toptbl of
+        Just (Toml.Table tbl) ->
+          case M.lookup "entrypoint" tbl of
+            Just (Toml.String f) -> pure $ replaceFileName tomlPath f
+            _ -> fail "Could not find entrypoint"
+        _ -> fail "Could not find [package] table"
+
 loadModule :: Monad m => Text -> MP m (Identifier, M.Map Identifier Val)
 loadModule modname = do
   pos <- getPosition
-  let fp = replaceFileName (sourceName pos) (T.unpack modname)
+  (fp, mbPackageRoot) <-
+        if T.take 1 modname == "@"
+           then do
+            fp' <- findPackageEntryPoint modname
+            pure (fp', Just (takeDirectory fp'))
+           else if T.take 1 modname == "/" -- refers to path relative to package root
+                then do
+                  packageRoot <- evalPackageRoot <$> getState
+                  pure (packageRoot </> drop 1 (T.unpack modname), Nothing)
+                else pure (replaceFileName (sourceName pos) (T.unpack modname), Nothing)
   let modid = Identifier (T.pack $ takeBaseName fp)
   txt <- loadFileText fp
   case parseTypst fp txt of
@@ -877,7 +928,9 @@ loadModule modname = do
             ( inBlock BlockScope $ -- add new identifiers list
                 many pContent *> eof *> getState
             )
-            initialEvalState{evalOperations = operations}
+            initialEvalState{evalOperations = operations,
+                             evalPackageRoot = fromMaybe (evalPackageRoot initialEvalState)
+                                                   mbPackageRoot }
             fp
             ms
       case res of

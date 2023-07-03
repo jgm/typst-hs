@@ -528,6 +528,7 @@ data Operations m =
   { loadBytes :: FilePath -> m BS.ByteString
   , currentUTCTime :: m UTCTime
   , getXdgDir :: XdgDirectory -> FilePath -> m FilePath
+  , getHomeDir :: m FilePath
   , checkExistence :: FilePath -> m Bool
   }
 
@@ -539,6 +540,7 @@ data EvalState m = EvalState
     evalShowRules :: [ShowRule],
     evalStyles :: M.Map Identifier Arguments,
     evalFlowDirective :: FlowDirective,
+    evalPackageRoot :: FilePath,
     evalOperations :: Operations m
   }
 
@@ -550,6 +552,7 @@ emptyEvalState = EvalState
       evalShowRules = [],
       evalStyles = mempty,
       evalFlowDirective = FlowNormal,
+      evalPackageRoot = mempty,
       evalOperations = undefined
     }
 
