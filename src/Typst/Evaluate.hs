@@ -37,7 +37,6 @@ import Typst.Show (applyShowRules)
 import Typst.Syntax
 import Typst.Types
 import Typst.Util (makeFunction, nthArg)
-import qualified Toml as Toml
 
 -- import Debug.Trace
 
@@ -892,16 +891,12 @@ findPackageEntryPoint modname = do
              else fail $ "Could not find package in local packages or cache. Looked in " ++
                     (localDir </> subpath) ++ ", " ++ (cacheDir </> subpath)
              -- TODO? fetch from CDN if not present in cache?
-  tomlString <- T.unpack . TE.decodeUtf8Lenient <$> lift (loadBytes operations tomlPath)
-  case Toml.parse tomlString of
-    Left e -> fail e
-    Right toptbl ->
-      case M.lookup "package" toptbl of
-        Just (Toml.Table tbl) ->
-          case M.lookup "entrypoint" tbl of
-            Just (Toml.String f) -> pure $ replaceFileName tomlPath f
-            _ -> fail "Could not find entrypoint"
-        _ -> fail "Could not find [package] table"
+  tomlText <- TE.decodeUtf8Lenient <$> lift (loadBytes operations tomlPath)
+  let tomlLines = map T.strip $ T.lines $ tomlText
+  entrypoint <- case [e | e <- tomlLines, "entrypoint" `T.isPrefixOf` e] of
+                   [] -> fail "Could not find entrypoint in typst.toml"
+                   (e:_) -> pure $ T.takeWhile (/='"') . T.drop 1 . T.dropWhile (/='"') $ e
+  pure $ replaceFileName tomlPath (T.unpack entrypoint)
 
 loadModule :: Monad m => Text -> MP m (Identifier, M.Map Identifier Val)
 loadModule modname = do
