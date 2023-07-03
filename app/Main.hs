@@ -7,8 +7,8 @@ import Control.Monad (foldM, when)
 import qualified Data.ByteString as BS
 import Data.Maybe (fromMaybe)
 import qualified Data.Text.IO as TIO
-import System.Environment (getArgs, lookupEnv)
-import System.Directory (doesFileExist)
+import System.Environment (getArgs)
+import System.Directory (doesFileExist, getXdgDirectory)
 import System.Exit
 import System.IO (hPutStrLn, stderr)
 import System.Timeout (timeout)
@@ -51,11 +51,11 @@ parseArgs = foldM go (Nothing, Opts False False False False False False Nothing)
     go (Nothing, opts) f = pure (Just f, opts)
     go _ _ = err $ "Only one file can be specified as input."
 
-ops :: Operations IO
-ops = Operations
+operations :: Operations IO
+operations = Operations
   { loadBytes = BS.readFile
   , currentUTCTime = getCurrentTime
-  , getEnvVar = lookupEnv
+  , getXdgDir = getXdgDirectory
   , checkExistence = doesFileExist
   }
 

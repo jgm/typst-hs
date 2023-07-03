@@ -28,6 +28,7 @@ module Typst.Types
     Scope (..),
     FlowDirective (..),
     Operations (..),
+    XdgDirectory (..),
     EvalState (..),
     emptyEvalState,
     ShowRule (..),
@@ -75,6 +76,7 @@ import Typst.Regex (RE, makeLiteralRE)
 import Typst.Syntax (Identifier (..), Markup)
 import Data.Time (UTCTime, Day, DiffTime)
 import Data.Time.Format (defaultTimeLocale, formatTime)
+import System.Directory (XdgDirectory(..))
 
 data Val
   = VNone
@@ -525,7 +527,7 @@ data Operations m =
   Operations
   { loadBytes :: FilePath -> m BS.ByteString
   , currentUTCTime :: m UTCTime
-  , getEnvVar :: String -> m (Maybe String)
+  , getXdgDir :: XdgDirectory -> FilePath -> m FilePath
   , checkExistence :: FilePath -> m Bool
   }
 
