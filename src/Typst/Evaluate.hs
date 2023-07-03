@@ -891,7 +891,7 @@ findPackageEntryPoint modname = do
              else fail $ "Could not find package in local packages or cache. Looked in " ++
                     (localDir </> subpath) ++ ", " ++ (cacheDir </> subpath)
              -- TODO? fetch from CDN if not present in cache?
-  tomlText <- TE.decodeUtf8Lenient <$> lift (loadBytes operations tomlPath)
+  tomlText <- TE.decodeUtf8 <$> lift (loadBytes operations tomlPath)
   let tomlLines = map T.strip $ T.lines $ tomlText
   entrypoint <- case [e | e <- tomlLines, "entrypoint" `T.isPrefixOf` e] of
                    [] -> fail "Could not find entrypoint in typst.toml"
