@@ -71,12 +71,12 @@ getMethod updateVal val fld = do
             case OM.lookup (Identifier key) m of
               Nothing -> pure defval
               Just v -> pure v
-        "insert" ->
+        "insert" -> do
           pure $ makeFunction $ do
             key <- nthArg 1
             v <- nthArg 2
             lift $ updateVal $ VDict $ m OM.|> (Identifier key, v)
-            pure v
+            pure VNone
         "keys" ->
           pure $
             makeFunction $
