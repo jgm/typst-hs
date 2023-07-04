@@ -872,13 +872,28 @@ findPackageEntryPoint modname = do
   let (name, rest') = break (==':') $ drop 1 rest
   let version = drop 1 rest'
   operations <- evalOperations <$> getState
+  let getEnv var = do
+        mbv <- lift $ lookupEnvVar operations var
+        case mbv of
+          Just v -> pure v
+          Nothing -> fail (var <> " not defined")
 #ifdef __MACOS__
-  homeDir <- lift $ getHomeDir operations
+  homeDir <- getEnv "HOME"
   let localDir = homeDir </> "Library" </> "Application Support" </> "typst"
   let cacheDir = homeDir </> "Library" </> "Caches" </> "typst"
+#elif __WINDOWS__
+  appDataDir <- getEnv "APPDATA"
+  let localDir = appDataDir </> "typst"
+  localAppDataDir <- getEnv "LOCALAPPDATA"
+  let cacheDir = localAppDataDir </> "typst"
 #else
-  localDir <- lift $ getXdgDir operations XdgData "typst"
-  cacheDir <- lift $ getXdgDir operations XdgCache "typst"
+  homeDir <- getEnv "HOME"
+  dataDir <- maybe (pure (homeDir </> ".local" </> "share")) lift $
+                   lookupEnvVar operations "XDG_DATA_HOME"
+  cacheDir' <- maybe (pure (homeDir </> ".cache")) lift $
+                   lookupEnvVar operations "XDG_CACHE_HOME"
+  let localDir = dataDir </> "typst"
+  let cacheDir = cacheDir' </> "typst"
 #endif
   let subpath = "packages" </> namespace </> (name <> "-" <> version)
   inLocal <- lift $ checkExistence operations (localDir </> subpath </> "typst.toml")

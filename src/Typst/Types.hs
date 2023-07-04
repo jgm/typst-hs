@@ -527,8 +527,7 @@ data Operations m =
   Operations
   { loadBytes :: FilePath -> m BS.ByteString
   , currentUTCTime :: m UTCTime
-  , getXdgDir :: XdgDirectory -> FilePath -> m FilePath
-  , getHomeDir :: m FilePath
+  , lookupEnvVar :: String -> m (Maybe String)
   , checkExistence :: FilePath -> m Bool
   }
 

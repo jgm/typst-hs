@@ -79,6 +79,8 @@ library
     hs-source-dirs:   src
     if os(darwin)
       cpp-options: -D__MACOS__
+    if os(windows)
+      cpp-options: -D__WINDOWS__
     default-language: Haskell2010
 
 Flag executable
