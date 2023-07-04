@@ -1,0 +1,53 @@
+--- parse tree ---
+[ Code
+    "test/typ/regression/issue1.typ"
+    ( line 1 , column 2 )
+    (LetFunc
+       (Identifier "foo")
+       [ NormalParam (Identifier "x") ]
+       (Block
+          (CodeBlock
+             [ Return
+                 (Just (Array [ Spr (Identifier "x") , Reg (Literal (Int 5)) ]))
+             ])))
+, SoftBreak
+, Code
+    "test/typ/regression/issue1.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "foo"))
+       [ NormalArg
+           (Array [ Reg (Literal (Int 3)) , Reg (Literal (Int 4)) ])
+       ])
+, ParBreak
+]
+--- evaluated ---
+fromList
+  [ Elt
+      { eltName = Identifier "text"
+      , eltPos =
+          Just "test/typ/regression/issue1.typ" ( line 1 , column 2 )
+      , eltFields =
+          fromList
+            [ ( Identifier "body" , VContent (fromList [ Txt "\n" ]) ) ]
+      }
+  , Elt
+      { eltName = Identifier "text"
+      , eltPos =
+          Just "test/typ/regression/issue1.typ" ( line 6 , column 2 )
+      , eltFields =
+          fromList
+            [ ( Identifier "body" , VContent (fromList [ Txt "(3, 4, 5)" ]) ) ]
+      }
+  , Elt
+      { eltName = Identifier "parbreak"
+      , eltPos =
+          Just "test/typ/regression/issue1.typ" ( line 6 , column 2 )
+      , eltFields = fromList []
+      }
+  ]
+--- repr ---
+{ text(body: [
+]), 
+  text(body: [(3, 4, 5)]), 
+  parbreak() }

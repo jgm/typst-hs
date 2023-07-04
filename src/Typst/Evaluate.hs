@@ -443,13 +443,34 @@ evalExpr expr =
             )
             (VNone, False)
             exprs
-    Array e -> VArray . V.fromList <$> mapM evalExpr e
+    Array es -> VArray <$> foldM
+           ( \xs x ->
+               case x of
+                 Spr ident -> do
+                   val <- lookupIdentifier ident
+                   case val of
+                     VArray ys -> pure (xs <> ys)
+                     _ -> fail $ "Could not spread " <> show (valType val) <>
+                                 " into array"
+                 Reg e -> do
+                   val <- evalExpr e
+                   pure (V.snoc xs val ) )
+           []
+           es
     Dict items ->
       VDict
         <$> foldM
-          ( \m (k, e) -> do
-              val <- evalExpr e
-              pure $ m OM.|> (k, val)
+          ( \m v -> do
+              case v of
+                Reg (k, e) -> do
+                  val <- evalExpr e
+                  pure $ m OM.|> (k, val)
+                Spr ident -> do
+                  val <- lookupIdentifier ident
+                  case val of
+                    VDict m' -> pure (m' OM.|<> m)
+                    _ -> fail $ "Could not spread " <> show (valType val) <>
+                                " into dictionary"
           )
           OM.empty
           items

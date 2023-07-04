@@ -11,6 +11,7 @@ module Typst.Syntax
     BindPart (..),
     Literal (..),
     Block (..),
+    Spreadable (..),
     Expr (..),
     Unit (..),
   )
@@ -105,6 +106,11 @@ data Block
   | CodeBlock [Expr]
   deriving (Show, Ord, Eq, Data, Typeable)
 
+data Spreadable a =
+    Spr Identifier
+  | Reg a
+  deriving (Show, Ord, Eq, Data, Typeable)
+
 -- binary-op ::=
 --   '+' | '-' | '*' | '/' | 'and' | 'or' | '==' | '!=' |
 --   '<' | '<=' | '>' | '>=' | '=' | 'in' | ('not' 'in') |
@@ -132,8 +138,8 @@ data Expr
   | FuncExpr [Param] Expr
   | FieldAccess Expr Expr
   | Group Expr
-  | Array [Expr]
-  | Dict [(Identifier, Expr)]
+  | Array [Spreadable Expr]
+  | Dict [Spreadable (Identifier, Expr)]
   | Binding Bind
   | Let Bind Expr
   | LetFunc Identifier [Param] Expr

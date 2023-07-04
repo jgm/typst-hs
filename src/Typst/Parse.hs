@@ -961,8 +961,8 @@ pArrayExpr =
   try $
     inParens $
       ( do
-          v <- pExpr
-          vs <- many $ try $ sym "," *> pExpr
+          v <- pSpread <|> (Reg <$> pExpr)
+          vs <- many $ try $ sym "," *> (pSpread <|> (Reg <$> pExpr))
           if null vs
             then void $ sym ","
             else optional $ void $ sym ","
@@ -976,12 +976,15 @@ pDictExpr :: P Expr
 pDictExpr = try $ inParens (pEmptyDict <|> pNonemptyDict)
   where
     pEmptyDict = Dict mempty <$ sym ":"
-    pNonemptyDict = Dict <$> sepEndBy1 pPair (sym ",")
-    pPair = (,) <$> pKey <*> try (sym ":" *> pExpr)
+    pNonemptyDict = Dict <$> sepEndBy1 (pSpread <|> pPair) (sym ",")
+    pPair = Reg <$> ((,) <$> pKey <*> try (sym ":" *> pExpr))
     pKey = pIdentifier <|> pStrKey
     pStrKey = do
       String t <- pStr
       pure $ Identifier t
+
+pSpread :: P (Spreadable a)
+pSpread = try $ string ".." *> (Spr <$> pIdentifier)
 
 -- func-expr ::= (params | ident) '=>' expr
 pFuncExpr :: P Expr
