@@ -48,7 +48,9 @@
        [ KeyValArg
            (Identifier "marker")
            (Array
-              [ Block (Content [ EnDash ]) , Block (Content [ Text "\8226" ]) ])
+              [ Reg (Block (Content [ EnDash ]))
+              , Reg (Block (Content [ Text "\8226" ]))
+              ])
        ])
 , SoftBreak
 , BulletListItem

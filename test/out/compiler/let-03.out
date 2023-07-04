@@ -49,7 +49,7 @@
           [ Simple (Just (Identifier "a"))
           , Simple (Just (Identifier "b"))
           ])
-       (Array [ Literal (Int 1) , Literal (Int 2) ]))
+       (Array [ Reg (Literal (Int 1)) , Reg (Literal (Int 2)) ]))
 , SoftBreak
 , Code
     "test/typ/compiler/let-03.typ"

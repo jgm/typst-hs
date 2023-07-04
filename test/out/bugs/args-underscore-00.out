@@ -51,7 +51,11 @@
                  (FuncCall
                     (FieldAccess
                        (Ident (Identifier "map"))
-                       (Array [ Literal (Int 1) , Literal (Int 2) , Literal (Int 3) ]))
+                       (Array
+                          [ Reg (Literal (Int 1))
+                          , Reg (Literal (Int 2))
+                          , Reg (Literal (Int 3))
+                          ]))
                     [ NormalArg (FuncExpr [ SkipParam ] (Block (CodeBlock []))) ]))
               [])
        , NormalArg (Literal (Int 3))

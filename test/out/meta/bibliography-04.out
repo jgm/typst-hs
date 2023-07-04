@@ -91,8 +91,8 @@
        (Ident (Identifier "bibliography"))
        [ NormalArg
            (Array
-              [ Literal (String "/works.bib")
-              , Literal (String "/works_too.bib")
+              [ Reg (Literal (String "/works.bib"))
+              , Reg (Literal (String "/works_too.bib"))
               ])
        ])
 , ParBreak

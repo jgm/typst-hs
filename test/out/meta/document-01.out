@@ -48,7 +48,7 @@
        (Ident (Identifier "document"))
        [ KeyValArg
            (Identifier "author")
-           (Array [ Literal (String "A") , Literal (String "B") ])
+           (Array [ Reg (Literal (String "A")) , Reg (Literal (String "B")) ])
        ])
 , ParBreak
 ]

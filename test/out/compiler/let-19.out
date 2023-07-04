@@ -49,7 +49,7 @@
           [ WithKey (Identifier "a") Nothing
           , Sink (Just (Identifier "b"))
           ])
-       (Dict [ ( Identifier "a" , Literal (Int 1) ) ]))
+       (Dict [ Reg ( Identifier "a" , Literal (Int 1) ) ]))
 , SoftBreak
 , Code
     "test/typ/compiler/let-19.typ"

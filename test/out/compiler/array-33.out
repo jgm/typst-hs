@@ -77,13 +77,16 @@
               (FieldAccess
                  (Ident (Identifier "sorted"))
                  (Times
-                    (Array [ Literal (Boolean True) , Literal (Boolean False) ])
+                    (Array
+                       [ Reg (Literal (Boolean True)) , Reg (Literal (Boolean False)) ])
                     (Literal (Int 10))))
               [])
        , NormalArg
            (Plus
-              (Times (Array [ Literal (Boolean False) ]) (Literal (Int 10)))
-              (Times (Array [ Literal (Boolean True) ]) (Literal (Int 10))))
+              (Times
+                 (Array [ Reg (Literal (Boolean False)) ]) (Literal (Int 10)))
+              (Times
+                 (Array [ Reg (Literal (Boolean True)) ]) (Literal (Int 10))))
        ])
 , SoftBreak
 , Code
@@ -96,18 +99,18 @@
               (FieldAccess
                  (Ident (Identifier "sorted"))
                  (Array
-                    [ Literal (String "it")
-                    , Literal (String "the")
-                    , Literal (String "hi")
-                    , Literal (String "text")
+                    [ Reg (Literal (String "it"))
+                    , Reg (Literal (String "the"))
+                    , Reg (Literal (String "hi"))
+                    , Reg (Literal (String "text"))
                     ]))
               [])
        , NormalArg
            (Array
-              [ Literal (String "hi")
-              , Literal (String "it")
-              , Literal (String "text")
-              , Literal (String "the")
+              [ Reg (Literal (String "hi"))
+              , Reg (Literal (String "it"))
+              , Reg (Literal (String "text"))
+              , Reg (Literal (String "the"))
               ])
        ])
 , SoftBreak
@@ -121,10 +124,10 @@
               (FieldAccess
                  (Ident (Identifier "sorted"))
                  (Array
-                    [ Literal (String "I")
-                    , Literal (String "the")
-                    , Literal (String "hi")
-                    , Literal (String "text")
+                    [ Reg (Literal (String "I"))
+                    , Reg (Literal (String "the"))
+                    , Reg (Literal (String "hi"))
+                    , Reg (Literal (String "text"))
                     ]))
               [ KeyValArg
                   (Identifier "key")
@@ -133,10 +136,10 @@
               ])
        , NormalArg
            (Array
-              [ Literal (String "I")
-              , Literal (String "hi")
-              , Literal (String "text")
-              , Literal (String "the")
+              [ Reg (Literal (String "I"))
+              , Reg (Literal (String "hi"))
+              , Reg (Literal (String "text"))
+              , Reg (Literal (String "the"))
               ])
        ])
 , SoftBreak
@@ -150,10 +153,10 @@
               (FieldAccess
                  (Ident (Identifier "sorted"))
                  (Array
-                    [ Literal (String "I")
-                    , Literal (String "the")
-                    , Literal (String "hi")
-                    , Literal (String "text")
+                    [ Reg (Literal (String "I"))
+                    , Reg (Literal (String "the"))
+                    , Reg (Literal (String "hi"))
+                    , Reg (Literal (String "text"))
                     ]))
               [ KeyValArg
                   (Identifier "key")
@@ -165,10 +168,10 @@
               ])
        , NormalArg
            (Array
-              [ Literal (String "I")
-              , Literal (String "hi")
-              , Literal (String "the")
-              , Literal (String "text")
+              [ Reg (Literal (String "I"))
+              , Reg (Literal (String "hi"))
+              , Reg (Literal (String "the"))
+              , Reg (Literal (String "text"))
               ])
        ])
 , SoftBreak
@@ -182,28 +185,28 @@
               (FieldAccess
                  (Ident (Identifier "sorted"))
                  (Array
-                    [ Literal (Int 2)
-                    , Literal (Int 1)
-                    , Literal (Int 3)
-                    , Literal (Int 10)
-                    , Literal (Int 5)
-                    , Literal (Int 8)
-                    , Literal (Int 6)
-                    , Negated (Literal (Int 7))
-                    , Literal (Int 2)
+                    [ Reg (Literal (Int 2))
+                    , Reg (Literal (Int 1))
+                    , Reg (Literal (Int 3))
+                    , Reg (Literal (Int 10))
+                    , Reg (Literal (Int 5))
+                    , Reg (Literal (Int 8))
+                    , Reg (Literal (Int 6))
+                    , Reg (Negated (Literal (Int 7)))
+                    , Reg (Literal (Int 2))
                     ]))
               [])
        , NormalArg
            (Array
-              [ Negated (Literal (Int 7))
-              , Literal (Int 1)
-              , Literal (Int 2)
-              , Literal (Int 2)
-              , Literal (Int 3)
-              , Literal (Int 5)
-              , Literal (Int 6)
-              , Literal (Int 8)
-              , Literal (Int 10)
+              [ Reg (Negated (Literal (Int 7)))
+              , Reg (Literal (Int 1))
+              , Reg (Literal (Int 2))
+              , Reg (Literal (Int 2))
+              , Reg (Literal (Int 3))
+              , Reg (Literal (Int 5))
+              , Reg (Literal (Int 6))
+              , Reg (Literal (Int 8))
+              , Reg (Literal (Int 10))
               ])
        ])
 , SoftBreak
@@ -217,15 +220,15 @@
               (FieldAccess
                  (Ident (Identifier "sorted"))
                  (Array
-                    [ Literal (Int 2)
-                    , Literal (Int 1)
-                    , Literal (Int 3)
-                    , Negated (Literal (Int 10))
-                    , Negated (Literal (Int 5))
-                    , Literal (Int 8)
-                    , Literal (Int 6)
-                    , Negated (Literal (Int 7))
-                    , Literal (Int 2)
+                    [ Reg (Literal (Int 2))
+                    , Reg (Literal (Int 1))
+                    , Reg (Literal (Int 3))
+                    , Reg (Negated (Literal (Int 10)))
+                    , Reg (Negated (Literal (Int 5)))
+                    , Reg (Literal (Int 8))
+                    , Reg (Literal (Int 6))
+                    , Reg (Negated (Literal (Int 7)))
+                    , Reg (Literal (Int 2))
                     ]))
               [ KeyValArg
                   (Identifier "key")
@@ -234,15 +237,15 @@
               ])
        , NormalArg
            (Array
-              [ Negated (Literal (Int 10))
-              , Negated (Literal (Int 7))
-              , Negated (Literal (Int 5))
-              , Literal (Int 1)
-              , Literal (Int 2)
-              , Literal (Int 2)
-              , Literal (Int 3)
-              , Literal (Int 6)
-              , Literal (Int 8)
+              [ Reg (Negated (Literal (Int 10)))
+              , Reg (Negated (Literal (Int 7)))
+              , Reg (Negated (Literal (Int 5)))
+              , Reg (Literal (Int 1))
+              , Reg (Literal (Int 2))
+              , Reg (Literal (Int 2))
+              , Reg (Literal (Int 3))
+              , Reg (Literal (Int 6))
+              , Reg (Literal (Int 8))
               ])
        ])
 , SoftBreak
@@ -256,15 +259,15 @@
               (FieldAccess
                  (Ident (Identifier "sorted"))
                  (Array
-                    [ Literal (Int 2)
-                    , Literal (Int 1)
-                    , Literal (Int 3)
-                    , Negated (Literal (Int 10))
-                    , Negated (Literal (Int 5))
-                    , Literal (Int 8)
-                    , Literal (Int 6)
-                    , Negated (Literal (Int 7))
-                    , Literal (Int 2)
+                    [ Reg (Literal (Int 2))
+                    , Reg (Literal (Int 1))
+                    , Reg (Literal (Int 3))
+                    , Reg (Negated (Literal (Int 10)))
+                    , Reg (Negated (Literal (Int 5)))
+                    , Reg (Literal (Int 8))
+                    , Reg (Literal (Int 6))
+                    , Reg (Negated (Literal (Int 7)))
+                    , Reg (Literal (Int 2))
                     ]))
               [ KeyValArg
                   (Identifier "key")
@@ -274,15 +277,15 @@
               ])
        , NormalArg
            (Array
-              [ Literal (Int 1)
-              , Literal (Int 2)
-              , Literal (Int 2)
-              , Literal (Int 3)
-              , Negated (Literal (Int 5))
-              , Literal (Int 6)
-              , Negated (Literal (Int 7))
-              , Literal (Int 8)
-              , Negated (Literal (Int 10))
+              [ Reg (Literal (Int 1))
+              , Reg (Literal (Int 2))
+              , Reg (Literal (Int 2))
+              , Reg (Literal (Int 3))
+              , Reg (Negated (Literal (Int 5)))
+              , Reg (Literal (Int 6))
+              , Reg (Negated (Literal (Int 7)))
+              , Reg (Literal (Int 8))
+              , Reg (Negated (Literal (Int 10)))
               ])
        ])
 , ParBreak

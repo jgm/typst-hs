@@ -61,8 +61,8 @@
           , Simple (Just (Identifier "v"))
           ])
        (Dict
-          [ ( Identifier "Name" , Literal (String "Typst") )
-          , ( Identifier "Age" , Literal (Int 2) )
+          [ Reg ( Identifier "Name" , Literal (String "Typst") )
+          , Reg ( Identifier "Age" , Literal (Int 2) )
           ])
        (Block
           (Content
@@ -92,10 +92,10 @@
           , For
               (BasicBind (Just (Identifier "v")))
               (Array
-                 [ Literal (Int 1)
-                 , Literal (Int 2)
-                 , Literal (Int 3)
-                 , Literal (Int 4)
+                 [ Reg (Literal (Int 1))
+                 , Reg (Literal (Int 2))
+                 , Reg (Literal (Int 3))
+                 , Reg (Literal (Int 4))
                  ])
               (Block
                  (CodeBlock
@@ -143,13 +143,13 @@
     (For
        (BasicBind (Just (Identifier "v")))
        (Array
-          [ Literal (Int 1)
-          , Literal (Int 2)
-          , Literal (Int 3)
-          , Literal (Int 4)
-          , Literal (Int 5)
-          , Literal (Int 6)
-          , Literal (Int 7)
+          [ Reg (Literal (Int 1))
+          , Reg (Literal (Int 2))
+          , Reg (Literal (Int 3))
+          , Reg (Literal (Int 4))
+          , Reg (Literal (Int 5))
+          , Reg (Literal (Int 6))
+          , Reg (Literal (Int 7))
           ])
        (Block
           (Content

@@ -191,8 +191,8 @@
               , KeyValArg
                   (Identifier "radius")
                   (Dict
-                     [ ( Identifier "left" , Literal (Numeric 10.0 Pt) )
-                     , ( Identifier "right" , Literal (Numeric 5.0 Pt) )
+                     [ Reg ( Identifier "left" , Literal (Numeric 10.0 Pt) )
+                     , Reg ( Identifier "right" , Literal (Numeric 5.0 Pt) )
                      ])
               ])
        , NormalArg
@@ -202,10 +202,10 @@
               , KeyValArg
                   (Identifier "radius")
                   (Dict
-                     [ ( Identifier "top-left" , Literal (Numeric 2.0 Pt) )
-                     , ( Identifier "top-right" , Literal (Numeric 5.0 Pt) )
-                     , ( Identifier "bottom-right" , Literal (Numeric 8.0 Pt) )
-                     , ( Identifier "bottom-left" , Literal (Numeric 11.0 Pt) )
+                     [ Reg ( Identifier "top-left" , Literal (Numeric 2.0 Pt) )
+                     , Reg ( Identifier "top-right" , Literal (Numeric 5.0 Pt) )
+                     , Reg ( Identifier "bottom-right" , Literal (Numeric 8.0 Pt) )
+                     , Reg ( Identifier "bottom-left" , Literal (Numeric 11.0 Pt) )
                      ])
               ])
        ])
@@ -218,7 +218,7 @@
        (Ident (Identifier "rect"))
        [ KeyValArg
            (Identifier "stroke")
-           (Dict [ ( Identifier "right" , Ident (Identifier "red") ) ])
+           (Dict [ Reg ( Identifier "right" , Ident (Identifier "red") ) ])
        ])
 , SoftBreak
 , Code
@@ -231,8 +231,8 @@
        , KeyValArg
            (Identifier "stroke")
            (Dict
-              [ ( Identifier "x" , Literal (Numeric 5.0 Pt) )
-              , ( Identifier "y" , Literal (Numeric 1.0 Pt) )
+              [ Reg ( Identifier "x" , Literal (Numeric 5.0 Pt) )
+              , Reg ( Identifier "y" , Literal (Numeric 1.0 Pt) )
               ])
        ])
 , ParBreak

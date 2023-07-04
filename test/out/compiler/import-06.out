@@ -50,7 +50,7 @@
     ( line 4 , column 2 )
     (Let
        (BasicBind (Just (Identifier "d")))
-       (Dict [ ( Identifier "e" , Ident (Identifier "enum") ) ]))
+       (Dict [ Reg ( Identifier "e" , Ident (Identifier "enum") ) ]))
 , SoftBreak
 , Code
     "test/typ/compiler/import-06.typ"

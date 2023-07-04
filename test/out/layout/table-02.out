@@ -48,16 +48,16 @@
        [ KeyValArg
            (Identifier "columns")
            (Array
-              [ Literal (Numeric 1.0 Fr)
-              , Literal (Numeric 1.0 Fr)
-              , Literal (Numeric 1.0 Fr)
+              [ Reg (Literal (Numeric 1.0 Fr))
+              , Reg (Literal (Numeric 1.0 Fr))
+              , Reg (Literal (Numeric 1.0 Fr))
               ])
        , KeyValArg
            (Identifier "align")
            (Array
-              [ Ident (Identifier "left")
-              , Ident (Identifier "center")
-              , Ident (Identifier "right")
+              [ Reg (Ident (Identifier "left"))
+              , Reg (Ident (Identifier "center"))
+              , Reg (Ident (Identifier "right"))
               ])
        , NormalArg (Block (Content [ Text "A" ]))
        , NormalArg (Block (Content [ Text "B" ]))
@@ -80,9 +80,9 @@
        [ KeyValArg
            (Identifier "columns")
            (Array
-              [ Literal (Numeric 1.0 Fr)
-              , Literal (Numeric 1.0 Fr)
-              , Literal (Numeric 1.0 Fr)
+              [ Reg (Literal (Numeric 1.0 Fr))
+              , Reg (Literal (Numeric 1.0 Fr))
+              , Reg (Literal (Numeric 1.0 Fr))
               ])
        , KeyValArg (Identifier "align") (Array [])
        , NormalArg (Block (Content [ Text "A" ]))

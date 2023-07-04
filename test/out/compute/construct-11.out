@@ -49,7 +49,11 @@
               (FuncCall
                  (Ident (Identifier "range"))
                  [ NormalArg (Literal (Int 2)) , NormalArg (Literal (Int 5)) ])
-              (Array [ Literal (Int 2) , Literal (Int 3) , Literal (Int 4) ]))
+              (Array
+                 [ Reg (Literal (Int 2))
+                 , Reg (Literal (Int 3))
+                 , Reg (Literal (Int 4))
+                 ]))
        ])
 , ParBreak
 ]

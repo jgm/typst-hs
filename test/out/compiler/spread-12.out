@@ -50,7 +50,8 @@
               [ SinkParam (Just (Identifier "a"))
               , NormalParam (Identifier "b")
               ]
-              (Array [ Ident (Identifier "a") , Ident (Identifier "b") ])
+              (Array
+                 [ Reg (Ident (Identifier "a")) , Reg (Ident (Identifier "b")) ])
           , FuncCall
               (Ident (Identifier "test"))
               [ NormalArg

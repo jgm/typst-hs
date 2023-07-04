@@ -50,13 +50,14 @@
               (FieldAccess
                  (Ident (Identifier "slice"))
                  (Array
-                    [ Literal (Int 1)
-                    , Literal (Int 2)
-                    , Literal (Int 3)
-                    , Literal (Int 4)
+                    [ Reg (Literal (Int 1))
+                    , Reg (Literal (Int 2))
+                    , Reg (Literal (Int 3))
+                    , Reg (Literal (Int 4))
                     ]))
               [ NormalArg (Literal (Int 2)) ])
-       , NormalArg (Array [ Literal (Int 3) , Literal (Int 4) ])
+       , NormalArg
+           (Array [ Reg (Literal (Int 3)) , Reg (Literal (Int 4)) ])
        ])
 , SoftBreak
 , Code
@@ -73,10 +74,10 @@
               [ NormalArg (Literal (Int 2)) , NormalArg (Literal (Int 6)) ])
        , NormalArg
            (Array
-              [ Literal (Int 2)
-              , Literal (Int 3)
-              , Literal (Int 4)
-              , Literal (Int 5)
+              [ Reg (Literal (Int 2))
+              , Reg (Literal (Int 3))
+              , Reg (Literal (Int 4))
+              , Reg (Literal (Int 5))
               ])
        ])
 , SoftBreak
@@ -95,7 +96,11 @@
               , KeyValArg (Identifier "count") (Literal (Int 3))
               ])
        , NormalArg
-           (Array [ Literal (Int 4) , Literal (Int 5) , Literal (Int 6) ])
+           (Array
+              [ Reg (Literal (Int 4))
+              , Reg (Literal (Int 5))
+              , Reg (Literal (Int 6))
+              ])
        ])
 , SoftBreak
 , Code
@@ -112,7 +117,8 @@
               [ NormalArg (Negated (Literal (Int 5)))
               , KeyValArg (Identifier "count") (Literal (Int 2))
               ])
-       , NormalArg (Array [ Literal (Int 5) , Literal (Int 6) ])
+       , NormalArg
+           (Array [ Reg (Literal (Int 5)) , Reg (Literal (Int 6)) ])
        ])
 , SoftBreak
 , Code
@@ -124,7 +130,11 @@
            (FuncCall
               (FieldAccess
                  (Ident (Identifier "slice"))
-                 (Array [ Literal (Int 1) , Literal (Int 2) , Literal (Int 3) ]))
+                 (Array
+                    [ Reg (Literal (Int 1))
+                    , Reg (Literal (Int 2))
+                    , Reg (Literal (Int 3))
+                    ]))
               [ NormalArg (Literal (Int 2))
               , NormalArg (Negated (Literal (Int 2)))
               ])
@@ -140,11 +150,15 @@
            (FuncCall
               (FieldAccess
                  (Ident (Identifier "slice"))
-                 (Array [ Literal (Int 1) , Literal (Int 2) , Literal (Int 3) ]))
+                 (Array
+                    [ Reg (Literal (Int 1))
+                    , Reg (Literal (Int 2))
+                    , Reg (Literal (Int 3))
+                    ]))
               [ NormalArg (Negated (Literal (Int 2)))
               , NormalArg (Literal (Int 2))
               ])
-       , NormalArg (Array [ Literal (Int 2) ])
+       , NormalArg (Array [ Reg (Literal (Int 2)) ])
        ])
 , SoftBreak
 , Code
@@ -156,11 +170,16 @@
            (FuncCall
               (FieldAccess
                  (Ident (Identifier "slice"))
-                 (Array [ Literal (Int 1) , Literal (Int 2) , Literal (Int 3) ]))
+                 (Array
+                    [ Reg (Literal (Int 1))
+                    , Reg (Literal (Int 2))
+                    , Reg (Literal (Int 3))
+                    ]))
               [ NormalArg (Negated (Literal (Int 3)))
               , NormalArg (Literal (Int 2))
               ])
-       , NormalArg (Array [ Literal (Int 1) , Literal (Int 2) ])
+       , NormalArg
+           (Array [ Reg (Literal (Int 1)) , Reg (Literal (Int 2)) ])
        ])
 , SoftBreak
 , Code

@@ -71,7 +71,7 @@
        [ NormalArg
            (FieldAccess
               (Ident (Identifier "null_key")) (Ident (Identifier "data")))
-       , NormalArg (Array [ Literal None , Literal None ])
+       , NormalArg (Array [ Reg (Literal None) , Reg (Literal None) ])
        ])
 , SoftBreak
 , Code
@@ -117,8 +117,8 @@
               (Ident (Identifier "mapping")) (Ident (Identifier "data")))
        , NormalArg
            (Dict
-              [ ( Identifier "1" , Literal (String "one") )
-              , ( Identifier "2" , Literal (String "two") )
+              [ Reg ( Identifier "1" , Literal (String "one") )
+              , Reg ( Identifier "2" , Literal (String "two") )
               ])
        ])
 , SoftBreak
@@ -132,10 +132,10 @@
               (Ident (Identifier "seq")) (Ident (Identifier "data")))
        , NormalArg
            (Array
-              [ Literal (Int 1)
-              , Literal (Int 2)
-              , Literal (Int 3)
-              , Literal (Int 4)
+              [ Reg (Literal (Int 1))
+              , Reg (Literal (Int 2))
+              , Reg (Literal (Int 3))
+              , Reg (Literal (Int 4))
               ])
        ])
 , SoftBreak

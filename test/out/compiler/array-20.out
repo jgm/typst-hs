@@ -65,16 +65,17 @@
               (FieldAccess
                  (Ident (Identifier "filter"))
                  (Array
-                    [ Literal (Int 1)
-                    , Literal (Int 2)
-                    , Literal (Int 3)
-                    , Literal (Int 4)
+                    [ Reg (Literal (Int 1))
+                    , Reg (Literal (Int 2))
+                    , Reg (Literal (Int 3))
+                    , Reg (Literal (Int 4))
                     ]))
               [ NormalArg
                   (FieldAccess
                      (Ident (Identifier "even")) (Ident (Identifier "calc")))
               ])
-       , NormalArg (Array [ Literal (Int 2) , Literal (Int 4) ])
+       , NormalArg
+           (Array [ Reg (Literal (Int 2)) , Reg (Literal (Int 4)) ])
        ])
 , SoftBreak
 , Code
@@ -87,11 +88,11 @@
               (FieldAccess
                  (Ident (Identifier "filter"))
                  (Array
-                    [ Literal (Int 7)
-                    , Literal (Int 3)
-                    , Literal (Int 2)
-                    , Literal (Int 5)
-                    , Literal (Int 1)
+                    [ Reg (Literal (Int 7))
+                    , Reg (Literal (Int 3))
+                    , Reg (Literal (Int 2))
+                    , Reg (Literal (Int 5))
+                    , Reg (Literal (Int 1))
                     ]))
               [ NormalArg
                   (FuncExpr
@@ -99,7 +100,11 @@
                      (LessThan (Ident (Identifier "x")) (Literal (Int 5))))
               ])
        , NormalArg
-           (Array [ Literal (Int 3) , Literal (Int 2) , Literal (Int 1) ])
+           (Array
+              [ Reg (Literal (Int 3))
+              , Reg (Literal (Int 2))
+              , Reg (Literal (Int 1))
+              ])
        ])
 , ParBreak
 ]

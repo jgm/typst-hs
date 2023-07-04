@@ -46,8 +46,8 @@
     (Let
        (BasicBind (Just (Identifier "dict")))
        (Dict
-          [ ( Identifier "nothing" , Literal (String "ness") )
-          , ( Identifier "hello" , Literal (String "world") )
+          [ Reg ( Identifier "nothing" , Literal (String "ness") )
+          , Reg ( Identifier "hello" , Literal (String "world") )
           ]))
 , SoftBreak
 , Code

@@ -51,7 +51,8 @@
                  (Ident (Identifier "split")) (Literal (String "Hi there")))
               [])
        , NormalArg
-           (Array [ Literal (String "Hi") , Literal (String "there") ])
+           (Array
+              [ Reg (Literal (String "Hi")) , Reg (Literal (String "there")) ])
        ])
 , ParBreak
 ]

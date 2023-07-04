@@ -48,10 +48,10 @@
     (For
        (BasicBind (Just (Identifier "color")))
        (Array
-          [ Ident (Identifier "red")
-          , Ident (Identifier "blue")
-          , Ident (Identifier "green")
-          , Ident (Identifier "yellow")
+          [ Reg (Ident (Identifier "red"))
+          , Reg (Ident (Identifier "blue"))
+          , Reg (Ident (Identifier "green"))
+          , Reg (Ident (Identifier "yellow"))
           ])
        (Block
           (Content

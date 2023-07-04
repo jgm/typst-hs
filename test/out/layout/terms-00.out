@@ -47,13 +47,13 @@
        (Ident (Identifier "terms"))
        [ NormalArg
            (Array
-              [ Block (Content [ Text "One" ])
-              , Block (Content [ Text "First" ])
+              [ Reg (Block (Content [ Text "One" ]))
+              , Reg (Block (Content [ Text "First" ]))
               ])
        , NormalArg
            (Array
-              [ Block (Content [ Text "Two" ])
-              , Block (Content [ Text "Second" ])
+              [ Reg (Block (Content [ Text "Two" ]))
+              , Reg (Block (Content [ Text "Second" ]))
               ])
        ])
 , ParBreak

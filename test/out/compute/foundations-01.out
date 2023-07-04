@@ -61,7 +61,10 @@
               (Ident (Identifier "repr"))
               [ NormalArg
                   (Array
-                     [ Literal (Int 1) , Literal (Int 2) , Literal (Boolean False) ])
+                     [ Reg (Literal (Int 1))
+                     , Reg (Literal (Int 2))
+                     , Reg (Literal (Boolean False))
+                     ])
               ])
        , NormalArg (Literal (String "(1, 2, false)"))
        ])

@@ -49,7 +49,11 @@
            (FuncCall
               (FieldAccess
                  (Ident (Identifier "at"))
-                 (Array [ Literal (Int 1) , Literal (Int 2) , Literal (Int 3) ]))
+                 (Array
+                    [ Reg (Literal (Int 1))
+                    , Reg (Literal (Int 2))
+                    , Reg (Literal (Int 3))
+                    ]))
               [ NormalArg (Literal (Int 2))
               , KeyValArg (Identifier "default") (Literal (Int 5))
               ])
@@ -65,7 +69,11 @@
            (FuncCall
               (FieldAccess
                  (Ident (Identifier "at"))
-                 (Array [ Literal (Int 1) , Literal (Int 2) , Literal (Int 3) ]))
+                 (Array
+                    [ Reg (Literal (Int 1))
+                    , Reg (Literal (Int 2))
+                    , Reg (Literal (Int 3))
+                    ]))
               [ NormalArg (Literal (Int 3))
               , KeyValArg (Identifier "default") (Literal (Int 5))
               ])

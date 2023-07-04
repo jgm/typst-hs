@@ -73,7 +73,8 @@
            (FuncCall
               (FieldAccess
                  (Ident (Identifier "product"))
-                 (Array [ Block (Content [ Text "ab" ]) , Literal (Int 3) ]))
+                 (Array
+                    [ Reg (Block (Content [ Text "ab" ])) , Reg (Literal (Int 3)) ]))
               [])
        , NormalArg
            (Times (Block (Content [ Text "ab" ])) (Literal (Int 3)))
@@ -88,7 +89,11 @@
            (FuncCall
               (FieldAccess
                  (Ident (Identifier "product"))
-                 (Array [ Literal (Int 1) , Literal (Int 2) , Literal (Int 3) ]))
+                 (Array
+                    [ Reg (Literal (Int 1))
+                    , Reg (Literal (Int 2))
+                    , Reg (Literal (Int 3))
+                    ]))
               [])
        , NormalArg (Literal (Int 6))
        ])

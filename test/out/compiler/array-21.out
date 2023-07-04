@@ -65,13 +65,14 @@
            (FuncCall
               (FieldAccess
                  (Ident (Identifier "map"))
-                 (Array [ Literal (Int 2) , Literal (Int 3) ]))
+                 (Array [ Reg (Literal (Int 2)) , Reg (Literal (Int 3)) ]))
               [ NormalArg
                   (FuncExpr
                      [ NormalParam (Identifier "x") ]
                      (Times (Ident (Identifier "x")) (Literal (Int 2))))
               ])
-       , NormalArg (Array [ Literal (Int 4) , Literal (Int 6) ])
+       , NormalArg
+           (Array [ Reg (Literal (Int 4)) , Reg (Literal (Int 6)) ])
        ])
 , ParBreak
 ]

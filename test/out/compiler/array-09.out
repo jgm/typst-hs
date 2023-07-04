@@ -48,10 +48,10 @@
           [ Let
               (BasicBind (Just (Identifier "array")))
               (Array
-                 [ Literal (Int 1)
-                 , Literal (Int 2)
-                 , Literal (Int 3)
-                 , Literal (Int 4)
+                 [ Reg (Literal (Int 1))
+                 , Reg (Literal (Int 2))
+                 , Reg (Literal (Int 3))
+                 , Reg (Literal (Int 4))
                  ])
           , FuncCall
               (Ident (Identifier "test"))

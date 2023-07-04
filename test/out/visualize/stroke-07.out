@@ -103,11 +103,13 @@
        , KeyValArg
            (Identifier "stroke")
            (Dict
-              [ ( Identifier "paint" , Ident (Identifier "red") )
-              , ( Identifier "thickness" , Literal (Numeric 0.0 Pt) )
-              , ( Identifier "dash"
-                , Array [ Literal (String "dot") , Literal (Numeric 1.0 Pt) ]
-                )
+              [ Reg ( Identifier "paint" , Ident (Identifier "red") )
+              , Reg ( Identifier "thickness" , Literal (Numeric 0.0 Pt) )
+              , Reg
+                  ( Identifier "dash"
+                  , Array
+                      [ Reg (Literal (String "dot")) , Reg (Literal (Numeric 1.0 Pt)) ]
+                  )
               ])
        ])
 , ParBreak
@@ -143,35 +145,55 @@
        , KeyValArg (Identifier "closed") (Literal (Boolean True))
        , NormalArg
            (Array
-              [ Array
-                  [ Literal (Numeric 0.0 Percent) , Literal (Numeric 0.0 Percent) ]
-              , Array
-                  [ Literal (Numeric 4.0 Percent)
-                  , Negated (Literal (Numeric 4.0 Percent))
-                  ]
+              [ Reg
+                  (Array
+                     [ Reg (Literal (Numeric 0.0 Percent))
+                     , Reg (Literal (Numeric 0.0 Percent))
+                     ])
+              , Reg
+                  (Array
+                     [ Reg (Literal (Numeric 4.0 Percent))
+                     , Reg (Negated (Literal (Numeric 4.0 Percent)))
+                     ])
               ])
        , NormalArg
            (Array
-              [ Array
-                  [ Literal (Numeric 50.0 Percent) , Literal (Numeric 50.0 Percent) ]
-              , Array
-                  [ Literal (Numeric 4.0 Percent)
-                  , Negated (Literal (Numeric 4.0 Percent))
-                  ]
+              [ Reg
+                  (Array
+                     [ Reg (Literal (Numeric 50.0 Percent))
+                     , Reg (Literal (Numeric 50.0 Percent))
+                     ])
+              , Reg
+                  (Array
+                     [ Reg (Literal (Numeric 4.0 Percent))
+                     , Reg (Negated (Literal (Numeric 4.0 Percent)))
+                     ])
               ])
        , NormalArg
            (Array
-              [ Array
-                  [ Literal (Numeric 0.0 Percent) , Literal (Numeric 50.0 Percent) ]
-              , Array
-                  [ Literal (Numeric 4.0 Percent) , Literal (Numeric 4.0 Percent) ]
+              [ Reg
+                  (Array
+                     [ Reg (Literal (Numeric 0.0 Percent))
+                     , Reg (Literal (Numeric 50.0 Percent))
+                     ])
+              , Reg
+                  (Array
+                     [ Reg (Literal (Numeric 4.0 Percent))
+                     , Reg (Literal (Numeric 4.0 Percent))
+                     ])
               ])
        , NormalArg
            (Array
-              [ Array
-                  [ Literal (Numeric 50.0 Percent) , Literal (Numeric 0.0 Percent) ]
-              , Array
-                  [ Literal (Numeric 4.0 Percent) , Literal (Numeric 4.0 Percent) ]
+              [ Reg
+                  (Array
+                     [ Reg (Literal (Numeric 50.0 Percent))
+                     , Reg (Literal (Numeric 0.0 Percent))
+                     ])
+              , Reg
+                  (Array
+                     [ Reg (Literal (Numeric 4.0 Percent))
+                     , Reg (Literal (Numeric 4.0 Percent))
+                     ])
               ])
        ])
 , ParBreak
@@ -185,35 +207,55 @@
        , KeyValArg (Identifier "closed") (Literal (Boolean True))
        , NormalArg
            (Array
-              [ Array
-                  [ Literal (Numeric 0.0 Percent) , Literal (Numeric 0.0 Percent) ]
-              , Array
-                  [ Literal (Numeric 4.0 Percent)
-                  , Negated (Literal (Numeric 4.0 Percent))
-                  ]
+              [ Reg
+                  (Array
+                     [ Reg (Literal (Numeric 0.0 Percent))
+                     , Reg (Literal (Numeric 0.0 Percent))
+                     ])
+              , Reg
+                  (Array
+                     [ Reg (Literal (Numeric 4.0 Percent))
+                     , Reg (Negated (Literal (Numeric 4.0 Percent)))
+                     ])
               ])
        , NormalArg
            (Array
-              [ Array
-                  [ Literal (Numeric 50.0 Percent) , Literal (Numeric 50.0 Percent) ]
-              , Array
-                  [ Literal (Numeric 4.0 Percent)
-                  , Negated (Literal (Numeric 4.0 Percent))
-                  ]
+              [ Reg
+                  (Array
+                     [ Reg (Literal (Numeric 50.0 Percent))
+                     , Reg (Literal (Numeric 50.0 Percent))
+                     ])
+              , Reg
+                  (Array
+                     [ Reg (Literal (Numeric 4.0 Percent))
+                     , Reg (Negated (Literal (Numeric 4.0 Percent)))
+                     ])
               ])
        , NormalArg
            (Array
-              [ Array
-                  [ Literal (Numeric 0.0 Percent) , Literal (Numeric 50.0 Percent) ]
-              , Array
-                  [ Literal (Numeric 4.0 Percent) , Literal (Numeric 4.0 Percent) ]
+              [ Reg
+                  (Array
+                     [ Reg (Literal (Numeric 0.0 Percent))
+                     , Reg (Literal (Numeric 50.0 Percent))
+                     ])
+              , Reg
+                  (Array
+                     [ Reg (Literal (Numeric 4.0 Percent))
+                     , Reg (Literal (Numeric 4.0 Percent))
+                     ])
               ])
        , NormalArg
            (Array
-              [ Array
-                  [ Literal (Numeric 50.0 Percent) , Literal (Numeric 0.0 Percent) ]
-              , Array
-                  [ Literal (Numeric 4.0 Percent) , Literal (Numeric 4.0 Percent) ]
+              [ Reg
+                  (Array
+                     [ Reg (Literal (Numeric 50.0 Percent))
+                     , Reg (Literal (Numeric 0.0 Percent))
+                     ])
+              , Reg
+                  (Array
+                     [ Reg (Literal (Numeric 4.0 Percent))
+                     , Reg (Literal (Numeric 4.0 Percent))
+                     ])
               ])
        ])
 , ParBreak

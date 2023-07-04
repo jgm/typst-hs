@@ -52,9 +52,9 @@
               , NormalParam (Identifier "c")
               ]
               (Array
-                 [ Ident (Identifier "a")
-                 , Ident (Identifier "b")
-                 , Ident (Identifier "c")
+                 [ Reg (Ident (Identifier "a"))
+                 , Reg (Ident (Identifier "b"))
+                 , Reg (Ident (Identifier "c"))
                  ])
           , FuncCall
               (Ident (Identifier "test"))

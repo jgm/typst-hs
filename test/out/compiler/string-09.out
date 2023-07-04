@@ -52,9 +52,9 @@
               [])
        , NormalArg
            (Array
-              [ Literal (String "a")
-              , Literal (String "b")
-              , Literal (String "c")
+              [ Reg (Literal (String "a"))
+              , Reg (Literal (String "b"))
+              , Reg (Literal (String "c"))
               ])
        ])
 , SoftBreak
@@ -70,9 +70,9 @@
               [])
        , NormalArg
            (Array
-              [ Literal (String "a")
-              , Literal (String "b")
-              , Literal (String "c")
+              [ Reg (Literal (String "a"))
+              , Reg (Literal (String "b"))
+              , Reg (Literal (String "c"))
               ])
        ])
 , SoftBreak
@@ -89,8 +89,8 @@
               [])
        , NormalArg
            (Array
-              [ Literal (String "\127987\65039\8205\127752")
-              , Literal (String "!")
+              [ Reg (Literal (String "\127987\65039\8205\127752"))
+              , Reg (Literal (String "!"))
               ])
        ])
 , SoftBreak
@@ -107,11 +107,11 @@
               [])
        , NormalArg
            (Array
-              [ Literal (String "\127987")
-              , Literal (String "\65039")
-              , Literal (String "\8205")
-              , Literal (String "\127752")
-              , Literal (String "!")
+              [ Reg (Literal (String "\127987"))
+              , Reg (Literal (String "\65039"))
+              , Reg (Literal (String "\8205"))
+              , Reg (Literal (String "\127752"))
+              , Reg (Literal (String "!"))
               ])
        ])
 , ParBreak

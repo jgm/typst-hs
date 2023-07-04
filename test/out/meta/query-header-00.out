@@ -48,8 +48,8 @@
        , KeyValArg
            (Identifier "margin")
            (Dict
-              [ ( Identifier "y" , Literal (Numeric 1.0 Cm) )
-              , ( Identifier "x" , Literal (Numeric 0.5 Cm) )
+              [ Reg ( Identifier "y" , Literal (Numeric 1.0 Cm) )
+              , Reg ( Identifier "x" , Literal (Numeric 0.5 Cm) )
               ])
        , KeyValArg
            (Identifier "header")

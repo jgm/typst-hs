@@ -49,7 +49,10 @@
        (CodeBlock
           [ Let
               (BasicBind (Just (Identifier "parts")))
-              (Array [ Literal (String "my fri") , Literal (String "end.") ])
+              (Array
+                 [ Reg (Literal (String "my fri"))
+                 , Reg (Literal (String "end."))
+                 ])
           , Block (Content [ Text "Hello," , Space ])
           , For
               (BasicBind (Just (Identifier "s")))

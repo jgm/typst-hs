@@ -47,9 +47,11 @@
        (Ident (Identifier "grid"))
        [ KeyValArg
            (Identifier "columns")
-           (Array [ Literal Auto , Literal (Numeric 60.0 Percent) ])
+           (Array
+              [ Reg (Literal Auto) , Reg (Literal (Numeric 60.0 Percent)) ])
        , KeyValArg
-           (Identifier "rows") (Array [ Literal Auto , Literal Auto ])
+           (Identifier "rows")
+           (Array [ Reg (Literal Auto) , Reg (Literal Auto) ])
        , NormalArg
            (FuncCall
               (Ident (Identifier "rect"))

@@ -51,9 +51,9 @@
           , WithKey (Identifier "x") (Just (Identifier "c"))
           ])
        (Dict
-          [ ( Identifier "a" , Literal (Int 1) )
-          , ( Identifier "b" , Literal (Int 2) )
-          , ( Identifier "x" , Literal (Int 3) )
+          [ Reg ( Identifier "a" , Literal (Int 1) )
+          , Reg ( Identifier "b" , Literal (Int 2) )
+          , Reg ( Identifier "x" , Literal (Int 3) )
           ]))
 , SoftBreak
 , Code

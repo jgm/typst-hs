@@ -50,9 +50,9 @@
               (FieldAccess
                  (Ident (Identifier "position"))
                  (Array
-                    [ Literal (String "Hi")
-                    , Literal (String "\10084\65039")
-                    , Literal (String "Love")
+                    [ Reg (Literal (String "Hi"))
+                    , Reg (Literal (String "\10084\65039"))
+                    , Reg (Literal (String "Love"))
                     ]))
               [ NormalArg
                   (FuncExpr
@@ -73,9 +73,9 @@
               (FieldAccess
                  (Ident (Identifier "position"))
                  (Array
-                    [ Literal (String "Bye")
-                    , Literal (String "\128152")
-                    , Literal (String "Apart")
+                    [ Reg (Literal (String "Bye"))
+                    , Reg (Literal (String "\128152"))
+                    , Reg (Literal (String "Apart"))
                     ]))
               [ NormalArg
                   (FuncExpr
@@ -96,10 +96,10 @@
               (FieldAccess
                  (Ident (Identifier "position"))
                  (Array
-                    [ Literal (String "A")
-                    , Literal (String "B")
-                    , Literal (String "CDEF")
-                    , Literal (String "G")
+                    [ Reg (Literal (String "A"))
+                    , Reg (Literal (String "B"))
+                    , Reg (Literal (String "CDEF"))
+                    , Reg (Literal (String "G"))
                     ]))
               [ NormalArg
                   (FuncExpr

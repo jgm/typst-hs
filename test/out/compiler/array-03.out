@@ -47,7 +47,11 @@
        (CodeBlock
           [ Let
               (BasicBind (Just (Identifier "array")))
-              (Array [ Literal (Int 1) , Literal (Int 2) , Literal (Int 3) ])
+              (Array
+                 [ Reg (Literal (Int 1))
+                 , Reg (Literal (Int 2))
+                 , Reg (Literal (Int 3))
+                 ])
           , Assign
               (FuncCall
                  (FieldAccess
@@ -69,7 +73,11 @@
               (Ident (Identifier "test"))
               [ NormalArg (Ident (Identifier "array"))
               , NormalArg
-                  (Array [ Literal (Int 7) , Literal (Int 16) , Literal (Int 3) ])
+                  (Array
+                     [ Reg (Literal (Int 7))
+                     , Reg (Literal (Int 16))
+                     , Reg (Literal (Int 3))
+                     ])
               ]
           ]))
 , ParBreak

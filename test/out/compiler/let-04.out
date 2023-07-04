@@ -45,7 +45,7 @@
     ( line 3 , column 2 )
     (Let
        (DestructuringBind [ Simple (Just (Identifier "a")) ])
-       (Array [ Literal (Int 1) ]))
+       (Array [ Reg (Literal (Int 1)) ]))
 , SoftBreak
 , Code
     "test/typ/compiler/let-04.typ"

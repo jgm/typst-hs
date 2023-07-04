@@ -46,14 +46,14 @@
     (Let
        (BasicBind (Just (Identifier "widths")))
        (Array
-          [ Literal (Numeric 30.0 Pt)
-          , Literal (Numeric 20.0 Pt)
-          , Literal (Numeric 40.0 Pt)
-          , Literal (Numeric 15.0 Pt)
-          , Literal (Numeric 30.0 Pt)
-          , Literal (Numeric 50.0 Percent)
-          , Literal (Numeric 20.0 Pt)
-          , Literal (Numeric 100.0 Percent)
+          [ Reg (Literal (Numeric 30.0 Pt))
+          , Reg (Literal (Numeric 20.0 Pt))
+          , Reg (Literal (Numeric 40.0 Pt))
+          , Reg (Literal (Numeric 15.0 Pt))
+          , Reg (Literal (Numeric 30.0 Pt))
+          , Reg (Literal (Numeric 50.0 Percent))
+          , Reg (Literal (Numeric 20.0 Pt))
+          , Reg (Literal (Numeric 100.0 Percent))
           ]))
 , ParBreak
 , Code
@@ -101,16 +101,17 @@
           (Block
              (CodeBlock
                 [ Array
-                    [ FuncCall
-                        (Ident (Identifier "align"))
-                        [ NormalArg (Ident (Identifier "right"))
-                        , NormalArg
-                            (FuncCall
-                               (Ident (Identifier "shaded"))
-                               [ NormalArg (Ident (Identifier "i"))
-                               , NormalArg (Ident (Identifier "w"))
-                               ])
-                        ]
+                    [ Reg
+                        (FuncCall
+                           (Ident (Identifier "align"))
+                           [ NormalArg (Ident (Identifier "right"))
+                           , NormalArg
+                               (FuncCall
+                                  (Ident (Identifier "shaded"))
+                                  [ NormalArg (Ident (Identifier "i"))
+                                  , NormalArg (Ident (Identifier "w"))
+                                  ])
+                           ])
                     ]
                 ]))))
 , ParBreak

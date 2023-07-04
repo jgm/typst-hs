@@ -46,7 +46,7 @@
     ( line 4 , column 2 )
     (Let
        (BasicBind (Just (Identifier "a")))
-       (Array [ Literal (Int 1) , Literal (Int 2) ]))
+       (Array [ Reg (Literal (Int 1)) , Reg (Literal (Int 2)) ]))
 , ParBreak
 ]
 --- evaluated ---

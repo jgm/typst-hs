@@ -64,7 +64,10 @@
                             (Ident (Identifier "line"))
                             [ KeyValArg
                                 (Identifier "end")
-                                (Array [ Literal (Numeric 0.4 Em) , Literal (Numeric 0.0 Pt) ])
+                                (Array
+                                   [ Reg (Literal (Numeric 0.4 Em))
+                                   , Reg (Literal (Numeric 0.0 Pt))
+                                   ])
                             ])
                      ]
                  , FuncCall
@@ -74,17 +77,26 @@
                             (Ident (Identifier "line"))
                             [ KeyValArg
                                 (Identifier "start")
-                                (Array [ Literal (Numeric 0.0 Pt) , Literal (Numeric 0.4 Em) ])
+                                (Array
+                                   [ Reg (Literal (Numeric 0.0 Pt))
+                                   , Reg (Literal (Numeric 0.4 Em))
+                                   ])
                             , KeyValArg
                                 (Identifier "end")
-                                (Array [ Literal (Numeric 0.0 Pt) , Literal (Numeric 0.0 Pt) ])
+                                (Array
+                                   [ Reg (Literal (Numeric 0.0 Pt))
+                                   , Reg (Literal (Numeric 0.0 Pt))
+                                   ])
                             ])
                      ]
                  , FuncCall
                      (Ident (Identifier "line"))
                      [ KeyValArg
                          (Identifier "end")
-                         (Array [ Literal (Numeric 0.6 Em) , Literal (Numeric 0.6 Em) ])
+                         (Array
+                            [ Reg (Literal (Numeric 0.6 Em))
+                            , Reg (Literal (Numeric 0.6 Em))
+                            ])
                      ]
                  ]))
        ])
@@ -111,8 +123,8 @@
        [ KeyValArg
            (Identifier "end")
            (Array
-              [ Literal (Numeric 70.0 Percent)
-              , Literal (Numeric 50.0 Percent)
+              [ Reg (Literal (Numeric 70.0 Percent))
+              , Reg (Literal (Numeric 50.0 Percent))
               ])
        ])
 , ParBreak

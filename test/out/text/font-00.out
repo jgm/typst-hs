@@ -167,8 +167,8 @@
        [ KeyValArg
            (Identifier "font")
            (Array
-              [ Literal (String "PT Sans")
-              , Literal (String "Twitter Color Emoji")
+              [ Reg (Literal (String "PT Sans"))
+              , Reg (Literal (String "Twitter Color Emoji"))
               ])
        , KeyValArg (Identifier "fallback") (Literal (Boolean False))
        ])

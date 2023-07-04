@@ -46,12 +46,24 @@
     (Let
        (BasicBind (Just (Identifier "sections")))
        (Array
-          [ Array [ Literal (String "Introduction") , Literal (Int 1) ]
-          , Array [ Literal (String "Approach") , Literal (Int 1) ]
-          , Array [ Literal (String "Evaluation") , Literal (Int 3) ]
-          , Array [ Literal (String "Discussion") , Literal (Int 15) ]
-          , Array [ Literal (String "Related Work") , Literal (Int 16) ]
-          , Array [ Literal (String "Conclusion") , Literal (Int 253) ]
+          [ Reg
+              (Array
+                 [ Reg (Literal (String "Introduction")) , Reg (Literal (Int 1)) ])
+          , Reg
+              (Array
+                 [ Reg (Literal (String "Approach")) , Reg (Literal (Int 1)) ])
+          , Reg
+              (Array
+                 [ Reg (Literal (String "Evaluation")) , Reg (Literal (Int 3)) ])
+          , Reg
+              (Array
+                 [ Reg (Literal (String "Discussion")) , Reg (Literal (Int 15)) ])
+          , Reg
+              (Array
+                 [ Reg (Literal (String "Related Work")) , Reg (Literal (Int 16)) ])
+          , Reg
+              (Array
+                 [ Reg (Literal (String "Conclusion")) , Reg (Literal (Int 253)) ])
           ]))
 , ParBreak
 , Code

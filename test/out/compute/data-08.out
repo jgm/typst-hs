@@ -115,10 +115,10 @@
               (Ident (Identifier "array")) (Ident (Identifier "data")))
        , NormalArg
            (Array
-              [ Literal (Int 1)
-              , Literal (String "string")
-              , Literal (Float 3.0)
-              , Literal (Boolean False)
+              [ Reg (Literal (Int 1))
+              , Reg (Literal (String "string"))
+              , Reg (Literal (Float 3.0))
+              , Reg (Literal (Boolean False))
               ])
        ])
 , SoftBreak
@@ -132,8 +132,8 @@
               (Ident (Identifier "inline_table")) (Ident (Identifier "data")))
        , NormalArg
            (Dict
-              [ ( Identifier "first" , Literal (String "amazing") )
-              , ( Identifier "second" , Literal (String "greater") )
+              [ Reg ( Identifier "first" , Literal (String "amazing") )
+              , Reg ( Identifier "second" , Literal (String "greater") )
               ])
        ])
 , SoftBreak
@@ -162,9 +162,9 @@
                  (Ident (Identifier "table")) (Ident (Identifier "data"))))
        , NormalArg
            (Array
-              [ Literal (Boolean False)
-              , Literal (String "indeed")
-              , Literal (Int 7)
+              [ Reg (Literal (Boolean False))
+              , Reg (Literal (String "indeed"))
+              , Reg (Literal (Int 7))
               ])
        ])
 , ParBreak

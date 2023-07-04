@@ -60,13 +60,14 @@
               (Block
                  (CodeBlock
                     [ Array
-                        [ Block
-                            (Content
-                               [ Code
-                                   "test/typ/layout/stack-2-00.typ"
-                                   ( line 6 , column 30 )
-                                   (Ident (Identifier "c"))
-                               ])
+                        [ Reg
+                            (Block
+                               (Content
+                                  [ Code
+                                      "test/typ/layout/stack-2-00.typ"
+                                      ( line 6 , column 30 )
+                                      (Ident (Identifier "c"))
+                                  ]))
                         ]
                     ])))
        ])

@@ -51,11 +51,11 @@
               [ NormalArg (Literal (String "")) ])
        , NormalArg
            (Array
-              [ Literal (String "")
-              , Literal (String "a")
-              , Literal (String "b")
-              , Literal (String "c")
-              , Literal (String "")
+              [ Reg (Literal (String ""))
+              , Reg (Literal (String "a"))
+              , Reg (Literal (String "b"))
+              , Reg (Literal (String "c"))
+              , Reg (Literal (String ""))
               ])
        ])
 , SoftBreak
@@ -68,7 +68,8 @@
            (FuncCall
               (FieldAccess (Ident (Identifier "split")) (Literal (String "abc")))
               [ NormalArg (Literal (String "b")) ])
-       , NormalArg (Array [ Literal (String "a") , Literal (String "c") ])
+       , NormalArg
+           (Array [ Reg (Literal (String "a")) , Reg (Literal (String "c")) ])
        ])
 , SoftBreak
 , Code
@@ -87,10 +88,10 @@
               ])
        , NormalArg
            (Array
-              [ Literal (String "a")
-              , Literal (String "")
-              , Literal (String "")
-              , Literal (String "c")
+              [ Reg (Literal (String "a"))
+              , Reg (Literal (String ""))
+              , Reg (Literal (String ""))
+              , Reg (Literal (String "c"))
               ])
        ])
 , SoftBreak
@@ -108,7 +109,8 @@
                      (Ident (Identifier "regex"))
                      [ NormalArg (Literal (String "\\d+")) ])
               ])
-       , NormalArg (Array [ Literal (String "a") , Literal (String "c") ])
+       , NormalArg
+           (Array [ Reg (Literal (String "a")) , Reg (Literal (String "c")) ])
        ])
 , ParBreak
 ]

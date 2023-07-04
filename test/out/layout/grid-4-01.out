@@ -47,9 +47,10 @@
        (Ident (Identifier "grid"))
        [ KeyValArg
            (Identifier "columns")
-           (Times (Array [ Literal (Numeric 1.0 Fr) ]) (Literal (Int 4)))
+           (Times
+              (Array [ Reg (Literal (Numeric 1.0 Fr)) ]) (Literal (Int 4)))
        , KeyValArg
-           (Identifier "rows") (Array [ Literal (Numeric 1.0 Cm) ])
+           (Identifier "rows") (Array [ Reg (Literal (Numeric 1.0 Cm)) ])
        , NormalArg
            (FuncCall
               (Ident (Identifier "rect"))

@@ -58,7 +58,7 @@
        [ NormalArg
            (FuncCall
               (FieldAccess
-                 (Ident (Identifier "join")) (Array [ Literal (Int 1) ]))
+                 (Ident (Identifier "join")) (Array [ Reg (Literal (Int 1)) ]))
               [])
        , NormalArg (Literal (Int 1))
        ])
@@ -73,9 +73,9 @@
               (FieldAccess
                  (Ident (Identifier "join"))
                  (Array
-                    [ Literal (String "a")
-                    , Literal (String "b")
-                    , Literal (String "c")
+                    [ Reg (Literal (String "a"))
+                    , Reg (Literal (String "b"))
+                    , Reg (Literal (String "c"))
                     ]))
               [])
        , NormalArg (Literal (String "abc"))
@@ -94,9 +94,9 @@
                     (FieldAccess
                        (Ident (Identifier "join"))
                        (Array
-                          [ Literal (String "a")
-                          , Literal (String "b")
-                          , Literal (String "c")
+                          [ Reg (Literal (String "a"))
+                          , Reg (Literal (String "b"))
+                          , Reg (Literal (String "c"))
                           ]))
                     [ NormalArg (Literal (String ", ")) ]))
               (Literal (String ")")))

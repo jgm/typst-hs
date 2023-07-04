@@ -62,9 +62,9 @@
                         (FieldAccess
                            (Ident (Identifier "at"))
                            (Array
-                              [ Ident (Identifier "red")
-                              , Ident (Identifier "green")
-                              , Ident (Identifier "blue")
+                              [ Reg (Ident (Identifier "red"))
+                              , Reg (Ident (Identifier "green"))
+                              , Reg (Ident (Identifier "blue"))
                               ]))
                         [ NormalArg
                             (FuncCall

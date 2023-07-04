@@ -53,7 +53,11 @@
                     (Ident (Identifier "range")) [ NormalArg (Literal (Int 3)) ]))
               [])
        , NormalArg
-           (Array [ Literal (Int 2) , Literal (Int 1) , Literal (Int 0) ])
+           (Array
+              [ Reg (Literal (Int 2))
+              , Reg (Literal (Int 1))
+              , Reg (Literal (Int 0))
+              ])
        ])
 , ParBreak
 ]

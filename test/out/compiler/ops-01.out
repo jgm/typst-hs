@@ -48,13 +48,14 @@
     (For
        (BasicBind (Just (Identifier "v")))
        (Array
-          [ Literal (Int 1)
-          , Literal (Float 3.14)
-          , Literal (Numeric 12.0 Pt)
-          , Literal (Numeric 45.0 Deg)
-          , Literal (Numeric 90.0 Percent)
-          , Plus (Literal (Numeric 13.0 Percent)) (Literal (Numeric 10.0 Pt))
-          , Literal (Numeric 6.3 Fr)
+          [ Reg (Literal (Int 1))
+          , Reg (Literal (Float 3.14))
+          , Reg (Literal (Numeric 12.0 Pt))
+          , Reg (Literal (Numeric 45.0 Deg))
+          , Reg (Literal (Numeric 90.0 Percent))
+          , Reg
+              (Plus (Literal (Numeric 13.0 Percent)) (Literal (Numeric 10.0 Pt)))
+          , Reg (Literal (Numeric 6.3 Fr))
           ])
        (Block
           (CodeBlock
@@ -160,14 +161,14 @@
        (Ident (Identifier "test"))
        [ NormalArg
            (Plus
-              (Array [ Literal (Int 1) , Literal (Int 2) ])
-              (Array [ Literal (Int 3) , Literal (Int 4) ]))
+              (Array [ Reg (Literal (Int 1)) , Reg (Literal (Int 2)) ])
+              (Array [ Reg (Literal (Int 3)) , Reg (Literal (Int 4)) ]))
        , NormalArg
            (Array
-              [ Literal (Int 1)
-              , Literal (Int 2)
-              , Literal (Int 3)
-              , Literal (Int 4)
+              [ Reg (Literal (Int 1))
+              , Reg (Literal (Int 2))
+              , Reg (Literal (Int 3))
+              , Reg (Literal (Int 4))
               ])
        ])
 , SoftBreak
@@ -178,16 +179,16 @@
        (Ident (Identifier "test"))
        [ NormalArg
            (Plus
-              (Dict [ ( Identifier "a" , Literal (Int 1) ) ])
+              (Dict [ Reg ( Identifier "a" , Literal (Int 1) ) ])
               (Dict
-                 [ ( Identifier "b" , Literal (Int 2) )
-                 , ( Identifier "c" , Literal (Int 3) )
+                 [ Reg ( Identifier "b" , Literal (Int 2) )
+                 , Reg ( Identifier "c" , Literal (Int 3) )
                  ]))
        , NormalArg
            (Dict
-              [ ( Identifier "a" , Literal (Int 1) )
-              , ( Identifier "b" , Literal (Int 2) )
-              , ( Identifier "c" , Literal (Int 3) )
+              [ Reg ( Identifier "a" , Literal (Int 1) )
+              , Reg ( Identifier "b" , Literal (Int 2) )
+              , Reg ( Identifier "c" , Literal (Int 3) )
               ])
        ])
 , ParBreak

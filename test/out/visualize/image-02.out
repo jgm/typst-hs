@@ -57,9 +57,9 @@
        [ KeyValArg
            (Identifier "columns")
            (Array
-              [ Literal (Numeric 1.0 Fr)
-              , Literal (Numeric 1.0 Fr)
-              , Literal (Numeric 1.0 Fr)
+              [ Reg (Literal (Numeric 1.0 Fr))
+              , Reg (Literal (Numeric 1.0 Fr))
+              , Reg (Literal (Numeric 1.0 Fr))
               ])
        , KeyValArg (Identifier "rows") (Literal (Numeric 100.0 Percent))
        , KeyValArg (Identifier "gutter") (Literal (Numeric 3.0 Pt))

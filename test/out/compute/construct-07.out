@@ -49,15 +49,25 @@
           (Ident (Identifier "symbol"))
           [ NormalArg (Literal (String "\128386"))
           , NormalArg
-              (Array [ Literal (String "stamped") , Literal (String "\128387") ])
+              (Array
+                 [ Reg (Literal (String "stamped"))
+                 , Reg (Literal (String "\128387"))
+                 ])
           , NormalArg
               (Array
-                 [ Literal (String "stamped.pen") , Literal (String "\128390") ])
+                 [ Reg (Literal (String "stamped.pen"))
+                 , Reg (Literal (String "\128390"))
+                 ])
           , NormalArg
               (Array
-                 [ Literal (String "lightning") , Literal (String "\128388") ])
+                 [ Reg (Literal (String "lightning"))
+                 , Reg (Literal (String "\128388"))
+                 ])
           , NormalArg
-              (Array [ Literal (String "fly") , Literal (String "\128389") ])
+              (Array
+                 [ Reg (Literal (String "fly"))
+                 , Reg (Literal (String "\128389"))
+                 ])
           ]))
 , ParBreak
 , Code

@@ -48,8 +48,8 @@
        (DestructuringBind
           [ Simple (Just (Identifier "a")) , Sink Nothing ])
        (Dict
-          [ ( Identifier "a" , Literal (Int 1) )
-          , ( Identifier "b" , Literal (Int 2) )
+          [ Reg ( Identifier "a" , Literal (Int 1) )
+          , Reg ( Identifier "b" , Literal (Int 2) )
           ]))
 , SoftBreak
 , Code

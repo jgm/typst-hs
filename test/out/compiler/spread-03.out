@@ -48,10 +48,10 @@
           [ Let
               (BasicBind (Just (Identifier "more")))
               (Array
-                 [ Literal (Int 3)
-                 , Negated (Literal (Int 3))
-                 , Literal (Int 6)
-                 , Literal (Int 10)
+                 [ Reg (Literal (Int 3))
+                 , Reg (Negated (Literal (Int 3)))
+                 , Reg (Literal (Int 6))
+                 , Reg (Literal (Int 10))
                  ])
           , FuncCall
               (Ident (Identifier "test"))
@@ -97,8 +97,8 @@
           [ Let
               (BasicBind (Just (Identifier "more")))
               (Dict
-                 [ ( Identifier "c" , Literal (Int 3) )
-                 , ( Identifier "d" , Literal (Int 4) )
+                 [ Reg ( Identifier "c" , Literal (Int 3) )
+                 , Reg ( Identifier "d" , Literal (Int 4) )
                  ])
           , LetFunc
               (Identifier "tostr")

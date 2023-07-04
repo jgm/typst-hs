@@ -64,14 +64,18 @@
                               (FuncExpr
                                  [ NormalParam (Identifier "v") ]
                                  (Array
-                                    [ FuncCall
-                                        (Ident (Identifier "emph"))
-                                        [ NormalArg
-                                            (FieldAccess
-                                               (Ident (Identifier "term")) (Ident (Identifier "v")))
-                                        ]
-                                    , FieldAccess
-                                        (Ident (Identifier "description")) (Ident (Identifier "v"))
+                                    [ Reg
+                                        (FuncCall
+                                           (Ident (Identifier "emph"))
+                                           [ NormalArg
+                                               (FieldAccess
+                                                  (Ident (Identifier "term"))
+                                                  (Ident (Identifier "v")))
+                                           ])
+                                    , Reg
+                                        (FieldAccess
+                                           (Ident (Identifier "description"))
+                                           (Ident (Identifier "v")))
                                     ]))
                           ]))
                     [])

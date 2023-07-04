@@ -48,8 +48,16 @@
           [ Let
               (BasicBind (Just (Identifier "matrix")))
               (Array
-                 [ Array [ Array [ Literal (Int 1) ] , Array [ Literal (Int 2) ] ]
-                 , Array [ Array [ Literal (Int 3) ] , Array [ Literal (Int 4) ] ]
+                 [ Reg
+                     (Array
+                        [ Reg (Array [ Reg (Literal (Int 1)) ])
+                        , Reg (Array [ Reg (Literal (Int 2)) ])
+                        ])
+                 , Reg
+                     (Array
+                        [ Reg (Array [ Reg (Literal (Int 3)) ])
+                        , Reg (Array [ Reg (Literal (Int 4)) ])
+                        ])
                  ])
           , FuncCall
               (FieldAccess
@@ -68,11 +76,16 @@
               [ NormalArg (Ident (Identifier "matrix"))
               , NormalArg
                   (Array
-                     [ Array [ Array [ Literal (Int 1) ] , Array [ Literal (Int 2) ] ]
-                     , Array
-                         [ Array [ Literal (Int 3) , Literal (Int 5) ]
-                         , Array [ Literal (Int 4) ]
-                         ]
+                     [ Reg
+                         (Array
+                            [ Reg (Array [ Reg (Literal (Int 1)) ])
+                            , Reg (Array [ Reg (Literal (Int 2)) ])
+                            ])
+                     , Reg
+                         (Array
+                            [ Reg (Array [ Reg (Literal (Int 3)) , Reg (Literal (Int 5)) ])
+                            , Reg (Array [ Reg (Literal (Int 4)) ])
+                            ])
                      ])
               ]
           ]))

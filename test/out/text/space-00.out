@@ -163,7 +163,7 @@
     ( line 10 , column 3 )
     (For
        (BasicBind Nothing)
-       (Array [ Literal None ])
+       (Array [ Reg (Literal None) ])
        (Block (CodeBlock [ Literal (String "U") ])))
 , Text "V"
 , SoftBreak

@@ -169,8 +169,8 @@
        , KeyValArg
            (Identifier "font")
            (Array
-              [ Literal (String "Noto Sans Arabic")
-              , Literal (String "Linux Libertine")
+              [ Reg (Literal (String "Noto Sans Arabic"))
+              , Reg (Literal (String "Linux Libertine"))
               ])
        ])
 , SoftBreak

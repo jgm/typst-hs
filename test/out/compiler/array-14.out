@@ -48,11 +48,11 @@
           [ Let
               (BasicBind (Just (Identifier "array")))
               (Array
-                 [ Literal (Int 0)
-                 , Literal (Int 1)
-                 , Literal (Int 2)
-                 , Literal (Int 4)
-                 , Literal (Int 5)
+                 [ Reg (Literal (Int 0))
+                 , Reg (Literal (Int 1))
+                 , Reg (Literal (Int 2))
+                 , Reg (Literal (Int 4))
+                 , Reg (Literal (Int 5))
                  ])
           , FuncCall
               (FieldAccess
@@ -74,11 +74,11 @@
               [ NormalArg (Ident (Identifier "array"))
               , NormalArg
                   (Array
-                     [ Literal (Int 0)
-                     , Literal (Int 2)
-                     , Literal (Int 3)
-                     , Literal (Int 4)
-                     , Literal (Int 5)
+                     [ Reg (Literal (Int 0))
+                     , Reg (Literal (Int 2))
+                     , Reg (Literal (Int 3))
+                     , Reg (Literal (Int 4))
+                     , Reg (Literal (Int 5))
                      ])
               ]
           ]))

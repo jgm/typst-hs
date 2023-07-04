@@ -53,9 +53,10 @@
        (Ident (Identifier "table"))
        [ KeyValArg
            (Identifier "columns")
-           (Array [ Literal (Numeric 1.5 Cm) , Literal Auto ])
+           (Array [ Reg (Literal (Numeric 1.5 Cm)) , Reg (Literal Auto) ])
        , KeyValArg
-           (Identifier "rows") (Array [ Literal Auto , Literal Auto ])
+           (Identifier "rows")
+           (Array [ Reg (Literal Auto) , Reg (Literal Auto) ])
        , NormalArg
            (FuncCall
               (Ident (Identifier "rect"))

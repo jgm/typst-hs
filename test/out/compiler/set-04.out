@@ -46,9 +46,9 @@
     (Let
        (BasicBind (Just (Identifier "choice")))
        (Array
-          [ Literal (String "monkey.svg")
-          , Literal (String "rhino.png")
-          , Literal (String "tiger.jpg")
+          [ Reg (Literal (String "monkey.svg"))
+          , Reg (Literal (String "rhino.png"))
+          , Reg (Literal (String "tiger.jpg"))
           ]))
 , SoftBreak
 , Code

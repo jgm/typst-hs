@@ -66,13 +66,14 @@
        , KeyValArg
            (Identifier "stroke")
            (Dict
-              [ ( Identifier "rest" , Ident (Identifier "red") )
-              , ( Identifier "top"
-                , Dict
-                    [ ( Identifier "paint" , Ident (Identifier "blue") )
-                    , ( Identifier "dash" , Literal (String "dashed") )
-                    ]
-                )
+              [ Reg ( Identifier "rest" , Ident (Identifier "red") )
+              , Reg
+                  ( Identifier "top"
+                  , Dict
+                      [ Reg ( Identifier "paint" , Ident (Identifier "blue") )
+                      , Reg ( Identifier "dash" , Literal (String "dashed") )
+                      ]
+                  )
               ])
        ])
 , SoftBreak
@@ -92,8 +93,8 @@
        , KeyValArg
            (Identifier "stroke")
            (Dict
-              [ ( Identifier "thickness" , Literal (Numeric 5.0 Pt) )
-              , ( Identifier "join" , Literal (String "round") )
+              [ Reg ( Identifier "thickness" , Literal (Numeric 5.0 Pt) )
+              , Reg ( Identifier "join" , Literal (String "round") )
               ])
        ])
 , ParBreak

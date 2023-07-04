@@ -54,13 +54,13 @@
     (FuncCall
        (Ident (Identifier "grid"))
        [ KeyValArg
-           (Identifier "columns") (Array [ Literal (Numeric 1.0 Fr) ])
+           (Identifier "columns") (Array [ Reg (Literal (Numeric 1.0 Fr)) ])
        , KeyValArg
            (Identifier "rows")
            (Array
-              [ Literal (Numeric 1.0 Fr)
-              , Literal Auto
-              , Literal (Numeric 2.0 Fr)
+              [ Reg (Literal (Numeric 1.0 Fr))
+              , Reg (Literal Auto)
+              , Reg (Literal (Numeric 2.0 Fr))
               ])
        , NormalArg (Block (Content []))
        , NormalArg

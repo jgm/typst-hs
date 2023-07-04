@@ -53,10 +53,10 @@
     (Let
        (BasicBind (Just (Identifier "array")))
        (Array
-          [ Literal (String "Typst")
-          , Literal (String "LaTeX")
-          , Literal (String "Word")
-          , Literal (String "InDesign")
+          [ Reg (Literal (String "Typst"))
+          , Reg (Literal (String "LaTeX"))
+          , Reg (Literal (String "Word"))
+          , Reg (Literal (String "InDesign"))
           ]))
 , SoftBreak
 , Code

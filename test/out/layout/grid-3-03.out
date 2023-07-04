@@ -56,12 +56,15 @@
        (Ident (Identifier "grid"))
        [ KeyValArg
            (Identifier "columns")
-           (Times (Literal (Int 4)) (Array [ Literal (Numeric 1.0 Fr) ]))
+           (Times
+              (Literal (Int 4)) (Array [ Reg (Literal (Numeric 1.0 Fr)) ]))
        , KeyValArg (Identifier "row-gutter") (Literal (Numeric 10.0 Pt))
        , KeyValArg
            (Identifier "column-gutter")
            (Array
-              [ Literal (Numeric 0.0 Pt) , Literal (Numeric 10.0 Percent) ])
+              [ Reg (Literal (Numeric 0.0 Pt))
+              , Reg (Literal (Numeric 10.0 Percent))
+              ])
        , NormalArg (Block (Content [ Text "A" ]))
        , NormalArg (Block (Content [ Text "B" ]))
        , NormalArg (Block (Content [ Text "C" ]))

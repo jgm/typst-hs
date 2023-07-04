@@ -149,8 +149,8 @@
        , KeyValArg
            (Identifier "font")
            (Array
-              [ Literal (String "PT Sans")
-              , Literal (String "Noto Serif Hebrew")
+              [ Reg (Literal (String "PT Sans"))
+              , Reg (Literal (String "Noto Serif Hebrew"))
               ])
        ])
 , SoftBreak

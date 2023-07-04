@@ -78,7 +78,8 @@
        (Ident (Identifier "table"))
        [ KeyValArg
            (Identifier "columns")
-           (Times (Array [ Literal (Numeric 1.0 Fr) ]) (Literal (Int 3)))
+           (Times
+              (Array [ Reg (Literal (Numeric 1.0 Fr)) ]) (Literal (Int 3)))
        , KeyValArg
            (Identifier "stroke")
            (Plus

@@ -53,9 +53,10 @@
        (Ident (Identifier "grid"))
        [ KeyValArg
            (Identifier "columns")
-           (Array [ Literal (Numeric 2.0 Cm) , Literal Auto ])
+           (Array [ Reg (Literal (Numeric 2.0 Cm)) , Reg (Literal Auto) ])
        , KeyValArg
-           (Identifier "rows") (Array [ Literal Auto , Literal Auto ])
+           (Identifier "rows")
+           (Array [ Reg (Literal Auto) , Reg (Literal Auto) ])
        , NormalArg
            (FuncCall
               (Ident (Identifier "rect"))
@@ -112,16 +113,18 @@
               [ KeyValArg (Identifier "fill") (Ident (Identifier "red"))
               , NormalArg
                   (Array
-                     [ Literal (Numeric 0.0 Percent) , Literal (Numeric 0.0 Percent) ])
-              , NormalArg
-                  (Array
-                     [ Literal (Numeric 100.0 Percent)
-                     , Literal (Numeric 0.0 Percent)
+                     [ Reg (Literal (Numeric 0.0 Percent))
+                     , Reg (Literal (Numeric 0.0 Percent))
                      ])
               , NormalArg
                   (Array
-                     [ Literal (Numeric 100.0 Percent)
-                     , Literal (Numeric 20.0 Percent)
+                     [ Reg (Literal (Numeric 100.0 Percent))
+                     , Reg (Literal (Numeric 0.0 Percent))
+                     ])
+              , NormalArg
+                  (Array
+                     [ Reg (Literal (Numeric 100.0 Percent))
+                     , Reg (Literal (Numeric 20.0 Percent))
                      ])
               ])
        ])

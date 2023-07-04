@@ -68,8 +68,8 @@
        [ KeyValArg
            (Identifier "font")
            (Array
-              [ Literal (String "PT Sans")
-              , Literal (String "Noto Sans Arabic")
+              [ Reg (Literal (String "PT Sans"))
+              , Reg (Literal (String "Noto Sans Arabic"))
               ])
        ])
 , SoftBreak

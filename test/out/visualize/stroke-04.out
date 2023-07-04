@@ -53,18 +53,30 @@
               [ KeyValArg
                   (Identifier "stroke")
                   (Dict
-                     [ ( Identifier "thickness" , Literal (Numeric 4.0 Pt) )
-                     , ( Identifier "paint" , Ident (Identifier "blue") )
-                     , ( Identifier "join" , Literal (String "round") )
+                     [ Reg ( Identifier "thickness" , Literal (Numeric 4.0 Pt) )
+                     , Reg ( Identifier "paint" , Ident (Identifier "blue") )
+                     , Reg ( Identifier "join" , Literal (String "round") )
                      ])
               , NormalArg
-                  (Array [ Literal (Numeric 0.0 Pt) , Literal (Numeric 20.0 Pt) ])
+                  (Array
+                     [ Reg (Literal (Numeric 0.0 Pt))
+                     , Reg (Literal (Numeric 20.0 Pt))
+                     ])
               , NormalArg
-                  (Array [ Literal (Numeric 15.0 Pt) , Literal (Numeric 0.0 Pt) ])
+                  (Array
+                     [ Reg (Literal (Numeric 15.0 Pt))
+                     , Reg (Literal (Numeric 0.0 Pt))
+                     ])
               , NormalArg
-                  (Array [ Literal (Numeric 0.0 Pt) , Literal (Numeric 40.0 Pt) ])
+                  (Array
+                     [ Reg (Literal (Numeric 0.0 Pt))
+                     , Reg (Literal (Numeric 40.0 Pt))
+                     ])
               , NormalArg
-                  (Array [ Literal (Numeric 15.0 Pt) , Literal (Numeric 45.0 Pt) ])
+                  (Array
+                     [ Reg (Literal (Numeric 15.0 Pt))
+                     , Reg (Literal (Numeric 45.0 Pt))
+                     ])
               ])
        , NormalArg
            (FuncCall
@@ -72,18 +84,30 @@
               [ KeyValArg
                   (Identifier "stroke")
                   (Dict
-                     [ ( Identifier "thickness" , Literal (Numeric 4.0 Pt) )
-                     , ( Identifier "paint" , Ident (Identifier "blue") )
-                     , ( Identifier "join" , Literal (String "bevel") )
+                     [ Reg ( Identifier "thickness" , Literal (Numeric 4.0 Pt) )
+                     , Reg ( Identifier "paint" , Ident (Identifier "blue") )
+                     , Reg ( Identifier "join" , Literal (String "bevel") )
                      ])
               , NormalArg
-                  (Array [ Literal (Numeric 0.0 Pt) , Literal (Numeric 20.0 Pt) ])
+                  (Array
+                     [ Reg (Literal (Numeric 0.0 Pt))
+                     , Reg (Literal (Numeric 20.0 Pt))
+                     ])
               , NormalArg
-                  (Array [ Literal (Numeric 15.0 Pt) , Literal (Numeric 0.0 Pt) ])
+                  (Array
+                     [ Reg (Literal (Numeric 15.0 Pt))
+                     , Reg (Literal (Numeric 0.0 Pt))
+                     ])
               , NormalArg
-                  (Array [ Literal (Numeric 0.0 Pt) , Literal (Numeric 40.0 Pt) ])
+                  (Array
+                     [ Reg (Literal (Numeric 0.0 Pt))
+                     , Reg (Literal (Numeric 40.0 Pt))
+                     ])
               , NormalArg
-                  (Array [ Literal (Numeric 15.0 Pt) , Literal (Numeric 45.0 Pt) ])
+                  (Array
+                     [ Reg (Literal (Numeric 15.0 Pt))
+                     , Reg (Literal (Numeric 45.0 Pt))
+                     ])
               ])
        , NormalArg
            (FuncCall
@@ -91,18 +115,30 @@
               [ KeyValArg
                   (Identifier "stroke")
                   (Dict
-                     [ ( Identifier "thickness" , Literal (Numeric 4.0 Pt) )
-                     , ( Identifier "paint" , Ident (Identifier "blue") )
-                     , ( Identifier "join" , Literal (String "miter") )
+                     [ Reg ( Identifier "thickness" , Literal (Numeric 4.0 Pt) )
+                     , Reg ( Identifier "paint" , Ident (Identifier "blue") )
+                     , Reg ( Identifier "join" , Literal (String "miter") )
                      ])
               , NormalArg
-                  (Array [ Literal (Numeric 0.0 Pt) , Literal (Numeric 20.0 Pt) ])
+                  (Array
+                     [ Reg (Literal (Numeric 0.0 Pt))
+                     , Reg (Literal (Numeric 20.0 Pt))
+                     ])
               , NormalArg
-                  (Array [ Literal (Numeric 15.0 Pt) , Literal (Numeric 0.0 Pt) ])
+                  (Array
+                     [ Reg (Literal (Numeric 15.0 Pt))
+                     , Reg (Literal (Numeric 0.0 Pt))
+                     ])
               , NormalArg
-                  (Array [ Literal (Numeric 0.0 Pt) , Literal (Numeric 40.0 Pt) ])
+                  (Array
+                     [ Reg (Literal (Numeric 0.0 Pt))
+                     , Reg (Literal (Numeric 40.0 Pt))
+                     ])
               , NormalArg
-                  (Array [ Literal (Numeric 15.0 Pt) , Literal (Numeric 45.0 Pt) ])
+                  (Array
+                     [ Reg (Literal (Numeric 15.0 Pt))
+                     , Reg (Literal (Numeric 45.0 Pt))
+                     ])
               ])
        , NormalArg
            (FuncCall
@@ -110,19 +146,31 @@
               [ KeyValArg
                   (Identifier "stroke")
                   (Dict
-                     [ ( Identifier "thickness" , Literal (Numeric 4.0 Pt) )
-                     , ( Identifier "paint" , Ident (Identifier "blue") )
-                     , ( Identifier "join" , Literal (String "miter") )
-                     , ( Identifier "miter-limit" , Literal (Float 20.0) )
+                     [ Reg ( Identifier "thickness" , Literal (Numeric 4.0 Pt) )
+                     , Reg ( Identifier "paint" , Ident (Identifier "blue") )
+                     , Reg ( Identifier "join" , Literal (String "miter") )
+                     , Reg ( Identifier "miter-limit" , Literal (Float 20.0) )
                      ])
               , NormalArg
-                  (Array [ Literal (Numeric 0.0 Pt) , Literal (Numeric 20.0 Pt) ])
+                  (Array
+                     [ Reg (Literal (Numeric 0.0 Pt))
+                     , Reg (Literal (Numeric 20.0 Pt))
+                     ])
               , NormalArg
-                  (Array [ Literal (Numeric 15.0 Pt) , Literal (Numeric 0.0 Pt) ])
+                  (Array
+                     [ Reg (Literal (Numeric 15.0 Pt))
+                     , Reg (Literal (Numeric 0.0 Pt))
+                     ])
               , NormalArg
-                  (Array [ Literal (Numeric 0.0 Pt) , Literal (Numeric 40.0 Pt) ])
+                  (Array
+                     [ Reg (Literal (Numeric 0.0 Pt))
+                     , Reg (Literal (Numeric 40.0 Pt))
+                     ])
               , NormalArg
-                  (Array [ Literal (Numeric 15.0 Pt) , Literal (Numeric 45.0 Pt) ])
+                  (Array
+                     [ Reg (Literal (Numeric 15.0 Pt))
+                     , Reg (Literal (Numeric 45.0 Pt))
+                     ])
               ])
        ])
 , ParBreak

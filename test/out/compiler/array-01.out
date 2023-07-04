@@ -60,9 +60,9 @@
               (FieldAccess
                  (Ident (Identifier "len"))
                  (Array
-                    [ Literal (String "A")
-                    , Literal (String "B")
-                    , Literal (String "C")
+                    [ Reg (Literal (String "A"))
+                    , Reg (Literal (String "B"))
+                    , Reg (Literal (String "C"))
                     ]))
               [])
        , NormalArg (Literal (Int 3))

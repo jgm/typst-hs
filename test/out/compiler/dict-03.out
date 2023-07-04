@@ -50,8 +50,8 @@
               (FieldAccess
                  (Ident (Identifier "at"))
                  (Dict
-                    [ ( Identifier "a" , Literal (Int 1) )
-                    , ( Identifier "b" , Literal (Int 2) )
+                    [ Reg ( Identifier "a" , Literal (Int 1) )
+                    , Reg ( Identifier "b" , Literal (Int 2) )
                     ]))
               [ NormalArg (Literal (String "b"))
               , KeyValArg (Identifier "default") (Literal (Int 3))
@@ -69,8 +69,8 @@
               (FieldAccess
                  (Ident (Identifier "at"))
                  (Dict
-                    [ ( Identifier "a" , Literal (Int 1) )
-                    , ( Identifier "b" , Literal (Int 2) )
+                    [ Reg ( Identifier "a" , Literal (Int 1) )
+                    , Reg ( Identifier "b" , Literal (Int 2) )
                     ]))
               [ NormalArg (Literal (String "c"))
               , KeyValArg (Identifier "default") (Literal (Int 3))

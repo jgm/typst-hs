@@ -73,8 +73,8 @@
        , KeyValArg
            (Identifier "margin")
            (Dict
-              [ ( Identifier "top" , Literal (Numeric 10.0 Pt) )
-              , ( Identifier "rest" , Literal Auto )
+              [ Reg ( Identifier "top" , Literal (Numeric 10.0 Pt) )
+              , Reg ( Identifier "rest" , Literal Auto )
               ])
        , BlockArg [ Text "Hi" ]
        ])

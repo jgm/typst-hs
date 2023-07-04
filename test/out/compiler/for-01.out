@@ -50,13 +50,18 @@
     ( line 5 , column 2 )
     (For
        (BasicBind (Just (Identifier "v")))
-       (Array [ Literal (Int 1) , Literal (Int 2) , Literal (Int 3) ])
+       (Array
+          [ Reg (Literal (Int 1))
+          , Reg (Literal (Int 2))
+          , Reg (Literal (Int 3))
+          ])
        (Block
           (CodeBlock
              [ Assign
                  (Ident (Identifier "out"))
                  (Plus
-                    (Ident (Identifier "out")) (Array [ Ident (Identifier "v") ]))
+                    (Ident (Identifier "out"))
+                    (Array [ Reg (Ident (Identifier "v")) ]))
              ])))
 , ParBreak
 , Comment
@@ -72,9 +77,9 @@
           (FieldAccess
              (Ident (Identifier "enumerate"))
              (Array
-                [ Literal (String "1")
-                , Literal (String "2")
-                , Literal (String "3")
+                [ Reg (Literal (String "1"))
+                , Reg (Literal (String "2"))
+                , Reg (Literal (String "3"))
                 ]))
           [])
        (Block
@@ -96,15 +101,16 @@
     (For
        (BasicBind (Just (Identifier "v")))
        (Dict
-          [ ( Identifier "a" , Literal (Int 4) )
-          , ( Identifier "b" , Literal (Int 5) )
+          [ Reg ( Identifier "a" , Literal (Int 4) )
+          , Reg ( Identifier "b" , Literal (Int 5) )
           ])
        (Block
           (CodeBlock
              [ Assign
                  (Ident (Identifier "out"))
                  (Plus
-                    (Ident (Identifier "out")) (Array [ Ident (Identifier "v") ]))
+                    (Ident (Identifier "out"))
+                    (Array [ Reg (Ident (Identifier "v")) ]))
              ])))
 , ParBreak
 , Comment
@@ -117,19 +123,21 @@
           , Simple (Just (Identifier "v"))
           ])
        (Dict
-          [ ( Identifier "a" , Literal (Int 6) )
-          , ( Identifier "b" , Literal (Int 7) )
+          [ Reg ( Identifier "a" , Literal (Int 6) )
+          , Reg ( Identifier "b" , Literal (Int 7) )
           ])
        (Block
           (CodeBlock
              [ Assign
                  (Ident (Identifier "out"))
                  (Plus
-                    (Ident (Identifier "out")) (Array [ Ident (Identifier "k") ]))
+                    (Ident (Identifier "out"))
+                    (Array [ Reg (Ident (Identifier "k")) ]))
              , Assign
                  (Ident (Identifier "out"))
                  (Plus
-                    (Ident (Identifier "out")) (Array [ Ident (Identifier "v") ]))
+                    (Ident (Identifier "out"))
+                    (Array [ Reg (Ident (Identifier "v")) ]))
              ])))
 , ParBreak
 , Code
@@ -140,15 +148,17 @@
        [ NormalArg (Ident (Identifier "out"))
        , NormalArg
            (Array
-              [ Literal (Int 1)
-              , Literal (Int 2)
-              , Literal (Int 3)
-              , Array [ Literal (String "a") , Literal (Int 4) ]
-              , Array [ Literal (String "b") , Literal (Int 5) ]
-              , Literal (String "a")
-              , Literal (Int 6)
-              , Literal (String "b")
-              , Literal (Int 7)
+              [ Reg (Literal (Int 1))
+              , Reg (Literal (Int 2))
+              , Reg (Literal (Int 3))
+              , Reg
+                  (Array [ Reg (Literal (String "a")) , Reg (Literal (Int 4)) ])
+              , Reg
+                  (Array [ Reg (Literal (String "b")) , Reg (Literal (Int 5)) ])
+              , Reg (Literal (String "a"))
+              , Reg (Literal (Int 6))
+              , Reg (Literal (String "b"))
+              , Reg (Literal (Int 7))
               ])
        ])
 , ParBreak

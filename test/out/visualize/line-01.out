@@ -115,8 +115,8 @@
                             , KeyValArg
                                 (Identifier "start")
                                 (Array
-                                   [ Literal (Numeric 9.0 Percent)
-                                   , Literal (Numeric 2.0 Percent)
+                                   [ Reg (Literal (Numeric 9.0 Percent))
+                                   , Reg (Literal (Numeric 2.0 Percent))
                                    ])
                             ])
                      ])
@@ -133,8 +133,8 @@
                             , KeyValArg
                                 (Identifier "start")
                                 (Array
-                                   [ Literal (Numeric 38.7 Percent)
-                                   , Literal (Numeric 2.0 Percent)
+                                   [ Reg (Literal (Numeric 38.7 Percent))
+                                   , Reg (Literal (Numeric 2.0 Percent))
                                    ])
                             , KeyValArg
                                 (Identifier "angle") (Negated (Literal (Numeric 72.0 Deg)))
@@ -153,8 +153,8 @@
                             , KeyValArg
                                 (Identifier "start")
                                 (Array
-                                   [ Literal (Numeric 57.5 Percent)
-                                   , Literal (Numeric 2.0 Percent)
+                                   [ Reg (Literal (Numeric 57.5 Percent))
+                                   , Reg (Literal (Numeric 2.0 Percent))
                                    ])
                             , KeyValArg (Identifier "angle") (Literal (Numeric 252.0 Deg))
                             ])
@@ -172,8 +172,8 @@
                             , KeyValArg
                                 (Identifier "start")
                                 (Array
-                                   [ Literal (Numeric 57.3 Percent)
-                                   , Literal (Numeric 2.0 Percent)
+                                   [ Reg (Literal (Numeric 57.3 Percent))
+                                   , Reg (Literal (Numeric 2.0 Percent))
                                    ])
                             ])
                      ])
@@ -191,8 +191,8 @@
                             , KeyValArg
                                 (Identifier "start")
                                 (Array
-                                   [ Literal (Numeric 88.0 Percent)
-                                   , Literal (Numeric 2.0 Percent)
+                                   [ Reg (Literal (Numeric 88.0 Percent))
+                                   , Reg (Literal (Numeric 2.0 Percent))
                                    ])
                             , KeyValArg
                                 (Identifier "angle") (Negated (Literal (Numeric 36.0 Deg)))
@@ -211,8 +211,8 @@
                             , KeyValArg
                                 (Identifier "start")
                                 (Array
-                                   [ Literal (Numeric 73.3 Percent)
-                                   , Literal (Numeric 48.0 Percent)
+                                   [ Reg (Literal (Numeric 73.3 Percent))
+                                   , Reg (Literal (Numeric 48.0 Percent))
                                    ])
                             , KeyValArg (Identifier "angle") (Literal (Numeric 252.0 Deg))
                             ])
@@ -231,8 +231,8 @@
                             , KeyValArg
                                 (Identifier "start")
                                 (Array
-                                   [ Literal (Numeric 73.5 Percent)
-                                   , Literal (Numeric 48.0 Percent)
+                                   [ Reg (Literal (Numeric 73.5 Percent))
+                                   , Reg (Literal (Numeric 48.0 Percent))
                                    ])
                             , KeyValArg (Identifier "angle") (Literal (Numeric 36.0 Deg))
                             ])
@@ -250,8 +250,8 @@
                             , KeyValArg
                                 (Identifier "start")
                                 (Array
-                                   [ Literal (Numeric 25.4 Percent)
-                                   , Literal (Numeric 48.0 Percent)
+                                   [ Reg (Literal (Numeric 25.4 Percent))
+                                   , Reg (Literal (Numeric 48.0 Percent))
                                    ])
                             , KeyValArg
                                 (Identifier "angle") (Negated (Literal (Numeric 36.0 Deg)))
@@ -270,8 +270,8 @@
                             , KeyValArg
                                 (Identifier "start")
                                 (Array
-                                   [ Literal (Numeric 25.6 Percent)
-                                   , Literal (Numeric 48.0 Percent)
+                                   [ Reg (Literal (Numeric 25.6 Percent))
+                                   , Reg (Literal (Numeric 48.0 Percent))
                                    ])
                             , KeyValArg
                                 (Identifier "angle") (Negated (Literal (Numeric 72.0 Deg)))
@@ -290,8 +290,8 @@
                             , KeyValArg
                                 (Identifier "start")
                                 (Array
-                                   [ Literal (Numeric 8.5 Percent)
-                                   , Literal (Numeric 2.0 Percent)
+                                   [ Reg (Literal (Numeric 8.5 Percent))
+                                   , Reg (Literal (Numeric 2.0 Percent))
                                    ])
                             , KeyValArg (Identifier "angle") (Literal (Numeric 34.0 Deg))
                             ])
@@ -315,11 +315,12 @@
               , SpreadArg
                   (Times
                      (Array
-                        [ FuncCall
-                            (Ident (Identifier "star"))
-                            [ NormalArg (Literal (Numeric 20.0 Pt))
-                            , KeyValArg (Identifier "stroke") (Literal (Numeric 0.5 Pt))
-                            ]
+                        [ Reg
+                            (FuncCall
+                               (Ident (Identifier "star"))
+                               [ NormalArg (Literal (Numeric 20.0 Pt))
+                               , KeyValArg (Identifier "stroke") (Literal (Numeric 0.5 Pt))
+                               ])
                         ])
                      (Literal (Int 9)))
               ])

@@ -59,9 +59,9 @@
            (InCollection
               (Literal (String "hi"))
               (Array
-                 [ Literal (String "we")
-                 , Literal (String "hi")
-                 , Literal (String "bye")
+                 [ Reg (Literal (String "we"))
+                 , Reg (Literal (String "hi"))
+                 , Reg (Literal (String "bye"))
                  ]))
        , NormalArg (Literal (Boolean True))
        ])
@@ -131,7 +131,7 @@
        [ NormalArg
            (InCollection
               (Literal (String "key"))
-              (Dict [ ( Identifier "key" , Literal (String "value") ) ]))
+              (Dict [ Reg ( Identifier "key" , Literal (String "value") ) ]))
        , NormalArg (Literal (Boolean True))
        ])
 , SoftBreak
@@ -143,7 +143,7 @@
        [ NormalArg
            (InCollection
               (Literal (String "value"))
-              (Dict [ ( Identifier "key" , Literal (String "value") ) ]))
+              (Dict [ Reg ( Identifier "key" , Literal (String "value") ) ]))
        , NormalArg (Literal (Boolean False))
        ])
 , SoftBreak

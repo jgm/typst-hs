@@ -57,10 +57,10 @@
        [ KeyValArg
            (Identifier "rows")
            (Array
-              [ Literal (Numeric 1.0 Cm)
-              , Literal (Numeric 1.0 Fr)
-              , Literal (Numeric 1.0 Fr)
-              , Literal Auto
+              [ Reg (Literal (Numeric 1.0 Cm))
+              , Reg (Literal (Numeric 1.0 Fr))
+              , Reg (Literal (Numeric 1.0 Fr))
+              , Reg (Literal Auto)
               ])
        , NormalArg
            (FuncCall

@@ -47,9 +47,9 @@
        (Ident (Identifier "link"))
        [ NormalArg
            (Dict
-              [ ( Identifier "page" , Literal (Int 1) )
-              , ( Identifier "x" , Literal (Numeric 10.0 Pt) )
-              , ( Identifier "y" , Literal (Numeric 20.0 Pt) )
+              [ Reg ( Identifier "page" , Literal (Int 1) )
+              , Reg ( Identifier "x" , Literal (Numeric 10.0 Pt) )
+              , Reg ( Identifier "y" , Literal (Numeric 20.0 Pt) )
               ])
        , BlockArg
            [ Text "Back"

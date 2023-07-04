@@ -54,7 +54,8 @@
        (Ident (Identifier "grid"))
        [ KeyValArg
            (Identifier "columns")
-           (Times (Literal (Int 2)) (Array [ Literal (Numeric 20.0 Pt) ]))
+           (Times
+              (Literal (Int 2)) (Array [ Reg (Literal (Numeric 20.0 Pt)) ]))
        , KeyValArg (Identifier "gutter") (Literal (Numeric 1.0 Fr))
        , NormalArg
            (FuncCall

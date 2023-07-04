@@ -62,22 +62,24 @@
 , Code
     "test/typ/compiler/array-00.typ"
     ( line 13 , column 2 )
-    (Array [ Negated (Literal (Int 1)) ])
+    (Array [ Reg (Negated (Literal (Int 1))) ])
 , ParBreak
 , Comment
 , Code
     "test/typ/compiler/array-00.typ"
     ( line 16 , column 2 )
-    (Array [ Literal (Boolean True) , Literal (Boolean False) ])
+    (Array
+       [ Reg (Literal (Boolean True)) , Reg (Literal (Boolean False)) ])
 , ParBreak
 , Comment
 , Code
     "test/typ/compiler/array-00.typ"
     ( line 19 , column 2 )
     (Array
-       [ Literal (String "1")
-       , FuncCall
-           (Ident (Identifier "rgb")) [ NormalArg (Literal (String "002")) ]
+       [ Reg (Literal (String "1"))
+       , Reg
+           (FuncCall
+              (Ident (Identifier "rgb")) [ NormalArg (Literal (String "002")) ])
        ])
 , ParBreak
 ]

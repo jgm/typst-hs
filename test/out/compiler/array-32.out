@@ -48,9 +48,9 @@
        (FieldAccess
           (Ident (Identifier "join"))
           (Array
-             [ Block (Content [ Text "One" ])
-             , Block (Content [ Text "Two" ])
-             , Block (Content [ Text "Three" ])
+             [ Reg (Block (Content [ Text "One" ]))
+             , Reg (Block (Content [ Text "Two" ]))
+             , Reg (Block (Content [ Text "Three" ]))
              ]))
        [ NormalArg (Block (Content [ Text "," , Space ]))
        , KeyValArg

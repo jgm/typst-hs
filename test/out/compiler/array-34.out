@@ -60,7 +60,7 @@
        [ NormalArg
            (FuncCall
               (FieldAccess
-                 (Ident (Identifier "zip")) (Array [ Literal (Int 1) ]))
+                 (Ident (Identifier "zip")) (Array [ Reg (Literal (Int 1)) ]))
               [ NormalArg (Array []) ])
        , NormalArg (Array [])
        ])
@@ -73,9 +73,11 @@
        [ NormalArg
            (FuncCall
               (FieldAccess
-                 (Ident (Identifier "zip")) (Array [ Literal (Int 1) ]))
-              [ NormalArg (Array [ Literal (Int 2) ]) ])
-       , NormalArg (Array [ Array [ Literal (Int 1) , Literal (Int 2) ] ])
+                 (Ident (Identifier "zip")) (Array [ Reg (Literal (Int 1)) ]))
+              [ NormalArg (Array [ Reg (Literal (Int 2)) ]) ])
+       , NormalArg
+           (Array
+              [ Reg (Array [ Reg (Literal (Int 1)) , Reg (Literal (Int 2)) ]) ])
        ])
 , SoftBreak
 , Code
@@ -87,12 +89,14 @@
            (FuncCall
               (FieldAccess
                  (Ident (Identifier "zip"))
-                 (Array [ Literal (Int 1) , Literal (Int 2) ]))
-              [ NormalArg (Array [ Literal (Int 3) , Literal (Int 4) ]) ])
+                 (Array [ Reg (Literal (Int 1)) , Reg (Literal (Int 2)) ]))
+              [ NormalArg
+                  (Array [ Reg (Literal (Int 3)) , Reg (Literal (Int 4)) ])
+              ])
        , NormalArg
            (Array
-              [ Array [ Literal (Int 1) , Literal (Int 3) ]
-              , Array [ Literal (Int 2) , Literal (Int 4) ]
+              [ Reg (Array [ Reg (Literal (Int 1)) , Reg (Literal (Int 3)) ])
+              , Reg (Array [ Reg (Literal (Int 2)) , Reg (Literal (Int 4)) ])
               ])
        ])
 , SoftBreak
@@ -106,16 +110,18 @@
               (FieldAccess
                  (Ident (Identifier "zip"))
                  (Array
-                    [ Literal (Int 1)
-                    , Literal (Int 2)
-                    , Literal (Int 3)
-                    , Literal (Int 4)
+                    [ Reg (Literal (Int 1))
+                    , Reg (Literal (Int 2))
+                    , Reg (Literal (Int 3))
+                    , Reg (Literal (Int 4))
                     ]))
-              [ NormalArg (Array [ Literal (Int 5) , Literal (Int 6) ]) ])
+              [ NormalArg
+                  (Array [ Reg (Literal (Int 5)) , Reg (Literal (Int 6)) ])
+              ])
        , NormalArg
            (Array
-              [ Array [ Literal (Int 1) , Literal (Int 5) ]
-              , Array [ Literal (Int 2) , Literal (Int 6) ]
+              [ Reg (Array [ Reg (Literal (Int 1)) , Reg (Literal (Int 5)) ])
+              , Reg (Array [ Reg (Literal (Int 2)) , Reg (Literal (Int 6)) ])
               ])
        ])
 , SoftBreak
@@ -129,13 +135,20 @@
               (FieldAccess
                  (Ident (Identifier "zip"))
                  (Array
-                    [ Array [ Literal (Int 1) , Literal (Int 2) ] , Literal (Int 3) ]))
-              [ NormalArg (Array [ Literal (Int 4) , Literal (Int 5) ]) ])
+                    [ Reg (Array [ Reg (Literal (Int 1)) , Reg (Literal (Int 2)) ])
+                    , Reg (Literal (Int 3))
+                    ]))
+              [ NormalArg
+                  (Array [ Reg (Literal (Int 4)) , Reg (Literal (Int 5)) ])
+              ])
        , NormalArg
            (Array
-              [ Array
-                  [ Array [ Literal (Int 1) , Literal (Int 2) ] , Literal (Int 4) ]
-              , Array [ Literal (Int 3) , Literal (Int 5) ]
+              [ Reg
+                  (Array
+                     [ Reg (Array [ Reg (Literal (Int 1)) , Reg (Literal (Int 2)) ])
+                     , Reg (Literal (Int 4))
+                     ])
+              , Reg (Array [ Reg (Literal (Int 3)) , Reg (Literal (Int 5)) ])
               ])
        ])
 , SoftBreak
@@ -148,14 +161,18 @@
            (FuncCall
               (FieldAccess
                  (Ident (Identifier "zip"))
-                 (Array [ Literal (Int 1) , Literal (String "hi") ]))
+                 (Array [ Reg (Literal (Int 1)) , Reg (Literal (String "hi")) ]))
               [ NormalArg
-                  (Array [ Literal (Boolean True) , Literal (Boolean False) ])
+                  (Array
+                     [ Reg (Literal (Boolean True)) , Reg (Literal (Boolean False)) ])
               ])
        , NormalArg
            (Array
-              [ Array [ Literal (Int 1) , Literal (Boolean True) ]
-              , Array [ Literal (String "hi") , Literal (Boolean False) ]
+              [ Reg
+                  (Array [ Reg (Literal (Int 1)) , Reg (Literal (Boolean True)) ])
+              , Reg
+                  (Array
+                     [ Reg (Literal (String "hi")) , Reg (Literal (Boolean False)) ])
               ])
        ])
 , ParBreak

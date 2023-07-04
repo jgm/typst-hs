@@ -55,12 +55,12 @@
           [ KeyValArg (Identifier "radius") (Literal (Numeric 2.0 Pt))
           , KeyValArg
               (Identifier "outset")
-              (Dict [ ( Identifier "y" , Literal (Numeric 2.5 Pt) ) ])
+              (Dict [ Reg ( Identifier "y" , Literal (Numeric 2.5 Pt) ) ])
           , KeyValArg
               (Identifier "inset")
               (Dict
-                 [ ( Identifier "x" , Literal (Numeric 3.0 Pt) )
-                 , ( Identifier "y" , Literal (Numeric 0.0 Pt) )
+                 [ Reg ( Identifier "x" , Literal (Numeric 3.0 Pt) )
+                 , Reg ( Identifier "y" , Literal (Numeric 0.0 Pt) )
                  ])
           , KeyValArg
               (Identifier "fill")
@@ -91,12 +91,13 @@
           , KeyValArg
               (Identifier "stroke")
               (Dict
-                 [ ( Identifier "left"
-                   , Plus
-                       (Literal (Numeric 1.5 Pt))
-                       (FuncCall
-                          (Ident (Identifier "luma")) [ NormalArg (Literal (Int 180)) ])
-                   )
+                 [ Reg
+                     ( Identifier "left"
+                     , Plus
+                         (Literal (Numeric 1.5 Pt))
+                         (FuncCall
+                            (Ident (Identifier "luma")) [ NormalArg (Literal (Int 180)) ])
+                     )
                  ])
           ]))
 , ParBreak
@@ -107,7 +108,7 @@
        (Ident (Identifier "page"))
        [ KeyValArg
            (Identifier "margin")
-           (Dict [ ( Identifier "top" , Literal (Numeric 12.0 Pt) ) ])
+           (Dict [ Reg ( Identifier "top" , Literal (Numeric 12.0 Pt) ) ])
        ])
 , SoftBreak
 , Code

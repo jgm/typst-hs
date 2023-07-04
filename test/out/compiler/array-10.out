@@ -48,7 +48,7 @@
        [ NormalArg
            (FuncCall
               (FieldAccess
-                 (Ident (Identifier "first")) (Array [ Literal (Int 1) ]))
+                 (Ident (Identifier "first")) (Array [ Reg (Literal (Int 1)) ]))
               [])
        , NormalArg (Literal (Int 1))
        ])
@@ -61,7 +61,7 @@
        [ NormalArg
            (FuncCall
               (FieldAccess
-                 (Ident (Identifier "last")) (Array [ Literal (Int 2) ]))
+                 (Ident (Identifier "last")) (Array [ Reg (Literal (Int 2)) ]))
               [])
        , NormalArg (Literal (Int 2))
        ])
@@ -75,7 +75,11 @@
            (FuncCall
               (FieldAccess
                  (Ident (Identifier "first"))
-                 (Array [ Literal (Int 1) , Literal (Int 2) , Literal (Int 3) ]))
+                 (Array
+                    [ Reg (Literal (Int 1))
+                    , Reg (Literal (Int 2))
+                    , Reg (Literal (Int 3))
+                    ]))
               [])
        , NormalArg (Literal (Int 1))
        ])
@@ -89,7 +93,11 @@
            (FuncCall
               (FieldAccess
                  (Ident (Identifier "last"))
-                 (Array [ Literal (Int 1) , Literal (Int 2) , Literal (Int 3) ]))
+                 (Array
+                    [ Reg (Literal (Int 1))
+                    , Reg (Literal (Int 2))
+                    , Reg (Literal (Int 3))
+                    ]))
               [])
        , NormalArg (Literal (Int 3))
        ])

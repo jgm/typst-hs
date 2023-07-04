@@ -61,7 +61,10 @@
        (Ident (Identifier "grid"))
        [ KeyValArg
            (Identifier "columns")
-           (Array [ Literal (Numeric 50.0 Pt) , Literal (Numeric 50.0 Pt) ])
+           (Array
+              [ Reg (Literal (Numeric 50.0 Pt))
+              , Reg (Literal (Numeric 50.0 Pt))
+              ])
        , NormalArg
            (Block
               (Content

@@ -70,10 +70,10 @@
               ])
        , NormalArg
            (Dict
-              [ ( Identifier "start" , Literal (Int 4) )
-              , ( Identifier "end" , Literal (Int 8) )
-              , ( Identifier "text" , Literal (String "time") )
-              , ( Identifier "captures" , Array [] )
+              [ Reg ( Identifier "start" , Literal (Int 4) )
+              , Reg ( Identifier "end" , Literal (Int 8) )
+              , Reg ( Identifier "text" , Literal (String "time") )
+              , Reg ( Identifier "captures" , Array [] )
               ])
        ])
 , ParBreak
@@ -103,18 +103,20 @@
               [ NormalArg (Literal (String "Day")) ])
        , NormalArg
            (Array
-              [ Dict
-                  [ ( Identifier "start" , Literal (Int 0) )
-                  , ( Identifier "end" , Literal (Int 3) )
-                  , ( Identifier "text" , Literal (String "Day") )
-                  , ( Identifier "captures" , Array [] )
-                  ]
-              , Dict
-                  [ ( Identifier "start" , Literal (Int 7) )
-                  , ( Identifier "end" , Literal (Int 10) )
-                  , ( Identifier "text" , Literal (String "Day") )
-                  , ( Identifier "captures" , Array [] )
-                  ]
+              [ Reg
+                  (Dict
+                     [ Reg ( Identifier "start" , Literal (Int 0) )
+                     , Reg ( Identifier "end" , Literal (Int 3) )
+                     , Reg ( Identifier "text" , Literal (String "Day") )
+                     , Reg ( Identifier "captures" , Array [] )
+                     ])
+              , Reg
+                  (Dict
+                     [ Reg ( Identifier "start" , Literal (Int 7) )
+                     , Reg ( Identifier "end" , Literal (Int 10) )
+                     , Reg ( Identifier "text" , Literal (String "Day") )
+                     , Reg ( Identifier "captures" , Array [] )
+                     ])
               ])
        ])
 , ParBreak

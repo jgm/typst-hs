@@ -53,13 +53,25 @@
               (Ident (Identifier "path"))
               [ KeyValArg (Identifier "fill") (Ident (Identifier "purple"))
               , NormalArg
-                  (Array [ Literal (Numeric 0.0 Pt) , Literal (Numeric 0.0 Pt) ])
+                  (Array
+                     [ Reg (Literal (Numeric 0.0 Pt))
+                     , Reg (Literal (Numeric 0.0 Pt))
+                     ])
               , NormalArg
-                  (Array [ Literal (Numeric 30.0 Pt) , Literal (Numeric 30.0 Pt) ])
+                  (Array
+                     [ Reg (Literal (Numeric 30.0 Pt))
+                     , Reg (Literal (Numeric 30.0 Pt))
+                     ])
               , NormalArg
-                  (Array [ Literal (Numeric 0.0 Pt) , Literal (Numeric 30.0 Pt) ])
+                  (Array
+                     [ Reg (Literal (Numeric 0.0 Pt))
+                     , Reg (Literal (Numeric 30.0 Pt))
+                     ])
               , NormalArg
-                  (Array [ Literal (Numeric 30.0 Pt) , Literal (Numeric 0.0 Pt) ])
+                  (Array
+                     [ Reg (Literal (Numeric 30.0 Pt))
+                     , Reg (Literal (Numeric 0.0 Pt))
+                     ])
               ])
        ])
 , ParBreak

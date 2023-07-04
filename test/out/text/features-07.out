@@ -46,7 +46,7 @@
     (FuncCall
        (Ident (Identifier "text"))
        [ KeyValArg
-           (Identifier "features") (Array [ Literal (String "smcp") ])
+           (Identifier "features") (Array [ Reg (Literal (String "smcp")) ])
        , BlockArg [ Text "Smcp" ]
        ])
 , Space
@@ -63,7 +63,7 @@
        (Ident (Identifier "text"))
        [ KeyValArg
            (Identifier "features")
-           (Dict [ ( Identifier "liga" , Literal (Int 0) ) ])
+           (Dict [ Reg ( Identifier "liga" , Literal (Int 0) ) ])
        , BlockArg [ Text "No" , Space , Text "fi" ]
        ])
 , ParBreak

@@ -113,7 +113,7 @@
     ( line 11 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
-       [ NormalArg (Equals (Array []) (Array [ Literal (Int 1) ]))
+       [ NormalArg (Equals (Array []) (Array [ Reg (Literal (Int 1)) ]))
        , NormalArg (Literal (Boolean False))
        ])
 , SoftBreak
@@ -124,10 +124,14 @@
        (Ident (Identifier "test"))
        [ NormalArg
            (Equals
-              (Array [ Literal (Int 1) , Literal (Int 2) , Literal (Int 3) ])
+              (Array
+                 [ Reg (Literal (Int 1))
+                 , Reg (Literal (Int 2))
+                 , Reg (Literal (Int 3))
+                 ])
               (Plus
-                 (Array [ Literal (Int 1) , Literal (Float 2.0) ])
-                 (Array [ Literal (Int 3) ])))
+                 (Array [ Reg (Literal (Int 1)) , Reg (Literal (Float 2.0)) ])
+                 (Array [ Reg (Literal (Int 3)) ])))
        , NormalArg (Literal (Boolean True))
        ])
 , SoftBreak
@@ -137,7 +141,8 @@
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg
-           (Equals (Dict []) (Dict [ ( Identifier "a" , Literal (Int 1) ) ]))
+           (Equals
+              (Dict []) (Dict [ Reg ( Identifier "a" , Literal (Int 1) ) ]))
        , NormalArg (Literal (Boolean False))
        ])
 , SoftBreak
@@ -149,14 +154,13 @@
        [ NormalArg
            (Equals
               (Dict
-                 [ ( Identifier "a"
-                   , Minus (Literal (Int 2)) (Literal (Float 1.0))
-                   )
-                 , ( Identifier "b" , Literal (Int 2) )
+                 [ Reg
+                     ( Identifier "a" , Minus (Literal (Int 2)) (Literal (Float 1.0)) )
+                 , Reg ( Identifier "b" , Literal (Int 2) )
                  ])
               (Dict
-                 [ ( Identifier "b" , Literal (Int 2) )
-                 , ( Identifier "a" , Literal (Int 1) )
+                 [ Reg ( Identifier "b" , Literal (Int 2) )
+                 , Reg ( Identifier "a" , Literal (Int 1) )
                  ]))
        , NormalArg (Literal (Boolean True))
        ])

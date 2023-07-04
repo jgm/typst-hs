@@ -71,12 +71,13 @@
        [ KeyValArg
            (Identifier "columns")
            (Array
-              [ Literal Auto
-              , Literal (Numeric 1.0 Fr)
-              , Literal (Numeric 3.0 Fr)
-              , Literal (Numeric 0.25 Cm)
-              , Literal (Numeric 3.0 Percent)
-              , Plus (Literal (Numeric 2.0 Mm)) (Literal (Numeric 10.0 Percent))
+              [ Reg (Literal Auto)
+              , Reg (Literal (Numeric 1.0 Fr))
+              , Reg (Literal (Numeric 3.0 Fr))
+              , Reg (Literal (Numeric 0.25 Cm))
+              , Reg (Literal (Numeric 3.0 Percent))
+              , Reg
+                  (Plus (Literal (Numeric 2.0 Mm)) (Literal (Numeric 10.0 Percent)))
               ])
        , NormalArg
            (FuncCall

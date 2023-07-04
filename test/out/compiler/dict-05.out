@@ -46,9 +46,9 @@
     (Let
        (BasicBind (Just (Identifier "dict")))
        (Dict
-          [ ( Identifier "a" , Literal (Int 3) )
-          , ( Identifier "c" , Literal (Int 2) )
-          , ( Identifier "b" , Literal (Int 1) )
+          [ Reg ( Identifier "a" , Literal (Int 3) )
+          , Reg ( Identifier "c" , Literal (Int 2) )
+          , Reg ( Identifier "b" , Literal (Int 1) )
           ]))
 , SoftBreak
 , Code
@@ -85,7 +85,11 @@
                  (Ident (Identifier "values")) (Ident (Identifier "dict")))
               [])
        , NormalArg
-           (Array [ Literal (Int 3) , Literal (Int 2) , Literal (Int 1) ])
+           (Array
+              [ Reg (Literal (Int 3))
+              , Reg (Literal (Int 2))
+              , Reg (Literal (Int 1))
+              ])
        ])
 , SoftBreak
 , Code
@@ -150,8 +154,8 @@
        [ NormalArg (Ident (Identifier "dict"))
        , NormalArg
            (Dict
-              [ ( Identifier "a" , Literal (Int 3) )
-              , ( Identifier "b" , Literal (Int 1) )
+              [ Reg ( Identifier "a" , Literal (Int 3) )
+              , Reg ( Identifier "b" , Literal (Int 1) )
               ])
        ])
 , ParBreak

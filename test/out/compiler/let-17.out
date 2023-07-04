@@ -50,9 +50,9 @@
           , Sink (Just (Identifier "b"))
           ])
        (Dict
-          [ ( Identifier "a" , Literal (Int 1) )
-          , ( Identifier "b" , Literal (Int 2) )
-          , ( Identifier "c" , Literal (Int 3) )
+          [ Reg ( Identifier "a" , Literal (Int 1) )
+          , Reg ( Identifier "b" , Literal (Int 2) )
+          , Reg ( Identifier "c" , Literal (Int 3) )
           ]))
 , SoftBreak
 , Code
@@ -63,8 +63,8 @@
        [ NormalArg (Ident (Identifier "b"))
        , NormalArg
            (Dict
-              [ ( Identifier "b" , Literal (Int 2) )
-              , ( Identifier "c" , Literal (Int 3) )
+              [ Reg ( Identifier "b" , Literal (Int 2) )
+              , Reg ( Identifier "c" , Literal (Int 3) )
               ])
        ])
 , ParBreak

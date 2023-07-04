@@ -65,75 +65,87 @@
              (FieldAccess
                 (Ident (Identifier "enumerate"))
                 (Array
-                   [ FuncCall
-                       (Ident (Identifier "variant"))
-                       [ KeyValArg (Identifier "stroke") (Literal None) ]
-                   , FuncCall (Ident (Identifier "variant")) []
-                   , FuncCall
-                       (Ident (Identifier "variant"))
-                       [ KeyValArg (Identifier "fill") (Literal None) ]
-                   , FuncCall
-                       (Ident (Identifier "variant"))
-                       [ KeyValArg (Identifier "stroke") (Literal (Numeric 2.0 Pt)) ]
-                   , FuncCall
-                       (Ident (Identifier "variant"))
-                       [ KeyValArg (Identifier "stroke") (Ident (Identifier "eastern")) ]
-                   , FuncCall
-                       (Ident (Identifier "variant"))
-                       [ KeyValArg
-                           (Identifier "stroke")
-                           (Plus (Ident (Identifier "eastern")) (Literal (Numeric 2.0 Pt)))
-                       ]
-                   , FuncCall
-                       (Ident (Identifier "variant"))
-                       [ KeyValArg (Identifier "fill") (Ident (Identifier "eastern")) ]
-                   , FuncCall
-                       (Ident (Identifier "variant"))
-                       [ KeyValArg (Identifier "fill") (Ident (Identifier "eastern"))
-                       , KeyValArg (Identifier "stroke") (Literal None)
-                       ]
-                   , FuncCall
-                       (Ident (Identifier "variant"))
-                       [ KeyValArg (Identifier "fill") (Ident (Identifier "red"))
-                       , KeyValArg (Identifier "stroke") (Literal None)
-                       ]
-                   , FuncCall
-                       (Ident (Identifier "variant"))
-                       [ KeyValArg (Identifier "fill") (Ident (Identifier "red"))
-                       , KeyValArg (Identifier "stroke") (Ident (Identifier "green"))
-                       ]
-                   , FuncCall
-                       (Ident (Identifier "variant"))
-                       [ KeyValArg (Identifier "fill") (Ident (Identifier "red"))
-                       , KeyValArg
-                           (Identifier "stroke")
-                           (Plus (Ident (Identifier "black")) (Literal (Numeric 2.0 Pt)))
-                       ]
-                   , FuncCall
-                       (Ident (Identifier "variant"))
-                       [ KeyValArg (Identifier "fill") (Ident (Identifier "red"))
-                       , KeyValArg
-                           (Identifier "stroke")
-                           (Plus (Ident (Identifier "green")) (Literal (Numeric 2.0 Pt)))
-                       ]
+                   [ Reg
+                       (FuncCall
+                          (Ident (Identifier "variant"))
+                          [ KeyValArg (Identifier "stroke") (Literal None) ])
+                   , Reg (FuncCall (Ident (Identifier "variant")) [])
+                   , Reg
+                       (FuncCall
+                          (Ident (Identifier "variant"))
+                          [ KeyValArg (Identifier "fill") (Literal None) ])
+                   , Reg
+                       (FuncCall
+                          (Ident (Identifier "variant"))
+                          [ KeyValArg (Identifier "stroke") (Literal (Numeric 2.0 Pt)) ])
+                   , Reg
+                       (FuncCall
+                          (Ident (Identifier "variant"))
+                          [ KeyValArg (Identifier "stroke") (Ident (Identifier "eastern")) ])
+                   , Reg
+                       (FuncCall
+                          (Ident (Identifier "variant"))
+                          [ KeyValArg
+                              (Identifier "stroke")
+                              (Plus (Ident (Identifier "eastern")) (Literal (Numeric 2.0 Pt)))
+                          ])
+                   , Reg
+                       (FuncCall
+                          (Ident (Identifier "variant"))
+                          [ KeyValArg (Identifier "fill") (Ident (Identifier "eastern")) ])
+                   , Reg
+                       (FuncCall
+                          (Ident (Identifier "variant"))
+                          [ KeyValArg (Identifier "fill") (Ident (Identifier "eastern"))
+                          , KeyValArg (Identifier "stroke") (Literal None)
+                          ])
+                   , Reg
+                       (FuncCall
+                          (Ident (Identifier "variant"))
+                          [ KeyValArg (Identifier "fill") (Ident (Identifier "red"))
+                          , KeyValArg (Identifier "stroke") (Literal None)
+                          ])
+                   , Reg
+                       (FuncCall
+                          (Ident (Identifier "variant"))
+                          [ KeyValArg (Identifier "fill") (Ident (Identifier "red"))
+                          , KeyValArg (Identifier "stroke") (Ident (Identifier "green"))
+                          ])
+                   , Reg
+                       (FuncCall
+                          (Ident (Identifier "variant"))
+                          [ KeyValArg (Identifier "fill") (Ident (Identifier "red"))
+                          , KeyValArg
+                              (Identifier "stroke")
+                              (Plus (Ident (Identifier "black")) (Literal (Numeric 2.0 Pt)))
+                          ])
+                   , Reg
+                       (FuncCall
+                          (Ident (Identifier "variant"))
+                          [ KeyValArg (Identifier "fill") (Ident (Identifier "red"))
+                          , KeyValArg
+                              (Identifier "stroke")
+                              (Plus (Ident (Identifier "green")) (Literal (Numeric 2.0 Pt)))
+                          ])
                    ]))
              [])
           (Block
              (CodeBlock
                 [ Array
-                    [ FuncCall
-                        (Ident (Identifier "align"))
-                        [ NormalArg (Ident (Identifier "horizon"))
-                        , BlockArg
-                            [ Code
-                                "test/typ/visualize/shape-fill-stroke-00.typ"
-                                ( line 17 , column 20 )
-                                (Plus (Ident (Identifier "i")) (Literal (Int 1)))
-                            , Text "."
-                            ]
-                        ]
-                    , Ident (Identifier "item")
-                    , Block (Content [])
+                    [ Reg
+                        (FuncCall
+                           (Ident (Identifier "align"))
+                           [ NormalArg (Ident (Identifier "horizon"))
+                           , BlockArg
+                               [ Code
+                                   "test/typ/visualize/shape-fill-stroke-00.typ"
+                                   ( line 17 , column 20 )
+                                   (Plus (Ident (Identifier "i")) (Literal (Int 1)))
+                               , Text "."
+                               ]
+                           ])
+                    , Reg (Ident (Identifier "item"))
+                    , Reg (Block (Content []))
                     ]
                 ]))))
 , ParBreak
@@ -145,12 +157,12 @@
        [ KeyValArg
            (Identifier "columns")
            (Array
-              [ Literal Auto
-              , Literal Auto
-              , Literal (Numeric 1.0 Fr)
-              , Literal Auto
-              , Literal Auto
-              , Literal (Numeric 0.0 Fr)
+              [ Reg (Literal Auto)
+              , Reg (Literal Auto)
+              , Reg (Literal (Numeric 1.0 Fr))
+              , Reg (Literal Auto)
+              , Reg (Literal Auto)
+              , Reg (Literal (Numeric 0.0 Fr))
               ])
        , KeyValArg (Identifier "gutter") (Literal (Numeric 5.0 Pt))
        , SpreadArg (Ident (Identifier "items"))
