@@ -311,7 +311,8 @@ foundations =
           )
         ]
     ),
-    ("panic", makeFunction $ allArgs >>= fail . unlines . map show),
+    ("panic", makeFunction $ allArgs >>= fail . T.unpack .
+                 (("panicked with: " <>) . T.unlines . map repr)),
     ("repr", makeFunction $ nthArg 1 >>= pure . VString . repr),
     ( "type",
       makeFunction $ do
