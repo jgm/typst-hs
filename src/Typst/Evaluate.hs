@@ -888,10 +888,10 @@ findPackageEntryPoint modname = do
   let cacheDir = localAppDataDir </> "typst"
 #else
   homeDir <- getEnv "HOME"
-  dataDir <- lookupEnvVar operations "XDG_DATA_HOME" >>=
-               maybe (pure (homeDir </> ".local" </> "share")) lift
-  cacheDir' <- lookupEnvVar operations "XDG_CACHE_HOME" >>=
-               maybe (pure (homeDir </> ".cache")) lift
+  dataDir <- lift (lookupEnvVar operations "XDG_DATA_HOME") >>=
+               maybe (pure (homeDir </> ".local" </> "share")) pure
+  cacheDir' <- lift (lookupEnvVar operations "XDG_CACHE_HOME") >>=
+               maybe (pure (homeDir </> ".cache")) pure
   let localDir = dataDir </> "typst"
   let cacheDir = cacheDir' </> "typst"
 #endif
