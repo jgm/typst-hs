@@ -925,8 +925,9 @@ findPackageEntryPoint modname = do
           inCache <- lift $ checkExistence operations (cacheDir </> subpath </> "typst.toml")
           if inCache
              then pure (cacheDir </> subpath </> "typst.toml")
-             else fail $ "Could not find package in local packages or cache. Looked in " ++
-                    (localDir </> subpath) ++ ", " ++ (cacheDir </> subpath)
+             else fail $ "Could not find package in local packages or cache. Looked in\n" ++
+                    (localDir </> subpath) ++ "\n" ++ (cacheDir </> subpath) ++
+                    "\nCompile with typst compile to bring the package into your local cache."
              -- TODO? fetch from CDN if not present in cache?
   tomlString <- T.unpack . TE.decodeUtf8 <$> lift (loadBytes operations tomlPath)
   case Toml.parse tomlString of
