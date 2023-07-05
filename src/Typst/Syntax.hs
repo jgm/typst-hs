@@ -107,7 +107,7 @@ data Block
   deriving (Show, Ord, Eq, Data, Typeable)
 
 data Spreadable a =
-    Spr Identifier
+    Spr Expr
   | Reg a
   deriving (Show, Ord, Eq, Data, Typeable)
 

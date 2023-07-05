@@ -983,7 +983,7 @@ pDictExpr = try $ inParens (pEmptyDict <|> pNonemptyDict)
       pure $ Identifier t
 
 pSpread :: P (Spreadable a)
-pSpread = try $ string ".." *> (Spr <$> pIdentifier)
+pSpread = try $ string ".." *> (Spr <$> pExpr)
 
 -- func-expr ::= (params | ident) '=>' expr
 pFuncExpr :: P Expr

@@ -446,8 +446,8 @@ evalExpr expr =
     Array es -> VArray <$> foldM
            ( \xs x ->
                case x of
-                 Spr ident -> do
-                   val <- lookupIdentifier ident
+                 Spr y -> do
+                   val <- evalExpr y
                    case val of
                      VArray ys -> pure (xs <> ys)
                      _ -> fail $ "Could not spread " <> show (valType val) <>
@@ -465,8 +465,8 @@ evalExpr expr =
                 Reg (k, e) -> do
                   val <- evalExpr e
                   pure $ m OM.|> (k, val)
-                Spr ident -> do
-                  val <- lookupIdentifier ident
+                Spr y -> do
+                  val <- evalExpr y
                   case val of
                     VDict m' -> pure (m' OM.|<> m)
                     _ -> fail $ "Could not spread " <> show (valType val) <>
