@@ -327,5 +327,5 @@
 "test/typ/compiler/content-field-00.typ" (line 42, column 2):
 unexpected end of input
 expecting end of input
-named argument default not defined or panicked with: "unknown math variable: +"
+panicked with: "unknown math variable: +"
 
