@@ -687,7 +687,7 @@ pIdentifier = lexeme $ try $ do
 -- other letters, letter numbers, plus Other_ID_Start, minus Pattern_Syntax and
 -- Pattern_White_Space code points.
 isIdentStart :: Char -> Bool
-isIdentStart c =
+isIdentStart c = c == '_' ||
   case generalCategory c of
     UppercaseLetter -> True
     LowercaseLetter -> True
@@ -991,8 +991,10 @@ pFuncExpr = try $ FuncExpr <$> pParamsOrIdent <*> (sym "=>" *> pExpr)
   where
     pParamsOrIdent =
       pParams
-        <|> ((\i -> [NormalParam i]) <$> pIdentifier)
-        <|> ([SkipParam] <$ sym "_")
+        <|> (do i <- pIdentifier
+                if i == "_"
+                   then pure [SkipParam]
+                   else pure [NormalParam i])
 
 pKeywordExpr :: P Expr
 pKeywordExpr =
@@ -1063,7 +1065,11 @@ pBasicBind :: P Bind
 pBasicBind = BasicBind <$> try (pBindIdentifier <|> inParens pBindIdentifier)
 
 pBindIdentifier :: P (Maybe Identifier)
-pBindIdentifier = (Just <$> pIdentifier) <|> (Nothing <$ sym "_")
+pBindIdentifier = do
+  ident <- pIdentifier
+  if ident == "_"
+     then pure Nothing
+     else pure $ Just ident
 
 pDestructuringBind :: P Bind
 pDestructuringBind =
