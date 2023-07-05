@@ -224,7 +224,8 @@
                 body: { text(body: [f]), 
                         box(baseline: 10.0pt, 
                             body: text(body: [f])), 
-                        style(func: ) }, 
+                        box(baseline: 10.0pt, 
+                            body: text(body: [f])) }, 
                 numbering: none), 
   text(body: [
 ]), 

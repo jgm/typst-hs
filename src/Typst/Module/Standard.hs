@@ -7,6 +7,7 @@
 module Typst.Module.Standard
   ( standardModule,
     loadFileText,
+    applyPureFunction
   )
 where
 
@@ -28,7 +29,7 @@ import qualified Data.Text as T
 import qualified Data.Text.Encoding as TE
 import qualified Data.Vector as V
 import qualified Data.Yaml as Yaml
-import Text.Parsec (getPosition, getState, updateState)
+import Text.Parsec (getPosition, getState, updateState, runParserT)
 import Text.Read (readMaybe)
 import qualified Text.XML as XML
 import Typst.Emoji (typstEmojis)
@@ -241,12 +242,16 @@ meta =
       ],
     makeElement Nothing "ref" [("target", One TLabel)],
     makeElement Nothing "state" [("key", One TString), ("init", One TAny)],
-    makeElement Nothing "style" [("func", One TFunction)],
     makeElementWithScope
       Nothing
       "footnote"
       [("body", One TContent)]
-      [makeElement (Just "footnote") "entry" [("note", One TContent)]]
+      [makeElement (Just "footnote") "entry" [("note", One TContent)]],
+    ("style", makeFunction $ do
+        Function f <- nthArg 1
+        case applyPureFunction (Function f) [VStyles] of
+          Success x -> pure x
+          Failure e -> fail e)
   ]
 
 colors :: [(Identifier, Val)]
@@ -582,3 +587,15 @@ dataLoading =
                     ]
     )
   ]
+
+applyPureFunction :: Function -> [Val] -> Attempt Val
+applyPureFunction (Function f) vals =
+  let args = Arguments vals OM.empty
+   in case runParserT (f args) initialEvalState "" [] of
+        Failure s -> Failure s
+        Success (Left s) -> Failure $ show s
+        Success (Right v) -> Success v
+
+initialEvalState :: MonadFail m => EvalState m
+initialEvalState =
+  emptyEvalState { evalIdentifiers = [(BlockScope, standardModule)] }

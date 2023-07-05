@@ -7,8 +7,7 @@
 
 module Typst.Methods
   ( getMethod,
-    applyPureFunction,
-    formatNumber,
+    formatNumber
   )
 where
 
@@ -25,7 +24,7 @@ import qualified Data.Text as T
 import qualified Data.Vector as V
 import Text.Parsec
 import Text.Parsec.String (Parser)
-import Typst.Module.Standard (standardModule)
+import Typst.Module.Standard (applyPureFunction)
 import Typst.Regex
   ( RE (..),
     RegexMatch (..),
@@ -669,18 +668,6 @@ getMethod updateVal val fld = do
 
 pairToArray :: (Val, Val) -> Val
 pairToArray (x, y) = VArray $ V.fromList [x, y]
-
-applyPureFunction :: Function -> [Val] -> Attempt Val
-applyPureFunction (Function f) vals =
-  let args = Arguments vals OM.empty
-   in case runParserT (f args) initialEvalState "" [] of
-        Failure s -> Failure s
-        Success (Left s) -> Failure $ show s
-        Success (Right v) -> Success v
-
-initialEvalState :: MonadFail m => EvalState m
-initialEvalState =
-  emptyEvalState { evalIdentifiers = [(BlockScope, standardModule)] }
 
 formatNumber :: Text -> Int -> Text
 formatNumber t n = F.foldMap go $ T.unpack t
