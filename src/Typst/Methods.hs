@@ -7,7 +7,8 @@
 
 module Typst.Methods
   ( getMethod,
-    formatNumber
+    formatNumber,
+    applyPureFunction
   )
 where
 
