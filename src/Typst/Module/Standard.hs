@@ -245,7 +245,7 @@ meta =
     makeElementWithScope
       Nothing
       "footnote"
-      [("body", One (TContent :|: TLabel))]
+      [("body", One TContent)]
       [makeElement (Just "footnote") "entry" [("note", One TContent)]]
   ]
 
