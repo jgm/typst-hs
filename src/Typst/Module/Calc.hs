@@ -6,7 +6,6 @@ module Typst.Module.Calc
   )
 where
 
-import Control.Applicative ((<|>))
 import qualified Data.Map as M
 import Data.Maybe (fromMaybe)
 import Typst.Types
@@ -91,7 +90,7 @@ calcModule =
       ),
       ( "log",
         makeFunction $ do
-          b <- namedArg "base" <|> pure 10
+          b <- namedArg "base" 10
           n <- nthArg 1
           if n <= 0
             then fail "value must be strictly positive"
@@ -159,7 +158,7 @@ calcModule =
       ( "round",
         makeFunction $ do
           (x :: Double) <- nthArg 1
-          (digits :: Integer) <- namedArg "digits" <|> pure 0
+          (digits :: Integer) <- namedArg "digits" 0
           pure $
             if digits > 0
               then

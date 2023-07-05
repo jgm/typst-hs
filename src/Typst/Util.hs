@@ -137,12 +137,13 @@ getNamed ident = do
 namedArg ::
   (Monad m, FromVal a) =>
   Identifier ->
+  a ->
   ReaderT Arguments (MP m) a
-namedArg ident@(Identifier ident') = do
+namedArg ident@(Identifier _) defaultVal = do
   mbval <- getNamed ident
   case mbval of
     Just val -> fromVal val
-    Nothing -> fail $ "named argument " <> T.unpack ident' <> " not defined"
+    Nothing -> pure defaultVal
 
 allArgs :: Monad m => ReaderT Arguments (MP m) [Val]
 allArgs = asks positional

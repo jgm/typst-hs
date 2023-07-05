@@ -67,7 +67,7 @@ getMethod updateVal val fld = do
         "at" ->
           pure $ makeFunction $ do
             key <- nthArg 1
-            defval <- namedArg "default" `mplus` pure VNone
+            defval <- namedArg "default" VNone
             case OM.lookup (Identifier key) m of
               Nothing -> pure defval
               Just v -> pure v
@@ -163,8 +163,7 @@ getMethod updateVal val fld = do
             start <- toPos <$> nthArg 1
             end <-
               (toPos <$> nthArg 2)
-                `mplus` ((+ start) <$> namedArg "count")
-                `mplus` pure (T.length t)
+                `mplus` ((+ start) <$> namedArg "count" (T.length t))
             if end < start
               then pure $ VString ""
               else pure $ VString $ T.take (end - start) $ T.drop start t
@@ -228,7 +227,7 @@ getMethod updateVal val fld = do
         "replace" -> pure $ makeFunction $ do
           patt :: RE <- nthArg 1
           (replacement :: Val) <- nthArg 2
-          mbCount :: Maybe Int <- namedArg "count" `mplus` pure Nothing
+          mbCount :: Maybe Int <- namedArg "count" Nothing
           case mbCount of
             Just 0 -> pure $ VString t
             _ ->
@@ -259,8 +258,8 @@ getMethod updateVal val fld = do
                 _ -> fail "replacement must be string or function"
         "trim" -> pure $ makeFunction $ do
           (RE patt _) <- nthArg 1 `mplus` makeRE "[[:space:]]*"
-          (repeated :: Bool) <- namedArg "repeat" `mplus` pure True
-          (mbAt :: Maybe Val) <- namedArg "at" `mplus` pure Nothing
+          (repeated :: Bool) <- namedArg "repeat" True
+          (mbAt :: Maybe Val) <- namedArg "at" Nothing
           let patt' =
                 if repeated
                   then "(" <> patt <> ")*"
@@ -338,7 +337,7 @@ getMethod updateVal val fld = do
                   <> T.unpack (repr (VContent cs))
         "at" -> pure $ makeFunction $ do
           (field :: Text) <- ask >>= getPositionalArg 1 >>= fromVal
-          defval <- namedArg "default" `mplus` pure VNone
+          defval <- namedArg "default" VNone
           case F.toList cs of
             [Elt _ _ fields] ->
               case M.lookup (Identifier field) fields of
@@ -399,7 +398,7 @@ getMethod updateVal val fld = do
                 else pure $ V.last v
         "at" -> pure $ makeFunction $ do
           pos <- toPos <$> nthArg 1
-          defval <- namedArg "default" `mplus` pure VNone
+          defval <- namedArg "default" VNone
           pure $ fromMaybe defval $ v V.!? pos
         "push" -> pure $ makeFunction $ do
           x <- nthArg 1
@@ -417,8 +416,7 @@ getMethod updateVal val fld = do
           start <- toPos <$> nthArg 1
           end <-
             (toPos <$> nthArg 2)
-              `mplus` ((+ start) <$> namedArg "count")
-              `mplus` pure (V.length v)
+              `mplus` ((+ start) <$> namedArg "count" (V.length v))
           if V.length v < end
             then fail "array contains insufficient elements for slice"
             else
@@ -529,14 +527,14 @@ getMethod updateVal val fld = do
         "rev" -> pure $ makeFunction $ pure $ VArray $ V.reverse v
         "join" -> pure $ makeFunction $ do
           separator <- nthArg 1
-          lastsep <- namedArg "last" `mplus` pure separator
+          lastsep <- namedArg "last" separator
           let xs' = F.toList v
           let xs = case xs' of
                 [] -> []
                 _ -> intersperse separator (init xs') ++ [lastsep, last xs']
           foldM joinVals VNone xs
         "sorted" -> pure $ makeFunction $ do
-          (mbKeyFn :: Maybe Function) <- namedArg "key" `mplus` pure Nothing
+          (mbKeyFn :: Maybe Function) <- namedArg "key" Nothing
           case mbKeyFn of
             Nothing -> pure $ VArray $ V.fromList $ sort $ V.toList v
             Just (Function kf) -> do
@@ -547,7 +545,7 @@ getMethod updateVal val fld = do
           (v' :: V.Vector Val) <- ask >>= getPositionalArg 1
           pure $ VArray $ V.map pairToArray $ V.zip v v'
         "sum" -> pure $ makeFunction $ do
-          mbv <- namedArg "default" `mplus` pure Nothing
+          mbv <- namedArg "default" Nothing
           case V.uncons v of
             Nothing ->
               maybe
@@ -565,7 +563,7 @@ getMethod updateVal val fld = do
                     (Just h)
                     rest
         "product" -> pure $ makeFunction $ do
-          mbv <- namedArg "default" `mplus` pure Nothing
+          mbv <- namedArg "default" Nothing
           case V.uncons v of
             Nothing ->
               maybe

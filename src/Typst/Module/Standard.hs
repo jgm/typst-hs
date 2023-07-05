@@ -291,7 +291,7 @@ foundations =
         ( do
             (cond :: Bool) <- nthArg 1
             unless cond $ do
-              (msg :: String) <- namedArg "message" <|> pure "Assertion failed"
+              (msg :: String) <- namedArg "message" "Assertion failed"
               fail msg
             pure VNone
         )
@@ -351,8 +351,8 @@ construct =
     ( "range",
       makeFunction $ do
         first <- nthArg 1
-        mbsecond <- nthArg 2 `mplus` (fmap (+ first) <$> namedArg "count")
-        step <- namedArg "step" `mplus` pure 1
+        mbsecond <- nthArg 2
+        step <- namedArg "step" 1
         pure $
           VArray $
             V.fromList $
@@ -385,7 +385,7 @@ construct =
       makeFunctionWithScope
       (do
         val <- nthArg 1
-        base <- namedArg "base" <|> pure (10 :: Integer)
+        base <- namedArg "base" (10 :: Integer)
         let digitVector :: V.Vector Char
             digitVector = V.fromList $ ['0'..'9'] ++ ['A'..'Z']
         let renderDigit n = digitVector V.!? (fromIntegral n)
@@ -484,15 +484,15 @@ time :: [(Identifier, Val)]
 time =
   [ ( "datetime", makeFunctionWithScope
       (do
-         mbyear <- namedArg "year" <|> pure Nothing
-         mbmonth <- namedArg "month" <|> pure Nothing
-         mbday <- namedArg "day" <|> pure Nothing
+         mbyear <- namedArg "year" Nothing
+         mbmonth <- namedArg "month" Nothing
+         mbday <- namedArg "day" Nothing
          let mbdate = case (mbyear, mbmonth, mbday) of
                         (Just yr, Just mo, Just da) -> fromGregorianValid yr mo da
                         _ -> Nothing
-         mbhour <- namedArg "hour" <|> pure Nothing
-         mbminute <- namedArg "minute" <|> pure Nothing
-         mbsecond <- namedArg "second" <|> pure Nothing
+         mbhour <- namedArg "hour" Nothing
+         mbminute <- namedArg "minute" Nothing
+         mbsecond <- namedArg "second" Nothing
          let mbtime = case (mbhour, mbminute, mbsecond) of
                         (Just hr, Just mi, Just se) ->
                           Just $ secondsToDiffTime $ (hr * 60 * 60) + (mi * 60) + se
