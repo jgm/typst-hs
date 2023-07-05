@@ -161,9 +161,9 @@ getMethod updateVal val fld = do
         "slice" ->
           pure $ makeFunction $ do
             start <- toPos <$> nthArg 1
-            end <-
-              (toPos <$> nthArg 2)
-                `mplus` ((+ start) <$> namedArg "count" (T.length t))
+            mbcount <- namedArg "count" Nothing
+            end <- (toPos <$> nthArg 2) `mplus`
+                      pure (maybe (T.length t) (+ start) mbcount)
             if end < start
               then pure $ VString ""
               else pure $ VString $ T.take (end - start) $ T.drop start t
@@ -414,9 +414,9 @@ getMethod updateVal val fld = do
                   pure $ V.last v
         "slice" -> pure $ makeFunction $ do
           start <- toPos <$> nthArg 1
-          end <-
-            (toPos <$> nthArg 2)
-              `mplus` ((+ start) <$> namedArg "count" (V.length v))
+          mbcount <- namedArg "count" Nothing
+          end <- (toPos <$> nthArg 2) `mplus`
+                    pure (maybe (V.length v) (+ start) mbcount)
           if V.length v < end
             then fail "array contains insufficient elements for slice"
             else
