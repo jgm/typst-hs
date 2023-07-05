@@ -318,8 +318,7 @@ mArgs =
     many (mKeyValArg <|> mArrayArg <|> mNormArg <|> mMathArg)
   where
     sep = void (sym ",") <|> void (lookAhead (char ')'))
-    mNormArg =
-      NormalArg <$> (char '#' *> pExpr <* sep)
+    mNormArg = try $ NormalArg <$> (char '#' *> pExpr <* sep)
     mKeyValArg = do
       ident <- try $ pIdentifier <* sym ":"
       KeyValArg ident
