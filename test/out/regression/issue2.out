@@ -1,0 +1,93 @@
+--- parse tree ---
+[ Equation
+    False
+    [ Code
+        "test/typ/regression/issue2.typ"
+        ( line 1 , column 2 )
+        (FuncCall
+           (Ident (Identifier "lr"))
+           [ BlockArg
+               [ Code
+                   "test/typ/regression/issue2.typ"
+                   ( line 1 , column 6 )
+                   (FieldAccess
+                      (Ident (Identifier "alpha")) (Ident (Identifier "sym")))
+               , Code
+                   "test/typ/regression/issue2.typ"
+                   ( line 1 , column 16 )
+                   (FieldAccess
+                      (Ident (Identifier "beta")) (Ident (Identifier "sym")))
+               ]
+           ])
+    ]
+, ParBreak
+]
+--- evaluated ---
+fromList
+  [ Elt
+      { eltName = Identifier "math.equation"
+      , eltPos = Just "stdin" ( line 1 , column 1 )
+      , eltFields =
+          fromList
+            [ ( Identifier "block" , VBoolean False )
+            , ( Identifier "body"
+              , VContent
+                  (fromList
+                     [ Elt
+                         { eltName = Identifier "math.lr"
+                         , eltPos =
+                             Just "test/typ/regression/issue2.typ" ( line 1 , column 2 )
+                         , eltFields =
+                             fromList
+                               [ ( Identifier "body"
+                                 , VArray
+                                     [ VContent
+                                         (fromList
+                                            [ Elt
+                                                { eltName = Identifier "text"
+                                                , eltPos =
+                                                    Just
+                                                      "test/typ/regression/issue2.typ"
+                                                      ( line 1 , column 6 )
+                                                , eltFields =
+                                                    fromList
+                                                      [ ( Identifier "body"
+                                                        , VContent (fromList [ Txt "\945" ])
+                                                        )
+                                                      ]
+                                                }
+                                            , Elt
+                                                { eltName = Identifier "text"
+                                                , eltPos =
+                                                    Just
+                                                      "test/typ/regression/issue2.typ"
+                                                      ( line 1 , column 16 )
+                                                , eltFields =
+                                                    fromList
+                                                      [ ( Identifier "body"
+                                                        , VContent (fromList [ Txt "\946" ])
+                                                        )
+                                                      ]
+                                                }
+                                            ])
+                                     ]
+                                 )
+                               ]
+                         }
+                     ])
+              )
+            , ( Identifier "numbering" , VNone )
+            ]
+      }
+  , Elt
+      { eltName = Identifier "parbreak"
+      , eltPos = Just "stdin" ( line 1 , column 1 )
+      , eltFields = fromList []
+      }
+  ]
+--- repr ---
+{ math.equation(block: false, 
+                body: math.lr(body: ({ text(body: [α]), 
+                                       text(body: [β]) })), 
+                numbering: none), 
+  parbreak() }
