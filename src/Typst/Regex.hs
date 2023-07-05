@@ -113,7 +113,7 @@ makeLiteralRE t
   | otherwise = makeRE $ T.foldl go mempty t
   where
     go acc c = if isSpecial c then acc <> T.pack ['\\', c] else T.snoc acc c
-    isSpecial c = c `elem` (".*?+{}[]\\" :: [Char])
+    isSpecial c = c `elem` (".*?+(){}[]|\\^$" :: [Char])
 
 -- from regex-compat but for Text
 splitRegex :: RE -> Text -> [Text]
