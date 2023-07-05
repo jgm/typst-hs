@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/regression/issue1.typ"
+    "test/typ/regression/issue3.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/regression/issue1.typ"
+                                 "test/typ/regression/issue3.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/regression/issue1.typ"
+                                 "test/typ/regression/issue3.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -40,25 +40,28 @@
                 ]))))
 , SoftBreak
 , Code
-    "test/typ/regression/issue1.typ"
+    "test/typ/regression/issue3.typ"
     ( line 2 , column 2 )
-    (LetFunc
-       (Identifier "foo")
-       [ NormalParam (Identifier "x") ]
-       (Block
-          (CodeBlock
-             [ Return
-                 (Just
-                    (Array [ Spr (Ident (Identifier "x")) , Reg (Literal (Int 5)) ]))
-             ])))
+    (Let
+       (BasicBind (Just (Identifier "alpha")))
+       (Dict
+          [ Reg
+              ( Identifier "named"
+              , Dict
+                  [ Reg ( Identifier "a" , Literal (Int 1) )
+                  , Reg ( Identifier "b" , Literal (Int 2) )
+                  ]
+              )
+          ]))
 , SoftBreak
 , Code
-    "test/typ/regression/issue1.typ"
-    ( line 7 , column 2 )
-    (FuncCall
-       (Ident (Identifier "foo"))
-       [ NormalArg
-           (Array [ Reg (Literal (Int 3)) , Reg (Literal (Int 4)) ])
+    "test/typ/regression/issue3.typ"
+    ( line 3 , column 2 )
+    (Dict
+       [ Spr
+           (FieldAccess
+              (Ident (Identifier "named")) (Ident (Identifier "alpha")))
+       , Reg ( Identifier "c" , Literal (Int 3) )
        ])
 , ParBreak
 ]
@@ -67,5 +70,5 @@
 ]), 
   text(body: [
 ]), 
-  text(body: [(3, 4, 5)]), 
+  text(body: [(a: 1, b: 2, c: 3)]), 
   parbreak() }
