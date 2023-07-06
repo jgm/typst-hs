@@ -805,7 +805,7 @@ evalExpr expr =
       argval <- evalExpr e
       (modid, modmap) <-
         case argval of
-          VString t -> loadModule t
+          VString t -> snd <$> loadModule t
           VModule i m -> pure (i, m)
           VFunction (Just i) m _ -> pure (i, m)
           VFunction Nothing m _ -> pure ("anonymous", m)
@@ -823,9 +823,10 @@ evalExpr expr =
     Include e -> do
       argval <- evalExpr e
       case argval of
-        VString t -> loadModule t >>= importModule . snd
+        VString t -> do
+          (cs, _) <- loadModule t
+          pure $ VContent cs
         _ -> fail "Include requires a path"
-      pure VNone
 
 toFunction ::
   Monad m =>
@@ -940,7 +941,8 @@ findPackageEntryPoint modname = do
             _ -> fail "Could not find entrypoint"
         _ -> fail "Could not find [package] table"
 
-loadModule :: Monad m => Text -> MP m (Identifier, M.Map Identifier Val)
+loadModule :: Monad m => Text
+           -> MP m (Seq Content, (Identifier, M.Map Identifier Val))
 loadModule modname = do
   pos <- getPosition
   (fp, mbPackageRoot) <-
@@ -962,8 +964,11 @@ loadModule modname = do
       res <-
         lift $
           runParserT
-            ( inBlock BlockScope $ -- add new identifiers list
-                many pContent *> eof *> getState
+            ( inBlock BlockScope $ do -- add new identifiers list
+                cs <- mconcat <$> many pContent
+                eof
+                s <- getState
+                pure (cs, s)
             )
             initialEvalState{evalOperations = operations,
                              evalPackageRoot = fromMaybe (evalPackageRoot initialEvalState)
@@ -972,10 +977,10 @@ loadModule modname = do
             ms
       case res of
         Left err' -> fail $ show err'
-        Right st ->
+        Right (contents, st) ->
           case evalIdentifiers st of
             [] -> fail "Empty evalIdentifiers in module!"
-            ((_, m) : _) -> pure (modid, m)
+            ((_, m) : _) -> pure (contents, (modid, m))
 
 importModule :: Monad m => M.Map Identifier Val -> MP m ()
 importModule m = updateState $ \st ->

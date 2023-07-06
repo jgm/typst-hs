@@ -82,10 +82,41 @@
   parbreak(), 
   heading(body: text(body: [Document]), 
           level: 1), 
+  text(body: [
+]), 
+  parbreak(), 
+  heading(body: text(body: [Chapter 1]), 
+          level: 2), 
+  text(body: [Klaus]), 
+  text(body: [ stood in a field of wheat. There was nothing of particular interest about
+the field ]), 
+  text(body: [Klaus]), 
+  text(body: [ just casually surveyed for any paths on which the corn would not
+totally ruin his semi-new outdorsy jacket but then again, most of us spend
+considerable time in non-descript environments.]), 
+  parbreak(), 
   parbreak(), 
   parbreak(), 
   text(body: [– ]), 
   emph(body: text(body: [Intermission])), 
   text(body: [ –
 ]), 
+  text(body: [
+]), 
+  parbreak(), 
+  heading(body: text(body: [Chapter 2]), 
+          level: 2), 
+  text(body: [Their motivations, however, were pretty descript, so to speak. ]), 
+  text(body: [Klaus]), 
+  text(body: [ had not yet
+conceptualized their consequences, but that should change pretty quickly. ]), 
+  text(body: [Klaus]), 
+  text(body: [
+approached the center of the field and picked up a 4-foot long disk made from
+what could only be cow manure. The hair on the back of ]), 
+  text(body: [Klaus]), 
+  text(body: [” neck bristled as
+he stared at the unusual sight. After studying the object for a while, he
+promptly popped the question, “How much?”]), 
+  parbreak(), 
   parbreak() }
