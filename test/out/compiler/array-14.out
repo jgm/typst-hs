@@ -84,7 +84,10 @@
           ]))
 , ParBreak
 ]
-"test/typ/compiler/array-14.typ" (line 3, column 2):
-unexpected end of input
-expecting end of input
-Can't combine VContent (fromList [Elt {eltName = Identifier "text", eltPos = Just "test/typ/compiler/array-14.typ" (line 3, column 2), eltFields = fromList [(Identifier "body",VContent (fromList [Txt "\9989"]))]}]) and VInteger 1
+--- evaluated ---
+{ text(body: [
+]), 
+  text(body: [✅]), 
+  text(body: [1]), 
+  text(body: [✅]), 
+  parbreak() }
