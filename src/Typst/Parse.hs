@@ -352,7 +352,7 @@ mArgs =
       pure (x : xs)
 
 mCode :: P Markup
-mCode = char '#' *> (Code <$> getPosition <*> pBasicExpr)
+mCode = lexeme $ char '#' *> (Code <$> getPosition <*> pBasicExpr)
 
 mMid :: P Markup
 mMid = try $ do
