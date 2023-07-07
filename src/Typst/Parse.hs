@@ -11,7 +11,7 @@ import Control.Applicative (some)
 import Control.Monad (MonadPlus (mzero), guard, void, when)
 import Control.Monad.Identity (Identity)
 import Data.Char hiding (Space)
-import Data.Maybe (isJust)
+import Data.Maybe (isJust, isNothing)
 import Data.Text (Text)
 import qualified Data.Text as T
 import Text.Parsec hiding (string)
@@ -166,7 +166,7 @@ mathOperatorTable =
             mbBeforeSpace <- stBeforeSpace <$> getState
             -- NOTE: can't have space before () or [] arg in a
             -- function call! to prevent bugs with e.g. 'if 2<3 [...]'.
-            guard $ mbBeforeSpace == Nothing
+            guard $ isNothing mbBeforeSpace
             args <- mGrouped '(' ')' True
             pure $ \expr -> MGroup Nothing Nothing [expr, args]
         )
@@ -174,7 +174,7 @@ mathOperatorTable =
     -- precedence 4  -- factorial needs to take precedence over fraction
     [ Postfix (try $ do
                   mbBeforeSpace <- stBeforeSpace <$> getState
-                  guard $ mbBeforeSpace == Nothing
+                  guard $ isNothing mbBeforeSpace
                   lexeme $ char '!' *> notFollowedBy (char '=')
                   pure (\expr -> MGroup Nothing Nothing [expr, Text "!"]))
     ],
@@ -207,7 +207,7 @@ mathFunctionCall =
         mbBeforeSpace <- stBeforeSpace <$> getState
         -- NOTE: can't have space before () or [] arg in a
         -- function call! to prevent bugs with e.g. 'if 2<3 [...]'.
-        guard $ mbBeforeSpace == Nothing
+        guard $ isNothing mbBeforeSpace
         args <- mArgs
         pure $ \expr -> FuncCall expr args
     )
@@ -773,7 +773,7 @@ functionCall =
         mbBeforeSpace <- stBeforeSpace <$> getState
         -- NOTE: can't have space before () or [] arg in a
         -- function call! to prevent bugs with e.g. 'if 2<3 [...]'.
-        guard $ mbBeforeSpace == Nothing
+        guard $ isNothing mbBeforeSpace
         args <- pArgs
         pure $ \expr -> FuncCall expr args
     )
