@@ -317,7 +317,7 @@ joinVals = go
     go (VContent cs) (VString t) = pure $ VContent (cs Seq.|> Txt t)
     go (VContent cs) (VContent cs') = pure $ VContent (cs <> cs')
     go (VArray vec) (VArray vec') = pure $ VArray (vec <> vec')
-    go accum v = fail $ "Can't combine " <> show accum <> " and " <> show v
+    go x y = pure $ VContent $ valToContent x <> valToContent y
 
 class Compare a where
   comp :: a -> a -> Maybe Ordering
