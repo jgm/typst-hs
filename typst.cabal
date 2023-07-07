@@ -4,7 +4,7 @@ version:            0.3.0.0
 synopsis:           Parsing and evaluating typst syntax.
 description:        A library for parsing and evaluating typst syntax.
                     Typst (<https://typst.app>) is a document layout and
-                    formatting language. This library targets typst 0.5
+                    formatting language. This library targets typst 0.6
                     and currently offers only partial support.
 license:            BSD-3-Clause
 license-file:       LICENSE
