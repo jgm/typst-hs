@@ -139,9 +139,6 @@ tomlToVal (Toml.Table x) = VDict (OM.fromList [(Identifier (T.pack k), tomlToVal
   -- typst specifies that unsupported datetimes map to strings and we don't have a place for the timezone
 tomlToVal v@Toml.ZonedTime{} = VString (T.pack (show (Toml.prettyValue v)))
 
-instance Toml.FromTable Val where
-  fromTable = Toml.fromValue . Toml.Table
-
 data ValType
   = TNone
   | TAuto

@@ -902,14 +902,13 @@ data PackageConfig = PackageConfig {
   entrypoint :: String
 } deriving (Show, Generic)
 
--- | Derived from 'FromTable' instance
-instance Toml.FromValue Config        where fromValue = Toml.defaultTableFromValue
 -- | Derived generically from record field names
-instance Toml.FromTable Config        where fromTable = Toml.genericFromTable
--- | Derived from 'FromTable' instance
-instance Toml.FromValue PackageConfig where fromValue = Toml.defaultTableFromValue
+instance Toml.FromValue Config where
+  fromValue = Toml.parseTableFromValue Toml.genericParseTable
+
 -- | Derived generically from record field names
-instance Toml.FromTable PackageConfig where fromTable = Toml.genericFromTable
+instance Toml.FromValue PackageConfig where
+  fromValue = Toml.parseTableFromValue Toml.genericParseTable
 
 findPackageEntryPoint :: Monad m => Text -> MP m FilePath
 findPackageEntryPoint modname = do
