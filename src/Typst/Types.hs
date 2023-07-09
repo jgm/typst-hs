@@ -70,11 +70,14 @@ import qualified Data.Text as T
 import Data.Vector (Vector)
 import qualified Data.Vector as V
 import Text.Parsec
+import qualified Toml
+import qualified Toml.FromValue as Toml
+import qualified Toml.Pretty as Toml
 import qualified Text.PrettyPrint as P
 import Text.Read (readMaybe)
 import Typst.Regex (RE, makeLiteralRE)
 import Typst.Syntax (Identifier (..), Markup)
-import Data.Time (UTCTime, Day, DiffTime)
+import Data.Time (UTCTime, Day, DiffTime, timeOfDayToTime, localDay, localTimeOfDay)
 import Data.Time.Format (defaultTimeLocale, formatTime)
 import System.Directory (XdgDirectory(..))
 
@@ -119,6 +122,25 @@ instance FromJSON Val where
     pure $ either VFloat VInteger (floatingOrInteger n)
   parseJSON (Aeson.Bool b) = pure $ VBoolean b
   parseJSON Aeson.Null = pure VNone
+
+instance Toml.FromValue Val where
+  fromValue = pure . tomlToVal
+
+tomlToVal :: Toml.Value -> Val
+tomlToVal (Toml.Bool x) = VBoolean x
+tomlToVal (Toml.Integer x) = VInteger x
+tomlToVal (Toml.String x) = VString (T.pack x)
+tomlToVal (Toml.Float x) = VFloat x
+tomlToVal (Toml.TimeOfDay x) = VDateTime Nothing (Just (timeOfDayToTime x))
+tomlToVal (Toml.Day x) = VDateTime (Just x) Nothing
+tomlToVal (Toml.LocalTime x) = VDateTime (Just (localDay x)) (Just (timeOfDayToTime (localTimeOfDay x)))
+tomlToVal (Toml.Array x) = VArray (V.fromList (map tomlToVal x))
+tomlToVal (Toml.Table x) = VDict (OM.fromList [(Identifier (T.pack k), tomlToVal v) | (k,v) <- M.assocs x])
+  -- typst specifies that unsupported datetimes map to strings and we don't have a place for the timezone
+tomlToVal v@Toml.ZonedTime{} = VString (T.pack (show (Toml.prettyValue v)))
+
+instance Toml.FromTable Val where
+  fromTable = Toml.fromValue . Toml.Table
 
 data ValType
   = TNone
