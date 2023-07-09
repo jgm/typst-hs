@@ -1,4 +1,5 @@
 {-# LANGUAGE CPP #-}
+{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE LambdaCase #-}
@@ -26,6 +27,7 @@ import Data.Text (Text)
 import qualified Data.Text as T
 import qualified Data.Text.Encoding as TE
 import qualified Data.Vector as V
+import GHC.Generics (Generic)
 import System.FilePath (replaceFileName, takeBaseName, takeDirectory, (</>))
 import Text.Parsec
 import Typst.Bind (destructuringBind)
@@ -38,6 +40,8 @@ import Typst.Syntax
 import Typst.Types
 import Typst.Util (makeFunction, nthArg)
 import qualified Toml as Toml
+import qualified Toml.FromValue as Toml
+import qualified Toml.FromValue.Generic as Toml
 
 -- import Debug.Trace
 
@@ -888,6 +892,25 @@ toFunction mbname params e = do
           pure res
   pure fn
 
+-- | Type of TOML configuration file used in 'findPackageEntryPoint' saved as `typst.toml`
+data Config = Config {
+  package :: PackageConfig
+
+} deriving (Show, Generic)
+
+data PackageConfig = PackageConfig {
+  entrypoint :: String
+} deriving (Show, Generic)
+
+-- | Derived from 'FromTable' instance
+instance Toml.FromValue Config        where fromValue = Toml.defaultTableFromValue
+-- | Derived generically from record field names
+instance Toml.FromTable Config        where fromTable = Toml.genericFromTable
+-- | Derived from 'FromTable' instance
+instance Toml.FromValue PackageConfig where fromValue = Toml.defaultTableFromValue
+-- | Derived generically from record field names
+instance Toml.FromTable PackageConfig where fromTable = Toml.genericFromTable
+
 findPackageEntryPoint :: Monad m => Text -> MP m FilePath
 findPackageEntryPoint modname = do
   let (namespace, rest) = break (=='/') (drop 1 $ T.unpack modname)
@@ -931,15 +954,10 @@ findPackageEntryPoint modname = do
                     "\nCompile with typst compile to bring the package into your local cache."
              -- TODO? fetch from CDN if not present in cache?
   tomlString <- T.unpack . TE.decodeUtf8 <$> lift (loadBytes operations tomlPath)
-  case Toml.parse tomlString of
-    Left e -> fail e
-    Right toptbl ->
-      case M.lookup "package" toptbl of
-        Just (Toml.Table tbl) ->
-          case M.lookup "entrypoint" tbl of
-            Just (Toml.String f) -> pure $ replaceFileName tomlPath f
-            _ -> fail "Could not find entrypoint"
-        _ -> fail "Could not find [package] table"
+  case Toml.decode tomlString of
+    Toml.Failure e -> fail (unlines ("Failure loading typst.toml" : e))
+    Toml.Success _warnings cfg -> -- ignores warnings like unused keys in TOML
+      pure (replaceFileName tomlPath (entrypoint (package cfg)))
 
 loadModule :: Monad m => Text
            -> MP m (Seq Content, (Identifier, M.Map Identifier Val))
