@@ -32,6 +32,7 @@ import qualified Data.Yaml as Yaml
 import Text.Parsec (getPosition, getState, updateState, runParserT)
 import Text.Read (readMaybe)
 import qualified Text.XML as XML
+import qualified Toml
 import Typst.Emoji (typstEmojis)
 import Typst.Module.Calc (calcModule)
 import Typst.Module.Math (mathModule)
@@ -549,7 +550,14 @@ dataLoading =
         t <- lift $ loadFileText fp
         pure $ VString t
     ),
-    ("toml", makeFunction $ fail "unimplemented toml"),
+    ( "toml",
+      makeFunction $ do
+        fp <- nthArg 1
+        t <- lift $ loadFileText fp
+        case Toml.decode (T.unpack t) of
+          Toml.Failure e -> fail (unlines ("toml errors:" : e))
+          Toml.Success _ v -> pure v
+    ),
     ( "xml",
       makeFunction $ do
         fp <- nthArg 1
