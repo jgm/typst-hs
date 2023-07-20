@@ -84,22 +84,33 @@ makeRE t =
   where
     (caseSensitive, t') =
       if "(?i)" `T.isPrefixOf` t
-        then (False, T.pack . go . T.unpack $ T.drop 4 t)
-        else (True, T.pack . go . T.unpack $ t)
+        then (False, T.pack . go False . T.unpack $ T.drop 4 t)
+        else (True, T.pack . go False . T.unpack $ t)
     compopts = TDFA.defaultCompOpt {TDFA.caseSensitive = caseSensitive}
-    -- handle things not supported in TFFA (posix) regexes, e.g. \d \w \s, +, ?
-    go [] = []
-    go ('?' : cs) = "{0,1}" ++ go cs
-    go ('+' : cs) = "{1,}" ++ go cs
-    go ('\\' : c : cs)
-      | c == 'd' = "[[:digit:]]" ++ go cs
-      | c == 'D' = "[^[:digit:]]" ++ go cs
-      | c == 's' = "[[:space:]]" ++ go cs
-      | c == 'S' = "[^[:space:]]" ++ go cs
-      | c == 'w' = "[[:word:]]" ++ go cs
-      | c == 'W' = "[^[:word:]]" ++ go cs
-      | otherwise = '\\' : c : go cs
-    go (c : cs) = c : go cs
+
+    -- Handle things not supported in TFFA posix regexes, e.g. \d \w \s, +, ?
+    -- Note that we have to track whether we're in a character class, because
+    -- the expansions will be different in that case.  The first
+    -- parameter of `go` is True if in a character class.
+    go _ [] = []
+    go True (']' : cs) = ']' : go False cs
+    go False ('[' : cs) = '[' : go True cs
+    go False ('?' : cs) = "{0,1}" ++ go False cs
+    go False ('+' : cs) = "{1,}" ++ go False cs
+    go inCharClass ('\\' : c : cs)
+      = let f = if inCharClass
+                   then id
+                   else \x -> "[" ++ x ++ "]"
+            r = case c of
+                  'd' -> f "[:digit:]"
+                  'D' -> f "^[:digit:]"
+                  's' -> f "[:space:]"
+                  'S' -> f "^[:space:]"
+                  'w' -> f "[:word:]"
+                  'W' -> f "^[:word:]"
+                  _ -> ['\\', c]
+        in r ++ go inCharClass cs
+    go inCharClass (c : cs) = c : go inCharClass cs
 
 match :: TDFA.RegexContext Regex source target => RE -> source -> target
 match (RE _ re) t = TDFA.match re t
