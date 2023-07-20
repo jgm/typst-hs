@@ -234,6 +234,8 @@ getMethod updateVal val fld = do
               case replacement of
                 VString r ->
                   pure $ VString $ replaceRegex patt mbCount (const r) t
+                VSymbol (Symbol r _ _) ->
+                  pure $ VString $ replaceRegex patt mbCount (const r) t
                 VFunction _ _ f ->
                   pure $
                     VString $
