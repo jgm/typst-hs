@@ -443,6 +443,8 @@ instance Multipliable Val where
     | i >= 0 = pure $ VContent (mconcat $ replicate (fromIntegral i) c)
   maybeTimes (VInteger i) (VLength l) = pure $ VLength $ timesLength (fromIntegral i) l
   maybeTimes (VLength l) (VInteger i) = pure $ VLength $ timesLength (fromIntegral i) l
+  maybeTimes (VRatio r) (VLength l) = pure $ VLength $ timesLength (fromRational r) l
+  maybeTimes (VLength l) (VRatio r) = pure $ VLength $ timesLength (fromRational r) l
   maybeTimes (VFloat f) (VLength l) = pure $ VLength $ timesLength f l
   maybeTimes (VLength l) (VFloat f) = pure $ VLength $ timesLength f l
   maybeTimes (VInteger i) (VAngle a) = pure $ VAngle (fromIntegral i * a)
