@@ -579,7 +579,8 @@ pStrEsc =
   try $
     char '\\'
       *> ( uniEsc
-             <|> satisfy isSpecial
+             <|> ('\\' <$ char '\\')
+             <|> ('"' <$ char '"')
              <|> ('\n' <$ char 'n')
              <|> ('\t' <$ char 't')
              <|> ('\r' <$ char 'r')
