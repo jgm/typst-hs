@@ -405,6 +405,8 @@ instance Summable Val where
   maybePlus (VContent c1) (VContent c2) = pure $ VContent (c1 <> c2)
   maybePlus (VString s1) (VContent c2) = pure $ VContent (Txt s1 Seq.<| c2)
   maybePlus (VContent c1) (VString s2) = pure $ VContent (c1 Seq.|> Txt s2)
+  maybePlus (VString s1) sym@(VSymbol{}) = pure $ VString (s1 <> repr sym)
+  maybePlus sym@(VSymbol{}) (VString s2) = pure $ VString (repr sym <> s2)
   maybePlus (VLength l1) (VLength l2) = pure $ VLength (l1 <> l2)
   maybePlus (VLength l1) (VRatio r1) = pure $ VLength (l1 <> LRatio r1)
   maybePlus (VRatio r1) (VLength l1) = pure $ VLength (l1 <> LRatio r1)
