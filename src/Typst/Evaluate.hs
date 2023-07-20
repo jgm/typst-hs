@@ -32,7 +32,8 @@ import System.FilePath (replaceFileName, takeBaseName, takeDirectory, (</>))
 import Text.Parsec
 import Typst.Bind (destructuringBind)
 import Typst.Methods (getMethod)
-import Typst.Module.Standard (loadFileText, standardModule)
+import Typst.Module.Standard (loadFileText, standardModule, symModule)
+import Typst.Module.Math (mathModule)
 import Typst.Parse (parseTypst)
 import Typst.Regex (match)
 import Typst.Show (applyShowRules)
@@ -237,10 +238,8 @@ pElt = do
                 [("level", VInteger (fromIntegral level))]
           }
     Equation display ms -> inBlock BlockScope $ do
-      VModule _ mathmod <- lookupIdentifier "math"
-      importModule mathmod
-      VModule _ symmod <- lookupIdentifier "sym"
-      importModule symmod
+      importModule mathModule
+      importModule symModule
       oldMath <- evalMath <$> getState
       updateState $ \st -> st {evalMath = True}
       content <- pInnerContents ms

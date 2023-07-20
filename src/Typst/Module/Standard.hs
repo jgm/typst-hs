@@ -6,6 +6,7 @@
 
 module Typst.Module.Standard
   ( standardModule,
+    symModule,
     loadFileText,
     applyPureFunction
   )
