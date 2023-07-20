@@ -97,7 +97,9 @@ makeRE t =
     go False ('[' : cs) = '[' :
       case cs of
         '^':']':ds -> '^' : ']' : go True ds
+        '^':'\\':']':ds -> '^' : ']' : go True ds
         ']':ds -> ']' : go True ds
+        '\\':']':ds -> ']' : go True ds
         _ -> go True cs
     go False ('?' : cs) = "{0,1}" ++ go False cs
     go False ('+' : cs) = "{1,}" ++ go False cs
