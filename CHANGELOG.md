@@ -1,5 +1,28 @@
 # Revision history for typst-hs
 
+## 0.3.1.0
+
+  * Allow multiplying a ratio by a length.
+
+  * Use `symModule` and `mathModule` directly when evaluating
+    Equation instead of looking up `sym` and `math`.
+
+  * Fix parsing of escapes in string literals. Symbols in general
+    can't be escaped. There is just a small list of valid escapes.
+
+  * Fix bugs in converting typst regexes to TDFA's format.
+
+  * Allow Symbol to be regex replacement text.
+
+  * Allow VString and VSymbol to be +'d.
+
+  * Update for toml-parser-1.2.0.0 API changes (#9, Eric Mertens).
+
+  * Derive the decoder for typst.toml (#7, Eric Mertens)
+
+  * Implement typst's `toml()` function (#8, Eric Mertens).
+
+
 ## 0.3.0.0
 
   * We now target typst 0.6.
