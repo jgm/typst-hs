@@ -53,7 +53,7 @@
     , Code
         "test/typ/math/spacing-04.typ"
         ( line 4 , column 4 )
-        (Ident (Identifier "ident"))
+        (Ident (Identifier "equiv"))
     , Text "b"
     , Text "+"
     , Text "c"
@@ -86,7 +86,7 @@
                [ Code
                    "test/typ/math/spacing-04.typ"
                    ( line 5 , column 11 )
-                   (Ident (Identifier "ident"))
+                   (Ident (Identifier "equiv"))
                ]
            ])
     , Text "b"
@@ -147,7 +147,7 @@
                [ Code
                    "test/typ/math/spacing-04.typ"
                    ( line 6 , column 14 )
-                   (Ident (Identifier "ident"))
+                   (Ident (Identifier "equiv"))
                ]
            ])
     , Text "b"
@@ -210,7 +210,7 @@
                [ Code
                    "test/typ/math/spacing-04.typ"
                    ( line 8 , column 11 )
-                   (Ident (Identifier "ident"))
+                   (Ident (Identifier "equiv"))
                ]
            , KeyValArg (Identifier "tl") (Block (Content [ Text "a" ]))
            , KeyValArg (Identifier "tr") (Block (Content [ Text "b" ]))
