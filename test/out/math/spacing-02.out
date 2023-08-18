@@ -92,7 +92,7 @@
     , Code
         "test/typ/math/spacing-02.typ"
         ( line 5 , column 8 )
-        (Ident (Identifier "ident"))
+        (Ident (Identifier "equiv"))
     , Text "c"
     , Code
         "test/typ/math/spacing-02.typ"
