@@ -53,7 +53,10 @@
                    [ MGroup
                        (Just "(")
                        (Just ")")
-                       [ Text "\8805"
+                       [ Code
+                           "test/typ/bugs/math-realize-01.typ"
+                           ( line 2 , column 15 )
+                           (FieldAccess (Ident (Identifier "eq")) (Ident (Identifier "gt")))
                        , Code
                            "test/typ/bugs/math-realize-01.typ"
                            ( line 2 , column 18 )
@@ -95,8 +98,11 @@
                    Nothing
                    Nothing
                    [ Text "f" , MGroup (Just "(") (Just ")") [ Text "x" ] ]
-               , Text ":"
-               , Text "="
+               , Code
+                   "test/typ/bugs/math-realize-01.typ"
+                   ( line 4 , column 18 )
+                   (FieldAccess
+                      (Ident (Identifier "eq")) (Ident (Identifier "colon")))
                , MAttach Nothing (Just (Text "2")) (Text "x")
                ]
            ]
@@ -138,8 +144,7 @@ and ]),
                                    math.lr(body: ({ [(], 
                                                     text(body: [x]), 
                                                     [)] })), 
-                                   text(body: [:]), 
-                                   text(body: [=]), 
+                                   text(body: [≔]), 
                                    math.attach(b: none, 
                                                base: text(body: [x]), 
                                                t: text(body: [2])) }, 

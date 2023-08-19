@@ -61,7 +61,10 @@
            [ BlockArg [ Text "x" ]
            , KeyValArg (Identifier "length") (Literal (Numeric 200.0 Percent))
            ])
-    , Text "-"
+    , Code
+        "test/typ/math/cancel-04.typ"
+        ( line 4 , column 31 )
+        (Ident (Identifier "minus"))
     , Code
         "test/typ/math/cancel-04.typ"
         ( line 4 , column 33 )
@@ -89,7 +92,10 @@
            [ BlockArg [ Text "x" ]
            , KeyValArg (Identifier "length") (Literal (Numeric 150.0 Percent))
            ])
-    , Text "-"
+    , Code
+        "test/typ/math/cancel-04.typ"
+        ( line 5 , column 32 )
+        (Ident (Identifier "minus"))
     , Code
         "test/typ/math/cancel-04.typ"
         ( line 5 , column 34 )
@@ -116,7 +122,7 @@
                         text(body: [+]), 
                         math.cancel(body: text(body: [x]), 
                                     length: 200%), 
-                        text(body: [-]), 
+                        text(body: [−]), 
                         math.cancel(body: text(body: [x]), 
                                     length: 50%, 
                                     stroke: (thickness: 1.1pt,
@@ -129,7 +135,7 @@
                         text(body: [+]), 
                         math.cancel(body: text(body: [x]), 
                                     length: 150%), 
-                        text(body: [-]), 
+                        text(body: [−]), 
                         math.cancel(body: { text(body: [a]), 
                                             text(body: [+]), 
                                             text(body: [b]), 

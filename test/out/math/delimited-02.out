@@ -46,7 +46,10 @@
         (Just "[")
         (Just "]")
         [ MGroup (Just "|") (Just "|") [ MFrac (Text "a") (Text "b") ] ]
-    , Text "\8800"
+    , Code
+        "test/typ/math/delimited-02.typ"
+        ( line 3 , column 11 )
+        (FieldAccess (Ident (Identifier "not")) (Ident (Identifier "eq")))
     , Code
         "test/typ/math/delimited-02.typ"
         ( line 3 , column 14 )
@@ -58,7 +61,10 @@
                , Text "]"
                ]
            ])
-    , Text "\8800"
+    , Code
+        "test/typ/math/delimited-02.typ"
+        ( line 3 , column 26 )
+        (FieldAccess (Ident (Identifier "not")) (Ident (Identifier "eq")))
     , MGroup
         (Just "[") Nothing [ MFrac (Text "a") (Text "b") , Text ")" ]
     ]

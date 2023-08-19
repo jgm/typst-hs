@@ -47,7 +47,18 @@
            (MGroup
               Nothing
               Nothing
-              [ Text "1" , Text "\8804" , Text "n" , Text "\8804" , Text "m" ]))
+              [ Text "1"
+              , Code
+                  "test/typ/math/op-00.typ"
+                  ( line 3 , column 9 )
+                  (FieldAccess (Ident (Identifier "eq")) (Ident (Identifier "lt")))
+              , Text "n"
+              , Code
+                  "test/typ/math/op-00.typ"
+                  ( line 3 , column 12 )
+                  (FieldAccess (Ident (Identifier "eq")) (Ident (Identifier "lt")))
+              , Text "m"
+              ]))
         Nothing
         (Code
            "test/typ/math/op-00.typ"

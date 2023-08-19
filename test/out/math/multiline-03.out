@@ -43,8 +43,11 @@
 , Equation
     True
     [ Text "f"
-    , Text ":"
-    , Text "="
+    , Code
+        "test/typ/math/multiline-03.typ"
+        ( line 3 , column 5 )
+        (FieldAccess
+           (Ident (Identifier "eq")) (Ident (Identifier "colon")))
     , Code
         "test/typ/math/multiline-03.typ"
         ( line 3 , column 8 )
@@ -70,8 +73,7 @@
 ]), 
   math.equation(block: true, 
                 body: { text(body: [f]), 
-                        text(body: [:]), 
-                        text(body: [=]), 
+                        text(body: [≔]), 
                         math.cases(children: ({ text(body: [1]), 
                                                 text(body: [+]), 
                                                 text(body: [2]), 

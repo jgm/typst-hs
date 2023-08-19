@@ -59,24 +59,36 @@
         (FuncCall
            (Ident (Identifier "cancel"))
            [ BlockArg [ Text "b" , Text "+" , Text "c" ] ])
-    , Text "-"
+    , Code
+        "test/typ/math/cancel-01.typ"
+        ( line 4 , column 25 )
+        (Ident (Identifier "minus"))
     , Code
         "test/typ/math/cancel-01.typ"
         ( line 4 , column 27 )
         (FuncCall (Ident (Identifier "cancel")) [ BlockArg [ Text "b" ] ])
-    , Text "-"
+    , Code
+        "test/typ/math/cancel-01.typ"
+        ( line 4 , column 37 )
+        (Ident (Identifier "minus"))
     , Code
         "test/typ/math/cancel-01.typ"
         ( line 4 , column 39 )
         (FuncCall (Ident (Identifier "cancel")) [ BlockArg [ Text "c" ] ])
-    , Text "-"
+    , Code
+        "test/typ/math/cancel-01.typ"
+        ( line 4 , column 49 )
+        (Ident (Identifier "minus"))
     , Text "5"
     , Text "+"
     , Code
         "test/typ/math/cancel-01.typ"
         ( line 4 , column 55 )
         (FuncCall (Ident (Identifier "cancel")) [ BlockArg [ Text "6" ] ])
-    , Text "-"
+    , Code
+        "test/typ/math/cancel-01.typ"
+        ( line 4 , column 65 )
+        (Ident (Identifier "minus"))
     , Code
         "test/typ/math/cancel-01.typ"
         ( line 4 , column 67 )
@@ -136,15 +148,15 @@
                         math.cancel(body: { text(body: [b]), 
                                             text(body: [+]), 
                                             text(body: [c]) }), 
-                        text(body: [-]), 
+                        text(body: [−]), 
                         math.cancel(body: text(body: [b])), 
-                        text(body: [-]), 
+                        text(body: [−]), 
                         math.cancel(body: text(body: [c])), 
-                        text(body: [-]), 
+                        text(body: [−]), 
                         text(body: [5]), 
                         text(body: [+]), 
                         math.cancel(body: text(body: [6])), 
-                        text(body: [-]), 
+                        text(body: [−]), 
                         math.cancel(body: text(body: [6])) }, 
                 numbering: none), 
   text(body: [

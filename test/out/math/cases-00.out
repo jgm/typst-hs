@@ -47,8 +47,11 @@
         [ Text "f"
         , MGroup (Just "(") (Just ")") [ Text "x" , Text "," , Text "y" ]
         ]
-    , Text ":"
-    , Text "="
+    , Code
+        "test/typ/math/cases-00.typ"
+        ( line 2 , column 11 )
+        (FieldAccess
+           (Ident (Identifier "eq")) (Ident (Identifier "colon")))
     , Code
         "test/typ/math/cases-00.typ"
         ( line 2 , column 14 )
@@ -74,7 +77,10 @@
                       , Text "y"
                       ])
                    (Text "2")
-               , Text "\8804"
+               , Code
+                   "test/typ/math/cases-00.typ"
+                   ( line 3 , column 28 )
+                   (FieldAccess (Ident (Identifier "eq")) (Ident (Identifier "lt")))
                , Text "0"
                ]
            , BlockArg
@@ -117,8 +123,7 @@
                                          text(body: [,]), 
                                          text(body: [y]), 
                                          [)] })), 
-                        text(body: [:]), 
-                        text(body: [=]), 
+                        text(body: [≔]), 
                         math.cases(children: ({ text(body: [1]), 
                                                 text(body: [ ]), 
                                                 math.alignpoint(), 

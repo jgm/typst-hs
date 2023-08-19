@@ -177,7 +177,10 @@
         (Just (Text "1"))
         Nothing
         (MAttach Nothing (Just (Text "1")) (Text ")"))
-    , Text "\8800"
+    , Code
+        "test/typ/math/attach-07.typ"
+        ( line 9 , column 24 )
+        (FieldAccess (Ident (Identifier "not")) (Ident (Identifier "eq")))
     , MAttach
         (Just (Text "1"))
         Nothing

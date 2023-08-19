@@ -56,8 +56,11 @@
         "test/typ/math/content-03.typ"
         ( line 4 , column 3 )
         (FuncCall (Ident (Identifier "here")) [ BlockArg [ Text "f" ] ])
-    , Text ":"
-    , Text "="
+    , Code
+        "test/typ/math/content-03.typ"
+        ( line 4 , column 11 )
+        (FieldAccess
+           (Ident (Identifier "eq")) (Ident (Identifier "colon")))
     , Code
         "test/typ/math/content-03.typ"
         ( line 4 , column 15 )
@@ -76,8 +79,7 @@
   math.equation(block: false, 
                 body: { text(body: text(body: [f]), 
                              font: "Noto Sans"), 
-                        text(body: [:]), 
-                        text(body: [=]), 
+                        text(body: [≔]), 
                         text(body: { text(body: [Hi]), 
                                      text(body: [ ]), 
                                      text(body: [there]) }, 

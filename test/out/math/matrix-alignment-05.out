@@ -132,13 +132,19 @@
                , [ MGroup
                      Nothing
                      Nothing
-                     [ Text "\8230"
+                     [ Code
+                         "test/typ/math/matrix-alignment-05.typ"
+                         ( line 6 , column 17 )
+                         (FieldAccess (Ident (Identifier "h")) (Ident (Identifier "dots")))
                      , Text "."
                      , Text "."
                      , MAlignPoint
                      , Text "d"
                      , MAlignPoint
-                     , Text "\8230"
+                     , Code
+                         "test/typ/math/matrix-alignment-05.typ"
+                         ( line 6 , column 25 )
+                         (FieldAccess (Ident (Identifier "h")) (Ident (Identifier "dots")))
                      , Text "."
                      , Text "."
                      ]

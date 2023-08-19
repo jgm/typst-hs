@@ -167,7 +167,10 @@
         (FuncCall
            (Ident (Identifier "vec"))
            [ BlockArg [ Text "1" ] , BlockArg [ Text "2" ] ])
-    , Text "*"
+    , Code
+        "test/typ/bugs/math-realize-00.typ"
+        ( line 12 , column 12 )
+        (Ident (Identifier "convolve"))
     , Text "2"
     ]
 , ParBreak
@@ -231,7 +234,7 @@
 ]), 
   math.equation(block: true, 
                 body: { text(body: [nope]), 
-                        text(body: [*]), 
+                        text(body: [∗]), 
                         text(body: [2]) }, 
                 numbering: none), 
   parbreak() }

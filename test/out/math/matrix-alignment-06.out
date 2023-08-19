@@ -48,17 +48,41 @@
         (FuncCall
            (Ident (Identifier "mat"))
            [ ArrayArg
-               [ [ MGroup Nothing Nothing [ Text "-" , Text "1" ]
+               [ [ MGroup
+                     Nothing
+                     Nothing
+                     [ Code
+                         "test/typ/math/matrix-alignment-06.typ"
+                         ( line 3 , column 7 )
+                         (Ident (Identifier "minus"))
+                     , Text "1"
+                     ]
                  , Text "1"
                  , Text "1"
                  ]
                , [ Text "1"
-                 , MGroup Nothing Nothing [ Text "-" , Text "1" ]
+                 , MGroup
+                     Nothing
+                     Nothing
+                     [ Code
+                         "test/typ/math/matrix-alignment-06.typ"
+                         ( line 3 , column 20 )
+                         (Ident (Identifier "minus"))
+                     , Text "1"
+                     ]
                  , Text "1"
                  ]
                , [ Text "1"
                  , Text "1"
-                 , MGroup Nothing Nothing [ Text "-" , Text "1" ]
+                 , MGroup
+                     Nothing
+                     Nothing
+                     [ Code
+                         "test/typ/math/matrix-alignment-06.typ"
+                         ( line 3 , column 33 )
+                         (Ident (Identifier "minus"))
+                     , Text "1"
+                     ]
                  ]
                ]
            ])
@@ -72,17 +96,44 @@
         (FuncCall
            (Ident (Identifier "mat"))
            [ ArrayArg
-               [ [ MGroup Nothing Nothing [ Text "-" , Text "1" , MAlignPoint ]
+               [ [ MGroup
+                     Nothing
+                     Nothing
+                     [ Code
+                         "test/typ/math/matrix-alignment-06.typ"
+                         ( line 4 , column 7 )
+                         (Ident (Identifier "minus"))
+                     , Text "1"
+                     , MAlignPoint
+                     ]
                  , MGroup Nothing Nothing [ Text "1" , MAlignPoint ]
                  , MGroup Nothing Nothing [ Text "1" , MAlignPoint ]
                  ]
                , [ MGroup Nothing Nothing [ Text "1" , MAlignPoint ]
-                 , MGroup Nothing Nothing [ Text "-" , Text "1" , MAlignPoint ]
+                 , MGroup
+                     Nothing
+                     Nothing
+                     [ Code
+                         "test/typ/math/matrix-alignment-06.typ"
+                         ( line 4 , column 24 )
+                         (Ident (Identifier "minus"))
+                     , Text "1"
+                     , MAlignPoint
+                     ]
                  , MGroup Nothing Nothing [ Text "1" , MAlignPoint ]
                  ]
                , [ MGroup Nothing Nothing [ Text "1" , MAlignPoint ]
                  , MGroup Nothing Nothing [ Text "1" , MAlignPoint ]
-                 , MGroup Nothing Nothing [ Text "-" , Text "1" , MAlignPoint ]
+                 , MGroup
+                     Nothing
+                     Nothing
+                     [ Code
+                         "test/typ/math/matrix-alignment-06.typ"
+                         ( line 4 , column 41 )
+                         (Ident (Identifier "minus"))
+                     , Text "1"
+                     , MAlignPoint
+                     ]
                  ]
                ]
            ])
@@ -96,17 +147,42 @@
         (FuncCall
            (Ident (Identifier "mat"))
            [ ArrayArg
-               [ [ MGroup Nothing Nothing [ Text "-" , Text "1" , MAlignPoint ]
+               [ [ MGroup
+                     Nothing
+                     Nothing
+                     [ Code
+                         "test/typ/math/matrix-alignment-06.typ"
+                         ( line 5 , column 7 )
+                         (Ident (Identifier "minus"))
+                     , Text "1"
+                     , MAlignPoint
+                     ]
                  , MGroup Nothing Nothing [ Text "1" , MAlignPoint ]
                  , MGroup Nothing Nothing [ Text "1" , MAlignPoint ]
                  ]
                , [ Text "1"
-                 , MGroup Nothing Nothing [ Text "-" , Text "1" ]
+                 , MGroup
+                     Nothing
+                     Nothing
+                     [ Code
+                         "test/typ/math/matrix-alignment-06.typ"
+                         ( line 5 , column 23 )
+                         (Ident (Identifier "minus"))
+                     , Text "1"
+                     ]
                  , Text "1"
                  ]
                , [ Text "1"
                  , Text "1"
-                 , MGroup Nothing Nothing [ Text "-" , Text "1" ]
+                 , MGroup
+                     Nothing
+                     Nothing
+                     [ Code
+                         "test/typ/math/matrix-alignment-06.typ"
+                         ( line 5 , column 36 )
+                         (Ident (Identifier "minus"))
+                     , Text "1"
+                     ]
                  ]
                ]
            ])
@@ -120,17 +196,42 @@
         (FuncCall
            (Ident (Identifier "mat"))
            [ ArrayArg
-               [ [ MGroup Nothing Nothing [ MAlignPoint , Text "-" , Text "1" ]
+               [ [ MGroup
+                     Nothing
+                     Nothing
+                     [ MAlignPoint
+                     , Code
+                         "test/typ/math/matrix-alignment-06.typ"
+                         ( line 6 , column 8 )
+                         (Ident (Identifier "minus"))
+                     , Text "1"
+                     ]
                  , MGroup Nothing Nothing [ MAlignPoint , Text "1" ]
                  , MGroup Nothing Nothing [ MAlignPoint , Text "1" ]
                  ]
                , [ Text "1"
-                 , MGroup Nothing Nothing [ Text "-" , Text "1" ]
+                 , MGroup
+                     Nothing
+                     Nothing
+                     [ Code
+                         "test/typ/math/matrix-alignment-06.typ"
+                         ( line 6 , column 23 )
+                         (Ident (Identifier "minus"))
+                     , Text "1"
+                     ]
                  , Text "1"
                  ]
                , [ Text "1"
                  , Text "1"
-                 , MGroup Nothing Nothing [ Text "-" , Text "1" ]
+                 , MGroup
+                     Nothing
+                     Nothing
+                     [ Code
+                         "test/typ/math/matrix-alignment-06.typ"
+                         ( line 6 , column 36 )
+                         (Ident (Identifier "minus"))
+                     , Text "1"
+                     ]
                  ]
                ]
            ])
@@ -141,23 +242,23 @@
 { text(body: [
 ]), 
   math.equation(block: true, 
-                body: math.mat(rows: (({ text(body: [-]), 
+                body: math.mat(rows: (({ text(body: [−]), 
                                          text(body: [1]) }, 
                                        text(body: [1]), 
                                        text(body: [1])), 
                                       (text(body: [1]), 
-                                       { text(body: [-]), 
+                                       { text(body: [−]), 
                                          text(body: [1]) }, 
                                        text(body: [1])), 
                                       (text(body: [1]), 
                                        text(body: [1]), 
-                                       { text(body: [-]), 
+                                       { text(body: [−]), 
                                          text(body: [1]) }))), 
                 numbering: none), 
   text(body: [
 ]), 
   math.equation(block: true, 
-                body: math.mat(rows: (({ text(body: [-]), 
+                body: math.mat(rows: (({ text(body: [−]), 
                                          text(body: [1]), 
                                          math.alignpoint() }, 
                                        { text(body: [1]), 
@@ -166,7 +267,7 @@
                                          math.alignpoint() }), 
                                       ({ text(body: [1]), 
                                          math.alignpoint() }, 
-                                       { text(body: [-]), 
+                                       { text(body: [−]), 
                                          text(body: [1]), 
                                          math.alignpoint() }, 
                                        { text(body: [1]), 
@@ -175,14 +276,14 @@
                                          math.alignpoint() }, 
                                        { text(body: [1]), 
                                          math.alignpoint() }, 
-                                       { text(body: [-]), 
+                                       { text(body: [−]), 
                                          text(body: [1]), 
                                          math.alignpoint() }))), 
                 numbering: none), 
   text(body: [
 ]), 
   math.equation(block: true, 
-                body: math.mat(rows: (({ text(body: [-]), 
+                body: math.mat(rows: (({ text(body: [−]), 
                                          text(body: [1]), 
                                          math.alignpoint() }, 
                                        { text(body: [1]), 
@@ -190,31 +291,31 @@
                                        { text(body: [1]), 
                                          math.alignpoint() }), 
                                       (text(body: [1]), 
-                                       { text(body: [-]), 
+                                       { text(body: [−]), 
                                          text(body: [1]) }, 
                                        text(body: [1])), 
                                       (text(body: [1]), 
                                        text(body: [1]), 
-                                       { text(body: [-]), 
+                                       { text(body: [−]), 
                                          text(body: [1]) }))), 
                 numbering: none), 
   text(body: [
 ]), 
   math.equation(block: true, 
                 body: math.mat(rows: (({ math.alignpoint(), 
-                                         text(body: [-]), 
+                                         text(body: [−]), 
                                          text(body: [1]) }, 
                                        { math.alignpoint(), 
                                          text(body: [1]) }, 
                                        { math.alignpoint(), 
                                          text(body: [1]) }), 
                                       (text(body: [1]), 
-                                       { text(body: [-]), 
+                                       { text(body: [−]), 
                                          text(body: [1]) }, 
                                        text(body: [1])), 
                                       (text(body: [1]), 
                                        text(body: [1]), 
-                                       { text(body: [-]), 
+                                       { text(body: [−]), 
                                          text(body: [1]) }))), 
                 numbering: none), 
   parbreak() }

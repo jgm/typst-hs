@@ -49,7 +49,10 @@
            "test/typ/math/attach-09.typ"
            ( line 3 , column 3 )
            (FuncCall (Ident (Identifier "limits")) [ BlockArg [ Text "A" ] ]))
-    , Text "\8800"
+    , Code
+        "test/typ/math/attach-09.typ"
+        ( line 3 , column 17 )
+        (FieldAccess (Ident (Identifier "not")) (Ident (Identifier "eq")))
     , MAttach (Just (Text "1")) (Just (Text "2")) (Text "A")
     ]
 , SoftBreak
@@ -70,7 +73,10 @@
                       (Ident (Identifier "sum"))
                   ]
               ]))
-    , Text "\8800"
+    , Code
+        "test/typ/math/attach-09.typ"
+        ( line 4 , column 20 )
+        (FieldAccess (Ident (Identifier "not")) (Ident (Identifier "eq")))
     , MAttach
         (Just (Text "1"))
         (Just (Text "2"))
@@ -97,7 +103,10 @@
                       (Ident (Identifier "integral"))
                   ]
               ]))
-    , Text "\8800"
+    , Code
+        "test/typ/math/attach-09.typ"
+        ( line 5 , column 24 )
+        (FieldAccess (Ident (Identifier "not")) (Ident (Identifier "eq")))
     , MAttach
         (Just (Text "a"))
         (Just (Text "b"))

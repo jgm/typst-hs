@@ -58,7 +58,10 @@
                   (Ident (Identifier "NN"))
               , HardBreak
               , Text "n"
-              , Text "\8804"
+              , Code
+                  "test/typ/math/multiline-05.typ"
+                  ( line 3 , column 20 )
+                  (FieldAccess (Ident (Identifier "eq")) (Ident (Identifier "lt")))
               , Text "5"
               ]))
         Nothing

@@ -43,7 +43,10 @@
 , Equation
     False
     [ MAttach Nothing (Just (Text "x")) (Text "A")
-    , Text "\8800"
+    , Code
+        "test/typ/math/accent-05.typ"
+        ( line 3 , column 6 )
+        (FieldAccess (Ident (Identifier "not")) (Ident (Identifier "eq")))
     , MAttach
         Nothing
         (Just (Text "x"))
@@ -51,7 +54,10 @@
            "test/typ/math/accent-05.typ"
            ( line 3 , column 9 )
            (FuncCall (Ident (Identifier "hat")) [ BlockArg [ Text "A" ] ]))
-    , Text "\8800"
+    , Code
+        "test/typ/math/accent-05.typ"
+        ( line 3 , column 18 )
+        (FieldAccess (Ident (Identifier "not")) (Ident (Identifier "eq")))
     , MAttach
         Nothing
         (Just (Text "x"))

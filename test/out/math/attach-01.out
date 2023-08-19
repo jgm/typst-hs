@@ -58,7 +58,15 @@
            , KeyValArg (Identifier "tl") (Block (Content [ Text "16" ]))
            , KeyValArg (Identifier "br") (Block (Content [ Text "2" ]))
            , KeyValArg
-               (Identifier "tr") (Block (Content [ Text "2" , Text "-" ]))
+               (Identifier "tr")
+               (Block
+                  (Content
+                     [ Text "2"
+                     , Code
+                         "test/typ/math/attach-01.typ"
+                         ( line 5 , column 47 )
+                         (Ident (Identifier "minus"))
+                     ]))
            ])
     , Text ","
     , Code
@@ -83,7 +91,15 @@
                    (FuncCall (Ident (Identifier "upright")) [ BlockArg [ Text "e" ] ])
                ]
            , KeyValArg
-               (Identifier "bl") (Block (Content [ Text "-" , Text "1" ]))
+               (Identifier "bl")
+               (Block
+                  (Content
+                     [ Code
+                         "test/typ/math/attach-01.typ"
+                         ( line 6 , column 56 )
+                         (Ident (Identifier "minus"))
+                     , Text "1"
+                     ]))
            , KeyValArg (Identifier "tl") (Block (Content [ Text "0" ]))
            ])
     , Text "+"
@@ -107,14 +123,14 @@
                                     br: text(body: [2]), 
                                     tl: text(body: [16]), 
                                     tr: { text(body: [2]), 
-                                          text(body: [-]) }), 
+                                          text(body: [−]) }), 
                         text(body: [,]), 
                         math.attach(base: text(body: [Pb]), 
                                     bl: text(body: [82]), 
                                     tl: text(body: [207])), 
                         text(body: [+]), 
                         math.attach(base: math.upright(body: text(body: [e])), 
-                                    bl: { text(body: [-]), 
+                                    bl: { text(body: [−]), 
                                           text(body: [1]) }, 
                                     tl: text(body: [0])), 
                         text(body: [+]), 

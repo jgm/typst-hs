@@ -43,8 +43,11 @@
 , Equation
     True
     [ Text "x"
-    , Text ":"
-    , Text "="
+    , Code
+        "test/typ/math/content-01.typ"
+        ( line 3 , column 5 )
+        (FieldAccess
+           (Ident (Identifier "eq")) (Ident (Identifier "colon")))
     , MFrac
         (Code
            "test/typ/math/content-01.typ"
@@ -82,8 +85,7 @@
 ]), 
   math.equation(block: true, 
                 body: { text(body: [x]), 
-                        text(body: [:]), 
-                        text(body: [=]), 
+                        text(body: [≔]), 
                         math.frac(denom: math.mat(rows: ((text(body: [1]), 
                                                           text(body: [2]), 
                                                           text(body: [3])))), 

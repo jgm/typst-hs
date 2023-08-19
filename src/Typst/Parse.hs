@@ -7,6 +7,7 @@ module Typst.Parse
   )
 where
 
+import Data.List (sortOn)
 import Control.Applicative (some)
 import Control.Monad (MonadPlus (mzero), guard, void, when)
 import Control.Monad.Identity (Identity)
@@ -19,6 +20,7 @@ import qualified Text.Parsec as P
 import Text.Parsec.Expr
 import Text.Read (readMaybe)
 import Typst.Syntax
+import Typst.Shorthands (mathSymbolShorthands)
 
 -- import Debug.Trace
 
@@ -362,25 +364,21 @@ mMid = try $ do
 
 mSymbol :: P Markup
 mSymbol =
-  Text
-    <$> lexeme
-      ( ("≠" <$ string "!=")
-          <|> ("≥" <$ string ">=")
-          <|> ("≤" <$ string "<=")
-          <|> ("←" <$ string "<-")
-          <|> ("→" <$ string "->")
-          <|> ("⇐" <$ string "<=")
-          <|> ("⇒" <$ string "=>")
-          <|> ("⟵" <$ string "<--")
-          <|> ("⟶" <$ string "-->")
-          <|> ("⟸" <$ string "<==")
-          <|> ("⟹" <$ string "==>")
-          <|> ("…" <$ string "...")
-          <|> ("′" <$ char '\'')
-          <|> ( T.singleton
+  getPosition >>= pSym
+ where
+  pSym pos = lexeme $
+    (Code pos <$> choice (map toShorthandParser shorthands))
+          <|> ( Text . T.singleton
                   <$> satisfy (\c -> not (isSpace c) && c /= '$' && c /= '\\')
               )
-      )
+  shorthands= reverse $ sortOn (T.length . fst) mathSymbolShorthands
+  toShorthandParser (short, symname) =
+    (toSym symname <$ try (string (T.unpack short)))
+  toSym name =
+    case map (Ident . Identifier) $ T.split (== '.') name of
+      [] -> Literal None
+      [i] -> i
+      (i:is) -> foldr FieldAccess i is
 
 withIndent :: Int -> P a -> P a
 withIndent indent pa = do

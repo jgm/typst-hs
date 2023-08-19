@@ -45,13 +45,28 @@
     [ MAttach
         Nothing
         (Just (Text "n"))
-        (MGroup (Just "(") (Just ")") [ Text "-" , Text "1" ])
+        (MGroup
+           (Just "(")
+           (Just ")")
+           [ Code
+               "test/typ/math/attach-06.typ"
+               ( line 3 , column 4 )
+               (Ident (Identifier "minus"))
+           , Text "1"
+           ])
     , Text "+"
     , MAttach
         Nothing
         (Just
            (MGroup
-              Nothing Nothing [ Text "-" , MFrac (Text "1") (Text "2") ]))
+              Nothing
+              Nothing
+              [ Code
+                  "test/typ/math/attach-06.typ"
+                  ( line 3 , column 23 )
+                  (Ident (Identifier "minus"))
+              , MFrac (Text "1") (Text "2")
+              ]))
         (MGroup
            (Just "(")
            (Just ")")
@@ -65,7 +80,7 @@
   math.equation(block: true, 
                 body: { math.attach(b: none, 
                                     base: math.lr(body: ({ [(], 
-                                                           text(body: [-]), 
+                                                           text(body: [−]), 
                                                            text(body: [1]), 
                                                            [)] })), 
                                     t: text(body: [n])), 
@@ -77,7 +92,7 @@
                                                            text(body: [+]), 
                                                            text(body: [3]), 
                                                            [)] })), 
-                                    t: { text(body: [-]), 
+                                    t: { text(body: [−]), 
                                          math.frac(denom: text(body: [2]), 
                                                    num: text(body: [1])) }) }, 
                 numbering: none), 

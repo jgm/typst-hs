@@ -45,7 +45,16 @@
     [ MAttach
         (Just
            (MGroup
-              Nothing Nothing [ Text "x" , Text ":" , Text "=" , Text "1" ]))
+              Nothing
+              Nothing
+              [ Text "x"
+              , Code
+                  "test/typ/math/op-03.typ"
+                  ( line 3 , column 32 )
+                  (FieldAccess
+                     (Ident (Identifier "eq")) (Ident (Identifier "colon")))
+              , Text "1"
+              ]))
         Nothing
         (Code
            "test/typ/math/op-03.typ"
@@ -60,7 +69,16 @@
     , MAttach
         (Just
            (MGroup
-              Nothing Nothing [ Text "x" , Text ":" , Text "=" , Text "1" ]))
+              Nothing
+              Nothing
+              [ Text "x"
+              , Code
+                  "test/typ/math/op-03.typ"
+                  ( line 4 , column 31 )
+                  (FieldAccess
+                     (Ident (Identifier "eq")) (Ident (Identifier "colon")))
+              , Text "1"
+              ]))
         Nothing
         (Code
            "test/typ/math/op-03.typ"
@@ -79,8 +97,7 @@
 ]), 
   math.equation(block: true, 
                 body: { math.attach(b: { text(body: [x]), 
-                                         text(body: [:]), 
-                                         text(body: [=]), 
+                                         text(body: [≔]), 
                                          text(body: [1]) }, 
                                     base: math.op(limits: false, 
                                                   text: text(body: [myop])), 
@@ -88,8 +105,7 @@
                         text(body: [x]), 
                         linebreak(), 
                         math.attach(b: { text(body: [x]), 
-                                         text(body: [:]), 
-                                         text(body: [=]), 
+                                         text(body: [≔]), 
                                          text(body: [1]) }, 
                                     base: math.op(limits: true, 
                                                   text: text(body: [myop])), 

@@ -52,7 +52,10 @@
            [ BlockArg [ Text "y" ]
            , KeyValArg (Identifier "rotation") (Literal (Numeric 90.0 Deg))
            ])
-    , Text "-"
+    , Code
+        "test/typ/math/cancel-05.typ"
+        ( line 3 , column 34 )
+        (Ident (Identifier "minus"))
     , Code
         "test/typ/math/cancel-05.typ"
         ( line 3 , column 36 )
@@ -78,7 +81,10 @@
                    (MGroup Nothing Nothing [ Text "f" , Text "+" , Text "e" ])
                ]
            ])
-    , Text "-"
+    , Code
+        "test/typ/math/cancel-05.typ"
+        ( line 4 , column 31 )
+        (Ident (Identifier "minus"))
     , Code
         "test/typ/math/cancel-05.typ"
         ( line 4 , column 33 )
@@ -102,7 +108,7 @@
                         text(body: [+]), 
                         math.cancel(body: text(body: [y]), 
                                     rotation: 90.0deg), 
-                        text(body: [-]), 
+                        text(body: [−]), 
                         math.cancel(body: text(body: [z]), 
                                     rotation: 135.0deg) }, 
                 numbering: none), 
@@ -117,7 +123,7 @@
                                                     num: { text(body: [j]), 
                                                            text(body: [+]), 
                                                            text(body: [e]) })), 
-                        text(body: [-]), 
+                        text(body: [−]), 
                         math.cancel(body: math.frac(denom: { text(body: [f]), 
                                                              text(body: [+]), 
                                                              text(body: [e]) }, 
