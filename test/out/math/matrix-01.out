@@ -48,8 +48,22 @@
         (FuncCall
            (Ident (Identifier "mat"))
            [ ArrayArg
-               [ [ Text "1" , Text "2" , Text "\8230" , Text "10" ]
-               , [ Text "2" , Text "2" , Text "\8230" , Text "10" ]
+               [ [ Text "1"
+                 , Text "2"
+                 , Code
+                     "test/typ/math/matrix-01.typ"
+                     ( line 4 , column 9 )
+                     (FieldAccess (Ident (Identifier "h")) (Ident (Identifier "dots")))
+                 , Text "10"
+                 ]
+               , [ Text "2"
+                 , Text "2"
+                 , Code
+                     "test/typ/math/matrix-01.typ"
+                     ( line 5 , column 9 )
+                     (FieldAccess (Ident (Identifier "h")) (Ident (Identifier "dots")))
+                 , Text "10"
+                 ]
                , [ Code
                      "test/typ/math/matrix-01.typ"
                      ( line 6 , column 3 )
@@ -68,7 +82,14 @@
                      ( line 6 , column 30 )
                      (FieldAccess (Ident (Identifier "v")) (Ident (Identifier "dots")))
                  ]
-               , [ Text "10" , Text "10" , Text "\8230" , Text "10" ]
+               , [ Text "10"
+                 , Text "10"
+                 , Code
+                     "test/typ/math/matrix-01.typ"
+                     ( line 7 , column 11 )
+                     (FieldAccess (Ident (Identifier "h")) (Ident (Identifier "dots")))
+                 , Text "10"
+                 ]
                ]
            ])
     ]

@@ -49,13 +49,19 @@
            (Ident (Identifier "underline"))
            [ BlockArg
                [ Text "f"
-               , Text "\8242"
+               , Code
+                   "test/typ/math/syntax-01.typ"
+                   ( line 3 , column 14 )
+                   (Ident (Identifier "prime"))
                , Text ":"
                , Code
                    "test/typ/math/syntax-01.typ"
                    ( line 3 , column 18 )
                    (Ident (Identifier "NN"))
-               , Text "\8594"
+               , Code
+                   "test/typ/math/syntax-01.typ"
+                   ( line 3 , column 21 )
+                   (FieldAccess (Ident (Identifier "r")) (Ident (Identifier "arrow")))
                , Code
                    "test/typ/math/syntax-01.typ"
                    ( line 3 , column 24 )
@@ -64,8 +70,13 @@
            ])
     , HardBreak
     , Text "n"
-    , Text "|"
-    , Text "\8594"
+    , Code
+        "test/typ/math/syntax-01.typ"
+        ( line 4 , column 5 )
+        (FieldAccess
+           (Ident (Identifier "r"))
+           (FieldAccess
+              (Ident (Identifier "bar")) (Ident (Identifier "arrow"))))
     , Code
         "test/typ/math/syntax-01.typ"
         ( line 4 , column 9 )
@@ -77,31 +88,45 @@
                , MAlignPoint
                , Text "if "
                , Text "n"
-               , Text ">"
-               , Text ">"
-               , Text ">"
+               , Code
+                   "test/typ/math/syntax-01.typ"
+                   ( line 5 , column 19 )
+                   (FieldAccess
+                      (Ident (Identifier "triple")) (Ident (Identifier "gt")))
                , Text "10"
                ]
            , BlockArg
                [ Text "2"
-               , Text "*"
+               , Code
+                   "test/typ/math/syntax-01.typ"
+                   ( line 6 , column 7 )
+                   (Ident (Identifier "convolve"))
                , Text "3"
                , MAlignPoint
                , Text "if "
                , Text "n"
-               , Text "\8800"
+               , Code
+                   "test/typ/math/syntax-01.typ"
+                   ( line 6 , column 19 )
+                   (FieldAccess (Ident (Identifier "not")) (Ident (Identifier "eq")))
                , Text "5"
                ]
            , BlockArg
                [ Text "1"
-               , Text "-"
+               , Code
+                   "test/typ/math/syntax-01.typ"
+                   ( line 7 , column 7 )
+                   (Ident (Identifier "minus"))
                , Text "0"
                , Code
                    "test/typ/math/syntax-01.typ"
                    ( line 7 , column 11 )
                    (Ident (Identifier "thick"))
                , MAlignPoint
-               , Text "\8230"
+               , Code
+                   "test/typ/math/syntax-01.typ"
+                   ( line 7 , column 18 )
+                   (FieldAccess (Ident (Identifier "h")) (Ident (Identifier "dots")))
                ]
            ])
     ]
@@ -119,8 +144,7 @@
                                                text(body: [ℝ]) }), 
                         linebreak(), 
                         text(body: [n]), 
-                        text(body: [|]), 
-                        text(body: [→]), 
+                        text(body: [↦]), 
                         math.cases(children: ({ math.lr(body: ({ [[], 
                                                                  math.lr(body: ({ [|], 
                                                                                   text(body: [1]), 
@@ -129,12 +153,10 @@
                                                 math.alignpoint(), 
                                                 text(body: [if ]), 
                                                 text(body: [n]), 
-                                                text(body: [>]), 
-                                                text(body: [>]), 
-                                                text(body: [>]), 
+                                                text(body: [⋙]), 
                                                 text(body: [10]) }, 
                                               { text(body: [2]), 
-                                                text(body: [*]), 
+                                                text(body: [∗]), 
                                                 text(body: [3]), 
                                                 math.alignpoint(), 
                                                 text(body: [if ]), 
@@ -142,7 +164,7 @@
                                                 text(body: [≠]), 
                                                 text(body: [5]) }, 
                                               { text(body: [1]), 
-                                                text(body: [-]), 
+                                                text(body: [−]), 
                                                 text(body: [0]), 
                                                 text(body: [ ]), 
                                                 math.alignpoint(), 

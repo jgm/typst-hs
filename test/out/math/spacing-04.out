@@ -57,9 +57,18 @@
     , Text "b"
     , Text "+"
     , Text "c"
-    , Text "-"
+    , Code
+        "test/typ/math/spacing-04.typ"
+        ( line 4 , column 16 )
+        (Ident (Identifier "minus"))
     , Text "d"
-    , Text "\8658"
+    , Code
+        "test/typ/math/spacing-04.typ"
+        ( line 4 , column 20 )
+        (FieldAccess
+           (Ident (Identifier "r"))
+           (FieldAccess
+              (Ident (Identifier "double")) (Ident (Identifier "arrow"))))
     , Text "e"
     , Code
         "test/typ/math/spacing-04.typ"
@@ -99,12 +108,31 @@
     , Code
         "test/typ/math/spacing-04.typ"
         ( line 5 , column 34 )
-        (FuncCall (Ident (Identifier "arrow")) [ BlockArg [ Text "-" ] ])
+        (FuncCall
+           (Ident (Identifier "arrow"))
+           [ BlockArg
+               [ Code
+                   "test/typ/math/spacing-04.typ"
+                   ( line 5 , column 40 )
+                   (Ident (Identifier "minus"))
+               ]
+           ])
     , Text "d"
     , Code
         "test/typ/math/spacing-04.typ"
         ( line 5 , column 45 )
-        (FuncCall (Ident (Identifier "hat")) [ BlockArg [ Text "\8658" ] ])
+        (FuncCall
+           (Ident (Identifier "hat"))
+           [ BlockArg
+               [ Code
+                   "test/typ/math/spacing-04.typ"
+                   ( line 5 , column 49 )
+                   (FieldAccess
+                      (Ident (Identifier "r"))
+                      (FieldAccess
+                         (Ident (Identifier "double")) (Ident (Identifier "arrow"))))
+               ]
+           ])
     , Text "e"
     , Code
         "test/typ/math/spacing-04.typ"
@@ -160,13 +188,31 @@
     , Code
         "test/typ/math/spacing-04.typ"
         ( line 6 , column 38 )
-        (FuncCall (Ident (Identifier "grave")) [ BlockArg [ Text "-" ] ])
+        (FuncCall
+           (Ident (Identifier "grave"))
+           [ BlockArg
+               [ Code
+                   "test/typ/math/spacing-04.typ"
+                   ( line 6 , column 44 )
+                   (Ident (Identifier "minus"))
+               ]
+           ])
     , Text "d"
     , Code
         "test/typ/math/spacing-04.typ"
         ( line 6 , column 49 )
         (FuncCall
-           (Ident (Identifier "underbracket")) [ BlockArg [ Text "\8658" ] ])
+           (Ident (Identifier "underbracket"))
+           [ BlockArg
+               [ Code
+                   "test/typ/math/spacing-04.typ"
+                   ( line 6 , column 62 )
+                   (FieldAccess
+                      (Ident (Identifier "r"))
+                      (FieldAccess
+                         (Ident (Identifier "double")) (Ident (Identifier "arrow"))))
+               ]
+           ])
     , Text "e"
     , Code
         "test/typ/math/spacing-04.typ"
@@ -234,13 +280,31 @@
     , Code
         "test/typ/math/spacing-04.typ"
         ( line 8 , column 66 )
-        (FuncCall (Ident (Identifier "tilde")) [ BlockArg [ Text "-" ] ])
+        (FuncCall
+           (Ident (Identifier "tilde"))
+           [ BlockArg
+               [ Code
+                   "test/typ/math/spacing-04.typ"
+                   ( line 8 , column 72 )
+                   (Ident (Identifier "minus"))
+               ]
+           ])
     , Text "d"
     , Code
         "test/typ/math/spacing-04.typ"
         ( line 8 , column 77 )
         (FuncCall
-           (Ident (Identifier "breve")) [ BlockArg [ Text "\8658" ] ])
+           (Ident (Identifier "breve"))
+           [ BlockArg
+               [ Code
+                   "test/typ/math/spacing-04.typ"
+                   ( line 8 , column 83 )
+                   (FieldAccess
+                      (Ident (Identifier "r"))
+                      (FieldAccess
+                         (Ident (Identifier "double")) (Ident (Identifier "arrow"))))
+               ]
+           ])
     , Text "e"
     , Code
         "test/typ/math/spacing-04.typ"
@@ -294,7 +358,7 @@
                         text(body: [b]), 
                         text(body: [+]), 
                         text(body: [c]), 
-                        text(body: [-]), 
+                        text(body: [−]), 
                         text(body: [d]), 
                         text(body: [⇒]), 
                         text(body: [e]), 
@@ -313,7 +377,7 @@
                         math.overline(body: text(body: [+])), 
                         text(body: [c]), 
                         math.accent(accent: →, 
-                                    base: text(body: [-])), 
+                                    base: text(body: [−])), 
                         text(body: [d]), 
                         math.accent(accent: ^, 
                                     base: text(body: [⇒])), 
@@ -334,7 +398,7 @@
                         math.underline(body: text(body: [+])), 
                         text(body: [c]), 
                         math.accent(accent: `, 
-                                    base: text(body: [-])), 
+                                    base: text(body: [−])), 
                         text(body: [d]), 
                         math.underbracket(body: text(body: [⇒])), 
                         text(body: [e]), 
@@ -360,7 +424,7 @@
                                     t: text(body: [a])), 
                         text(body: [c]), 
                         math.accent(accent: ∼, 
-                                    base: text(body: [-])), 
+                                    base: text(body: [−])), 
                         text(body: [d]), 
                         math.accent(accent: ˘, 
                                     base: text(body: [⇒])), 

@@ -48,7 +48,10 @@
               Nothing
               Nothing
               [ Text "n"
-              , Text "\8594"
+              , Code
+                  "test/typ/math/attach-08.typ"
+                  ( line 3 , column 9 )
+                  (FieldAccess (Ident (Identifier "r")) (Ident (Identifier "arrow")))
               , Code
                   "test/typ/math/attach-08.typ"
                   ( line 3 , column 11 )

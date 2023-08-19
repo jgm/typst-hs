@@ -54,7 +54,14 @@
         ( line 3 , column 16 )
         (FuncCall
            (Ident (Identifier "accent"))
-           [ BlockArg [ Text "v" ] , BlockArg [ Text "\8592" ] ])
+           [ BlockArg [ Text "v" ]
+           , BlockArg
+               [ Code
+                   "test/typ/math/accent-02.typ"
+                   ( line 3 , column 26 )
+                   (FieldAccess (Ident (Identifier "l")) (Ident (Identifier "arrow")))
+               ]
+           ])
     , Text ","
     , Code
         "test/typ/math/accent-02.typ"

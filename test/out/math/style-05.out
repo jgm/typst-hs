@@ -54,15 +54,25 @@
 , Equation
     True
     [ Text "v"
-    , Text ":"
-    , Text "="
+    , Code
+        "test/typ/math/style-05.typ"
+        ( line 4 , column 5 )
+        (FieldAccess
+           (Ident (Identifier "eq")) (Ident (Identifier "colon")))
     , Code
         "test/typ/math/style-05.typ"
         ( line 4 , column 8 )
         (FuncCall
            (Ident (Identifier "vec"))
            [ BlockArg [ Text "1" , Text "+" , Text "2" ]
-           , BlockArg [ Text "2" , Text "-" , Text "4" ]
+           , BlockArg
+               [ Text "2"
+               , Code
+                   "test/typ/math/style-05.typ"
+                   ( line 4 , column 21 )
+                   (Ident (Identifier "minus"))
+               , Text "4"
+               ]
            , BlockArg
                [ Code
                    "test/typ/math/style-05.typ"
@@ -88,13 +98,12 @@
 ]), 
   math.equation(block: true, 
                 body: { text(body: [v]), 
-                        text(body: [:]), 
-                        text(body: [=]), 
+                        text(body: [≔]), 
                         math.vec(children: ({ text(body: [1]), 
                                               text(body: [+]), 
                                               text(body: [2]) }, 
                                             { text(body: [2]), 
-                                              text(body: [-]), 
+                                              text(body: [−]), 
                                               text(body: [4]) }, 
                                             math.sqrt(radicand: text(body: [3])), 
                                             math.accent(accent: →, 

@@ -48,7 +48,10 @@
         (MGroup
            (Just "(")
            (Just ")")
-           [ Text "-"
+           [ Code
+               "test/typ/math/frac-02.typ"
+               ( line 3 , column 8 )
+               (Ident (Identifier "minus"))
            , Text "b"
            , Code
                "test/typ/math/frac-02.typ"
@@ -62,7 +65,10 @@
                   (Ident (Identifier "sqrt"))
                   [ BlockArg
                       [ MAttach Nothing (Just (Text "2")) (Text "b")
-                      , Text "-"
+                      , Code
+                          "test/typ/math/frac-02.typ"
+                          ( line 3 , column 31 )
+                          (Ident (Identifier "minus"))
                       , Text "4"
                       , Text "a"
                       , Text "c"
@@ -81,13 +87,13 @@
                         text(body: [=]), 
                         math.frac(denom: { text(body: [2]), 
                                            text(body: [a]) }, 
-                                  num: { text(body: [-]), 
+                                  num: { text(body: [−]), 
                                          text(body: [b]), 
                                          text(body: [±]), 
                                          math.sqrt(radicand: { math.attach(b: none, 
                                                                            base: text(body: [b]), 
                                                                            t: text(body: [2])), 
-                                                               text(body: [-]), 
+                                                               text(body: [−]), 
                                                                text(body: [4]), 
                                                                text(body: [a]), 
                                                                text(body: [c]) }) }) }, 

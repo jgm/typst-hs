@@ -52,7 +52,10 @@
         (FuncCall (Ident (Identifier "cancel")) [ BlockArg [ Text "x" ] ])
     , Text "+"
     , Text "b"
-    , Text "-"
+    , Code
+        "test/typ/math/cancel-00.typ"
+        ( line 3 , column 24 )
+        (Ident (Identifier "minus"))
     , Code
         "test/typ/math/cancel-00.typ"
         ( line 3 , column 26 )
@@ -119,7 +122,7 @@
                         math.cancel(body: text(body: [x])), 
                         text(body: [+]), 
                         text(body: [b]), 
-                        text(body: [-]), 
+                        text(body: [−]), 
                         math.cancel(body: text(body: [x])) }, 
                 numbering: none), 
   parbreak(), 

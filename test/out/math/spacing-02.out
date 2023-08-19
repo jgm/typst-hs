@@ -87,7 +87,10 @@
 , Equation
     False
     [ Text "a"
-    , Text "-"
+    , Code
+        "test/typ/math/spacing-02.typ"
+        ( line 5 , column 4 )
+        (Ident (Identifier "minus"))
     , Text "b"
     , Code
         "test/typ/math/spacing-02.typ"
@@ -142,7 +145,7 @@
   linebreak(), 
   math.equation(block: false, 
                 body: { text(body: [a]), 
-                        text(body: [-]), 
+                        text(body: [−]), 
                         text(body: [b]), 
                         text(body: [≡]), 
                         text(body: [c]), 

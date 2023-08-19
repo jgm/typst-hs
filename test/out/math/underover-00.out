@@ -54,7 +54,10 @@
                , Text "+"
                , Text "2"
                , Text "+"
-               , Text "\8230"
+               , Code
+                   "test/typ/math/underover-00.typ"
+                   ( line 4 , column 11 )
+                   (FieldAccess (Ident (Identifier "h")) (Ident (Identifier "dots")))
                , Text "+"
                , Text "5"
                ]

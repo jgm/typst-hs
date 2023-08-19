@@ -75,8 +75,11 @@
         "test/typ/math/numbering-00.typ"
         ( line 6 , column 3 )
         (FieldAccess (Ident (Identifier "alt")) (Ident (Identifier "phi")))
-    , Text ":"
-    , Text "="
+    , Code
+        "test/typ/math/numbering-00.typ"
+        ( line 6 , column 11 )
+        (FieldAccess
+           (Ident (Identifier "eq")) (Ident (Identifier "colon")))
     , MFrac
         (MGroup
            (Just "(")
@@ -156,8 +159,7 @@
 ]), 
   math.equation(block: true, 
                 body: { text(body: [ϕ]), 
-                        text(body: [:]), 
-                        text(body: [=]), 
+                        text(body: [≔]), 
                         math.frac(denom: text(body: [2]), 
                                   num: { text(body: [1]), 
                                          text(body: [+]), 

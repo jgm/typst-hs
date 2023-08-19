@@ -59,7 +59,10 @@
                 , Text ","
                 , Text "2"
                 , Text ")"
-                , Text "\8800"
+                , Code
+                    "test/typ/math/delimited-01.typ"
+                    ( line 3 , column 16 )
+                    (FieldAccess (Ident (Identifier "not")) (Ident (Identifier "eq")))
                 , Code
                     "test/typ/math/delimited-01.typ"
                     ( line 3 , column 19 )

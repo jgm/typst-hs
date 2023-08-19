@@ -75,7 +75,14 @@
     , Text "<"
     , Text "\10214"
     , Text ","
-    , MGroup (Just "|") (Just "|") [ Text "-" ]
+    , MGroup
+        (Just "|")
+        (Just "|")
+        [ Code
+            "test/typ/math/spacing-00.typ"
+            ( line 5 , column 8 )
+            (Ident (Identifier "minus"))
+        ]
     , Text ","
     , MGroup (Just "[") Nothing [ Text "=" ]
     ]
@@ -95,7 +102,16 @@
 , Space
 , HardBreak
 , Equation
-    False [ Text "-" , Text "a" , Text "," , Text "+" , Text "a" ]
+    False
+    [ Code
+        "test/typ/math/spacing-00.typ"
+        ( line 7 , column 2 )
+        (Ident (Identifier "minus"))
+    , Text "a"
+    , Text ","
+    , Text "+"
+    , Text "a"
+    ]
 , Space
 , HardBreak
 , Equation
@@ -116,7 +132,10 @@
     , Text "b"
     , Text ","
     , Text "a"
-    , Text "*"
+    , Code
+        "test/typ/math/spacing-00.typ"
+        ( line 9 , column 8 )
+        (Ident (Identifier "convolve"))
     , Text "b"
     ]
 , Space
@@ -205,7 +224,7 @@
                         text(body: [⟦]), 
                         text(body: [,]), 
                         math.lr(body: ({ [|], 
-                                         text(body: [-]), 
+                                         text(body: [−]), 
                                          [|] })), 
                         text(body: [,]), 
                         text(body: [[]), 
@@ -226,7 +245,7 @@
   text(body: [ ]), 
   linebreak(), 
   math.equation(block: false, 
-                body: { text(body: [-]), 
+                body: { text(body: [−]), 
                         text(body: [a]), 
                         text(body: [,]), 
                         text(body: [+]), 
@@ -247,7 +266,7 @@
                         text(body: [b]), 
                         text(body: [,]), 
                         text(body: [a]), 
-                        text(body: [*]), 
+                        text(body: [∗]), 
                         text(body: [b]) }, 
                 numbering: none), 
   text(body: [ ]), 
