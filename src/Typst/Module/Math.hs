@@ -148,7 +148,10 @@ predefinedOperators =
         "max",
         "min",
         "Pr",
-        "sup"
+        "sup",
+        "id",
+        "im",
+        "tr"
       ]
       ++ map
         ( \t ->
