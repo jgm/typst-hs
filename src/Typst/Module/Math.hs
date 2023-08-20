@@ -29,6 +29,8 @@ mathModule =
           ("accent", One (TContent :|: TString :|: TSymbol))
         ],
       makeElement (Just "math") "attach" [("base", One TContent)],
+      makeElement (Just "math") "class" [("class", One TString),
+                                         ("body", One TContent)],
       makeElement (Just "math") "scripts" [("body", One TContent)],
       makeElement (Just "math") "limits" [("body", One TContent)],
       makeElement
