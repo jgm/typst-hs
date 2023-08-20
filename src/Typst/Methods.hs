@@ -431,6 +431,8 @@ getMethod updateVal val fld = do
                 (a, b) | V.null b -> if V.null a then [] else [VArray a]
                 (a, b) -> VArray a : go (V.drop 1 b)
           pure $ VArray $ V.fromList $ go v
+        "dedup" -> pure $ makeFunction $ do
+          pure $ VArray $ deduplicateVector v
         "insert" -> pure $ makeFunction $ do
           pos <- toPos <$> nthArg 1
           newval <- nthArg 2
@@ -806,3 +808,7 @@ withPadding mods s = '%' :
        Just "zero" -> '0' : s
        Just "space" -> '_' : s
        _ -> s
+
+deduplicateVector :: Eq a => V.Vector a -> V.Vector a
+deduplicateVector =
+  V.foldl' (\acc x -> if x `V.elem` acc then acc else acc `V.snoc` x) mempty
