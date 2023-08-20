@@ -22,7 +22,7 @@ data MathClass =
   | GlyphPart
   | Space
   | Special
-  deriving (Show)
+  deriving (Show, Eq, Ord, Bounded)
 
 mathClassOf :: Char -> MathClass
 mathClassOf c = fromMaybe Normal $ M.lookup c mathClassMap
