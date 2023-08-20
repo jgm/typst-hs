@@ -34,6 +34,7 @@ import Typst.Bind (destructuringBind)
 import Typst.Methods (getMethod)
 import Typst.Module.Standard (loadFileText, standardModule, symModule)
 import Typst.Module.Math (mathModule)
+import Typst.MathClass (mathClassOf, MathClass(Relation))
 import Typst.Parse (parseTypst)
 import Typst.Regex (match)
 import Typst.Show (applyShowRules)
@@ -266,7 +267,18 @@ pElt = do
             named = OM.empty
           }
     MAttach mbBottomExp mbTopExp baseExp -> do
-      base <- pInnerContents [baseExp]
+      base' <- pInnerContents [baseExp]
+      pos <- getPosition
+      let base =
+            case base' of
+              [Elt "text" mbpos [("body", VContent [Txt t])]]
+                     | T.all ((== Relation) . mathClassOf ) t
+                -> [Elt "math.limits" mbpos
+                        [("body", VContent base')]]
+              [Txt t] | T.all ((== Relation) . mathClassOf ) t
+                -> [Elt "math.limits" (Just pos)
+                        [("body", VContent base')]]
+              _ -> base'
       mbBottom <-
         maybe
           (pure Nothing)
