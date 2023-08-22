@@ -1,5 +1,29 @@
 # Revision history for typst-hs
 
+## 0.3.2.0
+
+  * Add metadata element.
+
+  * Add dedup method for vector.
+
+  * Add math.class
+
+  * Make MAttach on symbols include limits if symbol is relation.
+    This is a 0.7 change: "Changed relations to show attachments as limits
+    by default (e.g. in $a ->^x b$)."
+
+  * Add Typst.MathClass.
+
+  * Add im, id, tr text operators.
+
+  * Parse math symbol shorthands as identifiers.
+
+  * Use typst-symbols 0.1.4 so we get all of the defined shorthands.
+
+  * Fix tests because of breaking symbol change ident -> equiv.
+
+  * Depend on dev texmath.
+
 ## 0.3.1.0
 
   * Allow multiplying a ratio by a length.
