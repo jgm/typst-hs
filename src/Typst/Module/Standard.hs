@@ -242,6 +242,7 @@ meta =
       [ ("target", One (TLabel :|: TFunction)),
         ("location", One TLocation)
       ],
+    makeElement Nothing "metadata" [ ("value", One TAny) ],
     makeElement Nothing "ref" [("target", One TLabel)],
     makeElement Nothing "state" [("key", One TString), ("init", One TAny)],
     makeElementWithScope
