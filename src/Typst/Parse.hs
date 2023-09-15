@@ -558,12 +558,13 @@ pNonspaceWithBalancedBrackets parens brackets braces =
     <|> pure []
 
 pText :: P Markup
-pText =
-  Text . T.pack
-    <$> some
-      ( satisfy (\c -> not (isSpace c || isSpecial c))
-          <|> try ((char '*' <|> char '_') <* lookAhead alphaNum)
-      )
+pText = Text . mconcat <$> some
+  ((do xs <- some alphaNum
+       T.pack . (xs <>) <$>
+             try (some (char '*' <|> char '_') <* lookAhead alphaNum)
+        <|> pure (T.pack xs))
+ <|> (T.pack <$> some (satisfy (\c -> not (isSpace c || isSpecial c))))
+  )
 
 pEscaped :: P Markup
 pEscaped = Text . T.singleton <$> pEsc
