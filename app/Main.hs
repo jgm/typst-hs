@@ -6,6 +6,7 @@ module Main where
 import Control.Monad (foldM, when)
 import qualified Data.ByteString as BS
 import Data.Maybe (fromMaybe)
+import qualified Data.Text.Encoding as TE
 import qualified Data.Text.IO as TIO
 import System.Environment (getArgs)
 import System.Directory (doesFileExist)
@@ -18,6 +19,7 @@ import Text.Show.Pretty (pPrint)
 import Typst (evaluateTypst, parseTypst)
 import Typst.Types (Val (..), repr, Operations(..))
 import Data.Time (getCurrentTime)
+import qualified Data.ByteString as B
 
 data Opts = Opts
   { optShowParse :: Bool,
@@ -73,7 +75,8 @@ main =
         Just (Just ms) -> timeout (ms * 1000)
       )
       $ do
-        t <- maybe TIO.getContents TIO.readFile mbfile
+        bs <- maybe B.getContents B.readFile mbfile
+        let t = TE.decodeUtf8 bs
         case parseTypst (fromMaybe "stdin" mbfile) t of
           Left e -> err $ show e
           Right parseResult -> do
