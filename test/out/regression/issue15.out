@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/math/syntax-02.typ"
+    "test/typ/regression/issue15.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/math/syntax-02.typ"
+                                 "test/typ/regression/issue15.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/math/syntax-02.typ"
+                                 "test/typ/regression/issue15.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -39,48 +39,32 @@
                     ]
                 ]))))
 , SoftBreak
-, Comment
 , Equation
-    True
+    False
     [ Code
-        "test/typ/math/syntax-02.typ"
-        ( line 3 , column 3 )
-        (Ident (Identifier "dot"))
-    , HardBreak
-    , Code
-        "test/typ/math/syntax-02.typ"
-        ( line 3 , column 9 )
+        "test/typ/regression/issue15.typ"
+        ( line 2 , column 2 )
         (Ident (Identifier "dots"))
-    , HardBreak
-    , Code
-        "test/typ/math/syntax-02.typ"
-        ( line 3 , column 16 )
-        (Ident (Identifier "ast"))
-    , HardBreak
-    , Code
-        "test/typ/math/syntax-02.typ"
-        ( line 3 , column 22 )
-        (Ident (Identifier "tilde"))
-    , HardBreak
-    , Code
-        "test/typ/math/syntax-02.typ"
-        ( line 3 , column 30 )
-        (Ident (Identifier "star"))
+    ]
+, SoftBreak
+, Equation
+    False
+    [ Code
+        "test/typ/regression/issue15.typ"
+        ( line 3 , column 2 )
+        (FieldAccess (Ident (Identifier "l")) (Ident (Identifier "quote")))
     ]
 , ParBreak
 ]
 --- evaluated ---
 { text(body: [
 ]), 
-  math.equation(block: true, 
-                body: { text(body: [⋅]), 
-                        linebreak(), 
-                        text(body: […]), 
-                        linebreak(), 
-                        text(body: [∗]), 
-                        linebreak(), 
-                        text(body: [∼]), 
-                        linebreak(), 
-                        text(body: [⋆]) }, 
+  math.equation(block: false, 
+                body: text(body: […]), 
+                numbering: none), 
+  text(body: [
+]), 
+  math.equation(block: false, 
+                body: text(body: [“]), 
                 numbering: none), 
   parbreak() }

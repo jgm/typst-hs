@@ -161,7 +161,17 @@ makeSymbolMap = foldl' go mempty
                 Nothing ->
                   Just $ Symbol v accent (addVariant ks v mempty)
                 Just (Symbol dv da vs) ->
-                  Just $ Symbol dv da (addVariant ks v vs)
+                  Just $ Symbol dv' da variants
+                  where variants = addVariant ks v vs
+                        minModifiers = minimum $ map (Set.size . fst) variants
+                        shortestVariants =
+                          filter ((== minModifiers) . Set.size . fst) variants
+                         -- "When displaying a symbol, Typst selects the first
+                         -- from the variants that have all attached modifiers
+                         -- and the minimum number of other modifiers."
+                        dv' = case map snd shortestVariants of
+                                  [] -> dv
+                                  (x:_) -> x
             )
             (Identifier k)
             m
@@ -170,4 +180,4 @@ makeSymbolMap = foldl' go mempty
       Text ->
       [(Set.Set Text, Text)] ->
       [(Set.Set Text, Text)]
-    addVariant ks v = ((Set.fromList ks, v) :)
+    addVariant ks v = (++ [(Set.fromList ks, v)])
