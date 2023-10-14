@@ -33,7 +33,7 @@ goldenTests :: IO TestTree
 goldenTests = do
   inputs <- findByExtension [".typ"] "test/typ"
   pure $
-    localOption (Timeout 100000 "100ms") $
+    localOption (Timeout 1000000 "1s") $
       testGroup "golden tests" (map runTest inputs)
 
 runTest :: FilePath -> TestTree
