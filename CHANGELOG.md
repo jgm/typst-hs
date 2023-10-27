@@ -1,5 +1,16 @@
 # Revision history for typst-hs
 
+## 0.3.2.1
+
+  * Fix resolution of symbols (#15). Symbols like `dot`, which only have
+    variants, were not being properly resolved: we were getting the
+    last matching variant rather than the first.
+
+  * Avoid text's `readFile` in cli app (#13). Instead read as bytestring and
+    force interpretation as UTF-8.
+
+  * Fix some parser edge cases involving emphasis after `'` (#12).
+
 ## 0.3.2.0
 
   * Add metadata element.
