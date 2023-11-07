@@ -126,7 +126,8 @@ spaceConstants =
   [ ("thin", Txt "\8201"),
     ("thick", Txt "\8197"),
     ("med", Txt "\8287"),
-    ("quad", Txt "\8195")
+    ("quad", Txt "\8195"),
+    ("wide", Txt "\8195\8195")
   ]
 
 predefinedOperators :: M.Map Identifier Content
