@@ -158,11 +158,11 @@ pEquation = do
 
 mathOperatorTable :: [[Operator Text PState Identity Markup]]
 mathOperatorTable =
-  [ -- precedence 6
-    [ Infix (attachBottom <$ op "_") AssocLeft,
-      Infix (attachTop <$ op "^") AssocLeft
+  [ -- precedence 7 -- attachment with number, e.g. a_1 (see #17)
+    [ Infix (attachBottom <$ (try (op "_" *> lookAhead mNumber))) AssocLeft,
+      Infix (attachTop <$ (try (op "^" *> lookAhead mNumber))) AssocLeft
     ],
-    -- precedence 5
+    -- precedence 6
     [ Postfix
         ( try $ do
             mbBeforeSpace <- stBeforeSpace <$> getState
@@ -172,6 +172,10 @@ mathOperatorTable =
             args <- mGrouped '(' ')' True
             pure $ \expr -> MGroup Nothing Nothing [expr, args]
         )
+    ],
+    -- precedence 5 -- attachment with non-number, e.g. a_x
+    [ Infix (attachBottom <$ op "_") AssocLeft,
+      Infix (attachTop <$ op "^") AssocLeft
     ],
     -- precedence 4  -- factorial needs to take precedence over fraction
     [ Postfix (try $ do

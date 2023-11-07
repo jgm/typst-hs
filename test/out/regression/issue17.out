@@ -1,0 +1,105 @@
+--- parse tree ---
+[ Code
+    "test/typ/regression/issue17.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060"
+                             , Text "("
+                             , Code
+                                 "test/typ/regression/issue17.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/regression/issue17.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Equation
+    False
+    [ MAttach
+        Nothing
+        (Just (MGroup Nothing Nothing [ Text "b" ]))
+        (MGroup
+           Nothing
+           Nothing
+           [ Text "n" , MGroup (Just "(") (Just ")") [ Text "a" ] ])
+    ]
+, ParBreak
+, Equation
+    False
+    [ MGroup
+        Nothing
+        Nothing
+        [ MAttach (Just (Text "1")) Nothing (Text "a")
+        , MGroup (Just "(") (Just ")") [ Text "x" ]
+        ]
+    ]
+, ParBreak
+, Equation
+    False
+    [ MAttach
+        (Just
+           (MGroup
+              Nothing
+              Nothing
+              [ Text "f" , MGroup (Just "(") (Just ")") [ Text "x" ] ]))
+        Nothing
+        (Text "a")
+    ]
+, ParBreak
+]
+--- evaluated ---
+{ text(body: [
+]), 
+  math.equation(block: false, 
+                body: math.attach(b: none, 
+                                  base: { text(body: [n]), 
+                                          math.lr(body: ({ [(], 
+                                                           text(body: [a]), 
+                                                           [)] })) }, 
+                                  t: text(body: [b])), 
+                numbering: none), 
+  parbreak(), 
+  math.equation(block: false, 
+                body: { math.attach(b: text(body: [1]), 
+                                    base: text(body: [a]), 
+                                    t: none), 
+                        math.lr(body: ({ [(], 
+                                         text(body: [x]), 
+                                         [)] })) }, 
+                numbering: none), 
+  parbreak(), 
+  math.equation(block: false, 
+                body: math.attach(b: { text(body: [f]), 
+                                       math.lr(body: ({ [(], 
+                                                        text(body: [x]), 
+                                                        [)] })) }, 
+                                  base: text(body: [a]), 
+                                  t: none), 
+                numbering: none), 
+  parbreak() }

@@ -55,12 +55,14 @@
         , MGroup (Just "(") (Just ")") [ Text "Y" ]
         ]
     , Text ","
-    , MGroup
+    , MAttach
+        (Just
+           (MGroup
+              Nothing
+              Nothing
+              [ Text "f" , MGroup (Just "(") (Just ")") [ Text "x" ] ]))
         Nothing
-        Nothing
-        [ MAttach (Just (Text "f")) Nothing (Text "a")
-        , MGroup (Just "(") (Just ")") [ Text "x" ]
-        ]
+        (Text "a")
     , Text ","
     , MAttach
         Nothing
@@ -125,12 +127,12 @@
                                          text(body: [Y]), 
                                          [)] })), 
                         text(body: [,]), 
-                        math.attach(b: text(body: [f]), 
+                        math.attach(b: { text(body: [f]), 
+                                         math.lr(body: ({ [(], 
+                                                          text(body: [x]), 
+                                                          [)] })) }, 
                                     base: text(body: [a]), 
                                     t: none), 
-                        math.lr(body: ({ [(], 
-                                         text(body: [x]), 
-                                         [)] })), 
                         text(body: [,]), 
                         math.attach(b: none, 
                                     base: text(body: [a]), 
