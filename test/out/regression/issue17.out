@@ -72,6 +72,80 @@
         (Text "a")
     ]
 , ParBreak
+, Equation
+    False
+    [ MAttach
+        (Just (MGroup Nothing Nothing [ Text "j" , Text "=" , Text "0" ]))
+        (Just (Text "3"))
+        (Code
+           "test/typ/regression/issue17.typ"
+           ( line 8 , column 2 )
+           (Ident (Identifier "sum")))
+    ]
+, ParBreak
+, Equation
+    False
+    [ MAttach
+        (Just (MGroup Nothing Nothing [ Text "j" , Text "=" , Text "0" ]))
+        (Just (Text "3"))
+        (Code
+           "test/typ/regression/issue17.typ"
+           ( line 10 , column 2 )
+           (Ident (Identifier "sum")))
+    ]
+, ParBreak
+, Equation
+    False
+    [ MAttach
+        (Just (Text "3"))
+        (Just (MGroup Nothing Nothing [ Text "j" , Text "=" , Text "0" ]))
+        (Code
+           "test/typ/regression/issue17.typ"
+           ( line 12 , column 2 )
+           (Ident (Identifier "sum")))
+    ]
+, ParBreak
+, Equation
+    False
+    [ MAttach
+        (Just (Text "3"))
+        (Just (MGroup Nothing Nothing [ Text "j" , Text "=" , Text "0" ]))
+        (Code
+           "test/typ/regression/issue17.typ"
+           ( line 14 , column 2 )
+           (Ident (Identifier "sum")))
+    ]
+, ParBreak
+, Equation
+    False
+    [ MAttach
+        (Just (MGroup Nothing Nothing [ Text "j" , Text "=" , Text "0" ]))
+        (Just
+           (Code
+              "test/typ/regression/issue17.typ"
+              ( line 16 , column 12 )
+              (Ident (Identifier "pi"))))
+        (Code
+           "test/typ/regression/issue17.typ"
+           ( line 16 , column 2 )
+           (Ident (Identifier "sum")))
+    ]
+, ParBreak
+, Equation
+    False
+    [ MAttach
+        (Just (MGroup Nothing Nothing [ Text "j" , Text "=" , Text "0" ]))
+        (Just
+           (Code
+              "test/typ/regression/issue17.typ"
+              ( line 18 , column 6 )
+              (Ident (Identifier "pi"))))
+        (Code
+           "test/typ/regression/issue17.typ"
+           ( line 18 , column 2 )
+           (Ident (Identifier "sum")))
+    ]
+, ParBreak
 ]
 --- evaluated ---
 { text(body: [
@@ -101,5 +175,53 @@
                                                         [)] })) }, 
                                   base: text(body: [a]), 
                                   t: none), 
+                numbering: none), 
+  parbreak(), 
+  math.equation(block: false, 
+                body: math.attach(b: { text(body: [j]), 
+                                       text(body: [=]), 
+                                       text(body: [0]) }, 
+                                  base: text(body: [∑]), 
+                                  t: text(body: [3])), 
+                numbering: none), 
+  parbreak(), 
+  math.equation(block: false, 
+                body: math.attach(b: { text(body: [j]), 
+                                       text(body: [=]), 
+                                       text(body: [0]) }, 
+                                  base: text(body: [∑]), 
+                                  t: text(body: [3])), 
+                numbering: none), 
+  parbreak(), 
+  math.equation(block: false, 
+                body: math.attach(b: text(body: [3]), 
+                                  base: text(body: [∑]), 
+                                  t: { text(body: [j]), 
+                                       text(body: [=]), 
+                                       text(body: [0]) }), 
+                numbering: none), 
+  parbreak(), 
+  math.equation(block: false, 
+                body: math.attach(b: text(body: [3]), 
+                                  base: text(body: [∑]), 
+                                  t: { text(body: [j]), 
+                                       text(body: [=]), 
+                                       text(body: [0]) }), 
+                numbering: none), 
+  parbreak(), 
+  math.equation(block: false, 
+                body: math.attach(b: { text(body: [j]), 
+                                       text(body: [=]), 
+                                       text(body: [0]) }, 
+                                  base: text(body: [∑]), 
+                                  t: text(body: [π])), 
+                numbering: none), 
+  parbreak(), 
+  math.equation(block: false, 
+                body: math.attach(b: { text(body: [j]), 
+                                       text(body: [=]), 
+                                       text(body: [0]) }, 
+                                  base: text(body: [∑]), 
+                                  t: text(body: [π])), 
                 numbering: none), 
   parbreak() }

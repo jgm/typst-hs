@@ -189,11 +189,17 @@ mathOperatorTable =
     ]
   ]
 
+
+ -- MAttach (Maybe bottom) (Maybe top) base
+
 attachBottom :: Markup -> Markup -> Markup
+attachBottom (MAttach Nothing y x) z = MAttach (Just (hideOuterParens z)) y x
+attachBottom z (MAttach Nothing y x) = MAttach (Just (hideOuterParens x)) y z
 attachBottom base x = MAttach (Just (hideOuterParens x)) Nothing base
 
 attachTop :: Markup -> Markup -> Markup
 attachTop (MAttach x Nothing y) z = MAttach x (Just (hideOuterParens z)) y
+attachTop z (MAttach x Nothing y) = MAttach x (Just (hideOuterParens y)) z
 attachTop base x = MAttach Nothing (Just (hideOuterParens x)) base
 
 makeFrac :: Markup -> Markup -> Markup

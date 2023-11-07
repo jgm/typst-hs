@@ -246,15 +246,11 @@
     , Text ","
     , MAttach
         (Just (Text "b"))
-        Nothing
-        (MAttach
-           Nothing
-           (Just (Text "t"))
-           (Code
-              "test/typ/math/attach-02.typ"
-              ( line 20 , column 1 )
-              (FuncCall
-                 (Ident (Identifier "limits")) [ BlockArg [ Text "a" ] ])))
+        (Just (Text "t"))
+        (Code
+           "test/typ/math/attach-02.typ"
+           ( line 20 , column 1 )
+           (FuncCall (Ident (Identifier "limits")) [ BlockArg [ Text "a" ] ]))
     , HardBreak
     , Code
         "test/typ/math/attach-02.typ"
@@ -425,10 +421,8 @@
                                     t: text(body: [t])), 
                         text(body: [,]), 
                         math.attach(b: text(body: [b]), 
-                                    base: math.attach(b: none, 
-                                                      base: math.limits(body: text(body: [a])), 
-                                                      t: text(body: [t])), 
-                                    t: none), 
+                                    base: math.limits(body: text(body: [a])), 
+                                    t: text(body: [t])), 
                         linebreak(), 
                         math.attach(base: text(body: [a]), 
                                     bl: text(body: [x]), 
