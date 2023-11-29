@@ -950,7 +950,7 @@ findPackageEntryPoint modname = do
   let localDir = dataDir </> "typst"
   let cacheDir = cacheDir' </> "typst"
 #endif
-  let subpath = "packages" </> namespace </> (name <> "-" <> version)
+  let subpath = "packages" </> namespace </> name </> version
   inLocal <- lift $ checkExistence operations (localDir </> subpath </> "typst.toml")
   tomlPath <-
      if inLocal
