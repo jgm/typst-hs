@@ -192,5 +192,6 @@ calcModule =
       ("atan", makeFunction $ VAngle . atan <$> nthArg 1),
       ("atan2", makeFunction $ VAngle <$> (atan2 <$> nthArg 1 <*> nthArg 2)),
       ("e", VFloat (exp 1)),
-      ("pi", VFloat pi)
+      ("pi", VFloat pi),
+      ("tau", VFloat (2 * pi))
     ]
