@@ -146,6 +146,8 @@ getMethod updateVal val fld = do
       case fld of
         "len" ->
           pure $ makeFunction $ pure $ VInteger (fromIntegral $ T.length t)
+        "rev" ->
+          pure $ makeFunction $ pure $ VString (T.reverse t)
         "first" ->
           if T.null t
             then fail "string is empty"
