@@ -551,8 +551,15 @@ getMethod updateVal val fld = do
               VArray . V.fromList . map fst . sortOn snd
                 <$> (mapM (\x -> (x,) <$> kf' x) (V.toList v))
         "zip" -> pure $ makeFunction $ do
-          (v' :: V.Vector Val) <- ask >>= getPositionalArg 1
-          pure $ VArray $ V.map pairToArray $ V.zip v v'
+          (xs :: [Val]) <- positional <$> ask
+          let len = V.length v
+          pure $ VArray $ V.filter (/= VNone) $
+            V.map (\i -> maybe VNone (VArray . V.fromList)
+                           (mapM (\x ->
+                              case x of
+                                VArray v' -> v' V.!? i
+                                _ -> Nothing) (val : xs)))
+              (V.enumFromTo 0 (len - 1))
         "sum" -> pure $ makeFunction $ do
           mbv <- namedArg "default" Nothing
           case V.uncons v of
@@ -675,9 +682,6 @@ getMethod updateVal val fld = do
                                     (UTCTime d t)
         _ -> noMethod "DateTime" fld
     _ -> noMethod (drop 1 $ takeWhile (/= ' ') $ show val) fld
-
-pairToArray :: (Val, Val) -> Val
-pairToArray (x, y) = VArray $ V.fromList [x, y]
 
 formatNumber :: Text -> Int -> Text
 formatNumber t n = F.foldMap go $ T.unpack t
