@@ -90,6 +90,7 @@ textual =
     makeElement Nothing "smallcaps" [("body", One TContent)],
     makeElement Nothing "underline" [("body", One TContent)],
     makeElement Nothing "overline" [("body", One TContent)],
+    makeElement Nothing "highlight" [("body", One TContent)],
     makeElement Nothing "raw" [("text", One TString)],
     makeElement Nothing "smartquote" [],
     makeElement Nothing "lower" [("text", One (TString :|: TContent))],
