@@ -430,9 +430,12 @@ getMethod updateVal val fld = do
         "split" -> pure $ makeFunction $ do
           spliton <- nthArg 1
           let go v' = case V.break (== spliton) v' of
-                (a, b) | V.null b -> if V.null a then [] else [VArray a]
+                (a, b) | V.null b -> [VArray a | not (V.null a)]
                 (a, b) -> VArray a : go (V.drop 1 b)
           pure $ VArray $ V.fromList $ go v
+        "intersperse" -> pure $ makeFunction $ do
+          sep <- nthArg 1
+          pure $ VArray . V.fromList . intersperse sep . V.toList $ v
         "dedup" -> pure $ makeFunction $ do
           pure $ VArray $ deduplicateVector v
         "insert" -> pure $ makeFunction $ do
