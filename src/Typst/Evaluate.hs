@@ -630,12 +630,18 @@ evalExpr expr =
             VString t' -> pure $ VBoolean $ t' `T.isInfixOf` t
             VRegex re -> pure $ VBoolean $ match re t
             _ -> fail $ "Can't apply 'in' to " <> show v1 <> " and string"
+        VType ty ->
+          case v1 of
+            VString t' -> pure $ VBoolean $ t' `T.isInfixOf` (prettyType ty)
+            VRegex re -> pure $ VBoolean $ match re (prettyType ty)
+            _ -> fail $ "Can't apply 'in' to " <> show v1
         VArray vec -> pure $ VBoolean $ V.elem v1 vec
         VDict m ->
           case v1 of
             VString t -> pure $ VBoolean $ isJust $ OM.lookup (Identifier t) m
             _ -> pure $ VBoolean False
-        _ -> fail $ "Can't apply 'in' to " <> show v2
+        _ -> fail $ "Can't apply 'in' to " <> show v2 <> show (e1,e2)
+
     Negated e -> do
       v <- evalExpr e
       case maybeNegate v of

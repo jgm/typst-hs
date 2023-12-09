@@ -45,6 +45,7 @@ module Typst.Types
     joinVals,
     prettyVal,
     valToContent,
+    prettyType,
     repr,
     Attempt (..),
   )
