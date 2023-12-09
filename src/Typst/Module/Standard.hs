@@ -206,12 +206,7 @@ visualize =
 meta :: [(Identifier, Val)]
 meta =
   [ makeElement Nothing "bibliography" [("path", One (TString :|: TArray))],
-    makeElement
-      Nothing
-      "cite"
-      [ ("keys", Many TString),
-        ("supplement", One (TContent :|: TNone))
-      ],
+    makeElement Nothing "cite" [("key", One TLabel)],
     makeElement Nothing "document" [],
     makeElement Nothing "figure" [("body", One TContent)],
     makeElement Nothing "heading" [("body", One TContent)],
