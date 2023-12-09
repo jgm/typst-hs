@@ -810,7 +810,7 @@ prettyVal expr =
         )
     VDirection d -> text $ T.toLower $ T.pack $ show d
     VFunction _ _ _ -> mempty
-    VLabel _ -> mempty
+    VLabel t -> text $ "<" <> t <> ">"
     VCounter _ -> mempty
     VColor (RGB r g b o) ->
       "rgb("
