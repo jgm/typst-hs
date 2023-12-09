@@ -371,6 +371,8 @@ instance Compare Val where
     Just $ liftCompare (\x y -> fromMaybe LT (comp x y)) (OM.toMap m1) (OM.toMap m2)
   comp (VFunction (Just i1) _ _) (VFunction (Just i2) _ _) = Just $ compare i1 i2
   comp (VType ty1) (VType ty2) = Just $ compare ty1 ty2
+  comp (VType TInteger) (VString "integer") = Just EQ
+  comp (VString "integer") (VType TInteger) = Just EQ
   comp (VType ty) (VString s) = Just $ compare (prettyType ty) s
   comp (VString s) (VType ty)  = Just $ compare s (prettyType ty)
   comp _ _ = Nothing
