@@ -153,14 +153,14 @@
   text(body: [
 As described by ]), 
   ref(supplement: auto, 
-      target: ), 
+      target: <netwok>), 
   text(body: [,
 the net-work is a creature of its own.
 This is close to piratery! ]), 
   ref(supplement: auto, 
-      target: ), 
+      target: <arrgh>), 
   text(body: [
 And quark! ]), 
   ref(supplement: auto, 
-      target: ), 
+      target: <quark>), 
   parbreak() }

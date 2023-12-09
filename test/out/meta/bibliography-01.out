@@ -56,9 +56,9 @@
     ( line 4 , column 11 )
     (FuncCall
        (Ident (Identifier "cite"))
-       [ NormalArg (Literal (String "arrgh"))
-       , NormalArg (Literal (String "distress"))
-       , NormalArg
+       [ NormalArg (Label "distress")
+       , KeyValArg
+           (Identifier "supplement")
            (Block (Content [ Text "p" , Text "." , Space , Text "22" ]))
        ])
 , Text ","
@@ -91,15 +91,14 @@
   heading(body: text(body: [Details]), 
           level: 1), 
   text(body: [See also ]), 
-  cite(keys: ("arrgh", 
-              "distress", 
-              text(body: [p. 22]))), 
+  cite(key: <distress>, 
+       supplement: text(body: [p. 22])), 
   text(body: [, ]), 
   ref(supplement: text(body: [p. 4]), 
-      target: ), 
+      target: <arrgh>), 
   text(body: [, and ]), 
   ref(supplement: text(body: [p. 5]), 
-      target: ), 
+      target: <distress>), 
   text(body: [.
 ]), 
   bibliography(path: "/works.bib"), 

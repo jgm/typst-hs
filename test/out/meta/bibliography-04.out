@@ -79,10 +79,12 @@
     "test/typ/meta/bibliography-04.typ"
     ( line 7 , column 49 )
     (FuncCall
-       (Ident (Identifier "cite"))
-       [ NormalArg (Literal (String "glacier-melt"))
-       , NormalArg (Literal (String "keshav2007read"))
-       ])
+       (Ident (Identifier "cite")) [ NormalArg (Label "glacier-melt") ])
+, Code
+    "test/typ/meta/bibliography-04.typ"
+    ( line 7 , column 70 )
+    (FuncCall
+       (Ident (Identifier "cite")) [ NormalArg (Label "keshav2007read") ])
 , SoftBreak
 , Code
     "test/typ/meta/bibliography-04.typ"
@@ -109,8 +111,8 @@
           level: 1, 
           numbering: "1."), 
   text(body: [Now we have multiple bibliographies containing ]), 
-  cite(keys: ("glacier-melt", 
-              "keshav2007read")), 
+  cite(key: <glacier-melt>), 
+  cite(key: <keshav2007read>), 
   text(body: [
 ]), 
   bibliography(path: ("/works.bib", 

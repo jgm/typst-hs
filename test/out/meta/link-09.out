@@ -64,5 +64,5 @@
   text(body: [
 ]), 
   link(body: text(body: [Go to text.]), 
-       dest: ), 
+       dest: <hey>), 
   parbreak() }

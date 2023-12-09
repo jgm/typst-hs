@@ -188,11 +188,11 @@
   parbreak(), 
   text(body: [We can clearly see that ]), 
   ref(supplement: auto, 
-      target: ), 
+      target: <fig-cylinder>), 
   text(body: [ and
 ]), 
   ref(supplement: auto, 
-      target: ), 
+      target: <tab-complex>), 
   text(body: [ are relevant in this context.]), 
   parbreak(), 
   figure(body: table(children: (text(body: [a]), 

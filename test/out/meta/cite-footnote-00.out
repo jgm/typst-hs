@@ -69,11 +69,11 @@
 { text(body: [
 Hello ]), 
   ref(supplement: auto, 
-      target: ), 
+      target: <netwok>), 
   text(body: [
 And again: ]), 
   ref(supplement: auto, 
-      target: ), 
+      target: <netwok>), 
   parbreak(), 
   pagebreak(), 
   text(body: [

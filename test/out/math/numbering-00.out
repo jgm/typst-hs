@@ -154,7 +154,7 @@
                 numbering: none), 
   text(body: [ in preparation of ]), 
   ref(supplement: auto, 
-      target: ), 
+      target: <fib>), 
   text(body: [:
 ]), 
   math.equation(block: true, 
@@ -170,7 +170,7 @@
   parbreak(), 
   text(body: [With ]), 
   ref(supplement: auto, 
-      target: ), 
+      target: <ratio>), 
   text(body: [, we get
 ]), 
   math.equation(block: true, 

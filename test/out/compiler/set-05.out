@@ -82,7 +82,7 @@
 { text(body: [
 ]), 
   parbreak(), 
-  text(body: [@]), 
+  text(body: [@<hello>]), 
   text(body: [ from the ]), 
-  text(body: [@]), 
+  text(body: [@<unknown>]), 
   parbreak() }

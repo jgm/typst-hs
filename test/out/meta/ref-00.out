@@ -85,7 +85,7 @@
   text(body: [
 See ]), 
   ref(supplement: auto, 
-      target: ), 
+      target: <setup>), 
   text(body: [.]), 
   parbreak(), 
   heading(body: text(body: [Setup]), 
@@ -95,6 +95,6 @@ See ]),
   text(body: [
 As seen in ]), 
   ref(supplement: auto, 
-      target: ), 
+      target: <intro>), 
   text(body: [, we proceed.]), 
   parbreak() }
