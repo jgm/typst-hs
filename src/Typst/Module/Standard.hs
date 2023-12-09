@@ -215,6 +215,7 @@ meta =
     makeElement Nothing "document" [],
     makeElement Nothing "figure" [("body", One TContent)],
     makeElement Nothing "heading" [("body", One TContent)],
+    makeElement Nothing "quote" [("body", One TContent)],
     makeElement Nothing "layout" [("func", One TFunction)],
     makeElement
       Nothing
