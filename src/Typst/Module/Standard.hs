@@ -333,15 +333,7 @@ foundations =
     ( "type",
       makeFunction $ do
         (x :: Val) <- nthArg 1
-        pure $
-          VString $
-            case valType x of
-              TAlignment ->
-                case x of
-                  VAlignment (Just _) (Just _) -> "2d alignment"
-                  _ -> "alignment"
-              TDict -> "dictionary"
-              ty -> T.toLower . T.drop 1 . T.pack . show $ ty
+        pure $ VType $ valType x
     )
   ]
 

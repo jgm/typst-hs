@@ -111,6 +111,7 @@ data Val
   | VSelector !Selector
   | VModule Identifier (M.Map Identifier Val)
   | VStyles -- just a placeholder for now
+  | VType !ValType
   deriving (Show, Eq, Typeable)
 
 instance FromJSON Val where
@@ -168,9 +169,10 @@ data ValType
   | TLabel
   | TCounter
   | TLocation
+  | TType
   | TAny
   | ValType :|: ValType
-  deriving (Show, Eq, Typeable)
+  deriving (Show, Eq, Ord, Typeable)
 
 valType :: Val -> ValType
 valType v =
@@ -202,6 +204,7 @@ valType v =
     VModule {} -> TModule
     VSelector {} -> TSelector
     VStyles {} -> TStyles
+    VType {} -> TType
 
 hasType :: ValType -> Val -> Bool
 hasType TAny _ = True
@@ -367,6 +370,9 @@ instance Compare Val where
   comp (VDict m1) (VDict m2) =
     Just $ liftCompare (\x y -> fromMaybe LT (comp x y)) (OM.toMap m1) (OM.toMap m2)
   comp (VFunction (Just i1) _ _) (VFunction (Just i2) _ _) = Just $ compare i1 i2
+  comp (VType ty1) (VType ty2) = Just $ compare ty1 ty2
+  comp (VType ty) (VString s) = Just $ compare (prettyType ty) s
+  comp (VString s) (VType ty)  = Just $ compare s (prettyType ty)
   comp _ _ = Nothing
 
 instance Ord Val where
@@ -852,6 +858,12 @@ prettyVal expr =
     VSymbol (Symbol t _ _) -> text t
     VSelector _ -> mempty
     VStyles -> mempty
+    VType ty -> text $ prettyType ty
+
+prettyType :: ValType -> Text
+prettyType TDict = "dictionary"
+prettyType TInteger = "int"
+prettyType x = T.toLower . T.pack . drop 1 . show $ x
 
 escString :: Text -> P.Doc
 escString =
