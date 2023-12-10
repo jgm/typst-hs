@@ -83,8 +83,21 @@
         (FuncCall
            (Ident (Identifier "cases"))
            [ BlockArg
-               [ MGroup
-                   (Just "[") (Just "]") [ MGroup (Just "|") (Just "|") [ Text "1" ] ]
+               [ Code
+                   "test/typ/math/syntax-01.typ"
+                   ( line 5 , column 5 )
+                   (FieldAccess
+                      (Ident (Identifier "l"))
+                      (FieldAccess
+                         (Ident (Identifier "double")) (Ident (Identifier "bracket"))))
+               , Text "1"
+               , Code
+                   "test/typ/math/syntax-01.typ"
+                   ( line 5 , column 8 )
+                   (FieldAccess
+                      (Ident (Identifier "r"))
+                      (FieldAccess
+                         (Ident (Identifier "double")) (Ident (Identifier "bracket"))))
                , MAlignPoint
                , Text "if "
                , Text "n"
@@ -145,11 +158,9 @@
                         linebreak(), 
                         text(body: [n]), 
                         text(body: [↦]), 
-                        math.cases(children: ({ math.lr(body: ({ [[], 
-                                                                 math.lr(body: ({ [|], 
-                                                                                  text(body: [1]), 
-                                                                                  [|] })), 
-                                                                 []] })), 
+                        math.cases(children: ({ text(body: [⟦]), 
+                                                text(body: [1]), 
+                                                text(body: [⟧]), 
                                                 math.alignpoint(), 
                                                 text(body: [if ]), 
                                                 text(body: [n]), 

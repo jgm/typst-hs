@@ -61,11 +61,22 @@
         (Text "2")
     , Text ","
     , Text " foo"
+    , Code
+        "test/typ/math/frac-06.typ"
+        ( line 3 , column 36 )
+        (FieldAccess
+           (Ident (Identifier "l"))
+           (FieldAccess
+              (Ident (Identifier "double")) (Ident (Identifier "bracket"))))
+    , Text "x"
     , MFrac
-        (MGroup
-           (Just "[")
-           (Just "]")
-           [ MGroup (Just "|") (Just "|") [ Text "x" ] ])
+        (Code
+           "test/typ/math/frac-06.typ"
+           ( line 3 , column 39 )
+           (FieldAccess
+              (Ident (Identifier "r"))
+              (FieldAccess
+                 (Ident (Identifier "double")) (Ident (Identifier "bracket")))))
         (Text "2")
     , HardBreak
     , MFrac (Text "1.2") (Text "3.7")
@@ -143,12 +154,10 @@
                                          text(body: [)]) }), 
                         text(body: [,]), 
                         text(body: [ foo]), 
+                        text(body: [⟦]), 
+                        text(body: [x]), 
                         math.frac(denom: text(body: [2]), 
-                                  num: math.lr(body: ({ [[], 
-                                                        math.lr(body: ({ [|], 
-                                                                         text(body: [x]), 
-                                                                         [|] })), 
-                                                        []] }))), 
+                                  num: text(body: [⟧])), 
                         linebreak(), 
                         math.frac(denom: text(body: [3.7]), 
                                   num: text(body: [1.2])), 

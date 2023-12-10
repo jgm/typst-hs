@@ -46,7 +46,9 @@
     , Text "+"
     , MGroup (Just "{") (Just "}") [ MFrac (Text "b") (Text "2") ]
     , Text "+"
-    , MFrac (MGroup (Just "|") (Just "|") [ Text "a" ]) (Text "2")
+    , Text "|"
+    , Text "a"
+    , MFrac (Text "|") (Text "2")
     , Text "+"
     , MGroup (Just "(") (Just ")") [ Text "b" ]
     ]
@@ -68,10 +70,11 @@
            [ BlockArg
                [ MAttach Nothing (Just (Text "2")) (Text "c")
                , Text "+"
-               , MGroup
-                   (Just "|")
-                   (Just "|")
-                   [ Text "a" , Text "+" , MFrac (Text "b") (Text "2") ]
+               , Text "|"
+               , Text "a"
+               , Text "+"
+               , MFrac (Text "b") (Text "2")
+               , Text "|"
                ]
            ])
     ]
@@ -90,10 +93,10 @@
                                                    num: text(body: [b])), 
                                          [}] })), 
                         text(body: [+]), 
+                        text(body: [|]), 
+                        text(body: [a]), 
                         math.frac(denom: text(body: [2]), 
-                                  num: math.lr(body: ({ [|], 
-                                                        text(body: [a]), 
-                                                        [|] }))), 
+                                  num: text(body: [|])), 
                         text(body: [+]), 
                         math.lr(body: ({ [(], 
                                          text(body: [b]), 
@@ -114,12 +117,12 @@
                                     base: text(body: [c]), 
                                     t: text(body: [2])), 
                         text(body: [+]), 
-                        math.lr(body: ({ [|], 
-                                         text(body: [a]), 
-                                         text(body: [+]), 
-                                         math.frac(denom: text(body: [2]), 
-                                                   num: text(body: [b])), 
-                                         [|] })), 
+                        text(body: [|]), 
+                        text(body: [a]), 
+                        text(body: [+]), 
+                        math.frac(denom: text(body: [2]), 
+                                  num: text(body: [b])), 
+                        text(body: [|]), 
                         text(body: [)]) }, 
                 numbering: none), 
   parbreak() }

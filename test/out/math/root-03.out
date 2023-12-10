@@ -48,26 +48,61 @@
         (FuncCall
            (Ident (Identifier "sqrt"))
            [ BlockArg
-               [ MAttach
-                   Nothing
-                   (Just (Text "2"))
-                   (MGroup
-                      (Just "[")
-                      (Just "]")
-                      [ MGroup (Just "|") (Just "|") [ Text "x" ] ])
-               , Text "+"
+               [ Code
+                   "test/typ/math/root-03.typ"
+                   ( line 3 , column 8 )
+                   (FieldAccess
+                      (Ident (Identifier "l"))
+                      (FieldAccess
+                         (Ident (Identifier "double")) (Ident (Identifier "bracket"))))
+               , Text "x"
                , MAttach
                    Nothing
                    (Just (Text "2"))
-                   (MGroup
-                      (Just "[")
-                      (Just "]")
-                      [ MGroup (Just "|") (Just "|") [ Text "y" ] ])
+                   (Code
+                      "test/typ/math/root-03.typ"
+                      ( line 3 , column 11 )
+                      (FieldAccess
+                         (Ident (Identifier "r"))
+                         (FieldAccess
+                            (Ident (Identifier "double")) (Ident (Identifier "bracket")))))
+               , Text "+"
+               , Code
+                   "test/typ/math/root-03.typ"
+                   ( line 3 , column 18 )
+                   (FieldAccess
+                      (Ident (Identifier "l"))
+                      (FieldAccess
+                         (Ident (Identifier "double")) (Ident (Identifier "bracket"))))
+               , Text "y"
+               , MAttach
+                   Nothing
+                   (Just (Text "2"))
+                   (Code
+                      "test/typ/math/root-03.typ"
+                      ( line 3 , column 21 )
+                      (FieldAccess
+                         (Ident (Identifier "r"))
+                         (FieldAccess
+                            (Ident (Identifier "double")) (Ident (Identifier "bracket")))))
                ]
            ])
     , Text "<"
-    , MGroup
-        (Just "[") (Just "]") [ MGroup (Just "|") (Just "|") [ Text "z" ] ]
+    , Code
+        "test/typ/math/root-03.typ"
+        ( line 3 , column 29 )
+        (FieldAccess
+           (Ident (Identifier "l"))
+           (FieldAccess
+              (Ident (Identifier "double")) (Ident (Identifier "bracket"))))
+    , Text "z"
+    , Code
+        "test/typ/math/root-03.typ"
+        ( line 3 , column 32 )
+        (FieldAccess
+           (Ident (Identifier "r"))
+           (FieldAccess
+              (Ident (Identifier "double")) (Ident (Identifier "bracket"))))
     ]
 , SoftBreak
 , Equation
@@ -134,27 +169,21 @@
 { text(body: [
 ]), 
   math.equation(block: true, 
-                body: { math.sqrt(radicand: { math.attach(b: none, 
-                                                          base: math.lr(body: ({ [[], 
-                                                                                 math.lr(body: ({ [|], 
-                                                                                                  text(body: [x]), 
-                                                                                                  [|] })), 
-                                                                                 []] })), 
+                body: { math.sqrt(radicand: { text(body: [⟦]), 
+                                              text(body: [x]), 
+                                              math.attach(b: none, 
+                                                          base: text(body: [⟧]), 
                                                           t: text(body: [2])), 
                                               text(body: [+]), 
+                                              text(body: [⟦]), 
+                                              text(body: [y]), 
                                               math.attach(b: none, 
-                                                          base: math.lr(body: ({ [[], 
-                                                                                 math.lr(body: ({ [|], 
-                                                                                                  text(body: [y]), 
-                                                                                                  [|] })), 
-                                                                                 []] })), 
+                                                          base: text(body: [⟧]), 
                                                           t: text(body: [2])) }), 
                         text(body: [<]), 
-                        math.lr(body: ({ [[], 
-                                         math.lr(body: ({ [|], 
-                                                          text(body: [z]), 
-                                                          [|] })), 
-                                         []] })) }, 
+                        text(body: [⟦]), 
+                        text(body: [z]), 
+                        text(body: [⟧]) }, 
                 numbering: none), 
   text(body: [
 ]), 

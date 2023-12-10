@@ -42,25 +42,28 @@
 , Comment
 , Equation
     True
-    [ MGroup (Just "|") (Just "|") [ Text "x" , Text "+" ]
+    [ Text "|"
+    , Text "x"
+    , Text "+"
+    , Text "|"
     , Text "y"
-    , MGroup
-        (Just "|") (Just "|") [ Text "+" , MFrac (Text "z") (Text "a") ]
+    , Text "|"
+    , Text "+"
+    , MFrac (Text "z") (Text "a")
+    , Text "|"
     , HardBreak
-    , MGroup
-        (Just "|")
-        (Just "|")
-        [ Text "x"
-        , Text "+"
-        , Code
-            "test/typ/math/delimited-03.typ"
-            ( line 4 , column 8 )
-            (FuncCall
-               (Ident (Identifier "lr"))
-               [ BlockArg [ MGroup (Just "|") (Just "|") [ Text "y" ] ] ])
-        , Text "+"
-        , MFrac (Text "z") (Text "a")
-        ]
+    , Text "|"
+    , Text "x"
+    , Text "+"
+    , Code
+        "test/typ/math/delimited-03.typ"
+        ( line 4 , column 8 )
+        (FuncCall
+           (Ident (Identifier "lr"))
+           [ BlockArg [ Text "|" , Text "y" , Text "|" ] ])
+    , Text "+"
+    , MFrac (Text "z") (Text "a")
+    , Text "|"
     ]
 , ParBreak
 ]
@@ -68,26 +71,26 @@
 { text(body: [
 ]), 
   math.equation(block: true, 
-                body: { math.lr(body: ({ [|], 
-                                         text(body: [x]), 
-                                         text(body: [+]), 
-                                         [|] })), 
+                body: { text(body: [|]), 
+                        text(body: [x]), 
+                        text(body: [+]), 
+                        text(body: [|]), 
                         text(body: [y]), 
-                        math.lr(body: ({ [|], 
-                                         text(body: [+]), 
-                                         math.frac(denom: text(body: [a]), 
-                                                   num: text(body: [z])), 
-                                         [|] })), 
+                        text(body: [|]), 
+                        text(body: [+]), 
+                        math.frac(denom: text(body: [a]), 
+                                  num: text(body: [z])), 
+                        text(body: [|]), 
                         linebreak(), 
-                        math.lr(body: ({ [|], 
-                                         text(body: [x]), 
-                                         text(body: [+]), 
-                                         math.lr(body: (math.lr(body: ({ [|], 
-                                                                         text(body: [y]), 
-                                                                         [|] })))), 
-                                         text(body: [+]), 
-                                         math.frac(denom: text(body: [a]), 
-                                                   num: text(body: [z])), 
-                                         [|] })) }, 
+                        text(body: [|]), 
+                        text(body: [x]), 
+                        text(body: [+]), 
+                        math.lr(body: ({ text(body: [|]), 
+                                         text(body: [y]), 
+                                         text(body: [|]) })), 
+                        text(body: [+]), 
+                        math.frac(denom: text(body: [a]), 
+                                  num: text(body: [z])), 
+                        text(body: [|]) }, 
                 numbering: none), 
   parbreak() }

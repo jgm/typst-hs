@@ -42,10 +42,21 @@
 , Comment
 , Equation
     True
-    [ MGroup
-        (Just "[")
-        (Just "]")
-        [ MGroup (Just "|") (Just "|") [ MFrac (Text "a") (Text "b") ] ]
+    [ Code
+        "test/typ/math/delimited-02.typ"
+        ( line 3 , column 3 )
+        (FieldAccess
+           (Ident (Identifier "l"))
+           (FieldAccess
+              (Ident (Identifier "double")) (Ident (Identifier "bracket"))))
+    , MFrac (Text "a") (Text "b")
+    , Code
+        "test/typ/math/delimited-02.typ"
+        ( line 3 , column 8 )
+        (FieldAccess
+           (Ident (Identifier "r"))
+           (FieldAccess
+              (Ident (Identifier "double")) (Ident (Identifier "bracket"))))
     , Code
         "test/typ/math/delimited-02.typ"
         ( line 3 , column 11 )
@@ -56,9 +67,21 @@
         (FuncCall
            (Ident (Identifier "lr"))
            [ BlockArg
-               [ MGroup
-                   (Just "|") (Just "|") [ Text "]" , MFrac (Text "a") (Text "b") ]
-               , Text "]"
+               [ Code
+                   "test/typ/math/delimited-02.typ"
+                   ( line 3 , column 17 )
+                   (FieldAccess
+                      (Ident (Identifier "r"))
+                      (FieldAccess
+                         (Ident (Identifier "double")) (Ident (Identifier "bracket"))))
+               , MFrac (Text "a") (Text "b")
+               , Code
+                   "test/typ/math/delimited-02.typ"
+                   ( line 3 , column 22 )
+                   (FieldAccess
+                      (Ident (Identifier "r"))
+                      (FieldAccess
+                         (Ident (Identifier "double")) (Ident (Identifier "bracket"))))
                ]
            ])
     , Code
@@ -76,18 +99,13 @@
         ( line 4 , column 3 )
         (FuncCall
            (Ident (Identifier "lr"))
-           [ BlockArg
-               [ MGroup
-                   (Just "|")
-                   (Just "|")
-                   [ Text "]"
-                   , Text "1"
-                   , Text ","
-                   , Text "2"
-                   , Text "["
-                   , Text "+"
-                   , MFrac (Text "1") (Text "2")
-                   ]
+           [ BlockArg [ Text "|" , Text "]" , Text "1" ]
+           , BlockArg
+               [ Text "2"
+               , Text "["
+               , Text "+"
+               , MFrac (Text "1") (Text "2")
+               , Text "|"
                ]
            ])
     ]
@@ -97,19 +115,15 @@
 { text(body: [
 ]), 
   math.equation(block: true, 
-                body: { math.lr(body: ({ [[], 
-                                         math.lr(body: ({ [|], 
-                                                          math.frac(denom: text(body: [b]), 
-                                                                    num: text(body: [a])), 
-                                                          [|] })), 
-                                         []] })), 
+                body: { text(body: [⟦]), 
+                        math.frac(denom: text(body: [b]), 
+                                  num: text(body: [a])), 
+                        text(body: [⟧]), 
                         text(body: [≠]), 
-                        math.lr(body: ({ math.lr(body: ({ [|], 
-                                                          text(body: []]), 
-                                                          math.frac(denom: text(body: [b]), 
-                                                                    num: text(body: [a])), 
-                                                          [|] })), 
-                                         text(body: []]) })), 
+                        math.lr(body: ({ text(body: [⟧]), 
+                                         math.frac(denom: text(body: [b]), 
+                                                   num: text(body: [a])), 
+                                         text(body: [⟧]) })), 
                         text(body: [≠]), 
                         text(body: [[]), 
                         math.frac(denom: text(body: [b]), 
@@ -119,15 +133,14 @@
   text(body: [
 ]), 
   math.equation(block: true, 
-                body: math.lr(body: (math.lr(body: ({ [|], 
-                                                      text(body: []]), 
-                                                      text(body: [1]), 
-                                                      text(body: [,]), 
-                                                      text(body: [2]), 
-                                                      text(body: [[]), 
-                                                      text(body: [+]), 
-                                                      math.frac(denom: text(body: [2]), 
-                                                                num: text(body: [1])), 
-                                                      [|] })))), 
+                body: math.lr(body: ({ text(body: [|]), 
+                                       text(body: []]), 
+                                       text(body: [1]) }, 
+                                     { text(body: [2]), 
+                                       text(body: [[]), 
+                                       text(body: [+]), 
+                                       math.frac(denom: text(body: [2]), 
+                                                 num: text(body: [1])), 
+                                       text(body: [|]) })), 
                 numbering: none), 
   parbreak() }

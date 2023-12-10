@@ -75,14 +75,12 @@
     , Text "<"
     , Text "\10214"
     , Text ","
-    , MGroup
-        (Just "|")
-        (Just "|")
-        [ Code
-            "test/typ/math/spacing-00.typ"
-            ( line 5 , column 8 )
-            (Ident (Identifier "minus"))
-        ]
+    , Text "|"
+    , Code
+        "test/typ/math/spacing-00.typ"
+        ( line 5 , column 8 )
+        (Ident (Identifier "minus"))
+    , Text "|"
     , Text ","
     , MGroup (Just "[") Nothing [ Text "=" ]
     ]
@@ -223,9 +221,9 @@
                         text(body: [<]), 
                         text(body: [⟦]), 
                         text(body: [,]), 
-                        math.lr(body: ({ [|], 
-                                         text(body: [−]), 
-                                         [|] })), 
+                        text(body: [|]), 
+                        text(body: [−]), 
+                        text(body: [|]), 
                         text(body: [,]), 
                         text(body: [[]), 
                         text(body: [=]) }, 
