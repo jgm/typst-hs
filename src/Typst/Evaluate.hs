@@ -32,7 +32,8 @@ import System.FilePath (replaceFileName, takeBaseName, takeDirectory, (</>))
 import Text.Parsec
 import Typst.Bind (destructuringBind)
 import Typst.Methods (getMethod)
-import Typst.Module.Standard (loadFileText, standardModule, symModule)
+import Typst.Module.Standard (loadFileText, standardModule, symModule,
+                              sysModule)
 import Typst.Module.Math (mathModule)
 import Typst.MathClass (mathClassOf, MathClass(Relation))
 import Typst.Parse (parseTypst)
@@ -241,6 +242,7 @@ pElt = do
     Equation display ms -> inBlock BlockScope $ do
       importModule mathModule
       importModule symModule
+      importModule sysModule
       oldMath <- evalMath <$> getState
       updateState $ \st -> st {evalMath = True}
       content <- pInnerContents ms

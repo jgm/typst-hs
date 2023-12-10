@@ -7,6 +7,7 @@
 module Typst.Module.Standard
   ( standardModule,
     symModule,
+    sysModule,
     loadFileText,
     applyPureFunction
   )
@@ -51,6 +52,7 @@ standardModule =
   M.fromList $
     [ ("math", VModule "math" mathModule),
       ("sym", VModule "sym" symModule),
+      ("sys", VModule "sys" sysModule),
       ("emoji", VModule "emoji" emojiModule),
       ("calc", VModule "calc" calcModule)
     ]
@@ -65,6 +67,10 @@ standardModule =
       ++ construct
       ++ time
       ++ dataLoading
+
+sysModule :: M.Map Identifier Val
+sysModule =
+  M.fromList [ makeElement (Just "sys") "version" [] ]
 
 symModule :: M.Map Identifier Val
 symModule = M.map VSymbol $ makeSymbolMap typstSymbols
