@@ -228,7 +228,12 @@ mExpr :: P Markup
 mExpr = Code <$> getPosition <*> pMathExpr
 
 pMathExpr :: P Expr
-pMathExpr = buildExpressionParser mathExpressionTable (pMathIdent <|> pLiteral)
+pMathExpr = buildExpressionParser mathExpressionTable
+               (pMathIdent <|> pMathLiteral)
+ where
+   pMathLiteral :: P Expr
+   pMathLiteral = Block . Content
+                    <$> many1 (mLiteral <|> mEscaped <|> mShorthand)
 
 pMathIdent :: P Expr
 pMathIdent =
@@ -256,11 +261,12 @@ isMathIdentContinue c = isIdentContinue c && c /= '_' && c /= '-'
 
 pMath :: P Markup
 pMath = buildExpressionParser mathOperatorTable pBaseMath
-  where
-    pBaseMath =
-      mNumber
+
+pBaseMath :: P Markup
+pBaseMath = mNumber
         <|> mLiteral
         <|> mEscaped
+        <|> mShorthand
         <|> mBreak
         <|> mAlignPoint
         <|> mExpr
@@ -366,27 +372,28 @@ mCode = lexeme $ char '#' *> (Code <$> getPosition <*> pBasicExpr)
 
 mMid :: P Markup
 mMid = try $ do
-  stBeforeSpace <$> getState >>= guard . isJust
+  getState >>= guard . isJust . stBeforeSpace
   void $ char '|' *> space *> ws
   pure $ MGroup Nothing Nothing [Nbsp, Text "|", Nbsp]
 
-mSymbol :: P Markup
-mSymbol =
-  getPosition >>= pSym
+mShorthand :: P Markup
+mShorthand =
+  getPosition >>= \pos ->
+   lexeme (Code pos <$> choice (map toShorthandParser shorthands))
  where
-  pSym pos = lexeme $
-    (Code pos <$> choice (map toShorthandParser shorthands))
-          <|> ( Text . T.singleton
-                  <$> satisfy (\c -> not (isSpace c) && c /= '$' && c /= '\\')
-              )
-  shorthands= reverse $ sortOn (T.length . fst) mathSymbolShorthands
+  shorthands = reverse (sortOn (T.length . fst) mathSymbolShorthands)
   toShorthandParser (short, symname) =
-    (toSym symname <$ try (string (T.unpack short)))
+    toSym symname <$ try (string (T.unpack short))
   toSym name =
     case map (Ident . Identifier) $ T.split (== '.') name of
       [] -> Literal None
       [i] -> i
       (i:is) -> foldr FieldAccess i is
+
+mSymbol :: P Markup
+mSymbol =
+  lexeme ( Text . T.singleton
+            <$> satisfy (\c -> not (isSpace c) && c /= '$' && c /= '\\'))
 
 withIndent :: Int -> P a -> P a
 withIndent indent pa = do
