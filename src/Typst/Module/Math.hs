@@ -70,7 +70,7 @@ mathModule =
       makeElement (Just "math") "upright" [("body", One TContent)],
       makeElement (Just "math") "italic" [("body", One TContent)],
       makeElement (Just "math") "bold" [("body", One TContent)],
-      makeElement (Just "math") "op" [("text", One TString)],
+      makeElement (Just "math") "op" [("text", One TAny)],
       makeElement (Just "math") "underline" [("body", One TContent)],
       makeElement (Just "math") "overline" [("body", One TContent)],
       makeElement
