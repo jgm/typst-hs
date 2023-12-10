@@ -114,37 +114,37 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 A ], 
-       size: 5.0pt), 
-  text(body: [
+                      size: 5.0pt), 
+                 text(body: [
 ], size: 5.0pt), 
-  text(body: [
+                 text(body: [
 B ], 
-       size: 2.0em), 
-  text(body: [ ], size: 2.0em), 
-  text(body: [
+                      size: 2.0em), 
+                 text(body: [ ], size: 2.0em), 
+                 text(body: [
 ], size: 2.0em), 
-  text(body: [
+                 text(body: [
 C ], 
-       size: 1.5em + 1.0pt), 
-  text(body: [ ], 
-       size: 1.5em + 1.0pt), 
-  text(body: text(body: [D], 
-                  size: 1.5em + 1.0pt), 
-       size: 2.0em), 
-  text(body: [ ], 
-       size: 1.5em + 1.0pt), 
-  text(body: [ E ], 
-       size: 1.5em + 1.0pt), 
-  text(body: [ ], 
-       size: 1.5em + 1.0pt), 
-  text(body: [
+                      size: 1.5em + 1.0pt), 
+                 text(body: [ ], 
+                      size: 1.5em + 1.0pt), 
+                 text(body: text(body: [D], 
+                                 size: 1.5em + 1.0pt), 
+                      size: 2.0em), 
+                 text(body: [ ], 
+                      size: 1.5em + 1.0pt), 
+                 text(body: [ E ], 
+                      size: 1.5em + 1.0pt), 
+                 text(body: [ ], 
+                      size: 1.5em + 1.0pt), 
+                 text(body: [
 F ], 
-       size: 1.5em + 1.0pt), 
-  text(body: [
+                      size: 1.5em + 1.0pt), 
+                 text(body: [
 G ], 
-       size: 1.5em + 1.0pt), 
-  parbreak() }
+                      size: 1.5em + 1.0pt), 
+                 parbreak() })

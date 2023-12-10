@@ -107,17 +107,17 @@
 , BulletListItem [ Text "Normal" , Space , Text "list" , ParBreak ]
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  parbreak(), 
-  list(children: (text(body: [Normal list
+                 parbreak(), 
+                 list(children: (text(body: [Normal list
 ]))), 
-  text(body: [
+                 text(body: [
 ]), 
-  list(children: (text(body: [Star]), 
-                  text(body: [Wars]), 
-                  { text(body: [List]), 
-                    parbreak() })), 
-  parbreak(), 
-  list(children: ({ text(body: [Normal list]), 
-                    parbreak() })) }
+                 list(children: (text(body: [Star]), 
+                                 text(body: [Wars]), 
+                                 { text(body: [List]), 
+                                   parbreak() })), 
+                 parbreak(), 
+                 list(children: ({ text(body: [Normal list]), 
+                                   parbreak() })) })

@@ -58,9 +58,9 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 My text has spaces.], 
-       spacing: 1.0em), 
-  parbreak() }
+                      spacing: 1.0em), 
+                 parbreak() })

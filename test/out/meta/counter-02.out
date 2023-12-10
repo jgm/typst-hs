@@ -159,31 +159,31 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  parbreak(), 
-  heading(body: text(body: [Alpha]), 
-          level: 1, 
-          numbering: "1.a."), 
-  text(body: [In ]), 
-  text(body: [1]), 
-  text(body: [
+                 parbreak(), 
+                 heading(body: text(body: [Alpha]), 
+                         level: 1, 
+                         numbering: "1.a."), 
+                 text(body: [In ]), 
+                 text(body: [1]), 
+                 text(body: [
 ]), 
-  heading(body: text(body: [Beta]), 
-          level: 2, 
-          numbering: "1.a."), 
-  text(body: [
+                 heading(body: text(body: [Beta]), 
+                         level: 2, 
+                         numbering: "1.a."), 
+                 text(body: [
 ]), 
-  heading(body: text(body: [Gamma]), 
-          level: 1, 
-          numbering: none), 
-  heading(body: text(body: [Delta]), 
-          numbering: "I."), 
-  parbreak(), 
-  text(body: [At Beta, it was ]), 
-  locate(func: ), 
-  parbreak() }
+                 heading(body: text(body: [Gamma]), 
+                         level: 1, 
+                         numbering: none), 
+                 heading(body: text(body: [Delta]), 
+                         numbering: "I."), 
+                 parbreak(), 
+                 text(body: [At Beta, it was ]), 
+                 locate(func: ), 
+                 parbreak() })

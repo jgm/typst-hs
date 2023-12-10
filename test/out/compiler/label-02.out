@@ -92,11 +92,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  parbreak(), 
-  text(body: [This is a thing ]), 
-  text(body: [that ]), 
-  <last>, 
-  text(body: [ happened.]), 
-  parbreak() }
+                 parbreak(), 
+                 text(body: [This is a thing ]), 
+                 text(body: [that ]), 
+                 <last>, 
+                 text(body: [ happened.]), 
+                 parbreak() })

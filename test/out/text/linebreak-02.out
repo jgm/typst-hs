@@ -56,9 +56,9 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [This is partly emp]), 
-  emph(body: text(body: [has])), 
-  text(body: [ized.]), 
-  parbreak() }
+                 text(body: [This is partly emp]), 
+                 emph(body: text(body: [has])), 
+                 text(body: [ized.]), 
+                 parbreak() })

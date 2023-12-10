@@ -61,9 +61,9 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [Blue ], 
-       color: rgb(0%,45%,85%,100%)), 
-  text(body: [Not blue]), 
-  parbreak() }
+                 text(body: [Blue ], 
+                      color: rgb(0%,45%,85%,100%)), 
+                 text(body: [Not blue]), 
+                 parbreak() })

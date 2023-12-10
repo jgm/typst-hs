@@ -77,14 +77,16 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  box(body: path(fill: rgb(69%,5%,78%,100%), 
-                 vertices: ((0.0pt, 0.0pt), 
-                            (30.0pt, 30.0pt), 
-                            (0.0pt, 30.0pt), 
-                            (30.0pt, 0.0pt))), 
-      fill: rgb(100%,86%,0%,100%), 
-      height: 50.0pt, 
-      width: 50.0pt), 
-  parbreak() }
+                 box(body: path(fill: rgb(69%,5%,78%,100%), 
+                                vertices: ((0.0pt, 0.0pt), 
+                                           (30.0pt, 
+                                            30.0pt), 
+                                           (0.0pt, 30.0pt), 
+                                           (30.0pt, 
+                                            0.0pt))), 
+                     fill: rgb(100%,86%,0%,100%), 
+                     height: 50.0pt, 
+                     width: 50.0pt), 
+                 parbreak() })

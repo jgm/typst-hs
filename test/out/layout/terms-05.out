@@ -52,10 +52,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  terms(children: ((text(body: [Term]), 
-                    {  }))), 
-  text(body: [Not in list
+                 terms(children: ((text(body: [Term]), 
+                                   {  }))), 
+                 text(body: [Not in list
 /Nope]), 
-  parbreak() }
+                 parbreak() })

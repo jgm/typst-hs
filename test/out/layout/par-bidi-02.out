@@ -93,28 +93,28 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ], 
-       font: ("Linux Libertine", 
-              "Noto Serif Hebrew")), 
-  text(body: par(body: { text(body: [Aגֶ]), 
-                         strong(body: text(body: [שֶׁ])), 
-                         text(body: [םB]) }), 
-       font: ("Linux Libertine", 
-              "Noto Serif Hebrew"), 
-       lang: "he"), 
-  text(body: [
+                      font: ("Linux Libertine", 
+                             "Noto Serif Hebrew")), 
+                 text(body: par(body: { text(body: [Aגֶ]), 
+                                        strong(body: text(body: [שֶׁ])), 
+                                        text(body: [םB]) }), 
+                      font: ("Linux Libertine", 
+                             "Noto Serif Hebrew"), 
+                      lang: "he"), 
+                 text(body: [
 ], 
-       font: ("Linux Libertine", 
-              "Noto Serif Hebrew")), 
-  text(body: par(body: { text(body: [Aגֶ]), 
-                         strong(body: text(body: [שֶׁ])), 
-                         text(body: [םB]) }), 
-       font: ("Linux Libertine", 
-              "Noto Serif Hebrew"), 
-       lang: "de"), 
-  parbreak() }
+                      font: ("Linux Libertine", 
+                             "Noto Serif Hebrew")), 
+                 text(body: par(body: { text(body: [Aגֶ]), 
+                                        strong(body: text(body: [שֶׁ])), 
+                                        text(body: [םB]) }), 
+                      font: ("Linux Libertine", 
+                             "Noto Serif Hebrew"), 
+                      lang: "de"), 
+                 parbreak() })

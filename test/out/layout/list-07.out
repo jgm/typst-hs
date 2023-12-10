@@ -53,9 +53,9 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  list(children: ({  })), 
-  text(body: [Not in list
+                 list(children: ({  })), 
+                 text(body: [Not in list
 -Nope]), 
-  parbreak() }
+                 parbreak() })

@@ -71,10 +71,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 Why would anybody ever …]), 
-  parbreak(), 
-  text(body: [… want spacing and indent?]), 
-  parbreak() }
+                 parbreak(), 
+                 text(body: [… want spacing and indent?]), 
+                 parbreak() })

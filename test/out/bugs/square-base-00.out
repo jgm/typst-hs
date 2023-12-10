@@ -62,11 +62,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  square(body: rect(height: 80%, 
-                    width: 60%), 
-         width: 40%), 
-  parbreak() }
+                 square(body: rect(height: 80%, 
+                                   width: 60%), 
+                        width: 40%), 
+                 parbreak() })

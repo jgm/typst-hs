@@ -54,19 +54,19 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  math.equation(block: true, 
-                body: { math.frac(denom: text(body: [3]), 
-                                  num: math.frac(denom: text(body: [2]), 
-                                                 num: text(body: [1]))), 
-                        text(body: [=]), 
-                        math.frac(denom: text(body: [3]), 
-                                  num: math.frac(denom: text(body: [2]), 
-                                                 num: text(body: [1]))), 
-                        text(body: [=]), 
-                        math.frac(denom: math.frac(denom: text(body: [3]), 
-                                                   num: text(body: [2])), 
-                                  num: text(body: [1])) }, 
-                numbering: none), 
-  parbreak() }
+                 math.equation(block: true, 
+                               body: { math.frac(denom: text(body: [3]), 
+                                                 num: math.frac(denom: text(body: [2]), 
+                                                                num: text(body: [1]))), 
+                                       text(body: [=]), 
+                                       math.frac(denom: text(body: [3]), 
+                                                 num: math.frac(denom: text(body: [2]), 
+                                                                num: text(body: [1]))), 
+                                       text(body: [=]), 
+                                       math.frac(denom: math.frac(denom: text(body: [3]), 
+                                                                  num: text(body: [2])), 
+                                                 num: text(body: [1])) }, 
+                               numbering: none), 
+                 parbreak() })

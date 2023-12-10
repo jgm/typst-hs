@@ -64,9 +64,9 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [1 < 2 is ]), 
-  text(body: [not]), 
-  text(body: [ a label.]), 
-  parbreak() }
+                 text(body: [1 < 2 is ]), 
+                 text(body: [not]), 
+                 text(body: [ a label.]), 
+                 parbreak() })

@@ -57,12 +57,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  parbreak(), 
-  raw(block: true, 
-      lang: "py", 
-      text: "import this\n\ndef hi():\n  print(\"Hi!\")\n"), 
-  parbreak() }
+                 parbreak(), 
+                 raw(block: true, 
+                     lang: "py", 
+                     text: "import this\n\ndef hi():\n  print(\"Hi!\")\n"), 
+                 parbreak() })

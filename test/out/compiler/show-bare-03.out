@@ -48,6 +48,6 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [Shown]) }
+                 text(body: [Shown]) })

@@ -93,21 +93,21 @@
     ]
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  parbreak(), 
-  list(children: (text(body: [Fruit]))), 
-  text(body: [
+                 parbreak(), 
+                 list(children: (text(body: [Fruit]))), 
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  list(children: (text(body: [Apple]), 
-                  text(body: [Orange]))), 
-  list(body-indent: 20.0pt, 
-       children: (text(body: [Pear]))), 
-  parbreak(), 
-  text(body: [
+                 list(children: (text(body: [Apple]), 
+                                 text(body: [Orange]))), 
+                 list(body-indent: 20.0pt, 
+                      children: (text(body: [Pear]))), 
+                 parbreak(), 
+                 text(body: [
 ]), 
-  list(children: ({ text(body: [No more fruit]), 
-                    parbreak() }), 
-       indent: 10.0pt) }
+                 list(children: ({ text(body: [No more fruit]), 
+                                   parbreak() }), 
+                      indent: 10.0pt) })

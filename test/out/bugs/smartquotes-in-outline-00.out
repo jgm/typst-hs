@@ -71,11 +71,11 @@
     ]
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  outline(), 
-  parbreak(), 
-  heading(body: text(body: [“This” “is” “a” “test”]), 
-          level: 1) }
+                 outline(), 
+                 parbreak(), 
+                 heading(body: text(body: [“This” “is” “a” “test”]), 
+                         level: 1) })

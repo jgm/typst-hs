@@ -234,29 +234,29 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  parbreak(), 
-  parbreak(), 
-  text(body: [✅]), 
-  text(body: [✅]), 
-  text(body: [✅]), 
-  parbreak(), 
-  parbreak(), 
-  parbreak(), 
-  text(body: [✅]), 
-  parbreak(), 
-  text(body: [
+                 parbreak(), 
+                 parbreak(), 
+                 text(body: [✅]), 
+                 text(body: [✅]), 
+                 text(body: [✅]), 
+                 parbreak(), 
+                 parbreak(), 
+                 parbreak(), 
+                 text(body: [✅]), 
+                 parbreak(), 
+                 text(body: [
 ]), 
-  parbreak(), 
-  text(body: [❌(]), 
-  text(body: ["a, b, c, 👩, ‍, 👩, ‍, 👦, ‍, 👦"]), 
-  text(body: [ /= ]), 
-  text(body: ["a, b, c, 👩‍👩‍👦‍👦"]), 
-  text(body: [)]), 
-  parbreak(), 
-  text(body: [✅]), 
-  text(body: [
+                 parbreak(), 
+                 text(body: [❌(]), 
+                 text(body: ["a, b, c, 👩, ‍, 👩, ‍, 👦, ‍, 👦"]), 
+                 text(body: [ /= ]), 
+                 text(body: ["a, b, c, 👩‍👩‍👦‍👦"]), 
+                 text(body: [)]), 
+                 parbreak(), 
+                 text(body: [✅]), 
+                 text(body: [
 ]), 
-  text(body: [✅]), 
-  parbreak() }
+                 text(body: [✅]), 
+                 parbreak() })

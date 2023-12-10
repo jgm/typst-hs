@@ -63,13 +63,13 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [L ]), 
-  h(amount: 1.0cm), 
-  text(body: [ ריווחR ]), 
-  linebreak(), 
-  text(body: [Lריווח ]), 
-  h(amount: 1.0cm), 
-  text(body: [ R]), 
-  parbreak() }
+                 text(body: [L ]), 
+                 h(amount: 1.0cm), 
+                 text(body: [ ריווחR ]), 
+                 linebreak(), 
+                 text(body: [Lריווח ]), 
+                 h(amount: 1.0cm), 
+                 text(body: [ R]), 
+                 parbreak() })

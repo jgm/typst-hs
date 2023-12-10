@@ -126,26 +126,26 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  block(body: { text(body: [
+                 block(body: { text(body: [
 But, soft! what light through ]), 
-                parbreak() }, 
-        clip: false, 
-        height: 2.0em, 
-        stroke: (thickness: 1.0pt,
-                 color: rgb(0%,0%,0%,100%)), 
-        width: 5.0em), 
-  parbreak(), 
-  v(amount: 2.0em), 
-  parbreak(), 
-  block(body: { text(body: [
+                               parbreak() }, 
+                       clip: false, 
+                       height: 2.0em, 
+                       stroke: (thickness: 1.0pt,
+                                color: rgb(0%,0%,0%,100%)), 
+                       width: 5.0em), 
+                 parbreak(), 
+                 v(amount: 2.0em), 
+                 parbreak(), 
+                 block(body: { text(body: [
 But, soft! what light through yonder window breaks? It is the east, and Juliet
 is the sun.]), 
-                parbreak() }, 
-        clip: true, 
-        height: 2.0em, 
-        stroke: (thickness: 1.0pt,
-                 color: rgb(0%,0%,0%,100%)), 
-        width: 5.0em), 
-  parbreak() }
+                               parbreak() }, 
+                       clip: true, 
+                       height: 2.0em, 
+                       stroke: (thickness: 1.0pt,
+                                color: rgb(0%,0%,0%,100%)), 
+                       width: 5.0em), 
+                 parbreak() })

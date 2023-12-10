@@ -70,15 +70,15 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  emph(body: { text(body: [Emphasized and ]), 
-               strong(body: text(body: [strong])), 
-               text(body: [ words!]) }), 
-  parbreak(), 
-  text(body: [hello_world Nutzer*innen]), 
-  parbreak(), 
-  emph(body: { text(body: [Still ]), 
-               parbreak(), 
-               text(body: [ emphasized.]) }), 
-  parbreak() }
+                 emph(body: { text(body: [Emphasized and ]), 
+                              strong(body: text(body: [strong])), 
+                              text(body: [ words!]) }), 
+                 parbreak(), 
+                 text(body: [hello_world Nutzer*innen]), 
+                 parbreak(), 
+                 emph(body: { text(body: [Still ]), 
+                              parbreak(), 
+                              text(body: [ emphasized.]) }), 
+                 parbreak() })

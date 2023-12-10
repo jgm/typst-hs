@@ -53,8 +53,8 @@
     ]
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  list(children: (text(body: [En dash: –]), 
-                  { text(body: [Em dash: —]), 
-                    parbreak() })) }
+                 list(children: (text(body: [En dash: –]), 
+                                 { text(body: [Em dash: —]), 
+                                   parbreak() })) })

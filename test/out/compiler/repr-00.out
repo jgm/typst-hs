@@ -68,15 +68,15 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [auto]), 
-  text(body: [ ]), 
-  linebreak(), 
-  text(body: [ (empty) ]), 
-  linebreak(), 
-  text(body: [true]), 
-  text(body: [ ]), 
-  linebreak(), 
-  text(body: [false]), 
-  parbreak() }
+                 text(body: [auto]), 
+                 text(body: [ ]), 
+                 linebreak(), 
+                 text(body: [ (empty) ]), 
+                 linebreak(), 
+                 text(body: [true]), 
+                 text(body: [ ]), 
+                 linebreak(), 
+                 text(body: [false]), 
+                 parbreak() })

@@ -113,18 +113,18 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  grid(children: ({ text(body: [Lorem ipsum dolor sit amet.]), 
-                    parbreak(), 
-                    text(body: [Aenean commodo ligula eget dolor. Aenean massa. Penatibus et magnis.]) }, 
-                  text(body: [Text that is rather short]), 
-                  text(body: [Fireflies]), 
-                  text(body: [Critical]), 
-                  text(body: [Decorum]), 
-                  text(body: [Rampage])), 
-       columns: 2, 
-       row-gutter: 8.0pt), 
-  parbreak() }
+                 grid(children: ({ text(body: [Lorem ipsum dolor sit amet.]), 
+                                   parbreak(), 
+                                   text(body: [Aenean commodo ligula eget dolor. Aenean massa. Penatibus et magnis.]) }, 
+                                 text(body: [Text that is rather short]), 
+                                 text(body: [Fireflies]), 
+                                 text(body: [Critical]), 
+                                 text(body: [Decorum]), 
+                                 text(body: [Rampage])), 
+                      columns: 2, 
+                      row-gutter: 8.0pt), 
+                 parbreak() })

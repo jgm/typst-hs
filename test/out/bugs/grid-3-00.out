@@ -62,14 +62,14 @@
 , EnumListItem Nothing [ Text "B" , ParBreak ]
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  v(amount: 40.0pt), 
-  text(body: [
+                 v(amount: 40.0pt), 
+                 text(body: [
 The following:
 ]), 
-  enum(children: (text(body: [A]), 
-                  { text(body: [B]), 
-                    parbreak() })) }
+                 enum(children: (text(body: [A]), 
+                                 { text(body: [B]), 
+                                   parbreak() })) })

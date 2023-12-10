@@ -59,10 +59,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  box(body: square()), 
-  text(body: [
+                 box(body: square()), 
+                 text(body: [
 ]), 
-  box(body: square(body: text(body: [hey!]))), 
-  parbreak() }
+                 box(body: square(body: text(body: [hey!]))), 
+                 parbreak() })

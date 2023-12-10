@@ -79,20 +79,20 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  parbreak(), 
-  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut], 
-       size: 6.0pt), 
-  parbreak(), 
-  raw(block: true, 
-      lang: "py", 
-      text: "def something(x):\n  return x\n\na = 342395823859823958329\nb = 324923\n"), 
-  parbreak(), 
-  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut], 
-       size: 6.0pt), 
-  parbreak() }
+                 parbreak(), 
+                 text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut], 
+                      size: 6.0pt), 
+                 parbreak(), 
+                 raw(block: true, 
+                     lang: "py", 
+                     text: "def something(x):\n  return x\n\na = 342395823859823958329\nb = 324923\n"), 
+                 parbreak(), 
+                 text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut], 
+                      size: 6.0pt), 
+                 parbreak() })

@@ -160,34 +160,34 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 —
 Hi ]), 
-  text(body: text(body: [You]), 
-       size: 1.5em), 
-  text(body: [, ]), 
-  text(body: text(body: [how are you?]), 
-       size: 0.75em), 
-  parbreak(), 
-  text(body: [Our cockatoo was one of the
+                 text(body: text(body: [You]), 
+                      size: 1.5em), 
+                 text(body: [, ]), 
+                 text(body: text(body: [how are you?]), 
+                      size: 0.75em), 
+                 parbreak(), 
+                 text(body: [Our cockatoo was one of the
 ]), 
-  text(baseline: -0.2em, 
-       body: { box(body: circle(radius: 2.0pt)), 
-               text(body: [ first]) }), 
-  text(body: [
+                 text(baseline: -0.2em, 
+                      body: { box(body: circle(radius: 2.0pt)), 
+                              text(body: [ first]) }), 
+                 text(body: [
 ]), 
-  text(baseline: 0.2em, 
-       body: { text(body: [birds ]), 
-               box(body: circle(radius: 2.0pt)) }), 
-  text(body: [
+                 text(baseline: 0.2em, 
+                      body: { text(body: [birds ]), 
+                              box(body: circle(radius: 2.0pt)) }), 
+                 text(body: [
 that ever learned to mimic a human voice.]), 
-  parbreak(), 
-  text(body: [—
+                 parbreak(), 
+                 text(body: [—
 Hey ]), 
-  box(baseline: 40%, 
-      body: image(path: "test/assets/files/tiger.jpg", 
-                  width: 1.5cm)), 
-  text(body: [ there!]), 
-  parbreak() }
+                 box(baseline: 40%, 
+                     body: image(path: "test/assets/files/tiger.jpg", 
+                                 width: 1.5cm)), 
+                 text(body: [ there!]), 
+                 parbreak() })

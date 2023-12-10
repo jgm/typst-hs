@@ -91,12 +91,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 But, soft! what light through yonder window breaks?]), 
-  parbreak(), 
-  text(body: [It is the east, and Juliet is the sun.]), 
-  parbreak() }
+                 parbreak(), 
+                 text(body: [It is the east, and Juliet is the sun.]), 
+                 parbreak() })

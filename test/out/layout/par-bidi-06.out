@@ -64,13 +64,13 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 קרנפיםRh], 
-       lang: "he"), 
-  box(body: image(height: 11.0pt, 
-                  path: "test/assets/files/rhino.png")), 
-  text(body: [inoחיים], 
-       lang: "he"), 
-  parbreak() }
+                      lang: "he"), 
+                 box(body: image(height: 11.0pt, 
+                                 path: "test/assets/files/rhino.png")), 
+                 text(body: [inoחיים], 
+                      lang: "he"), 
+                 parbreak() })

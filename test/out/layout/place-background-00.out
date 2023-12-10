@@ -101,31 +101,31 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ], 
-       fill: rgb(100%,100%,100%,100%)), 
-  place(body: image(fit: "cover", 
-                    height: 20.0pt + 100%, 
-                    path: "/tiger.jpg", 
-                    width: 20.0pt + 100%), 
-        dx: -10.0pt, 
-        dy: -10.0pt), 
-  text(body: [
+                      fill: rgb(100%,100%,100%,100%)), 
+                 place(body: image(fit: "cover", 
+                                   height: 20.0pt + 100%, 
+                                   path: "/tiger.jpg", 
+                                   width: 20.0pt + 100%), 
+                       dx: -10.0pt, 
+                       dy: -10.0pt), 
+                 text(body: [
 ], 
-       fill: rgb(100%,100%,100%,100%)), 
-  align(alignment: Axes(right, bottom), 
-        body: { text(body: [
+                      fill: rgb(100%,100%,100%,100%)), 
+                 align(alignment: Axes(right, bottom), 
+                       body: { text(body: [
 ], 
-                     fill: rgb(100%,100%,100%,100%)), 
-                emph(body: text(body: [Welcome to], 
-                                fill: rgb(100%,100%,100%,100%))), 
-                text(body: [ ], 
-                     fill: rgb(100%,100%,100%,100%)), 
-                underline(body: strong(body: text(body: [Tigerland], 
-                                                  fill: rgb(100%,100%,100%,100%)))), 
-                parbreak() }), 
-  parbreak() }
+                                    fill: rgb(100%,100%,100%,100%)), 
+                               emph(body: text(body: [Welcome to], 
+                                               fill: rgb(100%,100%,100%,100%))), 
+                               text(body: [ ], 
+                                    fill: rgb(100%,100%,100%,100%)), 
+                               underline(body: strong(body: text(body: [Tigerland], 
+                                                                 fill: rgb(100%,100%,100%,100%)))), 
+                               parbreak() }), 
+                 parbreak() })

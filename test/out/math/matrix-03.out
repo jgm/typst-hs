@@ -76,26 +76,26 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  math.equation(block: true, 
-                body: math.mat(rows: ((text(body: [1]), 
-                                       text(body: [2])), 
-                                      (text(body: [3]), 
-                                       text(body: [4])))), 
-                numbering: none), 
-  text(body: [
+                 math.equation(block: true, 
+                               body: math.mat(rows: ((text(body: [1]), 
+                                                      text(body: [2])), 
+                                                     (text(body: [3]), 
+                                                      text(body: [4])))), 
+                               numbering: none), 
+                 text(body: [
 ]), 
-  math.equation(block: true, 
-                body: { text(body: [a]), 
-                        text(body: [+]), 
-                        math.mat(rows: ((text(body: [1]), 
-                                         text(body: [2])), 
-                                        (text(body: [3]), 
-                                         text(body: [4])))), 
-                        text(body: [+]), 
-                        text(body: [b]) }, 
-                numbering: none), 
-  parbreak() }
+                 math.equation(block: true, 
+                               body: { text(body: [a]), 
+                                       text(body: [+]), 
+                                       math.mat(rows: ((text(body: [1]), 
+                                                        text(body: [2])), 
+                                                       (text(body: [3]), 
+                                                        text(body: [4])))), 
+                                       text(body: [+]), 
+                                       text(body: [b]) }, 
+                               numbering: none), 
+                 parbreak() })

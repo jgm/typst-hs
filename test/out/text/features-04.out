@@ -63,13 +63,13 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 0123456789 ], 
-       number-type: "old-style"), 
-  linebreak(), 
-  text(body: text(body: [0123456789], 
-                  number-type: "old-style"), 
-       number-type: auto), 
-  parbreak() }
+                      number-type: "old-style"), 
+                 linebreak(), 
+                 text(body: text(body: [0123456789], 
+                                 number-type: "old-style"), 
+                      number-type: auto), 
+                 parbreak() })

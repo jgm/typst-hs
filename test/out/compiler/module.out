@@ -106,26 +106,26 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  parbreak(), 
-  text(body: [Some ]), 
-  emph(body: text(body: [includable])), 
-  text(body: [ text.]), 
-  parbreak() }
+                 parbreak(), 
+                 text(body: [Some ]), 
+                 emph(body: text(body: [includable])), 
+                 text(body: [ text.]), 
+                 parbreak() })

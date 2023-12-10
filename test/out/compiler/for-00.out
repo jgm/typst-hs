@@ -253,50 +253,50 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  parbreak(), 
-  text(body: [
+                 parbreak(), 
+                 text(body: [
 ]), 
-  text(body: [Name]), 
-  text(body: [: ]), 
-  text(body: [Typst]), 
-  text(body: [.]), 
-  parbreak(), 
-  text(body: [
+                 text(body: [Name]), 
+                 text(body: [: ]), 
+                 text(body: [Typst]), 
+                 text(body: [.]), 
+                 parbreak(), 
+                 text(body: [
 ]), 
-  text(body: [Age]), 
-  text(body: [: ]), 
-  text(body: [2]), 
-  text(body: [.]), 
-  parbreak(), 
-  parbreak(), 
-  text(body: [[]), 
-  text(body: [1]), 
-  text(body: [st]), 
-  text(body: [, ]), 
-  text(body: [2]), 
-  text(body: [nd]), 
-  text(body: [, ]), 
-  text(body: [3]), 
-  text(body: [rd]), 
-  text(body: [, ]), 
-  text(body: [4]), 
-  text(body: [th]), 
-  text(body: []]), 
-  parbreak(), 
-  text(body: [2]), 
-  text(body: [3]), 
-  text(body: [4]), 
-  text(body: [5]), 
-  parbreak(), 
-  text(body: [
+                 text(body: [Age]), 
+                 text(body: [: ]), 
+                 text(body: [2]), 
+                 text(body: [.]), 
+                 parbreak(), 
+                 parbreak(), 
+                 text(body: [[]), 
+                 text(body: [1]), 
+                 text(body: [st]), 
+                 text(body: [, ]), 
+                 text(body: [2]), 
+                 text(body: [nd]), 
+                 text(body: [, ]), 
+                 text(body: [3]), 
+                 text(body: [rd]), 
+                 text(body: [, ]), 
+                 text(body: [4]), 
+                 text(body: [th]), 
+                 text(body: []]), 
+                 parbreak(), 
+                 text(body: [2]), 
+                 text(body: [3]), 
+                 text(body: [4]), 
+                 text(body: [5]), 
+                 parbreak(), 
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [1, "a": 2]), 
-  parbreak() }
+                 text(body: [1, "a": 2]), 
+                 parbreak() })

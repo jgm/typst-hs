@@ -104,31 +104,31 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  rotate(angle: -30.0deg, 
-         body: text(body: [Hello]), 
-         origin: Axes(end, horizon)), 
-  parbreak(), 
-  text(body: [
+                 rotate(angle: -30.0deg, 
+                        body: text(body: [Hello]), 
+                        origin: Axes(end, horizon)), 
+                 parbreak(), 
+                 text(body: [
 ], lang: "de"), 
-  align(alignment: start, 
-        body: text(body: [Start], 
-                   lang: "de")), 
-  text(body: [
+                 align(alignment: start, 
+                       body: text(body: [Start], 
+                                  lang: "de")), 
+                 text(body: [
 ], lang: "de"), 
-  align(alignment: end, 
-        body: text(body: [Ende], 
-                   lang: "de")), 
-  parbreak(), 
-  text(body: [
+                 align(alignment: end, 
+                       body: text(body: [Ende], 
+                                  lang: "de")), 
+                 parbreak(), 
+                 text(body: [
 ], lang: "ar"), 
-  align(alignment: start, 
-        body: text(body: [يبدأ], 
-                   lang: "ar")), 
-  text(body: [
+                 align(alignment: start, 
+                       body: text(body: [يبدأ], 
+                                  lang: "ar")), 
+                 text(body: [
 ], lang: "ar"), 
-  align(alignment: end, 
-        body: text(body: [نهاية], 
-                   lang: "ar")), 
-  parbreak() }
+                 align(alignment: end, 
+                       body: text(body: [نهاية], 
+                                  lang: "ar")), 
+                 parbreak() })

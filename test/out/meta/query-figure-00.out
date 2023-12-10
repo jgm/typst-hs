@@ -233,27 +233,27 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  parbreak(), 
-  text(body: [
+                 parbreak(), 
+                 text(body: [
 ]), 
-  parbreak(), 
-  heading(body: text(body: [List of Figures]), 
-          level: 1), 
-  locate(func: ), 
-  parbreak(), 
-  figure(body: image(path: "test/assets/files/glacier.jpg"), 
-         caption: text(body: [Glacier melting]), 
-         numbering: "I"), 
-  parbreak(), 
-  figure(body: rect(body: text(body: [Just some stand-in text])), 
-         caption: text(body: [Stand-in text]), 
-         kind: , 
-         numbering: "I", 
-         supplement: "Figure"), 
-  parbreak(), 
-  figure(body: image(path: "test/assets/files/tiger.jpg"), 
-         caption: text(body: [Tiger world]), 
-         numbering: "I"), 
-  parbreak() }
+                 parbreak(), 
+                 heading(body: text(body: [List of Figures]), 
+                         level: 1), 
+                 locate(func: ), 
+                 parbreak(), 
+                 figure(body: image(path: "test/assets/files/glacier.jpg"), 
+                        caption: text(body: [Glacier melting]), 
+                        numbering: "I"), 
+                 parbreak(), 
+                 figure(body: rect(body: text(body: [Just some stand-in text])), 
+                        caption: text(body: [Stand-in text]), 
+                        kind: , 
+                        numbering: "I", 
+                        supplement: "Figure"), 
+                 parbreak(), 
+                 figure(body: image(path: "test/assets/files/tiger.jpg"), 
+                        caption: text(body: [Tiger world]), 
+                        numbering: "I"), 
+                 parbreak() })

@@ -69,21 +69,21 @@
     Nothing [ Text "BACK" , HardBreak , Text "HERE" , ParBreak ]
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  parbreak(), 
-  enum(children: ({ text(body: [ABCDEF]), 
-                    linebreak(), 
-                    text(body: [GHIJKL]), 
-                    linebreak(), 
-                    text(body: [MNOPQR
+                 parbreak(), 
+                 enum(children: ({ text(body: [ABCDEF]), 
+                                   linebreak(), 
+                                   text(body: [GHIJKL]), 
+                                   linebreak(), 
+                                   text(body: [MNOPQR
 ]), 
-                    enum(children: ({ text(body: [INNER]), 
-                                      linebreak(), 
-                                      text(body: [INNER]), 
-                                      linebreak(), 
-                                      text(body: [INNER]) })) }, 
-                  { text(body: [BACK]), 
-                    linebreak(), 
-                    text(body: [HERE]), 
-                    parbreak() })) }
+                                   enum(children: ({ text(body: [INNER]), 
+                                                     linebreak(), 
+                                                     text(body: [INNER]), 
+                                                     linebreak(), 
+                                                     text(body: [INNER]) })) }, 
+                                 { text(body: [BACK]), 
+                                   linebreak(), 
+                                   text(body: [HERE]), 
+                                   parbreak() })) })

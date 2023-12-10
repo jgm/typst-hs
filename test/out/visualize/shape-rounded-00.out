@@ -58,10 +58,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  rect(radius: -20.0pt), 
-  text(body: [
+                 rect(radius: -20.0pt), 
+                 text(body: [
 ]), 
-  square(radius: 30.0pt), 
-  parbreak() }
+                 square(radius: 30.0pt), 
+                 parbreak() })

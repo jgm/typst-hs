@@ -58,8 +58,8 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  parbreak(), 
-  text(body: [Arbitrary horizontal growth.]), 
-  parbreak() }
+                 parbreak(), 
+                 text(body: [Arbitrary horizontal growth.]), 
+                 parbreak() })

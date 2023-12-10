@@ -95,21 +95,21 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  math.equation(block: true, 
-                body: { math.attach(b: { text(body: [i]), 
-                                         text(body: [=]), 
-                                         text(body: [🍏]) }, 
-                                    base: text(body: [∑]), 
-                                    t: text(body: [🍎])), 
-                        text(body: [i]), 
-                        text(body: [+]), 
-                        math.frac(denom: text(body: [2]), 
-                                  num: move(body: image(height: 1.0em, 
-                                                        path: "test/assets/files/monkey.svg"), 
-                                            dy: 0.2em)) }, 
-                numbering: none), 
-  parbreak() }
+                 math.equation(block: true, 
+                               body: { math.attach(b: { text(body: [i]), 
+                                                        text(body: [=]), 
+                                                        text(body: [🍏]) }, 
+                                                   base: text(body: [∑]), 
+                                                   t: text(body: [🍎])), 
+                                       text(body: [i]), 
+                                       text(body: [+]), 
+                                       math.frac(denom: text(body: [2]), 
+                                                 num: move(body: image(height: 1.0em, 
+                                                                       path: "test/assets/files/monkey.svg"), 
+                                                           dy: 0.2em)) }, 
+                               numbering: none), 
+                 parbreak() })

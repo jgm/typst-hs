@@ -71,9 +71,9 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [(1, 2, 3, 4, 5, 6)]), 
-  parbreak() }
+                 text(body: [(1, 2, 3, 4, 5, 6)]), 
+                 parbreak() })

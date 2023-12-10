@@ -80,23 +80,23 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  parbreak(), 
-  text(body: [A
+                 parbreak(), 
+                 text(body: [A
 ]), 
-  colbreak(), 
-  text(body: [
+                 colbreak(), 
+                 text(body: [
 ]), 
-  colbreak(), 
-  text(body: [
+                 colbreak(), 
+                 text(body: [
 B
 ]), 
-  pagebreak(), 
-  text(body: [
+                 pagebreak(), 
+                 text(body: [
 C
 ]), 
-  colbreak(), 
-  text(body: [
+                 colbreak(), 
+                 text(body: [
 D]), 
-  parbreak() }
+                 parbreak() })

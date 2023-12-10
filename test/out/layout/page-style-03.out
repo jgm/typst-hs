@@ -80,19 +80,19 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ], 
-       color: rgb(100%,100%,100%,100%), 
-       font: "Roboto"), 
-  smallcaps(body: text(body: [Typst], 
-                       color: rgb(100%,100%,100%,100%), 
-                       font: "Roboto")), 
-  parbreak() }
+                      color: rgb(100%,100%,100%,100%), 
+                      font: "Roboto"), 
+                 smallcaps(body: text(body: [Typst], 
+                                      color: rgb(100%,100%,100%,100%), 
+                                      font: "Roboto")), 
+                 parbreak() })

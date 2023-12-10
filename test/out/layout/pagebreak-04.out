@@ -83,29 +83,29 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 First
 ], 
-       fill: rgb(100%,100%,100%,100%)), 
-  pagebreak(), 
-  text(body: [
+                      fill: rgb(100%,100%,100%,100%)), 
+                 pagebreak(), 
+                 text(body: [
 ], 
-       fill: rgb(100%,100%,100%,100%)), 
-  page(body: text(body: [Second], 
-                  fill: rgb(100%,100%,100%,100%)), 
-       fill: rgb(0%,12%,24%,100%)), 
-  text(body: [
+                      fill: rgb(100%,100%,100%,100%)), 
+                 page(body: text(body: [Second], 
+                                 fill: rgb(100%,100%,100%,100%)), 
+                      fill: rgb(0%,12%,24%,100%)), 
+                 text(body: [
 ], 
-       fill: rgb(100%,100%,100%,100%)), 
-  pagebreak(weak: true), 
-  text(body: [
+                      fill: rgb(100%,100%,100%,100%)), 
+                 pagebreak(weak: true), 
+                 text(body: [
 ], 
-       fill: rgb(100%,100%,100%,100%)), 
-  page(body: text(body: [Third], 
-                  fill: rgb(100%,100%,100%,100%)), 
-       fill: rgb(0%,12%,24%,100%)), 
-  parbreak() }
+                      fill: rgb(100%,100%,100%,100%)), 
+                 page(body: text(body: [Third], 
+                                 fill: rgb(100%,100%,100%,100%)), 
+                      fill: rgb(0%,12%,24%,100%)), 
+                 parbreak() })

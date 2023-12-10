@@ -73,21 +73,21 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  parbreak(), 
-  text(body: [Бб
+                 parbreak(), 
+                 text(body: [Бб
 ], 
-       font: "Ubuntu"), 
-  text(body: text(body: [Бб], 
-                  font: "Ubuntu"), 
-       font: "Ubuntu", 
-       lang: "uk"), 
-  text(body: [
+                      font: "Ubuntu"), 
+                 text(body: text(body: [Бб], 
+                                 font: "Ubuntu"), 
+                      font: "Ubuntu", 
+                      lang: "uk"), 
+                 text(body: [
 ], 
-       font: "Ubuntu"), 
-  text(body: text(body: [Бб], 
-                  font: "Ubuntu"), 
-       font: "Ubuntu", 
-       lang: "sr"), 
-  parbreak() }
+                      font: "Ubuntu"), 
+                 text(body: text(body: [Бб], 
+                                 font: "Ubuntu"), 
+                      font: "Ubuntu", 
+                      lang: "sr"), 
+                 parbreak() })

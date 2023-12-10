@@ -57,9 +57,9 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 א⁦A⁧Bב⁩?], 
-       dir: rtl), 
-  parbreak() }
+                      dir: rtl), 
+                 parbreak() })

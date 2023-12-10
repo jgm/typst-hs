@@ -169,28 +169,28 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [ ]), 
-  align(alignment: left, 
-        body: text(body: [Left])), 
-  text(body: [
+                 text(body: [ ]), 
+                 align(alignment: left, 
+                       body: text(body: [Left])), 
+                 text(body: [
 ]), 
-  text(body: [ ]), 
-  align(alignment: right, 
-        body: text(body: [Right])), 
-  text(body: [
+                 text(body: [ ]), 
+                 align(alignment: right, 
+                       body: text(body: [Right])), 
+                 text(body: [
 ]), 
-  text(body: [ ]), 
-  align(alignment: top, 
-        body: text(body: [Top])), 
-  text(body: [
+                 text(body: [ ]), 
+                 align(alignment: top, 
+                       body: text(body: [Top])), 
+                 text(body: [
 ]), 
-  text(body: [ ]), 
-  align(alignment: bottom, 
-        body: text(body: [Bottom])), 
-  parbreak(), 
-  text(body: [ Overridden]), 
-  parbreak() }
+                 text(body: [ ]), 
+                 align(alignment: bottom, 
+                       body: text(body: [Bottom])), 
+                 parbreak(), 
+                 text(body: [ Overridden]), 
+                 parbreak() })

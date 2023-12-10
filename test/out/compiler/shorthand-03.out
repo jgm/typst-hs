@@ -58,11 +58,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 A… vs ], 
-       font: "Roboto"), 
-  text(body: [A...], 
-       font: "Roboto"), 
-  parbreak() }
+                      font: "Roboto"), 
+                 text(body: [A...], 
+                      font: "Roboto"), 
+                 parbreak() })

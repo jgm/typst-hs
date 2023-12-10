@@ -69,15 +69,15 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 It’s a ], 
-       hyphenate: true), 
-  emph(body: text(body: [Tree], 
-                  hyphenate: true)), 
-  text(body: [beard.], 
-       hyphenate: true), 
-  parbreak() }
+                      hyphenate: true), 
+                 emph(body: text(body: [Tree], 
+                                 hyphenate: true)), 
+                 text(body: [beard.], 
+                      hyphenate: true), 
+                 parbreak() })

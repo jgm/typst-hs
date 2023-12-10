@@ -57,11 +57,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [الغالب ]), 
-  h(amount: 70.0pt), 
-  text(body: [ ن]), 
-  text(body: [ ]), 
-  text(body: [ة]), 
-  parbreak() }
+                 text(body: [الغالب ]), 
+                 h(amount: 70.0pt), 
+                 text(body: [ ن]), 
+                 text(body: [ ]), 
+                 text(body: [ة]), 
+                 parbreak() })

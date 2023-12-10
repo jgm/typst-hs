@@ -64,12 +64,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [1.2 ]), 
-  linebreak(), 
-  text(body: [This is 0. ]), 
-  linebreak(), 
-  text(body: [See 0.3. ]), 
-  linebreak(), 
-  parbreak() }
+                 text(body: [1.2 ]), 
+                 linebreak(), 
+                 text(body: [This is 0. ]), 
+                 linebreak(), 
+                 text(body: [See 0.3. ]), 
+                 linebreak(), 
+                 parbreak() })

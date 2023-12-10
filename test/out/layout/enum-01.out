@@ -52,14 +52,14 @@
 , EnumListItem Nothing [ Text "Second" , ParBreak ]
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  enum(children: (text(body: [Before first!]), 
-                  { text(body: [First.
+                 enum(children: (text(body: [Before first!]), 
+                                 { text(body: [First.
 ]), 
-                    enum(children: (text(body: [Indented
+                                   enum(children: (text(body: [Indented
 ])), 
-                         start: 2) }, 
-                  { text(body: [Second]), 
-                    parbreak() }), 
-       start: 0) }
+                                        start: 2) }, 
+                                 { text(body: [Second]), 
+                                   parbreak() }), 
+                      start: 0) })

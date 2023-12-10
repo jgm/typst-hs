@@ -49,7 +49,7 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  pad(body: {  }, rest: 50%), 
-  parbreak() }
+                 pad(body: {  }, rest: 50%), 
+                 parbreak() })

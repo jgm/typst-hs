@@ -91,10 +91,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [He’s told some books contain questionable “example text”.]), 
-  parbreak(), 
-  text(body: [
+                 text(body: [He’s told some books contain questionable “example text”.]), 
+                 parbreak(), 
+                 text(body: [
 He’s told some books contain questionable “example text”.]), 
-  parbreak() }
+                 parbreak() })

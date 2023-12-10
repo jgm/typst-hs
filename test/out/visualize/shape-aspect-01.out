@@ -101,22 +101,22 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ], size: 8.0pt), 
-  box(body: square(body: { text(body: [
+                 box(body: square(body: { text(body: [
 Hey there, ], 
-                                size: 8.0pt), 
-                           align(alignment: Axes(center, bottom), 
-                                 body: rotate(angle: 180.0deg, 
-                                              body: text(body: [you!], 
-                                                         size: 8.0pt))), 
-                           parbreak() }, 
-                   inset: 4.0pt)), 
-  text(body: [
+                                               size: 8.0pt), 
+                                          align(alignment: Axes(center, bottom), 
+                                                body: rotate(angle: 180.0deg, 
+                                                             body: text(body: [you!], 
+                                                                        size: 8.0pt))), 
+                                          parbreak() }, 
+                                  inset: 4.0pt)), 
+                 text(body: [
 ], size: 8.0pt), 
-  box(body: circle(body: align(alignment: Axes(center, horizon), 
-                               body: text(body: [Hey.], 
-                                          size: 8.0pt)))), 
-  parbreak() }
+                 box(body: circle(body: align(alignment: Axes(center, horizon), 
+                                              body: text(body: [Hey.], 
+                                                         size: 8.0pt)))), 
+                 parbreak() })

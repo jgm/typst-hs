@@ -49,9 +49,9 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [Trailing break ]), 
-  linebreak(), 
-  linebreak(), 
-  parbreak() }
+                 text(body: [Trailing break ]), 
+                 linebreak(), 
+                 linebreak(), 
+                 parbreak() })

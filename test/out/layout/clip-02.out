@@ -85,18 +85,18 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [Emoji: ]), 
-  box(body: text(body: [🐪, 🌋, 🏞]), 
-      height: 0.5em, 
-      stroke: (thickness: 1.0pt,
-               color: rgb(0%,0%,0%,100%))), 
-  parbreak(), 
-  text(body: [Emoji: ]), 
-  box(body: text(body: [🐪, 🌋, 🏞]), 
-      clip: true, 
-      height: 0.5em, 
-      stroke: (thickness: 1.0pt,
-               color: rgb(0%,0%,0%,100%))), 
-  parbreak() }
+                 text(body: [Emoji: ]), 
+                 box(body: text(body: [🐪, 🌋, 🏞]), 
+                     height: 0.5em, 
+                     stroke: (thickness: 1.0pt,
+                              color: rgb(0%,0%,0%,100%))), 
+                 parbreak(), 
+                 text(body: [Emoji: ]), 
+                 box(body: text(body: [🐪, 🌋, 🏞]), 
+                     clip: true, 
+                     height: 0.5em, 
+                     stroke: (thickness: 1.0pt,
+                              color: rgb(0%,0%,0%,100%))), 
+                 parbreak() })

@@ -174,55 +174,55 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  line(length: 60.0pt, 
-       stroke: (paint: rgb(100%,25%,21%,100%),
-                thickness: 1.0pt,
-                dash: ("dot", 1.0pt))), 
-  text(body: [
+                 line(length: 60.0pt, 
+                      stroke: (paint: rgb(100%,25%,21%,100%),
+                               thickness: 1.0pt,
+                               dash: ("dot", 1.0pt))), 
+                 text(body: [
 ]), 
-  v(amount: 3.0pt), 
-  text(body: [
+                 v(amount: 3.0pt), 
+                 text(body: [
 ]), 
-  line(length: 60.0pt, 
-       stroke: (paint: rgb(100%,25%,21%,100%),
-                thickness: 1.0pt,
-                dash: ("dot", 
-                       1.0pt, 
-                       4.0pt, 
-                       2.0pt))), 
-  text(body: [
+                 line(length: 60.0pt, 
+                      stroke: (paint: rgb(100%,25%,21%,100%),
+                               thickness: 1.0pt,
+                               dash: ("dot", 
+                                      1.0pt, 
+                                      4.0pt, 
+                                      2.0pt))), 
+                 text(body: [
 ]), 
-  v(amount: 3.0pt), 
-  text(body: [
+                 v(amount: 3.0pt), 
+                 text(body: [
 ]), 
-  line(length: 60.0pt, 
-       stroke: (paint: rgb(100%,25%,21%,100%),
-                thickness: 1.0pt,
-                dash: (array: ("dot", 
-                               1.0pt, 
-                               4.0pt, 
-                               2.0pt),
-                       phase: 5.0pt))), 
-  text(body: [
+                 line(length: 60.0pt, 
+                      stroke: (paint: rgb(100%,25%,21%,100%),
+                               thickness: 1.0pt,
+                               dash: (array: ("dot", 
+                                              1.0pt, 
+                                              4.0pt, 
+                                              2.0pt),
+                                      phase: 5.0pt))), 
+                 text(body: [
 ]), 
-  v(amount: 3.0pt), 
-  text(body: [
+                 v(amount: 3.0pt), 
+                 text(body: [
 ]), 
-  line(length: 60.0pt, 
-       stroke: (paint: rgb(100%,25%,21%,100%),
-                thickness: 1.0pt,
-                dash: ())), 
-  text(body: [
+                 line(length: 60.0pt, 
+                      stroke: (paint: rgb(100%,25%,21%,100%),
+                               thickness: 1.0pt,
+                               dash: ())), 
+                 text(body: [
 ]), 
-  v(amount: 3.0pt), 
-  text(body: [
+                 v(amount: 3.0pt), 
+                 text(body: [
 ]), 
-  line(length: 60.0pt, 
-       stroke: (paint: rgb(100%,25%,21%,100%),
-                thickness: 1.0pt,
-                dash: (1.0pt, 
-                       3.0pt, 
-                       9.0pt))), 
-  parbreak() }
+                 line(length: 60.0pt, 
+                      stroke: (paint: rgb(100%,25%,21%,100%),
+                               thickness: 1.0pt,
+                               dash: (1.0pt, 
+                                      3.0pt, 
+                                      9.0pt))), 
+                 parbreak() })

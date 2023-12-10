@@ -159,30 +159,30 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  parbreak(), 
-  text(body: [Final: ]), 
-  locate(func: ), 
-  text(body: [ ]), 
-  linebreak(), 
-  text(body: [
+                 parbreak(), 
+                 text(body: [Final: ]), 
+                 locate(func: ), 
+                 text(body: [ ]), 
+                 linebreak(), 
+                 text(body: [
 First: ]), 
-  text(body: [1]), 
-  text(body: [ ]), 
-  linebreak(), 
-  text(body: [
+                 text(body: [1]), 
+                 text(body: [ ]), 
+                 linebreak(), 
+                 text(body: [
 ]), 
-  text(body: [7]), 
-  text(body: [ ]), 
-  linebreak(), 
-  text(body: [
+                 text(body: [7]), 
+                 text(body: [ ]), 
+                 linebreak(), 
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 Second: ]), 
-  text(body: [9]), 
-  text(body: [
+                 text(body: [9]), 
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  parbreak() }
+                 parbreak() })

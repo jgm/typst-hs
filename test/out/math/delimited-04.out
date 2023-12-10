@@ -77,17 +77,17 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  math.equation(block: true, 
-                body: { text(body: [[]), 
-                        math.frac(denom: text(body: [b]), 
-                                  num: text(body: [a])), 
-                        text(body: []]), 
-                        text(body: [=]), 
-                        math.lr(body: ({ text(body: [[]), 
-                                         math.frac(denom: text(body: [b]), 
-                                                   num: text(body: [a])), 
-                                         text(body: []]) })) }, 
-                numbering: none), 
-  parbreak() }
+                 math.equation(block: true, 
+                               body: { text(body: [[]), 
+                                       math.frac(denom: text(body: [b]), 
+                                                 num: text(body: [a])), 
+                                       text(body: []]), 
+                                       text(body: [=]), 
+                                       math.lr(body: ({ text(body: [[]), 
+                                                        math.frac(denom: text(body: [b]), 
+                                                                  num: text(body: [a])), 
+                                                        text(body: []]) })) }, 
+                               numbering: none), 
+                 parbreak() })

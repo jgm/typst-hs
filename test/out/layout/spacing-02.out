@@ -70,14 +70,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 A ], dir: rtl), 
-  h(amount: 10.0pt), 
-  text(body: [ B ], dir: rtl), 
-  linebreak(), 
-  text(body: [A ], dir: rtl), 
-  h(amount: 1.0fr), 
-  text(body: [ B], dir: rtl), 
-  parbreak() }
+                 h(amount: 10.0pt), 
+                 text(body: [ B ], dir: rtl), 
+                 linebreak(), 
+                 text(body: [A ], dir: rtl), 
+                 h(amount: 1.0fr), 
+                 text(body: [ B], dir: rtl), 
+                 parbreak() })

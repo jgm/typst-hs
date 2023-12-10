@@ -1,4 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE OverloadedLists #-}
 
 module Main (main) where
 
@@ -69,6 +70,6 @@ writeTest input = do
               pure $
                 fromText $
                   parseOutput <> T.pack (show e)
-            Right cs -> do
-              let evalOutput = "--- evaluated ---\n" <> repr (VContent cs)
+            Right c -> do
+              let evalOutput = "--- evaluated ---\n" <> repr (VContent [c])
               pure $ fromText $ parseOutput <> evalOutput

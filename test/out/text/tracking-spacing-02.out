@@ -64,15 +64,15 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ], 
-       font: ("PT Sans", 
-              "Noto Serif Hebrew")), 
-  text(body: [
+                      font: ("PT Sans", 
+                             "Noto Serif Hebrew")), 
+                 text(body: [
 טֶקסט], 
-       font: ("PT Sans", 
-              "Noto Serif Hebrew"), 
-       tracking: 0.3em), 
-  parbreak() }
+                      font: ("PT Sans", 
+                             "Noto Serif Hebrew"), 
+                      tracking: 0.3em), 
+                 parbreak() })

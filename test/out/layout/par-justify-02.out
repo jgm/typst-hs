@@ -68,11 +68,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [A B C ]), 
-  linebreak(justify: true), 
-  text(body: [
+                 text(body: [A B C ]), 
+                 linebreak(justify: true), 
+                 text(body: [
 D E F ]), 
-  linebreak(justify: true), 
-  parbreak() }
+                 linebreak(justify: true), 
+                 parbreak() })

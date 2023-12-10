@@ -70,17 +70,17 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  math.equation(block: true, 
-                body: { text(body: [⋅]), 
-                        linebreak(), 
-                        text(body: […]), 
-                        linebreak(), 
-                        text(body: [∗]), 
-                        linebreak(), 
-                        text(body: [∼]), 
-                        linebreak(), 
-                        text(body: [⋆]) }, 
-                numbering: none), 
-  parbreak() }
+                 math.equation(block: true, 
+                               body: { text(body: [⋅]), 
+                                       linebreak(), 
+                                       text(body: […]), 
+                                       linebreak(), 
+                                       text(body: [∗]), 
+                                       linebreak(), 
+                                       text(body: [∼]), 
+                                       linebreak(), 
+                                       text(body: [⋆]) }, 
+                               numbering: none), 
+                 parbreak() })

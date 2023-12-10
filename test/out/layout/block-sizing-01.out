@@ -100,13 +100,13 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  block(body: layout(func: ), 
-        height: 80.0pt, 
-        width: 60.0pt), 
-  parbreak() }
+                 block(body: layout(func: ), 
+                       height: 80.0pt, 
+                       width: 60.0pt), 
+                 parbreak() })

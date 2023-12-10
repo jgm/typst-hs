@@ -120,20 +120,20 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ], 
-       size: 11.0pt), 
-  table(children: (text(body: [Hello!], 
-                        size: 11.0pt), 
-                   text(body: [Hello there, my friend!], 
-                        size: 11.0pt), 
-                   text(body: [Hello there, my friends! Hi!], 
-                        size: 11.0pt), 
-                   text(body: [Hello there, my friends! Hi! What is going on right now?], 
-                        size: 11.0pt)), 
-        columns: 4), 
-  parbreak() }
+                      size: 11.0pt), 
+                 table(children: (text(body: [Hello!], 
+                                       size: 11.0pt), 
+                                  text(body: [Hello there, my friend!], 
+                                       size: 11.0pt), 
+                                  text(body: [Hello there, my friends! Hi!], 
+                                       size: 11.0pt), 
+                                  text(body: [Hello there, my friends! Hi! What is going on right now?], 
+                                       size: 11.0pt)), 
+                       columns: 4), 
+                 parbreak() })

@@ -63,10 +63,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  math.equation(block: false, 
-                body: math.lr(body: ({ text(body: [α]), 
-                                       text(body: [β]) })), 
-                numbering: none), 
-  parbreak() }
+                 math.equation(block: false, 
+                               body: math.lr(body: ({ text(body: [α]), 
+                                                      text(body: [β]) })), 
+                               numbering: none), 
+                 parbreak() })

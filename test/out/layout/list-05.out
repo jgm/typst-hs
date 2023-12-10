@@ -63,9 +63,9 @@
     ]
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [ - A with 1 tab
+                 text(body: [ - A with 1 tab
 ]), 
-  list(children: ({ text(body: [B with 2 tabs]), 
-                    parbreak() })) }
+                 list(children: ({ text(body: [B with 2 tabs]), 
+                                   parbreak() })) })

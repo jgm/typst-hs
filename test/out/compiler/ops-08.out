@@ -261,64 +261,64 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [✅]), 
-  text(body: [
+                 text(body: [✅]), 
+                 text(body: [
 ]), 
-  text(body: [✅]), 
-  text(body: [
+                 text(body: [✅]), 
+                 text(body: [
 ]), 
-  text(body: [✅]), 
-  text(body: [
+                 text(body: [✅]), 
+                 text(body: [
 ]), 
-  text(body: [✅]), 
-  text(body: [
+                 text(body: [✅]), 
+                 text(body: [
 ]), 
-  text(body: [✅]), 
-  text(body: [
+                 text(body: [✅]), 
+                 text(body: [
 ]), 
-  text(body: [✅]), 
-  text(body: [
+                 text(body: [✅]), 
+                 text(body: [
 ]), 
-  text(body: [✅]), 
-  text(body: [
+                 text(body: [✅]), 
+                 text(body: [
 ]), 
-  text(body: [✅]), 
-  text(body: [
+                 text(body: [✅]), 
+                 text(body: [
 ]), 
-  text(body: [✅]), 
-  text(body: [
+                 text(body: [✅]), 
+                 text(body: [
 ]), 
-  text(body: [✅]), 
-  text(body: [
+                 text(body: [✅]), 
+                 text(body: [
 ]), 
-  text(body: [✅]), 
-  parbreak(), 
-  text(body: [❌(]), 
-  text(body: [false]), 
-  text(body: [ /= ]), 
-  text(body: [true]), 
-  text(body: [)]), 
-  text(body: [
+                 text(body: [✅]), 
+                 parbreak(), 
+                 text(body: [❌(]), 
+                 text(body: [false]), 
+                 text(body: [ /= ]), 
+                 text(body: [true]), 
+                 text(body: [)]), 
+                 text(body: [
 ]), 
-  text(body: [✅]), 
-  parbreak(), 
-  text(body: [
+                 text(body: [✅]), 
+                 parbreak(), 
+                 text(body: [
 ]), 
-  text(body: [✅]), 
-  text(body: [
+                 text(body: [✅]), 
+                 text(body: [
 ]), 
-  text(body: [✅]), 
-  text(body: [
+                 text(body: [✅]), 
+                 text(body: [
 ]), 
-  text(body: [✅]), 
-  text(body: [
+                 text(body: [✅]), 
+                 text(body: [
 ]), 
-  text(body: [✅]), 
-  text(body: [
+                 text(body: [✅]), 
+                 text(body: [
 ]), 
-  text(body: [✅]), 
-  parbreak() }
+                 text(body: [✅]), 
+                 parbreak() })

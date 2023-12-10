@@ -71,21 +71,21 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [Normal]), 
-  parbreak(), 
-  text(body: [
+                 text(body: [Normal]), 
+                 parbreak(), 
+                 text(body: [
 ]), 
-  strong(body: text(body: [Bold]), 
-         delta: 300), 
-  parbreak(), 
-  text(body: [
+                 strong(body: text(body: [Bold]), 
+                        delta: 300), 
+                 parbreak(), 
+                 text(body: [
 ]), 
-  strong(body: text(body: [Medium]), 
-         delta: 150), 
-  text(body: [ and ]), 
-  strong(body: strong(body: text(body: [Bold]), 
-                      delta: 150), 
-         delta: 150), 
-  parbreak() }
+                 strong(body: text(body: [Medium]), 
+                        delta: 150), 
+                 text(body: [ and ]), 
+                 strong(body: strong(body: text(body: [Bold]), 
+                                     delta: 150), 
+                        delta: 150), 
+                 parbreak() })

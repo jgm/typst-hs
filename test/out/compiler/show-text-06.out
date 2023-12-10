@@ -70,10 +70,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 Oh, ]), 
-  text(body: [|H|E|L|L|O|]), 
-  text(body: [ there!]), 
-  parbreak() }
+                 text(body: [|H|E|L|L|O|]), 
+                 text(body: [ there!]), 
+                 parbreak() })

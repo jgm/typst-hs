@@ -50,11 +50,11 @@
 , BulletListItem [ Text "D" , ParBreak ]
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  list(children: ({ text(body: [A
+                 list(children: ({ text(body: [A
 ]), 
-                    list(children: (text(body: [B]), 
-                                    text(body: [C]))) }, 
-                  { text(body: [D]), 
-                    parbreak() })) }
+                                   list(children: (text(body: [B]), 
+                                                   text(body: [C]))) }, 
+                                 { text(body: [D]), 
+                                   parbreak() })) })

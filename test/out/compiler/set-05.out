@@ -79,10 +79,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  parbreak(), 
-  text(body: [@<hello>]), 
-  text(body: [ from the ]), 
-  text(body: [@<unknown>]), 
-  parbreak() }
+                 parbreak(), 
+                 text(body: [@<hello>]), 
+                 text(body: [ from the ]), 
+                 text(body: [@<unknown>]), 
+                 parbreak() })

@@ -164,24 +164,24 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [\ / [ ] { } # * _ + = ~ ]), 
-  linebreak(), 
-  text(body: [` $ " ' < > @ ( ) A]), 
-  parbreak(), 
-  text(body: [( ) ;]), 
-  parbreak(), 
-  text(body: [//
+                 text(body: [\ / [ ] { } # * _ + = ~ ]), 
+                 linebreak(), 
+                 text(body: [` $ " ' < > @ ( ) A]), 
+                 parbreak(), 
+                 text(body: [( ) ;]), 
+                 parbreak(), 
+                 text(body: [//
 /* */
 /]), 
-  strong(body: text(body: [ */ ])), 
-  parbreak(), 
-  text(body: [🏕 == 🏕]), 
-  parbreak(), 
-  text(body: [A vs. \u{41}]), 
-  parbreak(), 
-  text(body: [let f() , ; : | + - /= == 12 “string”]), 
-  parbreak(), 
-  text(body: [10. May]), 
-  parbreak() }
+                 strong(body: text(body: [ */ ])), 
+                 parbreak(), 
+                 text(body: [🏕 == 🏕]), 
+                 parbreak(), 
+                 text(body: [A vs. \u{41}]), 
+                 parbreak(), 
+                 text(body: [let f() , ; : | + - /= == 12 “string”]), 
+                 parbreak(), 
+                 text(body: [10. May]), 
+                 parbreak() })

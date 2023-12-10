@@ -56,9 +56,9 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [fi vs. ]), 
-  text(body: text(body: [No fi]), 
-       ligatures: false), 
-  parbreak() }
+                 text(body: [fi vs. ]), 
+                 text(body: text(body: [No fi]), 
+                      ligatures: false), 
+                 parbreak() })

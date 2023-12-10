@@ -54,9 +54,9 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  page(body: [a11], 
-       fill: rgb(18%,80%,25%,100%), 
-       flipped: true), 
-  parbreak() }
+                 page(body: [a11], 
+                      fill: rgb(18%,80%,25%,100%), 
+                      flipped: true), 
+                 parbreak() })

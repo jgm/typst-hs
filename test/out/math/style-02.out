@@ -109,21 +109,21 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  math.equation(block: false, 
-                body: { text(body: [h]), 
-                        text(body: [,]), 
-                        math.bb(body: text(body: [N])), 
-                        text(body: [,]), 
-                        math.cal(body: text(body: [R])), 
-                        text(body: [,]), 
-                        text(body: [Θ]), 
-                        text(body: [,]), 
-                        math.italic(body: text(body: [Θ])), 
-                        text(body: [,]), 
-                        math.sans(body: text(body: [Θ])), 
-                        text(body: [,]), 
-                        math.sans(body: math.italic(body: text(body: [Θ]))) }, 
-                numbering: none), 
-  parbreak() }
+                 math.equation(block: false, 
+                               body: { text(body: [h]), 
+                                       text(body: [,]), 
+                                       math.bb(body: text(body: [N])), 
+                                       text(body: [,]), 
+                                       math.cal(body: text(body: [R])), 
+                                       text(body: [,]), 
+                                       text(body: [Θ]), 
+                                       text(body: [,]), 
+                                       math.italic(body: text(body: [Θ])), 
+                                       text(body: [,]), 
+                                       math.sans(body: text(body: [Θ])), 
+                                       text(body: [,]), 
+                                       math.sans(body: math.italic(body: text(body: [Θ]))) }, 
+                               numbering: none), 
+                 parbreak() })

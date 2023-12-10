@@ -79,18 +79,18 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  parbreak(), 
-  heading(body: text(body: [Introduction]), 
-          level: 1), 
-  <intro>, 
-  text(body: [
+                 parbreak(), 
+                 heading(body: text(body: [Introduction]), 
+                         level: 1), 
+                 <intro>, 
+                 text(body: [
 The beginning.]), 
-  parbreak(), 
-  heading(body: text(body: [Conclusion]), 
-          level: 1), 
-  text(body: [The end.]), 
-  parbreak() }
+                 parbreak(), 
+                 heading(body: text(body: [Conclusion]), 
+                         level: 1), 
+                 text(body: [The end.]), 
+                 parbreak() })

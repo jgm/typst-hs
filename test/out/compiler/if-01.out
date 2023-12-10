@@ -138,26 +138,26 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 One.]), 
-  parbreak(), 
-  parbreak(), 
-  text(body: [
+                 parbreak(), 
+                 parbreak(), 
+                 text(body: [
 Two.]), 
-  parbreak(), 
-  parbreak(), 
-  text(body: [Three.]), 
-  parbreak(), 
-  text(body: [Four.]), 
-  parbreak(), 
-  text(body: [Fi]), 
-  text(body: [ve.]), 
-  parbreak(), 
-  text(body: [
+                 parbreak(), 
+                 parbreak(), 
+                 text(body: [Three.]), 
+                 parbreak(), 
+                 text(body: [Four.]), 
+                 parbreak(), 
+                 text(body: [Fi]), 
+                 text(body: [ve.]), 
+                 parbreak(), 
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 Six.]), 
-  parbreak(), 
-  parbreak() }
+                 parbreak(), 
+                 parbreak() })

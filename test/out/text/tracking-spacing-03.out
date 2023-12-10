@@ -51,9 +51,9 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 النص], 
-       tracking: 0.3em), 
-  parbreak() }
+                      tracking: 0.3em), 
+                 parbreak() })

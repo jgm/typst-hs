@@ -123,41 +123,41 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  parbreak(), 
-  text(body: [
+                 parbreak(), 
+                 text(body: [
 ]), 
-  box(body: square(size: 10.0pt, 
-                   stroke: none)), 
-  text(body: [
+                 box(body: square(size: 10.0pt, 
+                                  stroke: none)), 
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  box(body: square(size: 10.0pt, 
-                   stroke: auto)), 
-  text(body: [
+                 box(body: square(size: 10.0pt, 
+                                  stroke: auto)), 
+                 text(body: [
 ]), 
-  box(body: square(fill: rgb(22%,80%,80%,100%), 
-                   size: 10.0pt, 
-                   stroke: auto)), 
-  text(body: [
+                 box(body: square(fill: rgb(22%,80%,80%,100%), 
+                                  size: 10.0pt, 
+                                  stroke: auto)), 
+                 text(body: [
 ]), 
-  box(body: square(size: 10.0pt, 
-                   stroke: 2.0pt)), 
-  text(body: [
+                 box(body: square(size: 10.0pt, 
+                                  stroke: 2.0pt)), 
+                 text(body: [
 ]), 
-  box(body: square(size: 10.0pt, 
-                   stroke: rgb(0%,45%,85%,100%))), 
-  text(body: [
+                 box(body: square(size: 10.0pt, 
+                                  stroke: rgb(0%,45%,85%,100%))), 
+                 text(body: [
 ]), 
-  box(body: square(fill: rgb(22%,80%,80%,100%), 
-                   size: 10.0pt, 
-                   stroke: rgb(0%,45%,85%,100%))), 
-  text(body: [
+                 box(body: square(fill: rgb(22%,80%,80%,100%), 
+                                  size: 10.0pt, 
+                                  stroke: rgb(0%,45%,85%,100%))), 
+                 text(body: [
 ]), 
-  box(body: square(fill: rgb(22%,80%,80%,100%), 
-                   size: 10.0pt, 
-                   stroke: (thickness: 2.0pt,
-                            color: rgb(0%,45%,85%,100%)))), 
-  parbreak() }
+                 box(body: square(fill: rgb(22%,80%,80%,100%), 
+                                  size: 10.0pt, 
+                                  stroke: (thickness: 2.0pt,
+                                           color: rgb(0%,45%,85%,100%)))), 
+                 parbreak() })

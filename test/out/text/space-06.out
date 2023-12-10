@@ -48,8 +48,8 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [LLLLLLLLLLLLLLLLLL R ]), 
-  emph(body: text(body: [L])), 
-  parbreak() }
+                 text(body: [LLLLLLLLLLLLLLLLLL R ]), 
+                 emph(body: text(body: [L])), 
+                 parbreak() })

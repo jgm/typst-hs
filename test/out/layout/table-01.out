@@ -54,12 +54,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  table(children: (text(body: [A]), 
-                   text(body: [B]), 
-                   text(body: [C])), 
-        columns: 3, 
-        fill: rgb(18%,80%,25%,100%), 
-        stroke: none), 
-  parbreak() }
+                 table(children: (text(body: [A]), 
+                                  text(body: [B]), 
+                                  text(body: [C])), 
+                       columns: 3, 
+                       fill: rgb(18%,80%,25%,100%), 
+                       stroke: none), 
+                 parbreak() })

@@ -93,28 +93,28 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ], 
-       font: ("PT Sans", 
-              "Noto Sans Arabic")), 
-  text(body: par(body: { text(body: [أنت A]), 
-                         emph(body: text(body: [B])), 
-                         text(body: [مطرC]) }), 
-       font: ("PT Sans", 
-              "Noto Sans Arabic"), 
-       lang: "ar"), 
-  text(body: [
+                      font: ("PT Sans", 
+                             "Noto Sans Arabic")), 
+                 text(body: par(body: { text(body: [أنت A]), 
+                                        emph(body: text(body: [B])), 
+                                        text(body: [مطرC]) }), 
+                      font: ("PT Sans", 
+                             "Noto Sans Arabic"), 
+                      lang: "ar"), 
+                 text(body: [
 ], 
-       font: ("PT Sans", 
-              "Noto Sans Arabic")), 
-  text(body: par(body: { text(body: [أنت A]), 
-                         emph(body: text(body: [B])), 
-                         text(body: [مطرC]) }), 
-       font: ("PT Sans", 
-              "Noto Sans Arabic"), 
-       lang: "de"), 
-  parbreak() }
+                      font: ("PT Sans", 
+                             "Noto Sans Arabic")), 
+                 text(body: par(body: { text(body: [أنت A]), 
+                                        emph(body: text(body: [B])), 
+                                        text(body: [مطرC]) }), 
+                      font: ("PT Sans", 
+                             "Noto Sans Arabic"), 
+                      lang: "de"), 
+                 parbreak() })

@@ -49,8 +49,8 @@
 , Heading 1 [ Text "Heading" ]
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [1234]) }
+                 text(body: [1234]) })

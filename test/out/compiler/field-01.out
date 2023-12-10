@@ -69,7 +69,7 @@
 , BulletListItem [ Text "C" , ParBreak ]
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  parbreak(), 
-  text(body: [✅]) }
+                 parbreak(), 
+                 text(body: [✅]) })

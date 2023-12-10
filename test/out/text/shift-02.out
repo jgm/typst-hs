@@ -130,26 +130,26 @@
 , HardBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  underline(body: { text(body: [The claim]), 
-                    super(body: text(body: [[4]])) }, 
-            offset: 0.15em, 
-            stroke: 0.5pt), 
-  text(body: [ has been disputed. ]), 
-  linebreak(), 
-  text(body: [The claim]), 
-  super(body: underline(body: text(body: [[4]]), 
-                        offset: 0.15em, 
-                        stroke: 0.5pt)), 
-  text(body: [ has been disputed. ]), 
-  linebreak(), 
-  text(body: [It really has been]), 
-  super(body: box(body: text(baseline: 0.0pt, 
-                             body: underline(body: text(body: [[4]]), 
-                                             offset: 0.15em, 
-                                             stroke: 0.5pt)))), 
-  text(body: [ ]), 
-  linebreak() }
+                 underline(body: { text(body: [The claim]), 
+                                   super(body: text(body: [[4]])) }, 
+                           offset: 0.15em, 
+                           stroke: 0.5pt), 
+                 text(body: [ has been disputed. ]), 
+                 linebreak(), 
+                 text(body: [The claim]), 
+                 super(body: underline(body: text(body: [[4]]), 
+                                       offset: 0.15em, 
+                                       stroke: 0.5pt)), 
+                 text(body: [ has been disputed. ]), 
+                 linebreak(), 
+                 text(body: [It really has been]), 
+                 super(body: box(body: text(baseline: 0.0pt, 
+                                            body: underline(body: text(body: [[4]]), 
+                                                            offset: 0.15em, 
+                                                            stroke: 0.5pt)))), 
+                 text(body: [ ]), 
+                 linebreak() })

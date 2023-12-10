@@ -99,13 +99,13 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  parbreak(), 
-  text(body: [Beautiful footnotes. ]), 
-  footnote(body: text(body: [Wonderful, aren’t they?])), 
-  parbreak() }
+                 parbreak(), 
+                 text(body: [Beautiful footnotes. ]), 
+                 footnote(body: text(body: [Wonderful, aren’t they?])), 
+                 parbreak() })

@@ -86,22 +86,22 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  parbreak(), 
-  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut], 
-       size: 6.0pt), 
-  text(body: [
+                 parbreak(), 
+                 text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut], 
+                      size: 6.0pt), 
+                 text(body: [
 ], size: 6.0pt), 
-  align(alignment: center, 
-        body: raw(align: right, 
-                  block: true, 
-                  lang: "typ", 
-                  text: "#let f(x) = x\n#align(center, line(length: 1em))")), 
-  text(body: [
+                 align(alignment: center, 
+                       body: raw(align: right, 
+                                 block: true, 
+                                 lang: "typ", 
+                                 text: "#let f(x) = x\n#align(center, line(length: 1em))")), 
+                 text(body: [
 ], size: 6.0pt), 
-  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut], 
-       size: 6.0pt), 
-  parbreak() }
+                 text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut], 
+                      size: 6.0pt), 
+                 parbreak() })

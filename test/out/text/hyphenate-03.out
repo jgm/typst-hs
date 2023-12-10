@@ -65,18 +65,18 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ], 
-       hyphenate: true, 
-       lang: "de"), 
-  grid(children: (text(body: [Barankauf], 
-                       hyphenate: true, 
-                       lang: "de"), 
-                  text(body: [Bar­ankauf], 
-                       hyphenate: true, 
-                       lang: "de")), 
-       columns: (20.0pt, 20.0pt), 
-       gutter: 20.0pt), 
-  parbreak() }
+                      hyphenate: true, 
+                      lang: "de"), 
+                 grid(children: (text(body: [Barankauf], 
+                                      hyphenate: true, 
+                                      lang: "de"), 
+                                 text(body: [Bar­ankauf], 
+                                      hyphenate: true, 
+                                      lang: "de")), 
+                      columns: (20.0pt, 20.0pt), 
+                      gutter: 20.0pt), 
+                 parbreak() })

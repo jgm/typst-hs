@@ -89,32 +89,32 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ], 
-       font: "Noto Serif CJK SC", 
-       lang: "zh"), 
-  text(body: [
+                      font: "Noto Serif CJK SC", 
+                      lang: "zh"), 
+                 text(body: [
 ], 
-       font: "Noto Serif CJK SC", 
-       lang: "zh"), 
-  rect(body: { text(body: [
+                      font: "Noto Serif CJK SC", 
+                      lang: "zh"), 
+                 rect(body: { text(body: [
 “引号测试”，还，], 
-                    font: "Noto Serif CJK SC", 
-                    lang: "zh"), 
-               parbreak(), 
-               text(body: [《书名》《测试》下一行], 
-                    font: "Noto Serif CJK SC", 
-                    lang: "zh"), 
-               parbreak(), 
-               text(body: [《书名》《测试》。], 
-                    font: "Noto Serif CJK SC", 
-                    lang: "zh"), 
-               parbreak() }, 
-       fill: rgb(5%,5%,5%,100%), 
-       inset: 0.0pt, 
-       width: 80.0pt), 
-  parbreak() }
+                                   font: "Noto Serif CJK SC", 
+                                   lang: "zh"), 
+                              parbreak(), 
+                              text(body: [《书名》《测试》下一行], 
+                                   font: "Noto Serif CJK SC", 
+                                   lang: "zh"), 
+                              parbreak(), 
+                              text(body: [《书名》《测试》。], 
+                                   font: "Noto Serif CJK SC", 
+                                   lang: "zh"), 
+                              parbreak() }, 
+                      fill: rgb(5%,5%,5%,100%), 
+                      inset: 0.0pt, 
+                      width: 80.0pt), 
+                 parbreak() })

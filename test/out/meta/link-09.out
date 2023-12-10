@@ -57,12 +57,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [Text ]), 
-  <hey>, 
-  text(body: [
+                 text(body: [Text ]), 
+                 <hey>, 
+                 text(body: [
 ]), 
-  link(body: text(body: [Go to text.]), 
-       dest: <hey>), 
-  parbreak() }
+                 link(body: text(body: [Go to text.]), 
+                      dest: <hey>), 
+                 parbreak() })

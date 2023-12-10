@@ -84,18 +84,18 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  parbreak(), 
-  text(body: [()]), 
-  parbreak(), 
-  text(body: [1]), 
-  parbreak(), 
-  text(body: [(-1)]), 
-  parbreak(), 
-  text(body: [(true, false)]), 
-  parbreak(), 
-  text(body: [("1", rgb(0%,0%,0%,100%))]), 
-  parbreak() }
+                 parbreak(), 
+                 text(body: [()]), 
+                 parbreak(), 
+                 text(body: [1]), 
+                 parbreak(), 
+                 text(body: [(-1)]), 
+                 parbreak(), 
+                 text(body: [(true, false)]), 
+                 parbreak(), 
+                 text(body: [("1", rgb(0%,0%,0%,100%))]), 
+                 parbreak() })

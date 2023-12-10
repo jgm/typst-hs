@@ -47,14 +47,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  raw(block: true, 
-      lang: "typ", 
-      text: "#let x = 1"), 
-  text(body: [ ]), 
-  linebreak(), 
-  raw(block: true, 
-      lang: "typ", 
-      text: "#f(1)"), 
-  parbreak() }
+                 raw(block: true, 
+                     lang: "typ", 
+                     text: "#let x = 1"), 
+                 text(body: [ ]), 
+                 linebreak(), 
+                 raw(block: true, 
+                     lang: "typ", 
+                     text: "#f(1)"), 
+                 parbreak() })

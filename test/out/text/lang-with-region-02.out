@@ -56,11 +56,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ], 
-       lang: "zh", 
-       region: "TW"), 
-  outline(), 
-  parbreak() }
+                      lang: "zh", 
+                      region: "TW"), 
+                 outline(), 
+                 parbreak() })

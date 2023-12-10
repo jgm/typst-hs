@@ -63,12 +63,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [Attached to:
+                 text(body: [Attached to:
 ]), 
-  list(children: (text(body: [the bottom]), 
-                  text(body: [of the paragraph
+                 list(children: (text(body: [the bottom]), 
+                                 text(body: [of the paragraph
 ]))), 
-  text(body: [Next paragraph.]), 
-  parbreak() }
+                 text(body: [Next paragraph.]), 
+                 parbreak() })

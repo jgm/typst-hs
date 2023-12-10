@@ -66,18 +66,18 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 Hello ]), 
-  ref(supplement: auto, 
-      target: <netwok>), 
-  text(body: [
+                 ref(supplement: auto, 
+                     target: <netwok>), 
+                 text(body: [
 And again: ]), 
-  ref(supplement: auto, 
-      target: <netwok>), 
-  parbreak(), 
-  pagebreak(), 
-  text(body: [
+                 ref(supplement: auto, 
+                     target: <netwok>), 
+                 parbreak(), 
+                 pagebreak(), 
+                 text(body: [
 ]), 
-  bibliography(path: "/works.bib", 
-               style: "chicago-notes"), 
-  parbreak() }
+                 bibliography(path: "/works.bib", 
+                              style: "chicago-notes"), 
+                 parbreak() })

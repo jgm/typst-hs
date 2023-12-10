@@ -59,12 +59,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  parbreak(), 
-  raw(block: true, 
-      lang: "rust", 
-      text: "/// A carefully designed state machine.\n#[derive(Debug)]\nenum State<'a> { A(u8), B(&'a str) }\n\nfn advance(state: State<'_>) -> State<'_> {\n    unimplemented!(\"state machine\")\n}\n"), 
-  parbreak() }
+                 parbreak(), 
+                 raw(block: true, 
+                     lang: "rust", 
+                     text: "/// A carefully designed state machine.\n#[derive(Debug)]\nenum State<'a> { A(u8), B(&'a str) }\n\nfn advance(state: State<'_>) -> State<'_> {\n    unimplemented!(\"state machine\")\n}\n"), 
+                 parbreak() })

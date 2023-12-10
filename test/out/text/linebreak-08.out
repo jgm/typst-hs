@@ -60,11 +60,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [First part]), 
-  text(body: [Second part]), 
-  parbreak(), 
-  text(body: [First part ]), 
-  text(body: [Second part]), 
-  parbreak() }
+                 text(body: [First part]), 
+                 text(body: [Second part]), 
+                 parbreak(), 
+                 text(body: [First part ]), 
+                 text(body: [Second part]), 
+                 parbreak() })

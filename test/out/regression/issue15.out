@@ -57,14 +57,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  math.equation(block: false, 
-                body: text(body: […]), 
-                numbering: none), 
-  text(body: [
+                 math.equation(block: false, 
+                               body: text(body: […]), 
+                               numbering: none), 
+                 text(body: [
 ]), 
-  math.equation(block: false, 
-                body: text(body: [“]), 
-                numbering: none), 
-  parbreak() }
+                 math.equation(block: false, 
+                               body: text(body: [“]), 
+                               numbering: none), 
+                 parbreak() })

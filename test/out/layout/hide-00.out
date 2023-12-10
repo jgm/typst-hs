@@ -70,14 +70,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 AB ]), 
-  h(amount: 1.0fr), 
-  text(body: [ CD ]), 
-  linebreak(), 
-  hide(body: text(body: [A])), 
-  text(body: [B ]), 
-  h(amount: 1.0fr), 
-  text(body: [ C]), 
-  hide(body: text(body: [D])), 
-  parbreak() }
+                 h(amount: 1.0fr), 
+                 text(body: [ CD ]), 
+                 linebreak(), 
+                 hide(body: text(body: [A])), 
+                 text(body: [B ]), 
+                 h(amount: 1.0fr), 
+                 text(body: [ C]), 
+                 hide(body: text(body: [D])), 
+                 parbreak() })

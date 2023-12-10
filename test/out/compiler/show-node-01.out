@@ -69,13 +69,13 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 A ]), 
-  heading(body: text(body: [Heading]), 
-          level: 1), 
-  text(body: [ C]), 
-  parbreak() }
+                 heading(body: text(body: [Heading]), 
+                         level: 1), 
+                 text(body: [ C]), 
+                 parbreak() })

@@ -74,16 +74,16 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: text(body: [0123456789]), 
-       number-width: "proportional"), 
-  text(body: [ ]), 
-  linebreak(), 
-  text(body: text(body: [3456789123]), 
-       number-width: "tabular"), 
-  text(body: [ ]), 
-  linebreak(), 
-  text(body: text(body: [0123456789]), 
-       number-width: "tabular"), 
-  parbreak() }
+                 text(body: text(body: [0123456789]), 
+                      number-width: "proportional"), 
+                 text(body: [ ]), 
+                 linebreak(), 
+                 text(body: text(body: [3456789123]), 
+                      number-width: "tabular"), 
+                 text(body: [ ]), 
+                 linebreak(), 
+                 text(body: text(body: [0123456789]), 
+                      number-width: "tabular"), 
+                 parbreak() })

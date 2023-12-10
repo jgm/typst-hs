@@ -53,11 +53,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  raw(block: false, 
-      lang: none, 
-      text: "Roboto"), 
-  parbreak() }
+                 raw(block: false, 
+                     lang: none, 
+                     text: "Roboto"), 
+                 parbreak() })

@@ -74,16 +74,16 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 Life المطر هو الحياة ], 
-       font: ("Noto Sans Arabic", 
-              "PT Sans"), 
-       lang: "ar"), 
-  linebreak(), 
-  text(body: [الحياة تمطر is rain.], 
-       font: ("Noto Sans Arabic", 
-              "PT Sans"), 
-       lang: "ar"), 
-  parbreak() }
+                      font: ("Noto Sans Arabic", 
+                             "PT Sans"), 
+                      lang: "ar"), 
+                 linebreak(), 
+                 text(body: [الحياة تمطر is rain.], 
+                      font: ("Noto Sans Arabic", 
+                             "PT Sans"), 
+                      lang: "ar"), 
+                 parbreak() })

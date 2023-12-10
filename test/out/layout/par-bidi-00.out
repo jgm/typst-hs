@@ -71,14 +71,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: par(body: text(body: [Text טֶקסט])), 
-       lang: "he"), 
-  text(body: [
+                 text(body: par(body: text(body: [Text טֶקסט])), 
+                      lang: "he"), 
+                 text(body: [
 ]), 
-  text(body: par(body: text(body: [Text טֶקסט])), 
-       lang: "de"), 
-  parbreak() }
+                 text(body: par(body: text(body: [Text טֶקסט])), 
+                      lang: "de"), 
+                 parbreak() })

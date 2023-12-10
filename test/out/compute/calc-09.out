@@ -111,23 +111,23 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [✅]), 
-  text(body: [
+                 text(body: [✅]), 
+                 text(body: [
 ]), 
-  text(body: [✅]), 
-  text(body: [
+                 text(body: [✅]), 
+                 text(body: [
 ]), 
-  text(body: [✅]), 
-  text(body: [
+                 text(body: [✅]), 
+                 text(body: [
 ]), 
-  text(body: [✅]), 
-  text(body: [
+                 text(body: [✅]), 
+                 text(body: [
 ]), 
-  text(body: [❌(]), 
-  text(body: [1]), 
-  text(body: [ /= ]), 
-  text(body: [0]), 
-  text(body: [)]), 
-  parbreak() }
+                 text(body: [❌(]), 
+                 text(body: [1]), 
+                 text(body: [ /= ]), 
+                 text(body: [0]), 
+                 text(body: [)]), 
+                 parbreak() })

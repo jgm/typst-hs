@@ -116,26 +116,26 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [A]), 
-  box(body: repeat(body: rect(height: 0.7em, 
-                              width: 6.0em)), 
-      width: 1.0fr), 
-  text(body: [B]), 
-  parbreak(), 
-  text(body: [
+                 text(body: [A]), 
+                 box(body: repeat(body: rect(height: 0.7em, 
+                                             width: 6.0em)), 
+                     width: 1.0fr), 
+                 text(body: [B]), 
+                 parbreak(), 
+                 text(body: [
 A]), 
-  box(body: repeat(body: rect(height: 0.7em, 
-                              width: 6.0em)), 
-      width: 1.0fr), 
-  text(body: [B]), 
-  parbreak(), 
-  text(body: [
+                 box(body: repeat(body: rect(height: 0.7em, 
+                                             width: 6.0em)), 
+                     width: 1.0fr), 
+                 text(body: [B]), 
+                 parbreak(), 
+                 text(body: [
 ريجين], 
-       dir: rtl), 
-  box(body: repeat(body: rect(height: 0.7em, 
-                              width: 4.0em)), 
-      width: 1.0fr), 
-  text(body: [سون], dir: rtl), 
-  parbreak() }
+                      dir: rtl), 
+                 box(body: repeat(body: rect(height: 0.7em, 
+                                             width: 4.0em)), 
+                     width: 1.0fr), 
+                 text(body: [سون], dir: rtl), 
+                 parbreak() })

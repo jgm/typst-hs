@@ -66,13 +66,13 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  image(path: "test/assets/files/rhino.png"), 
-  parbreak(), 
-  text(body: [
+                 image(path: "test/assets/files/rhino.png"), 
+                 parbreak(), 
+                 text(body: [
 ]), 
-  image(path: "test/assets/files/tiger.jpg"), 
-  parbreak() }
+                 image(path: "test/assets/files/tiger.jpg"), 
+                 parbreak() })

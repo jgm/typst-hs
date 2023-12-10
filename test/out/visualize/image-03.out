@@ -58,10 +58,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 Stuff
 ]), 
-  image(path: "test/assets/files/rhino.png"), 
-  parbreak() }
+                 image(path: "test/assets/files/rhino.png"), 
+                 parbreak() })

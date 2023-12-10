@@ -100,17 +100,17 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [✅]), 
-  text(body: [
+                 text(body: [✅]), 
+                 text(body: [
 ]), 
-  text(body: [❌(]), 
-  text(body: [luma(64%)]), 
-  text(body: [ /= ]), 
-  text(body: [luma(63%)]), 
-  text(body: [)]), 
-  text(body: [
+                 text(body: [❌(]), 
+                 text(body: [luma(64%)]), 
+                 text(body: [ /= ]), 
+                 text(body: [luma(63%)]), 
+                 text(body: [)]), 
+                 text(body: [
 ]), 
-  text(body: [✅]), 
-  parbreak() }
+                 text(body: [✅]), 
+                 parbreak() })

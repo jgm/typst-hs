@@ -134,24 +134,24 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [Read the docs ]), 
-  footnote(body: link(body: [https://typst.app/docs], 
-                      dest: "https://typst.app/docs")), 
-  text(body: [!
+                 text(body: [Read the docs ]), 
+                 footnote(body: link(body: [https://typst.app/docs], 
+                                     dest: "https://typst.app/docs")), 
+                 text(body: [!
 ]), 
-  figure(body: image(path: "test/assets/files/graph.png", 
-                     width: 70%), 
-         caption: { text(body: [
+                 figure(body: image(path: "test/assets/files/graph.png", 
+                                    width: 70%), 
+                        caption: { text(body: [
 A graph ]), 
-                    footnote(body: { text(body: [A ]), 
-                                     emph(body: text(body: [graph])), 
-                                     text(body: [ is a structure with nodes and edges.]) }), 
-                    parbreak() }), 
-  text(body: [
+                                   footnote(body: { text(body: [A ]), 
+                                                    emph(body: text(body: [graph])), 
+                                                    text(body: [ is a structure with nodes and edges.]) }), 
+                                   parbreak() }), 
+                 text(body: [
 More ]), 
-  footnote(body: text(body: [just for …])), 
-  text(body: [ footnotes ]), 
-  footnote(body: text(body: [… testing. :)])), 
-  parbreak() }
+                 footnote(body: text(body: [just for …])), 
+                 text(body: [ footnotes ]), 
+                 footnote(body: text(body: [… testing. :)])), 
+                 parbreak() })

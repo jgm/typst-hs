@@ -75,26 +75,26 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  terms(children: ((text(body: [Lorem]), 
-                    { text(body: [Latin stuff.]), 
-                      parbreak() }))), 
-  text(body: [
+                 terms(children: ((text(body: [Lorem]), 
+                                   { text(body: [Latin stuff.]), 
+                                     parbreak() }))), 
+                 text(body: [
 ]), 
-  terms(children: ((text(body: [ipsum]), 
-                    { text(body: [Latin stuff.]), 
-                      parbreak() }))), 
-  text(body: [
+                 terms(children: ((text(body: [ipsum]), 
+                                   { text(body: [Latin stuff.]), 
+                                     parbreak() }))), 
+                 text(body: [
 ]), 
-  terms(children: ((text(body: [dolor]), 
-                    { text(body: [Latin stuff.]), 
-                      parbreak() }))), 
-  text(body: [
+                 terms(children: ((text(body: [dolor]), 
+                                   { text(body: [Latin stuff.]), 
+                                     parbreak() }))), 
+                 text(body: [
 ]), 
-  terms(children: ((text(body: [sit]), 
-                    { text(body: [Latin stuff.]), 
-                      parbreak() }))), 
-  parbreak() }
+                 terms(children: ((text(body: [sit]), 
+                                   { text(body: [Latin stuff.]), 
+                                     parbreak() }))), 
+                 parbreak() })

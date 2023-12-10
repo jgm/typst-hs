@@ -86,32 +86,32 @@
 , EnumListItem Nothing [ Text "F" , ParBreak ]
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ], 
-       font: "New Computer Modern"), 
-  text(body: [
+                      font: "New Computer Modern"), 
+                 text(body: [
 ], 
-       font: "New Computer Modern"), 
-  enum(children: ({ text(body: [A
+                      font: "New Computer Modern"), 
+                 enum(children: ({ text(body: [A
 ], 
-                         font: "New Computer Modern"), 
-                    enum(children: (text(body: [B], 
-                                         font: "New Computer Modern"), 
-                                    { text(body: [C
+                                        font: "New Computer Modern"), 
+                                   enum(children: (text(body: [B], 
+                                                        font: "New Computer Modern"), 
+                                                   { text(body: [C
 ], 
-                                           font: "New Computer Modern"), 
-                                      enum(children: (text(body: [D], 
-                                                           font: "New Computer Modern")), 
-                                           full: true, 
-                                           numbering: ) }), 
-                         full: true, 
-                         numbering: ) }, 
-                  text(body: [E], 
-                       font: "New Computer Modern"), 
-                  { text(body: [F], 
-                         font: "New Computer Modern"), 
-                    parbreak() }), 
-       full: true, 
-       numbering: ) }
+                                                          font: "New Computer Modern"), 
+                                                     enum(children: (text(body: [D], 
+                                                                          font: "New Computer Modern")), 
+                                                          full: true, 
+                                                          numbering: ) }), 
+                                        full: true, 
+                                        numbering: ) }, 
+                                 text(body: [E], 
+                                      font: "New Computer Modern"), 
+                                 { text(body: [F], 
+                                        font: "New Computer Modern"), 
+                                   parbreak() }), 
+                      full: true, 
+                      numbering: ) })

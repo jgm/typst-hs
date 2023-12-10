@@ -74,24 +74,24 @@
     ]
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  parbreak(), 
-  enum(children: (text(body: [ c]), 
-                  text(body: [ d]), 
-                  { text(body: [e]), 
-                    linebreak(), 
-                    text(body: [f
+                 parbreak(), 
+                 enum(children: (text(body: [ c]), 
+                                 text(body: [ d]), 
+                                 { text(body: [e]), 
+                                   linebreak(), 
+                                   text(body: [f
 ]), 
-                    enum(children: ({ text(body: [ f]), 
-                                      linebreak(), 
-                                      text(body: [g]) }, 
-                                    text(body: [g]), 
-                                    { text(body: [h]), 
-                                      parbreak() }), 
-                         number-align: start, 
-                         start: 2) }), 
-       number-align: start, 
-       start: 4) }
+                                   enum(children: ({ text(body: [ f]), 
+                                                     linebreak(), 
+                                                     text(body: [g]) }, 
+                                                   text(body: [g]), 
+                                                   { text(body: [h]), 
+                                                     parbreak() }), 
+                                        number-align: start, 
+                                        start: 2) }), 
+                      number-align: start, 
+                      start: 4) })

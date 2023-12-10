@@ -47,7 +47,7 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  footnote(body: text(body: [Hi])), 
-  parbreak() }
+                 footnote(body: text(body: [Hi])), 
+                 parbreak() })

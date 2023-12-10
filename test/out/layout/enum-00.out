@@ -51,9 +51,9 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  enum(children: (text(body: [Embrace]), 
-                  text(body: [Extend]), 
-                  text(body: [Extinguish]))), 
-  parbreak() }
+                 enum(children: (text(body: [Embrace]), 
+                                 text(body: [Extend]), 
+                                 text(body: [Extinguish]))), 
+                 parbreak() })

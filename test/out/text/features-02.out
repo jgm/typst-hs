@@ -77,22 +77,22 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 a vs ], 
-       font: "IBM Plex Serif"), 
-  text(alternates: true, 
-       body: text(body: [a], 
-                  font: "IBM Plex Serif"), 
-       font: "IBM Plex Serif"), 
-  text(body: [ ], 
-       font: "IBM Plex Serif"), 
-  linebreak(), 
-  text(body: [ß vs ], 
-       font: "IBM Plex Serif"), 
-  text(body: text(body: [ß], 
-                  font: "IBM Plex Serif"), 
-       font: "IBM Plex Serif", 
-       stylistic-set: 5), 
-  parbreak() }
+                      font: "IBM Plex Serif"), 
+                 text(alternates: true, 
+                      body: text(body: [a], 
+                                 font: "IBM Plex Serif"), 
+                      font: "IBM Plex Serif"), 
+                 text(body: [ ], 
+                      font: "IBM Plex Serif"), 
+                 linebreak(), 
+                 text(body: [ß vs ], 
+                      font: "IBM Plex Serif"), 
+                 text(body: text(body: [ß], 
+                                 font: "IBM Plex Serif"), 
+                      font: "IBM Plex Serif", 
+                      stylistic-set: 5), 
+                 parbreak() })

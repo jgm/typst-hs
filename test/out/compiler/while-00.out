@@ -96,43 +96,43 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [2]), 
-  parbreak(), 
-  text(body: [
+                 text(body: [2]), 
+                 parbreak(), 
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [4]), 
-  parbreak(), 
-  text(body: [
+                 text(body: [4]), 
+                 parbreak(), 
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [6]), 
-  parbreak(), 
-  text(body: [
+                 text(body: [6]), 
+                 parbreak(), 
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [8]), 
-  parbreak(), 
-  text(body: [
+                 text(body: [8]), 
+                 parbreak(), 
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [10]), 
-  parbreak(), 
-  parbreak(), 
-  text(body: [
+                 text(body: [10]), 
+                 parbreak(), 
+                 parbreak(), 
+                 text(body: [
 ]), 
-  text(body: [Hi.]), 
-  parbreak(), 
-  parbreak() }
+                 text(body: [Hi.]), 
+                 parbreak(), 
+                 parbreak() })

@@ -71,19 +71,19 @@
 , BulletListItem [ Text "F" , ParBreak ]
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  list(children: (text(body: [A]), 
-                  { text(body: [B
+                 list(children: (text(body: [A]), 
+                                 { text(body: [B
 ]), 
-                    list(children: (text(body: [C]), 
-                                    { text(body: [D
+                                   list(children: (text(body: [C]), 
+                                                   { text(body: [D
 ]), 
-                                      list(children: (text(body: [E])), 
-                                           marker: ) }), 
-                         marker: ) }, 
-                  { text(body: [F]), 
-                    parbreak() }), 
-       marker: ) }
+                                                     list(children: (text(body: [E])), 
+                                                          marker: ) }), 
+                                        marker: ) }, 
+                                 { text(body: [F]), 
+                                   parbreak() }), 
+                      marker: ) })

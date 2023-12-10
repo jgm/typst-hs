@@ -91,25 +91,25 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  grid(children: (image(fit: "contain", 
-                        height: 100%, 
-                        path: "test/assets/files/tiger.jpg", 
-                        width: 100%), 
-                  image(fit: "cover", 
-                        height: 100%, 
-                        path: "test/assets/files/tiger.jpg", 
-                        width: 100%), 
-                  image(fit: "stretch", 
-                        height: 100%, 
-                        path: "test/assets/files/monkey.svg", 
-                        width: 100%)), 
-       columns: (1.0fr, 
-                 1.0fr, 
-                 1.0fr), 
-       gutter: 3.0pt, 
-       rows: 100%), 
-  parbreak() }
+                 grid(children: (image(fit: "contain", 
+                                       height: 100%, 
+                                       path: "test/assets/files/tiger.jpg", 
+                                       width: 100%), 
+                                 image(fit: "cover", 
+                                       height: 100%, 
+                                       path: "test/assets/files/tiger.jpg", 
+                                       width: 100%), 
+                                 image(fit: "stretch", 
+                                       height: 100%, 
+                                       path: "test/assets/files/monkey.svg", 
+                                       width: 100%)), 
+                      columns: (1.0fr, 
+                                1.0fr, 
+                                1.0fr), 
+                      gutter: 3.0pt, 
+                      rows: 100%), 
+                 parbreak() })

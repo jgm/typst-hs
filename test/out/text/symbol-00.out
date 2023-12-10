@@ -124,41 +124,41 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [😀]), 
-  text(body: [
+                 text(body: [😀]), 
+                 text(body: [
 ]), 
-  text(body: [👵]), 
-  text(body: [
+                 text(body: [👵]), 
+                 text(body: [
 ]), 
-  text(body: [🐢]), 
-  parbreak(), 
-  text(body: [
+                 text(body: [🐢]), 
+                 parbreak(), 
+                 text(body: [
 ], 
-       font: "New Computer Modern Math"), 
-  text(body: [→], 
-       font: "New Computer Modern Math"), 
-  text(body: [
+                      font: "New Computer Modern Math"), 
+                 text(body: [→], 
+                      font: "New Computer Modern Math"), 
+                 text(body: [
 ], 
-       font: "New Computer Modern Math"), 
-  text(body: [←], 
-       font: "New Computer Modern Math"), 
-  text(body: [
+                      font: "New Computer Modern Math"), 
+                 text(body: [←], 
+                      font: "New Computer Modern Math"), 
+                 text(body: [
 ], 
-       font: "New Computer Modern Math"), 
-  text(body: [⇝], 
-       font: "New Computer Modern Math"), 
-  text(body: [
+                      font: "New Computer Modern Math"), 
+                 text(body: [⇝], 
+                      font: "New Computer Modern Math"), 
+                 text(body: [
 ], 
-       font: "New Computer Modern Math"), 
-  text(body: [⤤], 
-       font: "New Computer Modern Math"), 
-  parbreak(), 
-  text(body: [→], 
-       font: "New Computer Modern Math"), 
-  text(body: [this and this], 
-       font: "New Computer Modern Math"), 
-  text(body: [←], 
-       font: "New Computer Modern Math"), 
-  parbreak() }
+                      font: "New Computer Modern Math"), 
+                 text(body: [⤤], 
+                      font: "New Computer Modern Math"), 
+                 parbreak(), 
+                 text(body: [→], 
+                      font: "New Computer Modern Math"), 
+                 text(body: [this and this], 
+                      font: "New Computer Modern Math"), 
+                 text(body: [←], 
+                      font: "New Computer Modern Math"), 
+                 parbreak() })

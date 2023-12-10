@@ -69,17 +69,17 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  math.equation(block: true, 
-                body: { math.attach(b: { text(body: [1]), 
-                                         text(body: [≤]), 
-                                         text(body: [n]), 
-                                         text(body: [≤]), 
-                                         text(body: [m]) }, 
-                                    base: math.op(limits: true, 
-                                                  text: "max"), 
-                                    t: none), 
-                        text(body: [n]) }, 
-                numbering: none), 
-  parbreak() }
+                 math.equation(block: true, 
+                               body: { math.attach(b: { text(body: [1]), 
+                                                        text(body: [≤]), 
+                                                        text(body: [n]), 
+                                                        text(body: [≤]), 
+                                                        text(body: [m]) }, 
+                                                   base: math.op(limits: true, 
+                                                                 text: "max"), 
+                                                   t: none), 
+                                       text(body: [n]) }, 
+                               numbering: none), 
+                 parbreak() })

@@ -99,30 +99,32 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ], size: 8.0pt), 
-  stack(children: (1.0fr, 
-                   text(body: [A], size: 8.0pt), 
-                   1.0fr, 
-                   text(body: [B], size: 8.0pt), 
-                   text(body: [C], 
-                        size: 8.0pt)), 
-        dir: rtl), 
-  text(body: [
+                 stack(children: (1.0fr, 
+                                  text(body: [A], 
+                                       size: 8.0pt), 
+                                  1.0fr, 
+                                  text(body: [B], 
+                                       size: 8.0pt), 
+                                  text(body: [C], 
+                                       size: 8.0pt)), 
+                       dir: rtl), 
+                 text(body: [
 ], size: 8.0pt), 
-  stack(children: (align(alignment: center, 
-                         body: text(body: [A], 
-                                    size: 8.0pt)), 
-                   align(alignment: left, 
-                         body: text(body: [B], 
-                                    size: 8.0pt)), 
-                   text(body: [C], 
-                        size: 8.0pt)), 
-        dir: rtl), 
-  parbreak() }
+                 stack(children: (align(alignment: center, 
+                                        body: text(body: [A], 
+                                                   size: 8.0pt)), 
+                                  align(alignment: left, 
+                                        body: text(body: [B], 
+                                                   size: 8.0pt)), 
+                                  text(body: [C], 
+                                       size: 8.0pt)), 
+                       dir: rtl), 
+                 parbreak() })

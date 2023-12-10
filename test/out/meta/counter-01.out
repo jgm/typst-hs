@@ -110,25 +110,25 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [ ]), 
-  <heya>, 
-  text(body: [
+                 text(body: [ ]), 
+                 <heya>, 
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  parbreak(), 
-  box(body: text(body: [hey, there!])), 
-  text(body: [ ]), 
-  <heya>, 
-  text(body: [ ]), 
-  text(body: [0]), 
-  text(body: [ ]), 
-  linebreak(), 
-  box(body: text(body: [more here!])), 
-  text(body: [ ]), 
-  <heya>, 
-  text(body: [ ]), 
-  text(body: [0]), 
-  parbreak() }
+                 parbreak(), 
+                 box(body: text(body: [hey, there!])), 
+                 text(body: [ ]), 
+                 <heya>, 
+                 text(body: [ ]), 
+                 text(body: [0]), 
+                 text(body: [ ]), 
+                 linebreak(), 
+                 box(body: text(body: [more here!])), 
+                 text(body: [ ]), 
+                 <heya>, 
+                 text(body: [ ]), 
+                 text(body: [0]), 
+                 parbreak() })

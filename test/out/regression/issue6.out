@@ -55,11 +55,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  math.equation(block: true, 
-                body: math.equation(block: false, 
-                                    body: text(body: [3]), 
-                                    numbering: none), 
-                numbering: none), 
-  parbreak() }
+                 math.equation(block: true, 
+                               body: math.equation(block: false, 
+                                                   body: text(body: [3]), 
+                                                   numbering: none), 
+                               numbering: none), 
+                 parbreak() })

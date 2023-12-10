@@ -79,18 +79,18 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  align(alignment: left, 
-        body: text(body: [Before])), 
-  text(body: [
+                 align(alignment: left, 
+                       body: text(body: [Before])), 
+                 text(body: [
 ]), 
-  pad(body: image(path: "test/assets/files/tiger.jpg"), 
-      rest: 10.0pt), 
-  text(body: [
+                 pad(body: image(path: "test/assets/files/tiger.jpg"), 
+                     rest: 10.0pt), 
+                 text(body: [
 ]), 
-  align(alignment: right, 
-        body: text(body: [After])), 
-  parbreak() }
+                 align(alignment: right, 
+                       body: text(body: [After])), 
+                 parbreak() })

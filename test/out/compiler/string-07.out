@@ -97,20 +97,20 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [✅]), 
-  text(body: [
+                 text(body: [✅]), 
+                 text(body: [
 ]), 
-  text(body: [❌(]), 
-  text(body: ["c🏡def"]), 
-  text(body: [ /= ]), 
-  text(body: ["c🏡"]), 
-  text(body: [)]), 
-  text(body: [
+                 text(body: [❌(]), 
+                 text(body: ["c🏡def"]), 
+                 text(body: [ /= ]), 
+                 text(body: ["c🏡"]), 
+                 text(body: [)]), 
+                 text(body: [
 ]), 
-  text(body: [✅]), 
-  text(body: [
+                 text(body: [✅]), 
+                 text(body: [
 ]), 
-  text(body: [✅]), 
-  parbreak() }
+                 text(body: [✅]), 
+                 parbreak() })

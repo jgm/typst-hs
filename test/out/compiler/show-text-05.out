@@ -91,14 +91,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [Rust]), 
-  text(body: [ (🚀)]), 
-  text(body: [ is memory-safe and blazingly fast. Let’s rewrite everything in ]), 
-  text(body: [rust]), 
-  text(body: [ (🚀)]), 
-  text(body: [.]), 
-  parbreak() }
+                 text(body: [Rust]), 
+                 text(body: [ (🚀)]), 
+                 text(body: [ is memory-safe and blazingly fast. Let’s rewrite everything in ]), 
+                 text(body: [rust]), 
+                 text(body: [ (🚀)]), 
+                 text(body: [.]), 
+                 parbreak() })

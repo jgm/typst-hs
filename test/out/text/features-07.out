@@ -69,13 +69,13 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: text(body: [Smcp]), 
-       features: ("smcp")), 
-  text(body: [ ]), 
-  linebreak(), 
-  text(body: [fi vs. ]), 
-  text(body: text(body: [No fi]), 
-       features: (liga: 0)), 
-  parbreak() }
+                 text(body: text(body: [Smcp]), 
+                      features: ("smcp")), 
+                 text(body: [ ]), 
+                 linebreak(), 
+                 text(body: [fi vs. ]), 
+                 text(body: text(body: [No fi]), 
+                      features: (liga: 0)), 
+                 parbreak() })

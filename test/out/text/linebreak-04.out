@@ -56,9 +56,9 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [Hard break directly after ]), 
-  linebreak(), 
-  text(body: [normal break.]), 
-  parbreak() }
+                 text(body: [Hard break directly after ]), 
+                 linebreak(), 
+                 text(body: [normal break.]), 
+                 parbreak() })

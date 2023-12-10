@@ -65,16 +65,16 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  heading(body: { text(body: [This
+                 heading(body: { text(body: [This
 is
 multiline.]), 
-                  parbreak() }, 
-          level: 1), 
-  heading(body: text(body: [This]), 
-          level: 1), 
-  text(body: [is not.]), 
-  parbreak() }
+                                 parbreak() }, 
+                         level: 1), 
+                 heading(body: text(body: [This]), 
+                         level: 1), 
+                 text(body: [is not.]), 
+                 parbreak() })

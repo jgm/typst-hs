@@ -166,28 +166,29 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  parbreak(), 
-  align(alignment: center, 
-        body: { text(body: [
+                 parbreak(), 
+                 align(alignment: center, 
+                       body: { text(body: [
 ], 
-                     size: 0.7em), 
-                text(body: strong(body: text(body: [Essay on typography], 
-                                             size: 0.7em)), 
-                     size: 1.3em), 
-                text(body: [ ], size: 0.7em), 
-                linebreak(), 
-                text(body: [T. Ypst], 
-                     size: 0.7em), 
-                parbreak() }), 
-  parbreak(), 
-  columns(body: { text(body: [
+                                    size: 0.7em), 
+                               text(body: strong(body: text(body: [Essay on typography], 
+                                                            size: 0.7em)), 
+                                    size: 1.3em), 
+                               text(body: [ ], 
+                                    size: 0.7em), 
+                               linebreak(), 
+                               text(body: [T. Ypst], 
+                                    size: 0.7em), 
+                               parbreak() }), 
+                 parbreak(), 
+                 columns(body: { text(body: [
 Great typography is at the essence of great storytelling. It is the medium that
 transports meaning from parchment to reader, the wave that sparks a flame
 in booklovers and the great fulfiller of human need.], 
-                       size: 0.7em), 
-                  parbreak() }, 
-          count: 2) }
+                                      size: 0.7em), 
+                                 parbreak() }, 
+                         count: 2) })

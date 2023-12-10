@@ -90,15 +90,15 @@
     [ Text "CCC" ] [ Text "Three" , Space , Text "letters" , ParBreak ]
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  parbreak(), 
-  table(children: (emph(body: text(body: [A])), 
-                   text(body: [One letter]), 
-                   emph(body: text(body: [BB])), 
-                   text(body: [Two letters]), 
-                   emph(body: text(body: [CCC])), 
-                   { text(body: [Three letters]), 
-                     parbreak() }), 
-        columns: 2, 
-        inset: 3.0pt) }
+                 parbreak(), 
+                 table(children: (emph(body: text(body: [A])), 
+                                  text(body: [One letter]), 
+                                  emph(body: text(body: [BB])), 
+                                  text(body: [Two letters]), 
+                                  emph(body: text(body: [CCC])), 
+                                  { text(body: [Three letters]), 
+                                    parbreak() }), 
+                       columns: 2, 
+                       inset: 3.0pt) })

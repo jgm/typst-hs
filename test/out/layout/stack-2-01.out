@@ -82,23 +82,23 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ], 
-       color: rgb(100%,100%,100%,100%)), 
-  rect(body: { text(body: [
+                      color: rgb(100%,100%,100%,100%)), 
+                 rect(body: { text(body: [
 ], 
-                    color: rgb(100%,100%,100%,100%)), 
-               v(amount: 1.0fr), 
-               text(body: [
+                                   color: rgb(100%,100%,100%,100%)), 
+                              v(amount: 1.0fr), 
+                              text(body: [
 ], 
-                    color: rgb(100%,100%,100%,100%)), 
-               h(amount: 1.0fr), 
-               text(body: [ Hi you!], 
-                    color: rgb(100%,100%,100%,100%)), 
-               parbreak() }, 
-       fill: rgb(100%,25%,21%,100%)), 
-  parbreak() }
+                                   color: rgb(100%,100%,100%,100%)), 
+                              h(amount: 1.0fr), 
+                              text(body: [ Hi you!], 
+                                   color: rgb(100%,100%,100%,100%)), 
+                              parbreak() }, 
+                      fill: rgb(100%,25%,21%,100%)), 
+                 parbreak() })

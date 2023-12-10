@@ -75,10 +75,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [A ]), 
-  emph(body: { text(body: [B ]), 
-               strong(body: text(body: [ C])) }), 
-  text(body: [ D]), 
-  parbreak() }
+                 text(body: [A ]), 
+                 emph(body: { text(body: [B ]), 
+                              strong(body: text(body: [ C])) }), 
+                 text(body: [ D]), 
+                 parbreak() })

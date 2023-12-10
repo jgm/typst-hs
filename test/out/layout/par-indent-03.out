@@ -64,10 +64,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 Welcome ]), 
-  linebreak(), 
-  text(body: [here. Does this work well?]), 
-  parbreak() }
+                 linebreak(), 
+                 text(body: [here. Does this work well?]), 
+                 parbreak() })

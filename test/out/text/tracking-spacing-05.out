@@ -59,9 +59,9 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 This is tight.], 
-       spacing: 1.0pt + 50%), 
-  parbreak() }
+                      spacing: 1.0pt + 50%), 
+                 parbreak() })

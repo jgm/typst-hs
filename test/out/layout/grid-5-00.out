@@ -71,18 +71,18 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  grid(children: ({ text(body: [
+                 grid(children: ({ text(body: [
 Hello ]), 
-                    linebreak(), 
-                    text(body: [Hello ]), 
-                    linebreak(), 
-                    text(body: [Hello ]), 
-                    linebreak(), 
-                    text(body: [
+                                   linebreak(), 
+                                   text(body: [Hello ]), 
+                                   linebreak(), 
+                                   text(body: [Hello ]), 
+                                   linebreak(), 
+                                   text(body: [
 World]), 
-                    parbreak() })), 
-  parbreak() }
+                                   parbreak() })), 
+                 parbreak() })

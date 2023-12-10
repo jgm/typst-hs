@@ -109,31 +109,31 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  box(body: scale(body: rect(fill: rgb(100%,25%,21%,100%), 
-                             height: 10.0pt, 
-                             width: 100.0pt), 
-                  origin: Axes(left, top), 
-                  x: 50%, 
-                  y: 200%)), 
-  text(body: [
+                 box(body: scale(body: rect(fill: rgb(100%,25%,21%,100%), 
+                                            height: 10.0pt, 
+                                            width: 100.0pt), 
+                                 origin: Axes(left, top), 
+                                 x: 50%, 
+                                 y: 200%)), 
+                 text(body: [
 ]), 
-  box(body: scale(body: rect(fill: rgb(100%,25%,21%,100%), 
-                             height: 10.0pt, 
-                             width: 100.0pt), 
-                  origin: center, 
-                  x: 50%)), 
-  text(body: [
+                 box(body: scale(body: rect(fill: rgb(100%,25%,21%,100%), 
+                                            height: 10.0pt, 
+                                            width: 100.0pt), 
+                                 origin: center, 
+                                 x: 50%)), 
+                 text(body: [
 ]), 
-  box(body: scale(body: rect(fill: rgb(100%,25%,21%,100%), 
-                             height: 10.0pt, 
-                             width: 100.0pt), 
-                  origin: Axes(right, bottom), 
-                  x: 50%, 
-                  y: 200%)), 
-  parbreak() }
+                 box(body: scale(body: rect(fill: rgb(100%,25%,21%,100%), 
+                                            height: 10.0pt, 
+                                            width: 100.0pt), 
+                                 origin: Axes(right, bottom), 
+                                 x: 50%, 
+                                 y: 200%)), 
+                 parbreak() })

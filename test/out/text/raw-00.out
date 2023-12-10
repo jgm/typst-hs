@@ -45,12 +45,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  raw(block: false, 
-      lang: none, 
-      text: "A"), 
-  raw(block: false, 
-      lang: none, 
-      text: "B"), 
-  parbreak() }
+                 raw(block: false, 
+                     lang: none, 
+                     text: "A"), 
+                 raw(block: false, 
+                     lang: none, 
+                     text: "B"), 
+                 parbreak() })

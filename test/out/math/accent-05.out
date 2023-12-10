@@ -77,22 +77,22 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  math.equation(block: false, 
-                body: { math.attach(b: none, 
-                                    base: text(body: [A]), 
-                                    t: text(body: [x])), 
-                        text(body: [≠]), 
-                        math.attach(b: none, 
-                                    base: math.accent(accent: ^, 
-                                                      base: text(body: [A])), 
-                                    t: text(body: [x])), 
-                        text(body: [≠]), 
-                        math.attach(b: none, 
-                                    base: math.accent(accent: ^, 
-                                                      base: math.accent(accent: ^, 
-                                                                        base: text(body: [A]))), 
-                                    t: text(body: [x])) }, 
-                numbering: none), 
-  parbreak() }
+                 math.equation(block: false, 
+                               body: { math.attach(b: none, 
+                                                   base: text(body: [A]), 
+                                                   t: text(body: [x])), 
+                                       text(body: [≠]), 
+                                       math.attach(b: none, 
+                                                   base: math.accent(accent: ^, 
+                                                                     base: text(body: [A])), 
+                                                   t: text(body: [x])), 
+                                       text(body: [≠]), 
+                                       math.attach(b: none, 
+                                                   base: math.accent(accent: ^, 
+                                                                     base: math.accent(accent: ^, 
+                                                                                       base: text(body: [A]))), 
+                                                   t: text(body: [x])) }, 
+                               numbering: none), 
+                 parbreak() })

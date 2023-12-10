@@ -66,13 +66,13 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  math.equation(block: true, 
-                body: { math.attach(b: text(body: [x]), 
-                                    base: math.bold(body: math.op(limits: true, 
-                                                                  text: text(body: [bold]))), 
-                                    t: none), 
-                        text(body: [y]) }, 
-                numbering: none), 
-  parbreak() }
+                 math.equation(block: true, 
+                               body: { math.attach(b: text(body: [x]), 
+                                                   base: math.bold(body: math.op(limits: true, 
+                                                                                 text: text(body: [bold]))), 
+                                                   t: none), 
+                                       text(body: [y]) }, 
+                               numbering: none), 
+                 parbreak() })

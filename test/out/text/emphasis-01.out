@@ -58,11 +58,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [P]), 
-  strong(body: text(body: [art])), 
-  text(body: [ly em]), 
-  emph(body: text(body: [phas])), 
-  text(body: [ized.]), 
-  parbreak() }
+                 text(body: [P]), 
+                 strong(body: text(body: [art])), 
+                 text(body: [ly em]), 
+                 emph(body: text(body: [phas])), 
+                 text(body: [ized.]), 
+                 parbreak() })

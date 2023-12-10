@@ -68,17 +68,17 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  parbreak(), 
-  text(body: [Interacting
+                 parbreak(), 
+                 text(body: [Interacting
 ]), 
-  text(body: { text(body: [
+                 text(body: { text(body: [
 Blue ], 
-                    color: rgb(0%,45%,85%,100%)), 
-               move(body: text(body: [🌊], 
-                               color: rgb(0%,45%,85%,100%)), 
-                    dy: -0.15em), 
-               parbreak() }, 
-       font: "PT Sans"), 
-  parbreak() }
+                                   color: rgb(0%,45%,85%,100%)), 
+                              move(body: text(body: [🌊], 
+                                              color: rgb(0%,45%,85%,100%)), 
+                                   dy: -0.15em), 
+                              parbreak() }, 
+                      font: "PT Sans"), 
+                 parbreak() })

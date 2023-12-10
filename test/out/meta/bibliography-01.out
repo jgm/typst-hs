@@ -84,22 +84,22 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  heading(body: text(body: [Details]), 
-          level: 1), 
-  text(body: [See also ]), 
-  cite(key: <distress>, 
-       supplement: text(body: [p. 22])), 
-  text(body: [, ]), 
-  ref(supplement: text(body: [p. 4]), 
-      target: <arrgh>), 
-  text(body: [, and ]), 
-  ref(supplement: text(body: [p. 5]), 
-      target: <distress>), 
-  text(body: [.
+                 heading(body: text(body: [Details]), 
+                         level: 1), 
+                 text(body: [See also ]), 
+                 cite(key: <distress>, 
+                      supplement: text(body: [p. 22])), 
+                 text(body: [, ]), 
+                 ref(supplement: text(body: [p. 4]), 
+                     target: <arrgh>), 
+                 text(body: [, and ]), 
+                 ref(supplement: text(body: [p. 5]), 
+                     target: <distress>), 
+                 text(body: [.
 ]), 
-  bibliography(path: "/works.bib"), 
-  parbreak() }
+                 bibliography(path: "/works.bib"), 
+                 parbreak() })

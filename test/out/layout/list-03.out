@@ -46,8 +46,8 @@
     [ Text "is" , Space , Text "fine" , Text "." , ParBreak ]
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  list(children: (text(body: [Top-level indent]), 
-                  { text(body: [is fine.]), 
-                    parbreak() })) }
+                 list(children: (text(body: [Top-level indent]), 
+                                 { text(body: [is fine.]), 
+                                   parbreak() })) })

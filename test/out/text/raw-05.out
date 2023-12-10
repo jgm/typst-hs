@@ -44,9 +44,9 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  raw(block: false, 
-      lang: none, 
-      text: "rust let"), 
-  parbreak() }
+                 raw(block: false, 
+                     lang: none, 
+                     text: "rust let"), 
+                 parbreak() })

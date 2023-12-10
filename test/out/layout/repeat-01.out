@@ -63,14 +63,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 مقدمة ], 
-       lang: "ar"), 
-  box(body: repeat(body: text(body: [.], 
-                              lang: "ar")), 
-      width: 1.0fr), 
-  text(body: [ 15], 
-       lang: "ar"), 
-  parbreak() }
+                      lang: "ar"), 
+                 box(body: repeat(body: text(body: [.], 
+                                             lang: "ar")), 
+                     width: 1.0fr), 
+                 text(body: [ 15], 
+                      lang: "ar"), 
+                 parbreak() })

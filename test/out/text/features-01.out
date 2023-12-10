@@ -48,7 +48,7 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  smallcaps(body: text(body: [Smallcaps])), 
-  parbreak() }
+                 smallcaps(body: text(body: [Smallcaps])), 
+                 parbreak() })

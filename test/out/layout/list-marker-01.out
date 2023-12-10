@@ -61,19 +61,19 @@
     ]
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  list(children: ({ text(body: [A
+                 list(children: ({ text(body: [A
 ]), 
-                    list(children: ({ text(body: [B
+                                   list(children: ({ text(body: [B
 ]), 
-                                      list(children: ({ text(body: [C]), 
-                                                        parbreak() }), 
-                                           marker: (text(body: [–]), 
-                                                    text(body: [•]))) }), 
-                         marker: (text(body: [–]), 
-                                  text(body: [•]))) }), 
-       marker: (text(body: [–]), 
-                text(body: [•]))) }
+                                                     list(children: ({ text(body: [C]), 
+                                                                       parbreak() }), 
+                                                          marker: (text(body: [–]), 
+                                                                   text(body: [•]))) }), 
+                                        marker: (text(body: [–]), 
+                                                 text(body: [•]))) }), 
+                      marker: (text(body: [–]), 
+                               text(body: [•]))) })

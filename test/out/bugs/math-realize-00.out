@@ -176,65 +176,65 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  parbreak(), 
-  math.equation(block: true, 
-                body: { text(body: [π]), 
-                        text(body: [a]) }, 
-                numbering: none), 
-  text(body: [
+                 parbreak(), 
+                 math.equation(block: true, 
+                               body: { text(body: [π]), 
+                                       text(body: [a]) }, 
+                               numbering: none), 
+                 text(body: [
 ]), 
-  math.equation(block: true, 
-                body: { math.equation(block: false, 
-                                      body: text(body: [π]), 
-                                      numbering: none), 
-                        text(body: [a]) }, 
-                numbering: none), 
-  text(body: [
+                 math.equation(block: true, 
+                               body: { math.equation(block: false, 
+                                                     body: text(body: [π]), 
+                                                     numbering: none), 
+                                       text(body: [a]) }, 
+                               numbering: none), 
+                 text(body: [
 ]), 
-  math.equation(block: true, 
-                body: { text(body: [1]), 
-                        text(body: [+]), 
-                        math.sqrt(radicand: math.frac(denom: text(body: [2]), 
-                                                      num: text(body: [x]))), 
-                        text(body: [+]), 
-                        math.sqrt(radicand: hide(body: math.equation(block: false, 
-                                                                     body: math.frac(denom: text(body: [2]), 
-                                                                                     num: text(body: [x])), 
-                                                                     numbering: none))) }, 
-                numbering: none), 
-  text(body: [
+                 math.equation(block: true, 
+                               body: { text(body: [1]), 
+                                       text(body: [+]), 
+                                       math.sqrt(radicand: math.frac(denom: text(body: [2]), 
+                                                                     num: text(body: [x]))), 
+                                       text(body: [+]), 
+                                       math.sqrt(radicand: hide(body: math.equation(block: false, 
+                                                                                    body: math.frac(denom: text(body: [2]), 
+                                                                                                    num: text(body: [x])), 
+                                                                                    numbering: none))) }, 
+                               numbering: none), 
+                 text(body: [
 ]), 
-  math.equation(block: true, 
-                body: { text(body: [a]), 
-                        text(body: [x]), 
-                        link(body: math.equation(block: false, 
-                                                 body: { text(body: [+]), 
-                                                         text(body: [b]) }, 
-                                                 numbering: none), 
-                             dest: "url") }, 
-                numbering: none), 
-  text(body: [
+                 math.equation(block: true, 
+                               body: { text(body: [a]), 
+                                       text(body: [x]), 
+                                       link(body: math.equation(block: false, 
+                                                                body: { text(body: [+]), 
+                                                                        text(body: [b]) }, 
+                                                                numbering: none), 
+                                            dest: "url") }, 
+                               numbering: none), 
+                 text(body: [
 ]), 
-  math.equation(block: true, 
-                body: { text(body: [f]), 
-                        box(baseline: 10.0pt, 
-                            body: text(body: [f])), 
-                        box(baseline: 10.0pt, 
-                            body: text(body: [f])) }, 
-                numbering: none), 
-  text(body: [
+                 math.equation(block: true, 
+                               body: { text(body: [f]), 
+                                       box(baseline: 10.0pt, 
+                                           body: text(body: [f])), 
+                                       box(baseline: 10.0pt, 
+                                           body: text(body: [f])) }, 
+                               numbering: none), 
+                 text(body: [
 ]), 
-  math.equation(block: true, 
-                body: { text(body: [nope]), 
-                        text(body: [∗]), 
-                        text(body: [2]) }, 
-                numbering: none), 
-  parbreak() }
+                 math.equation(block: true, 
+                               body: { text(body: [nope]), 
+                                       text(body: [∗]), 
+                                       text(body: [2]) }, 
+                               numbering: none), 
+                 parbreak() })

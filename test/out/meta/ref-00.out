@@ -75,26 +75,26 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  parbreak(), 
-  heading(body: text(body: [Introduction]), 
-          level: 1, 
-          numbering: "1."), 
-  <intro>, 
-  text(body: [
+                 parbreak(), 
+                 heading(body: text(body: [Introduction]), 
+                         level: 1, 
+                         numbering: "1."), 
+                 <intro>, 
+                 text(body: [
 See ]), 
-  ref(supplement: auto, 
-      target: <setup>), 
-  text(body: [.]), 
-  parbreak(), 
-  heading(body: text(body: [Setup]), 
-          level: 2, 
-          numbering: "1."), 
-  <setup>, 
-  text(body: [
+                 ref(supplement: auto, 
+                     target: <setup>), 
+                 text(body: [.]), 
+                 parbreak(), 
+                 heading(body: text(body: [Setup]), 
+                         level: 2, 
+                         numbering: "1."), 
+                 <setup>, 
+                 text(body: [
 As seen in ]), 
-  ref(supplement: auto, 
-      target: <intro>), 
-  text(body: [, we proceed.]), 
-  parbreak() }
+                 ref(supplement: auto, 
+                     target: <intro>), 
+                 text(body: [, we proceed.]), 
+                 parbreak() })

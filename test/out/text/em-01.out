@@ -103,18 +103,18 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ], size: 5.0pt), 
-  text(body: [
+                 text(body: [
 ], size: 2.0em), 
-  parbreak(), 
-  parbreak(), 
-  stack(children: (square(fill: rgb(100%,25%,21%,100%), 
-                          size: (2.0em + 8.0pt) + -3.0pt), 
-                   square(fill: rgb(100%,25%,21%,100%), 
-                          size: 25.0pt)), 
-        dir: ltr, 
-        spacing: 1.0fr), 
-  parbreak() }
+                 parbreak(), 
+                 parbreak(), 
+                 stack(children: (square(fill: rgb(100%,25%,21%,100%), 
+                                         size: (2.0em + 8.0pt) + -3.0pt), 
+                                  square(fill: rgb(100%,25%,21%,100%), 
+                                         size: 25.0pt)), 
+                       dir: ltr, 
+                       spacing: 1.0fr), 
+                 parbreak() })

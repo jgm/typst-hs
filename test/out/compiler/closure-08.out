@@ -71,11 +71,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [❌(]), 
-  text(body: [16]), 
-  text(body: [ /= ]), 
-  text(body: [13]), 
-  text(body: [)]), 
-  parbreak() }
+                 text(body: [❌(]), 
+                 text(body: [16]), 
+                 text(body: [ /= ]), 
+                 text(body: [13]), 
+                 text(body: [)]), 
+                 parbreak() })

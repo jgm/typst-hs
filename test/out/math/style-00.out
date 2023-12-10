@@ -68,21 +68,21 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  math.equation(block: false, 
-                body: { text(body: [a]), 
-                        text(body: [,]), 
-                        text(body: [A]), 
-                        text(body: [,]), 
-                        text(body: [δ]), 
-                        text(body: [,]), 
-                        text(body: [ϵ]), 
-                        text(body: [,]), 
-                        text(body: [∂]), 
-                        text(body: [,]), 
-                        text(body: [Δ]), 
-                        text(body: [,]), 
-                        text(body: [ϴ]) }, 
-                numbering: none), 
-  parbreak() }
+                 math.equation(block: false, 
+                               body: { text(body: [a]), 
+                                       text(body: [,]), 
+                                       text(body: [A]), 
+                                       text(body: [,]), 
+                                       text(body: [δ]), 
+                                       text(body: [,]), 
+                                       text(body: [ϵ]), 
+                                       text(body: [,]), 
+                                       text(body: [∂]), 
+                                       text(body: [,]), 
+                                       text(body: [Δ]), 
+                                       text(body: [,]), 
+                                       text(body: [ϴ]) }, 
+                               numbering: none), 
+                 parbreak() })

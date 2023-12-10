@@ -77,22 +77,22 @@
     ]
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ], size: 8.0pt), 
-  terms(children: ((text(body: [First list], 
-                         size: 8.0pt), 
-                    { text(body: [Lorem ipsum dolor sit amet, consectetur], 
-                           size: 8.0pt), 
-                      text(body: [
+                 terms(children: ((text(body: [First list], 
+                                        size: 8.0pt), 
+                                   { text(body: [Lorem ipsum dolor sit amet, consectetur], 
+                                          size: 8.0pt), 
+                                     text(body: [
 ], 
-                           size: 8.0pt) }))), 
-  text(body: [
+                                          size: 8.0pt) }))), 
+                 text(body: [
 ], size: 8.0pt), 
-  terms(children: ((text(body: [Second list], 
-                         size: 8.0pt), 
-                    { text(body: [Lorem ipsum dolor sit amet,], 
-                           size: 8.0pt), 
-                      parbreak() })), 
-        hanging-indent: 30.0pt) }
+                 terms(children: ((text(body: [Second list], 
+                                        size: 8.0pt), 
+                                   { text(body: [Lorem ipsum dolor sit amet,], 
+                                          size: 8.0pt), 
+                                     parbreak() })), 
+                       hanging-indent: 30.0pt) })

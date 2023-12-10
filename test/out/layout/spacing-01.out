@@ -82,18 +82,18 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 A ]), 
-  h(amount: 0.0pt), 
-  text(body: [ B ]), 
-  h(amount: 0.0pt), 
-  text(body: [ ]), 
-  linebreak(), 
-  text(body: [A B ]), 
-  linebreak(), 
-  text(body: [A ]), 
-  h(amount: -1.0fr), 
-  text(body: [ B]), 
-  parbreak() }
+                 h(amount: 0.0pt), 
+                 text(body: [ B ]), 
+                 h(amount: 0.0pt), 
+                 text(body: [ ]), 
+                 linebreak(), 
+                 text(body: [A B ]), 
+                 linebreak(), 
+                 text(body: [A ]), 
+                 h(amount: -1.0fr), 
+                 text(body: [ B]), 
+                 parbreak() })

@@ -65,17 +65,17 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [A😀B]), 
-  parbreak(), 
-  text(body: [دع النص يمطر عليك]), 
-  parbreak(), 
-  text(body: [ب🐈😀سم]), 
-  parbreak(), 
-  text(body: [Aب😀🏞سمB]), 
-  parbreak(), 
-  text(body: [01️⃣2]), 
-  parbreak(), 
-  text(body: [A🐈ዲሞB]), 
-  parbreak() }
+                 text(body: [A😀B]), 
+                 parbreak(), 
+                 text(body: [دع النص يمطر عليك]), 
+                 parbreak(), 
+                 text(body: [ب🐈😀سم]), 
+                 parbreak(), 
+                 text(body: [Aب😀🏞سمB]), 
+                 parbreak(), 
+                 text(body: [01️⃣2]), 
+                 parbreak(), 
+                 text(body: [A🐈ዲሞB]), 
+                 parbreak() })

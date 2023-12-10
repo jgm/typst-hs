@@ -93,22 +93,22 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ], 
-       hyphenate: true), 
-  text(body: [
+                      hyphenate: true), 
+                 text(body: [
 ], 
-       hyphenate: true), 
-  grid(children: (text(body: [Warm welcomes to Typst.], 
-                       hyphenate: true), 
-                  text(body: { text(body: [διαμερίσματα. ], 
-                                    hyphenate: true), 
-                               linebreak(), 
-                               text(body: [λατρευτός], 
-                                    hyphenate: true) }, 
-                       hyphenate: true, 
-                       lang: "el")), 
-       columns: (50.0pt, 50.0pt)), 
-  parbreak() }
+                      hyphenate: true), 
+                 grid(children: (text(body: [Warm welcomes to Typst.], 
+                                      hyphenate: true), 
+                                 text(body: { text(body: [διαμερίσματα. ], 
+                                                   hyphenate: true), 
+                                              linebreak(), 
+                                              text(body: [λατρευτός], 
+                                                   hyphenate: true) }, 
+                                      hyphenate: true, 
+                                      lang: "el")), 
+                      columns: (50.0pt, 50.0pt)), 
+                 parbreak() })

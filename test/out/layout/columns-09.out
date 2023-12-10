@@ -68,8 +68,8 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  parbreak(), 
-  text(body: [This is a normal page. Very normal.]), 
-  parbreak() }
+                 parbreak(), 
+                 text(body: [This is a normal page. Very normal.]), 
+                 parbreak() })

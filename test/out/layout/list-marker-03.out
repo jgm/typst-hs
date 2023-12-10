@@ -62,11 +62,11 @@
     ]
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  list(children: (text(body: [Bare hyphen is]), 
-                  { text(body: [a bad marker]), 
-                    parbreak() }), 
-       marker: list(children: ({  }))) }
+                 list(children: (text(body: [Bare hyphen is]), 
+                                 { text(body: [a bad marker]), 
+                                   parbreak() }), 
+                      marker: list(children: ({  }))) })

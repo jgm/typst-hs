@@ -59,10 +59,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [I’m in]), 
-  text(body: text(body: [ spaace]), 
-       tracking: 0.15em + 1.5pt), 
-  text(body: [!]), 
-  parbreak() }
+                 text(body: [I’m in]), 
+                 text(body: text(body: [ spaace]), 
+                      tracking: 0.15em + 1.5pt), 
+                 text(body: [!]), 
+                 parbreak() })

@@ -65,13 +65,13 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  parbreak(), 
-  text(body: [First]), 
-  parbreak(), 
-  place(alignment: Axes(right, bottom), 
-        body: text(body: [Placed])), 
-  parbreak(), 
-  text(body: [Second]), 
-  parbreak() }
+                 parbreak(), 
+                 text(body: [First]), 
+                 parbreak(), 
+                 place(alignment: Axes(right, bottom), 
+                       body: text(body: [Placed])), 
+                 parbreak(), 
+                 text(body: [Second]), 
+                 parbreak() })

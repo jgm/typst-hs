@@ -69,10 +69,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  parbreak(), 
-  text(body: [Where is
+                 parbreak(), 
+                 text(body: [Where is
 ]), 
-  text(body: [my heading?]), 
-  parbreak() }
+                 text(body: [my heading?]), 
+                 parbreak() })

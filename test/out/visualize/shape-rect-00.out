@@ -47,7 +47,7 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  rect(), 
-  parbreak() }
+                 rect(), 
+                 parbreak() })

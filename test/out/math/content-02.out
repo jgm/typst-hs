@@ -52,10 +52,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  math.attach(base: math.equation(block: false, 
-                                  body: text(body: [a]), 
-                                  numbering: none), 
-              t: text(body: [b])), 
-  parbreak() }
+                 math.attach(base: math.equation(block: false, 
+                                                 body: text(body: [a]), 
+                                                 numbering: none), 
+                             t: text(body: [b])), 
+                 parbreak() })

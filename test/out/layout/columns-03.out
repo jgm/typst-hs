@@ -81,18 +81,18 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  parbreak(), 
-  rect(body: columns(body: { text(body: [
+                 parbreak(), 
+                 rect(body: columns(body: { text(body: [
 ABC ]), 
-                             linebreak(), 
-                             text(body: [BCD
+                                            linebreak(), 
+                                            text(body: [BCD
 ]), 
-                             colbreak(), 
-                             text(body: [
+                                            colbreak(), 
+                                            text(body: [
 DEF]), 
-                             parbreak() }, 
-                     count: 2), 
-       inset: 6.0pt), 
-  parbreak() }
+                                            parbreak() }, 
+                                    count: 2), 
+                      inset: 6.0pt), 
+                 parbreak() })

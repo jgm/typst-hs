@@ -67,16 +67,16 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  enum(children: (numbering(numbering: "I", 
-                            numbers: (1)))), 
-  enum(children: (numbering(numbering: "I", 
-                            numbers: (2)))), 
-  enum(children: (numbering(numbering: "I", 
-                            numbers: (3)))), 
-  enum(children: (numbering(numbering: "I", 
-                            numbers: (4)))), 
-  enum(children: (numbering(numbering: "I", 
-                            numbers: (5)))), 
-  parbreak() }
+                 enum(children: (numbering(numbering: "I", 
+                                           numbers: (1)))), 
+                 enum(children: (numbering(numbering: "I", 
+                                           numbers: (2)))), 
+                 enum(children: (numbering(numbering: "I", 
+                                           numbers: (3)))), 
+                 enum(children: (numbering(numbering: "I", 
+                                           numbers: (4)))), 
+                 enum(children: (numbering(numbering: "I", 
+                                           numbers: (5)))), 
+                 parbreak() })

@@ -82,16 +82,16 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  parbreak(), 
-  text(body: [
+                 parbreak(), 
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  strong(body: text(body: [A])), 
-  text(body: [ ]), 
-  <v>, 
-  text(body: [ ]), 
-  strong(body: text(body: [B])), 
-  parbreak() }
+                 strong(body: text(body: [A])), 
+                 text(body: [ ]), 
+                 <v>, 
+                 text(body: [ ]), 
+                 strong(body: text(body: [B])), 
+                 parbreak() })

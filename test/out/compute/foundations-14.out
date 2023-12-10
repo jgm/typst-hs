@@ -50,7 +50,7 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  emph(body: text(body: [Hello World!])), 
-  parbreak() }
+                 emph(body: text(body: [Hello World!])), 
+                 parbreak() })

@@ -47,10 +47,10 @@
 , DescListItem [ Text "Term" ] [ Text "List" , ParBreak ]
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  list(children: (text(body: [Bullet List]))), 
-  enum(children: (text(body: [Numbered List]))), 
-  terms(children: ((text(body: [Term]), 
-                    { text(body: [List]), 
-                      parbreak() }))) }
+                 list(children: (text(body: [Bullet List]))), 
+                 enum(children: (text(body: [Numbered List]))), 
+                 terms(children: ((text(body: [Term]), 
+                                   { text(body: [List]), 
+                                     parbreak() }))) })

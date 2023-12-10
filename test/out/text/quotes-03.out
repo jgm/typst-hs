@@ -74,7 +74,7 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [The 5'11" ‘quick' brown fox jumps over the "lazy” dog's ear.]), 
-  parbreak() }
+                 text(body: [The 5'11" ‘quick' brown fox jumps over the "lazy” dog's ear.]), 
+                 parbreak() })

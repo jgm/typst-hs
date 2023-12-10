@@ -48,15 +48,15 @@
 , Heading 11 [ Text "Level" , Space , Text "11" ]
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  heading(body: text(body: [Level 1]), 
-          level: 1), 
-  heading(body: text(body: [Level 2]), 
-          level: 2), 
-  heading(body: text(body: [Level 3]), 
-          level: 3), 
-  heading(body: text(body: [Level 11]), 
-          level: 11) }
+                 heading(body: text(body: [Level 1]), 
+                         level: 1), 
+                 heading(body: text(body: [Level 2]), 
+                         level: 2), 
+                 heading(body: text(body: [Level 3]), 
+                         level: 3), 
+                 heading(body: text(body: [Level 11]), 
+                         level: 11) })

@@ -80,22 +80,22 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  math.equation(block: true, 
-                body: { text(body: [x]), 
-                        text(body: [=]), 
-                        math.frac(denom: { text(body: [2]), 
-                                           text(body: [a]) }, 
-                                  num: { text(body: [−]), 
-                                         text(body: [b]), 
-                                         text(body: [±]), 
-                                         math.sqrt(radicand: { math.attach(b: none, 
-                                                                           base: text(body: [b]), 
-                                                                           t: text(body: [2])), 
-                                                               text(body: [−]), 
-                                                               text(body: [4]), 
-                                                               text(body: [a]), 
-                                                               text(body: [c]) }) }) }, 
-                numbering: none), 
-  parbreak() }
+                 math.equation(block: true, 
+                               body: { text(body: [x]), 
+                                       text(body: [=]), 
+                                       math.frac(denom: { text(body: [2]), 
+                                                          text(body: [a]) }, 
+                                                 num: { text(body: [−]), 
+                                                        text(body: [b]), 
+                                                        text(body: [±]), 
+                                                        math.sqrt(radicand: { math.attach(b: none, 
+                                                                                          base: text(body: [b]), 
+                                                                                          t: text(body: [2])), 
+                                                                              text(body: [−]), 
+                                                                              text(body: [4]), 
+                                                                              text(body: [a]), 
+                                                                              text(body: [c]) }) }) }, 
+                               numbering: none), 
+                 parbreak() })

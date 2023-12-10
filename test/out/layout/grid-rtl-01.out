@@ -60,14 +60,17 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ], dir: rtl), 
-  table(children: (text(body: [A], 
-                        dir: rtl), 
-                   text(body: [B], dir: rtl), 
-                   text(body: [C], dir: rtl), 
-                   text(body: [D], dir: rtl)), 
-        columns: 2), 
-  parbreak() }
+                 table(children: (text(body: [A], 
+                                       dir: rtl), 
+                                  text(body: [B], 
+                                       dir: rtl), 
+                                  text(body: [C], 
+                                       dir: rtl), 
+                                  text(body: [D], 
+                                       dir: rtl)), 
+                       columns: 2), 
+                 parbreak() })

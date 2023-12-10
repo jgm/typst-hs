@@ -99,17 +99,17 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [✅]), 
-  parbreak(), 
-  text(body: [{
+                 text(body: [✅]), 
+                 parbreak(), 
+                 text(body: [{
 import “module.typ”: b
 test(b, 1)
 }]), 
-  parbreak(), 
-  parbreak(), 
-  text(body: [✅]), 
-  parbreak() }
+                 parbreak(), 
+                 parbreak(), 
+                 text(body: [✅]), 
+                 parbreak() })

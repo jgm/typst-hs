@@ -55,15 +55,15 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  math.equation(block: true, 
-                body: { text(body: [ abc ]), 
-                        math.alignpoint(), 
-                        text(body: [=]), 
-                        text(body: [c]), 
-                        linebreak() }, 
-                numbering: none), 
-  text(body: [
+                 math.equation(block: true, 
+                               body: { text(body: [ abc ]), 
+                                       math.alignpoint(), 
+                                       text(body: [=]), 
+                                       text(body: [c]), 
+                                       linebreak() }, 
+                               numbering: none), 
+                 text(body: [
 One trailing line break.]), 
-  parbreak() }
+                 parbreak() })

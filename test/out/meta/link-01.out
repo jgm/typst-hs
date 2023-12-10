@@ -66,16 +66,16 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  underline(body: link(body: [https://a.b.?q=%10#.], 
-                       dest: "https://a.b.?q=%10#.")), 
-  text(body: [ ]), 
-  linebreak(), 
-  text(body: [Wahttp:]), 
-  text(body: [Nohttps://link ]), 
-  linebreak(), 
-  text(body: [Nohttp:]), 
-  parbreak() }
+                 underline(body: link(body: [https://a.b.?q=%10#.], 
+                                      dest: "https://a.b.?q=%10#.")), 
+                 text(body: [ ]), 
+                 linebreak(), 
+                 text(body: [Wahttp:]), 
+                 text(body: [Nohttps://link ]), 
+                 linebreak(), 
+                 text(body: [Nohttp:]), 
+                 parbreak() })

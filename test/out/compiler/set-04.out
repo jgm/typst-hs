@@ -91,13 +91,13 @@
 , EnumListItem Nothing [ Text "Tiger" , ParBreak ]
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  parbreak(), 
-  enum(children: (text(body: [Monkey]), 
-                  text(body: [Rhino]), 
-                  { text(body: [Tiger]), 
-                    parbreak() }), 
-       numbering: ) }
+                 parbreak(), 
+                 enum(children: (text(body: [Monkey]), 
+                                 text(body: [Rhino]), 
+                                 { text(body: [Tiger]), 
+                                   parbreak() }), 
+                      numbering: ) })

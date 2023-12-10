@@ -63,12 +63,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  stack(children: (square(height: 40.0pt, 
-                          width: 20.0pt), 
-                   circle(height: 100.0pt, 
-                          width: 20%)), 
-        dir: ltr, 
-        spacing: 2.0pt), 
-  parbreak() }
+                 stack(children: (square(height: 40.0pt, 
+                                         width: 20.0pt), 
+                                  circle(height: 100.0pt, 
+                                         width: 20%)), 
+                       dir: ltr, 
+                       spacing: 2.0pt), 
+                 parbreak() })

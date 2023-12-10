@@ -105,21 +105,21 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  parbreak(), 
-  text(body: [Sometimes, we work ]), 
-  strike(body: text(body: [in secret]), 
-         extent: 5.0e-2em, 
-         stroke: 10.0pt), 
-  text(body: [.
+                 parbreak(), 
+                 text(body: [Sometimes, we work ]), 
+                 strike(body: text(body: [in secret]), 
+                        extent: 5.0e-2em, 
+                        stroke: 10.0pt), 
+                 text(body: [.
 There might be ]), 
-  strike(body: text(body: [redacted]), 
-         extent: 5.0e-2em, 
-         stroke: (thickness: 10.0pt,
-                  color: rgb(67%,80%,93%,53%))), 
-  text(body: [ things.
+                 strike(body: text(body: [redacted]), 
+                        extent: 5.0e-2em, 
+                        stroke: (thickness: 10.0pt,
+                                 color: rgb(67%,80%,93%,53%))), 
+                 text(body: [ things.
 underline()]), 
-  parbreak() }
+                 parbreak() })

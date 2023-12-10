@@ -97,29 +97,29 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  math.equation(block: false, 
-                body: { text(body: [a]), 
-                        text(body: [+]), 
-                        math.cancel(body: text(body: [x]), 
-                                    inverted: true), 
-                        text(body: [−]), 
-                        math.cancel(body: text(body: [x]), 
-                                    inverted: true), 
-                        text(body: [+]), 
-                        text(body: [10]), 
-                        text(body: [+]), 
-                        math.cancel(body: text(body: [y])), 
-                        text(body: [−]), 
-                        math.cancel(body: text(body: [y])) }, 
-                numbering: none), 
-  text(body: [
+                 math.equation(block: false, 
+                               body: { text(body: [a]), 
+                                       text(body: [+]), 
+                                       math.cancel(body: text(body: [x]), 
+                                                   inverted: true), 
+                                       text(body: [−]), 
+                                       math.cancel(body: text(body: [x]), 
+                                                   inverted: true), 
+                                       text(body: [+]), 
+                                       text(body: [10]), 
+                                       text(body: [+]), 
+                                       math.cancel(body: text(body: [y])), 
+                                       text(body: [−]), 
+                                       math.cancel(body: text(body: [y])) }, 
+                               numbering: none), 
+                 text(body: [
 ]), 
-  math.equation(block: true, 
-                body: { text(body: [x]), 
-                        text(body: [+]), 
-                        math.cancel(body: text(body: [abcdefg]), 
-                                    inverted: true) }, 
-                numbering: none), 
-  parbreak() }
+                 math.equation(block: true, 
+                               body: { text(body: [x]), 
+                                       text(body: [+]), 
+                                       math.cancel(body: text(body: [abcdefg]), 
+                                                   inverted: true) }, 
+                               numbering: none), 
+                 parbreak() })

@@ -57,12 +57,12 @@
     ]
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  parbreak(), 
-  list(children: ({ text(body: [ABCDEF]), 
-                    linebreak(), 
-                    text(body: [GHIJKL]), 
-                    linebreak(), 
-                    text(body: [MNOPQR]), 
-                    parbreak() })) }
+                 parbreak(), 
+                 list(children: ({ text(body: [ABCDEF]), 
+                                   linebreak(), 
+                                   text(body: [GHIJKL]), 
+                                   linebreak(), 
+                                   text(body: [MNOPQR]), 
+                                   parbreak() })) })

@@ -100,22 +100,22 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ], lang: "jp"), 
-  rect(body: { text(body: [
+                 rect(body: { text(body: [
 ウィキペディア（英: Wikipedia）は、世界中のボランティアの共同作業によって執筆及び作成されるフリーの多言語インターネット百科事典である。主に寄付に依って活動している非営利団体「ウィキメディア財団」が所有・運営している。], 
-                    lang: "jp"), 
-               parbreak(), 
-               text(body: [専門家によるオンライン百科事典プロジェクトNupedia（ヌーペディア）を前身として、2001年1月、ラリー・サンガーとジミー・ウェールズ（英: Jimmy Donal “Jimbo” Wales）により英語でプロジェクトが開始された。], 
-                    lang: "jp"), 
-               parbreak() }, 
-       fill: rgb(5%,5%,5%,100%), 
-       inset: 0.0pt, 
-       width: 80.0pt), 
-  parbreak() }
+                                   lang: "jp"), 
+                              parbreak(), 
+                              text(body: [専門家によるオンライン百科事典プロジェクトNupedia（ヌーペディア）を前身として、2001年1月、ラリー・サンガーとジミー・ウェールズ（英: Jimmy Donal “Jimbo” Wales）により英語でプロジェクトが開始された。], 
+                                   lang: "jp"), 
+                              parbreak() }, 
+                      fill: rgb(5%,5%,5%,100%), 
+                      inset: 0.0pt, 
+                      width: 80.0pt), 
+                 parbreak() })

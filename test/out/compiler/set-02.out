@@ -91,25 +91,25 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ], 
-       fill: rgb(13%,61%,67%,100%), 
-       style: "italic"), 
-  text(body: [
+                      fill: rgb(13%,61%,67%,100%), 
+                      style: "italic"), 
+                 text(body: [
 ], 
-       fill: rgb(13%,61%,67%,100%), 
-       style: "italic"), 
-  text(body: { text(body: [And the red ], 
-                    fill: rgb(13%,61%,67%,100%), 
-                    style: "italic"), 
-               parbreak(), 
-               text(body: [ lay silent!], 
-                    fill: rgb(13%,61%,67%,100%), 
-                    style: "italic") }, 
-       fill: rgb(100%,25%,21%,100%), 
-       style: "italic"), 
-  parbreak() }
+                      fill: rgb(13%,61%,67%,100%), 
+                      style: "italic"), 
+                 text(body: { text(body: [And the red ], 
+                                   fill: rgb(13%,61%,67%,100%), 
+                                   style: "italic"), 
+                              parbreak(), 
+                              text(body: [ lay silent!], 
+                                   fill: rgb(13%,61%,67%,100%), 
+                                   style: "italic") }, 
+                      fill: rgb(100%,25%,21%,100%), 
+                      style: "italic"), 
+                 parbreak() })

@@ -63,18 +63,18 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  parbreak(), 
-  emph(body: text(body: [Hidden])), 
-  text(body: [
+                 parbreak(), 
+                 emph(body: text(body: [Hidden])), 
+                 text(body: [
 ]), 
-  <hide>, 
-  parbreak(), 
-  emph(body: text(body: [Hidden])), 
-  parbreak(), 
-  <hide>, 
-  text(body: [
+                 <hide>, 
+                 parbreak(), 
+                 emph(body: text(body: [Hidden])), 
+                 parbreak(), 
+                 <hide>, 
+                 text(body: [
 ]), 
-  emph(body: text(body: [Visible])), 
-  parbreak() }
+                 emph(body: text(body: [Visible])), 
+                 parbreak() })

@@ -66,10 +66,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  footnote(body: { text(body: [A, ]), 
-                   footnote(body: text(body: [B])) }), 
-  text(body: [, ]), 
-  footnote(body: text(body: [C])), 
-  parbreak() }
+                 footnote(body: { text(body: [A, ]), 
+                                  footnote(body: text(body: [B])) }), 
+                 text(body: [, ]), 
+                 footnote(body: text(body: [C])), 
+                 parbreak() })

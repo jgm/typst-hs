@@ -66,16 +66,16 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  enum(children: (text(body: [first]), 
-                  text(body: [second]), 
-                  text(body: [fifth
+                 enum(children: (text(body: [first]), 
+                                 text(body: [second]), 
+                                 text(body: [fifth
 ])), 
-       start: 1), 
-  enum(children: (enum.item(body: text(body: [First]), 
-                            number: 1), 
-                  text(body: [Second]), 
-                  enum.item(body: text(body: [Fifth]), 
-                            number: 5))), 
-  parbreak() }
+                      start: 1), 
+                 enum(children: (enum.item(body: text(body: [First]), 
+                                           number: 1), 
+                                 text(body: [Second]), 
+                                 enum.item(body: text(body: [Fifth]), 
+                                           number: 5))), 
+                 parbreak() })

@@ -61,12 +61,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  parbreak(), 
-  text(body: [The ]), 
-  image(path: "test/assets/files/graph.png"), 
-  text(body: [ has nodes.]), 
-  parbreak() }
+                 parbreak(), 
+                 text(body: [The ]), 
+                 image(path: "test/assets/files/graph.png"), 
+                 text(body: [ has nodes.]), 
+                 parbreak() })

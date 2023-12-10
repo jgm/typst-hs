@@ -113,40 +113,40 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  parbreak(), 
-  text(body: [
+                 parbreak(), 
+                 text(body: [
 ], 
-       color: rgb(0%,45%,85%,100%), 
-       weight: 700), 
-  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation], 
-       color: rgb(0%,45%,85%,100%), 
-       weight: 700), 
-  parbreak(), 
-  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut], 
-       color: rgb(0%,45%,85%,100%), 
-       weight: 700), 
-  parbreak(), 
-  text(body: [
+                      color: rgb(0%,45%,85%,100%), 
+                      weight: 700), 
+                 text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation], 
+                      color: rgb(0%,45%,85%,100%), 
+                      weight: 700), 
+                 parbreak(), 
+                 text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut], 
+                      color: rgb(0%,45%,85%,100%), 
+                      weight: 700), 
+                 parbreak(), 
+                 text(body: [
 ], 
-       color: rgb(52%,7%,29%,100%), 
-       weight: 700), 
-  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod], 
-       color: rgb(52%,7%,29%,100%), 
-       weight: 700), 
-  parbreak(), 
-  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt], 
-       color: rgb(52%,7%,29%,100%), 
-       weight: 700), 
-  parbreak(), 
-  text(body: [
+                      color: rgb(52%,7%,29%,100%), 
+                      weight: 700), 
+                 text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod], 
+                      color: rgb(52%,7%,29%,100%), 
+                      weight: 700), 
+                 parbreak(), 
+                 text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt], 
+                      color: rgb(52%,7%,29%,100%), 
+                      weight: 700), 
+                 parbreak(), 
+                 text(body: [
 ], 
-       color: rgb(23%,60%,43%,100%), 
-       weight: 700), 
-  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do], 
-       color: rgb(23%,60%,43%,100%), 
-       weight: 700), 
-  parbreak() }
+                      color: rgb(23%,60%,43%,100%), 
+                      weight: 700), 
+                 text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do], 
+                      color: rgb(23%,60%,43%,100%), 
+                      weight: 700), 
+                 parbreak() })

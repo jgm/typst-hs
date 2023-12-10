@@ -69,12 +69,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  parbreak(), 
-  text(body: [Treeworld, the ]), 
-  text(body: [🌍]), 
-  text(body: [ of worlds, is a ]), 
-  text(body: [🌍]), 
-  text(body: [.]), 
-  parbreak() }
+                 parbreak(), 
+                 text(body: [Treeworld, the ]), 
+                 text(body: [🌍]), 
+                 text(body: [ of worlds, is a ]), 
+                 text(body: [🌍]), 
+                 text(body: [.]), 
+                 parbreak() })

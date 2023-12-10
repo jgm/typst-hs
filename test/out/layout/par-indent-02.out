@@ -58,9 +58,9 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do]), 
-  parbreak() }
+                 text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do]), 
+                 parbreak() })

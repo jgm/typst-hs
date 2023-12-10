@@ -45,10 +45,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [ ]), 
-  raw(block: true, 
-      lang: none, 
-      text: "  A\n        B\n       C\n     "), 
-  parbreak() }
+                 text(body: [ ]), 
+                 raw(block: true, 
+                     lang: none, 
+                     text: "  A\n        B\n       C\n     "), 
+                 parbreak() })

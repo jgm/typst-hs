@@ -110,33 +110,33 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  stack(children: (text(body: [A]), 
-                   text(body: [B]), 
-                   text(body: [C]), 
-                   text(body: [D]), 
-                   text(body: [E]), 
-                   text(body: [F]), 
-                   text(body: [G]), 
-                   text(body: [H]), 
-                   text(body: [I])), 
-        dir: ltr, 
-        spacing: 1.0fr), 
-  parbreak(), 
-  text(body: [Hello
+                 stack(children: (text(body: [A]), 
+                                  text(body: [B]), 
+                                  text(body: [C]), 
+                                  text(body: [D]), 
+                                  text(body: [E]), 
+                                  text(body: [F]), 
+                                  text(body: [G]), 
+                                  text(body: [H]), 
+                                  text(body: [I])), 
+                       dir: ltr, 
+                       spacing: 1.0fr), 
+                 parbreak(), 
+                 text(body: [Hello
 ]), 
-  v(amount: 2.0fr), 
-  text(body: [
+                 v(amount: 2.0fr), 
+                 text(body: [
 from ]), 
-  h(amount: 1.0fr), 
-  text(body: [ the ]), 
-  h(amount: 1.0fr), 
-  text(body: [ wonderful
+                 h(amount: 1.0fr), 
+                 text(body: [ the ]), 
+                 h(amount: 1.0fr), 
+                 text(body: [ wonderful
 ]), 
-  v(amount: 1.0fr), 
-  text(body: [
+                 v(amount: 1.0fr), 
+                 text(body: [
 World! 🌍]), 
-  parbreak() }
+                 parbreak() })

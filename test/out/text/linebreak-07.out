@@ -97,17 +97,17 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 With a soft ]), 
-  linebreak(justify: true), 
-  text(body: [
+                 linebreak(justify: true), 
+                 text(body: [
 break you can force a break without ]), 
-  linebreak(justify: true), 
-  text(body: [
+                 linebreak(justify: true), 
+                 text(body: [
 breaking justification. ]), 
-  linebreak(justify: false), 
-  text(body: [
+                 linebreak(justify: false), 
+                 text(body: [
 Nice!]), 
-  parbreak() }
+                 parbreak() })

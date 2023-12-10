@@ -84,19 +84,19 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  parbreak(), 
-  text(body: [
+                 parbreak(), 
+                 text(body: [
 ]), 
-  rect(body: text(body: [Like and Subscribe!]), 
-       fill: rgb(18%,80%,25%,100%), 
-       inset: 5.0pt), 
-  text(body: [
+                 rect(body: text(body: [Like and Subscribe!]), 
+                      fill: rgb(18%,80%,25%,100%), 
+                      inset: 5.0pt), 
+                 text(body: [
 ]), 
-  text(body: [hi]), 
-  parbreak(), 
-  text(body: [bye]), 
-  parbreak() }
+                 text(body: [hi]), 
+                 parbreak(), 
+                 text(body: [bye]), 
+                 parbreak() })

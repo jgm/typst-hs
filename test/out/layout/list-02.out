@@ -67,10 +67,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 - Level 1
 - Level ]), 
-  text(body: [
+                 text(body: [
 2 through content block]), 
-  parbreak(), 
-  parbreak() }
+                 parbreak(), 
+                 parbreak() })

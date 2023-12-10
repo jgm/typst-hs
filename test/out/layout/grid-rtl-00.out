@@ -54,10 +54,10 @@
     ]
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ], dir: rtl), 
-  list(children: ({ text(body: [מימין לשמאל], 
-                         dir: rtl), 
-                    parbreak() })) }
+                 list(children: ({ text(body: [מימין לשמאל], 
+                                        dir: rtl), 
+                                   parbreak() })) })

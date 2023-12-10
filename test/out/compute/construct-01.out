@@ -68,9 +68,9 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  stack(children: (rect(fill: luma(0%)), 
-                   rect(fill: luma(80%))), 
-        dir: ltr), 
-  parbreak() }
+                 stack(children: (rect(fill: luma(0%)), 
+                                  rect(fill: luma(80%))), 
+                       dir: ltr), 
+                 parbreak() })

@@ -67,20 +67,20 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  parbreak(), 
-  text(body: [Hallo
+                 parbreak(), 
+                 text(body: [Hallo
 ]), 
-  columns(body: { text(body: [
+                 columns(body: { text(body: [
 ]), 
-                  heading(body: text(body: [A]), 
-                          level: 1), 
-                  text(body: [Text
+                                 heading(body: text(body: [A]), 
+                                         level: 1), 
+                                 text(body: [Text
 ]), 
-                  heading(body: text(body: [B]), 
-                          level: 1), 
-                  text(body: [Text]), 
-                  parbreak() }, 
-          count: 2), 
-  parbreak() }
+                                 heading(body: text(body: [B]), 
+                                         level: 1), 
+                                 text(body: [Text]), 
+                                 parbreak() }, 
+                         count: 2), 
+                 parbreak() })

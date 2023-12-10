@@ -184,52 +184,52 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  parbreak(), 
-  text(body: [Rect in ellipse in fixed rect.
+                 parbreak(), 
+                 text(body: [Rect in ellipse in fixed rect.
 ]), 
-  rect(body: ellipse(body: rect(body: align(alignment: Axes(center, horizon), 
-                                            body: { text(body: [
+                 rect(body: ellipse(body: rect(body: align(alignment: Axes(center, horizon), 
+                                                           body: { text(body: [
 Stuff inside an ellipse!]), 
-                                                    parbreak() }), 
-                                fill: rgb(18%,80%,25%,100%), 
-                                height: 100%, 
-                                inset: 0.0pt, 
-                                width: 100%), 
-                     fill: rgb(100%,25%,21%,100%), 
-                     height: 100%, 
-                     inset: 0.0pt, 
-                     width: 100%), 
-       fill: rgb(16%,38%,10%,100%), 
-       height: 2.0cm, 
-       inset: 0.0pt, 
-       width: 3.0cm), 
-  parbreak(), 
-  text(body: [Auto-sized ellipse.
+                                                                   parbreak() }), 
+                                               fill: rgb(18%,80%,25%,100%), 
+                                               height: 100%, 
+                                               inset: 0.0pt, 
+                                               width: 100%), 
+                                    fill: rgb(100%,25%,21%,100%), 
+                                    height: 100%, 
+                                    inset: 0.0pt, 
+                                    width: 100%), 
+                      fill: rgb(16%,38%,10%,100%), 
+                      height: 2.0cm, 
+                      inset: 0.0pt, 
+                      width: 3.0cm), 
+                 parbreak(), 
+                 text(body: [Auto-sized ellipse.
 ]), 
-  ellipse(body: { text(body: [
+                 ellipse(body: { text(body: [
 ]), 
-                  text(body: [
+                                 text(body: [
 But, soft! what light through yonder window breaks?], 
-                       size: 8.0pt), 
-                  parbreak() }, 
-          fill: rgb(18%,80%,25%,100%), 
-          inset: 3.0pt, 
-          stroke: (thickness: 3.0pt,
-                   color: rgb(100%,25%,21%,100%))), 
-  parbreak(), 
-  text(body: [An inline
+                                      size: 8.0pt), 
+                                 parbreak() }, 
+                         fill: rgb(18%,80%,25%,100%), 
+                         inset: 3.0pt, 
+                         stroke: (thickness: 3.0pt,
+                                  color: rgb(100%,25%,21%,100%))), 
+                 parbreak(), 
+                 text(body: [An inline
 ], 
-       size: 8.0pt), 
-  box(body: ellipse(height: 6.0pt, 
-                    inset: 0.0pt, 
-                    outset: (top: 3.0pt,
-                             rest: 5.5pt), 
-                    width: 8.0pt)), 
-  text(body: [
+                      size: 8.0pt), 
+                 box(body: ellipse(height: 6.0pt, 
+                                   inset: 0.0pt, 
+                                   outset: (top: 3.0pt,
+                                            rest: 5.5pt), 
+                                   width: 8.0pt)), 
+                 text(body: [
 ellipse.], 
-       size: 8.0pt), 
-  parbreak() }
+                      size: 8.0pt), 
+                 parbreak() })

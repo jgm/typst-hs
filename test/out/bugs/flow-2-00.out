@@ -99,15 +99,15 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  v(amount: 19.0pt), 
-  text(body: [
+                 v(amount: 19.0pt), 
+                 text(body: [
 ]), 
-  block(body: { text(body: [
+                 block(body: { text(body: [
 But, soft! what light through yonder window breaks?
 It is the east, and Juliet is the sun.]), 
-                parbreak() }), 
-  parbreak() }
+                               parbreak() }), 
+                 parbreak() })

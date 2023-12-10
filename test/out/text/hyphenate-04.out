@@ -72,14 +72,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ], 
-       hyphenate: true), 
-  h(amount: 6.0pt), 
-  text(body: [ networks, the rest.], 
-       hyphenate: true), 
-  parbreak() }
+                      hyphenate: true), 
+                 h(amount: 6.0pt), 
+                 text(body: [ networks, the rest.], 
+                      hyphenate: true), 
+                 parbreak() })

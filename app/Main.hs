@@ -1,4 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE OverloadedLists #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 
 module Main where
@@ -8,9 +9,8 @@ import qualified Data.ByteString as BS
 import Data.Maybe (fromMaybe)
 import qualified Data.Text.Encoding as TE
 import qualified Data.Text.IO as TIO
-import System.Environment (getArgs)
 import System.Directory (doesFileExist)
-import System.Environment (lookupEnv)
+import System.Environment (getArgs, lookupEnv)
 import System.Exit
 import System.IO (hPutStrLn, stderr)
 import System.Timeout (timeout)
@@ -86,11 +86,11 @@ main =
             result <- evaluateTypst operations "stdin" parseResult
             case result of
               Left e -> err $ show e
-              Right cs -> do
+              Right c -> do
                 when (optShowEval opts || showAll) $ do
                   when showAll $ putStrLn "--- evaluated ---"
-                  pPrint cs
+                  pPrint c
                 when (optShowRepr opts || showAll) $ do
                   when showAll $ putStrLn "--- repr ---"
-                  TIO.putStrLn $ repr $ VContent cs
+                  TIO.putStrLn $ repr $ VContent [c]
             exitSuccess

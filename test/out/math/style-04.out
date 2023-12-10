@@ -60,14 +60,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  math.equation(block: false, 
-                body: { text(body: math.attach(b: none, 
-                                               base: text(body: [ time]), 
-                                               t: text(body: [2])), 
-                             color: rgb(100%,25%,21%,100%)), 
-                        text(body: [+]), 
-                        math.sqrt(radicand: text(body: [place])) }, 
-                numbering: none), 
-  parbreak() }
+                 math.equation(block: false, 
+                               body: { text(body: math.attach(b: none, 
+                                                              base: text(body: [ time]), 
+                                                              t: text(body: [2])), 
+                                            color: rgb(100%,25%,21%,100%)), 
+                                       text(body: [+]), 
+                                       math.sqrt(radicand: text(body: [place])) }, 
+                               numbering: none), 
+                 parbreak() })

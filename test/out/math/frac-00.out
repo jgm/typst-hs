@@ -56,23 +56,23 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  math.equation(block: true, 
-                body: { text(body: [x]), 
-                        text(body: [=]), 
-                        math.frac(denom: text(body: [2]), 
-                                  num: text(body: [1])), 
-                        text(body: [=]), 
-                        math.frac(denom: { text(body: [a]), 
-                                           text(body: [h]) }, 
-                                  num: text(body: [a])), 
-                        text(body: [=]), 
-                        math.frac(denom: text(body: [a]), 
-                                  num: text(body: [a])), 
-                        text(body: [=]), 
-                        math.frac(denom: math.frac(denom: text(body: [2]), 
-                                                   num: text(body: [1])), 
-                                  num: text(body: [a])) }, 
-                numbering: none), 
-  parbreak() }
+                 math.equation(block: true, 
+                               body: { text(body: [x]), 
+                                       text(body: [=]), 
+                                       math.frac(denom: text(body: [2]), 
+                                                 num: text(body: [1])), 
+                                       text(body: [=]), 
+                                       math.frac(denom: { text(body: [a]), 
+                                                          text(body: [h]) }, 
+                                                 num: text(body: [a])), 
+                                       text(body: [=]), 
+                                       math.frac(denom: text(body: [a]), 
+                                                 num: text(body: [a])), 
+                                       text(body: [=]), 
+                                       math.frac(denom: math.frac(denom: text(body: [2]), 
+                                                                  num: text(body: [1])), 
+                                                 num: text(body: [a])) }, 
+                               numbering: none), 
+                 parbreak() })

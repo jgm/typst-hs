@@ -59,10 +59,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  rotate(angle: 10.0deg, 
-         body: image(path: "test/assets/files/tiger.jpg", 
-                     width: 50%), 
-         origin: Axes(left, top)), 
-  parbreak() }
+                 rotate(angle: 10.0deg, 
+                        body: image(path: "test/assets/files/tiger.jpg", 
+                                    width: 50%), 
+                        origin: Axes(left, top)), 
+                 parbreak() })

@@ -186,28 +186,28 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ], size: 9.0pt), 
-  rect(body: { text(body: [
+                 rect(body: { text(body: [
 This is a little bit of text that builds up to
 hang-ing hyphens and dash—es and then, you know,
 some punctuation in the margin.], 
-                    size: 9.0pt), 
-               parbreak() }, 
-       fill: rgb(0%,0%,0%,0%), 
-       inset: 0.0pt, 
-       width: 100%), 
-  parbreak(), 
-  text(body: [
+                                   size: 9.0pt), 
+                              parbreak() }, 
+                      fill: rgb(0%,0%,0%,0%), 
+                      inset: 0.0pt, 
+                      width: 100%), 
+                 parbreak(), 
+                 text(body: [
 בנייה נכונה של משפטים ארוכים דורשת ידע בשפה. אז בואו נדבר על מזג האוויר.], 
-       font: ("PT Sans", 
-              "Noto Serif Hebrew"), 
-       lang: "he", 
-       size: 9.0pt), 
-  parbreak() }
+                      font: ("PT Sans", 
+                             "Noto Serif Hebrew"), 
+                      lang: "he", 
+                      size: 9.0pt), 
+                 parbreak() })

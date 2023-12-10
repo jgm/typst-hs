@@ -94,24 +94,24 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ], 
-       font: "Noto Serif CJK SC", 
-       lang: "zh"), 
-  parbreak(), 
-  text(body: [孔雀最早见于《山海经》中的《海内经》：​“有孔雀。”东汉杨孚著《异物志》记载，岭南：“孔雀，其大如大雁而足高，毛皆有斑纹彩，捕而蓄之，拍手即舞。”], 
-       font: "Noto Serif CJK SC", 
-       lang: "zh"), 
-  parbreak(), 
-  text(body: [
+                      font: "Noto Serif CJK SC", 
+                      lang: "zh"), 
+                 parbreak(), 
+                 text(body: [孔雀最早见于《山海经》中的《海内经》：​“有孔雀。”东汉杨孚著《异物志》记载，岭南：“孔雀，其大如大雁而足高，毛皆有斑纹彩，捕而蓄之，拍手即舞。”], 
+                      font: "Noto Serif CJK SC", 
+                      lang: "zh"), 
+                 parbreak(), 
+                 text(body: [
 孔雀最早见于《山海经》中的《海内经》：「有孔雀。」东汉杨孚著《异物志》记载，岭南：「孔雀，其大如大雁而足高，毛皆有斑纹彩，捕而蓄之，拍手即舞。」], 
-       font: "Noto Serif CJK TC", 
-       lang: "zh", 
-       region: "hk"), 
-  parbreak() }
+                      font: "Noto Serif CJK TC", 
+                      lang: "zh", 
+                      region: "hk"), 
+                 parbreak() })

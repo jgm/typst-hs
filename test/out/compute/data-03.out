@@ -98,29 +98,29 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  table(children: (strong(body: [Name]), 
-                   strong(body: [Species]), 
-                   strong(body: [Weight]), 
-                   strong(body: [Length]), 
-                   [Debby], 
-                   [Rhinoceros], 
-                   [1900kg], 
-                   [390cm], 
-                   [Fluffy], 
-                   [Tiger], 
-                   [115kg], 
-                   [310cm], 
-                   [Sleepy], 
-                   [Dolphin], 
-                   [150kg], 
-                   [180cm]), 
-        columns: 4), 
-  parbreak() }
+                 table(children: (strong(body: [Name]), 
+                                  strong(body: [Species]), 
+                                  strong(body: [Weight]), 
+                                  strong(body: [Length]), 
+                                  [Debby], 
+                                  [Rhinoceros], 
+                                  [1900kg], 
+                                  [390cm], 
+                                  [Fluffy], 
+                                  [Tiger], 
+                                  [115kg], 
+                                  [310cm], 
+                                  [Sleepy], 
+                                  [Dolphin], 
+                                  [150kg], 
+                                  [180cm]), 
+                       columns: 4), 
+                 parbreak() })

@@ -58,12 +58,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [A]), 
-  footnote(body: text(body: [A])), 
-  text(body: [ ]), 
-  linebreak(), 
-  text(body: [A ]), 
-  footnote(body: text(body: [A])), 
-  parbreak() }
+                 text(body: [A]), 
+                 footnote(body: text(body: [A])), 
+                 text(body: [ ]), 
+                 linebreak(), 
+                 text(body: [A ]), 
+                 footnote(body: text(body: [A])), 
+                 parbreak() })

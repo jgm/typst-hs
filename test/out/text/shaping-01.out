@@ -56,14 +56,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ], 
-       dir: rtl, 
-       font: "Noto Serif Hebrew"), 
-  linebreak(), 
-  text(body: [ט], 
-       dir: rtl, 
-       font: "Noto Serif Hebrew"), 
-  parbreak() }
+                      dir: rtl, 
+                      font: "Noto Serif Hebrew"), 
+                 linebreak(), 
+                 text(body: [ט], 
+                      dir: rtl, 
+                      font: "Noto Serif Hebrew"), 
+                 parbreak() })

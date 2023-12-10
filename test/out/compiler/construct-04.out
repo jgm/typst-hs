@@ -63,11 +63,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  enum(children: (text(body: [A]), 
-                  enum(children: (text(body: [B])))), 
-       numbering: "(a)"), 
-  parbreak() }
+                 enum(children: (text(body: [A]), 
+                                 enum(children: (text(body: [B])))), 
+                      numbering: "(a)"), 
+                 parbreak() })

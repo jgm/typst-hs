@@ -84,14 +84,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  parbreak(), 
-  text(body: [They can look for the details in ]), 
-  ref(supplement: auto, 
-      target: <netwok>), 
-  text(body: [,
+                 parbreak(), 
+                 text(body: [They can look for the details in ]), 
+                 ref(supplement: auto, 
+                     target: <netwok>), 
+                 text(body: [,
 which is the authoritative source.]), 
-  parbreak(), 
-  bibliography(path: "/works.bib"), 
-  parbreak() }
+                 parbreak(), 
+                 bibliography(path: "/works.bib"), 
+                 parbreak() })

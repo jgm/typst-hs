@@ -134,15 +134,15 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  parbreak(), 
-  text(body: [This text is justified, meaning that spaces are stretched so that the text
+                 parbreak(), 
+                 text(body: [This text is justified, meaning that spaces are stretched so that the text
 forms a “block” with flush edges at both sides.]), 
-  parbreak(), 
-  text(body: [First line indents and hyphenation play nicely with justified text.]), 
-  parbreak() }
+                 parbreak(), 
+                 text(body: [First line indents and hyphenation play nicely with justified text.]), 
+                 parbreak() })

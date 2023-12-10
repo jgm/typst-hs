@@ -53,12 +53,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  emph(body: text(body: [Shopping list])), 
-  text(body: [
+                 emph(body: text(body: [Shopping list])), 
+                 text(body: [
 ]), 
-  list(children: (text(body: [Apples]), 
-                  text(body: [Potatoes]), 
-                  text(body: [Juice]))), 
-  parbreak() }
+                 list(children: (text(body: [Apples]), 
+                                 text(body: [Potatoes]), 
+                                 text(body: [Juice]))), 
+                 parbreak() })

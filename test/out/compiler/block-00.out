@@ -86,17 +86,17 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [Hello, ]), 
-  text(body: [my fri]), 
-  text(body: [end.]), 
-  parbreak(), 
-  text(body: [How]), 
-  text(body: [ are]), 
-  text(body: [ ]), 
-  text(body: [you]), 
-  text(body: [?]), 
-  parbreak() }
+                 text(body: [Hello, ]), 
+                 text(body: [my fri]), 
+                 text(body: [end.]), 
+                 parbreak(), 
+                 text(body: [How]), 
+                 text(body: [ are]), 
+                 text(body: [ ]), 
+                 text(body: [you]), 
+                 text(body: [?]), 
+                 parbreak() })

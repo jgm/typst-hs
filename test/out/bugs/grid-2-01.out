@@ -62,12 +62,12 @@
     ]
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [Lorem ipsum dolor sit amet,]), 
-  text(body: [
+                 text(body: [Lorem ipsum dolor sit amet,]), 
+                 text(body: [
 ]), 
-  list(children: ({ text(body: [Lorem ipsum dolor sit amet,]), 
-                    parbreak() })) }
+                 list(children: ({ text(body: [Lorem ipsum dolor sit amet,]), 
+                                   parbreak() })) })

@@ -99,14 +99,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [High]), 
-  text(body: [
+                 text(body: [High]), 
+                 text(body: [
 ]), 
-  text(body: [Wide]), 
-  parbreak(), 
-  text(body: [Flipped A11]), 
-  parbreak() }
+                 text(body: [Wide]), 
+                 parbreak(), 
+                 text(body: [Flipped A11]), 
+                 parbreak() })

@@ -61,7 +61,7 @@
 , Heading 1 [ Text "Heading" ]
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  parbreak(), 
-  text(body: [Heading]) }
+                 parbreak(), 
+                 text(body: [Heading]) })

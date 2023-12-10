@@ -59,21 +59,21 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  math.equation(block: true, 
-                body: { text(body: [ abc ]), 
-                        math.alignpoint(), 
-                        text(body: [=]), 
-                        text(body: [c]), 
-                        linebreak(), 
-                        math.alignpoint(), 
-                        text(body: [=]), 
-                        text(body: [d]), 
-                        text(body: [+]), 
-                        text(body: [1]), 
-                        linebreak(), 
-                        text(body: [=]), 
-                        text(body: [x]) }, 
-                numbering: none), 
-  parbreak() }
+                 math.equation(block: true, 
+                               body: { text(body: [ abc ]), 
+                                       math.alignpoint(), 
+                                       text(body: [=]), 
+                                       text(body: [c]), 
+                                       linebreak(), 
+                                       math.alignpoint(), 
+                                       text(body: [=]), 
+                                       text(body: [d]), 
+                                       text(body: [+]), 
+                                       text(body: [1]), 
+                                       linebreak(), 
+                                       text(body: [=]), 
+                                       text(body: [x]) }, 
+                               numbering: none), 
+                 parbreak() })

@@ -78,12 +78,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  square(body: { text(body: [
+                 square(body: { text(body: [
 But, soft! what light through yonder window breaks?]), 
-                 parbreak() }, 
-         fill: rgb(18%,80%,25%,100%)), 
-  parbreak() }
+                                parbreak() }, 
+                        fill: rgb(18%,80%,25%,100%)), 
+                 parbreak() })

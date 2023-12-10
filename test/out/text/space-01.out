@@ -66,17 +66,17 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [A]), 
-  text(body: [B]), 
-  text(body: [C ]), 
-  linebreak(), 
-  text(body: [A ]), 
-  text(body: [ B]), 
-  text(body: [C ]), 
-  linebreak(), 
-  text(body: [A ]), 
-  text(body: [B]), 
-  text(body: [ C]), 
-  parbreak() }
+                 text(body: [A]), 
+                 text(body: [B]), 
+                 text(body: [C ]), 
+                 linebreak(), 
+                 text(body: [A ]), 
+                 text(body: [ B]), 
+                 text(body: [C ]), 
+                 linebreak(), 
+                 text(body: [A ]), 
+                 text(body: [B]), 
+                 text(body: [ C]), 
+                 parbreak() })

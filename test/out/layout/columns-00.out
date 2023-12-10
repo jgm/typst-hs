@@ -146,32 +146,32 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ], 
-       font: ("Noto Sans Arabic", 
-              "Linux Libertine"), 
-       lang: "ar"), 
-  parbreak(), 
-  box(fill: rgb(18%,80%,25%,100%), 
-      height: 8.0pt, 
-      width: 6.0pt), 
-  text(body: [ وتحفيز
+                      font: ("Noto Sans Arabic", 
+                             "Linux Libertine"), 
+                      lang: "ar"), 
+                 parbreak(), 
+                 box(fill: rgb(18%,80%,25%,100%), 
+                     height: 8.0pt, 
+                     width: 6.0pt), 
+                 text(body: [ وتحفيز
 العديد من التفاعلات الكيميائية. (DNA) من أهم الأحماض النووية التي تُشكِّل
 إلى جانب كل من البروتينات والليبيدات والسكريات المتعددة
 ], 
-       font: ("Noto Sans Arabic", 
-              "Linux Libertine"), 
-       lang: "ar"), 
-  box(fill: rgb(13%,61%,67%,100%), 
-      height: 8.0pt, 
-      width: 6.0pt), 
-  text(body: [
+                      font: ("Noto Sans Arabic", 
+                             "Linux Libertine"), 
+                      lang: "ar"), 
+                 box(fill: rgb(13%,61%,67%,100%), 
+                     height: 8.0pt, 
+                     width: 6.0pt), 
+                 text(body: [
 الجزيئات الضخمة الأربعة الضرورية للحياة.], 
-       font: ("Noto Sans Arabic", 
-              "Linux Libertine"), 
-       lang: "ar"), 
-  parbreak() }
+                      font: ("Noto Sans Arabic", 
+                             "Linux Libertine"), 
+                      lang: "ar"), 
+                 parbreak() })

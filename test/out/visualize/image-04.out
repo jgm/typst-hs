@@ -60,11 +60,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [A ]), 
-  box(body: image(height: 1.0cm, 
-                  path: "test/assets/files/tiger.jpg", 
-                  width: 80%)), 
-  text(body: [ B]), 
-  parbreak() }
+                 text(body: [A ]), 
+                 box(body: image(height: 1.0cm, 
+                                 path: "test/assets/files/tiger.jpg", 
+                                 width: 80%)), 
+                 text(body: [ B]), 
+                 parbreak() })

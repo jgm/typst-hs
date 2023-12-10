@@ -53,10 +53,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [A]), 
-  text(body: text(body: [ ]), 
-       font: "IBM Plex Serif"), 
-  text(body: [B]), 
-  parbreak() }
+                 text(body: [A]), 
+                 text(body: text(body: [ ]), 
+                      font: "IBM Plex Serif"), 
+                 text(body: [B]), 
+                 parbreak() })

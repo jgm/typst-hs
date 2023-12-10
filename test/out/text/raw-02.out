@@ -49,14 +49,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 Text
 ]), 
-  raw(block: true, 
-      lang: "rust", 
-      text: "fn code() {}\n"), 
-  text(body: [
+                 raw(block: true, 
+                     lang: "rust", 
+                     text: "fn code() {}\n"), 
+                 text(body: [
 Text]), 
-  parbreak() }
+                 parbreak() })

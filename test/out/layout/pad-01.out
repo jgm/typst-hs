@@ -62,11 +62,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  pad(body: { text(body: [PL ]), 
-              h(amount: 1.0fr), 
-              text(body: [ PR]) }, 
-      left: 10.0pt, 
-      right: 10.0pt), 
-  parbreak() }
+                 pad(body: { text(body: [PL ]), 
+                             h(amount: 1.0fr), 
+                             text(body: [ PR]) }, 
+                     left: 10.0pt, 
+                     right: 10.0pt), 
+                 parbreak() })

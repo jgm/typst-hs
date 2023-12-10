@@ -61,11 +61,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 The after fira 🏳️‍🌈!]), 
-  parbreak(), 
-  text(body: [
+                 parbreak(), 
+                 text(body: [
 مرحبًا], 
-       font: "Noto Sans Arabic", 
-       lang: "ar"), 
-  parbreak() }
+                      font: "Noto Sans Arabic", 
+                      lang: "ar"), 
+                 parbreak() })

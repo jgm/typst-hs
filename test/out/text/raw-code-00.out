@@ -59,13 +59,13 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ], size: 6.0pt), 
-  raw(block: true, 
-      lang: "typ", 
-      text: "= Chapter 1\n#lorem(100)\n\n#let hi = \"Hello World\"\n#show heading: emph\n"), 
-  parbreak() }
+                 raw(block: true, 
+                     lang: "typ", 
+                     text: "= Chapter 1\n#lorem(100)\n\n#let hi = \"Hello World\"\n#show heading: emph\n"), 
+                 parbreak() })

@@ -76,24 +76,24 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  math.equation(block: true, 
-                body: math.lr(body: ({ [{], 
-                                       text(body: [x]), 
-                                       text(body: [∈]), 
-                                       text(body: [ℝ]), 
-                                       text(body: [ ]), 
-                                       text(body: [|]), 
-                                       text(body: [ ]), 
-                                       text(body: [x]), 
-                                       text(body: [ is natural ]), 
-                                       text(body: [∧]), 
-                                       text(body: [x]), 
-                                       text(body: [<]), 
-                                       text(body: [10]), 
-                                       [}] })), 
-                numbering: none), 
-  parbreak() }
+                 math.equation(block: true, 
+                               body: math.lr(body: ({ [{], 
+                                                      text(body: [x]), 
+                                                      text(body: [∈]), 
+                                                      text(body: [ℝ]), 
+                                                      text(body: [ ]), 
+                                                      text(body: [|]), 
+                                                      text(body: [ ]), 
+                                                      text(body: [x]), 
+                                                      text(body: [ is natural ]), 
+                                                      text(body: [∧]), 
+                                                      text(body: [x]), 
+                                                      text(body: [<]), 
+                                                      text(body: [10]), 
+                                                      [}] })), 
+                               numbering: none), 
+                 parbreak() })

@@ -90,19 +90,19 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  parbreak(), 
-  enum(children: (enum.item(body: text(body: [First]), 
-                            number: 1), 
-                  enum.item(body: text(body: [Fifth]), 
-                            number: 5))), 
-  text(body: [
+                 parbreak(), 
+                 enum(children: (enum.item(body: text(body: [First]), 
+                                           number: 1), 
+                                 enum.item(body: text(body: [Fifth]), 
+                                           number: 5))), 
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  parbreak() }
+                 parbreak() })

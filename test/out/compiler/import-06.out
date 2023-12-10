@@ -75,15 +75,15 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  parbreak(), 
-  enum.item(body: text(body: [a]), 
-            number: 2), 
-  parbreak() }
+                 parbreak(), 
+                 enum.item(body: text(body: [a]), 
+                           number: 2), 
+                 parbreak() })

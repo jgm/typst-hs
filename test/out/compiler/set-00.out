@@ -58,9 +58,9 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 Hello ]), 
-  strong(body: text(body: [World])), 
-  parbreak() }
+                 strong(body: text(body: [World])), 
+                 parbreak() })

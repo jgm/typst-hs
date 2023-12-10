@@ -61,13 +61,13 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 Hello]), 
-  parbreak(), 
-  text(body: [There]), 
-  parbreak(), 
-  block(body: text(body: [Further down]), 
-        spacing: 20.0pt), 
-  parbreak() }
+                 parbreak(), 
+                 text(body: [There]), 
+                 parbreak(), 
+                 block(body: text(body: [Further down]), 
+                       spacing: 20.0pt), 
+                 parbreak() })

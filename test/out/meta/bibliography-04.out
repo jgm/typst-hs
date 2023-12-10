@@ -100,21 +100,21 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  parbreak(), 
-  heading(body: text(body: [Multiple Bibs]), 
-          level: 1, 
-          numbering: "1."), 
-  text(body: [Now we have multiple bibliographies containing ]), 
-  cite(key: <glacier-melt>), 
-  cite(key: <keshav2007read>), 
-  text(body: [
+                 parbreak(), 
+                 heading(body: text(body: [Multiple Bibs]), 
+                         level: 1, 
+                         numbering: "1."), 
+                 text(body: [Now we have multiple bibliographies containing ]), 
+                 cite(key: <glacier-melt>), 
+                 cite(key: <keshav2007read>), 
+                 text(body: [
 ]), 
-  bibliography(path: ("/works.bib", 
-                      "/works_too.bib")), 
-  parbreak() }
+                 bibliography(path: ("/works.bib", 
+                                     "/works_too.bib")), 
+                 parbreak() })

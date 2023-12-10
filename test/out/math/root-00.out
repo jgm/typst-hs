@@ -56,15 +56,15 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  math.equation(block: false, 
-                body: { text(body: [A]), 
-                        text(body: [=]), 
-                        math.sqrt(radicand: { text(body: [x]), 
-                                              text(body: [+]), 
-                                              text(body: [y]) }), 
-                        text(body: [=]), 
-                        text(body: [c]) }, 
-                numbering: none), 
-  parbreak() }
+                 math.equation(block: false, 
+                               body: { text(body: [A]), 
+                                       text(body: [=]), 
+                                       math.sqrt(radicand: { text(body: [x]), 
+                                                             text(body: [+]), 
+                                                             text(body: [y]) }), 
+                                       text(body: [=]), 
+                                       text(body: [c]) }, 
+                               numbering: none), 
+                 parbreak() })

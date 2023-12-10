@@ -81,20 +81,20 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  parbreak(), 
-  strong(body: text(body: [A])), 
-  text(body: [ ]), 
-  strong(body: text(body: [B])), 
-  text(body: [ ]), 
-  <red>, 
-  text(body: [ ]), 
-  strong(body: text(body: [C])), 
-  text(body: [ ]), 
-  <blue>, 
-  text(body: [ ]), 
-  strong(body: text(body: [D])), 
-  parbreak() }
+                 parbreak(), 
+                 strong(body: text(body: [A])), 
+                 text(body: [ ]), 
+                 strong(body: text(body: [B])), 
+                 text(body: [ ]), 
+                 <red>, 
+                 text(body: [ ]), 
+                 strong(body: text(body: [C])), 
+                 text(body: [ ]), 
+                 <blue>, 
+                 text(body: [ ]), 
+                 strong(body: text(body: [D])), 
+                 parbreak() })

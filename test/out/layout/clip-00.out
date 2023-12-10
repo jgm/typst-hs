@@ -99,27 +99,27 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [Hello ]), 
-  box(body: rect(fill: rgb(100%,25%,21%,100%), 
-                 height: 3.0em, 
-                 width: 3.0em), 
-      clip: false, 
-      height: 1.0em, 
-      width: 1.0em), 
-  text(body: [
+                 text(body: [Hello ]), 
+                 box(body: rect(fill: rgb(100%,25%,21%,100%), 
+                                height: 3.0em, 
+                                width: 3.0em), 
+                     clip: false, 
+                     height: 1.0em, 
+                     width: 1.0em), 
+                 text(body: [
 world 1]), 
-  parbreak(), 
-  text(body: [Space]), 
-  parbreak(), 
-  text(body: [Hello ]), 
-  box(body: rect(fill: rgb(100%,25%,21%,100%), 
-                 height: 3.0em, 
-                 width: 3.0em), 
-      clip: true, 
-      height: 1.0em, 
-      width: 1.0em), 
-  text(body: [ 
+                 parbreak(), 
+                 text(body: [Space]), 
+                 parbreak(), 
+                 text(body: [Hello ]), 
+                 box(body: rect(fill: rgb(100%,25%,21%,100%), 
+                                height: 3.0em, 
+                                width: 3.0em), 
+                     clip: true, 
+                     height: 1.0em, 
+                     width: 1.0em), 
+                 text(body: [ 
 world 2]), 
-  parbreak() }
+                 parbreak() })

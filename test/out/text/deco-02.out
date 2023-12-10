@@ -64,12 +64,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  underline(body: text(body: text(body: [DANGER!]), 
-                       color: rgb(100%,25%,21%,100%)), 
-            offset: 2.0pt, 
-            stroke: 2.0pt), 
-  parbreak() }
+                 underline(body: text(body: text(body: [DANGER!]), 
+                                      color: rgb(100%,25%,21%,100%)), 
+                           offset: 2.0pt, 
+                           stroke: 2.0pt), 
+                 parbreak() })

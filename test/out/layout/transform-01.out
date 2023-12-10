@@ -72,12 +72,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  align(alignment: Axes(center, horizon), 
-        body: rotate(angle: 20.0deg, 
-                     body: scale(body: image(path: "test/assets/files/tiger.jpg"), 
-                                 factor: 70%))), 
-  parbreak() }
+                 align(alignment: Axes(center, horizon), 
+                       body: rotate(angle: 20.0deg, 
+                                    body: scale(body: image(path: "test/assets/files/tiger.jpg"), 
+                                                factor: 70%))), 
+                 parbreak() })

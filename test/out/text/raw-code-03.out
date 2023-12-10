@@ -59,12 +59,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  parbreak(), 
-  raw(block: true, 
-      lang: "cpp", 
-      text: "#include <iostream>\n\nint main() {\n  std::cout << \"Hello, world!\";\n}\n"), 
-  parbreak() }
+                 parbreak(), 
+                 raw(block: true, 
+                     lang: "cpp", 
+                     text: "#include <iostream>\n\nint main() {\n  std::cout << \"Hello, world!\";\n}\n"), 
+                 parbreak() })

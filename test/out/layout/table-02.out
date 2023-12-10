@@ -92,25 +92,25 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  table(align: (left, 
-                center, 
-                right), 
-        children: (text(body: [A]), 
-                   text(body: [B]), 
-                   text(body: [C])), 
-        columns: (1.0fr, 
-                  1.0fr, 
-                  1.0fr)), 
-  parbreak(), 
-  text(body: [
+                 table(align: (left, 
+                               center, 
+                               right), 
+                       children: (text(body: [A]), 
+                                  text(body: [B]), 
+                                  text(body: [C])), 
+                       columns: (1.0fr, 
+                                 1.0fr, 
+                                 1.0fr)), 
+                 parbreak(), 
+                 text(body: [
 ]), 
-  table(align: (), 
-        children: (text(body: [A]), 
-                   text(body: [B]), 
-                   text(body: [C])), 
-        columns: (1.0fr, 
-                  1.0fr, 
-                  1.0fr)), 
-  parbreak() }
+                 table(align: (), 
+                       children: (text(body: [A]), 
+                                  text(body: [B]), 
+                                  text(body: [C])), 
+                       columns: (1.0fr, 
+                                 1.0fr, 
+                                 1.0fr)), 
+                 parbreak() })

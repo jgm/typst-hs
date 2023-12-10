@@ -99,24 +99,24 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  box(body: image(path: "test/assets/files/rhino.png", 
-                  width: 30.0pt)), 
-  text(body: [
+                 box(body: image(path: "test/assets/files/rhino.png", 
+                                 width: 30.0pt)), 
+                 text(body: [
 ]), 
-  box(body: image(height: 30.0pt, 
-                  path: "test/assets/files/rhino.png")), 
-  parbreak(), 
-  image(fit: "stretch", 
-        height: 20.0pt, 
-        path: "test/assets/files/monkey.svg", 
-        width: 100%), 
-  parbreak(), 
-  align(alignment: Axes(right, bottom), 
-        body: image(alt: "A tiger", 
-                    path: "test/assets/files/tiger.jpg", 
-                    width: 40.0pt)), 
-  parbreak() }
+                 box(body: image(height: 30.0pt, 
+                                 path: "test/assets/files/rhino.png")), 
+                 parbreak(), 
+                 image(fit: "stretch", 
+                       height: 20.0pt, 
+                       path: "test/assets/files/monkey.svg", 
+                       width: 100%), 
+                 parbreak(), 
+                 align(alignment: Axes(right, bottom), 
+                       body: image(alt: "A tiger", 
+                                   path: "test/assets/files/tiger.jpg", 
+                                   width: 40.0pt)), 
+                 parbreak() })

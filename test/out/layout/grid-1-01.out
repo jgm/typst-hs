@@ -87,20 +87,20 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  grid(children: (rect(body: text(body: [dddaa aaa aaa]), 
-                       fill: rgb(13%,61%,67%,100%), 
-                       inset: 0.0pt), 
-                  rect(body: text(body: [ccc]), 
-                       fill: rgb(18%,80%,25%,100%), 
-                       inset: 0.0pt), 
-                  rect(body: text(body: [aaa]), 
-                       fill: rgb(86%,86%,86%,100%), 
-                       inset: 0.0pt)), 
-       column-gutter: 1.0fr, 
-       columns: (auto, auto, 40%), 
-       row-gutter: 1.0fr), 
-  parbreak() }
+                 grid(children: (rect(body: text(body: [dddaa aaa aaa]), 
+                                      fill: rgb(13%,61%,67%,100%), 
+                                      inset: 0.0pt), 
+                                 rect(body: text(body: [ccc]), 
+                                      fill: rgb(18%,80%,25%,100%), 
+                                      inset: 0.0pt), 
+                                 rect(body: text(body: [aaa]), 
+                                      fill: rgb(86%,86%,86%,100%), 
+                                      inset: 0.0pt)), 
+                      column-gutter: 1.0fr, 
+                      columns: (auto, auto, 40%), 
+                      row-gutter: 1.0fr), 
+                 parbreak() })

@@ -101,28 +101,28 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  grid(children: (align(alignment: bottom, 
-                        body: text(body: [A])), 
-                  { text(body: [
+                 grid(children: (align(alignment: bottom, 
+                                       body: text(body: [A])), 
+                                 { text(body: [
 Top
 ]), 
-                    align(alignment: bottom, 
-                          body: { text(body: [
+                                   align(alignment: bottom, 
+                                         body: { text(body: [
 Bottom ]), 
-                                  linebreak(), 
-                                  text(body: [Bottom ]), 
-                                  linebreak(), 
-                                  v(amount: 0.0pt), 
-                                  text(body: [
+                                                 linebreak(), 
+                                                 text(body: [Bottom ]), 
+                                                 linebreak(), 
+                                                 v(amount: 0.0pt), 
+                                                 text(body: [
 Top]), 
-                                  parbreak() }), 
-                    parbreak() }, 
-                  align(alignment: top, 
-                        body: text(body: [B]))), 
-       columns: 2, 
-       gutter: 10.0pt), 
-  parbreak() }
+                                                 parbreak() }), 
+                                   parbreak() }, 
+                                 align(alignment: top, 
+                                       body: text(body: [B]))), 
+                      columns: 2, 
+                      gutter: 10.0pt), 
+                 parbreak() })

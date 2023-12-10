@@ -61,12 +61,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: text(body: [Tq]), 
-       kerning: true), 
-  text(body: [ ]), 
-  linebreak(), 
-  text(body: text(body: [Tq]), 
-       kerning: false), 
-  parbreak() }
+                 text(body: text(body: [Tq]), 
+                      kerning: true), 
+                 text(body: [ ]), 
+                 linebreak(), 
+                 text(body: text(body: [Tq]), 
+                      kerning: false), 
+                 parbreak() })

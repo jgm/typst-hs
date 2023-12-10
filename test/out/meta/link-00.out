@@ -119,23 +119,23 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  link(body: [https://example.com/], 
-       dest: "https://example.com/"), 
-  parbreak(), 
-  link(body: text(body: [Some text text text]), 
-       dest: "https://typst.org/"), 
-  parbreak(), 
-  text(body: [This link appears ]), 
-  link(body: text(body: [in the middle of]), 
-       dest: "https://google.com/"), 
-  text(body: [ a paragraph.]), 
-  parbreak(), 
-  text(body: [Contact ]), 
-  link(dest: "mailto:hi@typst.app"), 
-  text(body: [ or
+                 link(body: [https://example.com/], 
+                      dest: "https://example.com/"), 
+                 parbreak(), 
+                 link(body: text(body: [Some text text text]), 
+                      dest: "https://typst.org/"), 
+                 parbreak(), 
+                 text(body: [This link appears ]), 
+                 link(body: text(body: [in the middle of]), 
+                      dest: "https://google.com/"), 
+                 text(body: [ a paragraph.]), 
+                 parbreak(), 
+                 text(body: [Contact ]), 
+                 link(dest: "mailto:hi@typst.app"), 
+                 text(body: [ or
 call ]), 
-  link(dest: "tel:123"), 
-  text(body: [ for more information.]), 
-  parbreak() }
+                 link(dest: "tel:123"), 
+                 text(body: [ for more information.]), 
+                 parbreak() })

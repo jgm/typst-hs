@@ -61,11 +61,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [ABCअपार्टमेंट]), 
-  parbreak(), 
-  text(body: [अपार्टमेंट]), 
-  parbreak(), 
-  text(body: [अ पा र् ट में ट]), 
-  parbreak() }
+                 text(body: [ABCअपार्टमेंट]), 
+                 parbreak(), 
+                 text(body: [अपार्टमेंट]), 
+                 parbreak(), 
+                 text(body: [अ पा र् ट में ट]), 
+                 parbreak() })

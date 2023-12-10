@@ -107,15 +107,15 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  page(body: { layout(func: ), 
-               h(amount: 1.0em), 
-               place(alignment: left, 
-                     body: rect(stroke: rgb(0%,45%,85%,100%), 
-                                width: 80.0pt)) }, 
-       height: 100.0pt, 
-       width: 100.0pt), 
-  parbreak() }
+                 page(body: { layout(func: ), 
+                              h(amount: 1.0em), 
+                              place(alignment: left, 
+                                    body: rect(stroke: rgb(0%,45%,85%,100%), 
+                                               width: 80.0pt)) }, 
+                      height: 100.0pt, 
+                      width: 100.0pt), 
+                 parbreak() })

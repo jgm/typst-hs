@@ -59,10 +59,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  terms(children: ((text(body: [One]), 
-                    text(body: [First])), 
-                   (text(body: [Two]), 
-                    text(body: [Second])))), 
-  parbreak() }
+                 terms(children: ((text(body: [One]), 
+                                   text(body: [First])), 
+                                  (text(body: [Two]), 
+                                   text(body: [Second])))), 
+                 parbreak() })

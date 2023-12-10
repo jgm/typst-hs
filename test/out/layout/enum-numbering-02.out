@@ -89,14 +89,14 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  enum(children: (text(body: [Red]), 
-                  text(body: [Green]), 
-                  text(body: [Blue]), 
-                  text(body: [Red])), 
-       numbering: , 
-       spacing: 0.65em + -3.0pt, 
-       start: 3, 
-       tight: false), 
-  parbreak() }
+                 enum(children: (text(body: [Red]), 
+                                 text(body: [Green]), 
+                                 text(body: [Blue]), 
+                                 text(body: [Red])), 
+                      numbering: , 
+                      spacing: 0.65em + -3.0pt, 
+                      start: 3, 
+                      tight: false), 
+                 parbreak() })

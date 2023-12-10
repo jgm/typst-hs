@@ -80,17 +80,17 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [✅]), 
-  text(body: [
+                 text(body: [✅]), 
+                 text(body: [
 ]), 
-  text(body: [✅]), 
-  text(body: [
+                 text(body: [✅]), 
+                 text(body: [
 ]), 
-  text(body: [❌(]), 
-  text(body: [alignment]), 
-  text(body: [ /= ]), 
-  text(body: ["2d alignment"]), 
-  text(body: [)]), 
-  parbreak() }
+                 text(body: [❌(]), 
+                 text(body: [alignment]), 
+                 text(body: [ /= ]), 
+                 text(body: ["2d alignment"]), 
+                 text(body: [)]), 
+                 parbreak() })

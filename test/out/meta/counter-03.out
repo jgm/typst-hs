@@ -148,32 +148,32 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  figure(body: emph(body: text(body: [AAAA!])), 
-         caption: text(body: [Four ‘A’s]), 
-         kind: , 
-         numbering: "A", 
-         supplement: "Figure"), 
-  text(body: [
+                 figure(body: emph(body: text(body: [AAAA!])), 
+                        caption: text(body: [Four ‘A’s]), 
+                        kind: , 
+                        numbering: "A", 
+                        supplement: "Figure"), 
+                 text(body: [
 ]), 
-  figure(body: emph(body: text(body: [BBBB!])), 
-         caption: text(body: [Four ‘B’s]), 
-         kind: , 
-         numbering: none, 
-         supplement: "Figure"), 
-  text(body: [
+                 figure(body: emph(body: text(body: [BBBB!])), 
+                        caption: text(body: [Four ‘B’s]), 
+                        kind: , 
+                        numbering: none, 
+                        supplement: "Figure"), 
+                 text(body: [
 ]), 
-  figure(body: emph(body: text(body: [CCCC!])), 
-         caption: text(body: [Four ‘C’s]), 
-         kind: , 
-         supplement: "Figure"), 
-  text(body: [
+                 figure(body: emph(body: text(body: [CCCC!])), 
+                        caption: text(body: [Four ‘C’s]), 
+                        kind: , 
+                        supplement: "Figure"), 
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  figure(body: emph(body: text(body: [DDDD!])), 
-         caption: text(body: [Four ‘D’s]), 
-         kind: , 
-         supplement: "Figure"), 
-  parbreak() }
+                 figure(body: emph(body: text(body: [DDDD!])), 
+                        caption: text(body: [Four ‘D’s]), 
+                        kind: , 
+                        supplement: "Figure"), 
+                 parbreak() })

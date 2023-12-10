@@ -93,23 +93,23 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  math.equation(block: true, 
-                body: { math.attach(b: { text(body: [x]), 
-                                         text(body: [≔]), 
-                                         text(body: [1]) }, 
-                                    base: math.op(limits: false, 
-                                                  text: text(body: [myop])), 
-                                    t: none), 
-                        text(body: [x]), 
-                        linebreak(), 
-                        math.attach(b: { text(body: [x]), 
-                                         text(body: [≔]), 
-                                         text(body: [1]) }, 
-                                    base: math.op(limits: true, 
-                                                  text: text(body: [myop])), 
-                                    t: none), 
-                        text(body: [x]) }, 
-                numbering: none), 
-  parbreak() }
+                 math.equation(block: true, 
+                               body: { math.attach(b: { text(body: [x]), 
+                                                        text(body: [≔]), 
+                                                        text(body: [1]) }, 
+                                                   base: math.op(limits: false, 
+                                                                 text: text(body: [myop])), 
+                                                   t: none), 
+                                       text(body: [x]), 
+                                       linebreak(), 
+                                       math.attach(b: { text(body: [x]), 
+                                                        text(body: [≔]), 
+                                                        text(body: [1]) }, 
+                                                   base: math.op(limits: true, 
+                                                                 text: text(body: [myop])), 
+                                                   t: none), 
+                                       text(body: [x]) }, 
+                               numbering: none), 
+                 parbreak() })

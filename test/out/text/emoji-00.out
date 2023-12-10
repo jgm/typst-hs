@@ -53,13 +53,13 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [👩‍👩‍👦]), 
-  parbreak(), 
-  text(body: [🏳️‍🌈]), 
-  parbreak(), 
-  text(body: [👍🏿]), 
-  parbreak(), 
-  text(body: [1️⃣]), 
-  parbreak() }
+                 text(body: [👩‍👩‍👦]), 
+                 parbreak(), 
+                 text(body: [🏳️‍🌈]), 
+                 parbreak(), 
+                 text(body: [👍🏿]), 
+                 parbreak(), 
+                 text(body: [1️⃣]), 
+                 parbreak() })

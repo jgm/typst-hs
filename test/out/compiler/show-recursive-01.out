@@ -71,16 +71,16 @@
 , Heading 1 [ Text "Nope" ]
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  scale(body: list(children: (text(body: [Actual]), 
-                              text(body: [Tight]), 
-                              text(body: [List]))), 
-        origin: left, 
-        x: 80%) }
+                 scale(body: list(children: (text(body: [Actual]), 
+                                             text(body: [Tight]), 
+                                             text(body: [List]))), 
+                       origin: left, 
+                       x: 80%) })

@@ -84,23 +84,23 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  math.equation(block: true, 
-                body: math.mat(rows: (({ text(body: [ a ]), 
-                                         math.alignpoint(), 
-                                         text(body: [ a a a ]), 
-                                         math.alignpoint(), 
-                                         text(body: [ a a]) }), 
-                                      ({ text(body: [ a a ]), 
-                                         math.alignpoint(), 
-                                         text(body: [ a a ]), 
-                                         math.alignpoint(), 
-                                         text(body: [ a]) }), 
-                                      ({ text(body: [ a a a ]), 
-                                         math.alignpoint(), 
-                                         text(body: [ a ]), 
-                                         math.alignpoint(), 
-                                         text(body: [ a a a]) }))), 
-                numbering: none), 
-  parbreak() }
+                 math.equation(block: true, 
+                               body: math.mat(rows: (({ text(body: [ a ]), 
+                                                        math.alignpoint(), 
+                                                        text(body: [ a a a ]), 
+                                                        math.alignpoint(), 
+                                                        text(body: [ a a]) }), 
+                                                     ({ text(body: [ a a ]), 
+                                                        math.alignpoint(), 
+                                                        text(body: [ a a ]), 
+                                                        math.alignpoint(), 
+                                                        text(body: [ a]) }), 
+                                                     ({ text(body: [ a a a ]), 
+                                                        math.alignpoint(), 
+                                                        text(body: [ a ]), 
+                                                        math.alignpoint(), 
+                                                        text(body: [ a a a]) }))), 
+                               numbering: none), 
+                 parbreak() })

@@ -57,12 +57,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  enum(children: ({  })), 
-  text(body: [Empty ]), 
-  linebreak(), 
-  text(body: [+Nope ]), 
-  linebreak(), 
-  text(body: [a + 0.]), 
-  parbreak() }
+                 enum(children: ({  })), 
+                 text(body: [Empty ]), 
+                 linebreak(), 
+                 text(body: [+Nope ]), 
+                 linebreak(), 
+                 text(body: [a + 0.]), 
+                 parbreak() })

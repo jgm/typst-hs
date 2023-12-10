@@ -78,20 +78,20 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [ = Level 1
+                 text(body: [ = Level 1
 ]), 
-  heading(body: text(body: [Level 2]), 
-          level: 2), 
-  text(body: [
+                 heading(body: text(body: [Level 2]), 
+                         level: 2), 
+                 text(body: [
 ]), 
-  box(body: heading(body: text(body: [Level 3]), 
-                    level: 3)), 
-  parbreak(), 
-  text(body: [No = heading]), 
-  parbreak(), 
-  text(body: [= No heading]), 
-  parbreak() }
+                 box(body: heading(body: text(body: [Level 3]), 
+                                   level: 3)), 
+                 parbreak(), 
+                 text(body: [No = heading]), 
+                 parbreak(), 
+                 text(body: [= No heading]), 
+                 parbreak() })

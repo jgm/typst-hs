@@ -84,19 +84,19 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  parbreak(), 
-  rect(body: { text(body: [
+                 parbreak(), 
+                 rect(body: { text(body: [
 ], 
-                    size: 6.0pt), 
-               raw(block: true, 
-                   lang: "html", 
-                   text: "<!DOCTYPE html>\n  <html>\n    <head>\n      <meta charset=\"utf-8\">\n    </head>\n    <body>\n      <h1>Topic</h1>\n      <p>The Hypertext Markup Language.</p>\n      <script>\n        function foo(a, b) {\n          return a + b + \"string\";\n        }\n      </script>\n    </body>\n  </html>\n  "), 
-               parbreak() }, 
-       fill: rgb(93%,94%,95%,100%), 
-       inset: (x: 4.0pt, y: 5.0pt), 
-       radius: 4.0pt), 
-  parbreak() }
+                                   size: 6.0pt), 
+                              raw(block: true, 
+                                  lang: "html", 
+                                  text: "<!DOCTYPE html>\n  <html>\n    <head>\n      <meta charset=\"utf-8\">\n    </head>\n    <body>\n      <h1>Topic</h1>\n      <p>The Hypertext Markup Language.</p>\n      <script>\n        function foo(a, b) {\n          return a + b + \"string\";\n        }\n      </script>\n    </body>\n  </html>\n  "), 
+                              parbreak() }, 
+                      fill: rgb(93%,94%,95%,100%), 
+                      inset: (x: 4.0pt, y: 5.0pt), 
+                      radius: 4.0pt), 
+                 parbreak() })

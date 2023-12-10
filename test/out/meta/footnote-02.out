@@ -95,20 +95,20 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [First ]), 
-  linebreak(), 
-  text(body: [Second ]), 
-  footnote(body: { text(body: [A, ]), 
-                   footnote(body: { text(body: [B, ]), 
-                                    footnote(body: text(body: [C])) }) }), 
-  text(body: [ ]), 
-  linebreak(), 
-  text(body: [Third ]), 
-  footnote(body: { text(body: [D, ]), 
-                   footnote(body: text(body: [E])) }), 
-  text(body: [ ]), 
-  linebreak(), 
-  text(body: [Fourth]), 
-  parbreak() }
+                 text(body: [First ]), 
+                 linebreak(), 
+                 text(body: [Second ]), 
+                 footnote(body: { text(body: [A, ]), 
+                                  footnote(body: { text(body: [B, ]), 
+                                                   footnote(body: text(body: [C])) }) }), 
+                 text(body: [ ]), 
+                 linebreak(), 
+                 text(body: [Third ]), 
+                 footnote(body: { text(body: [D, ]), 
+                                  footnote(body: text(body: [E])) }), 
+                 text(body: [ ]), 
+                 linebreak(), 
+                 text(body: [Fourth]), 
+                 parbreak() })

@@ -59,13 +59,13 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [Two consecutive ]), 
-  linebreak(), 
-  linebreak(), 
-  text(body: [breaks and three ]), 
-  linebreak(), 
-  linebreak(), 
-  text(body: [more.]), 
-  parbreak() }
+                 text(body: [Two consecutive ]), 
+                 linebreak(), 
+                 linebreak(), 
+                 text(body: [breaks and three ]), 
+                 linebreak(), 
+                 linebreak(), 
+                 text(body: [more.]), 
+                 parbreak() })

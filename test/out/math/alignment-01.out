@@ -53,15 +53,15 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  math.equation(block: true, 
-                body: { math.alignpoint(), 
-                        text(body: [ right ]), 
-                        linebreak(), 
-                        text(body: [a very long line ]), 
-                        linebreak(), 
-                        text(body: [left ]), 
-                        linebreak() }, 
-                numbering: none), 
-  parbreak() }
+                 math.equation(block: true, 
+                               body: { math.alignpoint(), 
+                                       text(body: [ right ]), 
+                                       linebreak(), 
+                                       text(body: [a very long line ]), 
+                                       linebreak(), 
+                                       text(body: [left ]), 
+                                       linebreak() }, 
+                               numbering: none), 
+                 parbreak() })

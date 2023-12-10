@@ -57,15 +57,15 @@
     ]
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  enum(children: ({ text(body: [First
+                 enum(children: ({ text(body: [First
 ]), 
-                    enum(children: ({ text(body: [Nested]), 
-                                      parbreak() }), 
-                         full: true, 
-                         numbering: "1.a.") }), 
-       full: true, 
-       numbering: "1.a.") }
+                                   enum(children: ({ text(body: [Nested]), 
+                                                     parbreak() }), 
+                                        full: true, 
+                                        numbering: "1.a.") }), 
+                      full: true, 
+                      numbering: "1.a.") })

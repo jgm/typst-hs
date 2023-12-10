@@ -64,9 +64,9 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  parbreak(), 
-  figure(body: image(path: "test/assets/files/diagram.svg"), 
-         caption: text(body: [A textful diagram])), 
-  parbreak() }
+                 parbreak(), 
+                 figure(body: image(path: "test/assets/files/diagram.svg"), 
+                        caption: text(body: [A textful diagram])), 
+                 parbreak() })

@@ -79,10 +79,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  parbreak(), 
-  rect(body: text(body: [So there isn’t anything in the second column?]), 
-       inset: 3.0pt, 
-       width: 100%), 
-  parbreak() }
+                 parbreak(), 
+                 rect(body: text(body: [So there isn’t anything in the second column?]), 
+                      inset: 3.0pt, 
+                      width: 100%), 
+                 parbreak() })

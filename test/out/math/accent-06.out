@@ -90,20 +90,20 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  math.equation(block: true, 
-                body: { math.accent(accent: ∼, 
-                                    base: text(body: [∫])), 
-                        text(body: [,]), 
-                        math.attach(b: text(body: [a]), 
-                                    base: math.accent(accent: ∼, 
-                                                      base: text(body: [∫])), 
-                                    t: text(body: [b])), 
-                        text(body: [,]), 
-                        math.accent(accent: ∼, 
-                                    base: math.attach(b: text(body: [a]), 
-                                                      base: text(body: [∫]), 
-                                                      t: text(body: [b]))) }, 
-                numbering: none), 
-  parbreak() }
+                 math.equation(block: true, 
+                               body: { math.accent(accent: ∼, 
+                                                   base: text(body: [∫])), 
+                                       text(body: [,]), 
+                                       math.attach(b: text(body: [a]), 
+                                                   base: math.accent(accent: ∼, 
+                                                                     base: text(body: [∫])), 
+                                                   t: text(body: [b])), 
+                                       text(body: [,]), 
+                                       math.accent(accent: ∼, 
+                                                   base: math.attach(b: text(body: [a]), 
+                                                                     base: text(body: [∫]), 
+                                                                     t: text(body: [b]))) }, 
+                               numbering: none), 
+                 parbreak() })

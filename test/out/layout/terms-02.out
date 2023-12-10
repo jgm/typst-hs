@@ -78,17 +78,17 @@
     ]
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  parbreak(), 
-  terms(children: ((text(body: [Fruit], 
-                         size: 8.0pt), 
-                    text(body: [A tasty, edible thing.], 
-                         size: 8.0pt)), 
-                   (text(body: [Veggie], 
-                         size: 8.0pt), 
-                    { text(body: [
+                 parbreak(), 
+                 terms(children: ((text(body: [Fruit], 
+                                        size: 8.0pt), 
+                                   text(body: [A tasty, edible thing.], 
+                                        size: 8.0pt)), 
+                                  (text(body: [Veggie], 
+                                        size: 8.0pt), 
+                                   { text(body: [
 An important energy source
 for vegetarians.], 
-                           size: 8.0pt), 
-                      parbreak() }))) }
+                                          size: 8.0pt), 
+                                     parbreak() }))) })

@@ -59,12 +59,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  align(alignment: center, 
-        body: { text(body: [
+                 align(alignment: center, 
+                       body: { text(body: [
 Lorem Ipsum]), 
-                parbreak(), 
-                text(body: [Dolor]), 
-                parbreak() }), 
-  parbreak() }
+                               parbreak(), 
+                               text(body: [Dolor]), 
+                               parbreak() }), 
+                 parbreak() })

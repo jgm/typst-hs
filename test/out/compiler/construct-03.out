@@ -60,11 +60,11 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [A ]), 
-  box(body: rect(body: rect(), 
-                 fill: rgb(100%,86%,0%,100%), 
-                 inset: 5.0pt)), 
-  text(body: [ B]), 
-  parbreak() }
+                 text(body: [A ]), 
+                 box(body: rect(body: rect(), 
+                                fill: rgb(100%,86%,0%,100%), 
+                                inset: 5.0pt)), 
+                 text(body: [ B]), 
+                 parbreak() })

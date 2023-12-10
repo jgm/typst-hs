@@ -51,7 +51,7 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [This is a spaceexceedinglylongy.]), 
-  parbreak() }
+                 text(body: [This is a spaceexceedinglylongy.]), 
+                 parbreak() })

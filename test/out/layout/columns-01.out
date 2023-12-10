@@ -136,17 +136,17 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  parbreak(), 
-  rect(body: columns(body: { text(body: [
+                 parbreak(), 
+                 rect(body: columns(body: { text(body: [
 A special plight has befallen our document.
 Columns in text boxes reigned down unto the soil
 to waste a year’s crop of rich layouts.
 The columns at least were graciously balanced.]), 
-                             parbreak() }, 
-                     count: 2), 
-       height: 100.0pt, 
-       inset: 8.0pt, 
-       width: 180.0pt), 
-  parbreak() }
+                                            parbreak() }, 
+                                    count: 2), 
+                      height: 100.0pt, 
+                      inset: 8.0pt, 
+                      width: 180.0pt), 
+                 parbreak() })

@@ -123,35 +123,35 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ], size: 0.8em), 
-  text(body: [rgb(96%,63%,1%,100%)], 
-       size: 0.8em), 
-  text(body: [ ], size: 0.8em), 
-  linebreak(), 
-  text(body: [(thickness: 2.0pt,
+                 text(body: [rgb(96%,63%,1%,100%)], 
+                      size: 0.8em), 
+                 text(body: [ ], size: 0.8em), 
+                 linebreak(), 
+                 text(body: [(thickness: 2.0pt,
  color: rgb(96%,63%,1%,100%))], 
-       size: 0.8em), 
-  parbreak(), 
-  raw(lang: "typc", 
-      text: "\"hi\""), 
-  text(body: [
+                      size: 0.8em), 
+                 parbreak(), 
+                 raw(lang: "typc", 
+                     text: "\"hi\""), 
+                 text(body: [
 ], size: 0.8em), 
-  text(body: ["a\n[]\"🚀string"], 
-       size: 0.8em), 
-  parbreak(), 
-  raw(lang: "typc", 
-      text: "strong(body: text(body: [Hey], \n                  size: 0.8em))"), 
-  parbreak(), 
-  text(body: [Nothing
+                 text(body: ["a\n[]\"🚀string"], 
+                      size: 0.8em), 
+                 parbreak(), 
+                 raw(lang: "typc", 
+                     text: "strong(body: text(body: [Hey], \n                  size: 0.8em))"), 
+                 parbreak(), 
+                 text(body: [Nothing
 ], 
-       size: 0.8em), 
-  text(body: [
+                      size: 0.8em), 
+                 text(body: [
 ], size: 0.8em), 
-  text(body: [
+                 text(body: [
 ], size: 0.8em), 
-  text(body: [
+                 text(body: [
 ], size: 0.8em), 
-  parbreak() }
+                 parbreak() })

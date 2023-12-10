@@ -64,10 +64,10 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  math.equation(block: true, 
-                body: math.binom(lower: text(body: [□]), 
-                                 upper: text(body: [○])), 
-                numbering: none), 
-  parbreak() }
+                 math.equation(block: true, 
+                               body: math.binom(lower: text(body: [□]), 
+                                                upper: text(body: [○])), 
+                               numbering: none), 
+                 parbreak() })

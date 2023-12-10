@@ -156,18 +156,18 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  parbreak(), 
-  heading(body: text(body: [Chapter 1]), 
-          level: 2), 
-  text(body: [Klaus]), 
-  text(body: [ stood in a field of wheat. There was nothing of particular interest about
+                 parbreak(), 
+                 heading(body: text(body: [Chapter 1]), 
+                         level: 2), 
+                 text(body: [Klaus]), 
+                 text(body: [ stood in a field of wheat. There was nothing of particular interest about
 the field ]), 
-  text(body: [Klaus]), 
-  text(body: [ just casually surveyed for any paths on which the corn would not
+                 text(body: [Klaus]), 
+                 text(body: [ just casually surveyed for any paths on which the corn would not
 totally ruin his semi-new outdorsy jacket but then again, most of us spend
 considerable time in non-descript environments.]), 
-  parbreak() }
+                 parbreak() })

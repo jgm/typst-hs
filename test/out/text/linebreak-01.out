@@ -47,7 +47,7 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [Supercalifragilisticexpialidocious Expialigoricmetrioxidation.]), 
-  parbreak() }
+                 text(body: [Supercalifragilisticexpialidocious Expialigoricmetrioxidation.]), 
+                 parbreak() })

@@ -62,17 +62,17 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  math.equation(block: true, 
-                body: { text(body: [ abc ]), 
-                        math.alignpoint(), 
-                        text(body: [=]), 
-                        text(body: [c]), 
-                        linebreak(), 
-                        linebreak(), 
-                        linebreak() }, 
-                numbering: none), 
-  text(body: [
+                 math.equation(block: true, 
+                               body: { text(body: [ abc ]), 
+                                       math.alignpoint(), 
+                                       text(body: [=]), 
+                                       text(body: [c]), 
+                                       linebreak(), 
+                                       linebreak(), 
+                                       linebreak() }, 
+                               numbering: none), 
+                 text(body: [
 Multiple trailing line breaks.]), 
-  parbreak() }
+                 parbreak() })

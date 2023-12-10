@@ -50,12 +50,12 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 he’]), 
-  strong(body: text(body: [llo World])), 
-  parbreak(), 
-  text(body: [l’]), 
-  strong(body: text(body: [exactitude])), 
-  parbreak(), 
-  text(body: [a*b_c_e]), 
-  parbreak() }
+                 strong(body: text(body: [llo World])), 
+                 parbreak(), 
+                 text(body: [l’]), 
+                 strong(body: text(body: [exactitude])), 
+                 parbreak(), 
+                 text(body: [a*b_c_e]), 
+                 parbreak() })

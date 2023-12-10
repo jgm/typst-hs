@@ -54,6 +54,6 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 The non-breaking space does work.]), 
-  parbreak() }
+                 parbreak() })

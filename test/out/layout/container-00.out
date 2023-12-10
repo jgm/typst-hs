@@ -68,18 +68,18 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [A ]), 
-  box(body: { text(body: [B ]), 
-              linebreak(), 
-              text(body: [C]) }), 
-  text(body: [ D.]), 
-  parbreak(), 
-  text(body: [Spaced ]), 
-  linebreak(), 
-  box(height: 0.5cm), 
-  text(body: [ ]), 
-  linebreak(), 
-  text(body: [Apart]), 
-  parbreak() }
+                 text(body: [A ]), 
+                 box(body: { text(body: [B ]), 
+                             linebreak(), 
+                             text(body: [C]) }), 
+                 text(body: [ D.]), 
+                 parbreak(), 
+                 text(body: [Spaced ]), 
+                 linebreak(), 
+                 box(height: 0.5cm), 
+                 text(body: [ ]), 
+                 linebreak(), 
+                 text(body: [Apart]), 
+                 parbreak() })

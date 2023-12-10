@@ -80,20 +80,20 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ], 
-       font: "Roboto"), 
-  square(body: align(alignment: Axes(center, horizon), 
-                     body: strong(body: text(body: [G], 
-                                             font: "Roboto"))), 
-         inset: 8.0pt, 
-         radius: 100%, 
-         stroke: (left: rgb(100%,25%,21%,100%),
-                  top: rgb(100%,86%,0%,100%),
-                  right: rgb(18%,80%,25%,100%),
-                  bottom: rgb(0%,45%,85%,100%))), 
-  parbreak() }
+                      font: "Roboto"), 
+                 square(body: align(alignment: Axes(center, horizon), 
+                                    body: strong(body: text(body: [G], 
+                                                            font: "Roboto"))), 
+                        inset: 8.0pt, 
+                        radius: 100%, 
+                        stroke: (left: rgb(100%,25%,21%,100%),
+                                 top: rgb(100%,86%,0%,100%),
+                                 right: rgb(18%,80%,25%,100%),
+                                 bottom: rgb(0%,45%,85%,100%))), 
+                 parbreak() })

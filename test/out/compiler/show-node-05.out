@@ -71,15 +71,15 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: { [ ], 
-               strong(body: [W]), 
-               [orld ] }), 
-  parbreak(), 
-  text(body: { [ ], 
-               strong(body: [W]), 
-               [orld ] }), 
-  text(body: { [ ], 
-               strong(body: [W]), 
-               [orld ] }) }
+                 text(body: { [ ], 
+                              strong(body: [W]), 
+                              [orld ] }), 
+                 parbreak(), 
+                 text(body: { [ ], 
+                              strong(body: [W]), 
+                              [orld ] }), 
+                 text(body: { [ ], 
+                              strong(body: [W]), 
+                              [orld ] }) })

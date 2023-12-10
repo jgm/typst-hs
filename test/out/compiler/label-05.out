@@ -70,18 +70,18 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  strong(body: text(body: [This is])), 
-  text(body: [ ]), 
-  <strike>, 
-  text(body: [ ]), 
-  strong(body: text(body: [protected.])), 
-  text(body: [
+                 strong(body: text(body: [This is])), 
+                 text(body: [ ]), 
+                 <strike>, 
+                 text(body: [ ]), 
+                 strong(body: text(body: [protected.])), 
+                 text(body: [
 ]), 
-  strong(body: text(body: [This is not.])), 
-  text(body: [ ]), 
-  <strike>, 
-  parbreak() }
+                 strong(body: text(body: [This is not.])), 
+                 text(body: [ ]), 
+                 <strike>, 
+                 parbreak() })

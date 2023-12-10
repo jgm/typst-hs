@@ -116,13 +116,13 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [“She suddenly started speaking french: ]), 
-  text(body: text(body: [‘Je suis une banane.’]), 
-       lang: "fr"), 
-  text(body: [” Roman told me.]), 
-  parbreak(), 
-  text(body: [Some people’s thought on this would be ]), 
-  text(body: [ “strange.”]), 
-  parbreak() }
+                 text(body: [“She suddenly started speaking french: ]), 
+                 text(body: text(body: [‘Je suis une banane.’]), 
+                      lang: "fr"), 
+                 text(body: [” Roman told me.]), 
+                 parbreak(), 
+                 text(body: [Some people’s thought on this would be ]), 
+                 text(body: [ “strange.”]), 
+                 parbreak() })

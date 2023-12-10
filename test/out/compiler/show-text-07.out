@@ -69,17 +69,17 @@
 , BulletListItem [ Text "World" , ParBreak ]
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  parbreak(), 
-  text(body: [World
+                 parbreak(), 
+                 text(body: [World
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  list(children: ({ text(body: { [], 
-                                 text(body: [🌎]), 
-                                 [] }), 
-                    parbreak() })), 
-  parbreak() }
+                 list(children: ({ text(body: { [], 
+                                                text(body: [🌎]), 
+                                                [] }), 
+                                   parbreak() })), 
+                 parbreak() })

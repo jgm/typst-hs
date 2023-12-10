@@ -58,10 +58,12 @@ evaluateTypst ::
   FilePath ->
   -- | Markup produced by 'parseTypst'
   [Markup] ->
-  m (Either ParseError (Seq Content))
+  m (Either ParseError Content)
 evaluateTypst operations fp =
   runParserT
-    (mconcat <$> many pContent <* eof)
+    (do contents <- mconcat <$> many pContent <* eof
+        -- "All documents are automatically wrapped in a document element."
+        pure $ Elt "document" Nothing [("body", VContent contents)])
     initialEvalState { evalOperations = operations,
                        evalPackageRoot = takeDirectory fp }
     fp

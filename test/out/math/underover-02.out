@@ -83,23 +83,23 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  math.equation(block: true, 
-                body: { math.underbracket(annotation: text(body: [ relevant stuff]), 
-                                          body: math.lr(body: ({ [[], 
-                                                                 text(body: [1]), 
-                                                                 text(body: [,]), 
-                                                                 math.frac(denom: text(body: [3]), 
-                                                                           num: text(body: [2])), 
-                                                                 []] }))), 
-                        text(body: [⟺]), 
-                        math.overbracket(annotation: text(body: [ irrelevant stuff]), 
-                                         body: math.lr(body: ({ [[], 
-                                                                math.frac(denom: text(body: [5]), 
-                                                                          num: text(body: [4])), 
-                                                                text(body: [,]), 
-                                                                text(body: [6]), 
-                                                                []] }))) }, 
-                numbering: none), 
-  parbreak() }
+                 math.equation(block: true, 
+                               body: { math.underbracket(annotation: text(body: [ relevant stuff]), 
+                                                         body: math.lr(body: ({ [[], 
+                                                                                text(body: [1]), 
+                                                                                text(body: [,]), 
+                                                                                math.frac(denom: text(body: [3]), 
+                                                                                          num: text(body: [2])), 
+                                                                                []] }))), 
+                                       text(body: [⟺]), 
+                                       math.overbracket(annotation: text(body: [ irrelevant stuff]), 
+                                                        body: math.lr(body: ({ [[], 
+                                                                               math.frac(denom: text(body: [5]), 
+                                                                                         num: text(body: [4])), 
+                                                                               text(body: [,]), 
+                                                                               text(body: [6]), 
+                                                                               []] }))) }, 
+                               numbering: none), 
+                 parbreak() })

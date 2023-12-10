@@ -73,19 +73,19 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ], 
-       hyphenate: true), 
-  grid(children: (text(body: text(body: [“Eingabeaufforderung”], 
-                                  hyphenate: true), 
-                       hyphenate: true, 
-                       lang: "en"), 
-                  text(body: text(body: [“Eingabeaufforderung”], 
-                                  hyphenate: true), 
-                       hyphenate: true, 
-                       lang: "de")), 
-       columns: (20.0pt, 20.0pt), 
-       gutter: 1.0fr), 
-  parbreak() }
+                      hyphenate: true), 
+                 grid(children: (text(body: text(body: [“Eingabeaufforderung”], 
+                                                 hyphenate: true), 
+                                      hyphenate: true, 
+                                      lang: "en"), 
+                                 text(body: text(body: [“Eingabeaufforderung”], 
+                                                 hyphenate: true), 
+                                      hyphenate: true, 
+                                      lang: "de")), 
+                      columns: (20.0pt, 20.0pt), 
+                      gutter: 1.0fr), 
+                 parbreak() })

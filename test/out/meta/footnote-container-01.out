@@ -167,36 +167,36 @@
 , ParBreak
 ]
 --- evaluated ---
-{ text(body: [
+document(body: { text(body: [
 ]), 
-  text(body: [
+                 text(body: [
 ]), 
-  parbreak(), 
-  terms(children: ((text(body: [“Hello”]), 
-                    { text(body: [A word ]), 
-                      footnote(body: text(body: [Languages.])) }), 
-                   (text(body: [“123”]), 
-                    { text(body: [A number ]), 
-                      footnote(body: text(body: [Numbers.])), 
-                      text(body: [
+                 parbreak(), 
+                 terms(children: ((text(body: [“Hello”]), 
+                                   { text(body: [A word ]), 
+                                     footnote(body: text(body: [Languages.])) }), 
+                                  (text(body: [“123”]), 
+                                   { text(body: [A number ]), 
+                                     footnote(body: text(body: [Numbers.])), 
+                                     text(body: [
 ]) }))), 
-  list(children: ({ text(body: [“Hello” ]), 
-                    footnote(body: text(body: [Languages.])) }, 
-                  { text(body: [“123” ]), 
-                    footnote(body: text(body: [Numbers.])), 
-                    text(body: [
+                 list(children: ({ text(body: [“Hello” ]), 
+                                   footnote(body: text(body: [Languages.])) }, 
+                                 { text(body: [“123” ]), 
+                                   footnote(body: text(body: [Numbers.])), 
+                                   text(body: [
 ]) })), 
-  enum(children: ({ text(body: [“Hello” ]), 
-                    footnote(body: text(body: [Languages.])) }, 
-                  { text(body: [“123” ]), 
-                    footnote(body: text(body: [Numbers.])), 
-                    text(body: [
+                 enum(children: ({ text(body: [“Hello” ]), 
+                                   footnote(body: text(body: [Languages.])) }, 
+                                 { text(body: [“123” ]), 
+                                   footnote(body: text(body: [Numbers.])), 
+                                   text(body: [
 ]) })), 
-  table(children: (text(body: [Hello]), 
-                   { text(body: [A word ]), 
-                     footnote(body: text(body: [Languages.])) }, 
-                   text(body: [123]), 
-                   { text(body: [A number ]), 
-                     footnote(body: text(body: [Numbers.])) }), 
-        columns: 2), 
-  parbreak() }
+                 table(children: (text(body: [Hello]), 
+                                  { text(body: [A word ]), 
+                                    footnote(body: text(body: [Languages.])) }, 
+                                  text(body: [123]), 
+                                  { text(body: [A number ]), 
+                                    footnote(body: text(body: [Numbers.])) }), 
+                       columns: 2), 
+                 parbreak() })
