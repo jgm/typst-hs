@@ -270,11 +270,10 @@ pMath = buildExpressionParser mathOperatorTable pBaseMath
         <|> mSymbol
 
 mGroup :: P Markup
-mGroup =
-  mGrouped '(' ')' False
-    <|> mGrouped '{' '}' False
-    <|> mGrouped '[' ']' False
-    <|> mGrouped '|' '|' True
+mGroup = mGrouped '(' ')' False
+     <|> mGrouped '{' '}' False
+     <|> mGrouped '[' ']' False
+     <|> mGrouped '|' '|' True
 
 mGrouped :: Char -> Char -> Bool -> P Markup
 mGrouped op' cl requireMatch = withNewlines $ try $ do
