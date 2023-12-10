@@ -3,7 +3,7 @@ build:
 .PHONY: build
 
 test:
-	cabal test --disable-optimization --test-options="--hide-successes --ansi-tricks=false $(TESTARGS)"
+	cabal test --disable-optimization --test-options="--hide-successes --ansi-tricks=false --size-cutoff=2000 $(TESTARGS)"
 .PHONY: test
 
 run:
