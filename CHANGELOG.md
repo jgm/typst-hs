@@ -1,5 +1,60 @@
 # Revision history for typst-hs
 
+## 0.4
+
+  * `evaluateTypst` now returns a single Content instead of a sequence
+     (breaking API change). The Content is a "document" element that wraps
+     the other contents. (This is added automatically in typst:
+     https://typst.app/docs/reference/model/document/#parameters-title.)
+
+  * Improve math parser.
+
+  * Add `sys` module and `sys.version`.
+
+  * Math: add `sech` and `csch` operators, `math.mid`.
+
+  * `math.op` is no longer limited to string argument.
+
+  * Remove automatic matching for `|..|` in math (typst 0.8 breaking change).
+
+  * Fix `in` so it works with a type.
+
+  * `repr` label with angle brackets.
+
+  * `cite` now just takes one positional element, a label
+    instead of strings (typst 0.9 breaing change).
+
+  * Add `quote` element.
+
+  * Add first-class types. `type()` function now returns a
+    ValType instead of a string. Allow ValTypes to == strings
+    for compatibility, as in typst.
+
+  * `highlight` element for text.
+
+  * Allow array `zip` method to take any number of arguments.
+
+  * Add `calc.tau`.
+
+  * Add array `intersperse` method.
+
+  * Add string `rev` method.
+
+  * Fix search path for typst packages, from
+    `cache/typst/packages/preview/packagename-major.minor.patch` to
+    `cache/typst/packages/preview/packagename-major/minor.patch` (#18).
+
+  * Add support of 'wide' spacing character.
+
+  * Fix precedence for numerical attachments (#17).
+    Typst makes a subtle distinction between `$a_1(x)$`, in which
+    the `_` groups more tightly than the `(..)`, and $`a_f(x)$`,
+    in which the `(..)` groups more tightly than the `_`.
+    This patch implements the distinction.  This fixes conversion of,
+    e.g., `$n(a)^(b)$`.
+
+  * Use typst-symbols 0.1.5.
+
 ## 0.3.2.1
 
   * Fix resolution of symbols (#15). Symbols like `dot`, which only have
