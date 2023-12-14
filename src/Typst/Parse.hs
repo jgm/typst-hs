@@ -990,11 +990,7 @@ pDictExpr = try $ inParens (pEmptyDict <|> pNonemptyDict)
   where
     pEmptyDict = Dict mempty <$ sym ":"
     pNonemptyDict = Dict <$> sepEndBy1 (pSpread <|> pPair) (sym ",")
-    pPair = Reg <$> ((,) <$> pKey <*> try (sym ":" *> pExpr))
-    pKey = pIdentifier <|> pStrKey
-    pStrKey = do
-      String t <- pStr
-      pure $ Identifier t
+    pPair = Reg <$> ((,) <$> pExpr <*> try (sym ":" *> pExpr))
 
 pSpread :: P (Spreadable a)
 pSpread = try $ string ".." *> (Spr <$> pExpr)

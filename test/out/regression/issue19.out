@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/compiler/let-19.typ"
+    "test/typ/regression/issue19.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/compiler/let-19.typ"
+                                 "test/typ/regression/issue19.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/compiler/let-19.typ"
+                                 "test/typ/regression/issue19.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -39,24 +39,45 @@
                     ]
                 ]))))
 , SoftBreak
-, Comment
-, Comment
 , Code
-    "test/typ/compiler/let-19.typ"
-    ( line 4 , column 2 )
+    "test/typ/regression/issue19.typ"
+    ( line 2 , column 2 )
     (Let
-       (DestructuringBind
-          [ WithKey (Identifier "a") Nothing
-          , Sink (Just (Identifier "b"))
-          ])
-       (Dict [ Reg ( Ident (Identifier "a") , Literal (Int 1) ) ]))
+       (BasicBind (Just (Identifier "nums")))
+       (Array
+          [ Reg (Literal (Int 1))
+          , Reg (Literal None)
+          , Reg (Literal (Int 2))
+          ]))
 , SoftBreak
 , Code
-    "test/typ/compiler/let-19.typ"
-    ( line 5 , column 2 )
+    "test/typ/regression/issue19.typ"
+    ( line 3 , column 2 )
     (FuncCall
-       (Ident (Identifier "test"))
-       [ NormalArg (Ident (Identifier "b")) , NormalArg (Dict []) ])
+       (FieldAccess
+          (Ident (Identifier "map")) (Ident (Identifier "nums")))
+       [ NormalArg
+           (FuncExpr
+              [ NormalParam (Identifier "num") ]
+              (Block
+                 (CodeBlock
+                    [ If
+                        [ ( Equals (Ident (Identifier "num")) (Literal None)
+                          , Block (CodeBlock [ Return (Just (Literal (Int 1))) ])
+                          )
+                        ]
+                    , Return
+                        (Just
+                           (Dict
+                              [ Reg
+                                  ( FuncCall
+                                      (Ident (Identifier "str"))
+                                      [ NormalArg (Ident (Identifier "num")) ]
+                                  , Literal (Int 1)
+                                  )
+                              ]))
+                    ])))
+       ])
 , ParBreak
 ]
 --- evaluated ---
@@ -64,5 +85,5 @@ document(body: { text(body: [
 ]), 
                  text(body: [
 ]), 
-                 text(body: [✅]), 
+                 text(body: [((1: 1), 1, (2: 1))]), 
                  parbreak() })

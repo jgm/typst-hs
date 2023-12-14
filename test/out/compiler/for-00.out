@@ -61,8 +61,8 @@
           , Simple (Just (Identifier "v"))
           ])
        (Dict
-          [ Reg ( Identifier "Name" , Literal (String "Typst") )
-          , Reg ( Identifier "Age" , Literal (Int 2) )
+          [ Reg ( Ident (Identifier "Name") , Literal (String "Typst") )
+          , Reg ( Ident (Identifier "Age") , Literal (Int 2) )
           ])
        (Block
           (Content

@@ -61,8 +61,8 @@
        [ KeyValArg
            (Identifier "inset")
            (Dict
-              [ Reg ( Identifier "x" , Literal (Numeric 4.0 Pt) )
-              , Reg ( Identifier "y" , Literal (Numeric 5.0 Pt) )
+              [ Reg ( Ident (Identifier "x") , Literal (Numeric 4.0 Pt) )
+              , Reg ( Ident (Identifier "y") , Literal (Numeric 5.0 Pt) )
               ])
        , KeyValArg (Identifier "radius") (Literal (Numeric 4.0 Pt))
        , KeyValArg

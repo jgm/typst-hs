@@ -482,8 +482,12 @@ evalExpr expr =
           ( \m v -> do
               case v of
                 Reg (k, e) -> do
+                  k' <- case k of
+                           Ident i -> pure i
+                           _ -> do VString s <- evalExpr k
+                                   pure $ Identifier s
                   val <- evalExpr e
-                  pure $ m OM.|> (k, val)
+                  pure $ m OM.|> (k', val)
                 Spr y -> do
                   val <- evalExpr y
                   case val of

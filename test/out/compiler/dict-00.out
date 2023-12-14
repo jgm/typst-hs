@@ -52,8 +52,8 @@
     (Let
        (BasicBind (Just (Identifier "dict")))
        (Dict
-          [ Reg ( Identifier "normal" , Literal (Int 1) )
-          , Reg ( Identifier "spacy key" , Literal (Int 2) )
+          [ Reg ( Ident (Identifier "normal") , Literal (Int 1) )
+          , Reg ( Literal (String "spacy key") , Literal (Int 2) )
           ]))
 , SoftBreak
 , Code

@@ -131,7 +131,8 @@
        [ NormalArg
            (InCollection
               (Literal (String "key"))
-              (Dict [ Reg ( Identifier "key" , Literal (String "value") ) ]))
+              (Dict
+                 [ Reg ( Ident (Identifier "key") , Literal (String "value") ) ]))
        , NormalArg (Literal (Boolean True))
        ])
 , SoftBreak
@@ -143,7 +144,8 @@
        [ NormalArg
            (InCollection
               (Literal (String "value"))
-              (Dict [ Reg ( Identifier "key" , Literal (String "value") ) ]))
+              (Dict
+                 [ Reg ( Ident (Identifier "key") , Literal (String "value") ) ]))
        , NormalArg (Literal (Boolean False))
        ])
 , SoftBreak

@@ -117,8 +117,8 @@
               (Ident (Identifier "mapping")) (Ident (Identifier "data")))
        , NormalArg
            (Dict
-              [ Reg ( Identifier "1" , Literal (String "one") )
-              , Reg ( Identifier "2" , Literal (String "two") )
+              [ Reg ( Literal (String "1") , Literal (String "one") )
+              , Reg ( Literal (String "2") , Literal (String "two") )
               ])
        ])
 , SoftBreak

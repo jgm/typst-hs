@@ -132,8 +132,8 @@
               (Ident (Identifier "inline_table")) (Ident (Identifier "data")))
        , NormalArg
            (Dict
-              [ Reg ( Identifier "first" , Literal (String "amazing") )
-              , Reg ( Identifier "second" , Literal (String "greater") )
+              [ Reg ( Literal (String "first") , Literal (String "amazing") )
+              , Reg ( Literal (String "second") , Literal (String "greater") )
               ])
        ])
 , SoftBreak

@@ -49,8 +49,8 @@
        , KeyValArg
            (Identifier "margin")
            (Dict
-              [ Reg ( Identifier "bottom" , Literal (Numeric 1.0 Cm) )
-              , Reg ( Identifier "rest" , Literal (Numeric 0.5 Cm) )
+              [ Reg ( Ident (Identifier "bottom") , Literal (Numeric 1.0 Cm) )
+              , Reg ( Ident (Identifier "rest") , Literal (Numeric 0.5 Cm) )
               ])
        ])
 , ParBreak

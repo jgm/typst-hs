@@ -48,10 +48,11 @@
        [ KeyValArg
            (Identifier "stroke")
            (Dict
-              [ Reg ( Identifier "paint" , Ident (Identifier "red") )
-              , Reg ( Identifier "thickness" , Literal (Numeric 1.0 Pt) )
-              , Reg ( Identifier "cap" , Literal (String "butt") )
-              , Reg ( Identifier "dash" , Literal (String "dash-dotted") )
+              [ Reg ( Ident (Identifier "paint") , Ident (Identifier "red") )
+              , Reg ( Ident (Identifier "thickness") , Literal (Numeric 1.0 Pt) )
+              , Reg ( Ident (Identifier "cap") , Literal (String "butt") )
+              , Reg
+                  ( Ident (Identifier "dash") , Literal (String "dash-dotted") )
               ])
        ])
 , SoftBreak
@@ -91,7 +92,7 @@
        [ KeyValArg (Identifier "length") (Literal (Numeric 60.0 Pt))
        , KeyValArg
            (Identifier "stroke")
-           (Dict [ Reg ( Identifier "dash" , Literal None ) ])
+           (Dict [ Reg ( Ident (Identifier "dash") , Literal None ) ])
        ])
 , ParBreak
 ]

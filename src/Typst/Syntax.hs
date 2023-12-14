@@ -139,7 +139,7 @@ data Expr
   | FieldAccess Expr Expr
   | Group Expr
   | Array [Spreadable Expr]
-  | Dict [Spreadable (Identifier, Expr)]
+  | Dict [Spreadable (Expr, Expr)]
   | Binding Bind
   | Let Bind Expr
   | LetFunc Identifier [Param] Expr

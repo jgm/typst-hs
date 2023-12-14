@@ -142,7 +142,8 @@
        (Ident (Identifier "test"))
        [ NormalArg
            (Equals
-              (Dict []) (Dict [ Reg ( Identifier "a" , Literal (Int 1) ) ]))
+              (Dict [])
+              (Dict [ Reg ( Ident (Identifier "a") , Literal (Int 1) ) ]))
        , NormalArg (Literal (Boolean False))
        ])
 , SoftBreak
@@ -155,12 +156,14 @@
            (Equals
               (Dict
                  [ Reg
-                     ( Identifier "a" , Minus (Literal (Int 2)) (Literal (Float 1.0)) )
-                 , Reg ( Identifier "b" , Literal (Int 2) )
+                     ( Ident (Identifier "a")
+                     , Minus (Literal (Int 2)) (Literal (Float 1.0))
+                     )
+                 , Reg ( Ident (Identifier "b") , Literal (Int 2) )
                  ])
               (Dict
-                 [ Reg ( Identifier "b" , Literal (Int 2) )
-                 , Reg ( Identifier "a" , Literal (Int 1) )
+                 [ Reg ( Ident (Identifier "b") , Literal (Int 2) )
+                 , Reg ( Ident (Identifier "a") , Literal (Int 1) )
                  ]))
        , NormalArg (Literal (Boolean True))
        ])

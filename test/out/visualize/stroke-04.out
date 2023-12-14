@@ -53,9 +53,9 @@
               [ KeyValArg
                   (Identifier "stroke")
                   (Dict
-                     [ Reg ( Identifier "thickness" , Literal (Numeric 4.0 Pt) )
-                     , Reg ( Identifier "paint" , Ident (Identifier "blue") )
-                     , Reg ( Identifier "join" , Literal (String "round") )
+                     [ Reg ( Ident (Identifier "thickness") , Literal (Numeric 4.0 Pt) )
+                     , Reg ( Ident (Identifier "paint") , Ident (Identifier "blue") )
+                     , Reg ( Ident (Identifier "join") , Literal (String "round") )
                      ])
               , NormalArg
                   (Array
@@ -84,9 +84,9 @@
               [ KeyValArg
                   (Identifier "stroke")
                   (Dict
-                     [ Reg ( Identifier "thickness" , Literal (Numeric 4.0 Pt) )
-                     , Reg ( Identifier "paint" , Ident (Identifier "blue") )
-                     , Reg ( Identifier "join" , Literal (String "bevel") )
+                     [ Reg ( Ident (Identifier "thickness") , Literal (Numeric 4.0 Pt) )
+                     , Reg ( Ident (Identifier "paint") , Ident (Identifier "blue") )
+                     , Reg ( Ident (Identifier "join") , Literal (String "bevel") )
                      ])
               , NormalArg
                   (Array
@@ -115,9 +115,9 @@
               [ KeyValArg
                   (Identifier "stroke")
                   (Dict
-                     [ Reg ( Identifier "thickness" , Literal (Numeric 4.0 Pt) )
-                     , Reg ( Identifier "paint" , Ident (Identifier "blue") )
-                     , Reg ( Identifier "join" , Literal (String "miter") )
+                     [ Reg ( Ident (Identifier "thickness") , Literal (Numeric 4.0 Pt) )
+                     , Reg ( Ident (Identifier "paint") , Ident (Identifier "blue") )
+                     , Reg ( Ident (Identifier "join") , Literal (String "miter") )
                      ])
               , NormalArg
                   (Array
@@ -146,10 +146,10 @@
               [ KeyValArg
                   (Identifier "stroke")
                   (Dict
-                     [ Reg ( Identifier "thickness" , Literal (Numeric 4.0 Pt) )
-                     , Reg ( Identifier "paint" , Ident (Identifier "blue") )
-                     , Reg ( Identifier "join" , Literal (String "miter") )
-                     , Reg ( Identifier "miter-limit" , Literal (Float 20.0) )
+                     [ Reg ( Ident (Identifier "thickness") , Literal (Numeric 4.0 Pt) )
+                     , Reg ( Ident (Identifier "paint") , Ident (Identifier "blue") )
+                     , Reg ( Ident (Identifier "join") , Literal (String "miter") )
+                     , Reg ( Ident (Identifier "miter-limit") , Literal (Float 20.0) )
                      ])
               , NormalArg
                   (Array

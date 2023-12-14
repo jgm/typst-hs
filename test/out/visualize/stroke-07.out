@@ -103,10 +103,10 @@
        , KeyValArg
            (Identifier "stroke")
            (Dict
-              [ Reg ( Identifier "paint" , Ident (Identifier "red") )
-              , Reg ( Identifier "thickness" , Literal (Numeric 0.0 Pt) )
+              [ Reg ( Ident (Identifier "paint") , Ident (Identifier "red") )
+              , Reg ( Ident (Identifier "thickness") , Literal (Numeric 0.0 Pt) )
               , Reg
-                  ( Identifier "dash"
+                  ( Ident (Identifier "dash")
                   , Array
                       [ Reg (Literal (String "dot")) , Reg (Literal (Numeric 1.0 Pt)) ]
                   )

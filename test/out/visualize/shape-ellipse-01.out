@@ -173,8 +173,8 @@
               , KeyValArg
                   (Identifier "outset")
                   (Dict
-                     [ Reg ( Identifier "top" , Literal (Numeric 3.0 Pt) )
-                     , Reg ( Identifier "rest" , Literal (Numeric 5.5 Pt) )
+                     [ Reg ( Ident (Identifier "top") , Literal (Numeric 3.0 Pt) )
+                     , Reg ( Ident (Identifier "rest") , Literal (Numeric 5.5 Pt) )
                      ])
               ])
        ])

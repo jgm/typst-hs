@@ -52,7 +52,8 @@
            (Plus (Literal (Numeric 170.0 Pt)) (Literal (Numeric 10.0 Pt)))
        , KeyValArg
            (Identifier "margin")
-           (Dict [ Reg ( Identifier "x" , Literal (Numeric 5.0 Pt) ) ])
+           (Dict
+              [ Reg ( Ident (Identifier "x") , Literal (Numeric 5.0 Pt) ) ])
        ])
 , SoftBreak
 , Code

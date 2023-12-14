@@ -59,42 +59,47 @@
            (Array
               [ Reg
                   (Dict
-                     [ Reg ( Identifier "tag" , Literal (String "data") )
-                     , Reg ( Identifier "attrs" , Dict [] )
+                     [ Reg ( Ident (Identifier "tag") , Literal (String "data") )
+                     , Reg ( Ident (Identifier "attrs") , Dict [] )
                      , Reg
-                         ( Identifier "children"
+                         ( Ident (Identifier "children")
                          , Array
                              [ Reg (Literal (String "\n  "))
                              , Reg
                                  (Dict
-                                    [ Reg ( Identifier "tag" , Literal (String "hello") )
+                                    [ Reg ( Ident (Identifier "tag") , Literal (String "hello") )
                                     , Reg
-                                        ( Identifier "attrs"
-                                        , Dict [ Reg ( Identifier "name" , Literal (String "hi") ) ]
+                                        ( Ident (Identifier "attrs")
+                                        , Dict
+                                            [ Reg
+                                                ( Ident (Identifier "name")
+                                                , Literal (String "hi")
+                                                )
+                                            ]
                                         )
                                     , Reg
-                                        ( Identifier "children"
+                                        ( Ident (Identifier "children")
                                         , Array [ Reg (Literal (String "1")) ]
                                         )
                                     ])
                              , Reg (Literal (String "\n  "))
                              , Reg
                                  (Dict
-                                    [ Reg ( Identifier "tag" , Literal (String "data") )
-                                    , Reg ( Identifier "attrs" , Dict [] )
+                                    [ Reg ( Ident (Identifier "tag") , Literal (String "data") )
+                                    , Reg ( Ident (Identifier "attrs") , Dict [] )
                                     , Reg
-                                        ( Identifier "children"
+                                        ( Ident (Identifier "children")
                                         , Array
                                             [ Reg (Literal (String "\n    "))
                                             , Reg
                                                 (Dict
                                                    [ Reg
-                                                       ( Identifier "tag"
+                                                       ( Ident (Identifier "tag")
                                                        , Literal (String "hello")
                                                        )
-                                                   , Reg ( Identifier "attrs" , Dict [] )
+                                                   , Reg ( Ident (Identifier "attrs") , Dict [] )
                                                    , Reg
-                                                       ( Identifier "children"
+                                                       ( Ident (Identifier "children")
                                                        , Array [ Reg (Literal (String "World")) ]
                                                        )
                                                    ])
@@ -102,12 +107,12 @@
                                             , Reg
                                                 (Dict
                                                    [ Reg
-                                                       ( Identifier "tag"
+                                                       ( Ident (Identifier "tag")
                                                        , Literal (String "hello")
                                                        )
-                                                   , Reg ( Identifier "attrs" , Dict [] )
+                                                   , Reg ( Ident (Identifier "attrs") , Dict [] )
                                                    , Reg
-                                                       ( Identifier "children"
+                                                       ( Ident (Identifier "children")
                                                        , Array [ Reg (Literal (String "World")) ]
                                                        )
                                                    ])

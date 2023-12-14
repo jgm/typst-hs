@@ -62,10 +62,10 @@
        [ KeyValArg
            (Identifier "stroke")
            (Dict
-              [ Reg ( Identifier "left" , Ident (Identifier "red") )
-              , Reg ( Identifier "top" , Ident (Identifier "yellow") )
-              , Reg ( Identifier "right" , Ident (Identifier "green") )
-              , Reg ( Identifier "bottom" , Ident (Identifier "blue") )
+              [ Reg ( Ident (Identifier "left") , Ident (Identifier "red") )
+              , Reg ( Ident (Identifier "top") , Ident (Identifier "yellow") )
+              , Reg ( Ident (Identifier "right") , Ident (Identifier "green") )
+              , Reg ( Ident (Identifier "bottom") , Ident (Identifier "blue") )
               ])
        , KeyValArg (Identifier "radius") (Literal (Numeric 100.0 Percent))
        , NormalArg

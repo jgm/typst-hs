@@ -49,7 +49,7 @@
               (BasicBind (Just (Identifier "tasks")))
               (Dict
                  [ Reg
-                     ( Identifier "a"
+                     ( Ident (Identifier "a")
                      , Array
                          [ Reg (Literal (Int 1))
                          , Reg (Literal (Int 2))
@@ -57,7 +57,7 @@
                          ]
                      )
                  , Reg
-                     ( Identifier "b"
+                     ( Ident (Identifier "b")
                      , Array
                          [ Reg (Literal (Int 4))
                          , Reg (Literal (Int 5))

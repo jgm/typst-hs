@@ -179,16 +179,16 @@
        (Ident (Identifier "test"))
        [ NormalArg
            (Plus
-              (Dict [ Reg ( Identifier "a" , Literal (Int 1) ) ])
+              (Dict [ Reg ( Ident (Identifier "a") , Literal (Int 1) ) ])
               (Dict
-                 [ Reg ( Identifier "b" , Literal (Int 2) )
-                 , Reg ( Identifier "c" , Literal (Int 3) )
+                 [ Reg ( Ident (Identifier "b") , Literal (Int 2) )
+                 , Reg ( Ident (Identifier "c") , Literal (Int 3) )
                  ]))
        , NormalArg
            (Dict
-              [ Reg ( Identifier "a" , Literal (Int 1) )
-              , Reg ( Identifier "b" , Literal (Int 2) )
-              , Reg ( Identifier "c" , Literal (Int 3) )
+              [ Reg ( Ident (Identifier "a") , Literal (Int 1) )
+              , Reg ( Ident (Identifier "b") , Literal (Int 2) )
+              , Reg ( Ident (Identifier "c") , Literal (Int 3) )
               ])
        ])
 , ParBreak

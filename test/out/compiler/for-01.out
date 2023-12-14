@@ -101,8 +101,8 @@
     (For
        (BasicBind (Just (Identifier "v")))
        (Dict
-          [ Reg ( Identifier "a" , Literal (Int 4) )
-          , Reg ( Identifier "b" , Literal (Int 5) )
+          [ Reg ( Ident (Identifier "a") , Literal (Int 4) )
+          , Reg ( Ident (Identifier "b") , Literal (Int 5) )
           ])
        (Block
           (CodeBlock
@@ -123,8 +123,8 @@
           , Simple (Just (Identifier "v"))
           ])
        (Dict
-          [ Reg ( Identifier "a" , Literal (Int 6) )
-          , Reg ( Identifier "b" , Literal (Int 7) )
+          [ Reg ( Ident (Identifier "a") , Literal (Int 6) )
+          , Reg ( Ident (Identifier "b") , Literal (Int 7) )
           ])
        (Block
           (CodeBlock

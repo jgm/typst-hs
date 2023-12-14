@@ -48,8 +48,8 @@
           [ Let
               (BasicBind (Just (Identifier "dict")))
               (Dict
-                 [ Reg ( Identifier "a" , Literal (Int 1) )
-                 , Reg ( Identifier "b b" , Literal (Int 1) )
+                 [ Reg ( Ident (Identifier "a") , Literal (Int 1) )
+                 , Reg ( Literal (String "b b") , Literal (Int 1) )
                  ])
           , Assign
               (FuncCall
@@ -64,21 +64,21 @@
               (FieldAccess
                  (Ident (Identifier "state")) (Ident (Identifier "dict")))
               (Dict
-                 [ Reg ( Identifier "ok" , Literal (Boolean True) )
-                 , Reg ( Identifier "err" , Literal (Boolean False) )
+                 [ Reg ( Ident (Identifier "ok") , Literal (Boolean True) )
+                 , Reg ( Ident (Identifier "err") , Literal (Boolean False) )
                  ])
           , FuncCall
               (Ident (Identifier "test"))
               [ NormalArg (Ident (Identifier "dict"))
               , NormalArg
                   (Dict
-                     [ Reg ( Identifier "a" , Literal (Int 1) )
-                     , Reg ( Identifier "b b" , Literal (Int 2) )
+                     [ Reg ( Ident (Identifier "a") , Literal (Int 1) )
+                     , Reg ( Literal (String "b b") , Literal (Int 2) )
                      , Reg
-                         ( Identifier "state"
+                         ( Ident (Identifier "state")
                          , Dict
-                             [ Reg ( Identifier "ok" , Literal (Boolean True) )
-                             , Reg ( Identifier "err" , Literal (Boolean False) )
+                             [ Reg ( Ident (Identifier "ok") , Literal (Boolean True) )
+                             , Reg ( Ident (Identifier "err") , Literal (Boolean False) )
                              ]
                          )
                      ])

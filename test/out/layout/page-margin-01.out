@@ -59,7 +59,8 @@
                  (Ident (Identifier "page"))
                  [ KeyValArg
                      (Identifier "margin")
-                     (Dict [ Reg ( Identifier "left" , Literal (Numeric 0.0 Pt) ) ])
+                     (Dict
+                        [ Reg ( Ident (Identifier "left") , Literal (Numeric 0.0 Pt) ) ])
                  ])
           , Space
           , Code
@@ -84,7 +85,8 @@
                  (Ident (Identifier "page"))
                  [ KeyValArg
                      (Identifier "margin")
-                     (Dict [ Reg ( Identifier "right" , Literal (Numeric 0.0 Pt) ) ])
+                     (Dict
+                        [ Reg ( Ident (Identifier "right") , Literal (Numeric 0.0 Pt) ) ])
                  ])
           , Space
           , Code
@@ -109,7 +111,8 @@
                  (Ident (Identifier "page"))
                  [ KeyValArg
                      (Identifier "margin")
-                     (Dict [ Reg ( Identifier "top" , Literal (Numeric 0.0 Pt) ) ])
+                     (Dict
+                        [ Reg ( Ident (Identifier "top") , Literal (Numeric 0.0 Pt) ) ])
                  ])
           , Space
           , Code
@@ -132,7 +135,8 @@
                  (Ident (Identifier "page"))
                  [ KeyValArg
                      (Identifier "margin")
-                     (Dict [ Reg ( Identifier "bottom" , Literal (Numeric 0.0 Pt) ) ])
+                     (Dict
+                        [ Reg ( Ident (Identifier "bottom") , Literal (Numeric 0.0 Pt) ) ])
                  ])
           , Space
           , Code
@@ -159,8 +163,8 @@
                  [ KeyValArg
                      (Identifier "margin")
                      (Dict
-                        [ Reg ( Identifier "rest" , Literal (Numeric 0.0 Pt) )
-                        , Reg ( Identifier "left" , Literal (Numeric 20.0 Pt) )
+                        [ Reg ( Ident (Identifier "rest") , Literal (Numeric 0.0 Pt) )
+                        , Reg ( Ident (Identifier "left") , Literal (Numeric 20.0 Pt) )
                         ])
                  ])
           , Space

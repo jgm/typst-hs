@@ -50,8 +50,8 @@
        , KeyValArg
            (Identifier "margin")
            (Dict
-              [ Reg ( Identifier "bottom" , Literal (Numeric 20.0 Pt) )
-              , Reg ( Identifier "rest" , Literal (Numeric 10.0 Pt) )
+              [ Reg ( Ident (Identifier "bottom") , Literal (Numeric 20.0 Pt) )
+              , Reg ( Ident (Identifier "rest") , Literal (Numeric 10.0 Pt) )
               ])
        ])
 , SoftBreak

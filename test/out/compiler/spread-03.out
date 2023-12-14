@@ -97,8 +97,8 @@
           [ Let
               (BasicBind (Just (Identifier "more")))
               (Dict
-                 [ Reg ( Identifier "c" , Literal (Int 3) )
-                 , Reg ( Identifier "d" , Literal (Int 4) )
+                 [ Reg ( Ident (Identifier "c") , Literal (Int 3) )
+                 , Reg ( Ident (Identifier "d") , Literal (Int 4) )
                  ])
           , LetFunc
               (Identifier "tostr")

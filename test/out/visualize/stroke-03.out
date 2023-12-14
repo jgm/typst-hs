@@ -49,10 +49,10 @@
        , KeyValArg
            (Identifier "stroke")
            (Dict
-              [ Reg ( Identifier "paint" , Ident (Identifier "red") )
-              , Reg ( Identifier "thickness" , Literal (Numeric 1.0 Pt) )
+              [ Reg ( Ident (Identifier "paint") , Ident (Identifier "red") )
+              , Reg ( Ident (Identifier "thickness") , Literal (Numeric 1.0 Pt) )
               , Reg
-                  ( Identifier "dash"
+                  ( Ident (Identifier "dash")
                   , Array
                       [ Reg (Literal (String "dot")) , Reg (Literal (Numeric 1.0 Pt)) ]
                   )
@@ -74,10 +74,10 @@
        , KeyValArg
            (Identifier "stroke")
            (Dict
-              [ Reg ( Identifier "paint" , Ident (Identifier "red") )
-              , Reg ( Identifier "thickness" , Literal (Numeric 1.0 Pt) )
+              [ Reg ( Ident (Identifier "paint") , Ident (Identifier "red") )
+              , Reg ( Ident (Identifier "thickness") , Literal (Numeric 1.0 Pt) )
               , Reg
-                  ( Identifier "dash"
+                  ( Ident (Identifier "dash")
                   , Array
                       [ Reg (Literal (String "dot"))
                       , Reg (Literal (Numeric 1.0 Pt))
@@ -103,13 +103,13 @@
        , KeyValArg
            (Identifier "stroke")
            (Dict
-              [ Reg ( Identifier "paint" , Ident (Identifier "red") )
-              , Reg ( Identifier "thickness" , Literal (Numeric 1.0 Pt) )
+              [ Reg ( Ident (Identifier "paint") , Ident (Identifier "red") )
+              , Reg ( Ident (Identifier "thickness") , Literal (Numeric 1.0 Pt) )
               , Reg
-                  ( Identifier "dash"
+                  ( Ident (Identifier "dash")
                   , Dict
                       [ Reg
-                          ( Identifier "array"
+                          ( Ident (Identifier "array")
                           , Array
                               [ Reg (Literal (String "dot"))
                               , Reg (Literal (Numeric 1.0 Pt))
@@ -117,7 +117,7 @@
                               , Reg (Literal (Numeric 2.0 Pt))
                               ]
                           )
-                      , Reg ( Identifier "phase" , Literal (Numeric 5.0 Pt) )
+                      , Reg ( Ident (Identifier "phase") , Literal (Numeric 5.0 Pt) )
                       ]
                   )
               ])
@@ -138,9 +138,9 @@
        , KeyValArg
            (Identifier "stroke")
            (Dict
-              [ Reg ( Identifier "paint" , Ident (Identifier "red") )
-              , Reg ( Identifier "thickness" , Literal (Numeric 1.0 Pt) )
-              , Reg ( Identifier "dash" , Array [] )
+              [ Reg ( Ident (Identifier "paint") , Ident (Identifier "red") )
+              , Reg ( Ident (Identifier "thickness") , Literal (Numeric 1.0 Pt) )
+              , Reg ( Ident (Identifier "dash") , Array [] )
               ])
        ])
 , SoftBreak
@@ -159,10 +159,10 @@
        , KeyValArg
            (Identifier "stroke")
            (Dict
-              [ Reg ( Identifier "paint" , Ident (Identifier "red") )
-              , Reg ( Identifier "thickness" , Literal (Numeric 1.0 Pt) )
+              [ Reg ( Ident (Identifier "paint") , Ident (Identifier "red") )
+              , Reg ( Ident (Identifier "thickness") , Literal (Numeric 1.0 Pt) )
               , Reg
-                  ( Identifier "dash"
+                  ( Ident (Identifier "dash")
                   , Array
                       [ Reg (Literal (Numeric 1.0 Pt))
                       , Reg (Literal (Numeric 3.0 Pt))
