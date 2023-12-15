@@ -1120,7 +1120,11 @@ pLetExpr = do
 -- set-expr ::= 'set' expr args
 pSetExpr :: P Expr
 pSetExpr = do
+  oldAllowNewlines <- stAllowNewlines <$> getState
+  -- see #23 -- 'set' doesn't go with 'if' unless it's on the same line
+  updateState $ \st -> st {stAllowNewlines = 0}
   set <- pKeyword "set" *> (Set <$> pQualifiedIdentifier <*> pArgs)
+  updateState $ \st -> st {stAllowNewlines = oldAllowNewlines}
   addCondition <- option id $ pKeyword "if" *> ((\c x -> If [(c, x)]) <$> pExpr)
   pure $ addCondition set
 
