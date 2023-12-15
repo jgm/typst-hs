@@ -912,7 +912,7 @@ pNumeric = lexeme $ do
 pStr :: P Literal
 pStr = lexeme $ do
   void $ char '"'
-  String . T.pack <$> manyTill (pStrEsc <|> noneOf "\"\r\n") (char '"')
+  String . T.pack <$> manyTill (pStrEsc <|> satisfy (/= '"')) (char '"')
 
 pUnit :: P Unit
 pUnit =
