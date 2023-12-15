@@ -112,6 +112,7 @@ data Val
   | VSelector !Selector
   | VModule Identifier (M.Map Identifier Val)
   | VStyles -- just a placeholder for now
+  | VVersion [Integer]
   | VType !ValType
   deriving (Show, Eq, Typeable)
 
@@ -170,6 +171,7 @@ data ValType
   | TLabel
   | TCounter
   | TLocation
+  | TVersion
   | TType
   | TAny
   | ValType :|: ValType
@@ -205,6 +207,7 @@ valType v =
     VModule {} -> TModule
     VSelector {} -> TSelector
     VStyles {} -> TStyles
+    VVersion {} -> TVersion
     VType {} -> TType
 
 hasType :: ValType -> Val -> Bool
@@ -376,6 +379,11 @@ instance Compare Val where
   comp (VString "integer") (VType TInteger) = Just EQ
   comp (VType ty) (VString s) = Just $ compare (prettyType ty) s
   comp (VString s) (VType ty)  = Just $ compare s (prettyType ty)
+  comp (VVersion as) (VVersion bs)
+    | length as > length bs =
+       Just $ compare as (bs ++ replicate (length as - length bs) 0)
+    | otherwise =
+       Just $ compare (as ++ replicate (length as - length bs) 0) bs
   comp _ _ = Nothing
 
 instance Ord Val where
@@ -861,6 +869,7 @@ prettyVal expr =
     VSymbol (Symbol t _ _) -> text t
     VSelector _ -> mempty
     VStyles -> mempty
+    VVersion xs -> text $ T.intercalate "." (map (T.pack . show) xs)
     VType ty -> text $ prettyType ty
 
 prettyType :: ValType -> Text

@@ -16,7 +16,7 @@ where
 import Data.Char (ord, chr)
 import Control.Applicative ((<|>))
 import Control.Monad (mplus, unless)
-import Control.Monad.Reader (lift)
+import Control.Monad.Reader (lift, asks)
 import qualified Data.Aeson as Aeson
 import qualified Data.ByteString.Lazy as BL
 import qualified Data.Csv as Csv
@@ -421,6 +421,11 @@ construct =
              (val :: Int) <- nthArg 1
              pure $ VString $ T.pack [chr val] )
       ]
+    ),
+    ( "version",
+        makeFunction $ do
+          xs <- asks positional >>= mapM fromVal
+          pure $ VVersion xs
     ),
     ( "symbol",
       makeFunction $ do

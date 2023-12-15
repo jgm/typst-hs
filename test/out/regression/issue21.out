@@ -1,0 +1,68 @@
+--- parse tree ---
+[ Code
+    "test/typ/regression/issue21.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060"
+                             , Text "("
+                             , Code
+                                 "test/typ/regression/issue21.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/regression/issue21.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/regression/issue21.typ"
+    ( line 2 , column 2 )
+    (FuncCall
+       (Ident (Identifier "version"))
+       [ NormalArg (Literal (Int 1)) , NormalArg (Literal (Int 2)) ])
+, SoftBreak
+, Code
+    "test/typ/regression/issue21.typ"
+    ( line 3 , column 2 )
+    (FuncCall
+       (FieldAccess
+          (Ident (Identifier "at"))
+          (FuncCall
+             (Ident (Identifier "version"))
+             [ NormalArg (Literal (Int 1)) , NormalArg (Literal (Int 2)) ]))
+       [ NormalArg (Literal (Int 3)) ])
+, ParBreak
+]
+--- evaluated ---
+document(body: { text(body: [
+]), 
+                 text(body: [1.2]), 
+                 text(body: [
+]), 
+                 text(body: [0]), 
+                 parbreak() })

@@ -19,7 +19,7 @@ import qualified Data.Foldable as F
 import Data.List (intersperse, sort, sortOn)
 import qualified Data.Map as M
 import qualified Data.Map.Ordered as OM
-import Data.Maybe (fromMaybe)
+import Data.Maybe (fromMaybe, listToMaybe)
 import Data.Text (Text)
 import qualified Data.Text as T
 import qualified Data.Vector as V
@@ -380,6 +380,12 @@ getMethod updateVal val fld = do
         "term" -> pure $ VContent t
         "description" -> pure $ VContent d
         _ -> noMethod "TermItem" fld
+    VVersion xs ->
+      case fld of
+        "at" -> pure $ makeFunction $ do
+                  i <- nthArg 1
+                  pure $ VInteger $ fromMaybe 0 $ listToMaybe $ drop i xs
+        _ -> noMethod "Version" fld
     VArray v -> do
       let toPos n =
             if n < 0
