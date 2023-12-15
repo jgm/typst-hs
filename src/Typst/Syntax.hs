@@ -159,6 +159,6 @@ data Expr
 
 data Imports
   = AllIdentifiers
-  | SomeIdentifiers [Identifier]
-  | NoIdentifiers
+  | SomeIdentifiers [(Identifier, Maybe Identifier)] -- Maybe is the 'as'
+  | NoIdentifiers (Maybe Identifier)  -- Maybe is the 'as'
   deriving (Show, Ord, Eq, Data, Typeable)

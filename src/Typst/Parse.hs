@@ -1161,11 +1161,17 @@ pImportExpr :: P Expr
 pImportExpr = pKeyword "import" *> (Import <$> pExpr <*> pImportItems)
   where
     pImportItems =
-      option NoIdentifiers $
-        sym ":"
+        (sym ":"
           *> ( (AllIdentifiers <$ sym "*")
-                 <|> (SomeIdentifiers <$> sepEndBy pIdentifier (sym ","))
+                 <|> (SomeIdentifiers
+                       <$> sepEndBy pIdentifierAs (sym ","))
              )
+        ) <|> (NoIdentifiers <$> pAs)
+    pIdentifierAs = do
+      ident <- pIdentifier
+      mbAs <- pAs
+      pure (ident, mbAs)
+    pAs = option Nothing $ Just <$> (pKeyword "as" *> pIdentifier)
 
 pBreakExpr :: P Expr
 pBreakExpr = Break <$ pKeyword "break"

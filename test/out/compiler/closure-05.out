@@ -53,7 +53,8 @@
               (Block
                  (CodeBlock
                     [ Import
-                        (Ident (Identifier "b")) (SomeIdentifiers [ Identifier "b" ])
+                        (Ident (Identifier "b"))
+                        (SomeIdentifiers [ ( Identifier "b" , Nothing ) ])
                     , Ident (Identifier "b")
                     ]))
           , FuncCall

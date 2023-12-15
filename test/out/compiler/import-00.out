@@ -56,7 +56,10 @@
     ( line 9 , column 2 )
     (Import
        (Literal (String "module.typ"))
-       (SomeIdentifiers [ Identifier "fn" , Identifier "value" ]))
+       (SomeIdentifiers
+          [ ( Identifier "fn" , Nothing )
+          , ( Identifier "value" , Nothing )
+          ]))
 , SoftBreak
 , Code
     "test/typ/compiler/import-00.typ"
@@ -79,7 +82,8 @@
     ( line 15 , column 2 )
     (Import
        (Literal (String "module.typ"))
-       (SomeIdentifiers [ Identifier "a" , Identifier "c" ]))
+       (SomeIdentifiers
+          [ ( Identifier "a" , Nothing ) , ( Identifier "c" , Nothing ) ]))
 , Text "bye"
 , ParBreak
 ]

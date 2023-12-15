@@ -43,7 +43,7 @@
 , Code
     "test/typ/compiler/import-06.typ"
     ( line 3 , column 2 )
-    (Import (Ident (Identifier "enum")) NoIdentifiers)
+    (Import (Ident (Identifier "enum")) (NoIdentifiers Nothing))
 , SoftBreak
 , Code
     "test/typ/compiler/import-06.typ"
@@ -58,14 +58,14 @@
     ( line 5 , column 2 )
     (Import
        (FieldAccess (Ident (Identifier "e")) (Ident (Identifier "d")))
-       NoIdentifiers)
+       (NoIdentifiers Nothing))
 , SoftBreak
 , Code
     "test/typ/compiler/import-06.typ"
     ( line 6 , column 2 )
     (Import
        (FieldAccess (Ident (Identifier "e")) (Ident (Identifier "d")))
-       (SomeIdentifiers [ Identifier "item" ]))
+       (SomeIdentifiers [ ( Identifier "item" , Nothing ) ]))
 , ParBreak
 , Code
     "test/typ/compiler/import-06.typ"

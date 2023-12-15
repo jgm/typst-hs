@@ -43,7 +43,7 @@
 , Code
     "test/typ/compiler/import-03.typ"
     ( line 3 , column 2 )
-    (Import (Literal (String "module.typ")) NoIdentifiers)
+    (Import (Literal (String "module.typ")) (NoIdentifiers Nothing))
 , SoftBreak
 , Code
     "test/typ/compiler/import-03.typ"

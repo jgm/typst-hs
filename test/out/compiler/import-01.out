@@ -45,7 +45,7 @@
     ( line 3 , column 2 )
     (Import
        (Literal (String "module.typ"))
-       (SomeIdentifiers [ Identifier "item" ]))
+       (SomeIdentifiers [ ( Identifier "item" , Nothing ) ]))
 , SoftBreak
 , Code
     "test/typ/compiler/import-01.typ"

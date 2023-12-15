@@ -841,13 +841,15 @@ evalExpr expr =
           _ -> fail "Import requires a path or module or function"
       case imports of
         AllIdentifiers -> importModule modmap
-        SomeIdentifiers idents -> do
-          let addFromModule m ident =
+        SomeIdentifiers pairs -> do
+          let addFromModule m (ident, mbAs) =
                 case M.lookup ident modmap of
                   Nothing -> fail $ show ident <> " not defined in module"
-                  Just v -> pure $ M.insert ident v m
-          foldM addFromModule mempty idents >>= importModule
-        NoIdentifiers -> addIdentifier modid (VModule modid modmap)
+                  Just v -> pure $ M.insert (fromMaybe ident mbAs) v m
+          foldM addFromModule mempty pairs >>= importModule
+        NoIdentifiers mbAs -> do
+          let ident = fromMaybe modid mbAs
+          addIdentifier ident (VModule ident modmap)
       pure VNone
     Include e -> do
       argval <- evalExpr e
