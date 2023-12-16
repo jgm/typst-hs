@@ -1,5 +1,26 @@
 # Revision history for typst-hs
 
+## 0.5
+
+  * Support "as" keyword in imports (#21).
+    [API change] In Typst.Syntax, the Imports type now contains
+    fields for an optional "as" identifier.
+
+  * Support version type (#21).
+    [API change] Add VVersion constructor to Val, TVersion to ValType.
+    Support the `version` constructor function and the `at` method (#21).
+
+  * Parser: Ensure that `set` rule doesn't pick up `if` on next line (#23).
+
+  * Parser: Allow multiline strings (#20).
+
+  * Allow function applications in dictionary key construction (#19).
+    [API change]:  in Typst.Syntax, the Dict constructor for Expr
+    now takes type `[Spreadable (Expr, Expr)]` instead of
+    `[Spreadable (Identifier, Expr)]`. This is because the key
+    identifiers sometimes are not known at parse time and must
+    be computed in Evaluate.
+
 ## 0.4
 
   * `evaluateTypst` now returns a single Content instead of a sequence
