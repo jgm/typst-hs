@@ -42,10 +42,10 @@ import Typst.Regex (makeRE)
 import Typst.Symbols (typstSymbols)
 import Typst.Types
 import Typst.Util
+import Data.List (genericTake)
 import Data.Time (UTCTime(..))
 import Data.Time.Calendar (fromGregorianValid)
 import Data.Time.Clock (secondsToDiffTime)
-import Data.Digits (mDigits)
 
 standardModule :: M.Map Identifier Val
 standardModule =
@@ -609,3 +609,28 @@ applyPureFunction (Function f) vals =
 initialEvalState :: MonadFail m => EvalState m
 initialEvalState =
   emptyEvalState { evalIdentifiers = [(BlockScope, standardModule)] }
+
+-- mDigitsRev, mDigits from the unmaintained digits package
+-- https://hackage.haskell.org/package/digits-0.3.1
+-- (c) 2009-2016 Henry Bucklow, Charlie Harvey -- BSD-3-Clause license.
+mDigitsRev :: Integral n
+    => n         -- ^ The base to use.
+    -> n         -- ^ The number to convert to digit form.
+    -> Maybe [n] -- ^ Nothing or Just the digits of the number in list form, in reverse.
+mDigitsRev base i = if base < 1
+                    then Nothing -- We do not support zero or negative bases
+                    else Just $ dr base i
+    where
+      dr _ 0 = []
+      dr b x = case base of
+                1 -> genericTake x $ repeat 1
+                _ -> let (rest, lastDigit) = quotRem x b
+                     in lastDigit : dr b rest
+
+-- | Returns the digits of a positive integer as a Maybe list.
+--   or Nothing if a zero or negative base is given
+mDigits :: Integral n
+    => n -- ^ The base to use.
+    -> n -- ^ The number to convert to digit form.
+    -> Maybe [n] -- ^ Nothing or Just the digits of the number in list form
+mDigits base i = reverse <$> mDigitsRev base i
