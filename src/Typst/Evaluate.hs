@@ -1130,40 +1130,42 @@ inBlock scope pa = do
   pure result
 
 updateExpression :: Monad m => Expr -> Val -> MP m ()
-updateExpression e val =
-  case e of
-    Ident i -> updateIdentifier i val
-    FuncCall
+updateExpression
+  (FuncCall (FieldAccess (Ident (Identifier "first")) e') []) val
+  = updateExpression ( FuncCall
+                       (FieldAccess (Ident (Identifier "at")) e')
+                       [NormalArg (Literal (Int 0))]
+                     ) val
+updateExpression
+  (FuncCall (FieldAccess (Ident (Identifier "last")) e') []) val
+  = updateExpression ( FuncCall
+                       (FieldAccess (Ident (Identifier "at")) e')
+                       [NormalArg (Literal (Int (-1)))]
+                     ) val
+updateExpression
+  (FieldAccess (Ident (Identifier fld)) e') val
+  = updateExpression ( FuncCall
+                       (FieldAccess (Ident (Identifier "at")) e')
+                       [NormalArg (Literal (String fld))]
+                     ) val
+updateExpression (Ident i) val = updateIdentifier i val
+updateExpression
+  e@(FuncCall
       (FieldAccess (Ident (Identifier "at")) e')
-      [NormalArg (Literal (Int idx))] ->
-        do
-          ival <- evalExpr e'
-          case ival of
-            VArray v ->
-              updateExpression e' $ VArray $ v V.// [(fromIntegral idx, val)]
-            _ -> fail $ "Cannot update expression " <> show e
-    FuncCall (FieldAccess (Ident (Identifier "first")) e') [] ->
-      updateExpression
-        ( FuncCall
-            (FieldAccess (Ident (Identifier "at")) e')
-            [NormalArg (Literal (Int 0))]
-        )
-        val
-    FuncCall (FieldAccess (Ident (Identifier "last")) e') [] ->
-      updateExpression
-        ( FuncCall
-            (FieldAccess (Ident (Identifier "at")) e')
-            [NormalArg (Literal (Int (-1)))]
-        )
-        val
-    FuncCall
-      (FieldAccess (Ident (Identifier "at")) e')
-      [NormalArg (Literal (String fld))] ->
-        do
-          ival <- evalExpr e'
-          case ival of
-            VDict d ->
-              updateExpression e' $
+  [NormalArg arg]) val
+  = do
+    container <- evalExpr e'
+    idx <- evalExpr arg
+    case container of
+      VArray v ->
+        case idx of
+          VInteger i ->
+            updateExpression e' $ VArray $ v V.// [(fromIntegral i, val)]
+          _ -> fail $ "Cannot index array with " <> show idx
+      VDict d ->
+        case idx of
+          VString fld ->
+            updateExpression e' $
                 VDict $
                   OM.alter
                     ( \case
@@ -1172,15 +1174,9 @@ updateExpression e val =
                     )
                     (Identifier fld)
                     d
-            _ -> fail $ "Cannot update expression " <> show e
-    FieldAccess (Ident (Identifier fld)) e' ->
-      updateExpression
-        ( FuncCall
-            (FieldAccess (Ident (Identifier "at")) e')
-            [NormalArg (Literal (String fld))]
-        )
-        val
-    _ -> fail $ "Cannot update expression " <> show e
+          _ -> fail $ "Cannot index dictionary with " <> show idx
+      _ -> fail $ "Cannot update expression " <> show e
+updateExpression e _ = fail $ "Cannot update expression " <> show e
 
 toSelector :: Monad m => Val -> MP m Selector
 toSelector (VSelector s) = pure s

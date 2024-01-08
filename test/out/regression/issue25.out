@@ -1,0 +1,82 @@
+--- parse tree ---
+[ Code
+    "test/typ/regression/issue25.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060"
+                             , Text "("
+                             , Code
+                                 "test/typ/regression/issue25.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/regression/issue25.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "test/typ/regression/issue25.typ"
+    ( line 2 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "x")))
+       (Dict [ Reg ( Ident (Identifier "a") , Literal (Int 5) ) ]))
+, SoftBreak
+, Code
+    "test/typ/regression/issue25.typ"
+    ( line 3 , column 2 )
+    (Let (BasicBind (Just (Identifier "key"))) (Literal (String "a")))
+, SoftBreak
+, Code
+    "test/typ/regression/issue25.typ"
+    ( line 4 , column 2 )
+    (Block
+       (CodeBlock
+          [ Assign
+              (FuncCall
+                 (FieldAccess (Ident (Identifier "at")) (Ident (Identifier "x")))
+                 [ NormalArg (Ident (Identifier "key")) ])
+              (Literal (Int 6))
+          ]))
+, SoftBreak
+, Code
+    "test/typ/regression/issue25.typ"
+    ( line 7 , column 2 )
+    (Ident (Identifier "x"))
+, ParBreak
+]
+--- evaluated ---
+document(body: { text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [(a: 6)]), 
+                 parbreak() })
