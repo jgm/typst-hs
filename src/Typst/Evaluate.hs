@@ -1144,39 +1144,46 @@ updateExpression
                      ) val
 updateExpression
   (FieldAccess (Ident (Identifier fld)) e') val
-  = updateExpression ( FuncCall
-                       (FieldAccess (Ident (Identifier "at")) e')
-                       [NormalArg (Literal (String fld))]
-                     ) val
+  = updateExpression' True e' (Literal (String fld)) val -- see #26
 updateExpression (Ident i) val = updateIdentifier i val
 updateExpression
-  e@(FuncCall
-      (FieldAccess (Ident (Identifier "at")) e')
-  [NormalArg arg]) val
-  = do
-    container <- evalExpr e'
+  (FuncCall
+      (FieldAccess (Ident (Identifier "at")) e') [NormalArg arg]) val
+  = updateExpression' False e' arg val
+updateExpression e _ = fail $ "Cannot update expression " <> show e
+
+updateExpression' :: Monad m => Bool -> Expr -> Expr -> Val -> MP m ()
+updateExpression' allowNewIndices e arg val = do
+    container <- evalExpr e
     idx <- evalExpr arg
     case container of
       VArray v ->
         case idx of
           VInteger i ->
-            updateExpression e' $ VArray $ v V.// [(fromIntegral i, val)]
+            let i' = fromIntegral i
+            in case v V.!? i' of
+                 Nothing | not allowNewIndices
+                     -> fail $ "Vector does not contain index " <> show i'
+                 _ -> updateExpression e $ VArray $ v V.// [(i', val)]
           _ -> fail $ "Cannot index array with " <> show idx
       VDict d ->
         case idx of
           VString fld ->
-            updateExpression e' $
-                VDict $
-                  OM.alter
-                    ( \case
-                        Just _ -> Just val
-                        Nothing -> Just val
-                    )
-                    (Identifier fld)
-                    d
+            case OM.lookup (Identifier fld) d of
+              Nothing | not allowNewIndices
+                     -> fail $ "Dictionary does not contain key " <> show fld
+              _ -> updateExpression e $
+                           VDict $
+                             OM.alter
+                               ( \case
+                                   Just _ -> Just val
+                                   Nothing -> Just val
+                               )
+                               (Identifier fld)
+                               d
           _ -> fail $ "Cannot index dictionary with " <> show idx
       _ -> fail $ "Cannot update expression " <> show e
-updateExpression e _ = fail $ "Cannot update expression " <> show e
+
 
 toSelector :: Monad m => Val -> MP m Selector
 toSelector (VSelector s) = pure s
