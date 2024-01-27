@@ -989,17 +989,24 @@ loadModule :: Monad m => Text
            -> MP m (Seq Content, (Identifier, M.Map Identifier Val))
 loadModule modname = do
   pos <- getPosition
-  (fp, mbPackageRoot) <-
+  (fp, modid, mbPackageRoot) <-
         if T.take 1 modname == "@"
            then do
             fp' <- findPackageEntryPoint modname
-            pure (fp', Just (takeDirectory fp'))
+            pure (fp',
+                   Identifier
+                    (T.pack $ takeWhile (/= ':') . takeBaseName $
+                       T.unpack modname),
+                   Just (takeDirectory fp'))
            else if T.take 1 modname == "/" -- refers to path relative to package root
                 then do
                   packageRoot <- evalPackageRoot <$> getState
-                  pure (packageRoot </> drop 1 (T.unpack modname), Nothing)
-                else pure (replaceFileName (sourceName pos) (T.unpack modname), Nothing)
-  let modid = Identifier (T.pack $ takeBaseName fp)
+                  pure (packageRoot </> drop 1 (T.unpack modname),
+                        Identifier (T.pack $ takeBaseName $ T.unpack modname),
+                        Nothing)
+                else pure (replaceFileName (sourceName pos) (T.unpack modname),
+                        Identifier (T.pack $ takeBaseName $ T.unpack modname),
+                        Nothing)
   txt <- loadFileText fp
   case parseTypst fp txt of
     Left err -> fail $ show err
