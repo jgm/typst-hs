@@ -95,9 +95,7 @@
                           , Block
                               (CodeBlock
                                  [ FuncCall (Ident (Identifier "parbreak")) []
-                                 , Assign
-                                     (Binding (BasicBind (Just (Identifier "used"))))
-                                     (Literal (Int 0))
+                                 , Assign (Ident (Identifier "used")) (Literal (Int 0))
                                  ])
                           )
                         ]

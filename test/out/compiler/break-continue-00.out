@@ -69,9 +69,7 @@
                    , Block
                        (CodeBlock
                           [ Break
-                          , Assign
-                              (Binding (BasicBind (Just (Identifier "error"))))
-                              (Literal (Boolean True))
+                          , Assign (Ident (Identifier "error")) (Literal (Boolean True))
                           ])
                    )
                  ]

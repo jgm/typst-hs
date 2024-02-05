@@ -755,7 +755,6 @@ pBaseExpr =
   pLiteral
     <|> pKeywordExpr
     <|> pFuncExpr
-    <|> pBindExpr
     <|> pIdent
     <|> pArrayExpr
     <|> pDictExpr
@@ -1190,7 +1189,3 @@ pReturnExpr = do
 
 pIncludeExpr :: P Expr
 pIncludeExpr = Include <$> (pKeyword "include" *> pExpr)
-
-pBindExpr :: P Expr
-pBindExpr =
-  Binding <$> try (pBind <* lookAhead (op "="))

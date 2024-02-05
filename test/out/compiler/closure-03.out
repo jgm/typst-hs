@@ -70,9 +70,7 @@
                      [ NormalArg (Literal (String "Typst")) ])
               , NormalArg (Literal (String "Hi, Typst!"))
               ]
-          , Assign
-              (Binding (BasicBind (Just (Identifier "mark"))))
-              (Literal (String "?"))
+          , Assign (Ident (Identifier "mark")) (Literal (String "?"))
           , FuncCall
               (Ident (Identifier "test"))
               [ NormalArg

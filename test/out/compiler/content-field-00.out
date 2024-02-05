@@ -146,8 +146,7 @@
                                           , Block
                                               (CodeBlock
                                                  [ Assign
-                                                     (Binding
-                                                        (BasicBind (Just (Identifier "value"))))
+                                                     (Ident (Identifier "value"))
                                                      (FuncCall
                                                         (FieldAccess
                                                            (Ident (Identifier "pow"))

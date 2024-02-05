@@ -184,9 +184,7 @@
                       , Block (CodeBlock [ Literal (String ", ") ])
                       )
                     ]
-                , Assign
-                    (Binding (BasicBind (Just (Identifier "first"))))
-                    (Literal (Boolean False))
+                , Assign (Ident (Identifier "first")) (Literal (Boolean False))
                 , Ident (Identifier "c")
                 ]))))
 , ParBreak

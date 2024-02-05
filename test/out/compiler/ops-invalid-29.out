@@ -49,9 +49,7 @@
 , Code
     "test/typ/compiler/ops-invalid-29.typ"
     ( line 5 , column 2 )
-    (Assign
-       (Binding (BasicBind (Just (Identifier "rect"))))
-       (Literal (String "hi")))
+    (Assign (Ident (Identifier "rect")) (Literal (String "hi")))
 , ParBreak
 ]
 --- evaluated ---

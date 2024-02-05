@@ -63,7 +63,7 @@
                       , Block
                           (CodeBlock
                              [ Assign
-                                 (Binding (BasicBind (Just (Identifier "name"))))
+                                 (Ident (Identifier "name"))
                                  (Block
                                     (Content
                                        [ Space
@@ -83,10 +83,7 @@
                     , ( Literal (Boolean True)
                       , Block
                           (CodeBlock
-                             [ Assign
-                                 (Binding (BasicBind (Just (Identifier "name"))))
-                                 (Block (Content []))
-                             ])
+                             [ Assign (Ident (Identifier "name")) (Block (Content [])) ])
                       )
                     ]
                 , Let (BasicBind (Just (Identifier "title"))) (Literal None)
@@ -99,7 +96,7 @@
                       , Block
                           (CodeBlock
                              [ Assign
-                                 (Binding (BasicBind (Just (Identifier "title"))))
+                                 (Ident (Identifier "title"))
                                  (FieldAccess
                                     (Ident (Identifier "supplement")) (Ident (Identifier "it")))
                              , If
@@ -135,7 +132,7 @@
                       )
                     ]
                 , Assign
-                    (Binding (BasicBind (Just (Identifier "title"))))
+                    (Ident (Identifier "title"))
                     (FuncCall
                        (Ident (Identifier "strong"))
                        [ NormalArg (Ident (Identifier "title")) ])

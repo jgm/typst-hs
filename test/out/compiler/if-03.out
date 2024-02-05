@@ -51,7 +51,7 @@
           , Let (BasicBind (Just (Identifier "y"))) (Literal (Int 2))
           , Let (BasicBind (Just (Identifier "z"))) (Literal None)
           , Assign
-              (Binding (BasicBind (Just (Identifier "z"))))
+              (Ident (Identifier "z"))
               (If
                  [ ( LessThan (Ident (Identifier "x")) (Ident (Identifier "y"))
                    , Block (CodeBlock [ Literal (String "ok") ])
@@ -63,7 +63,7 @@
               , NormalArg (Literal (String "ok"))
               ]
           , Assign
-              (Binding (BasicBind (Just (Identifier "z"))))
+              (Ident (Identifier "z"))
               (If
                  [ ( GreaterThan (Ident (Identifier "x")) (Ident (Identifier "y"))
                    , Block (CodeBlock [ Literal (String "bad") ])
@@ -78,7 +78,7 @@
               , NormalArg (Literal (String "ok"))
               ]
           , Assign
-              (Binding (BasicBind (Just (Identifier "z"))))
+              (Ident (Identifier "z"))
               (If
                  [ ( GreaterThan (Ident (Identifier "x")) (Ident (Identifier "y"))
                    , Block (CodeBlock [ Literal (String "bad") ])

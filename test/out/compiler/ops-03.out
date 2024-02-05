@@ -125,7 +125,7 @@
               (CodeBlock
                  [ Let (BasicBind (Just (Identifier "x"))) (Literal None)
                  , Assign
-                     (Binding (BasicBind (Just (Identifier "x"))))
+                     (Ident (Identifier "x"))
                      (And
                         (GreaterThanOrEqual
                            (Plus
@@ -133,9 +133,7 @@
                            (Literal (Int 21)))
                         (Block
                            (CodeBlock
-                              [ Assign
-                                  (Binding (BasicBind (Just (Identifier "x"))))
-                                  (Literal (String "a"))
+                              [ Assign (Ident (Identifier "x")) (Literal (String "a"))
                               , Equals
                                   (Plus (Ident (Identifier "x")) (Literal (String "b")))
                                   (Literal (String "ab"))

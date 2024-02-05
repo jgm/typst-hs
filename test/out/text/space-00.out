@@ -125,9 +125,7 @@
              [ Code
                  "test/typ/text/space-00.typ"
                  ( line 8 , column 28 )
-                 (Assign
-                    (Binding (BasicBind (Just (Identifier "c"))))
-                    (Literal (Boolean False)))
+                 (Assign (Ident (Identifier "c")) (Literal (Boolean False)))
              , Text "O"
              ])))
 , Space
@@ -148,9 +146,7 @@
        (Ident (Identifier "c"))
        (Block
           (CodeBlock
-             [ Assign
-                 (Binding (BasicBind (Just (Identifier "c"))))
-                 (Literal (Boolean False))
+             [ Assign (Ident (Identifier "c")) (Literal (Boolean False))
              , Literal (String "R")
              ])))
 , Space

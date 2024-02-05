@@ -81,9 +81,7 @@
        (Ident (Identifier "iter"))
        (Block
           (CodeBlock
-             [ Assign
-                 (Binding (BasicBind (Just (Identifier "iter"))))
-                 (Literal (Boolean False))
+             [ Assign (Ident (Identifier "iter")) (Literal (Boolean False))
              , Literal (String "Hi.")
              ])))
 , ParBreak

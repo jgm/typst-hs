@@ -49,8 +49,7 @@
 , Code
     "test/typ/compiler/ops-10.typ"
     ( line 5 , column 2 )
-    (Assign
-       (Binding (BasicBind (Just (Identifier "x")))) (Literal (Int 10)))
+    (Assign (Ident (Identifier "x")) (Literal (Int 10)))
 , Space
 , Code
     "test/typ/compiler/ops-10.typ"
@@ -128,9 +127,7 @@
 , Code
     "test/typ/compiler/ops-10.typ"
     ( line 10 , column 2 )
-    (Assign
-       (Binding (BasicBind (Just (Identifier "x"))))
-       (Literal (String "some")))
+    (Assign (Ident (Identifier "x")) (Literal (String "some")))
 , Space
 , Code
     "test/typ/compiler/ops-10.typ"
