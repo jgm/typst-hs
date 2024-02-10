@@ -42,6 +42,7 @@ import Typst.Regex (makeRE)
 import Typst.Symbols (typstSymbols)
 import Typst.Types
 import Typst.Util
+import System.FilePath ((</>))
 import Data.List (genericTake)
 import Data.Time (UTCTime(..))
 import Data.Time.Calendar (fromGregorianValid)
@@ -485,12 +486,14 @@ hexToRGB _ = fail "expected string"
 loadFileLazyBytes :: Monad m => FilePath -> MP m BL.ByteString
 loadFileLazyBytes fp = do
   operations <- evalOperations <$> getState
-  lift $ BL.fromStrict <$> loadBytes operations fp
+  root <- evalPackageRoot <$> getState
+  lift $ BL.fromStrict <$> loadBytes operations (root </> fp)
 
 loadFileText :: Monad m => FilePath -> MP m T.Text
 loadFileText fp = do
   operations <- evalOperations <$> getState
-  lift $ TE.decodeUtf8 <$> loadBytes operations fp
+  root <- evalPackageRoot <$> getState
+  lift $ TE.decodeUtf8 <$> loadBytes operations (root </> fp)
 
 getUTCTime :: Monad m => MP m UTCTime
 getUTCTime = (currentUTCTime . evalOperations <$> getState) >>= lift
