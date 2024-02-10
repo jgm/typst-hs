@@ -59,14 +59,13 @@ evaluateTypst ::
   -- | Markup produced by 'parseTypst'
   [Markup] ->
   m (Either ParseError Content)
-evaluateTypst operations fp =
+evaluateTypst operations =
   runParserT
     (do contents <- mconcat <$> many pContent <* eof
         -- "All documents are automatically wrapped in a document element."
         pure $ Elt "document" Nothing [("body", VContent contents)])
     initialEvalState { evalOperations = operations,
-                       evalPackageRoot = takeDirectory fp }
-    fp
+                       evalPackageRoot = "." }
 
 initialEvalState :: EvalState m
 initialEvalState =
