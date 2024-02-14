@@ -1,5 +1,25 @@
 # Revision history for typst-hs
 
+## 0.5.0.1
+
+  * Set `evalPackageRoot` to working dir to start, even if the file to be
+    converted is somewhere else. This seems to be what the test suite expects.
+
+  * Make file loading relative to package root if present (#39).
+
+  * Parser: remove `pBindExpr` from `pBaseExpr`. It does not seem
+    to be necessary, and it causes problems with things like `$#x = $y$` (#34).
+
+  * Fix assignment of module name in package imports (#30).
+
+  * Don't allow `container.at` to insert new values (#26).
+
+  * Handle `dict.at(variable) = expression` (#25).
+
+  * Remove dependency on the unmaintained digits library (#24).
+    We just copy the code for the function we need (with
+    attribution): it is BSD3-licensed.
+
 ## 0.5
 
   * Support "as" keyword in imports (#21).
