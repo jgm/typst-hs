@@ -559,7 +559,7 @@ dataLoading =
       makeFunction $ do
         fp <- nthArg 1
         t <- lift $ loadFileText fp
-        case Toml.decode (T.unpack t) of
+        case Toml.decode t of
           Toml.Failure e -> fail (unlines ("toml errors:" : e))
           Toml.Success _ v -> pure v
     ),

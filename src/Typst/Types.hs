@@ -72,7 +72,7 @@ import Data.Vector (Vector)
 import qualified Data.Vector as V
 import Text.Parsec
 import qualified Toml
-import qualified Toml.FromValue as Toml
+import qualified Toml.Schema as Toml
 import qualified Toml.Pretty as Toml
 import qualified Text.PrettyPrint as P
 import Text.Read (readMaybe)
@@ -129,18 +129,18 @@ instance FromJSON Val where
 instance Toml.FromValue Val where
   fromValue = pure . tomlToVal
 
-tomlToVal :: Toml.Value -> Val
-tomlToVal (Toml.Bool x) = VBoolean x
-tomlToVal (Toml.Integer x) = VInteger x
-tomlToVal (Toml.String x) = VString (T.pack x)
-tomlToVal (Toml.Float x) = VFloat x
-tomlToVal (Toml.TimeOfDay x) = VDateTime Nothing (Just (timeOfDayToTime x))
-tomlToVal (Toml.Day x) = VDateTime (Just x) Nothing
-tomlToVal (Toml.LocalTime x) = VDateTime (Just (localDay x)) (Just (timeOfDayToTime (localTimeOfDay x)))
-tomlToVal (Toml.Array x) = VArray (V.fromList (map tomlToVal x))
-tomlToVal (Toml.Table x) = VDict (OM.fromList [(Identifier (T.pack k), tomlToVal v) | (k,v) <- M.assocs x])
+tomlToVal :: Toml.Value' a -> Val
+tomlToVal (Toml.Bool' _ x) = VBoolean x
+tomlToVal (Toml.Integer' _ x) = VInteger x
+tomlToVal (Toml.Text' _ x) = VString x
+tomlToVal (Toml.Double' _ x) = VFloat x
+tomlToVal (Toml.TimeOfDay' _ x) = VDateTime Nothing (Just (timeOfDayToTime x))
+tomlToVal (Toml.Day' _ x) = VDateTime (Just x) Nothing
+tomlToVal (Toml.LocalTime' _ x) = VDateTime (Just (localDay x)) (Just (timeOfDayToTime (localTimeOfDay x)))
+tomlToVal (Toml.List' _ x) = VArray (V.fromList (map tomlToVal x))
+tomlToVal (Toml.Table' _ (Toml.MkTable x)) = VDict (OM.fromList [(Identifier k, tomlToVal v) | (k,(_,v)) <- M.assocs x])
   -- typst specifies that unsupported datetimes map to strings and we don't have a place for the timezone
-tomlToVal v@Toml.ZonedTime{} = VString (T.pack (show (Toml.prettyValue v)))
+tomlToVal v@Toml.ZonedTime'{} = VString (T.pack (show (Toml.prettyValue v)))
 
 data ValType
   = TNone

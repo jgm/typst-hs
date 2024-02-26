@@ -43,8 +43,7 @@ import Typst.Syntax
 import Typst.Types
 import Typst.Util (makeFunction, nthArg)
 import qualified Toml as Toml
-import qualified Toml.FromValue as Toml
-import qualified Toml.FromValue.Generic as Toml
+import qualified Toml.Schema as Toml
 
 -- import Debug.Trace
 
@@ -930,11 +929,11 @@ data PackageConfig = PackageConfig {
 
 -- | Derived generically from record field names
 instance Toml.FromValue Config where
-  fromValue = Toml.parseTableFromValue Toml.genericParseTable
+  fromValue = Toml.genericFromTable
 
 -- | Derived generically from record field names
 instance Toml.FromValue PackageConfig where
-  fromValue = Toml.parseTableFromValue Toml.genericParseTable
+  fromValue = Toml.genericFromTable
 
 findPackageEntryPoint :: Monad m => Text -> MP m FilePath
 findPackageEntryPoint modname = do
@@ -978,7 +977,7 @@ findPackageEntryPoint modname = do
                     (localDir </> subpath) ++ "\n" ++ (cacheDir </> subpath) ++
                     "\nCompile with typst compile to bring the package into your local cache."
              -- TODO? fetch from CDN if not present in cache?
-  tomlString <- T.unpack . TE.decodeUtf8 <$> lift (loadBytes operations tomlPath)
+  tomlString <- TE.decodeUtf8 <$> lift (loadBytes operations tomlPath)
   case Toml.decode tomlString of
     Toml.Failure e -> fail (unlines ("Failure loading typst.toml" : e))
     Toml.Success _warnings cfg -> -- ignores warnings like unused keys in TOML
