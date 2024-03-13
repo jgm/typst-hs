@@ -210,7 +210,16 @@ hideOuterParens (MGroup (Just "(") (Just ")") x) = MGroup Nothing Nothing x
 hideOuterParens x = x
 
 mathExpressionTable :: [[Operator Text PState Identity Expr]]
-mathExpressionTable = take 16 (cycle [[fieldAccess], [mathFunctionCall]])
+mathExpressionTable = take 16 (cycle [[mathFieldAccess], [mathFunctionCall]])
+
+mathFieldAccess :: Operator Text PState Identity Expr
+mathFieldAccess =
+  Postfix (FieldAccess <$> try (sym "." *> (Ident <$> pMathField)))
+ where
+  pMathField = lexeme $ do
+    d <- satisfy (\c -> isIdentStart c && c /= '_')
+    ds <- many $ satisfy (\c -> isIdentContinue c && c /= '_' && c /= '-')
+    pure $ Identifier $ T.pack (d : ds)
 
 mathFunctionCall :: Operator Text PState Identity Expr
 mathFunctionCall =
@@ -252,12 +261,9 @@ pMathIdent =
 
 pMathIdentifier :: P Identifier
 pMathIdentifier = lexeme $ try $ do
-  c <- satisfy isIdentStart
-  cs <- many1 $ satisfy isMathIdentContinue
-  pure $ Identifier $ T.pack (c : cs)
-
-isMathIdentContinue :: Char -> Bool
-isMathIdentContinue c = isIdentContinue c && c /= '_' && c /= '-'
+  d <- satisfy (\c -> isIdentStart c && c /= '_')
+  ds <- many1 $ satisfy (\c -> isIdentContinue c && c /= '_' && c /= '-')
+  pure $ Identifier $ T.pack (d : ds)
 
 pMath :: P Markup
 pMath = buildExpressionParser mathOperatorTable pBaseMath
