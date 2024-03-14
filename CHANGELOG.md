@@ -1,5 +1,13 @@
 # Revision history for typst-hs
 
+## 0.5.0.2
+
+  * Fix parsing of field access in math (#41). `$plus.circle_2$`
+    should give you a subscript 2 on the symbol `plus.circle`.
+    Underscores are not allowed in field access in math.
+
+  * Support toml-parser-2.0.0.0 (Eric Mertens).
+
 ## 0.5.0.1
 
   * Set `evalPackageRoot` to working dir to start, even if the file to be
