@@ -60,8 +60,8 @@ ws = do
   inp <- getInput
   allowNewlines <- stAllowNewlines <$> getState
   let isSp c
-        | allowNewlines > 0 = c == ' ' || c == '\t' || c == '\n' || c == '\r'
-        | otherwise = c == ' ' || c == '\t'
+        | allowNewlines > 0 = isSpace c
+        | otherwise = isSpace c && c /= '\r' && c /= '\n'
   ( skipMany1 (void (satisfy isSp) <|> void pComment)
       *> updateState (\st -> st {stBeforeSpace = Just (p1, inp)})
     )

@@ -44,9 +44,15 @@
     ( line 2 , column 1 )
     (Label "foo:bar")
 , ParBreak
+, Code
+    "test/typ/regression/issue43.typ"
+    ( line 4 , column 2 )
+    (Let (BasicBind (Just (Identifier "a"))) (Literal (String "a")))
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
 ]), 
                  <foo:bar>, 
+                 parbreak(), 
                  parbreak() })
