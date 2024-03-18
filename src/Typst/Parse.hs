@@ -766,19 +766,13 @@ pBaseExpr =
     <|> pArrayExpr
     <|> pDictExpr
     <|> inParens pExpr
-    <|> (Block . Content . (: []) <$> pEquation)
     <|> pLabel
+    <|> (Block . Content . (: []) <$> (pRawBlock <|> pRawInline <|> pEquation))
     <|> pBlock
 
 pLiteral :: P Expr
 pLiteral =
-  Literal
-    <$> ( pNone
-            <|> pAuto
-            <|> pBoolean
-            <|> pNumeric
-            <|> pStr
-        )
+  Literal <$> ( pNone <|> pAuto <|> pBoolean <|> pNumeric <|> pStr )
 
 fieldAccess :: Operator Text PState Identity Expr
 fieldAccess = Postfix (FieldAccess <$> try (sym "." *> pIdent))
@@ -1046,9 +1040,7 @@ pArg :: P Arg
 pArg = pKeyValArg <|> pSpreadArg <|> pNormalArg
   where
     pKeyValArg = KeyValArg <$> try (pIdentifier <* sym ":") <*> pExpr
-    pNormalArg =
-      NormalArg
-        <$> ((Block . Content . (: []) <$> lexeme (pRawBlock <|> pRawInline)) <|> pExpr)
+    pNormalArg = NormalArg <$> pExpr
     pSpreadArg = SpreadArg <$> try (string ".." *> pExpr)
 
 -- params ::= '(' (param (',' param)* ','?)? ')'
