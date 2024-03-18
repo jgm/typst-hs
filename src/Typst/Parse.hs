@@ -457,7 +457,7 @@ pLineComment :: P ()
 pLineComment = do
   void $ string "//"
   skipMany (satisfy (\c -> c /= '\n' && c /= '\r'))
-  void endOfLine
+  void endOfLine <|> eof
 
 pBlockComment :: P ()
 pBlockComment = do
@@ -506,7 +506,7 @@ pHardbreak =
 pBlankline :: P ()
 pBlankline = try $ do
   skipMany spaceChar
-  void (lookAhead (endOfLine)) <|> pEndOfContent
+  void (lookAhead endOfLine) <|> pEndOfContent
 
 pRawInline :: P Markup
 pRawInline =
