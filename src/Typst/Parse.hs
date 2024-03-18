@@ -767,7 +767,8 @@ pBaseExpr =
     <|> pDictExpr
     <|> inParens pExpr
     <|> pLabel
-    <|> (Block . Content . (: []) <$> (pRawBlock <|> pRawInline <|> pEquation))
+    <|> (Block . Content . (: [])
+         <$> lexeme (pRawBlock <|> pRawInline <|> pEquation))
     <|> pBlock
 
 pLiteral :: P Expr

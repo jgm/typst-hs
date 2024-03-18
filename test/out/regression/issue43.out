@@ -49,10 +49,30 @@
     ( line 4 , column 2 )
     (Let (BasicBind (Just (Identifier "a"))) (Literal (String "a")))
 , ParBreak
+, Code
+    "test/typ/regression/issue43.typ"
+    ( line 6 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "w")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") ]
+          (Plus
+             (Block (Content [ Equation False [ Text "x" ] ]))
+             (Ident (Identifier "x")))))
+, ParBreak
+, Code
+    "test/typ/regression/issue43.typ"
+    ( line 8 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "x")))
+       (Block (Content [ RawInline "hello" ])))
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
 ]), 
                  <foo:bar>, 
+                 parbreak(), 
+                 parbreak(), 
                  parbreak(), 
                  parbreak() })
