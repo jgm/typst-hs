@@ -644,7 +644,8 @@ pLabel =
   Label . T.pack
     <$> try
       ( char '<'
-          *> many1 (satisfy isIdentContinue <|> char '_' <|> char '.')
+          *> many1 (satisfy isIdentContinue <|>
+                    char '_' <|> char '.' <|> char ':')
           <* char '>'
       )
 
