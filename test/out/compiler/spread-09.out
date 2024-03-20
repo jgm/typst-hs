@@ -1,3 +1,127 @@
-"test/typ/compiler/spread-09.typ" (line 14, column 9):
-unexpected ":"
-expecting "//", "/*", "none", "auto", "true", "false", "0b", "0x", "0o", digit, ".", "\"", "let", "set", "show", "if", "while", "for", "import", "include", "break", "continue", "return", "(", "<", "```", "`", "$", "{" or "["
+--- parse tree ---
+[ Code
+    "test/typ/compiler/spread-09.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060"
+                             , Text "("
+                             , Code
+                                 "test/typ/compiler/spread-09.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/compiler/spread-09.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "test/typ/compiler/spread-09.typ"
+    ( line 3 , column 2 )
+    (Block
+       (CodeBlock
+          [ Let
+              (BasicBind (Just (Identifier "l")))
+              (Array
+                 [ Reg (Literal (Int 1))
+                 , Reg (Literal (Int 2))
+                 , Reg (Literal (Int 3))
+                 ])
+          , Let
+              (BasicBind (Just (Identifier "r")))
+              (Array
+                 [ Reg (Literal (Int 5))
+                 , Reg (Literal (Int 6))
+                 , Reg (Literal (Int 7))
+                 ])
+          , FuncCall
+              (Ident (Identifier "test"))
+              [ NormalArg
+                  (Array
+                     [ Spr (Ident (Identifier "l"))
+                     , Reg (Literal (Int 4))
+                     , Spr (Ident (Identifier "r"))
+                     ])
+              , NormalArg
+                  (FuncCall
+                     (Ident (Identifier "range"))
+                     [ NormalArg (Literal (Int 1)) , NormalArg (Literal (Int 8)) ])
+              ]
+          , FuncCall
+              (Ident (Identifier "test"))
+              [ NormalArg (Dict [ Spr (Literal None) ]) , NormalArg (Array []) ]
+          ]))
+, ParBreak
+, Code
+    "test/typ/compiler/spread-09.typ"
+    ( line 10 , column 2 )
+    (Block
+       (CodeBlock
+          [ Let
+              (BasicBind (Just (Identifier "x")))
+              (Dict [ Reg ( Ident (Identifier "a") , Literal (Int 1) ) ])
+          , Let
+              (BasicBind (Just (Identifier "y")))
+              (Dict [ Reg ( Ident (Identifier "b") , Literal (Int 2) ) ])
+          , Let
+              (BasicBind (Just (Identifier "z")))
+              (Dict [ Reg ( Ident (Identifier "a") , Literal (Int 3) ) ])
+          , FuncCall
+              (Ident (Identifier "test"))
+              [ NormalArg
+                  (Dict
+                     [ Spr (Ident (Identifier "x"))
+                     , Spr (Ident (Identifier "y"))
+                     , Spr (Ident (Identifier "z"))
+                     ])
+              , NormalArg
+                  (Dict
+                     [ Reg ( Ident (Identifier "a") , Literal (Int 3) )
+                     , Reg ( Ident (Identifier "b") , Literal (Int 2) )
+                     ])
+              ]
+          , FuncCall
+              (Ident (Identifier "test"))
+              [ NormalArg
+                  (Dict
+                     [ Spr (Dict [ Reg ( Ident (Identifier "a") , Literal (Int 1) ) ])
+                     , Reg ( Ident (Identifier "b") , Literal (Int 2) )
+                     ])
+              , NormalArg
+                  (Dict
+                     [ Reg ( Ident (Identifier "a") , Literal (Int 1) )
+                     , Reg ( Ident (Identifier "b") , Literal (Int 2) )
+                     ])
+              ]
+          ]))
+, ParBreak
+]
+"test/typ/compiler/spread-09.typ" (line 3, column 2):
+unexpected end of input
+expecting end of input
+Could not spread TNone into dictionary

@@ -67,11 +67,57 @@
        (BasicBind (Just (Identifier "x")))
        (Block (Content [ RawInline "hello" ])))
 , ParBreak
+, Code
+    "test/typ/regression/issue43.typ"
+    ( line 10 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "a")))
+       (Dict [ Reg ( Ident (Identifier "a") , Literal (Int 1) ) ]))
+, ParBreak
+, Code
+    "test/typ/regression/issue43.typ"
+    ( line 12 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "b")))
+       (Dict [ Reg ( Ident (Identifier "b") , Literal (Int 2) ) ]))
+, ParBreak
+, Code
+    "test/typ/regression/issue43.typ"
+    ( line 14 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "c")))
+       (Dict [ Reg ( Ident (Identifier "c") , Literal (Int 3) ) ]))
+, ParBreak
+, Code
+    "test/typ/regression/issue43.typ"
+    ( line 16 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "d")))
+       (Dict [ Spr (Ident (Identifier "a")) ]))
+, ParBreak
+, Code
+    "test/typ/regression/issue43.typ"
+    ( line 18 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "e")))
+       (Dict [ Spr (Ident (Identifier "b")) ]))
+, ParBreak
+, Code
+    "test/typ/regression/issue43.typ"
+    ( line 20 , column 2 )
+    (Let (BasicBind (Just (Identifier "f"))) (Dict []))
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
 ]), 
                  <foo:bar>, 
+                 parbreak(), 
+                 parbreak(), 
+                 parbreak(), 
+                 parbreak(), 
+                 parbreak(), 
+                 parbreak(), 
                  parbreak(), 
                  parbreak(), 
                  parbreak(), 
