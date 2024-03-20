@@ -135,7 +135,6 @@ layout =
     makeElement Nothing "box" [("body", One TContent)],
     makeElement Nothing "colbreak" [],
     makeElement Nothing "columns" [("count", One TInteger), ("body", One TContent)],
-    makeElement Nothing "grid" [("children", Many TContent)],
     makeElement Nothing "h" [("amount", One (TLength :|: TRatio :|: TFraction))],
     makeElement Nothing "v" [("amount", One (TLength :|: TRatio :|: TFraction))],
     makeElement Nothing "hide" [("body", One TContent)],
@@ -180,6 +179,15 @@ layout =
       , makeElement (Just "table") "vline" []
       , makeElement (Just "table") "header" [ ("children", Many TContent) ]
       , makeElement (Just "table") "footer" [ ("children", Many TContent) ]
+      ],
+    makeElementWithScope Nothing
+      "grid"
+      [("children", Many TContent)]
+      [ makeElement (Just "grid") "cell" [ ("body", One TContent) ]
+      , makeElement (Just "grid") "hline" []
+      , makeElement (Just "grid") "vline" []
+      , makeElement (Just "grid") "header" [ ("children", Many TContent) ]
+      , makeElement (Just "grid") "footer" [ ("children", Many TContent) ]
       ],
     makeElementWithScope
       Nothing
