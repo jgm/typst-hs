@@ -172,7 +172,15 @@ layout =
       Nothing
       "stack"
       [("children", Many (TLength :|: TRatio :|: TFraction :|: TContent))],
-    makeElement Nothing "table" [("children", Many TContent)],
+    makeElementWithScope Nothing
+      "table"
+      [("children", Many TContent)]
+      [ makeElement (Just "table") "cell" [ ("body", One TContent) ]
+      , makeElement (Just "table") "hline" []
+      , makeElement (Just "table") "vline" []
+      , makeElement (Just "table") "header" [ ("children", Many TContent) ]
+      , makeElement (Just "table") "footer" [ ("children", Many TContent) ]
+      ],
     makeElementWithScope
       Nothing
       "terms"
