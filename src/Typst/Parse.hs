@@ -984,13 +984,13 @@ pArrayExpr =
       )
         <|> (Array [] <$ optional (void $ sym ","))
 
--- dict-expr ::= '(' (':' | (pair (',' pair)* ','?)) ')'
+-- dict-expr ::= '(' (':' | ':'? (pair (',' pair)* ','?)) ')'
 -- pair ::= (ident | str) ':' expr
 pDictExpr :: P Expr
-pDictExpr = try $ inParens (pEmptyDict <|> pNonemptyDict)
+pDictExpr = try $ inParens (try pNonemptyDict <|> pEmptyDict)
   where
     pEmptyDict = Dict mempty <$ sym ":"
-    pNonemptyDict = Dict <$> sepEndBy1 (pSpread <|> pPair) (sym ",")
+    pNonemptyDict = Dict <$> (optional (sym ":") *> sepEndBy1 (pSpread <|> pPair) (sym ","))
     pPair = Reg <$> ((,) <$> pExpr <*> try (sym ":" *> pExpr))
 
 pSpread :: P (Spreadable a)
