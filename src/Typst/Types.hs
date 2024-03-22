@@ -82,31 +82,62 @@ import Data.Time (UTCTime, Day, DiffTime, timeOfDayToTime, localDay, localTimeOf
 import Data.Time.Format (defaultTimeLocale, formatTime)
 import System.Directory (XdgDirectory(..))
 
+-- | A Typst value. More documentation can be found in the 
+-- [Foundations chapter](https://typst.app/docs/reference/foundations/)
+-- of the Typst reference manual. A more concise (but somewhat outdated) 
+-- summary can also be found in 
+-- [L. Mädje "Typst: a programmable markup language for typesetting", page 32-33](https://www.user.tu-berlin.de/laurmaedje/programmable-markup-language-for-typesetting.pdf).
 data Val
+  -- | The @none@ value, indicates the absence of any other value.
   = VNone
+  -- | The @auto@ value, used to automatically set an appropriate value.
   | VAuto
+  -- | A @bool@ value.
   | VBoolean !Bool
+  -- | An @int@ value.
   | VInteger !Integer
+  -- | A @float@ value.
   | VFloat !Double
+  -- | A @ratio@ value, a proportion of a certain whole, for example @50%@.
   | VRatio !Rational
+  -- | A @length@ or a @relative@ value.
   | VLength !Length
+  -- | An @alignment@ value, indicating the alignment of some content along both
+  -- the horizontal and vertical axes.
   | VAlignment (Maybe Horiz) (Maybe Vert)
-  | VAngle !Double -- degrees
+  -- | An @angle@ value (expressed internally in degrees).
+  | VAngle !Double
+  -- | A @fraction@ value, defining the proportions of remaing space is 
+  -- to be distributed, e.g. @2 fr@.
   | VFraction !Double
+  -- | A @color@ value. Not all Typst color spaces are supported; 
+  -- only @rgb@, @cmyk@, and @luma@ are available. 
+  -- See issue [#35](https://github.com/jgm/typst-hs/issues/35#issuecomment-1926182040).
   | VColor !Color
+  -- | A @symbol@ value, representing a Unicode symbol.
   | VSymbol !Symbol
+  -- | A UTF-8 encoded text @string@.
   | VString !Text
+  -- | A @regex@ (regular expression). See 'RE' for details.
   | VRegex !RE
+  -- | A @datetime@ value, a date, a time, or a combination of both.
   | VDateTime (Maybe Day) (Maybe DiffTime)
+  -- | A @content@ value, see 'Content' for more details.
   | VContent (Seq Content)
+  -- | An @array@ value, for example @(10, 20, 30)@.
   | VArray (Vector Val)
+  -- | A @dictionary@ value, for example @(a:20, b:30)@.
   | VDict (OM.OMap Identifier Val)
   | VTermItem (Seq Content) (Seq Content)
+  -- | A @direction@ to lay out content.
   | VDirection Direction
+  -- | A Typst function.
   | VFunction (Maybe Identifier) (M.Map Identifier Val) Function
   | -- first param is Just ident if element function
     -- second param is a map of subfunctions in this function's scope
+    -- | Positional and named function arguments
     VArguments Arguments
+  -- | A @label@ to some element, for example @<hello>@. 
   | VLabel !Text
   | VCounter !Counter
   | VSelector !Selector
@@ -142,6 +173,7 @@ tomlToVal (Toml.Table' _ (Toml.MkTable x)) = VDict (OM.fromList [(Identifier k, 
   -- typst specifies that unsupported datetimes map to strings and we don't have a place for the timezone
 tomlToVal v@Toml.ZonedTime'{} = VString (T.pack (show (Toml.prettyValue v)))
 
+-- | A Typst type, see documentation for 'Val'.
 data ValType
   = TNone
   | TAuto
@@ -768,7 +800,11 @@ data Color
   | Luma Rational
   deriving (Show, Eq, Ord, Typeable)
 
-data Direction = Ltr | Rtl | Ttb | Btt
+data Direction 
+  = Ltr -- ^ Left to right
+  | Rtl -- ^ Right to left
+  | Ttb -- ^ Top to bottom
+  | Btt -- ^ Bottom to top
   deriving (Show, Eq, Ord, Typeable)
 
 prettyVal :: Val -> P.Doc
