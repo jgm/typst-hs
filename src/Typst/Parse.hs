@@ -24,7 +24,13 @@ import Typst.Shorthands (mathSymbolShorthands)
 
 -- import Debug.Trace
 
-parseTypst :: FilePath -> Text -> Either ParseError [Markup]
+-- | Parse text into a list of 'Markup' (or a Parsec @ParseError@).
+parseTypst ::
+  -- | Filepath to Typst source text, only used for error messages
+  FilePath ->
+  -- | The Typst source text 
+  Text ->
+  Either ParseError [Markup]
 parseTypst fp inp =
   case runParser (spaces *> many pMarkup <* pEndOfContent) initialState fp inp of
     Left e -> Left e

@@ -28,6 +28,8 @@ import qualified Text.Regex.TDFA.Text as TDFA
 
 -- import Debug.Trace
 
+-- | A regular expression. Note that typst-hs does not use the same Regex engine
+-- as Typst. See issue [#28](https://github.com/jgm/typst-hs/issues/28).
 data RE = RE !Text !Regex
   deriving (Typeable)
 
