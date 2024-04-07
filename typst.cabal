@@ -1,6 +1,6 @@
 cabal-version:      2.4
 name:               typst
-version:            0.5.0.2
+version:            0.5.0.3
 synopsis:           Parsing and evaluating typst syntax.
 description:        A library for parsing and evaluating typst syntax.
                     Typst (<https://typst.app>) is a document layout and

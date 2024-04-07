@@ -1,5 +1,30 @@
 # Revision history for typst-hs
 
+## 0.5.0.3
+
+  * Support grid.(cell,header,footer,hline,vline) (#44).
+
+  * Support table.(cell,vline,hline,header,footer) (#44).
+
+  * Allow space after equation in code (#43).
+
+  * Treat unicode whitespace characters as whitespace (#43).
+
+  * Allow raw (backticked) content as code expression (#43).
+
+  * Allow colon in label (#43).
+
+  * Allow line comments at end of file (#43).
+
+  * Depend on typst-symbols 0.1.6.
+
+  * Add Haddock docs to parts of the public API (Eli Adelhult,
+    Leopold Wigratt).
+
+  * Avoid backtracking in `pDictExpr` (Jonathan Widén).
+
+  * Allow colon in dict literal (Jonathan Widén) (#43, #45).
+
 ## 0.5.0.2
 
   * Fix parsing of field access in math (#41). `$plus.circle_2$`
