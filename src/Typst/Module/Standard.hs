@@ -57,6 +57,7 @@ standardModule =
       ("emoji", VModule "emoji" emojiModule),
       ("calc", VModule "calc" calcModule)
     ]
+      ++ types
       ++ colors
       ++ directions
       ++ alignments
@@ -275,6 +276,21 @@ meta =
         case applyPureFunction (Function f) [VStyles] of
           Success x -> pure x
           Failure e -> fail e)
+  ]
+
+types :: [(Identifier, Val)]
+types =
+  [ ("array", VType TArray)
+  , ("bool", VType TBoolean)
+  , ("content", VType TContent)
+  , ("int", VType TInteger)
+  , ("float", VType TFloat)
+  , ("regex", VType TRegex)
+  , ("length", VType TLength)
+  , ("alignment", VType TAlignment)
+  , ("color", VType TColor)
+  , ("symbol", VType TSymbol)
+  , ("string", VType TString)
   ]
 
 colors :: [(Identifier, Val)]
