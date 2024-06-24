@@ -1,5 +1,16 @@
 # Revision history for typst-hs
 
+## 0.5.0.4
+
+  * Add built-in identifiers for standard types (#21):
+    array, bool, content, int, float, regex, length,
+    alignment, color, symbol, string.
+
+  * Adjust emphasis parser for CJK characters (#49).
+    Typst documentation says that `*` strong emphasis
+    "only works at word boundaries." However, in typst/typst#2648
+    this was changed for CJK.
+
 ## 0.5.0.3
 
   * Support grid.(cell,header,footer,hline,vline) (#44).
