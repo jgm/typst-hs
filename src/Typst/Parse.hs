@@ -307,7 +307,7 @@ mNumber = lexeme $ do
       mempty
       ( do
           e <- char '.'
-          es <- many1 digit
+          es <- many digit
           pure $ T.pack (e : es)
       )
   pure $ Text (ds <> opt)
