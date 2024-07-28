@@ -1,5 +1,9 @@
 # Revision history for typst-hs
 
+## 0.5.0.5
+
+  * Allow numbers like `1.` in math mode (#50).
+
 ## 0.5.0.4
 
   * Add built-in identifiers for standard types (#21):
