@@ -854,7 +854,8 @@ prettyVal expr =
               )
         )
     VDirection d -> text $ T.toLower $ T.pack $ show d
-    VFunction _ _ _ -> mempty
+    VFunction (Just (Identifier ident)) _ _ -> text ident
+    VFunction Nothing _ _ -> mempty
     VLabel t -> text $ "<" <> t <> ">"
     VCounter _ -> mempty
     VColor (RGB r g b o) ->
