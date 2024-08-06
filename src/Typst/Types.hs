@@ -606,6 +606,12 @@ data Operations m =
 data EvalState m = EvalState
   { evalIdentifiers :: [(Scope, M.Map Identifier Val)],
     -- first item is current block, then superordinate block, etc.
+    -- The standard identifiers and the identifiers that
+    -- are imported by default into math contexts are special,
+    -- since both can be overridden by user-defined identifiers.
+    -- So, we store them separately.
+    evalStandardIdentifiers :: [(Scope, M.Map Identifier Val)],
+    evalMathIdentifiers :: [(Scope, M.Map Identifier Val)],
     evalCounters :: M.Map Counter Integer,
     evalMath :: Bool,
     evalShowRules :: [ShowRule],
@@ -618,6 +624,8 @@ data EvalState m = EvalState
 emptyEvalState :: EvalState m
 emptyEvalState = EvalState
     { evalIdentifiers = [],
+      evalStandardIdentifiers = [],
+      evalMathIdentifiers = [],
       evalCounters = mempty,
       evalMath = False,
       evalShowRules = [],
@@ -977,4 +985,12 @@ lookupIdentifier ident = do
       go ((_, i) : is) = case M.lookup ident i of
         Just v -> pure v
         Nothing -> go is
-  getState >>= go . evalIdentifiers
+  identifiers <- evalIdentifiers <$> getState
+  mathIdentifiers <- evalMathIdentifiers <$> getState
+  standardIdentifiers <- evalStandardIdentifiers <$> getState
+  math <- evalMath <$> getState
+  go $ case identifiers of
+         -- in math mode, we insert the sym and math modules right before
+         -- the final module (standard module)
+         (_:_) | math -> identifiers ++ mathIdentifiers ++ standardIdentifiers
+         _ -> identifiers ++ standardIdentifiers

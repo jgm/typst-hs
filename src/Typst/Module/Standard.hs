@@ -643,7 +643,10 @@ applyPureFunction (Function f) vals =
 
 initialEvalState :: MonadFail m => EvalState m
 initialEvalState =
-  emptyEvalState { evalIdentifiers = [(BlockScope, standardModule)] }
+  emptyEvalState { evalIdentifiers = [(BlockScope, mempty)]
+                 , evalMathIdentifiers = [(BlockScope, mathModule <> symModule)]
+                 , evalStandardIdentifiers = [(BlockScope, standardModule)]
+                 }
 
 -- mDigitsRev, mDigits from the unmaintained digits package
 -- https://hackage.haskell.org/package/digits-0.3.1

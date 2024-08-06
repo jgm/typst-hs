@@ -67,7 +67,10 @@ evaluateTypst operations =
 
 initialEvalState :: EvalState m
 initialEvalState =
-  emptyEvalState { evalIdentifiers = [(BlockScope, standardModule')] }
+  emptyEvalState { evalIdentifiers = [(BlockScope, mempty)]
+                 , evalMathIdentifiers = [(BlockScope, mathModule <> symModule)]
+                 , evalStandardIdentifiers = [(BlockScope, standardModule')]
+                 }
   where
     standardModule' = M.insert "eval" evalFunction standardModule
     evalFunction = makeFunction $ do
@@ -239,12 +242,9 @@ pElt = do
                 [("level", VInteger (fromIntegral level))]
           }
     Equation display ms -> inBlock BlockScope $ do
-      importModule mathModule
-      importModule symModule
       oldMath <- evalMath <$> getState
       updateState $ \st -> st {evalMath = True}
       content <- pInnerContents ms
-      updateState $ \st -> st {evalMath = oldMath}
       element
         "equation"
         Arguments
@@ -254,7 +254,7 @@ pElt = do
                 [ ("block", VBoolean display),
                   ("numbering", VNone)
                 ]
-          }
+          } <* updateState (\st -> st {evalMath = oldMath})
     MFrac numexp denexp -> do
       let handleParens (MGroup (Just "(") (Just ")") xs) = MGroup Nothing Nothing xs
           handleParens x = x
@@ -1098,9 +1098,7 @@ addIdentifier ident val = do
   case identifiers of
     [] -> fail "Empty evalIdentifiers"
     ((s, i) : is) -> updateState $ \st ->
-      st
-        { evalIdentifiers = (s, M.insert ident val i) : is
-        }
+      st { evalIdentifiers = (s, M.insert ident val i) : is }
 
 updateIdentifier :: Monad m => Identifier -> Val -> MP m ()
 updateIdentifier ident val = do
