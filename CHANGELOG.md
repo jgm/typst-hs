@@ -1,5 +1,22 @@
 # Revision history for typst-hs
 
+## 0.6
+
+  * Recognize figure.caption function (#52).
+
+  * Allow defined identifiers to override math defaults (#51).
+    Previously we evaluated all math in a special environment that
+    shadowed any user-defined functions with the same-named functions
+    from the math or sym modules. This change gives user-defined identifiers
+    priority over the math defaults, allowing things like `bb` to be
+    overridden.
+
+  * Typst.Types: EvalState now has two new fields, `evalMathIdentifiers` and
+    `evalStandardIdentifiers`. `evalIdentifiers` is now just for user-defined
+    identifiers. [API change]
+
+  * Don't implicitly load sys module for math.
+
 ## 0.5.0.5
 
   * Allow numbers like `1.` in math mode (#50).
