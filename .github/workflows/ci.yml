@@ -25,7 +25,7 @@ jobs:
           - ghc: '9.10'
             cabal: 'latest'
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Install cabal/ghc
       run: |
         ghcup install ghc --set ${{ matrix.versions.ghc }}
