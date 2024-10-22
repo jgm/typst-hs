@@ -990,11 +990,13 @@ pContent = do
   void $ char '['
   col <- sourceColumn <$> getPosition
   oldLineStartCol <- stLineStartCol <$> getState
+  oldIndent <- stIndent <$> getState
   updateState $ \st ->
     st
       { stLineStartCol = col,
         stContentBlockNesting =
-          stContentBlockNesting st + 1
+          stContentBlockNesting st + 1,
+        stIndent = []
       }
   ms <- manyTill pMarkup (char ']')
   ws
@@ -1002,7 +1004,8 @@ pContent = do
     st
       { stLineStartCol = oldLineStartCol,
         stContentBlockNesting =
-          stContentBlockNesting st - 1
+          stContentBlockNesting st - 1,
+        stIndent = oldIndent
       }
   pure $ Content ms
 

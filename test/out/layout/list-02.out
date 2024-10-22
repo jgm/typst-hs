@@ -39,38 +39,40 @@
                     ]
                 ]))))
 , SoftBreak
-, Text "-"
-, Space
-, Text "Level"
-, Space
-, Text "1"
-, SoftBreak
-, Text "-"
-, Space
-, Text "Level"
-, Space
-, Code
-    "test/typ/layout/list-02.typ"
-    ( line 3 , column 12 )
-    (Block
-       (Content
-          [ SoftBreak
-          , Text "2"
-          , Space
-          , Text "through"
-          , Space
-          , Text "content"
-          , Space
-          , Text "block"
-          , ParBreak
-          ]))
-, ParBreak
+, BulletListItem
+    [ Text "Level"
+    , Space
+    , Text "1"
+    , SoftBreak
+    , BulletListItem
+        [ Text "Level"
+        , Space
+        , Code
+            "test/typ/layout/list-02.typ"
+            ( line 3 , column 12 )
+            (Block
+               (Content
+                  [ SoftBreak
+                  , Text "2"
+                  , Space
+                  , Text "through"
+                  , Space
+                  , Text "content"
+                  , Space
+                  , Text "block"
+                  , ParBreak
+                  ]))
+        , ParBreak
+        ]
+    ]
 ]
 --- evaluated ---
 document(body: { text(body: [
-- Level 1
-- Level ]), 
-                 text(body: [
+]), 
+                 list(children: ({ text(body: [Level 1
+]), 
+                                   list(children: ({ text(body: [Level ]), 
+                                                     text(body: [
 2 through content block]), 
-                 parbreak(), 
-                 parbreak() })
+                                                     parbreak(), 
+                                                     parbreak() })) })) })
