@@ -74,6 +74,10 @@ mathModule =
       makeElement (Just "math") "op" [("text", One TAny)],
       makeElement (Just "math") "underline" [("body", One TContent)],
       makeElement (Just "math") "overline" [("body", One TContent)],
+      makeElement (Just "math") "underparen" [("body", One TContent)],
+      makeElement (Just "math") "undershell" [("body", One TContent)],
+      makeElement (Just "math") "overparen" [("body", One TContent)],
+      makeElement (Just "math") "overshell" [("body", One TContent)],
       makeElement (Just "math") "stretch" [("body", One TContent)],
       makeElement
         (Just "math")
