@@ -132,6 +132,7 @@ layout =
       [ ("alignment", One TAlignment),
         ("body", One TContent)
       ],
+    makeElement Nothing "skew" [("body", One TContent)],
     makeElement Nothing "block" [("body", One TContent)],
     makeElement Nothing "box" [("body", One TContent)],
     makeElement Nothing "colbreak" [],
