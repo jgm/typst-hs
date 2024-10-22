@@ -69,10 +69,11 @@ initialEvalState :: EvalState m
 initialEvalState =
   emptyEvalState { evalIdentifiers = [(BlockScope, mempty)]
                  , evalMathIdentifiers = [(BlockScope, mathModule <> symModule)]
-                 , evalStandardIdentifiers = [(BlockScope, standardModule')]
+                 , evalStandardIdentifiers = [(BlockScope, standardModule'')]
                  }
   where
     standardModule' = M.insert "eval" evalFunction standardModule
+    standardModule'' = M.insert "std" (VModule "std" standardModule') standardModule'
     evalFunction = makeFunction $ do
       code :: Text <- nthArg 1
       case parseTypst "eval" ("#{\n" <> code <> "\n}") of
