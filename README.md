@@ -4,7 +4,7 @@ Typst-hs is a Haskell library for parsing and evaluating typst
 syntax.  Typst (<https://typst.app>) is a document formatting
 and layout language, like TeX.
 
-Currently this library targets v0.10.0 of typst, and offers only
+Currently this library targets v0.12.0 of typst, and offers only
 partial support.  There are two main components:
 
 - a parser, which produces an AST from a typst document
