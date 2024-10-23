@@ -1209,10 +1209,11 @@ pImportExpr = pKeyword "import" *> (Import <$> pExpr <*> pImportItems)
     pImportItems =
         (sym ":"
           *> ( (AllIdentifiers <$ sym "*")
-                 <|> (SomeIdentifiers
-                       <$> sepEndBy pIdentifierAs (sym ","))
+                 <|> inParens pIdentifierList
+                 <|> pIdentifierList
              )
         ) <|> (NoIdentifiers <$> pAs)
+    pIdentifierList = SomeIdentifiers <$> sepEndBy pIdentifierAs (sym ",")
     pIdentifierAs = do
       ident <- pIdentifier
       mbAs <- pAs
