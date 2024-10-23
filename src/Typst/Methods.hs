@@ -581,6 +581,12 @@ getMethod updateVal val fld = do
                              k <- fromVal a
                              pure (Identifier k, b)
                            _ -> fail "vector has wrong shape") (V.toList v)
+        "windows" -> pure $ makeFunction $ do
+          (windowsize :: Int) <- nthArg 1
+          case V.length v - windowsize of
+            n | n < 0 -> pure $ VArray mempty
+              | otherwise -> pure $ VArray $ V.fromList $
+                   map (\x -> VArray $ V.take windowsize $ V.drop x v) [0..n]
         "sum" -> pure $ makeFunction $ do
           mbv <- namedArg "default" Nothing
           case V.uncons v of
