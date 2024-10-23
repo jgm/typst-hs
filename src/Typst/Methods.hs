@@ -16,7 +16,7 @@ import Control.Monad (MonadPlus (mplus), foldM, void)
 import Control.Monad.Reader (MonadReader (ask), MonadTrans (lift))
 import qualified Data.Array as Array
 import qualified Data.Foldable as F
-import Data.List (intersperse, sort, sortOn, (!?))
+import Data.List (intersperse, sort, sortOn)
 import qualified Data.Map as M
 import qualified Data.Map.Ordered as OM
 import Data.Maybe (fromMaybe, listToMaybe)
@@ -661,10 +661,19 @@ getMethod updateVal val fld = do
         "pos" -> pure $ makeFunction $ pure $ VArray $ V.fromList (positional args)
         "at" ->
           pure $ makeFunction $ do
-            (n :: Int) <- nthArg 1
-            case positional args !? n of
-                  Nothing -> pure VNone
-                  Just x -> pure x
+            (x :: Val) <- nthArg 1
+            defval <- namedArg "default" VNone
+            case x of
+              VInteger{} -> do
+                i <- fromVal x
+                case positional args of
+                  xs | i < length xs -> pure $ xs !! i
+                     | otherwise -> pure defval
+              VString t ->
+                case OM.lookup (Identifier t) (named args) of
+                  Just a -> pure a
+                  Nothing -> pure defval
+              _ -> pure defval
         "named" -> pure $ makeFunction $ pure $ VDict $ named args
         _ -> noMethod "Arguments" fld
     VDateTime mbdate mbtime -> do
