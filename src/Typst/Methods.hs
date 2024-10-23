@@ -521,6 +521,12 @@ getMethod updateVal val fld = do
           Function fn <- nthArg 2
           let f acc y = fn Arguments {positional = [acc, y], named = OM.empty}
           lift $ foldM f start $ V.toList v
+        "reduce" -> pure $ makeFunction $ do
+          Function fn <- nthArg 1
+          let f acc y = fn Arguments {positional = [acc, y], named = OM.empty}
+          case V.toList v of
+            [] -> pure VNone
+            (x:xs) -> lift $ foldM f x xs
         "any" -> pure $ makeFunction $ do
           Function fn <- nthArg 1
           let predicate y = do
