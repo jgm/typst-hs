@@ -566,6 +566,15 @@ getMethod updateVal val fld = do
                                 VArray v' -> v' V.!? i
                                 _ -> Nothing) (val : xs)))
               (V.enumFromTo 0 (len - 1))
+        "to-dict" -> pure $ makeFunction $
+          VDict . OM.fromList <$>
+                 mapM (\x -> do
+                         vx <- fromVal x
+                         case V.toList vx of
+                           [a,b] -> do
+                             k <- fromVal a
+                             pure (Identifier k, b)
+                           _ -> fail "vector has wrong shape") (V.toList v)
         "sum" -> pure $ makeFunction $ do
           mbv <- namedArg "default" Nothing
           case V.uncons v of
