@@ -1067,6 +1067,7 @@ pKeywordExpr =
     <|> pBreakExpr
     <|> pContinueExpr
     <|> pReturnExpr
+    <|> pContextExpr
 
 -- args ::= ('(' (arg (',' arg)* ','?)? ')' content-block*) | content-block+
 pArgs :: P [Arg]
@@ -1234,6 +1235,9 @@ pReturnExpr = do
   if sourceLine pos' > sourceLine pos
     then pure $ Return Nothing
     else Return <$> (option Nothing (Just <$> pExpr))
+
+pContextExpr :: P Expr
+pContextExpr = Context <$> (pKeyword "context" *> pExpr)
 
 pIncludeExpr :: P Expr
 pIncludeExpr = Include <$> (pKeyword "include" *> pExpr)

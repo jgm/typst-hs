@@ -816,6 +816,8 @@ evalExpr expr =
         _ -> fail $ "For expression requires an Array or Dictionary"
       updateState $ \st -> st {evalFlowDirective = FlowNormal}
       go items VNone
+    Context e -> do
+      evalExpr e -- TODO for now we just ignore "context"
     Return mbe -> do
       -- these flow directives are examined in CodeBlock
       updateState (\st -> st {evalFlowDirective = FlowReturn (isJust mbe)})

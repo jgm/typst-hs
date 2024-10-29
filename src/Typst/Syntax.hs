@@ -136,6 +136,7 @@ data Expr
   | Ident Identifier
   | FuncCall Expr [Arg]
   | FuncExpr [Param] Expr
+  | Context Expr
   | FieldAccess Expr Expr
   | Group Expr
   | Array [Spreadable Expr]
