@@ -1,0 +1,118 @@
+--- parse tree ---
+[ Code
+    "test/typ/regression/issue54.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060"
+                             , Text "("
+                             , Code
+                                 "test/typ/regression/issue54.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "test/typ/regression/issue54.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Equation
+    True
+    [ MAttach
+        (Just
+           (MGroup
+              Nothing
+              Nothing
+              [ Text "a" , MGroup (Just "(") (Just ")") [ Text "b" ] ]))
+        Nothing
+        (Text "c")
+    , HardBreak
+    , MGroup
+        Nothing
+        Nothing
+        [ MAttach
+            (Just (MGroup Nothing Nothing [ Text "a" ])) Nothing (Text "c")
+        , MGroup (Just "(") (Just ")") [ Text "b" ]
+        ]
+    , HardBreak
+    , MAttach
+        (Just (MGroup Nothing Nothing [ Text "a" , Text "!" ]))
+        Nothing
+        (Text "c")
+    , HardBreak
+    , MAttach
+        (Just (MGroup Nothing Nothing [ Text "a" , Text "!" ]))
+        Nothing
+        (Text "c")
+    , MGroup (Just "(") (Just ")") [ Text "b" ]
+    , HardBreak
+    , MFrac
+        (Text "a")
+        (MAttach
+           Nothing
+           (Just (Text "n"))
+           (MGroup Nothing Nothing [ Text "b" , Text "!" ]))
+    ]
+, ParBreak
+]
+--- evaluated ---
+document(body: { text(body: [
+]), 
+                 math.equation(block: true, 
+                               body: { math.attach(b: { text(body: [a]), 
+                                                        math.lr(body: ({ [(], 
+                                                                         text(body: [b]), 
+                                                                         [)] })) }, 
+                                                   base: text(body: [c]), 
+                                                   t: none), 
+                                       linebreak(), 
+                                       math.attach(b: text(body: [a]), 
+                                                   base: text(body: [c]), 
+                                                   t: none), 
+                                       math.lr(body: ({ [(], 
+                                                        text(body: [b]), 
+                                                        [)] })), 
+                                       linebreak(), 
+                                       math.attach(b: { text(body: [a]), 
+                                                        text(body: [!]) }, 
+                                                   base: text(body: [c]), 
+                                                   t: none), 
+                                       linebreak(), 
+                                       math.attach(b: { text(body: [a]), 
+                                                        text(body: [!]) }, 
+                                                   base: text(body: [c]), 
+                                                   t: none), 
+                                       math.lr(body: ({ [(], 
+                                                        text(body: [b]), 
+                                                        [)] })), 
+                                       linebreak(), 
+                                       math.frac(denom: math.attach(b: none, 
+                                                                    base: { text(body: [b]), 
+                                                                            text(body: [!]) }, 
+                                                                    t: text(body: [n])), 
+                                                 num: text(body: [a])) }, 
+                               numbering: none), 
+                 parbreak() })

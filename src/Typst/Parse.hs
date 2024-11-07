@@ -164,31 +164,32 @@ pEquation = do
 
 mathOperatorTable :: [[Operator Text PState Identity Markup]]
 mathOperatorTable =
-  [ -- precedence 7 -- attachment with number, e.g. a_1 (see #17)
-    [ Infix (attachBottom <$ (try (op "_" *> lookAhead mNumber))) AssocLeft,
-      Infix (attachTop <$ (try (op "^" *> lookAhead mNumber))) AssocLeft
+  [ -- precedence 7 -- attachment with number, e.g. a_1 (#17), or (..) group
+    [ Infix (attachBottom <$ (try (op "_" *> lookAhead (mNumber <|> mGroup))))
+        AssocLeft,
+      Infix (attachTop <$ (try (op "^" *> lookAhead (mNumber <|> mGroup))))
+        AssocLeft
     ],
     -- precedence 6
     [ Postfix
         ( try $ do
-            mbBeforeSpace <- stBeforeSpace <$> getState
+            getState >>= guard . isNothing . stBeforeSpace
             -- NOTE: can't have space before () or [] arg in a
             -- function call! to prevent bugs with e.g. 'if 2<3 [...]'.
-            guard $ isNothing mbBeforeSpace
             args <- mGrouped '(' ')' True
             pure $ \expr -> MGroup Nothing Nothing [expr, args]
         )
     ],
-    -- precedence 5 -- attachment with non-number, e.g. a_x
-    [ Infix (attachBottom <$ op "_") AssocLeft,
-      Infix (attachTop <$ op "^") AssocLeft
-    ],
-    -- precedence 4  -- factorial needs to take precedence over fraction
+    -- precedence 5  -- factorial needs to take precedence over fraction
     [ Postfix (try $ do
                   mbBeforeSpace <- stBeforeSpace <$> getState
                   guard $ isNothing mbBeforeSpace
                   lexeme $ char '!' *> notFollowedBy (char '=')
                   pure (\expr -> MGroup Nothing Nothing [expr, Text "!"]))
+    ],
+    -- precedence 4 -- attachment with non-number, e.g. a_x
+    [ Infix (attachBottom <$ op "_") AssocLeft,
+      Infix (attachTop <$ op "^") AssocLeft
     ],
     -- precedence 3
     [ Infix (makeFrac <$ op "/") AssocLeft
