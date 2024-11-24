@@ -40,7 +40,7 @@ data PState = PState
   { stIndent :: [Int],
     stLineStartCol :: !Int,
     stAllowNewlines :: !Int, -- allow newlines if > 0
-    stBeforeSpace :: Maybe (SourcePos, Text),
+    stSpaceBefore :: Maybe (SourcePos, Text),
     stContentBlockNesting :: Int
   }
   deriving (Show)
@@ -51,7 +51,7 @@ initialState =
     { stIndent = [],
       stLineStartCol = 1,
       stAllowNewlines = 0,
-      stBeforeSpace = Nothing,
+      stSpaceBefore = Nothing,
       stContentBlockNesting = 0
     }
 
@@ -69,9 +69,9 @@ ws = do
         | allowNewlines > 0 = isSpace c
         | otherwise = isSpace c && c /= '\r' && c /= '\n'
   ( skipMany1 (void (satisfy isSp) <|> void pComment)
-      *> updateState (\st -> st {stBeforeSpace = Just (p1, inp)})
+      *> updateState (\st -> st {stSpaceBefore = Just (p1, inp)})
     )
-    <|> updateState (\st -> st {stBeforeSpace = Nothing})
+    <|> updateState (\st -> st {stSpaceBefore = Nothing})
 
 lexeme :: P a -> P a
 lexeme pa = pa <* ws
@@ -173,7 +173,7 @@ mathOperatorTable =
     -- precedence 6
     [ Postfix
         ( try $ do
-            getState >>= guard . isNothing . stBeforeSpace
+            getState >>= guard . isNothing . stSpaceBefore
             -- NOTE: can't have space before () or [] arg in a
             -- function call! to prevent bugs with e.g. 'if 2<3 [...]'.
             args <- mGrouped '(' ')' True
@@ -182,7 +182,7 @@ mathOperatorTable =
     ],
     -- precedence 5  -- factorial needs to take precedence over fraction
     [ Postfix (try $ do
-                  mbBeforeSpace <- stBeforeSpace <$> getState
+                  mbBeforeSpace <- stSpaceBefore <$> getState
                   guard $ isNothing mbBeforeSpace
                   lexeme $ char '!' *> notFollowedBy (char '=')
                   pure (\expr -> MGroup Nothing Nothing [expr, Text "!"]))
@@ -232,7 +232,7 @@ mathFunctionCall :: Operator Text PState Identity Expr
 mathFunctionCall =
   Postfix
     ( do
-        mbBeforeSpace <- stBeforeSpace <$> getState
+        mbBeforeSpace <- stSpaceBefore <$> getState
         -- NOTE: can't have space before () or [] arg in a
         -- function call! to prevent bugs with e.g. 'if 2<3 [...]'.
         guard $ isNothing mbBeforeSpace
@@ -315,10 +315,10 @@ mNumber = lexeme $ do
 
 mLiteral :: P Markup
 mLiteral = do
-  mbBeforeSpace <- stBeforeSpace <$> getState
+  mbBeforeSpace <- stSpaceBefore <$> getState
   String t <- pStr
   -- ensure space in e.g. x "is natural":
-  mbAfterSpace <- stBeforeSpace <$> getState
+  mbAfterSpace <- stSpaceBefore <$> getState
   pure $
     Text $
       (maybe "" (const " ") mbBeforeSpace)
@@ -385,7 +385,7 @@ mCode = lexeme $ char '#' *> (Code <$> getPosition <*> pBasicExpr)
 
 mMid :: P Markup
 mMid = try $ do
-  getState >>= guard . isJust . stBeforeSpace
+  getState >>= guard . isJust . stSpaceBefore
   void $ char '|' *> space *> ws
   pure $ MGroup Nothing Nothing [Nbsp, Text "|", Nbsp]
 
@@ -711,7 +711,7 @@ pHash = do
   void $ char '#'
   res <- Code <$> getPosition <*> pBasicExpr <* optional (sym ";")
   -- rewind if we gobbled space:
-  mbBeforeSpace <- stBeforeSpace <$> getState
+  mbBeforeSpace <- stSpaceBefore <$> getState
   case mbBeforeSpace of
     Nothing -> pure ()
     Just (pos, inp) -> do
@@ -832,7 +832,7 @@ functionCall :: Operator Text PState Identity Expr
 functionCall =
   Postfix
     ( do
-        mbBeforeSpace <- stBeforeSpace <$> getState
+        mbBeforeSpace <- stSpaceBefore <$> getState
         -- NOTE: can't have space before () or [] arg in a
         -- function call! to prevent bugs with e.g. 'if 2<3 [...]'.
         guard $ isNothing mbBeforeSpace
@@ -1077,7 +1077,7 @@ pArgs = do
   args <- option [] $ inParens $ sepEndBy pArg (sym ",")
   blocks <- many $ do
     -- make sure we haven't had a space
-    skippedSpaces <- isJust . stBeforeSpace <$> getState
+    skippedSpaces <- isJust . stSpaceBefore <$> getState
     if skippedSpaces
       then mzero
       else do
