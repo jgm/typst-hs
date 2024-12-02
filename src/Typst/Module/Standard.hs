@@ -13,6 +13,8 @@ module Typst.Module.Standard
   )
 where
 
+import Paths_typst (version)
+import Data.Version (showVersion)
 import Data.Char (ord, chr)
 import Control.Applicative ((<|>))
 import Control.Monad (mplus, unless)
@@ -72,7 +74,11 @@ standardModule =
 
 sysModule :: M.Map Identifier Val
 sysModule =
-  M.fromList [ makeElement (Just "sys") "version" [] ]
+  M.fromList [ ("version", VVersion [0,12,0])
+             , ("inputs", VDict (OM.fromList
+                                  [("typst-hs-version",
+                                    VString (T.pack (showVersion version)))]))
+             ]
 
 symModule :: M.Map Identifier Val
 symModule = M.map VSymbol $ makeSymbolMap typstSymbols

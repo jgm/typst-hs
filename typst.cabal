@@ -45,6 +45,7 @@ library
                       Typst.Methods
                       Typst.Util
     other-modules:
+                      Paths_typst
                       Typst.Bind
                       Typst.Regex
                       Typst.Show
