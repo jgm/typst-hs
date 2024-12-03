@@ -50,13 +50,9 @@
         Nothing
         (Text "c")
     , HardBreak
-    , MGroup
-        Nothing
-        Nothing
-        [ MAttach
-            (Just (MGroup Nothing Nothing [ Text "a" ])) Nothing (Text "c")
-        , MGroup (Just "(") (Just ")") [ Text "b" ]
-        ]
+    , MAttach
+        (Just (MGroup Nothing Nothing [ Text "a" ])) Nothing (Text "c")
+    , MGroup (Just "(") (Just ")") [ Text "b" ]
     , HardBreak
     , MAttach
         (Just (MGroup Nothing Nothing [ Text "a" , Text "!" ]))

@@ -75,12 +75,8 @@
         (MGroup
            (Just "(")
            (Just ")")
-           [ MGroup
-               Nothing
-               Nothing
-               [ Text "5"
-               , MGroup (Just "(") (Just ")") [ Text "5" , Text "+" , Text "1" ]
-               ]
+           [ Text "5"
+           , MGroup (Just "(") (Just ")") [ Text "5" , Text "+" , Text "1" ]
            ])
         (Text "2")
     , Text "="

@@ -42,18 +42,14 @@
 , Comment
 , Equation
     False
-    [ MGroup
+    [ MAttach
+        (Just (Text "1"))
         Nothing
-        Nothing
-        [ MAttach
-            (Just (Text "1"))
-            Nothing
-            (Code
-               "test/typ/math/attach-03.typ"
-               ( line 3 , column 2 )
-               (Ident (Identifier "pi")))
-        , MGroup (Just "(") (Just ")") [ Text "Y" ]
-        ]
+        (Code
+           "test/typ/math/attach-03.typ"
+           ( line 3 , column 2 )
+           (Ident (Identifier "pi")))
+    , MGroup (Just "(") (Just ")") [ Text "Y" ]
     , Text ","
     , MAttach
         (Just
@@ -103,11 +99,7 @@
            (MGroup
               Nothing
               Nothing
-              [ MGroup
-                  Nothing
-                  Nothing
-                  [ Text "1" , MGroup (Just "(") (Just ")") [ Text "Y" ] ]
-              ]))
+              [ Text "1" , MGroup (Just "(") (Just ")") [ Text "Y" ] ]))
         Nothing
         (Code
            "test/typ/math/attach-03.typ"

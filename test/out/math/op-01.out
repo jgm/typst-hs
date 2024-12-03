@@ -65,18 +65,14 @@
         ( line 4 , column 5 )
         (FuncCall (Ident (Identifier "sin")) [ BlockArg [ Text "x" ] ])
     , Text "+"
-    , MGroup
+    , MAttach
+        (Just (Text "2"))
         Nothing
-        Nothing
-        [ MAttach
-            (Just (Text "2"))
-            Nothing
-            (Code
-               "test/typ/math/op-01.typ"
-               ( line 4 , column 14 )
-               (Ident (Identifier "log")))
-        , MGroup (Just "(") (Just ")") [ Text "x" ]
-        ]
+        (Code
+           "test/typ/math/op-01.typ"
+           ( line 4 , column 14 )
+           (Ident (Identifier "log")))
+    , MGroup (Just "(") (Just ")") [ Text "x" ]
     ]
 , ParBreak
 ]

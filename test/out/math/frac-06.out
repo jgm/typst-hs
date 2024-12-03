@@ -107,12 +107,8 @@
     , Text "+"
     , MFrac (MGroup (Just "[") (Just "]") [ Text "x" ]) (Text "2")
     , Text ","
-    , MFrac
-        (MGroup
-           Nothing
-           Nothing
-           [ Text "1" , MGroup (Just "(") (Just ")") [ Text "x" ] ])
-        (Text "2")
+    , Text "1"
+    , MFrac (MGroup (Just "(") (Just ")") [ Text "x" ]) (Text "2")
     , Text ","
     , Text "2"
     , MFrac (MGroup (Just "[") (Just "]") [ Text "x" ]) (Text "2")
@@ -202,11 +198,9 @@ document(body: { text(body: [
                                                                        text(body: [x]), 
                                                                        []] }))), 
                                        text(body: [,]), 
+                                       text(body: [1]), 
                                        math.frac(denom: text(body: [2]), 
-                                                 num: { text(body: [1]), 
-                                                        math.lr(body: ({ [(], 
-                                                                         text(body: [x]), 
-                                                                         [)] })) }), 
+                                                 num: text(body: [x])), 
                                        text(body: [,]), 
                                        text(body: [2]), 
                                        math.frac(denom: text(body: [2]), 

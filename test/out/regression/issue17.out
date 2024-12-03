@@ -52,12 +52,8 @@
 , ParBreak
 , Equation
     False
-    [ MGroup
-        Nothing
-        Nothing
-        [ MAttach (Just (Text "1")) Nothing (Text "a")
-        , MGroup (Just "(") (Just ")") [ Text "x" ]
-        ]
+    [ MAttach (Just (Text "1")) Nothing (Text "a")
+    , MGroup (Just "(") (Just ")") [ Text "x" ]
     ]
 , ParBreak
 , Equation

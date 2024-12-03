@@ -78,11 +78,7 @@
            , MGroup
                (Just "(")
                (Just ")")
-               [ MGroup
-                   Nothing
-                   Nothing
-                   [ Text "2" , MGroup (Just "(") (Just ")") [ Text "3" ] ]
-               ]
+               [ Text "2" , MGroup (Just "(") (Just ")") [ Text "3" ] ]
            ])
     ]
 , ParBreak

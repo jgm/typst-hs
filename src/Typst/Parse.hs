@@ -189,11 +189,13 @@ mathOperatorTable =
             -- but we still don't match typst for "!"(a), which typst DOES consider
             -- a function
             guard $ case lastMathTok of
+                      Just (pos', MGroup _ (Just t) _)
+                        | pos == pos' -> T.all isLetter t
                       Just (pos', Text t)
                         | pos == pos'
-                        -> not (T.all (\c -> isDigit c ||
-                                             isSymbol c ||
-                                             isPunctuation c)  t)
+                        -> case T.unsnoc t of
+                                  Nothing -> True
+                                  Just (_,c) -> isLetter c
                       _ -> True
             args <- mGrouped '(' ')' True
             pure $ \expr -> MGroup Nothing Nothing [expr, args]
