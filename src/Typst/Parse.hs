@@ -41,6 +41,7 @@ data PState = PState
     stLineStartCol :: !Int,
     stAllowNewlines :: !Int, -- allow newlines if > 0
     stSpaceBefore :: Maybe (SourcePos, Text),
+    stLastMathTok :: Maybe (SourcePos, Markup),
     stContentBlockNesting :: Int
   }
   deriving (Show)
@@ -52,6 +53,7 @@ initialState =
       stLineStartCol = 1,
       stAllowNewlines = 0,
       stSpaceBefore = Nothing,
+      stLastMathTok = Nothing,
       stContentBlockNesting = 0
     }
 
@@ -176,6 +178,23 @@ mathOperatorTable =
             getState >>= guard . isNothing . stSpaceBefore
             -- NOTE: can't have space before () or [] arg in a
             -- function call! to prevent bugs with e.g. 'if 2<3 [...]'.
+            pos <- getPosition
+            lastMathTok <- stLastMathTok <$> getState
+            -- 1(a) is not a function
+            -- !(a) is not a function
+            -- f(a) is a function
+            -- "alpha"(a) is a function
+            -- alpha(a) is a function
+            -- see #55
+            -- but we still don't match typst for "!"(a), which typst DOES consider
+            -- a function
+            guard $ case lastMathTok of
+                      Just (pos', Text t)
+                        | pos == pos'
+                        -> not (T.all (\c -> isDigit c ||
+                                             isSymbol c ||
+                                             isPunctuation c)  t)
+                      _ -> True
             args <- mGrouped '(' ')' True
             pure $ \expr -> MGroup Nothing Nothing [expr, args]
         )
@@ -276,7 +295,8 @@ pMath :: P Markup
 pMath = buildExpressionParser mathOperatorTable pBaseMath
 
 pBaseMath :: P Markup
-pBaseMath = mNumber
+pBaseMath = do
+  tok <-    mNumber
         <|> mLiteral
         <|> mEscaped
         <|> mShorthand
@@ -287,6 +307,9 @@ pBaseMath = mNumber
         <|> mCode
         <|> mMid
         <|> mSymbol
+  pos <- getPosition
+  updateState $ \s -> s{ stLastMathTok = Just (pos, tok) }
+  pure tok
 
 mGroup :: P Markup
 mGroup = mGrouped '(' ')' False
