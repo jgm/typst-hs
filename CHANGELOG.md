@@ -1,5 +1,59 @@
 # Revision history for typst-hs
 
+## 0.6.1
+
+  * Fix precedence for functions (#55).
+    `1(x)` and `!(x)` should not be parsed as functions.
+    Note that we still don't match typst's behavior for `f_"!"(x)`.
+    For us this works just like `f_!(x)`, but for typst we get
+    a function in the subscript for the former but not the latter.
+    Fixing this would require some changes in the types.
+
+  * Define sys.version and sys.inputs.typst-hs-version (#56).
+    The former is set to the version of typst we are trying to
+    implement. The latter is a stringified version number from typst-hs.
+    This will allow typst programs to tell when they're running
+    on typst-hs (or pandoc), and react accordingly.
+
+  * Rename stBeforeSpace -> stSpaceBefore to avoid confusion.
+
+  * Fix precedence issues in math parsing (#54).
+    Increased precedence of ! (factorial).
+    `_` or `^` should eagerly gobble a grouped argument (`c_(a)`).
+
+  * Minimal support for `context` (#53). Parse `context` keyword.
+    New Context constructor in Expr [API change].
+    Evaluate this by just evaluating the expression, for now.
+    Note that we don't support the features (like location or
+    numbering) that context is used to affect anyway, so this change
+    probably won't be enough for meaningful support. But it might
+    prevent some documents from issuing errors.
+
+  * Arguments at method.
+
+  * Array windows, reduce, to-dict methods.
+
+  * Allow parentheses in import.
+
+  * Make standard module available under std (typst 0.12).
+
+  * Add over/underparen, over/undershell in math module.
+
+  * Add stretch function.
+
+  * Add skew.
+
+  * Depend on typst-symbols 0.1.7 and start to target typst 0.12.
+
+  * Reset indentation requirements inside `[]` content block. e.g.
+    ```
+    / B: #block[
+    - a
+    ]
+    ```
+    We don't need indentation inside the block content.
+
+
 ## 0.6
 
   * Recognize figure.caption function (#52).
