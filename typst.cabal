@@ -44,6 +44,7 @@ library
                       Typst.Evaluate
                       Typst.Methods
                       Typst.Util
+    autogen-modules:  Paths_typst
     other-modules:
                       Paths_typst
                       Typst.Bind
