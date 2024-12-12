@@ -44,11 +44,6 @@
     "test/typ/meta/counter-01.typ"
     ( line 3 , column 2 )
     (Let (BasicBind (Just (Identifier "label"))) (Label "heya"))
-, Space
-, Code
-    "test/typ/meta/counter-01.typ"
-    ( line 3 , column 14 )
-    (Label "heya")
 , SoftBreak
 , Code
     "test/typ/meta/counter-01.typ"
@@ -112,8 +107,6 @@
 --- evaluated ---
 document(body: { text(body: [
 ]), 
-                 text(body: [ ]), 
-                 <heya>, 
                  text(body: [
 ]), 
                  text(body: [

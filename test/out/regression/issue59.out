@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/compiler/label-01.typ"
+    "test/typ/regression/issue59.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/compiler/label-01.typ"
+                                 "test/typ/regression/issue59.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/compiler/label-01.typ"
+                                 "test/typ/regression/issue59.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -39,57 +39,18 @@
                     ]
                 ]))))
 , SoftBreak
-, Comment
 , Code
-    "test/typ/compiler/label-01.typ"
-    ( line 3 , column 2 )
-    (Show
-       (Just
-          (FuncCall
-             (FieldAccess
-                (Ident (Identifier "where")) (Ident (Identifier "strong")))
-             [ KeyValArg (Identifier "label") (Label "v") ]))
-       (Set
-          (Ident (Identifier "text"))
-          [ NormalArg (Ident (Identifier "red")) ]))
-, ParBreak
-, Code
-    "test/typ/compiler/label-01.typ"
-    ( line 5 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "a")))
-       (Block (Content [ Strong [ Text "A" ] ])))
-, SoftBreak
-, Code
-    "test/typ/compiler/label-01.typ"
-    ( line 6 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "b")))
-       (Block (Content [ Strong [ Text "B" ] ])))
-, SoftBreak
-, Code
-    "test/typ/compiler/label-01.typ"
-    ( line 7 , column 2 )
-    (Ident (Identifier "a"))
-, Space
-, Code
-    "test/typ/compiler/label-01.typ" ( line 7 , column 4 ) (Label "v")
-, Code
-    "test/typ/compiler/label-01.typ"
-    ( line 7 , column 9 )
-    (Ident (Identifier "b"))
+    "test/typ/regression/issue59.typ"
+    ( line 2 , column 2 )
+    (If
+       [ ( Not (Equals (Literal (Int 5)) (Label "foo"))
+         , Block (CodeBlock [ Block (Content [ Text "a" ]) ])
+         )
+       ])
 , ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
 ]), 
-                 parbreak(), 
-                 text(body: [
-]), 
-                 text(body: [
-]), 
-                 strong(body: text(body: [A])), 
-                 text(body: [ ]), 
-                 <v>, 
-                 strong(body: text(body: [B])), 
+                 text(body: [a]), 
                  parbreak() })

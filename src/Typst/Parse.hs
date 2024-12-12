@@ -713,12 +713,12 @@ pLabelInContent = Code <$> getPosition <*> pLabel
 pLabel :: P Expr
 pLabel =
   Label . T.pack
-    <$> try
+    <$> lexeme (try
       ( char '<'
           *> many1 (satisfy isIdentContinue <|>
                     char '_' <|> char '.' <|> char ':')
           <* char '>'
-      )
+      ))
 
 pRef :: P Markup
 pRef =
