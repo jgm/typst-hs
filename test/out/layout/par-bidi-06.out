@@ -56,7 +56,7 @@
        [ NormalArg
            (FuncCall
               (Ident (Identifier "image"))
-              [ NormalArg (Literal (String "test/assets/files/rhino.png"))
+              [ NormalArg (Literal (String "/assets/files/rhino.png"))
               , KeyValArg (Identifier "height") (Literal (Numeric 11.0 Pt))
               ])
        ])
@@ -70,7 +70,7 @@ document(body: { text(body: [
 קרנפיםRh], 
                       lang: "he"), 
                  box(body: image(height: 11.0pt, 
-                                 path: "test/assets/files/rhino.png")), 
+                                 path: "/assets/files/rhino.png")), 
                  text(body: [inoחיים], 
                       lang: "he"), 
                  parbreak() })

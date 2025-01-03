@@ -50,7 +50,7 @@
        [ NormalArg
            (FuncCall
               (Ident (Identifier "image"))
-              [ NormalArg (Literal (String "test/assets/files/tiger.jpg"))
+              [ NormalArg (Literal (String "/assets/files/tiger.jpg"))
               , KeyValArg (Identifier "height") (Literal (Numeric 1.0 Cm))
               , KeyValArg (Identifier "width") (Literal (Numeric 80.0 Percent))
               ])
@@ -64,7 +64,7 @@ document(body: { text(body: [
 ]), 
                  text(body: [A ]), 
                  box(body: image(height: 1.0cm, 
-                                 path: "test/assets/files/tiger.jpg", 
+                                 path: "/assets/files/tiger.jpg", 
                                  width: 80%)), 
                  text(body: [ B]), 
                  parbreak() })

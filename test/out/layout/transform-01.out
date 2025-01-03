@@ -65,7 +65,7 @@
                      , NormalArg
                          (FuncCall
                             (Ident (Identifier "image"))
-                            [ NormalArg (Literal (String "test/assets/files/tiger.jpg")) ])
+                            [ NormalArg (Literal (String "/assets/files/tiger.jpg")) ])
                      ])
               ])
        ])
@@ -78,6 +78,6 @@ document(body: { text(body: [
 ]), 
                  align(alignment: Axes(center, horizon), 
                        body: rotate(angle: 20.0deg, 
-                                    body: scale(body: image(path: "test/assets/files/tiger.jpg"), 
+                                    body: scale(body: image(path: "/assets/files/tiger.jpg"), 
                                                 factor: 70%))), 
                  parbreak() })

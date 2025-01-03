@@ -47,7 +47,7 @@
        (BasicBind (Just (Identifier "data")))
        (FuncCall
           (Ident (Identifier "xml"))
-          [ NormalArg (Literal (String "test/assets/files/data.xml")) ]))
+          [ NormalArg (Literal (String "/assets/files/data.xml")) ]))
 , SoftBreak
 , Code
     "test/typ/compute/data-12.typ"

@@ -57,19 +57,21 @@ evaluateTypst ::
   -- | Markup produced by 'parseTypst'
   [Markup] ->
   m (Either ParseError Content)
-evaluateTypst operations =
+evaluateTypst operations fp =
   runParserT
     (do contents <- mconcat <$> many pContent <* eof
         -- "All documents are automatically wrapped in a document element."
         pure $ Elt "document" Nothing [("body", VContent contents)])
     initialEvalState { evalOperations = operations,
-                       evalPackageRoot = "." }
+                       evalLocalDir = takeDirectory fp }
+    fp
 
 initialEvalState :: EvalState m
 initialEvalState =
   emptyEvalState { evalIdentifiers = [(BlockScope, mempty)]
                  , evalMathIdentifiers = [(BlockScope, mathModule <> symModule)]
                  , evalStandardIdentifiers = [(BlockScope, standardModule'')]
+                 , evalPackageRoot = "."
                  }
   where
     standardModule' = M.insert "eval" evalFunction standardModule
@@ -987,7 +989,6 @@ findPackageEntryPoint modname = do
 loadModule :: Monad m => Text
            -> MP m (Seq Content, (Identifier, M.Map Identifier Val))
 loadModule modname = do
-  pos <- getPosition
   (fp, modid, mbPackageRoot) <-
         if T.take 1 modname == "@"
            then do
@@ -997,13 +998,7 @@ loadModule modname = do
                     (T.pack $ takeWhile (/= ':') . takeBaseName $
                        T.unpack modname),
                    Just (takeDirectory fp'))
-           else if T.take 1 modname == "/" -- refers to path relative to package root
-                then do
-                  packageRoot <- evalPackageRoot <$> getState
-                  pure (packageRoot </> drop 1 (T.unpack modname),
-                        Identifier (T.pack $ takeBaseName $ T.unpack modname),
-                        Nothing)
-                else pure (replaceFileName (sourceName pos) (T.unpack modname),
+           else pure (T.unpack modname,
                         Identifier (T.pack $ takeBaseName $ T.unpack modname),
                         Nothing)
   txt <- loadFileText fp
@@ -1011,6 +1006,12 @@ loadModule modname = do
     Left err -> fail $ show err
     Right ms -> do
       operations <- evalOperations <$> getState
+      currentLocalDir <- evalLocalDir <$> getState
+      let (pkgroot , localdir) =
+            case mbPackageRoot of
+              Just r -> (r , takeDirectory fp)
+              Nothing -> (evalPackageRoot initialEvalState ,
+                          currentLocalDir </> takeDirectory fp)
       res <-
         lift $
           runParserT
@@ -1021,8 +1022,8 @@ loadModule modname = do
                 pure (cs, s)
             )
             initialEvalState{evalOperations = operations,
-                             evalPackageRoot = fromMaybe (evalPackageRoot initialEvalState)
-                                                   mbPackageRoot }
+                             evalLocalDir = localdir,
+                             evalPackageRoot = pkgroot }
             fp
             ms
       case res of

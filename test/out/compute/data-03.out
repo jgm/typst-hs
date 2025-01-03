@@ -55,7 +55,7 @@
        (BasicBind (Just (Identifier "data")))
        (FuncCall
           (Ident (Identifier "csv"))
-          [ NormalArg (Literal (String "test/assets/files/zoo.csv")) ]))
+          [ NormalArg (Literal (String "/assets/files/zoo.csv")) ]))
 , SoftBreak
 , Code
     "test/typ/compute/data-03.typ"

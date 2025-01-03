@@ -1,5 +1,5 @@
 // Test reading XML data.
-#let data = xml("test/assets/files/data.xml")
+#let data = xml("/assets/files/data.xml")
 #test(data, ((
   tag: "data",
   attrs: (:),

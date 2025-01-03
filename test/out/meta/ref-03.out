@@ -111,7 +111,7 @@
        [ NormalArg
            (FuncCall
               (Ident (Identifier "image"))
-              [ NormalArg (Literal (String "test/assets/files/cylinder.svg"))
+              [ NormalArg (Literal (String "/assets/files/cylinder.svg"))
               , KeyValArg (Identifier "height") (Literal (Numeric 3.0 Cm))
               ])
        , KeyValArg
@@ -131,7 +131,7 @@
        [ NormalArg
            (FuncCall
               (Ident (Identifier "image"))
-              [ NormalArg (Literal (String "test/assets/files/tiger.jpg"))
+              [ NormalArg (Literal (String "/assets/files/tiger.jpg"))
               , KeyValArg (Identifier "height") (Literal (Numeric 3.0 Cm))
               ])
        , KeyValArg

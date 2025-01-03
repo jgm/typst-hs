@@ -45,11 +45,11 @@
     ( line 3 , column 2 )
     (FuncCall
        (Ident (Identifier "image"))
-       [ NormalArg (Literal (String "test/assets/files/pattern.svg")) ])
+       [ NormalArg (Literal (String "/assets/files/pattern.svg")) ])
 , ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
 ]), 
-                 image(path: "test/assets/files/pattern.svg"), 
+                 image(path: "/assets/files/pattern.svg"), 
                  parbreak() })

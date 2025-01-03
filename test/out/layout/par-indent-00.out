@@ -97,7 +97,7 @@
        [ NormalArg
            (FuncCall
               (Ident (Identifier "image"))
-              [ NormalArg (Literal (String "test/assets/files/tiger.jpg"))
+              [ NormalArg (Literal (String "/assets/files/tiger.jpg"))
               , KeyValArg (Identifier "height") (Literal (Numeric 6.0 Pt))
               ])
        ])
@@ -124,7 +124,7 @@
        , NormalArg
            (FuncCall
               (Ident (Identifier "image"))
-              [ NormalArg (Literal (String "test/assets/files/rhino.png"))
+              [ NormalArg (Literal (String "/assets/files/rhino.png"))
               , KeyValArg (Identifier "width") (Literal (Numeric 1.0 Cm))
               ])
        ])
@@ -223,12 +223,12 @@ document(body: { text(body: [
                  text(body: [But the second one does.]), 
                  parbreak(), 
                  box(body: image(height: 6.0pt, 
-                                 path: "test/assets/files/tiger.jpg")), 
+                                 path: "/assets/files/tiger.jpg")), 
                  text(body: [
 starts a paragraph, also with indent.]), 
                  parbreak(), 
                  align(alignment: center, 
-                       body: image(path: "test/assets/files/rhino.png", 
+                       body: image(path: "/assets/files/rhino.png", 
                                    width: 1.0cm)), 
                  parbreak(), 
                  heading(body: text(body: [Headings]), 

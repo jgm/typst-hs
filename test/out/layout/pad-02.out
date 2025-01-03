@@ -65,7 +65,7 @@
        , NormalArg
            (FuncCall
               (Ident (Identifier "image"))
-              [ NormalArg (Literal (String "test/assets/files/tiger.jpg")) ])
+              [ NormalArg (Literal (String "/assets/files/tiger.jpg")) ])
        ])
 , SoftBreak
 , Code
@@ -87,7 +87,7 @@ document(body: { text(body: [
                        body: text(body: [Before])), 
                  text(body: [
 ]), 
-                 pad(body: image(path: "test/assets/files/tiger.jpg"), 
+                 pad(body: image(path: "/assets/files/tiger.jpg"), 
                      rest: 10.0pt), 
                  text(body: [
 ]), 

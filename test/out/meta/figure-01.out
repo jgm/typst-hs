@@ -54,7 +54,7 @@
               , NormalArg
                   (FuncCall
                      (Ident (Identifier "image"))
-                     [ NormalArg (Literal (String "test/assets/files/cylinder.svg")) ])
+                     [ NormalArg (Literal (String "/assets/files/cylinder.svg")) ])
               ])
        , KeyValArg
            (Identifier "caption")
@@ -70,7 +70,7 @@
 --- evaluated ---
 document(body: { parbreak(), 
                  figure(body: table(children: (text(body: [Second cylinder]), 
-                                               image(path: "test/assets/files/cylinder.svg")), 
+                                               image(path: "/assets/files/cylinder.svg")), 
                                     columns: 2), 
                         caption: "A table containing images."), 
                  text(body: [ ]), 

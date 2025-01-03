@@ -122,7 +122,7 @@
               , NormalArg
                   (FuncCall
                      (Ident (Identifier "image"))
-                     [ NormalArg (Literal (String "test/assets/files/cylinder.svg"))
+                     [ NormalArg (Literal (String "/assets/files/cylinder.svg"))
                      , KeyValArg (Identifier "height") (Literal (Numeric 2.0 Cm))
                      ])
               ])
@@ -204,7 +204,7 @@ document(body: { text(body: [
                  <tab-basic>, 
                  parbreak(), 
                  figure(body: pad(body: image(height: 2.0cm, 
-                                              path: "test/assets/files/cylinder.svg"), 
+                                              path: "/assets/files/cylinder.svg"), 
                                   y: -6.0pt), 
                         caption: text(body: [The basic shapes.]), 
                         numbering: "I"), 

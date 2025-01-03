@@ -21,7 +21,7 @@
 })
 
 #figure(
-  image("test/assets/files/glacier.jpg"),
+  image("/assets/files/glacier.jpg"),
   caption: [Glacier melting],
 )
 
@@ -33,6 +33,6 @@
 )
 
 #figure(
-  image("test/assets/files/tiger.jpg"),
+  image("/assets/files/tiger.jpg"),
   caption: [Tiger world],
 )

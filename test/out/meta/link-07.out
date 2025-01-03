@@ -69,7 +69,7 @@
                                 , NormalArg
                                     (FuncCall
                                        (Ident (Identifier "image"))
-                                       [ NormalArg (Literal (String "test/assets/files/rhino.png"))
+                                       [ NormalArg (Literal (String "/assets/files/rhino.png"))
                                        , KeyValArg (Identifier "width") (Literal (Numeric 1.0 Cm))
                                        ])
                                 ])
@@ -86,7 +86,7 @@ document(body: { text(body: [
                  link(body: block(body: { text(body: [
 My cool rhino
 ]), 
-                                          box(body: move(body: image(path: "test/assets/files/rhino.png", 
+                                          box(body: move(body: image(path: "/assets/files/rhino.png", 
                                                                      width: 1.0cm), 
                                                          dx: 10.0pt)), 
                                           parbreak() }), 

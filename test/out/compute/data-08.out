@@ -47,7 +47,7 @@
        (BasicBind (Just (Identifier "data")))
        (FuncCall
           (Ident (Identifier "toml"))
-          [ NormalArg (Literal (String "test/assets/files/toml-types.toml"))
+          [ NormalArg (Literal (String "/assets/files/toml-types.toml"))
           ]))
 , SoftBreak
 , Code

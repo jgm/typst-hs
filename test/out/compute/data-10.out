@@ -47,7 +47,7 @@
        (BasicBind (Just (Identifier "data")))
        (FuncCall
           (Ident (Identifier "yaml"))
-          [ NormalArg (Literal (String "test/assets/files/yaml-types.yaml"))
+          [ NormalArg (Literal (String "/assets/files/yaml-types.yaml"))
           ]))
 , SoftBreak
 , Code

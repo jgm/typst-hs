@@ -182,7 +182,7 @@
        [ NormalArg
            (FuncCall
               (Ident (Identifier "image"))
-              [ NormalArg (Literal (String "test/assets/files/glacier.jpg")) ])
+              [ NormalArg (Literal (String "/assets/files/glacier.jpg")) ])
        , KeyValArg
            (Identifier "caption")
            (Block (Content [ Text "Glacier" , Space , Text "melting" ]))
@@ -225,7 +225,7 @@
        [ NormalArg
            (FuncCall
               (Ident (Identifier "image"))
-              [ NormalArg (Literal (String "test/assets/files/tiger.jpg")) ])
+              [ NormalArg (Literal (String "/assets/files/tiger.jpg")) ])
        , KeyValArg
            (Identifier "caption")
            (Block (Content [ Text "Tiger" , Space , Text "world" ]))
@@ -243,7 +243,7 @@ document(body: { text(body: [
                          level: 1), 
                  locate(func: ), 
                  parbreak(), 
-                 figure(body: image(path: "test/assets/files/glacier.jpg"), 
+                 figure(body: image(path: "/assets/files/glacier.jpg"), 
                         caption: text(body: [Glacier melting]), 
                         numbering: "I"), 
                  parbreak(), 
@@ -253,7 +253,7 @@ document(body: { text(body: [
                         numbering: "I", 
                         supplement: "Figure"), 
                  parbreak(), 
-                 figure(body: image(path: "test/assets/files/tiger.jpg"), 
+                 figure(body: image(path: "/assets/files/tiger.jpg"), 
                         caption: text(body: [Tiger world]), 
                         numbering: "I"), 
                  parbreak() })

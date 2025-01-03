@@ -1,5 +1,5 @@
 // Test reading TOML data.
-#let data = toml("test/assets/files/toml-types.toml")
+#let data = toml("/assets/files/toml-types.toml")
 #test(data.string, "wonderful")
 #test(data.integer, 42)
 #test(data.float, 3.14)

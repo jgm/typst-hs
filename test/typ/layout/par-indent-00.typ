@@ -6,10 +6,10 @@ The first paragraph has no indent.
 
 But the second one does.
 
-#box(image("test/assets/files/tiger.jpg", height: 6pt))
+#box(image("/assets/files/tiger.jpg", height: 6pt))
 starts a paragraph, also with indent.
 
-#align(center, image("test/assets/files/rhino.png", width: 1cm))
+#align(center, image("/assets/files/rhino.png", width: 1cm))
 
 = Headings
 - And lists.

@@ -618,6 +618,7 @@ data EvalState m = EvalState
     evalStyles :: M.Map Identifier Arguments,
     evalFlowDirective :: FlowDirective,
     evalPackageRoot :: FilePath,
+    evalLocalDir :: FilePath,
     evalOperations :: Operations m
   }
 
@@ -632,6 +633,7 @@ emptyEvalState = EvalState
       evalStyles = mempty,
       evalFlowDirective = FlowNormal,
       evalPackageRoot = mempty,
+      evalLocalDir = mempty,
       evalOperations = undefined
     }
 

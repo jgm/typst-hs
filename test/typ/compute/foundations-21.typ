@@ -2,7 +2,7 @@
 #show raw: it => eval("[" + it.text + "]")
 
 ```
-#show emph: _ => image("test/assets/files/giraffe.jpg")
+#show emph: _ => image("/assets/files/giraffe.jpg")
 _No relative giraffe!_
 ```
 

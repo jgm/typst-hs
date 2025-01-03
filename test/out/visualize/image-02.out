@@ -66,7 +66,7 @@
        , NormalArg
            (FuncCall
               (Ident (Identifier "image"))
-              [ NormalArg (Literal (String "test/assets/files/tiger.jpg"))
+              [ NormalArg (Literal (String "/assets/files/tiger.jpg"))
               , KeyValArg (Identifier "width") (Literal (Numeric 100.0 Percent))
               , KeyValArg (Identifier "height") (Literal (Numeric 100.0 Percent))
               , KeyValArg (Identifier "fit") (Literal (String "contain"))
@@ -74,7 +74,7 @@
        , NormalArg
            (FuncCall
               (Ident (Identifier "image"))
-              [ NormalArg (Literal (String "test/assets/files/tiger.jpg"))
+              [ NormalArg (Literal (String "/assets/files/tiger.jpg"))
               , KeyValArg (Identifier "width") (Literal (Numeric 100.0 Percent))
               , KeyValArg (Identifier "height") (Literal (Numeric 100.0 Percent))
               , KeyValArg (Identifier "fit") (Literal (String "cover"))
@@ -82,7 +82,7 @@
        , NormalArg
            (FuncCall
               (Ident (Identifier "image"))
-              [ NormalArg (Literal (String "test/assets/files/monkey.svg"))
+              [ NormalArg (Literal (String "/assets/files/monkey.svg"))
               , KeyValArg (Identifier "width") (Literal (Numeric 100.0 Percent))
               , KeyValArg (Identifier "height") (Literal (Numeric 100.0 Percent))
               , KeyValArg (Identifier "fit") (Literal (String "stretch"))
@@ -97,15 +97,15 @@ document(body: { text(body: [
 ]), 
                  grid(children: (image(fit: "contain", 
                                        height: 100%, 
-                                       path: "test/assets/files/tiger.jpg", 
+                                       path: "/assets/files/tiger.jpg", 
                                        width: 100%), 
                                  image(fit: "cover", 
                                        height: 100%, 
-                                       path: "test/assets/files/tiger.jpg", 
+                                       path: "/assets/files/tiger.jpg", 
                                        width: 100%), 
                                  image(fit: "stretch", 
                                        height: 100%, 
-                                       path: "test/assets/files/monkey.svg", 
+                                       path: "/assets/files/monkey.svg", 
                                        width: 100%)), 
                       columns: (1.0fr, 
                                 1.0fr, 

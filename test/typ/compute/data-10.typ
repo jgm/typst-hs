@@ -1,5 +1,5 @@
 // Test reading YAML data
-#let data = yaml("test/assets/files/yaml-types.yaml")
+#let data = yaml("/assets/files/yaml-types.yaml")
 #test(data.len(), 7)
 #test(data.null_key, (none, none))
 #test(data.string, "text")

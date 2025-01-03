@@ -8,7 +8,7 @@ import qualified Data.ByteString.Lazy as BL
 import qualified Data.Text as T
 import qualified Data.Text.Encoding as TE
 import Data.Text.IO as TIO
-import System.FilePath (replaceExtension)
+import System.FilePath (replaceExtension, joinPath, splitPath)
 import Test.Tasty (TestTree, Timeout (..), defaultMain, localOption, testGroup)
 import Test.Tasty.Golden (findByExtension, goldenVsStringDiff)
 import Text.Show.Pretty (ppShow)
@@ -16,7 +16,7 @@ import Typst.Evaluate (evaluateTypst)
 import Typst.Parse (parseTypst)
 import Typst.Types (Val (VContent), repr, Operations(..))
 import Data.Time (getCurrentTime)
-import System.Directory (doesFileExist)
+import System.Directory (doesFileExist, setCurrentDirectory)
 import System.Environment (lookupEnv)
 
 main :: IO ()
@@ -32,7 +32,8 @@ operations = Operations
 
 goldenTests :: IO TestTree
 goldenTests = do
-  inputs <- findByExtension [".typ"] "test/typ"
+  setCurrentDirectory "test"
+  inputs <- findByExtension [".typ"] "typ"
   pure $
     localOption (Timeout 1000000 "1s") $
       testGroup "golden tests" (map runTest inputs)
@@ -42,7 +43,8 @@ runTest input =
   goldenVsStringDiff
     input
     (\ref new -> ["diff", "-u", ref, new])
-    ("test/out" <> drop 8 (replaceExtension input ".out"))
+    -- remove 'typ/':
+    ("out" <> (joinPath . drop 1 . splitPath) (replaceExtension input ".out"))
     (writeTest input)
 
 writeTest :: FilePath -> IO BL.ByteString

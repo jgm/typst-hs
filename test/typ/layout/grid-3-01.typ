@@ -5,7 +5,7 @@
   columns: 4 * (1fr,),
   row-gutter: 10pt,
   column-gutter: (0pt, 10%),
-  align(top, image("test/assets/files/rhino.png")),
+  align(top, image("/assets/files/rhino.png")),
   align(top, rect(inset: 0pt, fill: eastern, align(right)[LoL])),
   [rofl],
   [\ A] * 3,

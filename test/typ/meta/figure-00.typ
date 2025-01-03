@@ -10,7 +10,7 @@ We can clearly see that @fig-cylinder and
 ) <tab-basic>
 
 #figure(
-  pad(y: -6pt, image("test/assets/files/cylinder.svg", height: 2cm)),
+  pad(y: -6pt, image("/assets/files/cylinder.svg", height: 2cm)),
   caption: [The basic shapes.],
   numbering: "I",
 ) <fig-cylinder>

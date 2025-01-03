@@ -50,6 +50,8 @@ import Data.Time (UTCTime(..))
 import Data.Time.Calendar (fromGregorianValid)
 import Data.Time.Clock (secondsToDiffTime)
 
+import Debug.Trace
+
 standardModule :: M.Map Identifier Val
 standardModule =
   M.fromList $
@@ -529,17 +531,28 @@ hexToRGB _ = fail "expected string"
 loadFileLazyBytes :: Monad m => FilePath -> MP m BL.ByteString
 loadFileLazyBytes fp = do
   operations <- evalOperations <$> getState
-  root <- evalPackageRoot <$> getState
-  lift $ BL.fromStrict <$> loadBytes operations (root </> fp)
+  path <- getPath fp
+  lift $ BL.fromStrict <$> loadBytes operations path
 
 loadFileText :: Monad m => FilePath -> MP m T.Text
 loadFileText fp = do
   operations <- evalOperations <$> getState
+  path <- getPath fp
+  lift $ TE.decodeUtf8 <$> loadBytes operations path
+
+-- a leading / = relative to package root
+getPath :: Monad m => FilePath -> MP m FilePath
+getPath ('/':fp') = do
   root <- evalPackageRoot <$> getState
-  lift $ TE.decodeUtf8 <$> loadBytes operations (root </> fp)
+  pure $ root </> fp'
+getPath fp = do
+  pkgroot <- evalPackageRoot <$> getState
+  localdir <- evalLocalDir <$> getState
+  pure $! traceShowId $! (pkgroot , localdir , fp)
+  pure $ pkgroot </> localdir </> fp
 
 getUTCTime :: Monad m => MP m UTCTime
-getUTCTime = (currentUTCTime . evalOperations <$> getState) >>= lift
+getUTCTime = getState >>= lift . currentUTCTime . evalOperations
 
 time :: [(Identifier, Val)]
 time =

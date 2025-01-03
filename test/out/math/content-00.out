@@ -51,7 +51,7 @@
           , NormalArg
               (FuncCall
                  (Ident (Identifier "image"))
-                 [ NormalArg (Literal (String "test/assets/files/monkey.svg"))
+                 [ NormalArg (Literal (String "/assets/files/monkey.svg"))
                  , KeyValArg (Identifier "height") (Literal (Numeric 1.0 Em))
                  ])
           ]))
@@ -109,7 +109,7 @@ document(body: { text(body: [
                                        text(body: [+]), 
                                        math.frac(denom: text(body: [2]), 
                                                  num: move(body: image(height: 1.0em, 
-                                                                       path: "test/assets/files/monkey.svg"), 
+                                                                       path: "/assets/files/monkey.svg"), 
                                                            dy: 0.2em)) }, 
                                numbering: none), 
                  parbreak() })

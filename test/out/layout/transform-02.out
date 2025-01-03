@@ -52,7 +52,7 @@
        , NormalArg
            (FuncCall
               (Ident (Identifier "image"))
-              [ NormalArg (Literal (String "test/assets/files/tiger.jpg"))
+              [ NormalArg (Literal (String "/assets/files/tiger.jpg"))
               , KeyValArg (Identifier "width") (Literal (Numeric 50.0 Percent))
               ])
        ])
@@ -62,7 +62,7 @@
 document(body: { text(body: [
 ]), 
                  rotate(angle: 10.0deg, 
-                        body: image(path: "test/assets/files/tiger.jpg", 
+                        body: image(path: "/assets/files/tiger.jpg", 
                                     width: 50%), 
                         origin: Axes(left, top)), 
                  parbreak() })

@@ -54,7 +54,7 @@
        [ NormalArg
            (FuncCall
               (Ident (Identifier "image"))
-              [ NormalArg (Literal (String "test/assets/files/diagram.svg")) ])
+              [ NormalArg (Literal (String "/assets/files/diagram.svg")) ])
        , KeyValArg
            (Identifier "caption")
            (Block
@@ -67,6 +67,6 @@
 document(body: { text(body: [
 ]), 
                  parbreak(), 
-                 figure(body: image(path: "test/assets/files/diagram.svg"), 
+                 figure(body: image(path: "/assets/files/diagram.svg"), 
                         caption: text(body: [A textful diagram])), 
                  parbreak() })

@@ -151,7 +151,7 @@
        , NormalArg
            (FuncCall
               (Ident (Identifier "image"))
-              [ NormalArg (Literal (String "test/assets/files/tiger.jpg"))
+              [ NormalArg (Literal (String "/assets/files/tiger.jpg"))
               , KeyValArg (Identifier "width") (Literal (Numeric 1.5 Cm))
               ])
        ])
@@ -187,7 +187,7 @@ that ever learned to mimic a human voice.]),
                  text(body: [—
 Hey ]), 
                  box(baseline: 40%, 
-                     body: image(path: "test/assets/files/tiger.jpg", 
+                     body: image(path: "/assets/files/tiger.jpg", 
                                  width: 1.5cm)), 
                  text(body: [ there!]), 
                  parbreak() })

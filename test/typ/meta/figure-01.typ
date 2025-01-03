@@ -4,7 +4,7 @@
   table(
     columns: 2,
     [Second cylinder],
-    image("test/assets/files/cylinder.svg"),
+    image("/assets/files/cylinder.svg"),
   ),
   caption: "A table containing images."
 ) <fig-image-in-table>

@@ -47,7 +47,7 @@
        (BasicBind (Just (Identifier "data")))
        (FuncCall
           (Ident (Identifier "json"))
-          [ NormalArg (Literal (String "test/assets/files/zoo.json")) ]))
+          [ NormalArg (Literal (String "/assets/files/zoo.json")) ]))
 , SoftBreak
 , Code
     "test/typ/compute/data-06.typ"

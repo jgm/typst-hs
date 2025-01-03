@@ -50,7 +50,7 @@
        [ NormalArg
            (FuncCall
               (Ident (Identifier "image"))
-              [ NormalArg (Literal (String "test/assets/files/rhino.png"))
+              [ NormalArg (Literal (String "/assets/files/rhino.png"))
               , KeyValArg (Identifier "width") (Literal (Numeric 30.0 Pt))
               ])
        ])
@@ -63,7 +63,7 @@
        [ NormalArg
            (FuncCall
               (Ident (Identifier "image"))
-              [ NormalArg (Literal (String "test/assets/files/rhino.png"))
+              [ NormalArg (Literal (String "/assets/files/rhino.png"))
               , KeyValArg (Identifier "height") (Literal (Numeric 30.0 Pt))
               ])
        ])
@@ -74,7 +74,7 @@
     ( line 9 , column 2 )
     (FuncCall
        (Ident (Identifier "image"))
-       [ NormalArg (Literal (String "test/assets/files/monkey.svg"))
+       [ NormalArg (Literal (String "/assets/files/monkey.svg"))
        , KeyValArg (Identifier "width") (Literal (Numeric 100.0 Percent))
        , KeyValArg (Identifier "height") (Literal (Numeric 20.0 Pt))
        , KeyValArg (Identifier "fit") (Literal (String "stretch"))
@@ -91,7 +91,7 @@
        , NormalArg
            (FuncCall
               (Ident (Identifier "image"))
-              [ NormalArg (Literal (String "test/assets/files/tiger.jpg"))
+              [ NormalArg (Literal (String "/assets/files/tiger.jpg"))
               , KeyValArg (Identifier "width") (Literal (Numeric 40.0 Pt))
               , KeyValArg (Identifier "alt") (Literal (String "A tiger"))
               ])
@@ -103,20 +103,20 @@ document(body: { text(body: [
 ]), 
                  text(body: [
 ]), 
-                 box(body: image(path: "test/assets/files/rhino.png", 
+                 box(body: image(path: "/assets/files/rhino.png", 
                                  width: 30.0pt)), 
                  text(body: [
 ]), 
                  box(body: image(height: 30.0pt, 
-                                 path: "test/assets/files/rhino.png")), 
+                                 path: "/assets/files/rhino.png")), 
                  parbreak(), 
                  image(fit: "stretch", 
                        height: 20.0pt, 
-                       path: "test/assets/files/monkey.svg", 
+                       path: "/assets/files/monkey.svg", 
                        width: 100%), 
                  parbreak(), 
                  align(alignment: Axes(right, bottom), 
                        body: image(alt: "A tiger", 
-                                   path: "test/assets/files/tiger.jpg", 
+                                   path: "/assets/files/tiger.jpg", 
                                    width: 40.0pt)), 
                  parbreak() })

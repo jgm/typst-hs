@@ -47,7 +47,7 @@
     ( line 5 , column 2 )
     (FuncCall
        (Ident (Identifier "image"))
-       [ NormalArg (Literal (String "test/assets/files/rhino.png")) ])
+       [ NormalArg (Literal (String "/assets/files/rhino.png")) ])
 , ParBreak
 , Comment
 , Code
@@ -62,7 +62,7 @@
     ( line 9 , column 2 )
     (FuncCall
        (Ident (Identifier "image"))
-       [ NormalArg (Literal (String "test/assets/files/tiger.jpg")) ])
+       [ NormalArg (Literal (String "/assets/files/tiger.jpg")) ])
 , ParBreak
 ]
 --- evaluated ---
@@ -70,9 +70,9 @@ document(body: { text(body: [
 ]), 
                  text(body: [
 ]), 
-                 image(path: "test/assets/files/rhino.png"), 
+                 image(path: "/assets/files/rhino.png"), 
                  parbreak(), 
                  text(body: [
 ]), 
-                 image(path: "test/assets/files/tiger.jpg"), 
+                 image(path: "/assets/files/tiger.jpg"), 
                  parbreak() })

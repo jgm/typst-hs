@@ -2,6 +2,6 @@
 #show raw: it => eval(it.text)
 
 ```
-image("test/assets/files/tiger.jpg")
+image("/assets/files/tiger.jpg")
 ```
 

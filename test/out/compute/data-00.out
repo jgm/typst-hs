@@ -47,7 +47,7 @@
        (BasicBind (Just (Identifier "data")))
        (FuncCall
           (Ident (Identifier "read"))
-          [ NormalArg (Literal (String "test/assets/files/hello.txt")) ]))
+          [ NormalArg (Literal (String "/assets/files/hello.txt")) ]))
 , SoftBreak
 , Code
     "test/typ/compute/data-00.typ"

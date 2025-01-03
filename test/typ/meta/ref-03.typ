@@ -14,13 +14,13 @@
 }
 
 #figure(
-  image("test/assets/files/cylinder.svg", height: 3cm),
+  image("/assets/files/cylinder.svg", height: 3cm),
   caption: [A sylinder.],
   supplement: "Fig",
 ) <fig1>
 
 #figure(
-  image("test/assets/files/tiger.jpg", height: 3cm),
+  image("/assets/files/tiger.jpg", height: 3cm),
   caption: [A tiger.],
   supplement: "Figg",
 ) <fig2>
