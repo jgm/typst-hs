@@ -50,8 +50,6 @@ import Data.Time (UTCTime(..))
 import Data.Time.Calendar (fromGregorianValid)
 import Data.Time.Clock (secondsToDiffTime)
 
-import Debug.Trace
-
 standardModule :: M.Map Identifier Val
 standardModule =
   M.fromList $
@@ -548,7 +546,6 @@ getPath ('/':fp') = do
 getPath fp = do
   pkgroot <- evalPackageRoot <$> getState
   localdir <- evalLocalDir <$> getState
-  pure $! traceShowId $! (pkgroot , localdir , fp)
   pure $ pkgroot </> localdir </> fp
 
 getUTCTime :: Monad m => MP m UTCTime
