@@ -15,10 +15,9 @@ where
 
 import Paths_typst (version)
 import Data.Version (showVersion)
-import Data.Char (ord, chr)
 import Control.Applicative ((<|>))
 import Control.Monad (mplus, unless)
-import Control.Monad.Reader (lift, asks)
+import Control.Monad.Reader (lift)
 import qualified Data.Aeson as Aeson
 import qualified Data.ByteString.Lazy as BL
 import qualified Data.Csv as Csv
@@ -27,7 +26,6 @@ import qualified Data.Map.Ordered as OM
 import Data.Maybe (mapMaybe)
 import Data.Ratio ((%))
 import qualified Data.Sequence as Seq
-import qualified Data.Set as Set
 import Data.Text (Text)
 import qualified Data.Text as T
 import qualified Data.Text.Encoding as TE
@@ -40,12 +38,10 @@ import qualified Toml
 import Typst.Emoji (typstEmojis)
 import Typst.Module.Calc (calcModule)
 import Typst.Module.Math (mathModule)
-import Typst.Regex (makeRE)
 import Typst.Symbols (typstSymbols)
 import Typst.Types
 import Typst.Util
 import System.FilePath ((</>))
-import Data.List (genericTake)
 import Data.Time (UTCTime(..))
 import Data.Time.Calendar (fromGregorianValid)
 import Data.Time.Clock (secondsToDiffTime)
@@ -301,7 +297,9 @@ types =
   , ("alignment", VType TAlignment)
   , ("color", VType TColor)
   , ("symbol", VType TSymbol)
-  , ("string", VType TString)
+  , ("str", VType TString)
+  , ("label", VType TLabel)
+  , ("version", VType TVersion)
   ]
 
 colors :: [(Identifier, Val)]
@@ -389,9 +387,6 @@ construct =
       makeFunction $
         VColor <$> (CMYK <$> nthArg 1 <*> nthArg 2 <*> nthArg 3 <*> nthArg 4)
     ),
-    ("float", makeFunction $ VFloat <$> nthArg 1),
-    ("int", makeFunction $ VInteger <$> nthArg 1),
-    ("label", makeFunction $ VLabel <$> nthArg 1),
     ( "counter",
       makeFunction $ do
         (counter :: Counter) <- nthArg 1
@@ -422,7 +417,6 @@ construct =
                           else end + 1
                       )
     ),
-    ("regex", makeFunction $ VRegex <$> (nthArg 1 >>= makeRE)),
     ( "rgb",
       makeFunction $
         VColor
@@ -434,56 +428,6 @@ construct =
                 )
                   <|> (nthArg 1 >>= hexToRGB)
               )
-    ),
-    ( "str",
-      makeFunctionWithScope
-      (do
-        val <- nthArg 1
-        base <- namedArg "base" (10 :: Integer)
-        let digitVector :: V.Vector Char
-            digitVector = V.fromList $ ['0'..'9'] ++ ['A'..'Z']
-        let renderDigit n = digitVector V.!? (fromIntegral n)
-        VString <$>
-          case val of
-            VInteger n | base /= 10
-              -> case mDigits base n of
-                   Nothing -> fail "Could not convert number to base"
-                   Just ds -> maybe
-                     (fail "Could not convert number to base")
-                     (pure . T.pack)
-                     (mapM renderDigit ds)
-            _ -> fromVal val `mplus` pure (repr val))
-      [ ( "to-unicode",
-           makeFunction $ do
-             (val :: Text) <- nthArg 1
-             case T.uncons val of
-               Just (c, t) | T.null t ->
-                 pure $ VInteger $ fromIntegral $ ord c
-               _ -> fail "to-unicode expects a single character" )
-      , ( "from-unicode",
-           makeFunction $ do
-             (val :: Int) <- nthArg 1
-             pure $ VString $ T.pack [chr val] )
-      ]
-    ),
-    ( "version",
-        makeFunction $ do
-          xs <- asks positional >>= mapM fromVal
-          pure $ VVersion xs
-    ),
-    ( "symbol",
-      makeFunction $ do
-        (t :: Text) <- nthArg 1
-        vs <- drop 1 <$> allArgs
-        variants <-
-          mapM
-            ( \case
-                VArray [VString k, VString v] ->
-                  pure (Set.fromList (T.split (== '.') k), v)
-                _ -> fail "wrong type in symbol arguments"
-            )
-            vs
-        pure $ VSymbol $ Symbol t False variants
     ),
     ( "lorem",
       makeFunction $ do
@@ -668,28 +612,3 @@ initialEvalState =
                  , evalMathIdentifiers = [(BlockScope, mathModule <> symModule)]
                  , evalStandardIdentifiers = [(BlockScope, standardModule)]
                  }
-
--- mDigitsRev, mDigits from the unmaintained digits package
--- https://hackage.haskell.org/package/digits-0.3.1
--- (c) 2009-2016 Henry Bucklow, Charlie Harvey -- BSD-3-Clause license.
-mDigitsRev :: Integral n
-    => n         -- ^ The base to use.
-    -> n         -- ^ The number to convert to digit form.
-    -> Maybe [n] -- ^ Nothing or Just the digits of the number in list form, in reverse.
-mDigitsRev base i = if base < 1
-                    then Nothing -- We do not support zero or negative bases
-                    else Just $ dr base i
-    where
-      dr _ 0 = []
-      dr b x = case base of
-                1 -> genericTake x $ repeat 1
-                _ -> let (rest, lastDigit) = quotRem x b
-                     in lastDigit : dr b rest
-
--- | Returns the digits of a positive integer as a Maybe list.
---   or Nothing if a zero or negative base is given
-mDigits :: Integral n
-    => n -- ^ The base to use.
-    -> n -- ^ The number to convert to digit form.
-    -> Maybe [n] -- ^ Nothing or Just the digits of the number in list form
-mDigits base i = reverse <$> mDigitsRev base i

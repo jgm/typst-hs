@@ -52,6 +52,7 @@ library
                       Typst.Bind
                       Typst.Regex
                       Typst.Show
+                      Typst.Constructors
                       Typst.Module.Standard
                       Typst.Module.Math
                       Typst.Module.Calc

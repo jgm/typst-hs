@@ -144,6 +144,7 @@ data Val
   | VModule Identifier (M.Map Identifier Val)
   | VStyles -- just a placeholder for now
   | VVersion [Integer]
+  -- Types typically have constructors
   | VType !ValType
   deriving (Show, Eq, Typeable)
 

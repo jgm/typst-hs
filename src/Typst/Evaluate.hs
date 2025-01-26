@@ -31,6 +31,7 @@ import GHC.Generics (Generic)
 import System.FilePath (replaceFileName, takeBaseName, takeDirectory, (</>))
 import Text.Parsec
 import Typst.Bind (destructuringBind)
+import Typst.Constructors (getConstructor)
 import Typst.Methods (getMethod)
 import Typst.Module.Standard (loadFileText, standardModule, symModule)
 import Typst.Module.Math (mathModule)
@@ -569,6 +570,10 @@ evalExpr expr =
           arguments <- toArguments args
           applyElementFunction i (Function f) arguments
         VFunction Nothing _ (Function f) -> toArguments args >>= f
+        VType ty ->
+          case getConstructor ty of
+            Just (VFunction _ _ (Function f)) -> toArguments args >>= f
+            _ -> fail $ "No constructor defined for type " <> show ty
         VSymbol (Symbol _ True _) | mathMode ->
           do
             val' <- lookupIdentifier "accent"
