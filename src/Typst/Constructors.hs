@@ -11,6 +11,10 @@ module Typst.Constructors
 where
 
 import qualified Data.Vector as V
+import qualified Data.Map.Ordered as OM
+import qualified Data.Map as M
+import Data.Time (fromGregorian, secondsToDiffTime)
+import Data.Maybe (fromMaybe)
 import Typst.Types
 import Typst.Util (makeFunction, makeFunctionWithScope, namedArg, nthArg, allArgs)
 import qualified Data.Set as Set
@@ -71,11 +75,34 @@ getConstructor typ =
             )
             vs
         pure $ VSymbol $ Symbol t False variants
-    TDateTime -> Nothing -- TODO https://typst.app/docs/reference/foundations/datetime/
-    TDict -> Nothing -- TODO https://typst.app/docs/reference/foundations/dictionary/
-    TArguments -> Nothing -- TODO https://typst.app/docs/reference/foundations/arguments/
-    TSelector -> Nothing -- TODO https://typst.app/docs/reference/foundations/selector/
-    TCounter -> Nothing -- TODO https://typst.app/docs/reference/introspection/counter/
+    TDateTime -> Just $ makeFunction $ do
+      mbyr <- namedArg "year" Nothing
+      mbmo <- namedArg "month" Nothing
+      mbda <- namedArg "day" Nothing
+      mbhr <- namedArg "hour" Nothing
+      mbmn <- namedArg "minute" Nothing
+      mbsc <- namedArg "second" Nothing
+      let mbday = case (mbyr, mbmo, mbda) of
+                     (Nothing, _, _) -> Nothing
+                     (Just yr, _, _) -> Just $
+                       fromGregorian yr (fromMaybe 1 mbmo) (fromMaybe 1 mbda)
+      let mbdifftime = case (mbhr, mbmn, mbsc) of
+                              (Nothing, _, _) -> Nothing
+                              (Just hr, _, _) -> Just $ secondsToDiffTime $
+                                (hr * 60 * 60) + maybe 0 (* 60) mbmn +
+                                  fromMaybe 0 mbsc
+      pure $ VDateTime mbday mbdifftime
+    TDict -> Just $ makeFunction $ do
+      a <- nthArg 1
+      case a of
+        VModule _ m -> pure $ VDict $ OM.fromList $ M.toList m
+        _ -> fail "dictionary constructor requires a module as argument"
+    TArguments -> Nothing
+    -- TODO https://typst.app/docs/reference/foundations/arguments/
+    TSelector -> Nothing
+    -- TODO https://typst.app/docs/reference/foundations/selector/
+    TCounter -> Nothing
+    -- TODO https://typst.app/docs/reference/introspection/counter/
     _ -> Nothing
 
 
