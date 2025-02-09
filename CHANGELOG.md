@@ -1,5 +1,24 @@
 # Revision history for typst-hs
 
+## 0.6.2
+
+  * Allow types to act as constructor functions, as in typst (#61).
+    Add new unexported module, Typst.Constructors, defining the
+    constructors for each of the typst types.
+    Fix name of string type: it is `str`, not `string` (which is only
+    the `repr`).
+
+  * Support `dict`, `datetime`, `symbol` constructors.
+
+  * Improve path handling when loading files (#60).
+    We now look in the "local path" (the path of the containing file)
+    except when the path begins with `/` (in which case it is resolved
+    relative to the package path).
+
+  * Fix issue with expression parsing involving labels (#59).
+
+  * Remove spurious trace in `getPath`.
+
 ## 0.6.1
 
   * Fix precedence for functions (#55).
