@@ -28,7 +28,8 @@ import qualified Data.Text as T
 import qualified Data.Text.Encoding as TE
 import qualified Data.Vector as V
 import GHC.Generics (Generic)
-import System.FilePath (replaceFileName, takeBaseName, takeDirectory, (</>))
+import System.FilePath (replaceFileName, takeBaseName,
+                        takeFileName, takeDirectory, (</>))
 import Text.Parsec
 import Typst.Bind (destructuringBind)
 import Typst.Constructors (getConstructor)
@@ -994,28 +995,35 @@ findPackageEntryPoint modname = do
 loadModule :: Monad m => Text
            -> MP m (Seq Content, (Identifier, M.Map Identifier Val))
 loadModule modname = do
-  (fp, modid, mbPackageRoot) <-
+  (fp, modid, mbPackageRoot, txt) <-
         if T.take 1 modname == "@"
            then do
             fp' <- findPackageEntryPoint modname
-            pure (fp',
+            operations <- evalOperations <$> getState
+            txt <- lift $ TE.decodeUtf8 <$> loadBytes operations fp'
+            pure ( takeFileName fp',
                    Identifier
                     (T.pack $ takeWhile (/= ':') . takeBaseName $
                        T.unpack modname),
-                   Just (takeDirectory fp'))
-           else pure (T.unpack modname,
-                        Identifier (T.pack $ takeBaseName $ T.unpack modname),
-                        Nothing)
-  txt <- loadFileText fp
+                   Just (takeDirectory fp'),
+                   txt )
+           else do
+             let fp = T.unpack modname
+             txt <- loadFileText fp
+             pure ( fp,
+                    Identifier (T.pack $ takeBaseName fp),
+                    Nothing,
+                    txt )
   case parseTypst fp txt of
     Left err -> fail $ show err
     Right ms -> do
       operations <- evalOperations <$> getState
       currentLocalDir <- evalLocalDir <$> getState
+      currentPackageRoot <- evalPackageRoot <$> getState
       let (pkgroot , localdir) =
             case mbPackageRoot of
               Just r -> (r , takeDirectory fp)
-              Nothing -> (evalPackageRoot initialEvalState ,
+              Nothing -> (currentPackageRoot,
                           currentLocalDir </> takeDirectory fp)
       res <-
         lift $
