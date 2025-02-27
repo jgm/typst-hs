@@ -1,0 +1,99 @@
+--- parse tree ---
+[ Code
+    "typ/regression/issue63.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060"
+                             , Text "("
+                             , Code
+                                 "typ/regression/issue63.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "typ/regression/issue63.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "typ/regression/issue63.typ"
+    ( line 2 , column 2 )
+    (Show
+       (Just (Ident (Identifier "link")))
+       (Ident (Identifier "underline")))
+, ParBreak
+, BulletListItem
+    [ Code
+        "typ/regression/issue63.typ"
+        ( line 4 , column 4 )
+        (FuncCall
+           (Ident (Identifier "link"))
+           [ NormalArg
+               (Literal
+                  (String "https://www.jetbrains.com/compose-multiplatform/"))
+           , BlockArg [ Text "Compose" , Space , Text "Multiplatform" ]
+           ])
+    , Space
+    , Text "as"
+    , Space
+    , Text "front"
+    , Text "-"
+    , Text "end"
+    , Space
+    , Text "framework"
+    ]
+, SoftBreak
+, BulletListItem
+    [ Code
+        "typ/regression/issue63.typ"
+        ( line 5 , column 4 )
+        (FuncCall
+           (Ident (Identifier "link"))
+           [ NormalArg
+               (Literal (String "https://github.com/InsertKoinIO/koin/"))
+           , BlockArg [ Text "Koin" ]
+           ])
+    , Space
+    , Text "for"
+    , Space
+    , Text "Dependecy"
+    , Space
+    , Text "Injection"
+    , ParBreak
+    ]
+]
+--- evaluated ---
+document(body: { text(body: [
+]), 
+                 parbreak(), 
+                 list(children: ({ underline(body: link(body: text(body: [Compose Multiplatform]), 
+                                                        dest: "https://www.jetbrains.com/compose-multiplatform/")), 
+                                   text(body: [ as front-end framework]) }, 
+                                 { underline(body: link(body: text(body: [Koin]), 
+                                                        dest: "https://github.com/InsertKoinIO/koin/")), 
+                                   text(body: [ for Dependecy Injection]), 
+                                   parbreak() })) })
