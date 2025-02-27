@@ -8,7 +8,7 @@ import qualified Data.ByteString.Lazy as BL
 import qualified Data.Text as T
 import qualified Data.Text.Encoding as TE
 import Data.Text.IO as TIO
-import System.FilePath (replaceExtension, joinPath, splitPath, (</>))
+import System.FilePath (replaceExtension)
 import Test.Tasty (TestTree, Timeout (..), defaultMain, localOption, testGroup)
 import Test.Tasty.Golden (findByExtension, goldenVsStringDiff)
 import Text.Show.Pretty (ppShow)
@@ -43,8 +43,7 @@ runTest input =
   goldenVsStringDiff
     input
     (\ref new -> ["diff", "-u", ref, new])
-    -- remove 'typ/':
-    ("out" </> (joinPath . drop 1 . splitPath) (replaceExtension input ".out"))
+    (replaceExtension input ".out")
     (writeTest input)
 
 writeTest :: FilePath -> IO BL.ByteString
