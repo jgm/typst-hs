@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/regression/issue26.typ"
+    "typ/regression/issue26.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/regression/issue26.typ"
+                                 "typ/regression/issue26.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/regression/issue26.typ"
+                                 "typ/regression/issue26.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -40,14 +40,14 @@
                 ]))))
 , SoftBreak
 , Code
-    "test/typ/regression/issue26.typ"
+    "typ/regression/issue26.typ"
     ( line 2 , column 2 )
     (Let
        (BasicBind (Just (Identifier "x")))
        (Dict [ Reg ( Ident (Identifier "a") , Literal (Int 4) ) ]))
 , SoftBreak
 , Code
-    "test/typ/regression/issue26.typ"
+    "typ/regression/issue26.typ"
     ( line 3 , column 2 )
     (Block
        (CodeBlock
@@ -59,10 +59,10 @@
           ]))
 , SoftBreak
 , Code
-    "test/typ/regression/issue26.typ"
+    "typ/regression/issue26.typ"
     ( line 6 , column 2 )
     (Ident (Identifier "x"))
 , ParBreak
 ]
-"test/typ/regression/issue26.typ" (line 3, column 2):
+"typ/regression/issue26.typ" (line 3, column 2):
 Dictionary does not contain key "b"

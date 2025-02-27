@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/math/syntax-01.typ"
+    "typ/math/syntax-01.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/math/syntax-01.typ"
+                                 "typ/math/syntax-01.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/math/syntax-01.typ"
+                                 "typ/math/syntax-01.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -43,27 +43,27 @@
 , Equation
     True
     [ Code
-        "test/typ/math/syntax-01.typ"
+        "typ/math/syntax-01.typ"
         ( line 3 , column 3 )
         (FuncCall
            (Ident (Identifier "underline"))
            [ BlockArg
                [ Text "f"
                , Code
-                   "test/typ/math/syntax-01.typ"
+                   "typ/math/syntax-01.typ"
                    ( line 3 , column 14 )
                    (Ident (Identifier "prime"))
                , Text ":"
                , Code
-                   "test/typ/math/syntax-01.typ"
+                   "typ/math/syntax-01.typ"
                    ( line 3 , column 18 )
                    (Ident (Identifier "NN"))
                , Code
-                   "test/typ/math/syntax-01.typ"
+                   "typ/math/syntax-01.typ"
                    ( line 3 , column 21 )
                    (FieldAccess (Ident (Identifier "r")) (Ident (Identifier "arrow")))
                , Code
-                   "test/typ/math/syntax-01.typ"
+                   "typ/math/syntax-01.typ"
                    ( line 3 , column 24 )
                    (Ident (Identifier "RR"))
                ]
@@ -71,20 +71,20 @@
     , HardBreak
     , Text "n"
     , Code
-        "test/typ/math/syntax-01.typ"
+        "typ/math/syntax-01.typ"
         ( line 4 , column 5 )
         (FieldAccess
            (Ident (Identifier "r"))
            (FieldAccess
               (Ident (Identifier "bar")) (Ident (Identifier "arrow"))))
     , Code
-        "test/typ/math/syntax-01.typ"
+        "typ/math/syntax-01.typ"
         ( line 4 , column 9 )
         (FuncCall
            (Ident (Identifier "cases"))
            [ BlockArg
                [ Code
-                   "test/typ/math/syntax-01.typ"
+                   "typ/math/syntax-01.typ"
                    ( line 5 , column 5 )
                    (FieldAccess
                       (Ident (Identifier "l"))
@@ -92,7 +92,7 @@
                          (Ident (Identifier "double")) (Ident (Identifier "bracket"))))
                , Text "1"
                , Code
-                   "test/typ/math/syntax-01.typ"
+                   "typ/math/syntax-01.typ"
                    ( line 5 , column 8 )
                    (FieldAccess
                       (Ident (Identifier "r"))
@@ -102,7 +102,7 @@
                , Text "if "
                , Text "n"
                , Code
-                   "test/typ/math/syntax-01.typ"
+                   "typ/math/syntax-01.typ"
                    ( line 5 , column 19 )
                    (FieldAccess
                       (Ident (Identifier "triple")) (Ident (Identifier "gt")))
@@ -111,7 +111,7 @@
            , BlockArg
                [ Text "2"
                , Code
-                   "test/typ/math/syntax-01.typ"
+                   "typ/math/syntax-01.typ"
                    ( line 6 , column 7 )
                    (Ident (Identifier "convolve"))
                , Text "3"
@@ -119,7 +119,7 @@
                , Text "if "
                , Text "n"
                , Code
-                   "test/typ/math/syntax-01.typ"
+                   "typ/math/syntax-01.typ"
                    ( line 6 , column 19 )
                    (FieldAccess (Ident (Identifier "not")) (Ident (Identifier "eq")))
                , Text "5"
@@ -127,17 +127,17 @@
            , BlockArg
                [ Text "1"
                , Code
-                   "test/typ/math/syntax-01.typ"
+                   "typ/math/syntax-01.typ"
                    ( line 7 , column 7 )
                    (Ident (Identifier "minus"))
                , Text "0"
                , Code
-                   "test/typ/math/syntax-01.typ"
+                   "typ/math/syntax-01.typ"
                    ( line 7 , column 11 )
                    (Ident (Identifier "thick"))
                , MAlignPoint
                , Code
-                   "test/typ/math/syntax-01.typ"
+                   "typ/math/syntax-01.typ"
                    ( line 7 , column 18 )
                    (FieldAccess (Ident (Identifier "h")) (Ident (Identifier "dots")))
                ]

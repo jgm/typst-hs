@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/compiler/string-13.typ"
+    "typ/compiler/string-13.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/compiler/string-13.typ"
+                                 "typ/compiler/string-13.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/compiler/string-13.typ"
+                                 "typ/compiler/string-13.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -41,7 +41,7 @@
 , SoftBreak
 , Comment
 , Code
-    "test/typ/compiler/string-13.typ"
+    "typ/compiler/string-13.typ"
     ( line 3 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -54,7 +54,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/string-13.typ"
+    "typ/compiler/string-13.typ"
     ( line 4 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -79,7 +79,7 @@
 , ParBreak
 , Comment
 , Code
-    "test/typ/compiler/string-13.typ"
+    "typ/compiler/string-13.typ"
     ( line 10 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -92,7 +92,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/string-13.typ"
+    "typ/compiler/string-13.typ"
     ( line 11 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -122,7 +122,7 @@
 , ParBreak
 , Comment
 , Code
-    "test/typ/compiler/string-13.typ"
+    "typ/compiler/string-13.typ"
     ( line 17 , column 2 )
     (LetFunc
        (Identifier "timesum")
@@ -196,7 +196,7 @@
              ])))
 , ParBreak
 , Code
-    "test/typ/compiler/string-13.typ"
+    "typ/compiler/string-13.typ"
     ( line 26 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -207,7 +207,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/string-13.typ"
+    "typ/compiler/string-13.typ"
     ( line 27 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -219,7 +219,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/string-13.typ"
+    "typ/compiler/string-13.typ"
     ( line 28 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))

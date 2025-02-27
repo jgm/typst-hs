@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/compute/foundations-12.typ"
+    "typ/compute/foundations-12.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/compute/foundations-12.typ"
+                                 "typ/compute/foundations-12.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/compute/foundations-12.typ"
+                                 "typ/compute/foundations-12.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -41,14 +41,14 @@
 , SoftBreak
 , Comment
 , Code
-    "test/typ/compute/foundations-12.typ"
+    "typ/compute/foundations-12.typ"
     ( line 3 , column 2 )
     (FuncCall
        (Ident (Identifier "assert"))
        [ NormalArg (GreaterThan (Literal (Int 5)) (Literal (Int 3))) ])
 , SoftBreak
 , Code
-    "test/typ/compute/foundations-12.typ"
+    "typ/compute/foundations-12.typ"
     ( line 4 , column 2 )
     (FuncCall
        (FieldAccess
@@ -56,7 +56,7 @@
        [ NormalArg (Literal (Int 15)) , NormalArg (Literal (Int 15)) ])
 , SoftBreak
 , Code
-    "test/typ/compute/foundations-12.typ"
+    "typ/compute/foundations-12.typ"
     ( line 5 , column 2 )
     (FuncCall
        (FieldAccess

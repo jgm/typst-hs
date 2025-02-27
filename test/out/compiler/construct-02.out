@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/compiler/construct-02.typ"
+    "typ/compiler/construct-02.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/compiler/construct-02.typ"
+                                 "typ/compiler/construct-02.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/compiler/construct-02.typ"
+                                 "typ/compiler/construct-02.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -42,18 +42,18 @@
 , Comment
 , Comment
 , Code
-    "test/typ/compiler/construct-02.typ"
+    "typ/compiler/construct-02.typ"
     ( line 4 , column 2 )
     (Block
        (Content
           [ Code
-              "test/typ/compiler/construct-02.typ"
+              "typ/compiler/construct-02.typ"
               ( line 4 , column 4 )
               (Set
                  (Ident (Identifier "rect"))
                  [ KeyValArg (Identifier "fill") (Ident (Identifier "yellow")) ])
           , Code
-              "test/typ/compiler/construct-02.typ"
+              "typ/compiler/construct-02.typ"
               ( line 4 , column 28 )
               (FuncCall
                  (Ident (Identifier "text"))

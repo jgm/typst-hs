@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/layout/pad-00.typ"
+    "typ/layout/pad-00.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/layout/pad-00.typ"
+                                 "typ/layout/pad-00.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/layout/pad-00.typ"
+                                 "typ/layout/pad-00.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -41,7 +41,7 @@
 , SoftBreak
 , Comment
 , Code
-    "test/typ/layout/pad-00.typ"
+    "typ/layout/pad-00.typ"
     ( line 3 , column 2 )
     (FuncCall
        (Ident (Identifier "pad"))
@@ -51,14 +51,14 @@
 , ParBreak
 , Comment
 , Code
-    "test/typ/layout/pad-00.typ"
+    "typ/layout/pad-00.typ"
     ( line 6 , column 2 )
     (Set
        (Ident (Identifier "rect"))
        [ KeyValArg (Identifier "inset") (Literal (Numeric 0.0 Pt)) ])
 , SoftBreak
 , Code
-    "test/typ/layout/pad-00.typ"
+    "typ/layout/pad-00.typ"
     ( line 7 , column 2 )
     (FuncCall
        (Ident (Identifier "rect"))
@@ -85,7 +85,7 @@
 , Text "Hi"
 , Space
 , Code
-    "test/typ/layout/pad-00.typ"
+    "typ/layout/pad-00.typ"
     ( line 13 , column 5 )
     (FuncCall
        (Ident (Identifier "box"))

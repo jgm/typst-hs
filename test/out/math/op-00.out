@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/math/op-00.typ"
+    "typ/math/op-00.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/math/op-00.typ"
+                                 "typ/math/op-00.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/math/op-00.typ"
+                                 "typ/math/op-00.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -49,19 +49,19 @@
               Nothing
               [ Text "1"
               , Code
-                  "test/typ/math/op-00.typ"
+                  "typ/math/op-00.typ"
                   ( line 3 , column 9 )
                   (FieldAccess (Ident (Identifier "eq")) (Ident (Identifier "lt")))
               , Text "n"
               , Code
-                  "test/typ/math/op-00.typ"
+                  "typ/math/op-00.typ"
                   ( line 3 , column 12 )
                   (FieldAccess (Ident (Identifier "eq")) (Ident (Identifier "lt")))
               , Text "m"
               ]))
         Nothing
         (Code
-           "test/typ/math/op-00.typ"
+           "typ/math/op-00.typ"
            ( line 3 , column 3 )
            (Ident (Identifier "max")))
     , Text "n"

@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/layout/grid-rtl-01.typ"
+    "typ/layout/grid-rtl-01.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/layout/grid-rtl-01.typ"
+                                 "typ/layout/grid-rtl-01.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/layout/grid-rtl-01.typ"
+                                 "typ/layout/grid-rtl-01.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -40,14 +40,14 @@
                 ]))))
 , SoftBreak
 , Code
-    "test/typ/layout/grid-rtl-01.typ"
+    "typ/layout/grid-rtl-01.typ"
     ( line 2 , column 2 )
     (Set
        (Ident (Identifier "text"))
        [ KeyValArg (Identifier "dir") (Ident (Identifier "rtl")) ])
 , SoftBreak
 , Code
-    "test/typ/layout/grid-rtl-01.typ"
+    "typ/layout/grid-rtl-01.typ"
     ( line 3 , column 2 )
     (FuncCall
        (Ident (Identifier "table"))

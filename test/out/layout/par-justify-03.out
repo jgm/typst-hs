@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/layout/par-justify-03.typ"
+    "typ/layout/par-justify-03.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/layout/par-justify-03.typ"
+                                 "typ/layout/par-justify-03.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/layout/par-justify-03.typ"
+                                 "typ/layout/par-justify-03.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -42,14 +42,14 @@
 , Comment
 , Comment
 , Code
-    "test/typ/layout/par-justify-03.typ"
+    "typ/layout/par-justify-03.typ"
     ( line 4 , column 2 )
     (Set
        (Ident (Identifier "par"))
        [ KeyValArg (Identifier "justify") (Literal (Boolean True)) ])
 , SoftBreak
 , Code
-    "test/typ/layout/par-justify-03.typ"
+    "typ/layout/par-justify-03.typ"
     ( line 5 , column 2 )
     (Literal (String ""))
 , ParBreak

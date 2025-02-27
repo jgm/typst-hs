@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/regression/issue2.typ"
+    "typ/regression/issue2.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/regression/issue2.typ"
+                                 "typ/regression/issue2.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/regression/issue2.typ"
+                                 "typ/regression/issue2.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -42,18 +42,18 @@
 , Equation
     False
     [ Code
-        "test/typ/regression/issue2.typ"
+        "typ/regression/issue2.typ"
         ( line 2 , column 2 )
         (FuncCall
            (Ident (Identifier "lr"))
            [ BlockArg
                [ Code
-                   "test/typ/regression/issue2.typ"
+                   "typ/regression/issue2.typ"
                    ( line 2 , column 6 )
                    (FieldAccess
                       (Ident (Identifier "alpha")) (Ident (Identifier "sym")))
                , Code
-                   "test/typ/regression/issue2.typ"
+                   "typ/regression/issue2.typ"
                    ( line 2 , column 16 )
                    (FieldAccess
                       (Ident (Identifier "beta")) (Ident (Identifier "sym")))

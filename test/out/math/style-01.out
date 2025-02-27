@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/math/style-01.typ"
+    "typ/math/style-01.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/math/style-01.typ"
+                                 "typ/math/style-01.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/math/style-01.typ"
+                                 "typ/math/style-01.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -45,28 +45,28 @@
     [ Text "A"
     , Text ","
     , Code
-        "test/typ/math/style-01.typ"
+        "typ/math/style-01.typ"
         ( line 3 , column 5 )
         (FuncCall (Ident (Identifier "italic")) [ BlockArg [ Text "A" ] ])
     , Text ","
     , Code
-        "test/typ/math/style-01.typ"
+        "typ/math/style-01.typ"
         ( line 3 , column 16 )
         (FuncCall (Ident (Identifier "upright")) [ BlockArg [ Text "A" ] ])
     , Text ","
     , Code
-        "test/typ/math/style-01.typ"
+        "typ/math/style-01.typ"
         ( line 3 , column 28 )
         (FuncCall (Ident (Identifier "bold")) [ BlockArg [ Text "A" ] ])
     , Text ","
     , Code
-        "test/typ/math/style-01.typ"
+        "typ/math/style-01.typ"
         ( line 3 , column 37 )
         (FuncCall
            (Ident (Identifier "bold"))
            [ BlockArg
                [ Code
-                   "test/typ/math/style-01.typ"
+                   "typ/math/style-01.typ"
                    ( line 3 , column 42 )
                    (FuncCall (Ident (Identifier "upright")) [ BlockArg [ Text "A" ] ])
                ]
@@ -74,57 +74,57 @@
     , Text ","
     , HardBreak
     , Code
-        "test/typ/math/style-01.typ"
+        "typ/math/style-01.typ"
         ( line 4 , column 2 )
         (FuncCall (Ident (Identifier "serif")) [ BlockArg [ Text "A" ] ])
     , Text ","
     , Code
-        "test/typ/math/style-01.typ"
+        "typ/math/style-01.typ"
         ( line 4 , column 12 )
         (FuncCall (Ident (Identifier "sans")) [ BlockArg [ Text "A" ] ])
     , Text ","
     , Code
-        "test/typ/math/style-01.typ"
+        "typ/math/style-01.typ"
         ( line 4 , column 21 )
         (FuncCall (Ident (Identifier "cal")) [ BlockArg [ Text "A" ] ])
     , Text ","
     , Code
-        "test/typ/math/style-01.typ"
+        "typ/math/style-01.typ"
         ( line 4 , column 29 )
         (FuncCall (Ident (Identifier "frak")) [ BlockArg [ Text "A" ] ])
     , Text ","
     , Code
-        "test/typ/math/style-01.typ"
+        "typ/math/style-01.typ"
         ( line 4 , column 38 )
         (FuncCall (Ident (Identifier "mono")) [ BlockArg [ Text "A" ] ])
     , Text ","
     , Code
-        "test/typ/math/style-01.typ"
+        "typ/math/style-01.typ"
         ( line 4 , column 47 )
         (FuncCall (Ident (Identifier "bb")) [ BlockArg [ Text "A" ] ])
     , Text ","
     , HardBreak
     , Code
-        "test/typ/math/style-01.typ"
+        "typ/math/style-01.typ"
         ( line 5 , column 2 )
         (FuncCall
            (Ident (Identifier "italic"))
            [ BlockArg
                [ Code
-                   "test/typ/math/style-01.typ"
+                   "typ/math/style-01.typ"
                    ( line 5 , column 9 )
                    (Ident (Identifier "diff"))
                ]
            ])
     , Text ","
     , Code
-        "test/typ/math/style-01.typ"
+        "typ/math/style-01.typ"
         ( line 5 , column 16 )
         (FuncCall
            (Ident (Identifier "upright"))
            [ BlockArg
                [ Code
-                   "test/typ/math/style-01.typ"
+                   "typ/math/style-01.typ"
                    ( line 5 , column 24 )
                    (Ident (Identifier "diff"))
                ]
@@ -132,18 +132,18 @@
     , Text ","
     , HardBreak
     , Code
-        "test/typ/math/style-01.typ"
+        "typ/math/style-01.typ"
         ( line 6 , column 2 )
         (FuncCall (Ident (Identifier "bb")) [ BlockArg [ Text "hello" ] ])
     , Text "+"
     , Code
-        "test/typ/math/style-01.typ"
+        "typ/math/style-01.typ"
         ( line 6 , column 16 )
         (FuncCall
            (Ident (Identifier "bold"))
            [ BlockArg
                [ Code
-                   "test/typ/math/style-01.typ"
+                   "typ/math/style-01.typ"
                    ( line 6 , column 21 )
                    (FuncCall (Ident (Identifier "cal")) [ BlockArg [ Text "world" ] ])
                ]
@@ -151,17 +151,17 @@
     , Text ","
     , HardBreak
     , Code
-        "test/typ/math/style-01.typ"
+        "typ/math/style-01.typ"
         ( line 7 , column 2 )
         (FuncCall
            (FuncCall (Ident (Identifier "mono")) [ BlockArg [ Text "SQRT" ] ])
            [ BlockArg [ Text "x" ] ])
     , Code
-        "test/typ/math/style-01.typ"
+        "typ/math/style-01.typ"
         ( line 7 , column 18 )
         (Ident (Identifier "wreath"))
     , Code
-        "test/typ/math/style-01.typ"
+        "typ/math/style-01.typ"
         ( line 7 , column 25 )
         (FuncCall
            (Ident (Identifier "mono"))

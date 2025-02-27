@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/compiler/label-04.typ"
+    "typ/compiler/label-04.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/compiler/label-04.typ"
+                                 "typ/compiler/label-04.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/compiler/label-04.typ"
+                                 "typ/compiler/label-04.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -41,23 +41,19 @@
 , SoftBreak
 , Comment
 , Code
-    "test/typ/compiler/label-04.typ"
+    "typ/compiler/label-04.typ"
     ( line 3 , column 2 )
     (Show (Just (Label "hide")) (Literal None))
 , ParBreak
 , Emph [ Text "Hidden" ]
 , SoftBreak
 , Code
-    "test/typ/compiler/label-04.typ"
-    ( line 6 , column 1 )
-    (Label "hide")
+    "typ/compiler/label-04.typ" ( line 6 , column 1 ) (Label "hide")
 , ParBreak
 , Emph [ Text "Hidden" ]
 , ParBreak
 , Code
-    "test/typ/compiler/label-04.typ"
-    ( line 10 , column 1 )
-    (Label "hide")
+    "typ/compiler/label-04.typ" ( line 10 , column 1 ) (Label "hide")
 , SoftBreak
 , Emph [ Text "Visible" ]
 , ParBreak

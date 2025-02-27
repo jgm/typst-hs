@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/regression/issue43.typ"
+    "typ/regression/issue43.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/regression/issue43.typ"
+                                 "typ/regression/issue43.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/regression/issue43.typ"
+                                 "typ/regression/issue43.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -40,17 +40,17 @@
                 ]))))
 , SoftBreak
 , Code
-    "test/typ/regression/issue43.typ"
+    "typ/regression/issue43.typ"
     ( line 2 , column 1 )
     (Label "foo:bar")
 , ParBreak
 , Code
-    "test/typ/regression/issue43.typ"
+    "typ/regression/issue43.typ"
     ( line 4 , column 2 )
     (Let (BasicBind (Just (Identifier "a"))) (Literal (String "a")))
 , ParBreak
 , Code
-    "test/typ/regression/issue43.typ"
+    "typ/regression/issue43.typ"
     ( line 6 , column 2 )
     (Let
        (BasicBind (Just (Identifier "w")))
@@ -61,49 +61,49 @@
              (Ident (Identifier "x")))))
 , ParBreak
 , Code
-    "test/typ/regression/issue43.typ"
+    "typ/regression/issue43.typ"
     ( line 8 , column 2 )
     (Let
        (BasicBind (Just (Identifier "x")))
        (Block (Content [ RawInline "hello" ])))
 , ParBreak
 , Code
-    "test/typ/regression/issue43.typ"
+    "typ/regression/issue43.typ"
     ( line 10 , column 2 )
     (Let
        (BasicBind (Just (Identifier "a")))
        (Dict [ Reg ( Ident (Identifier "a") , Literal (Int 1) ) ]))
 , ParBreak
 , Code
-    "test/typ/regression/issue43.typ"
+    "typ/regression/issue43.typ"
     ( line 12 , column 2 )
     (Let
        (BasicBind (Just (Identifier "b")))
        (Dict [ Reg ( Ident (Identifier "b") , Literal (Int 2) ) ]))
 , ParBreak
 , Code
-    "test/typ/regression/issue43.typ"
+    "typ/regression/issue43.typ"
     ( line 14 , column 2 )
     (Let
        (BasicBind (Just (Identifier "c")))
        (Dict [ Reg ( Ident (Identifier "c") , Literal (Int 3) ) ]))
 , ParBreak
 , Code
-    "test/typ/regression/issue43.typ"
+    "typ/regression/issue43.typ"
     ( line 16 , column 2 )
     (Let
        (BasicBind (Just (Identifier "d")))
        (Dict [ Spr (Ident (Identifier "a")) ]))
 , ParBreak
 , Code
-    "test/typ/regression/issue43.typ"
+    "typ/regression/issue43.typ"
     ( line 18 , column 2 )
     (Let
        (BasicBind (Just (Identifier "e")))
        (Dict [ Spr (Ident (Identifier "b")) ]))
 , ParBreak
 , Code
-    "test/typ/regression/issue43.typ"
+    "typ/regression/issue43.typ"
     ( line 20 , column 2 )
     (Let (BasicBind (Just (Identifier "f"))) (Dict []))
 , ParBreak

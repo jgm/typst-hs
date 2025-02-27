@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/math/style-02.typ"
+    "typ/math/style-02.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/math/style-02.typ"
+                                 "typ/math/style-02.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/math/style-02.typ"
+                                 "typ/math/style-02.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -45,60 +45,60 @@
     [ Text "h"
     , Text ","
     , Code
-        "test/typ/math/style-02.typ"
+        "typ/math/style-02.typ"
         ( line 3 , column 5 )
         (FuncCall (Ident (Identifier "bb")) [ BlockArg [ Text "N" ] ])
     , Text ","
     , Code
-        "test/typ/math/style-02.typ"
+        "typ/math/style-02.typ"
         ( line 3 , column 12 )
         (FuncCall (Ident (Identifier "cal")) [ BlockArg [ Text "R" ] ])
     , Text ","
     , Code
-        "test/typ/math/style-02.typ"
+        "typ/math/style-02.typ"
         ( line 3 , column 20 )
         (Ident (Identifier "Theta"))
     , Text ","
     , Code
-        "test/typ/math/style-02.typ"
+        "typ/math/style-02.typ"
         ( line 3 , column 27 )
         (FuncCall
            (Ident (Identifier "italic"))
            [ BlockArg
                [ Code
-                   "test/typ/math/style-02.typ"
+                   "typ/math/style-02.typ"
                    ( line 3 , column 34 )
                    (Ident (Identifier "Theta"))
                ]
            ])
     , Text ","
     , Code
-        "test/typ/math/style-02.typ"
+        "typ/math/style-02.typ"
         ( line 3 , column 42 )
         (FuncCall
            (Ident (Identifier "sans"))
            [ BlockArg
                [ Code
-                   "test/typ/math/style-02.typ"
+                   "typ/math/style-02.typ"
                    ( line 3 , column 47 )
                    (Ident (Identifier "Theta"))
                ]
            ])
     , Text ","
     , Code
-        "test/typ/math/style-02.typ"
+        "typ/math/style-02.typ"
         ( line 3 , column 55 )
         (FuncCall
            (Ident (Identifier "sans"))
            [ BlockArg
                [ Code
-                   "test/typ/math/style-02.typ"
+                   "typ/math/style-02.typ"
                    ( line 3 , column 60 )
                    (FuncCall
                       (Ident (Identifier "italic"))
                       [ BlockArg
                           [ Code
-                              "test/typ/math/style-02.typ"
+                              "typ/math/style-02.typ"
                               ( line 3 , column 67 )
                               (Ident (Identifier "Theta"))
                           ]

@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/layout/terms-03.typ"
+    "typ/layout/terms-03.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/layout/terms-03.typ"
+                                 "typ/layout/terms-03.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/layout/terms-03.typ"
+                                 "typ/layout/terms-03.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -41,7 +41,7 @@
 , SoftBreak
 , Comment
 , Code
-    "test/typ/layout/terms-03.typ"
+    "typ/layout/terms-03.typ"
     ( line 3 , column 2 )
     (Set
        (Ident (Identifier "text"))
@@ -50,7 +50,7 @@
 , DescListItem
     [ Text "First" , Space , Text "list" ]
     [ Code
-        "test/typ/layout/terms-03.typ"
+        "typ/layout/terms-03.typ"
         ( line 4 , column 16 )
         (FuncCall
            (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 6)) ])
@@ -58,7 +58,7 @@
     ]
 , SoftBreak
 , Code
-    "test/typ/layout/terms-03.typ"
+    "typ/layout/terms-03.typ"
     ( line 6 , column 2 )
     (Set
        (Ident (Identifier "terms"))
@@ -69,7 +69,7 @@
 , DescListItem
     [ Text "Second" , Space , Text "list" ]
     [ Code
-        "test/typ/layout/terms-03.typ"
+        "typ/layout/terms-03.typ"
         ( line 7 , column 17 )
         (FuncCall
            (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 5)) ])

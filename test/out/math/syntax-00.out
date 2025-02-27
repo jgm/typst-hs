@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/math/syntax-00.typ"
+    "typ/math/syntax-00.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/math/syntax-00.typ"
+                                 "typ/math/syntax-00.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/math/syntax-00.typ"
+                                 "typ/math/syntax-00.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -54,13 +54,13 @@
         (Just (MGroup Nothing Nothing [ Text "i" , Text "=" , Text "0" ]))
         (Just
            (Code
-              "test/typ/math/syntax-00.typ"
+              "typ/math/syntax-00.typ"
               ( line 3 , column 36 )
               (Ident (Identifier "NN"))))
         (Text "\8721")
     , Text "a"
     , Code
-        "test/typ/math/syntax-00.typ"
+        "typ/math/syntax-00.typ"
         ( line 3 , column 41 )
         (Ident (Identifier "compose"))
     , Text "b"

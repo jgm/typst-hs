@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/compiler/if-02.typ"
+    "typ/compiler/if-02.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/compiler/if-02.typ"
+                                 "typ/compiler/if-02.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/compiler/if-02.typ"
+                                 "typ/compiler/if-02.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -43,7 +43,7 @@
 , Comment
 , SoftBreak
 , Code
-    "test/typ/compiler/if-02.typ"
+    "typ/compiler/if-02.typ"
     ( line 5 , column 2 )
     (LetFunc
        (Identifier "nth")
@@ -69,7 +69,7 @@
              ])))
 , ParBreak
 , Code
-    "test/typ/compiler/if-02.typ"
+    "typ/compiler/if-02.typ"
     ( line 13 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -80,7 +80,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/if-02.typ"
+    "typ/compiler/if-02.typ"
     ( line 14 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -91,7 +91,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/if-02.typ"
+    "typ/compiler/if-02.typ"
     ( line 15 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -102,7 +102,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/if-02.typ"
+    "typ/compiler/if-02.typ"
     ( line 16 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -113,7 +113,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/if-02.typ"
+    "typ/compiler/if-02.typ"
     ( line 17 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))

@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/layout/page-02.typ"
+    "typ/layout/page-02.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/layout/page-02.typ"
+                                 "typ/layout/page-02.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/layout/page-02.typ"
+                                 "typ/layout/page-02.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -42,7 +42,7 @@
 , Comment
 , Comment
 , Code
-    "test/typ/layout/page-02.typ"
+    "typ/layout/page-02.typ"
     ( line 4 , column 2 )
     (Set
        (Ident (Identifier "page"))
@@ -51,12 +51,12 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/layout/page-02.typ"
+    "typ/layout/page-02.typ"
     ( line 5 , column 2 )
     (Block
        (Content
           [ Code
-              "test/typ/layout/page-02.typ"
+              "typ/layout/page-02.typ"
               ( line 5 , column 4 )
               (Set
                  (Ident (Identifier "page"))
@@ -65,12 +65,12 @@
           ]))
 , SoftBreak
 , Code
-    "test/typ/layout/page-02.typ"
+    "typ/layout/page-02.typ"
     ( line 6 , column 2 )
     (Block
        (Content
           [ Code
-              "test/typ/layout/page-02.typ"
+              "typ/layout/page-02.typ"
               ( line 6 , column 4 )
               (Set
                  (Ident (Identifier "page"))
@@ -80,12 +80,12 @@
 , ParBreak
 , Comment
 , Code
-    "test/typ/layout/page-02.typ"
+    "typ/layout/page-02.typ"
     ( line 9 , column 2 )
     (Block
        (Content
           [ Code
-              "test/typ/layout/page-02.typ"
+              "typ/layout/page-02.typ"
               ( line 9 , column 4 )
               (Set
                  (Ident (Identifier "page"))

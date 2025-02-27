@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/layout/repeat-00.typ"
+    "typ/layout/repeat-00.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/layout/repeat-00.typ"
+                                 "typ/layout/repeat-00.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/layout/repeat-00.typ"
+                                 "typ/layout/repeat-00.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -41,7 +41,7 @@
 , SoftBreak
 , Comment
 , Code
-    "test/typ/layout/repeat-00.typ"
+    "typ/layout/repeat-00.typ"
     ( line 3 , column 2 )
     (Let
        (BasicBind (Just (Identifier "sections")))
@@ -67,7 +67,7 @@
           ]))
 , ParBreak
 , Code
-    "test/typ/layout/repeat-00.typ"
+    "typ/layout/repeat-00.typ"
     ( line 12 , column 2 )
     (For
        (BasicBind (Just (Identifier "section")))
@@ -76,7 +76,7 @@
           (Content
              [ SoftBreak
              , Code
-                 "test/typ/layout/repeat-00.typ"
+                 "typ/layout/repeat-00.typ"
                  ( line 13 , column 4 )
                  (FuncCall
                     (FieldAccess
@@ -84,7 +84,7 @@
                     [ NormalArg (Literal (Int 0)) ])
              , Space
              , Code
-                 "test/typ/layout/repeat-00.typ"
+                 "typ/layout/repeat-00.typ"
                  ( line 13 , column 19 )
                  (FuncCall
                     (Ident (Identifier "box"))
@@ -94,7 +94,7 @@
                     ])
              , Space
              , Code
-                 "test/typ/layout/repeat-00.typ"
+                 "typ/layout/repeat-00.typ"
                  ( line 13 , column 47 )
                  (FuncCall
                     (FieldAccess

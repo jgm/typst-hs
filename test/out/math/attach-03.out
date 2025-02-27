@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/math/attach-03.typ"
+    "typ/math/attach-03.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/math/attach-03.typ"
+                                 "typ/math/attach-03.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/math/attach-03.typ"
+                                 "typ/math/attach-03.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -46,7 +46,7 @@
         (Just (Text "1"))
         Nothing
         (Code
-           "test/typ/math/attach-03.typ"
+           "typ/math/attach-03.typ"
            ( line 3 , column 2 )
            (Ident (Identifier "pi")))
     , MGroup (Just "(") (Just ")") [ Text "Y" ]
@@ -64,7 +64,7 @@
         Nothing
         (Just
            (Code
-              "test/typ/math/attach-03.typ"
+              "typ/math/attach-03.typ"
               ( line 3 , column 21 )
               (FuncCall (Ident (Identifier "zeta")) [ BlockArg [ Text "x" ] ])))
         (Text "a")
@@ -73,7 +73,7 @@
         Nothing
         (Just
            (Code
-              "test/typ/math/attach-03.typ"
+              "typ/math/attach-03.typ"
               ( line 4 , column 4 )
               (FuncCall
                  (FieldAccess
@@ -87,7 +87,7 @@
               Nothing
               Nothing
               [ Code
-                  "test/typ/math/attach-03.typ"
+                  "typ/math/attach-03.typ"
                   ( line 4 , column 21 )
                   (FuncCall (Ident (Identifier "zeta")) [ BlockArg [ Text "x" ] ])
               ]))
@@ -102,7 +102,7 @@
               [ Text "1" , MGroup (Just "(") (Just ")") [ Text "Y" ] ]))
         Nothing
         (Code
-           "test/typ/math/attach-03.typ"
+           "typ/math/attach-03.typ"
            ( line 4 , column 31 )
            (Ident (Identifier "pi")))
     ]

@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/layout/place-00.typ"
+    "typ/layout/place-00.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/layout/place-00.typ"
+                                 "typ/layout/place-00.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/layout/place-00.typ"
+                                 "typ/layout/place-00.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -40,13 +40,13 @@
                 ]))))
 , SoftBreak
 , Code
-    "test/typ/layout/place-00.typ"
+    "typ/layout/place-00.typ"
     ( line 2 , column 2 )
     (Set
        (Ident (Identifier "page")) [ NormalArg (Literal (String "a8")) ])
 , SoftBreak
 , Code
-    "test/typ/layout/place-00.typ"
+    "typ/layout/place-00.typ"
     ( line 3 , column 2 )
     (FuncCall
        (Ident (Identifier "place"))
@@ -57,7 +57,7 @@
 , ParBreak
 , Heading 1 [ Text "Placement" ]
 , Code
-    "test/typ/layout/place-00.typ"
+    "typ/layout/place-00.typ"
     ( line 6 , column 2 )
     (FuncCall
        (Ident (Identifier "place"))
@@ -111,7 +111,7 @@
 , Text "."
 , ParBreak
 , Code
-    "test/typ/layout/place-00.typ"
+    "typ/layout/place-00.typ"
     ( line 12 , column 2 )
     (FuncCall
        (Ident (Identifier "stack"))
@@ -150,7 +150,7 @@
               [ BlockArg
                   [ SoftBreak
                   , Code
-                      "test/typ/layout/place-00.typ"
+                      "typ/layout/place-00.typ"
                       ( line 19 , column 6 )
                       (FuncCall
                          (Ident (Identifier "place"))
@@ -161,7 +161,7 @@
                          ])
                   , SoftBreak
                   , Code
-                      "test/typ/layout/place-00.typ"
+                      "typ/layout/place-00.typ"
                       ( line 20 , column 6 )
                       (FuncCall
                          (Ident (Identifier "place"))
@@ -174,7 +174,7 @@
                   , Text "Hello"
                   , Space
                   , Code
-                      "test/typ/layout/place-00.typ"
+                      "typ/layout/place-00.typ"
                       ( line 21 , column 12 )
                       (FuncCall
                          (Ident (Identifier "h")) [ NormalArg (Literal (Numeric 1.0 Fr)) ])

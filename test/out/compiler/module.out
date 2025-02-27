@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/compiler/module.typ"
+    "typ/compiler/module.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/compiler/module.typ"
+                                 "typ/compiler/module.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/compiler/module.typ"
+                                 "typ/compiler/module.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -43,34 +43,34 @@
 , Comment
 , SoftBreak
 , Code
-    "test/typ/compiler/module.typ"
+    "typ/compiler/module.typ"
     ( line 5 , column 2 )
     (Let (BasicBind (Just (Identifier "a"))) (Literal None))
 , SoftBreak
 , Code
-    "test/typ/compiler/module.typ"
+    "typ/compiler/module.typ"
     ( line 6 , column 2 )
     (Let (BasicBind (Just (Identifier "b"))) (Literal (Int 1)))
 , SoftBreak
 , Code
-    "test/typ/compiler/module.typ"
+    "typ/compiler/module.typ"
     ( line 7 , column 2 )
     (Let (BasicBind (Just (Identifier "c"))) (Literal (Int 2)))
 , SoftBreak
 , Code
-    "test/typ/compiler/module.typ"
+    "typ/compiler/module.typ"
     ( line 8 , column 2 )
     (Let (BasicBind (Just (Identifier "d"))) (Literal (Int 3)))
 , SoftBreak
 , Code
-    "test/typ/compiler/module.typ"
+    "typ/compiler/module.typ"
     ( line 9 , column 2 )
     (Let
        (BasicBind (Just (Identifier "value")))
        (Block (Content [ Text "hi" ])))
 , SoftBreak
 , Code
-    "test/typ/compiler/module.typ"
+    "typ/compiler/module.typ"
     ( line 10 , column 2 )
     (LetFunc
        (Identifier "item")
@@ -78,7 +78,7 @@
        (Plus (Ident (Identifier "a")) (Ident (Identifier "b"))))
 , SoftBreak
 , Code
-    "test/typ/compiler/module.typ"
+    "typ/compiler/module.typ"
     ( line 11 , column 2 )
     (LetFunc
        (Identifier "push")
@@ -86,7 +86,7 @@
        (Plus (Ident (Identifier "a")) (Literal (Int 1))))
 , SoftBreak
 , Code
-    "test/typ/compiler/module.typ"
+    "typ/compiler/module.typ"
     ( line 12 , column 2 )
     (Let
        (BasicBind (Just (Identifier "fn")))

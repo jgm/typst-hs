@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/math/accent-05.typ"
+    "typ/math/accent-05.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/math/accent-05.typ"
+                                 "typ/math/accent-05.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/math/accent-05.typ"
+                                 "typ/math/accent-05.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -44,31 +44,31 @@
     False
     [ MAttach Nothing (Just (Text "x")) (Text "A")
     , Code
-        "test/typ/math/accent-05.typ"
+        "typ/math/accent-05.typ"
         ( line 3 , column 6 )
         (FieldAccess (Ident (Identifier "not")) (Ident (Identifier "eq")))
     , MAttach
         Nothing
         (Just (Text "x"))
         (Code
-           "test/typ/math/accent-05.typ"
+           "typ/math/accent-05.typ"
            ( line 3 , column 9 )
            (FuncCall (Ident (Identifier "hat")) [ BlockArg [ Text "A" ] ]))
     , Code
-        "test/typ/math/accent-05.typ"
+        "typ/math/accent-05.typ"
         ( line 3 , column 18 )
         (FieldAccess (Ident (Identifier "not")) (Ident (Identifier "eq")))
     , MAttach
         Nothing
         (Just (Text "x"))
         (Code
-           "test/typ/math/accent-05.typ"
+           "typ/math/accent-05.typ"
            ( line 3 , column 21 )
            (FuncCall
               (Ident (Identifier "hat"))
               [ BlockArg
                   [ Code
-                      "test/typ/math/accent-05.typ"
+                      "typ/math/accent-05.typ"
                       ( line 3 , column 25 )
                       (FuncCall (Ident (Identifier "hat")) [ BlockArg [ Text "A" ] ])
                   ]

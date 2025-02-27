@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/math/matrix-04.typ"
+    "typ/math/matrix-04.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/math/matrix-04.typ"
+                                 "typ/math/matrix-04.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/math/matrix-04.typ"
+                                 "typ/math/matrix-04.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -41,14 +41,14 @@
 , SoftBreak
 , Comment
 , Code
-    "test/typ/math/matrix-04.typ"
+    "typ/math/matrix-04.typ"
     ( line 3 , column 2 )
     (Set
        (Ident (Identifier "align"))
        [ NormalArg (Ident (Identifier "center")) ])
 , SoftBreak
 , Code
-    "test/typ/math/matrix-04.typ"
+    "typ/math/matrix-04.typ"
     ( line 4 , column 2 )
     (FuncCall
        (Ident (Identifier "grid"))
@@ -60,7 +60,7 @@
                  [ Equation
                      True
                      [ Code
-                         "test/typ/math/matrix-04.typ"
+                         "typ/math/matrix-04.typ"
                          ( line 8 , column 5 )
                          (FuncCall
                             (Ident (Identifier "mat"))
@@ -76,7 +76,7 @@
                  [ Equation
                      True
                      [ Code
-                         "test/typ/math/matrix-04.typ"
+                         "typ/math/matrix-04.typ"
                          ( line 9 , column 5 )
                          (FuncCall
                             (Ident (Identifier "mat"))
@@ -91,7 +91,7 @@
                  [ Equation
                      True
                      [ Code
-                         "test/typ/math/matrix-04.typ"
+                         "typ/math/matrix-04.typ"
                          ( line 10 , column 5 )
                          (FuncCall
                             (Ident (Identifier "mat"))
@@ -107,7 +107,7 @@
                  [ Equation
                      True
                      [ Code
-                         "test/typ/math/matrix-04.typ"
+                         "typ/math/matrix-04.typ"
                          ( line 12 , column 5 )
                          (FuncCall
                             (Ident (Identifier "mat"))
@@ -122,7 +122,7 @@
                  [ Equation
                      True
                      [ Code
-                         "test/typ/math/matrix-04.typ"
+                         "typ/math/matrix-04.typ"
                          ( line 13 , column 5 )
                          (FuncCall
                             (Ident (Identifier "mat"))
@@ -138,7 +138,7 @@
                  [ Equation
                      True
                      [ Code
-                         "test/typ/math/matrix-04.typ"
+                         "typ/math/matrix-04.typ"
                          ( line 14 , column 5 )
                          (FuncCall
                             (Ident (Identifier "mat"))
@@ -153,7 +153,7 @@
                  [ Equation
                      True
                      [ Code
-                         "test/typ/math/matrix-04.typ"
+                         "typ/math/matrix-04.typ"
                          ( line 16 , column 5 )
                          (FuncCall
                             (Ident (Identifier "mat"))
@@ -170,7 +170,7 @@
                  [ Equation
                      True
                      [ Code
-                         "test/typ/math/matrix-04.typ"
+                         "typ/math/matrix-04.typ"
                          ( line 17 , column 5 )
                          (FuncCall
                             (Ident (Identifier "mat"))
@@ -185,7 +185,7 @@
                  [ Equation
                      True
                      [ Code
-                         "test/typ/math/matrix-04.typ"
+                         "typ/math/matrix-04.typ"
                          ( line 18 , column 5 )
                          (FuncCall
                             (Ident (Identifier "mat"))

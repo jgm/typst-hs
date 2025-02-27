@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/meta/query-figure-00.typ"
+    "typ/meta/query-figure-00.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/meta/query-figure-00.typ"
+                                 "typ/meta/query-figure-00.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/meta/query-figure-00.typ"
+                                 "typ/meta/query-figure-00.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -40,7 +40,7 @@
                 ]))))
 , SoftBreak
 , Code
-    "test/typ/meta/query-figure-00.typ"
+    "typ/meta/query-figure-00.typ"
     ( line 2 , column 2 )
     (Set
        (Ident (Identifier "page"))
@@ -55,14 +55,14 @@
        ])
 , ParBreak
 , Code
-    "test/typ/meta/query-figure-00.typ"
+    "typ/meta/query-figure-00.typ"
     ( line 8 , column 2 )
     (Set
        (Ident (Identifier "figure"))
        [ KeyValArg (Identifier "numbering") (Literal (String "I")) ])
 , SoftBreak
 , Code
-    "test/typ/meta/query-figure-00.typ"
+    "typ/meta/query-figure-00.typ"
     ( line 9 , column 2 )
     (Show
        (Just (Ident (Identifier "figure")))
@@ -74,7 +74,7 @@
 , Heading
     1 [ Text "List" , Space , Text "of" , Space , Text "Figures" ]
 , Code
-    "test/typ/meta/query-figure-00.typ"
+    "typ/meta/query-figure-00.typ"
     ( line 12 , column 2 )
     (FuncCall
        (Ident (Identifier "locate"))
@@ -106,7 +106,7 @@
                               , Text "Figure"
                               , SoftBreak
                               , Code
-                                  "test/typ/meta/query-figure-00.typ"
+                                  "typ/meta/query-figure-00.typ"
                                   ( line 16 , column 6 )
                                   (FuncCall
                                      (Ident (Identifier "numbering"))
@@ -132,13 +132,13 @@
                               , Text ":"
                               , SoftBreak
                               , Code
-                                  "test/typ/meta/query-figure-00.typ"
+                                  "typ/meta/query-figure-00.typ"
                                   ( line 18 , column 6 )
                                   (FieldAccess
                                      (Ident (Identifier "caption")) (Ident (Identifier "it")))
                               , SoftBreak
                               , Code
-                                  "test/typ/meta/query-figure-00.typ"
+                                  "typ/meta/query-figure-00.typ"
                                   ( line 19 , column 6 )
                                   (FuncCall
                                      (Ident (Identifier "box"))
@@ -149,7 +149,7 @@
                                      ])
                               , SoftBreak
                               , Code
-                                  "test/typ/meta/query-figure-00.typ"
+                                  "typ/meta/query-figure-00.typ"
                                   ( line 20 , column 6 )
                                   (FuncCall
                                      (FieldAccess
@@ -175,7 +175,7 @@
        ])
 , ParBreak
 , Code
-    "test/typ/meta/query-figure-00.typ"
+    "typ/meta/query-figure-00.typ"
     ( line 24 , column 2 )
     (FuncCall
        (Ident (Identifier "figure"))
@@ -189,7 +189,7 @@
        ])
 , ParBreak
 , Code
-    "test/typ/meta/query-figure-00.typ"
+    "typ/meta/query-figure-00.typ"
     ( line 29 , column 2 )
     (FuncCall
        (Ident (Identifier "figure"))
@@ -218,7 +218,7 @@
        ])
 , ParBreak
 , Code
-    "test/typ/meta/query-figure-00.typ"
+    "typ/meta/query-figure-00.typ"
     ( line 36 , column 2 )
     (FuncCall
        (Ident (Identifier "figure"))

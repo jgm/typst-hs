@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/math/root-03.typ"
+    "typ/math/root-03.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/math/root-03.typ"
+                                 "typ/math/root-03.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/math/root-03.typ"
+                                 "typ/math/root-03.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -43,13 +43,13 @@
 , Equation
     True
     [ Code
-        "test/typ/math/root-03.typ"
+        "typ/math/root-03.typ"
         ( line 3 , column 3 )
         (FuncCall
            (Ident (Identifier "sqrt"))
            [ BlockArg
                [ Code
-                   "test/typ/math/root-03.typ"
+                   "typ/math/root-03.typ"
                    ( line 3 , column 8 )
                    (FieldAccess
                       (Ident (Identifier "l"))
@@ -60,7 +60,7 @@
                    Nothing
                    (Just (Text "2"))
                    (Code
-                      "test/typ/math/root-03.typ"
+                      "typ/math/root-03.typ"
                       ( line 3 , column 11 )
                       (FieldAccess
                          (Ident (Identifier "r"))
@@ -68,7 +68,7 @@
                             (Ident (Identifier "double")) (Ident (Identifier "bracket")))))
                , Text "+"
                , Code
-                   "test/typ/math/root-03.typ"
+                   "typ/math/root-03.typ"
                    ( line 3 , column 18 )
                    (FieldAccess
                       (Ident (Identifier "l"))
@@ -79,7 +79,7 @@
                    Nothing
                    (Just (Text "2"))
                    (Code
-                      "test/typ/math/root-03.typ"
+                      "typ/math/root-03.typ"
                       ( line 3 , column 21 )
                       (FieldAccess
                          (Ident (Identifier "r"))
@@ -89,7 +89,7 @@
            ])
     , Text "<"
     , Code
-        "test/typ/math/root-03.typ"
+        "typ/math/root-03.typ"
         ( line 3 , column 29 )
         (FieldAccess
            (Ident (Identifier "l"))
@@ -97,7 +97,7 @@
               (Ident (Identifier "double")) (Ident (Identifier "bracket"))))
     , Text "z"
     , Code
-        "test/typ/math/root-03.typ"
+        "typ/math/root-03.typ"
         ( line 3 , column 32 )
         (FieldAccess
            (Ident (Identifier "r"))
@@ -110,7 +110,7 @@
     [ Text "v"
     , Text "="
     , Code
-        "test/typ/math/root-03.typ"
+        "typ/math/root-03.typ"
         ( line 4 , column 7 )
         (FuncCall
            (Ident (Identifier "sqrt"))
@@ -122,7 +122,7 @@
            ])
     , Text "="
     , Code
-        "test/typ/math/root-03.typ"
+        "typ/math/root-03.typ"
         ( line 5 , column 6 )
         (FuncCall
            (Ident (Identifier "root"))
@@ -139,7 +139,7 @@
            ])
     , Text "="
     , Code
-        "test/typ/math/root-03.typ"
+        "typ/math/root-03.typ"
         ( line 6 , column 6 )
         (FuncCall
            (Ident (Identifier "root"))

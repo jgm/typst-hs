@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/math/cancel-02.typ"
+    "typ/math/cancel-02.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/math/cancel-02.typ"
+                                 "typ/math/cancel-02.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/math/cancel-02.typ"
+                                 "typ/math/cancel-02.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -45,7 +45,7 @@
     [ Text "a"
     , Text "+"
     , Code
-        "test/typ/math/cancel-02.typ"
+        "typ/math/cancel-02.typ"
         ( line 3 , column 6 )
         (FuncCall
            (Ident (Identifier "cancel"))
@@ -53,11 +53,11 @@
            , KeyValArg (Identifier "inverted") (Literal (Boolean True))
            ])
     , Code
-        "test/typ/math/cancel-02.typ"
+        "typ/math/cancel-02.typ"
         ( line 3 , column 33 )
         (Ident (Identifier "minus"))
     , Code
-        "test/typ/math/cancel-02.typ"
+        "typ/math/cancel-02.typ"
         ( line 3 , column 35 )
         (FuncCall
            (Ident (Identifier "cancel"))
@@ -68,15 +68,15 @@
     , Text "10"
     , Text "+"
     , Code
-        "test/typ/math/cancel-02.typ"
+        "typ/math/cancel-02.typ"
         ( line 3 , column 69 )
         (FuncCall (Ident (Identifier "cancel")) [ BlockArg [ Text "y" ] ])
     , Code
-        "test/typ/math/cancel-02.typ"
+        "typ/math/cancel-02.typ"
         ( line 3 , column 79 )
         (Ident (Identifier "minus"))
     , Code
-        "test/typ/math/cancel-02.typ"
+        "typ/math/cancel-02.typ"
         ( line 3 , column 81 )
         (FuncCall (Ident (Identifier "cancel")) [ BlockArg [ Text "y" ] ])
     ]
@@ -86,7 +86,7 @@
     [ Text "x"
     , Text "+"
     , Code
-        "test/typ/math/cancel-02.typ"
+        "typ/math/cancel-02.typ"
         ( line 4 , column 7 )
         (FuncCall
            (Ident (Identifier "cancel"))

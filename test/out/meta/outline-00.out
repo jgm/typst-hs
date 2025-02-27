@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/meta/outline-00.typ"
+    "typ/meta/outline-00.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/meta/outline-00.typ"
+                                 "typ/meta/outline-00.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/meta/outline-00.typ"
+                                 "typ/meta/outline-00.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -40,7 +40,7 @@
                 ]))))
 , SoftBreak
 , Code
-    "test/typ/meta/outline-00.typ"
+    "typ/meta/outline-00.typ"
     ( line 2 , column 2 )
     (Set
        (Ident (Identifier "page"))
@@ -50,14 +50,14 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/meta/outline-00.typ"
+    "typ/meta/outline-00.typ"
     ( line 3 , column 2 )
     (Set
        (Ident (Identifier "heading"))
        [ KeyValArg (Identifier "numbering") (Literal (String "(1/a)")) ])
 , SoftBreak
 , Code
-    "test/typ/meta/outline-00.typ"
+    "typ/meta/outline-00.typ"
     ( line 4 , column 2 )
     (Show
        (Just
@@ -70,7 +70,7 @@
           [ NormalArg (Literal (Numeric 12.0 Pt)) ]))
 , SoftBreak
 , Code
-    "test/typ/meta/outline-00.typ"
+    "typ/meta/outline-00.typ"
     ( line 5 , column 2 )
     (Show
        (Just
@@ -83,32 +83,32 @@
           [ NormalArg (Literal (Numeric 10.0 Pt)) ]))
 , ParBreak
 , Code
-    "test/typ/meta/outline-00.typ"
+    "typ/meta/outline-00.typ"
     ( line 7 , column 2 )
     (FuncCall (Ident (Identifier "outline")) [])
 , ParBreak
 , Heading 1 [ Text "Einleitung" ]
 , Code
-    "test/typ/meta/outline-00.typ"
+    "typ/meta/outline-00.typ"
     ( line 10 , column 2 )
     (FuncCall
        (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 12)) ])
 , ParBreak
 , Heading 1 [ Text "Analyse" ]
 , Code
-    "test/typ/meta/outline-00.typ"
+    "typ/meta/outline-00.typ"
     ( line 13 , column 2 )
     (FuncCall
        (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 10)) ])
 , ParBreak
 , Code
-    "test/typ/meta/outline-00.typ"
+    "typ/meta/outline-00.typ"
     ( line 15 , column 2 )
     (Block
        (Content
           [ SoftBreak
           , Code
-              "test/typ/meta/outline-00.typ"
+              "typ/meta/outline-00.typ"
               ( line 16 , column 4 )
               (Set
                  (Ident (Identifier "heading"))
@@ -116,7 +116,7 @@
           , SoftBreak
           , Heading 2 [ Text "Methodik" ]
           , Code
-              "test/typ/meta/outline-00.typ"
+              "typ/meta/outline-00.typ"
               ( line 18 , column 4 )
               (FuncCall
                  (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 6)) ])
@@ -125,7 +125,7 @@
 , ParBreak
 , Heading 2 [ Text "Verarbeitung" ]
 , Code
-    "test/typ/meta/outline-00.typ"
+    "typ/meta/outline-00.typ"
     ( line 22 , column 2 )
     (FuncCall
        (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 4)) ])
@@ -139,7 +139,7 @@
 , Ellipsis
 , ParBreak
 , Code
-    "test/typ/meta/outline-00.typ"
+    "typ/meta/outline-00.typ"
     ( line 34 , column 2 )
     (Set
        (Ident (Identifier "heading"))
@@ -148,7 +148,7 @@
 , Heading
     1
     [ Code
-        "test/typ/meta/outline-00.typ"
+        "typ/meta/outline-00.typ"
         ( line 36 , column 4 )
         (FuncCall
            (Ident (Identifier "text"))
@@ -158,7 +158,7 @@
     , Text "fassung"
     ]
 , Code
-    "test/typ/meta/outline-00.typ"
+    "typ/meta/outline-00.typ"
     ( line 37 , column 2 )
     (FuncCall
        (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 10)) ])

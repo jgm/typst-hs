@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/math/frac-06.typ"
+    "typ/math/frac-06.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/math/frac-06.typ"
+                                 "typ/math/frac-06.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/math/frac-06.typ"
+                                 "typ/math/frac-06.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -55,14 +55,14 @@
     , Text ","
     , MFrac
         (Code
-           "test/typ/math/frac-06.typ"
+           "typ/math/frac-06.typ"
            ( line 3 , column 20 )
            (FuncCall (Ident (Identifier "zeta")) [ BlockArg [ Text "x" ] ]))
         (Text "2")
     , Text ","
     , Text " foo"
     , Code
-        "test/typ/math/frac-06.typ"
+        "typ/math/frac-06.typ"
         ( line 3 , column 36 )
         (FieldAccess
            (Ident (Identifier "l"))
@@ -71,7 +71,7 @@
     , Text "x"
     , MFrac
         (Code
-           "test/typ/math/frac-06.typ"
+           "typ/math/frac-06.typ"
            ( line 3 , column 39 )
            (FieldAccess
               (Ident (Identifier "r"))
@@ -93,7 +93,7 @@
     , MFrac (MGroup (Just "[") (Just "]") [ Text "x" ]) (Text "2")
     , Text ","
     , Code
-        "test/typ/math/frac-06.typ"
+        "typ/math/frac-06.typ"
         ( line 5 , column 23 )
         (Ident (Identifier "phi"))
     , MFrac (MGroup (Just "[") (Just "]") [ Text "x" ]) (Text "2")

@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/meta/cite-footnote-00.typ"
+    "typ/meta/cite-footnote-00.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/meta/cite-footnote-00.typ"
+                                 "typ/meta/cite-footnote-00.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/meta/cite-footnote-00.typ"
+                                 "typ/meta/cite-footnote-00.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -51,12 +51,12 @@
 , Ref "netwok" (Literal Auto)
 , ParBreak
 , Code
-    "test/typ/meta/cite-footnote-00.typ"
+    "typ/meta/cite-footnote-00.typ"
     ( line 5 , column 2 )
     (FuncCall (Ident (Identifier "pagebreak")) [])
 , SoftBreak
 , Code
-    "test/typ/meta/cite-footnote-00.typ"
+    "typ/meta/cite-footnote-00.typ"
     ( line 6 , column 2 )
     (FuncCall
        (Ident (Identifier "bibliography"))

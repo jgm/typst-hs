@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/text/space-00.typ"
+    "typ/text/space-00.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/text/space-00.typ"
+                                 "typ/text/space-00.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/text/space-00.typ"
+                                 "typ/text/space-00.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -42,13 +42,13 @@
 , Comment
 , Text "A"
 , Code
-    "test/typ/text/space-00.typ"
+    "typ/text/space-00.typ"
     ( line 3 , column 3 )
     (Let (BasicBind (Just (Identifier "x"))) (Literal (Int 1)))
 , Text "B"
 , Space
 , Code
-    "test/typ/text/space-00.typ"
+    "typ/text/space-00.typ"
     ( line 3 , column 17 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -60,13 +60,13 @@
 , Text "C"
 , Space
 , Code
-    "test/typ/text/space-00.typ"
+    "typ/text/space-00.typ"
     ( line 4 , column 4 )
     (Let (BasicBind (Just (Identifier "x"))) (Literal (Int 2)))
 , Text "D"
 , Space
 , Code
-    "test/typ/text/space-00.typ"
+    "typ/text/space-00.typ"
     ( line 4 , column 17 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -77,7 +77,7 @@
 , HardBreak
 , Text "E"
 , Code
-    "test/typ/text/space-00.typ"
+    "typ/text/space-00.typ"
     ( line 5 , column 3 )
     (If [ ( Literal (Boolean True) , Block (Content [ Text "F" ]) ) ])
 , Text "G"
@@ -86,7 +86,7 @@
 , Text "H"
 , Space
 , Code
-    "test/typ/text/space-00.typ"
+    "typ/text/space-00.typ"
     ( line 6 , column 4 )
     (If
        [ ( Literal (Boolean True)
@@ -100,7 +100,7 @@
 , Text "K"
 , Space
 , Code
-    "test/typ/text/space-00.typ"
+    "typ/text/space-00.typ"
     ( line 7 , column 4 )
     (If
        [ ( Literal (Boolean True) , Block (Content [ Text "L" ]) )
@@ -110,20 +110,20 @@
 , Space
 , HardBreak
 , Code
-    "test/typ/text/space-00.typ"
+    "typ/text/space-00.typ"
     ( line 8 , column 2 )
     (Let (BasicBind (Just (Identifier "c"))) (Literal (Boolean True)))
 , Space
 , Text "N"
 , Code
-    "test/typ/text/space-00.typ"
+    "typ/text/space-00.typ"
     ( line 8 , column 18 )
     (While
        (Ident (Identifier "c"))
        (Block
           (Content
              [ Code
-                 "test/typ/text/space-00.typ"
+                 "typ/text/space-00.typ"
                  ( line 8 , column 28 )
                  (Assign (Ident (Identifier "c")) (Literal (Boolean False)))
              , Text "O"
@@ -133,14 +133,14 @@
 , Space
 , HardBreak
 , Code
-    "test/typ/text/space-00.typ"
+    "typ/text/space-00.typ"
     ( line 9 , column 2 )
     (Let (BasicBind (Just (Identifier "c"))) (Literal (Boolean True)))
 , Space
 , Text "Q"
 , Space
 , Code
-    "test/typ/text/space-00.typ"
+    "typ/text/space-00.typ"
     ( line 9 , column 19 )
     (While
        (Ident (Identifier "c"))
@@ -155,7 +155,7 @@
 , HardBreak
 , Text "T"
 , Code
-    "test/typ/text/space-00.typ"
+    "typ/text/space-00.typ"
     ( line 10 , column 3 )
     (For
        (BasicBind Nothing)
@@ -164,20 +164,20 @@
 , Text "V"
 , SoftBreak
 , Code
-    "test/typ/text/space-00.typ"
+    "typ/text/space-00.typ"
     ( line 11 , column 2 )
     (Let (BasicBind (Just (Identifier "foo"))) (Literal (String "A")))
 , Space
 , HardBreak
 , Code
-    "test/typ/text/space-00.typ"
+    "typ/text/space-00.typ"
     ( line 12 , column 2 )
     (Ident (Identifier "foo"))
 , Text "B"
 , Space
 , HardBreak
 , Code
-    "test/typ/text/space-00.typ"
+    "typ/text/space-00.typ"
     ( line 13 , column 2 )
     (Ident (Identifier "foo"))
 , Space
@@ -185,7 +185,7 @@
 , Space
 , HardBreak
 , Code
-    "test/typ/text/space-00.typ"
+    "typ/text/space-00.typ"
     ( line 14 , column 2 )
     (Ident (Identifier "foo"))
 , Text "B"

@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/layout/spacing-00.typ"
+    "typ/layout/spacing-00.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/layout/spacing-00.typ"
+                                 "typ/layout/spacing-00.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/layout/spacing-00.typ"
+                                 "typ/layout/spacing-00.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -41,14 +41,14 @@
 , SoftBreak
 , Comment
 , Code
-    "test/typ/layout/spacing-00.typ"
+    "typ/layout/spacing-00.typ"
     ( line 3 , column 2 )
     (FuncCall
        (Ident (Identifier "box"))
        [ BlockArg [ Text "A" , Space , HardBreak , Text "B" ] ])
 , Space
 , Code
-    "test/typ/layout/spacing-00.typ"
+    "typ/layout/spacing-00.typ"
     ( line 3 , column 14 )
     (FuncCall
        (Ident (Identifier "box"))
@@ -56,7 +56,7 @@
            [ Text "A"
            , Space
            , Code
-               "test/typ/layout/spacing-00.typ"
+               "typ/layout/spacing-00.typ"
                ( line 3 , column 21 )
                (FuncCall
                   (Ident (Identifier "v"))
@@ -71,7 +71,7 @@
 , Comment
 , Text "Inv"
 , Code
-    "test/typ/layout/spacing-00.typ"
+    "typ/layout/spacing-00.typ"
     ( line 6 , column 5 )
     (FuncCall
        (Ident (Identifier "h")) [ NormalArg (Literal (Numeric 0.0 Pt)) ])
@@ -81,13 +81,13 @@
 , Text "Add"
 , Space
 , Code
-    "test/typ/layout/spacing-00.typ"
+    "typ/layout/spacing-00.typ"
     ( line 9 , column 6 )
     (FuncCall
        (Ident (Identifier "h")) [ NormalArg (Literal (Numeric 10.0 Pt)) ])
 , Space
 , Code
-    "test/typ/layout/spacing-00.typ"
+    "typ/layout/spacing-00.typ"
     ( line 9 , column 15 )
     (FuncCall
        (Ident (Identifier "h")) [ NormalArg (Literal (Numeric 10.0 Pt)) ])
@@ -96,7 +96,7 @@
 , ParBreak
 , Comment
 , Code
-    "test/typ/layout/spacing-00.typ"
+    "typ/layout/spacing-00.typ"
     ( line 12 , column 2 )
     (Let
        (BasicBind (Just (Identifier "x")))
@@ -105,25 +105,25 @@
 , SoftBreak
 , Text "|"
 , Code
-    "test/typ/layout/spacing-00.typ"
+    "typ/layout/spacing-00.typ"
     ( line 13 , column 3 )
     (FuncCall
        (Ident (Identifier "h")) [ NormalArg (Ident (Identifier "x")) ])
 , Text "|"
 , Code
-    "test/typ/layout/spacing-00.typ"
+    "typ/layout/spacing-00.typ"
     ( line 13 , column 9 )
     (FuncCall
        (Ident (Identifier "h")) [ NormalArg (Ident (Identifier "x")) ])
 , Text "|"
 , Code
-    "test/typ/layout/spacing-00.typ"
+    "typ/layout/spacing-00.typ"
     ( line 13 , column 15 )
     (FuncCall
        (Ident (Identifier "h")) [ NormalArg (Ident (Identifier "x")) ])
 , Text "|"
 , Code
-    "test/typ/layout/spacing-00.typ"
+    "typ/layout/spacing-00.typ"
     ( line 13 , column 21 )
     (FuncCall
        (Ident (Identifier "h")) [ NormalArg (Ident (Identifier "x")) ])
@@ -133,7 +133,7 @@
 , Text "|"
 , Space
 , Code
-    "test/typ/layout/spacing-00.typ"
+    "typ/layout/spacing-00.typ"
     ( line 16 , column 4 )
     (FuncCall
        (Ident (Identifier "h")) [ NormalArg (Literal (Numeric 1.0 Fr)) ])
@@ -141,7 +141,7 @@
 , Text "|"
 , Space
 , Code
-    "test/typ/layout/spacing-00.typ"
+    "typ/layout/spacing-00.typ"
     ( line 16 , column 14 )
     (FuncCall
        (Ident (Identifier "h")) [ NormalArg (Literal (Numeric 2.0 Fr)) ])
@@ -149,7 +149,7 @@
 , Text "|"
 , Space
 , Code
-    "test/typ/layout/spacing-00.typ"
+    "typ/layout/spacing-00.typ"
     ( line 16 , column 24 )
     (FuncCall
        (Ident (Identifier "h")) [ NormalArg (Literal (Numeric 1.0 Fr)) ])

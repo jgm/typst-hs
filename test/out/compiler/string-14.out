@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/compiler/string-14.typ"
+    "typ/compiler/string-14.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/compiler/string-14.typ"
+                                 "typ/compiler/string-14.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/compiler/string-14.typ"
+                                 "typ/compiler/string-14.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -41,7 +41,7 @@
 , SoftBreak
 , Comment
 , Code
-    "test/typ/compiler/string-14.typ"
+    "typ/compiler/string-14.typ"
     ( line 3 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -56,7 +56,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/string-14.typ"
+    "typ/compiler/string-14.typ"
     ( line 4 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -72,7 +72,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/string-14.typ"
+    "typ/compiler/string-14.typ"
     ( line 5 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -88,7 +88,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/string-14.typ"
+    "typ/compiler/string-14.typ"
     ( line 6 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -104,7 +104,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/string-14.typ"
+    "typ/compiler/string-14.typ"
     ( line 7 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -137,7 +137,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/string-14.typ"
+    "typ/compiler/string-14.typ"
     ( line 14 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -155,7 +155,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/string-14.typ"
+    "typ/compiler/string-14.typ"
     ( line 15 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))

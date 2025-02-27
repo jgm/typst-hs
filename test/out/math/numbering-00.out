@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/math/numbering-00.typ"
+    "typ/math/numbering-00.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/math/numbering-00.typ"
+                                 "typ/math/numbering-00.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/math/numbering-00.typ"
+                                 "typ/math/numbering-00.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -40,14 +40,14 @@
                 ]))))
 , SoftBreak
 , Code
-    "test/typ/math/numbering-00.typ"
+    "typ/math/numbering-00.typ"
     ( line 2 , column 2 )
     (Set
        (Ident (Identifier "page"))
        [ KeyValArg (Identifier "width") (Literal (Numeric 150.0 Pt)) ])
 , SoftBreak
 , Code
-    "test/typ/math/numbering-00.typ"
+    "typ/math/numbering-00.typ"
     ( line 3 , column 2 )
     (Set
        (FieldAccess
@@ -72,11 +72,11 @@
 , Equation
     True
     [ Code
-        "test/typ/math/numbering-00.typ"
+        "typ/math/numbering-00.typ"
         ( line 6 , column 3 )
         (FieldAccess (Ident (Identifier "alt")) (Ident (Identifier "phi")))
     , Code
-        "test/typ/math/numbering-00.typ"
+        "typ/math/numbering-00.typ"
         ( line 6 , column 11 )
         (FieldAccess
            (Ident (Identifier "eq")) (Ident (Identifier "colon")))
@@ -87,7 +87,7 @@
            [ Text "1"
            , Text "+"
            , Code
-               "test/typ/math/numbering-00.typ"
+               "typ/math/numbering-00.typ"
                ( line 6 , column 19 )
                (FuncCall (Ident (Identifier "sqrt")) [ BlockArg [ Text "5" ] ])
            ])
@@ -95,9 +95,7 @@
     ]
 , Space
 , Code
-    "test/typ/math/numbering-00.typ"
-    ( line 6 , column 34 )
-    (Label "ratio")
+    "typ/math/numbering-00.typ" ( line 6 , column 34 ) (Label "ratio")
 , ParBreak
 , Text "With"
 , Space
@@ -113,7 +111,7 @@
     [ MAttach (Just (Text "n")) Nothing (Text "F")
     , Text "="
     , Code
-        "test/typ/math/numbering-00.typ"
+        "typ/math/numbering-00.typ"
         ( line 9 , column 9 )
         (FuncCall
            (Ident (Identifier "round"))
@@ -121,14 +119,14 @@
                [ MFrac
                    (Text "1")
                    (Code
-                      "test/typ/math/numbering-00.typ"
+                      "typ/math/numbering-00.typ"
                       ( line 9 , column 19 )
                       (FuncCall (Ident (Identifier "sqrt")) [ BlockArg [ Text "5" ] ]))
                , MAttach
                    Nothing
                    (Just (Text "n"))
                    (Code
-                      "test/typ/math/numbering-00.typ"
+                      "typ/math/numbering-00.typ"
                       ( line 9 , column 27 )
                       (FieldAccess
                          (Ident (Identifier "alt")) (Ident (Identifier "phi"))))
@@ -137,9 +135,7 @@
     ]
 , Space
 , Code
-    "test/typ/math/numbering-00.typ"
-    ( line 9 , column 40 )
-    (Label "fib")
+    "typ/math/numbering-00.typ" ( line 9 , column 40 ) (Label "fib")
 , ParBreak
 ]
 --- evaluated ---

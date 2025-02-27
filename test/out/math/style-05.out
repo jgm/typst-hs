@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/math/style-05.typ"
+    "typ/math/style-05.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/math/style-05.typ"
+                                 "typ/math/style-05.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/math/style-05.typ"
+                                 "typ/math/style-05.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -41,7 +41,7 @@
 , SoftBreak
 , Comment
 , Code
-    "test/typ/math/style-05.typ"
+    "typ/math/style-05.typ"
     ( line 3 , column 2 )
     (Show
        (Just
@@ -55,12 +55,12 @@
     True
     [ Text "v"
     , Code
-        "test/typ/math/style-05.typ"
+        "typ/math/style-05.typ"
         ( line 4 , column 5 )
         (FieldAccess
            (Ident (Identifier "eq")) (Ident (Identifier "colon")))
     , Code
-        "test/typ/math/style-05.typ"
+        "typ/math/style-05.typ"
         ( line 4 , column 8 )
         (FuncCall
            (Ident (Identifier "vec"))
@@ -68,20 +68,20 @@
            , BlockArg
                [ Text "2"
                , Code
-                   "test/typ/math/style-05.typ"
+                   "typ/math/style-05.typ"
                    ( line 4 , column 21 )
                    (Ident (Identifier "minus"))
                , Text "4"
                ]
            , BlockArg
                [ Code
-                   "test/typ/math/style-05.typ"
+                   "typ/math/style-05.typ"
                    ( line 4 , column 26 )
                    (FuncCall (Ident (Identifier "sqrt")) [ BlockArg [ Text "3" ] ])
                ]
            , BlockArg
                [ Code
-                   "test/typ/math/style-05.typ"
+                   "typ/math/style-05.typ"
                    ( line 4 , column 35 )
                    (FuncCall (Ident (Identifier "arrow")) [ BlockArg [ Text "x" ] ])
                ]

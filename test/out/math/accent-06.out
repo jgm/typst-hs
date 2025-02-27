@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/math/accent-06.typ"
+    "typ/math/accent-06.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/math/accent-06.typ"
+                                 "typ/math/accent-06.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/math/accent-06.typ"
+                                 "typ/math/accent-06.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -43,13 +43,13 @@
 , Equation
     True
     [ Code
-        "test/typ/math/accent-06.typ"
+        "typ/math/accent-06.typ"
         ( line 3 , column 3 )
         (FuncCall
            (Ident (Identifier "tilde"))
            [ BlockArg
                [ Code
-                   "test/typ/math/accent-06.typ"
+                   "typ/math/accent-06.typ"
                    ( line 3 , column 9 )
                    (Ident (Identifier "integral"))
                ]
@@ -59,20 +59,20 @@
         (Just (Text "a"))
         (Just (Text "b"))
         (Code
-           "test/typ/math/accent-06.typ"
+           "typ/math/accent-06.typ"
            ( line 3 , column 20 )
            (FuncCall
               (Ident (Identifier "tilde"))
               [ BlockArg
                   [ Code
-                      "test/typ/math/accent-06.typ"
+                      "typ/math/accent-06.typ"
                       ( line 3 , column 26 )
                       (Ident (Identifier "integral"))
                   ]
               ]))
     , Text ","
     , Code
-        "test/typ/math/accent-06.typ"
+        "typ/math/accent-06.typ"
         ( line 3 , column 41 )
         (FuncCall
            (Ident (Identifier "tilde"))
@@ -81,7 +81,7 @@
                    (Just (Text "a"))
                    (Just (Text "b"))
                    (Code
-                      "test/typ/math/accent-06.typ"
+                      "typ/math/accent-06.typ"
                       ( line 3 , column 47 )
                       (Ident (Identifier "integral")))
                ]

@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/meta/ref-00.typ"
+    "typ/meta/ref-00.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/meta/ref-00.typ"
+                                 "typ/meta/ref-00.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/meta/ref-00.typ"
+                                 "typ/meta/ref-00.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -40,15 +40,14 @@
                 ]))))
 , SoftBreak
 , Code
-    "test/typ/meta/ref-00.typ"
+    "typ/meta/ref-00.typ"
     ( line 2 , column 2 )
     (Set
        (Ident (Identifier "heading"))
        [ KeyValArg (Identifier "numbering") (Literal (String "1.")) ])
 , ParBreak
 , Heading 1 [ Text "Introduction" ]
-, Code
-    "test/typ/meta/ref-00.typ" ( line 4 , column 16 ) (Label "intro")
+, Code "typ/meta/ref-00.typ" ( line 4 , column 16 ) (Label "intro")
 , SoftBreak
 , Text "See"
 , Space
@@ -56,8 +55,7 @@
 , Text "."
 , ParBreak
 , Heading 2 [ Text "Setup" ]
-, Code
-    "test/typ/meta/ref-00.typ" ( line 7 , column 10 ) (Label "setup")
+, Code "typ/meta/ref-00.typ" ( line 7 , column 10 ) (Label "setup")
 , SoftBreak
 , Text "As"
 , Space

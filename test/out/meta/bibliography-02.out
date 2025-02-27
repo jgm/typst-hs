@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/meta/bibliography-02.typ"
+    "typ/meta/bibliography-02.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/meta/bibliography-02.typ"
+                                 "typ/meta/bibliography-02.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/meta/bibliography-02.typ"
+                                 "typ/meta/bibliography-02.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -41,14 +41,14 @@
 , SoftBreak
 , Comment
 , Code
-    "test/typ/meta/bibliography-02.typ"
+    "typ/meta/bibliography-02.typ"
     ( line 3 , column 2 )
     (Set
        (Ident (Identifier "page"))
        [ KeyValArg (Identifier "width") (Literal (Numeric 200.0 Pt)) ])
 , SoftBreak
 , Code
-    "test/typ/meta/bibliography-02.typ"
+    "typ/meta/bibliography-02.typ"
     ( line 4 , column 2 )
     (FuncCall
        (Ident (Identifier "bibliography"))
@@ -70,7 +70,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/meta/bibliography-02.typ"
+    "typ/meta/bibliography-02.typ"
     ( line 5 , column 2 )
     (FuncCall
        (Ident (Identifier "line"))
@@ -78,12 +78,12 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/meta/bibliography-02.typ"
+    "typ/meta/bibliography-02.typ"
     ( line 6 , column 2 )
     (Block
        (Content
           [ Code
-              "test/typ/meta/bibliography-02.typ"
+              "typ/meta/bibliography-02.typ"
               ( line 6 , column 4 )
               (Set
                  (Ident (Identifier "cite"))

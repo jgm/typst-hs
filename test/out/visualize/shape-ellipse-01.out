@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/visualize/shape-ellipse-01.typ"
+    "typ/visualize/shape-ellipse-01.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/visualize/shape-ellipse-01.typ"
+                                 "typ/visualize/shape-ellipse-01.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/visualize/shape-ellipse-01.typ"
+                                 "typ/visualize/shape-ellipse-01.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -40,14 +40,14 @@
                 ]))))
 , SoftBreak
 , Code
-    "test/typ/visualize/shape-ellipse-01.typ"
+    "typ/visualize/shape-ellipse-01.typ"
     ( line 2 , column 2 )
     (Set
        (Ident (Identifier "rect"))
        [ KeyValArg (Identifier "inset") (Literal (Numeric 0.0 Pt)) ])
 , SoftBreak
 , Code
-    "test/typ/visualize/shape-ellipse-01.typ"
+    "typ/visualize/shape-ellipse-01.typ"
     ( line 3 , column 2 )
     (Set
        (Ident (Identifier "ellipse"))
@@ -67,7 +67,7 @@
 , Text "."
 , SoftBreak
 , Code
-    "test/typ/visualize/shape-ellipse-01.typ"
+    "typ/visualize/shape-ellipse-01.typ"
     ( line 6 , column 2 )
     (FuncCall
        (Ident (Identifier "rect"))
@@ -119,7 +119,7 @@
 , Text "."
 , SoftBreak
 , Code
-    "test/typ/visualize/shape-ellipse-01.typ"
+    "typ/visualize/shape-ellipse-01.typ"
     ( line 17 , column 2 )
     (FuncCall
        (Ident (Identifier "ellipse"))
@@ -131,7 +131,7 @@
        , BlockArg
            [ SoftBreak
            , Code
-               "test/typ/visualize/shape-ellipse-01.typ"
+               "typ/visualize/shape-ellipse-01.typ"
                ( line 18 , column 4 )
                (Set
                   (Ident (Identifier "text"))
@@ -161,7 +161,7 @@
 , Text "inline"
 , SoftBreak
 , Code
-    "test/typ/visualize/shape-ellipse-01.typ"
+    "typ/visualize/shape-ellipse-01.typ"
     ( line 24 , column 2 )
     (FuncCall
        (Ident (Identifier "box"))

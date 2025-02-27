@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/math/attach-09.typ"
+    "typ/math/attach-09.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/math/attach-09.typ"
+                                 "typ/math/attach-09.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/math/attach-09.typ"
+                                 "typ/math/attach-09.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -46,11 +46,11 @@
         (Just (Text "1"))
         (Just (Text "2"))
         (Code
-           "test/typ/math/attach-09.typ"
+           "typ/math/attach-09.typ"
            ( line 3 , column 3 )
            (FuncCall (Ident (Identifier "limits")) [ BlockArg [ Text "A" ] ]))
     , Code
-        "test/typ/math/attach-09.typ"
+        "typ/math/attach-09.typ"
         ( line 3 , column 17 )
         (FieldAccess (Ident (Identifier "not")) (Ident (Identifier "eq")))
     , MAttach (Just (Text "1")) (Just (Text "2")) (Text "A")
@@ -62,26 +62,26 @@
         (Just (Text "1"))
         (Just (Text "2"))
         (Code
-           "test/typ/math/attach-09.typ"
+           "typ/math/attach-09.typ"
            ( line 4 , column 3 )
            (FuncCall
               (Ident (Identifier "scripts"))
               [ BlockArg
                   [ Code
-                      "test/typ/math/attach-09.typ"
+                      "typ/math/attach-09.typ"
                       ( line 4 , column 11 )
                       (Ident (Identifier "sum"))
                   ]
               ]))
     , Code
-        "test/typ/math/attach-09.typ"
+        "typ/math/attach-09.typ"
         ( line 4 , column 20 )
         (FieldAccess (Ident (Identifier "not")) (Ident (Identifier "eq")))
     , MAttach
         (Just (Text "1"))
         (Just (Text "2"))
         (Code
-           "test/typ/math/attach-09.typ"
+           "typ/math/attach-09.typ"
            ( line 4 , column 23 )
            (Ident (Identifier "sum")))
     ]
@@ -92,26 +92,26 @@
         (Just (Text "a"))
         (Just (Text "b"))
         (Code
-           "test/typ/math/attach-09.typ"
+           "typ/math/attach-09.typ"
            ( line 5 , column 3 )
            (FuncCall
               (Ident (Identifier "limits"))
               [ BlockArg
                   [ Code
-                      "test/typ/math/attach-09.typ"
+                      "typ/math/attach-09.typ"
                       ( line 5 , column 10 )
                       (Ident (Identifier "integral"))
                   ]
               ]))
     , Code
-        "test/typ/math/attach-09.typ"
+        "typ/math/attach-09.typ"
         ( line 5 , column 24 )
         (FieldAccess (Ident (Identifier "not")) (Ident (Identifier "eq")))
     , MAttach
         (Just (Text "a"))
         (Just (Text "b"))
         (Code
-           "test/typ/math/attach-09.typ"
+           "typ/math/attach-09.typ"
            ( line 5 , column 27 )
            (Ident (Identifier "integral")))
     ]

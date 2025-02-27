@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/meta/ref-04.typ"
+    "typ/meta/ref-04.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/meta/ref-04.typ"
+                                 "typ/meta/ref-04.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/meta/ref-04.typ"
+                                 "typ/meta/ref-04.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -40,7 +40,7 @@
                 ]))))
 , SoftBreak
 , Code
-    "test/typ/meta/ref-04.typ"
+    "typ/meta/ref-04.typ"
     ( line 2 , column 2 )
     (Set
        (Ident (Identifier "heading"))
@@ -68,7 +68,7 @@
        ])
 , ParBreak
 , Code
-    "test/typ/meta/ref-04.typ"
+    "typ/meta/ref-04.typ"
     ( line 6 , column 2 )
     (Show
        (Just (Ident (Identifier "ref")))
@@ -138,15 +138,13 @@
 , ParBreak
 , Heading 1 [ Text "Introduction" ]
 , Code
-    "test/typ/meta/ref-04.typ" ( line 19 , column 16 ) (Label "intro")
+    "typ/meta/ref-04.typ" ( line 19 , column 16 ) (Label "intro")
 , ParBreak
 , Heading 1 [ Text "Summary" ]
-, Code
-    "test/typ/meta/ref-04.typ" ( line 21 , column 11 ) (Label "sum")
+, Code "typ/meta/ref-04.typ" ( line 21 , column 11 ) (Label "sum")
 , ParBreak
 , Heading 2 [ Text "Subsection" ]
-, Code
-    "test/typ/meta/ref-04.typ" ( line 23 , column 15 ) (Label "sub")
+, Code "typ/meta/ref-04.typ" ( line 23 , column 15 ) (Label "sub")
 , ParBreak
 , Ref "intro" (Literal Auto)
 , ParBreak
@@ -155,5 +153,5 @@
 , Ref "sub" (Literal Auto)
 , ParBreak
 ]
-"test/typ/meta/ref-04.typ" (line 23, column 15):
+"typ/meta/ref-04.typ" (line 23, column 15):
 Content does not have a method "element" or FieldAccess requires a dictionary

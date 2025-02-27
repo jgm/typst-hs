@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/meta/footnote-container-00.typ"
+    "typ/meta/footnote-container-00.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/meta/footnote-container-00.typ"
+                                 "typ/meta/footnote-container-00.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/meta/footnote-container-00.typ"
+                                 "typ/meta/footnote-container-00.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -47,7 +47,7 @@
 , Text "docs"
 , Space
 , Code
-    "test/typ/meta/footnote-container-00.typ"
+    "typ/meta/footnote-container-00.typ"
     ( line 3 , column 16 )
     (FuncCall
        (Ident (Identifier "footnote"))
@@ -55,7 +55,7 @@
 , Text "!"
 , SoftBreak
 , Code
-    "test/typ/meta/footnote-container-00.typ"
+    "typ/meta/footnote-container-00.typ"
     ( line 4 , column 2 )
     (FuncCall
        (Ident (Identifier "figure"))
@@ -75,7 +75,7 @@
                  , Text "graph"
                  , Space
                  , Code
-                     "test/typ/meta/footnote-container-00.typ"
+                     "typ/meta/footnote-container-00.typ"
                      ( line 7 , column 14 )
                      (FuncCall
                         (Ident (Identifier "footnote"))
@@ -107,7 +107,7 @@
 , Text "More"
 , Space
 , Code
-    "test/typ/meta/footnote-container-00.typ"
+    "typ/meta/footnote-container-00.typ"
     ( line 10 , column 7 )
     (FuncCall
        (Ident (Identifier "footnote"))
@@ -117,7 +117,7 @@
 , Text "footnotes"
 , Space
 , Code
-    "test/typ/meta/footnote-container-00.typ"
+    "typ/meta/footnote-container-00.typ"
     ( line 10 , column 41 )
     (FuncCall
        (Ident (Identifier "footnote"))

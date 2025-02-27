@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/compiler/ops-09.typ"
+    "typ/compiler/ops-09.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/compiler/ops-09.typ"
+                                 "typ/compiler/ops-09.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/compiler/ops-09.typ"
+                                 "typ/compiler/ops-09.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -42,7 +42,7 @@
 , Comment
 , SoftBreak
 , Code
-    "test/typ/compiler/ops-09.typ"
+    "typ/compiler/ops-09.typ"
     ( line 4 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -54,7 +54,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/ops-09.typ"
+    "typ/compiler/ops-09.typ"
     ( line 5 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -63,7 +63,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/ops-09.typ"
+    "typ/compiler/ops-09.typ"
     ( line 6 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -72,7 +72,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/ops-09.typ"
+    "typ/compiler/ops-09.typ"
     ( line 7 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -81,7 +81,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/ops-09.typ"
+    "typ/compiler/ops-09.typ"
     ( line 8 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -90,7 +90,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/ops-09.typ"
+    "typ/compiler/ops-09.typ"
     ( line 9 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -100,7 +100,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/ops-09.typ"
+    "typ/compiler/ops-09.typ"
     ( line 10 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -111,7 +111,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/ops-09.typ"
+    "typ/compiler/ops-09.typ"
     ( line 11 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -123,7 +123,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/ops-09.typ"
+    "typ/compiler/ops-09.typ"
     ( line 12 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -135,7 +135,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/ops-09.typ"
+    "typ/compiler/ops-09.typ"
     ( line 13 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))

@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/compiler/break-continue-11.typ"
+    "typ/compiler/break-continue-11.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/compiler/break-continue-11.typ"
+                                 "typ/compiler/break-continue-11.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/compiler/break-continue-11.typ"
+                                 "typ/compiler/break-continue-11.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -43,7 +43,7 @@
 , Comment
 , SoftBreak
 , Code
-    "test/typ/compiler/break-continue-11.typ"
+    "typ/compiler/break-continue-11.typ"
     ( line 5 , column 2 )
     (For
        (BasicBind (Just (Identifier "i")))

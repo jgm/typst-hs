@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/math/cancel-04.typ"
+    "typ/math/cancel-04.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/math/cancel-04.typ"
+                                 "typ/math/cancel-04.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/math/cancel-04.typ"
+                                 "typ/math/cancel-04.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -41,7 +41,7 @@
 , SoftBreak
 , Comment
 , Code
-    "test/typ/math/cancel-04.typ"
+    "typ/math/cancel-04.typ"
     ( line 3 , column 2 )
     (Set
        (Ident (Identifier "page"))
@@ -54,7 +54,7 @@
     [ Text "a"
     , Text "+"
     , Code
-        "test/typ/math/cancel-04.typ"
+        "typ/math/cancel-04.typ"
         ( line 4 , column 6 )
         (FuncCall
            (Ident (Identifier "cancel"))
@@ -62,11 +62,11 @@
            , KeyValArg (Identifier "length") (Literal (Numeric 200.0 Percent))
            ])
     , Code
-        "test/typ/math/cancel-04.typ"
+        "typ/math/cancel-04.typ"
         ( line 4 , column 31 )
         (Ident (Identifier "minus"))
     , Code
-        "test/typ/math/cancel-04.typ"
+        "typ/math/cancel-04.typ"
         ( line 4 , column 33 )
         (FuncCall
            (Ident (Identifier "cancel"))
@@ -85,7 +85,7 @@
     [ Text "b"
     , Text "+"
     , Code
-        "test/typ/math/cancel-04.typ"
+        "typ/math/cancel-04.typ"
         ( line 5 , column 7 )
         (FuncCall
            (Ident (Identifier "cancel"))
@@ -93,11 +93,11 @@
            , KeyValArg (Identifier "length") (Literal (Numeric 150.0 Percent))
            ])
     , Code
-        "test/typ/math/cancel-04.typ"
+        "typ/math/cancel-04.typ"
         ( line 5 , column 32 )
         (Ident (Identifier "minus"))
     , Code
-        "test/typ/math/cancel-04.typ"
+        "typ/math/cancel-04.typ"
         ( line 5 , column 34 )
         (FuncCall
            (Ident (Identifier "cancel"))

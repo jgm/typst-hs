@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/meta/ref-05.typ"
+    "typ/meta/ref-05.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/meta/ref-05.typ"
+                                 "typ/meta/ref-05.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/meta/ref-05.typ"
+                                 "typ/meta/ref-05.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -40,7 +40,7 @@
                 ]))))
 , ParBreak
 , Code
-    "test/typ/meta/ref-05.typ"
+    "typ/meta/ref-05.typ"
     ( line 3 , column 2 )
     (Show
        (Just (Ident (Identifier "ref")))
@@ -119,13 +119,12 @@
 , Space
 , Text "unreferable"
 , Space
-, Code
-    "test/typ/meta/ref-05.typ" ( line 25 , column 27 ) (Label "txt")
+, Code "typ/meta/ref-05.typ" ( line 25 , column 27 ) (Label "txt")
 , ParBreak
 , Ref "under" (Literal Auto)
 , SoftBreak
 , Code
-    "test/typ/meta/ref-05.typ"
+    "typ/meta/ref-05.typ"
     ( line 28 , column 2 )
     (FuncCall
        (Ident (Identifier "underline"))
@@ -141,9 +140,8 @@
            ]
        ])
 , Space
-, Code
-    "test/typ/meta/ref-05.typ" ( line 30 , column 3 ) (Label "under")
+, Code "typ/meta/ref-05.typ" ( line 30 , column 3 ) (Label "under")
 , ParBreak
 ]
-"test/typ/meta/ref-05.typ" (line 3, column 2):
+"typ/meta/ref-05.typ" (line 3, column 2):
 Content does not have a method "element" or FieldAccess requires a dictionary

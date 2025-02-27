@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/math/underover-01.typ"
+    "typ/math/underover-01.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/math/underover-01.typ"
+                                 "typ/math/underover-01.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/math/underover-01.typ"
+                                 "typ/math/underover-01.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -45,19 +45,19 @@
     [ Text "x"
     , Text "="
     , Code
-        "test/typ/math/underover-01.typ"
+        "typ/math/underover-01.typ"
         ( line 3 , column 7 )
         (FuncCall
            (Ident (Identifier "overbracket"))
            [ BlockArg
                [ Code
-                   "test/typ/math/underover-01.typ"
+                   "typ/math/underover-01.typ"
                    ( line 4 , column 3 )
                    (FuncCall
                       (Ident (Identifier "overline"))
                       [ BlockArg
                           [ Code
-                              "test/typ/math/underover-01.typ"
+                              "typ/math/underover-01.typ"
                               ( line 4 , column 12 )
                               (FuncCall
                                  (Ident (Identifier "underline"))
@@ -71,7 +71,7 @@
                , Text "2"
                , Text "+"
                , Code
-                   "test/typ/math/underover-01.typ"
+                   "typ/math/underover-01.typ"
                    ( line 5 , column 11 )
                    (FieldAccess (Ident (Identifier "h")) (Ident (Identifier "dots")))
                , Text "+"

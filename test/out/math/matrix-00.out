@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/math/matrix-00.typ"
+    "typ/math/matrix-00.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/math/matrix-00.typ"
+                                 "typ/math/matrix-00.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/math/matrix-00.typ"
+                                 "typ/math/matrix-00.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -41,7 +41,7 @@
 , SoftBreak
 , Comment
 , Code
-    "test/typ/math/matrix-00.typ"
+    "typ/math/matrix-00.typ"
     ( line 3 , column 2 )
     (Set
        (Ident (Identifier "align"))
@@ -50,62 +50,62 @@
 , Equation
     False
     [ Code
-        "test/typ/math/matrix-00.typ"
+        "typ/math/matrix-00.typ"
         ( line 4 , column 2 )
         (FuncCall (Ident (Identifier "mat")) [])
     , Code
-        "test/typ/math/matrix-00.typ"
+        "typ/math/matrix-00.typ"
         ( line 4 , column 8 )
         (Ident (Identifier "dot"))
     , Code
-        "test/typ/math/matrix-00.typ"
+        "typ/math/matrix-00.typ"
         ( line 5 , column 2 )
         (FuncCall
            (Ident (Identifier "mat"))
            [ ArrayArg [ [ MGroup Nothing Nothing [] ] ] ])
     , Code
-        "test/typ/math/matrix-00.typ"
+        "typ/math/matrix-00.typ"
         ( line 5 , column 9 )
         (Ident (Identifier "dot"))
     , Code
-        "test/typ/math/matrix-00.typ"
+        "typ/math/matrix-00.typ"
         ( line 6 , column 2 )
         (FuncCall
            (Ident (Identifier "mat"))
            [ BlockArg [ Text "1" ] , BlockArg [ Text "2" ] ])
     , Code
-        "test/typ/math/matrix-00.typ"
+        "typ/math/matrix-00.typ"
         ( line 6 , column 12 )
         (Ident (Identifier "dot"))
     , Code
-        "test/typ/math/matrix-00.typ"
+        "typ/math/matrix-00.typ"
         ( line 7 , column 2 )
         (FuncCall
            (Ident (Identifier "mat"))
            [ ArrayArg [ [ Text "1" , Text "2" ] ] ])
     , HardBreak
     , Code
-        "test/typ/math/matrix-00.typ"
+        "typ/math/matrix-00.typ"
         ( line 8 , column 2 )
         (FuncCall
            (Ident (Identifier "mat"))
            [ ArrayArg [ [ Text "1" ] , [ Text "2" ] ] ])
     , Code
-        "test/typ/math/matrix-00.typ"
+        "typ/math/matrix-00.typ"
         ( line 8 , column 12 )
         (Ident (Identifier "dot"))
     , Code
-        "test/typ/math/matrix-00.typ"
+        "typ/math/matrix-00.typ"
         ( line 9 , column 2 )
         (FuncCall
            (Ident (Identifier "mat"))
            [ ArrayArg [ [ Text "1" , Text "2" ] , [ Text "3" , Text "4" ] ] ])
     , Code
-        "test/typ/math/matrix-00.typ"
+        "typ/math/matrix-00.typ"
         ( line 9 , column 18 )
         (Ident (Identifier "dot"))
     , Code
-        "test/typ/math/matrix-00.typ"
+        "typ/math/matrix-00.typ"
         ( line 10 , column 2 )
         (FuncCall
            (Ident (Identifier "mat"))

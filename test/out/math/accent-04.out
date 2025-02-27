@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/math/accent-04.typ"
+    "typ/math/accent-04.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/math/accent-04.typ"
+                                 "typ/math/accent-04.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/math/accent-04.typ"
+                                 "typ/math/accent-04.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -43,20 +43,20 @@
 , Equation
     False
     [ Code
-        "test/typ/math/accent-04.typ"
+        "typ/math/accent-04.typ"
         ( line 3 , column 2 )
         (FuncCall
            (Ident (Identifier "arrow"))
            [ BlockArg [ Text "ABC " , Text "+" , Text "d" ] ])
     , Text ","
     , Code
-        "test/typ/math/accent-04.typ"
+        "typ/math/accent-04.typ"
         ( line 3 , column 20 )
         (FuncCall
            (Ident (Identifier "tilde"))
            [ BlockArg
                [ Code
-                   "test/typ/math/accent-04.typ"
+                   "typ/math/accent-04.typ"
                    ( line 3 , column 26 )
                    (Ident (Identifier "sum"))
                ]

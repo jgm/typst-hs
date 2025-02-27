@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/bugs/grid-2-01.typ"
+    "typ/bugs/grid-2-01.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/bugs/grid-2-01.typ"
+                                 "typ/bugs/grid-2-01.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/bugs/grid-2-01.typ"
+                                 "typ/bugs/grid-2-01.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -40,21 +40,21 @@
                 ]))))
 , SoftBreak
 , Code
-    "test/typ/bugs/grid-2-01.typ"
+    "typ/bugs/grid-2-01.typ"
     ( line 2 , column 2 )
     (Set
        (Ident (Identifier "page"))
        [ KeyValArg (Identifier "height") (Literal (Numeric 60.0 Pt)) ])
 , SoftBreak
 , Code
-    "test/typ/bugs/grid-2-01.typ"
+    "typ/bugs/grid-2-01.typ"
     ( line 3 , column 2 )
     (FuncCall
        (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 5)) ])
 , SoftBreak
 , BulletListItem
     [ Code
-        "test/typ/bugs/grid-2-01.typ"
+        "typ/bugs/grid-2-01.typ"
         ( line 4 , column 4 )
         (FuncCall
            (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 5)) ])

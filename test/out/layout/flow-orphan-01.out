@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/layout/flow-orphan-01.typ"
+    "typ/layout/flow-orphan-01.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/layout/flow-orphan-01.typ"
+                                 "typ/layout/flow-orphan-01.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/layout/flow-orphan-01.typ"
+                                 "typ/layout/flow-orphan-01.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -40,7 +40,7 @@
                 ]))))
 , SoftBreak
 , Code
-    "test/typ/layout/flow-orphan-01.typ"
+    "typ/layout/flow-orphan-01.typ"
     ( line 2 , column 2 )
     (Set
        (Ident (Identifier "page"))
@@ -49,7 +49,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/layout/flow-orphan-01.typ"
+    "typ/layout/flow-orphan-01.typ"
     ( line 3 , column 2 )
     (Set
        (Ident (Identifier "text"))
@@ -57,21 +57,21 @@
 , ParBreak
 , Comment
 , Code
-    "test/typ/layout/flow-orphan-01.typ"
+    "typ/layout/flow-orphan-01.typ"
     ( line 6 , column 2 )
     (Set
        (Ident (Identifier "text"))
        [ NormalArg (Ident (Identifier "blue")) ])
 , SoftBreak
 , Code
-    "test/typ/layout/flow-orphan-01.typ"
+    "typ/layout/flow-orphan-01.typ"
     ( line 7 , column 2 )
     (FuncCall
        (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 27)) ])
 , ParBreak
 , Comment
 , Code
-    "test/typ/layout/flow-orphan-01.typ"
+    "typ/layout/flow-orphan-01.typ"
     ( line 10 , column 2 )
     (FuncCall
        (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 20)) ])
@@ -79,34 +79,34 @@
 , Comment
 , Comment
 , Code
-    "test/typ/layout/flow-orphan-01.typ"
+    "typ/layout/flow-orphan-01.typ"
     ( line 14 , column 2 )
     (Set
        (Ident (Identifier "text"))
        [ NormalArg (Ident (Identifier "maroon")) ])
 , SoftBreak
 , Code
-    "test/typ/layout/flow-orphan-01.typ"
+    "typ/layout/flow-orphan-01.typ"
     ( line 15 , column 2 )
     (FuncCall
        (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 11)) ])
 , ParBreak
 , Code
-    "test/typ/layout/flow-orphan-01.typ"
+    "typ/layout/flow-orphan-01.typ"
     ( line 17 , column 2 )
     (FuncCall
        (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 13)) ])
 , ParBreak
 , Comment
 , Code
-    "test/typ/layout/flow-orphan-01.typ"
+    "typ/layout/flow-orphan-01.typ"
     ( line 20 , column 2 )
     (Set
        (Ident (Identifier "text"))
        [ NormalArg (Ident (Identifier "olive")) ])
 , SoftBreak
 , Code
-    "test/typ/layout/flow-orphan-01.typ"
+    "typ/layout/flow-orphan-01.typ"
     ( line 21 , column 2 )
     (FuncCall
        (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 10)) ])

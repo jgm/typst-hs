@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/math/attach-00.typ"
+    "typ/math/attach-00.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/math/attach-00.typ"
+                                 "typ/math/attach-00.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/math/attach-00.typ"
+                                 "typ/math/attach-00.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -49,7 +49,7 @@
     , MAttach (Just (Text "1")) (Just (Text "2")) (Text "V")
     , Text "+"
     , Code
-        "test/typ/math/attach-00.typ"
+        "typ/math/attach-00.typ"
         ( line 3 , column 22 )
         (FuncCall
            (Ident (Identifier "attach"))
@@ -59,7 +59,7 @@
                (Block
                   (Content
                      [ Code
-                         "test/typ/math/attach-00.typ"
+                         "typ/math/attach-00.typ"
                          ( line 3 , column 35 )
                          (Ident (Identifier "alpha"))
                      ]))
@@ -68,7 +68,7 @@
                (Block
                   (Content
                      [ Code
-                         "test/typ/math/attach-00.typ"
+                         "typ/math/attach-00.typ"
                          ( line 3 , column 45 )
                          (Ident (Identifier "beta"))
                      ]))

@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/compiler/string-15.typ"
+    "typ/compiler/string-15.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/compiler/string-15.typ"
+                                 "typ/compiler/string-15.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/compiler/string-15.typ"
+                                 "typ/compiler/string-15.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -42,7 +42,7 @@
 , Comment
 , SoftBreak
 , Code
-    "test/typ/compiler/string-15.typ"
+    "typ/compiler/string-15.typ"
     ( line 4 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -81,7 +81,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/string-15.typ"
+    "typ/compiler/string-15.typ"
     ( line 7 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -110,7 +110,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/string-15.typ"
+    "typ/compiler/string-15.typ"
     ( line 10 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -166,7 +166,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/string-15.typ"
+    "typ/compiler/string-15.typ"
     ( line 13 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -206,7 +206,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/string-15.typ"
+    "typ/compiler/string-15.typ"
     ( line 16 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -247,7 +247,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/string-15.typ"
+    "typ/compiler/string-15.typ"
     ( line 19 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -265,7 +265,7 @@
        ])
 , ParBreak
 , Code
-    "test/typ/compiler/string-15.typ"
+    "typ/compiler/string-15.typ"
     ( line 21 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -281,7 +281,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/string-15.typ"
+    "typ/compiler/string-15.typ"
     ( line 22 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -298,7 +298,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/string-15.typ"
+    "typ/compiler/string-15.typ"
     ( line 23 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -314,7 +314,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/string-15.typ"
+    "typ/compiler/string-15.typ"
     ( line 24 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -331,7 +331,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/string-15.typ"
+    "typ/compiler/string-15.typ"
     ( line 25 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -366,7 +366,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/string-15.typ"
+    "typ/compiler/string-15.typ"
     ( line 28 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -405,7 +405,7 @@
        ])
 , SoftBreak
 , Code
-    "test/typ/compiler/string-15.typ"
+    "typ/compiler/string-15.typ"
     ( line 32 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))

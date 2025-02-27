@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/compiler/include-00.typ"
+    "typ/compiler/include-00.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/compiler/include-00.typ"
+                                 "typ/compiler/include-00.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/compiler/include-00.typ"
+                                 "typ/compiler/include-00.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -40,7 +40,7 @@
                 ]))))
 , SoftBreak
 , Code
-    "test/typ/compiler/include-00.typ"
+    "typ/compiler/include-00.typ"
     ( line 2 , column 2 )
     (Set
        (Ident (Identifier "page"))
@@ -49,13 +49,13 @@
 , Heading 1 [ Text "Document" ]
 , Comment
 , Code
-    "test/typ/compiler/include-00.typ"
+    "typ/compiler/include-00.typ"
     ( line 7 , column 2 )
     (Include (Literal (String "modules/chap1.typ")))
 , ParBreak
 , Comment
 , Code
-    "test/typ/compiler/include-00.typ"
+    "typ/compiler/include-00.typ"
     ( line 10 , column 2 )
     (Let
        (BasicBind (Just (Identifier "chap2")))
@@ -71,7 +71,7 @@
 , EnDash
 , SoftBreak
 , Code
-    "test/typ/compiler/include-00.typ"
+    "typ/compiler/include-00.typ"
     ( line 13 , column 2 )
     (Ident (Identifier "chap2"))
 , ParBreak

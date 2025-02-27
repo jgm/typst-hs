@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/math/attach-01.typ"
+    "typ/math/attach-01.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/math/attach-01.typ"
+                                 "typ/math/attach-01.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/math/attach-01.typ"
+                                 "typ/math/attach-01.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -44,13 +44,13 @@
 , Equation
     True
     [ Code
-        "test/typ/math/attach-01.typ"
+        "typ/math/attach-01.typ"
         ( line 5 , column 1 )
         (FuncCall
            (Ident (Identifier "attach"))
            [ BlockArg
                [ Code
-                   "test/typ/math/attach-01.typ"
+                   "typ/math/attach-01.typ"
                    ( line 5 , column 8 )
                    (FuncCall (Ident (Identifier "upright")) [ BlockArg [ Text "O" ] ])
                ]
@@ -63,14 +63,14 @@
                   (Content
                      [ Text "2"
                      , Code
-                         "test/typ/math/attach-01.typ"
+                         "typ/math/attach-01.typ"
                          ( line 5 , column 47 )
                          (Ident (Identifier "minus"))
                      ]))
            ])
     , Text ","
     , Code
-        "test/typ/math/attach-01.typ"
+        "typ/math/attach-01.typ"
         ( line 6 , column 1 )
         (FuncCall
            (Ident (Identifier "attach"))
@@ -80,13 +80,13 @@
            ])
     , Text "+"
     , Code
-        "test/typ/math/attach-01.typ"
+        "typ/math/attach-01.typ"
         ( line 6 , column 33 )
         (FuncCall
            (Ident (Identifier "attach"))
            [ BlockArg
                [ Code
-                   "test/typ/math/attach-01.typ"
+                   "typ/math/attach-01.typ"
                    ( line 6 , column 40 )
                    (FuncCall (Ident (Identifier "upright")) [ BlockArg [ Text "e" ] ])
                ]
@@ -95,7 +95,7 @@
                (Block
                   (Content
                      [ Code
-                         "test/typ/math/attach-01.typ"
+                         "typ/math/attach-01.typ"
                          ( line 6 , column 56 )
                          (Ident (Identifier "minus"))
                      , Text "1"
@@ -107,7 +107,7 @@
         (Just (Text "e"))
         Nothing
         (Code
-           "test/typ/math/attach-01.typ"
+           "typ/math/attach-01.typ"
            ( line 6 , column 69 )
            (FuncCall (Ident (Identifier "macron")) [ BlockArg [ Text "v" ] ]))
     , HardBreak

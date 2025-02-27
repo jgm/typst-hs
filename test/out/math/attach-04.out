@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/math/attach-04.typ"
+    "typ/math/attach-04.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/math/attach-04.typ"
+                                 "typ/math/attach-04.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/math/attach-04.typ"
+                                 "typ/math/attach-04.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -62,7 +62,7 @@
     , MFrac
         (Text "1")
         (Code
-           "test/typ/math/attach-04.typ"
+           "typ/math/attach-04.typ"
            ( line 4 , column 5 )
            (FuncCall
               (Ident (Identifier "attach"))
@@ -72,7 +72,7 @@
                   (Block
                      (Content
                         [ Code
-                            "test/typ/math/attach-04.typ"
+                            "typ/math/attach-04.typ"
                             ( line 4 , column 19 )
                             (FuncCall
                                (Ident (Identifier "attach"))
@@ -82,7 +82,7 @@
                                    (Block
                                       (Content
                                          [ Code
-                                             "test/typ/math/attach-04.typ"
+                                             "typ/math/attach-04.typ"
                                              ( line 4 , column 33 )
                                              (FuncCall
                                                 (Ident (Identifier "attach"))
@@ -92,7 +92,7 @@
                                                     (Block
                                                        (Content
                                                           [ Code
-                                                              "test/typ/math/attach-04.typ"
+                                                              "typ/math/attach-04.typ"
                                                               ( line 4 , column 47 )
                                                               (FuncCall
                                                                  (Ident (Identifier "attach"))
@@ -109,13 +109,13 @@
               ]))
     , Text ","
     , Code
-        "test/typ/math/attach-04.typ"
+        "typ/math/attach-04.typ"
         ( line 5 , column 3 )
         (FuncCall
            (Ident (Identifier "attach"))
            [ BlockArg
                [ Code
-                   "test/typ/math/attach-04.typ"
+                   "typ/math/attach-04.typ"
                    ( line 5 , column 10 )
                    (Ident (Identifier "Omega"))
                ]
@@ -124,7 +124,7 @@
                (Block
                   (Content
                      [ Code
-                         "test/typ/math/attach-04.typ"
+                         "typ/math/attach-04.typ"
                          ( line 6 , column 9 )
                          (FuncCall
                             (Ident (Identifier "attach"))
@@ -134,7 +134,7 @@
                                 (Block
                                    (Content
                                       [ Code
-                                          "test/typ/math/attach-04.typ"
+                                          "typ/math/attach-04.typ"
                                           ( line 6 , column 23 )
                                           (FuncCall
                                              (Ident (Identifier "attach"))
@@ -144,7 +144,7 @@
                                                  (Block
                                                     (Content
                                                        [ Code
-                                                           "test/typ/math/attach-04.typ"
+                                                           "typ/math/attach-04.typ"
                                                            ( line 6 , column 37 )
                                                            (FuncCall
                                                               (Ident (Identifier "attach"))
@@ -163,7 +163,7 @@
                (Block
                   (Content
                      [ Code
-                         "test/typ/math/attach-04.typ"
+                         "typ/math/attach-04.typ"
                          ( line 7 , column 9 )
                          (FuncCall
                             (Ident (Identifier "attach"))
@@ -173,7 +173,7 @@
                                 (Block
                                    (Content
                                       [ Code
-                                          "test/typ/math/attach-04.typ"
+                                          "typ/math/attach-04.typ"
                                           ( line 7 , column 23 )
                                           (FuncCall
                                              (Ident (Identifier "attach"))
@@ -183,7 +183,7 @@
                                                  (Block
                                                     (Content
                                                        [ Code
-                                                           "test/typ/math/attach-04.typ"
+                                                           "typ/math/attach-04.typ"
                                                            ( line 7 , column 37 )
                                                            (FuncCall
                                                               (Ident (Identifier "attach"))
@@ -202,7 +202,7 @@
                (Block
                   (Content
                      [ Code
-                         "test/typ/math/attach-04.typ"
+                         "typ/math/attach-04.typ"
                          ( line 8 , column 9 )
                          (FuncCall
                             (Ident (Identifier "attach"))
@@ -212,7 +212,7 @@
                                 (Block
                                    (Content
                                       [ Code
-                                          "test/typ/math/attach-04.typ"
+                                          "typ/math/attach-04.typ"
                                           ( line 8 , column 23 )
                                           (FuncCall
                                              (Ident (Identifier "attach"))
@@ -222,7 +222,7 @@
                                                  (Block
                                                     (Content
                                                        [ Code
-                                                           "test/typ/math/attach-04.typ"
+                                                           "typ/math/attach-04.typ"
                                                            ( line 8 , column 37 )
                                                            (FuncCall
                                                               (Ident (Identifier "attach"))
@@ -241,7 +241,7 @@
                (Block
                   (Content
                      [ Code
-                         "test/typ/math/attach-04.typ"
+                         "typ/math/attach-04.typ"
                          ( line 9 , column 9 )
                          (FuncCall
                             (Ident (Identifier "attach"))
@@ -251,7 +251,7 @@
                                 (Block
                                    (Content
                                       [ Code
-                                          "test/typ/math/attach-04.typ"
+                                          "typ/math/attach-04.typ"
                                           ( line 9 , column 23 )
                                           (FuncCall
                                              (Ident (Identifier "attach"))
@@ -261,7 +261,7 @@
                                                  (Block
                                                     (Content
                                                        [ Code
-                                                           "test/typ/math/attach-04.typ"
+                                                           "typ/math/attach-04.typ"
                                                            ( line 9 , column 37 )
                                                            (FuncCall
                                                               (Ident (Identifier "attach"))

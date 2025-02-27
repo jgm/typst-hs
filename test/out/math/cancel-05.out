@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/math/cancel-05.typ"
+    "typ/math/cancel-05.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/math/cancel-05.typ"
+                                 "typ/math/cancel-05.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/math/cancel-05.typ"
+                                 "typ/math/cancel-05.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -45,7 +45,7 @@
     [ Text "x"
     , Text "+"
     , Code
-        "test/typ/math/cancel-05.typ"
+        "typ/math/cancel-05.typ"
         ( line 3 , column 6 )
         (FuncCall
            (Ident (Identifier "cancel"))
@@ -53,11 +53,11 @@
            , KeyValArg (Identifier "rotation") (Literal (Numeric 90.0 Deg))
            ])
     , Code
-        "test/typ/math/cancel-05.typ"
+        "typ/math/cancel-05.typ"
         ( line 3 , column 34 )
         (Ident (Identifier "minus"))
     , Code
-        "test/typ/math/cancel-05.typ"
+        "typ/math/cancel-05.typ"
         ( line 3 , column 36 )
         (FuncCall
            (Ident (Identifier "cancel"))
@@ -71,7 +71,7 @@
     [ Text "e"
     , Text "+"
     , Code
-        "test/typ/math/cancel-05.typ"
+        "typ/math/cancel-05.typ"
         ( line 4 , column 7 )
         (FuncCall
            (Ident (Identifier "cancel"))
@@ -82,11 +82,11 @@
                ]
            ])
     , Code
-        "test/typ/math/cancel-05.typ"
+        "typ/math/cancel-05.typ"
         ( line 4 , column 31 )
         (Ident (Identifier "minus"))
     , Code
-        "test/typ/math/cancel-05.typ"
+        "typ/math/cancel-05.typ"
         ( line 4 , column 33 )
         (FuncCall
            (Ident (Identifier "cancel"))

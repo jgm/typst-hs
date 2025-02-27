@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/text/quotes-00.typ"
+    "typ/text/quotes-00.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/text/quotes-00.typ"
+                                 "typ/text/quotes-00.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/text/quotes-00.typ"
+                                 "typ/text/quotes-00.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -40,7 +40,7 @@
                 ]))))
 , SoftBreak
 , Code
-    "test/typ/text/quotes-00.typ"
+    "typ/text/quotes-00.typ"
     ( line 2 , column 2 )
     (Set
        (Ident (Identifier "page"))
@@ -48,7 +48,7 @@
 , ParBreak
 , Comment
 , Code
-    "test/typ/text/quotes-00.typ"
+    "typ/text/quotes-00.typ"
     ( line 5 , column 2 )
     (Set
        (Ident (Identifier "text"))
@@ -90,7 +90,7 @@
 , Quote '\''
 , ParBreak
 , Code
-    "test/typ/text/quotes-00.typ"
+    "typ/text/quotes-00.typ"
     ( line 8 , column 2 )
     (Set
        (Ident (Identifier "text"))
@@ -128,7 +128,7 @@
 , Text "."
 , ParBreak
 , Code
-    "test/typ/text/quotes-00.typ"
+    "typ/text/quotes-00.typ"
     ( line 11 , column 2 )
     (Set
        (Ident (Identifier "text"))
@@ -168,7 +168,7 @@
 , Text "."
 , ParBreak
 , Code
-    "test/typ/text/quotes-00.typ"
+    "typ/text/quotes-00.typ"
     ( line 14 , column 2 )
     (Set
        (Ident (Identifier "text"))
@@ -210,7 +210,7 @@
 , Text "."
 , ParBreak
 , Code
-    "test/typ/text/quotes-00.typ"
+    "typ/text/quotes-00.typ"
     ( line 17 , column 2 )
     (Set
        (Ident (Identifier "text"))
@@ -252,7 +252,7 @@
 , Text "."
 , ParBreak
 , Code
-    "test/typ/text/quotes-00.typ"
+    "typ/text/quotes-00.typ"
     ( line 20 , column 2 )
     (Set
        (Ident (Identifier "text"))
@@ -300,7 +300,7 @@
 , Text "."
 , ParBreak
 , Code
-    "test/typ/text/quotes-00.typ"
+    "typ/text/quotes-00.typ"
     ( line 23 , column 2 )
     (Set
        (Ident (Identifier "text"))
@@ -332,7 +332,7 @@
 , Text "."
 , ParBreak
 , Code
-    "test/typ/text/quotes-00.typ"
+    "typ/text/quotes-00.typ"
     ( line 26 , column 2 )
     (Set
        (Ident (Identifier "text"))
@@ -366,7 +366,7 @@
 , Text "."
 , ParBreak
 , Code
-    "test/typ/text/quotes-00.typ"
+    "typ/text/quotes-00.typ"
     ( line 29 , column 2 )
     (Set
        (Ident (Identifier "text"))
@@ -406,7 +406,7 @@
 , Text "."
 , ParBreak
 , Code
-    "test/typ/text/quotes-00.typ"
+    "typ/text/quotes-00.typ"
     ( line 32 , column 2 )
     (Set
        (Ident (Identifier "text"))

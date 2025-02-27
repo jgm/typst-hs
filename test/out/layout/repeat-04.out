@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/layout/repeat-04.typ"
+    "typ/layout/repeat-04.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/layout/repeat-04.typ"
+                                 "typ/layout/repeat-04.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/layout/repeat-04.typ"
+                                 "typ/layout/repeat-04.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -42,7 +42,7 @@
 , Comment
 , Text "A"
 , Code
-    "test/typ/layout/repeat-04.typ"
+    "typ/layout/repeat-04.typ"
     ( line 3 , column 3 )
     (FuncCall
        (Ident (Identifier "box"))
@@ -61,7 +61,7 @@
 , Text "B"
 , ParBreak
 , Code
-    "test/typ/layout/repeat-04.typ"
+    "typ/layout/repeat-04.typ"
     ( line 5 , column 2 )
     (Set
        (Ident (Identifier "align"))
@@ -69,7 +69,7 @@
 , SoftBreak
 , Text "A"
 , Code
-    "test/typ/layout/repeat-04.typ"
+    "typ/layout/repeat-04.typ"
     ( line 6 , column 3 )
     (FuncCall
        (Ident (Identifier "box"))
@@ -88,7 +88,7 @@
 , Text "B"
 , ParBreak
 , Code
-    "test/typ/layout/repeat-04.typ"
+    "typ/layout/repeat-04.typ"
     ( line 8 , column 2 )
     (Set
        (Ident (Identifier "text"))
@@ -96,7 +96,7 @@
 , SoftBreak
 , Text "\1585\1610\1580\1610\1606"
 , Code
-    "test/typ/layout/repeat-04.typ"
+    "typ/layout/repeat-04.typ"
     ( line 9 , column 7 )
     (FuncCall
        (Ident (Identifier "box"))

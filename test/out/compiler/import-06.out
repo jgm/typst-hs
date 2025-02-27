@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/compiler/import-06.typ"
+    "typ/compiler/import-06.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/compiler/import-06.typ"
+                                 "typ/compiler/import-06.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/compiler/import-06.typ"
+                                 "typ/compiler/import-06.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -41,12 +41,12 @@
 , SoftBreak
 , Comment
 , Code
-    "test/typ/compiler/import-06.typ"
+    "typ/compiler/import-06.typ"
     ( line 3 , column 2 )
     (Import (Ident (Identifier "enum")) (NoIdentifiers Nothing))
 , SoftBreak
 , Code
-    "test/typ/compiler/import-06.typ"
+    "typ/compiler/import-06.typ"
     ( line 4 , column 2 )
     (Let
        (BasicBind (Just (Identifier "d")))
@@ -54,21 +54,21 @@
           [ Reg ( Ident (Identifier "e") , Ident (Identifier "enum") ) ]))
 , SoftBreak
 , Code
-    "test/typ/compiler/import-06.typ"
+    "typ/compiler/import-06.typ"
     ( line 5 , column 2 )
     (Import
        (FieldAccess (Ident (Identifier "e")) (Ident (Identifier "d")))
        (NoIdentifiers Nothing))
 , SoftBreak
 , Code
-    "test/typ/compiler/import-06.typ"
+    "typ/compiler/import-06.typ"
     ( line 6 , column 2 )
     (Import
        (FieldAccess (Ident (Identifier "e")) (Ident (Identifier "d")))
        (SomeIdentifiers [ ( Identifier "item" , Nothing ) ]))
 , ParBreak
 , Code
-    "test/typ/compiler/import-06.typ"
+    "typ/compiler/import-06.typ"
     ( line 8 , column 2 )
     (FuncCall
        (Ident (Identifier "item"))

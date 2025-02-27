@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/bugs/math-realize-02.typ"
+    "typ/bugs/math-realize-02.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/bugs/math-realize-02.typ"
+                                 "typ/bugs/math-realize-02.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/bugs/math-realize-02.typ"
+                                 "typ/bugs/math-realize-02.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -41,7 +41,7 @@
 , SoftBreak
 , Comment
 , Code
-    "test/typ/bugs/math-realize-02.typ"
+    "typ/bugs/math-realize-02.typ"
     ( line 3 , column 2 )
     (LetFunc
        (Identifier "foo")
@@ -53,14 +53,14 @@
                     [ Equation
                         False
                         [ Code
-                            "test/typ/bugs/math-realize-02.typ"
+                            "typ/bugs/math-realize-02.typ"
                             ( line 6 , column 4 )
                             (Ident (Identifier "v1"))
                         , MAttach
                             Nothing
                             (Just (Text "2"))
                             (Code
-                               "test/typ/bugs/math-realize-02.typ"
+                               "typ/bugs/math-realize-02.typ"
                                ( line 6 , column 7 )
                                (Ident (Identifier "v2")))
                         ]
@@ -68,7 +68,7 @@
              ])))
 , SoftBreak
 , Code
-    "test/typ/bugs/math-realize-02.typ"
+    "typ/bugs/math-realize-02.typ"
     ( line 8 , column 2 )
     (LetFunc
        (Identifier "bar")
@@ -80,14 +80,14 @@
                     [ Equation
                         True
                         [ Code
-                            "test/typ/bugs/math-realize-02.typ"
+                            "typ/bugs/math-realize-02.typ"
                             ( line 11 , column 5 )
                             (Ident (Identifier "v1"))
                         , MAttach
                             Nothing
                             (Just (Text "2"))
                             (Code
-                               "test/typ/bugs/math-realize-02.typ"
+                               "typ/bugs/math-realize-02.typ"
                                ( line 11 , column 8 )
                                (Ident (Identifier "v2")))
                         ]
@@ -95,7 +95,7 @@
              ])))
 , SoftBreak
 , Code
-    "test/typ/bugs/math-realize-02.typ"
+    "typ/bugs/math-realize-02.typ"
     ( line 13 , column 2 )
     (LetFunc
        (Identifier "baz")
@@ -120,7 +120,7 @@
                                     [ Equation
                                         False
                                         [ Code
-                                            "test/typ/bugs/math-realize-02.typ"
+                                            "typ/bugs/math-realize-02.typ"
                                             ( line 15 , column 24 )
                                             (FuncCall
                                                (Ident (Identifier "hat"))
@@ -139,13 +139,13 @@
     False
     [ Text "2"
     , Code
-        "test/typ/bugs/math-realize-02.typ"
+        "typ/bugs/math-realize-02.typ"
         ( line 18 , column 11 )
         (FuncCall
            (Ident (Identifier "foo"))
            [ BlockArg
                [ Code
-                   "test/typ/bugs/math-realize-02.typ"
+                   "typ/bugs/math-realize-02.typ"
                    ( line 18 , column 15 )
                    (Ident (Identifier "alpha"))
                ]
@@ -156,7 +156,7 @@
                    [ Text "M"
                    , Text "+"
                    , Code
-                       "test/typ/bugs/math-realize-02.typ"
+                       "typ/bugs/math-realize-02.typ"
                        ( line 18 , column 25 )
                        (FuncCall
                           (Ident (Identifier "foo"))
@@ -173,13 +173,13 @@
     False
     [ Text "2"
     , Code
-        "test/typ/bugs/math-realize-02.typ"
+        "typ/bugs/math-realize-02.typ"
         ( line 20 , column 11 )
         (FuncCall
            (Ident (Identifier "bar"))
            [ BlockArg
                [ Code
-                   "test/typ/bugs/math-realize-02.typ"
+                   "typ/bugs/math-realize-02.typ"
                    ( line 20 , column 15 )
                    (Ident (Identifier "alpha"))
                ]
@@ -190,7 +190,7 @@
                    [ Text "M"
                    , Text "+"
                    , Code
-                       "test/typ/bugs/math-realize-02.typ"
+                       "typ/bugs/math-realize-02.typ"
                        ( line 20 , column 25 )
                        (FuncCall
                           (Ident (Identifier "foo"))
@@ -207,7 +207,7 @@
     False
     [ Text "2"
     , Code
-        "test/typ/bugs/math-realize-02.typ"
+        "typ/bugs/math-realize-02.typ"
         ( line 22 , column 11 )
         (FuncCall
            (Ident (Identifier "baz"))
@@ -215,7 +215,7 @@
            , BlockArg [ Text "y" ]
            , BlockArg
                [ Code
-                   "test/typ/bugs/math-realize-02.typ"
+                   "typ/bugs/math-realize-02.typ"
                    ( line 22 , column 19 )
                    (FuncCall
                       (Ident (Identifier "baz"))
@@ -229,13 +229,13 @@
     True
     [ Text "2"
     , Code
-        "test/typ/bugs/math-realize-02.typ"
+        "typ/bugs/math-realize-02.typ"
         ( line 24 , column 5 )
         (FuncCall
            (Ident (Identifier "foo"))
            [ BlockArg
                [ Code
-                   "test/typ/bugs/math-realize-02.typ"
+                   "typ/bugs/math-realize-02.typ"
                    ( line 24 , column 9 )
                    (Ident (Identifier "alpha"))
                ]
@@ -246,7 +246,7 @@
                    [ Text "M"
                    , Text "+"
                    , Code
-                       "test/typ/bugs/math-realize-02.typ"
+                       "typ/bugs/math-realize-02.typ"
                        ( line 24 , column 19 )
                        (FuncCall
                           (Ident (Identifier "foo"))
@@ -260,13 +260,13 @@
     True
     [ Text "2"
     , Code
-        "test/typ/bugs/math-realize-02.typ"
+        "typ/bugs/math-realize-02.typ"
         ( line 25 , column 5 )
         (FuncCall
            (Ident (Identifier "bar"))
            [ BlockArg
                [ Code
-                   "test/typ/bugs/math-realize-02.typ"
+                   "typ/bugs/math-realize-02.typ"
                    ( line 25 , column 9 )
                    (Ident (Identifier "alpha"))
                ]
@@ -277,7 +277,7 @@
                    [ Text "M"
                    , Text "+"
                    , Code
-                       "test/typ/bugs/math-realize-02.typ"
+                       "typ/bugs/math-realize-02.typ"
                        ( line 25 , column 19 )
                        (FuncCall
                           (Ident (Identifier "foo"))
@@ -291,7 +291,7 @@
     True
     [ Text "2"
     , Code
-        "test/typ/bugs/math-realize-02.typ"
+        "typ/bugs/math-realize-02.typ"
         ( line 26 , column 5 )
         (FuncCall
            (Ident (Identifier "baz"))
@@ -299,7 +299,7 @@
            , BlockArg [ Text "y" ]
            , BlockArg
                [ Code
-                   "test/typ/bugs/math-realize-02.typ"
+                   "typ/bugs/math-realize-02.typ"
                    ( line 26 , column 13 )
                    (FuncCall
                       (Ident (Identifier "baz"))

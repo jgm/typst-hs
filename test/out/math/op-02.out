@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/math/op-02.typ"
+    "typ/math/op-02.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/math/op-02.typ"
+                                 "typ/math/op-02.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/math/op-02.typ"
+                                 "typ/math/op-02.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -41,7 +41,7 @@
 , SoftBreak
 , Comment
 , Code
-    "test/typ/math/op-02.typ"
+    "typ/math/op-02.typ"
     ( line 3 , column 2 )
     (Set
        (Ident (Identifier "text"))
@@ -60,17 +60,17 @@
               Nothing
               [ Text "n"
               , Code
-                  "test/typ/math/op-02.typ"
+                  "typ/math/op-02.typ"
                   ( line 4 , column 16 )
                   (FieldAccess (Ident (Identifier "r")) (Ident (Identifier "arrow")))
               , Code
-                  "test/typ/math/op-02.typ"
+                  "typ/math/op-02.typ"
                   ( line 4 , column 18 )
                   (Ident (Identifier "oo"))
               ]))
         Nothing
         (Code
-           "test/typ/math/op-02.typ"
+           "typ/math/op-02.typ"
            ( line 4 , column 10 )
            (Ident (Identifier "lim")))
     , MFrac (Text "1") (Text "n")
@@ -88,17 +88,17 @@
               Nothing
               [ Text "n"
               , Code
-                  "test/typ/math/op-02.typ"
+                  "typ/math/op-02.typ"
                   ( line 5 , column 9 )
                   (FieldAccess (Ident (Identifier "r")) (Ident (Identifier "arrow")))
               , Code
-                  "test/typ/math/op-02.typ"
+                  "typ/math/op-02.typ"
                   ( line 5 , column 11 )
                   (Ident (Identifier "infinity"))
               ]))
         Nothing
         (Code
-           "test/typ/math/op-02.typ"
+           "typ/math/op-02.typ"
            ( line 5 , column 3 )
            (Ident (Identifier "lim")))
     , MFrac (Text "1") (Text "n")

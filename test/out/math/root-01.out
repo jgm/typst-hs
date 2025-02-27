@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/math/root-01.typ"
+    "typ/math/root-01.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/math/root-01.typ"
+                                 "typ/math/root-01.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/math/root-01.typ"
+                                 "typ/math/root-01.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -43,48 +43,48 @@
 , Equation
     True
     [ Code
-        "test/typ/math/root-01.typ"
+        "typ/math/root-01.typ"
         ( line 3 , column 3 )
         (FuncCall (Ident (Identifier "sqrt")) [ BlockArg [ Text "a" ] ])
     , Code
-        "test/typ/math/root-01.typ"
+        "typ/math/root-01.typ"
         ( line 3 , column 11 )
         (Ident (Identifier "quad"))
     , Code
-        "test/typ/math/root-01.typ"
+        "typ/math/root-01.typ"
         ( line 4 , column 3 )
         (FuncCall (Ident (Identifier "sqrt")) [ BlockArg [ Text "f" ] ])
     , Code
-        "test/typ/math/root-01.typ"
+        "typ/math/root-01.typ"
         ( line 4 , column 11 )
         (Ident (Identifier "quad"))
     , Code
-        "test/typ/math/root-01.typ"
+        "typ/math/root-01.typ"
         ( line 5 , column 3 )
         (FuncCall (Ident (Identifier "sqrt")) [ BlockArg [ Text "q" ] ])
     , Code
-        "test/typ/math/root-01.typ"
+        "typ/math/root-01.typ"
         ( line 5 , column 11 )
         (Ident (Identifier "quad"))
     , Code
-        "test/typ/math/root-01.typ"
+        "typ/math/root-01.typ"
         ( line 6 , column 3 )
         (FuncCall
            (Ident (Identifier "sqrt"))
            [ BlockArg [ MAttach Nothing (Just (Text "2")) (Text "a") ] ])
     , HardBreak
     , Code
-        "test/typ/math/root-01.typ"
+        "typ/math/root-01.typ"
         ( line 7 , column 3 )
         (FuncCall
            (Ident (Identifier "sqrt"))
            [ BlockArg [ MAttach (Just (Text "0")) Nothing (Text "n") ] ])
     , Code
-        "test/typ/math/root-01.typ"
+        "typ/math/root-01.typ"
         ( line 7 , column 13 )
         (Ident (Identifier "quad"))
     , Code
-        "test/typ/math/root-01.typ"
+        "typ/math/root-01.typ"
         ( line 8 , column 3 )
         (FuncCall
            (Ident (Identifier "sqrt"))
@@ -92,21 +92,21 @@
                [ MAttach Nothing (Just (MGroup Nothing Nothing [])) (Text "b") ]
            ])
     , Code
-        "test/typ/math/root-01.typ"
+        "typ/math/root-01.typ"
         ( line 8 , column 14 )
         (Ident (Identifier "quad"))
     , Code
-        "test/typ/math/root-01.typ"
+        "typ/math/root-01.typ"
         ( line 9 , column 3 )
         (FuncCall
            (Ident (Identifier "sqrt"))
            [ BlockArg [ MAttach Nothing (Just (Text "2")) (Text "b") ] ])
     , Code
-        "test/typ/math/root-01.typ"
+        "typ/math/root-01.typ"
         ( line 9 , column 13 )
         (Ident (Identifier "quad"))
     , Code
-        "test/typ/math/root-01.typ"
+        "typ/math/root-01.typ"
         ( line 10 , column 3 )
         (FuncCall
            (Ident (Identifier "sqrt"))

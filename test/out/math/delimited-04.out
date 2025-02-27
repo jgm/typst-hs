@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/math/delimited-04.typ"
+    "typ/math/delimited-04.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/math/delimited-04.typ"
+                                 "typ/math/delimited-04.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/math/delimited-04.typ"
+                                 "typ/math/delimited-04.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -43,31 +43,31 @@
 , Equation
     True
     [ Code
-        "test/typ/math/delimited-04.typ"
+        "typ/math/delimited-04.typ"
         ( line 3 , column 3 )
         (FieldAccess
            (Ident (Identifier "l")) (Ident (Identifier "bracket")))
     , MFrac (Text "a") (Text "b")
     , Code
-        "test/typ/math/delimited-04.typ"
+        "typ/math/delimited-04.typ"
         ( line 3 , column 17 )
         (FieldAccess
            (Ident (Identifier "r")) (Ident (Identifier "bracket")))
     , Text "="
     , Code
-        "test/typ/math/delimited-04.typ"
+        "typ/math/delimited-04.typ"
         ( line 4 , column 5 )
         (FuncCall
            (Ident (Identifier "lr"))
            [ BlockArg
                [ Code
-                   "test/typ/math/delimited-04.typ"
+                   "typ/math/delimited-04.typ"
                    ( line 4 , column 8 )
                    (FieldAccess
                       (Ident (Identifier "l")) (Ident (Identifier "bracket")))
                , MFrac (Text "a") (Text "b")
                , Code
-                   "test/typ/math/delimited-04.typ"
+                   "typ/math/delimited-04.typ"
                    ( line 4 , column 22 )
                    (FieldAccess
                       (Ident (Identifier "r")) (Ident (Identifier "bracket")))

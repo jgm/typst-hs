@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/math/accent-01.typ"
+    "typ/math/accent-01.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/math/accent-01.typ"
+                                 "typ/math/accent-01.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/math/accent-01.typ"
+                                 "typ/math/accent-01.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -47,7 +47,7 @@
     , Text "p"
     , HardBreak
     , Code
-        "test/typ/math/accent-01.typ"
+        "typ/math/accent-01.typ"
         ( line 2 , column 12 )
         (FuncCall (Ident (Identifier "dot")) [ BlockArg [ Text "x" ] ])
     , MAlignPoint
@@ -55,7 +55,7 @@
     , Text "v"
     , HardBreak
     , Code
-        "test/typ/math/accent-01.typ"
+        "typ/math/accent-01.typ"
         ( line 2 , column 26 )
         (FuncCall
            (FieldAccess
@@ -66,7 +66,7 @@
     , Text "a"
     , HardBreak
     , Code
-        "test/typ/math/accent-01.typ"
+        "typ/math/accent-01.typ"
         ( line 2 , column 47 )
         (FuncCall
            (FieldAccess
@@ -77,7 +77,7 @@
     , Text "j"
     , HardBreak
     , Code
-        "test/typ/math/accent-01.typ"
+        "typ/math/accent-01.typ"
         ( line 2 , column 68 )
         (FuncCall
            (FieldAccess

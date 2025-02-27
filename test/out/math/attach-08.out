@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/math/attach-08.typ"
+    "typ/math/attach-08.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/math/attach-08.typ"
+                                 "typ/math/attach-08.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/math/attach-08.typ"
+                                 "typ/math/attach-08.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -49,11 +49,11 @@
               Nothing
               [ Text "n"
               , Code
-                  "test/typ/math/attach-08.typ"
+                  "typ/math/attach-08.typ"
                   ( line 3 , column 9 )
                   (FieldAccess (Ident (Identifier "r")) (Ident (Identifier "arrow")))
               , Code
-                  "test/typ/math/attach-08.typ"
+                  "typ/math/attach-08.typ"
                   ( line 3 , column 11 )
                   (Ident (Identifier "oo"))
               , HardBreak
@@ -62,7 +62,7 @@
               ]))
         Nothing
         (Code
-           "test/typ/math/attach-08.typ"
+           "typ/math/attach-08.typ"
            ( line 3 , column 3 )
            (Ident (Identifier "lim")))
     , MAttach
@@ -76,17 +76,17 @@
               , HardBreak
               , Text "k"
               , Code
-                  "test/typ/math/attach-08.typ"
+                  "typ/math/attach-08.typ"
                   ( line 3 , column 40 )
                   (Ident (Identifier "in"))
               , Code
-                  "test/typ/math/attach-08.typ"
+                  "typ/math/attach-08.typ"
                   ( line 3 , column 43 )
                   (Ident (Identifier "NN"))
               ]))
         (Just (Text "n"))
         (Code
-           "test/typ/math/attach-08.typ"
+           "typ/math/attach-08.typ"
            ( line 3 , column 27 )
            (Ident (Identifier "sum")))
     , Text "k"

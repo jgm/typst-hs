@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/math/accent-00.typ"
+    "typ/math/accent-00.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/math/accent-00.typ"
+                                 "typ/math/accent-00.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/math/accent-00.typ"
+                                 "typ/math/accent-00.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -43,66 +43,66 @@
 , Equation
     False
     [ Code
-        "test/typ/math/accent-00.typ"
+        "typ/math/accent-00.typ"
         ( line 3 , column 2 )
         (FuncCall (Ident (Identifier "grave")) [ BlockArg [ Text "a" ] ])
     , Text ","
     , Code
-        "test/typ/math/accent-00.typ"
+        "typ/math/accent-00.typ"
         ( line 3 , column 12 )
         (FuncCall (Ident (Identifier "acute")) [ BlockArg [ Text "b" ] ])
     , Text ","
     , Code
-        "test/typ/math/accent-00.typ"
+        "typ/math/accent-00.typ"
         ( line 3 , column 22 )
         (FuncCall (Ident (Identifier "hat")) [ BlockArg [ Text "f" ] ])
     , Text ","
     , Code
-        "test/typ/math/accent-00.typ"
+        "typ/math/accent-00.typ"
         ( line 3 , column 30 )
         (FuncCall
            (Ident (Identifier "tilde")) [ BlockArg [ Text "\167" ] ])
     , Text ","
     , Code
-        "test/typ/math/accent-00.typ"
+        "typ/math/accent-00.typ"
         ( line 3 , column 40 )
         (FuncCall
            (Ident (Identifier "macron")) [ BlockArg [ Text "\228" ] ])
     , Text ","
     , Code
-        "test/typ/math/accent-00.typ"
+        "typ/math/accent-00.typ"
         ( line 3 , column 51 )
         (FuncCall (Ident (Identifier "diaer")) [ BlockArg [ Text "a" ] ])
     , Text ","
     , Text "\228"
     , HardBreak
     , Code
-        "test/typ/math/accent-00.typ"
+        "typ/math/accent-00.typ"
         ( line 4 , column 2 )
         (FuncCall (Ident (Identifier "breve")) [ BlockArg [ Text "&" ] ])
     , Text ","
     , Code
-        "test/typ/math/accent-00.typ"
+        "typ/math/accent-00.typ"
         ( line 4 , column 13 )
         (FuncCall (Ident (Identifier "dot")) [ BlockArg [ Text "!" ] ])
     , Text ","
     , Code
-        "test/typ/math/accent-00.typ"
+        "typ/math/accent-00.typ"
         ( line 4 , column 21 )
         (FuncCall (Ident (Identifier "circle")) [ BlockArg [ Text "a" ] ])
     , Text ","
     , Code
-        "test/typ/math/accent-00.typ"
+        "typ/math/accent-00.typ"
         ( line 4 , column 32 )
         (FuncCall (Ident (Identifier "caron")) [ BlockArg [ Text "@" ] ])
     , Text ","
     , Code
-        "test/typ/math/accent-00.typ"
+        "typ/math/accent-00.typ"
         ( line 4 , column 42 )
         (FuncCall (Ident (Identifier "arrow")) [ BlockArg [ Text "Z" ] ])
     , Text ","
     , Code
-        "test/typ/math/accent-00.typ"
+        "typ/math/accent-00.typ"
         ( line 4 , column 52 )
         (FuncCall
            (FieldAccess (Ident (Identifier "l")) (Ident (Identifier "arrow")))

@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/compiler/label-05.typ"
+    "typ/compiler/label-05.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/compiler/label-05.typ"
+                                 "typ/compiler/label-05.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/compiler/label-05.typ"
+                                 "typ/compiler/label-05.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -41,21 +41,19 @@
 , SoftBreak
 , Comment
 , Code
-    "test/typ/compiler/label-05.typ"
+    "typ/compiler/label-05.typ"
     ( line 3 , column 2 )
     (Show (Just (Label "strike")) (Ident (Identifier "strike")))
 , SoftBreak
 , Strong [ Text "This" , Space , Text "is" ]
 , Space
 , Code
-    "test/typ/compiler/label-05.typ"
+    "typ/compiler/label-05.typ"
     ( line 4 , column 12 )
     (Block
        (Content
           [ Code
-              "test/typ/compiler/label-05.typ"
-              ( line 4 , column 13 )
-              (Label "strike")
+              "typ/compiler/label-05.typ" ( line 4 , column 13 ) (Label "strike")
           ]))
 , Space
 , Strong [ Text "protected" , Text "." ]
@@ -64,9 +62,7 @@
     [ Text "This" , Space , Text "is" , Space , Text "not" , Text "." ]
 , Space
 , Code
-    "test/typ/compiler/label-05.typ"
-    ( line 5 , column 16 )
-    (Label "strike")
+    "typ/compiler/label-05.typ" ( line 5 , column 16 ) (Label "strike")
 , ParBreak
 ]
 --- evaluated ---

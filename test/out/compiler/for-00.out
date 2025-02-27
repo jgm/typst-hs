@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/compiler/for-00.typ"
+    "typ/compiler/for-00.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/compiler/for-00.typ"
+                                 "typ/compiler/for-00.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/compiler/for-00.typ"
+                                 "typ/compiler/for-00.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -43,7 +43,7 @@
 , SoftBreak
 , Comment
 , Code
-    "test/typ/compiler/for-00.typ"
+    "typ/compiler/for-00.typ"
     ( line 5 , column 2 )
     (For
        (BasicBind (Just (Identifier "x")))
@@ -53,7 +53,7 @@
 , Comment
 , Comment
 , Code
-    "test/typ/compiler/for-00.typ"
+    "typ/compiler/for-00.typ"
     ( line 9 , column 2 )
     (For
        (DestructuringBind
@@ -68,13 +68,13 @@
           (Content
              [ SoftBreak
              , Code
-                 "test/typ/compiler/for-00.typ"
+                 "typ/compiler/for-00.typ"
                  ( line 10 , column 4 )
                  (Ident (Identifier "k"))
              , Text ":"
              , Space
              , Code
-                 "test/typ/compiler/for-00.typ"
+                 "typ/compiler/for-00.typ"
                  ( line 10 , column 8 )
                  (Ident (Identifier "v"))
              , Text "."
@@ -84,7 +84,7 @@
 , Comment
 , Comment
 , Code
-    "test/typ/compiler/for-00.typ"
+    "typ/compiler/for-00.typ"
     ( line 15 , column 2 )
     (Block
        (CodeBlock
@@ -107,7 +107,7 @@
                     , Block
                         (Content
                            [ Code
-                               "test/typ/compiler/for-00.typ"
+                               "typ/compiler/for-00.typ"
                                ( line 19 , column 7 )
                                (Ident (Identifier "v"))
                            ])
@@ -138,7 +138,7 @@
 , Comment
 , Comment
 , Code
-    "test/typ/compiler/for-00.typ"
+    "typ/compiler/for-00.typ"
     ( line 30 , column 2 )
     (For
        (BasicBind (Just (Identifier "v")))
@@ -154,7 +154,7 @@
        (Block
           (Content
              [ Code
-                 "test/typ/compiler/for-00.typ"
+                 "typ/compiler/for-00.typ"
                  ( line 30 , column 35 )
                  (If
                     [ ( And
@@ -171,7 +171,7 @@
 , ParBreak
 , Comment
 , Code
-    "test/typ/compiler/for-00.typ"
+    "typ/compiler/for-00.typ"
     ( line 33 , column 2 )
     (LetFunc
        (Identifier "f1")
@@ -186,7 +186,7 @@
           [ NormalArg (Ident (Identifier "repr")) ]))
 , SoftBreak
 , Code
-    "test/typ/compiler/for-00.typ"
+    "typ/compiler/for-00.typ"
     ( line 34 , column 2 )
     (LetFunc
        (Identifier "f2")
@@ -225,7 +225,7 @@
           ]))
 , SoftBreak
 , Code
-    "test/typ/compiler/for-00.typ"
+    "typ/compiler/for-00.typ"
     ( line 35 , column 2 )
     (LetFunc
        (Identifier "f")
@@ -243,7 +243,7 @@
           [ NormalArg (Literal (String ", ")) ]))
 , SoftBreak
 , Code
-    "test/typ/compiler/for-00.typ"
+    "typ/compiler/for-00.typ"
     ( line 36 , column 2 )
     (FuncCall
        (Ident (Identifier "f"))

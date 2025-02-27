@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/bugs/columns-1-00.typ"
+    "typ/bugs/columns-1-00.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/bugs/columns-1-00.typ"
+                                 "typ/bugs/columns-1-00.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/bugs/columns-1-00.typ"
+                                 "typ/bugs/columns-1-00.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -40,7 +40,7 @@
                 ]))))
 , SoftBreak
 , Code
-    "test/typ/bugs/columns-1-00.typ"
+    "typ/bugs/columns-1-00.typ"
     ( line 2 , column 2 )
     (Set
        (Ident (Identifier "page"))
@@ -49,7 +49,7 @@
 , Text "Hallo"
 , SoftBreak
 , Code
-    "test/typ/bugs/columns-1-00.typ"
+    "typ/bugs/columns-1-00.typ"
     ( line 5 , column 2 )
     (FuncCall
        (Ident (Identifier "columns"))

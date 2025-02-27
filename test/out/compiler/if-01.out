@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/compiler/if-01.typ"
+    "typ/compiler/if-01.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/compiler/if-01.typ"
+                                 "typ/compiler/if-01.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/compiler/if-01.typ"
+                                 "typ/compiler/if-01.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -41,7 +41,7 @@
 , SoftBreak
 , Comment
 , Code
-    "test/typ/compiler/if-01.typ"
+    "typ/compiler/if-01.typ"
     ( line 3 , column 2 )
     (If
        [ ( Block (CodeBlock [ Literal (Boolean True) ])
@@ -51,7 +51,7 @@
 , ParBreak
 , Comment
 , Code
-    "test/typ/compiler/if-01.typ"
+    "typ/compiler/if-01.typ"
     ( line 8 , column 2 )
     (If
        [ ( Not (Equals (Block (Content [])) (Literal None))
@@ -61,7 +61,7 @@
 , ParBreak
 , Comment
 , Code
-    "test/typ/compiler/if-01.typ"
+    "typ/compiler/if-01.typ"
     ( line 13 , column 2 )
     (If
        [ ( Equals
@@ -75,7 +75,7 @@
 , ParBreak
 , Comment
 , Code
-    "test/typ/compiler/if-01.typ"
+    "typ/compiler/if-01.typ"
     ( line 23 , column 2 )
     (If
        [ ( Literal (Boolean False)
@@ -93,7 +93,7 @@
 , ParBreak
 , Comment
 , Code
-    "test/typ/compiler/if-01.typ"
+    "typ/compiler/if-01.typ"
     ( line 31 , column 2 )
     (Block
        (CodeBlock
@@ -116,12 +116,12 @@
           ]))
 , ParBreak
 , Code
-    "test/typ/compiler/if-01.typ"
+    "typ/compiler/if-01.typ"
     ( line 36 , column 2 )
     (Let (BasicBind (Just (Identifier "i"))) (Literal (Int 3)))
 , SoftBreak
 , Code
-    "test/typ/compiler/if-01.typ"
+    "typ/compiler/if-01.typ"
     ( line 37 , column 2 )
     (If
        [ ( LessThan (Ident (Identifier "i")) (Literal (Int 2))

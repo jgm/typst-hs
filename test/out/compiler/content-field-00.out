@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/compiler/content-field-00.typ"
+    "typ/compiler/content-field-00.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/compiler/content-field-00.typ"
+                                 "typ/compiler/content-field-00.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/compiler/content-field-00.typ"
+                                 "typ/compiler/content-field-00.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -42,7 +42,7 @@
 , Comment
 , SoftBreak
 , Code
-    "test/typ/compiler/content-field-00.typ"
+    "typ/compiler/content-field-00.typ"
     ( line 4 , column 2 )
     (LetFunc
        (Identifier "compute")
@@ -261,7 +261,7 @@
                                     [ Equation
                                         False
                                         [ Code
-                                            "test/typ/compiler/content-field-00.typ"
+                                            "typ/compiler/content-field-00.typ"
                                             ( line 36 , column 17 )
                                             (FuncCall
                                                (FieldAccess
@@ -270,7 +270,7 @@
                                                [])
                                         , Text "="
                                         , Code
-                                            "test/typ/compiler/content-field-00.typ"
+                                            "typ/compiler/content-field-00.typ"
                                             ( line 36 , column 30 )
                                             (FuncCall
                                                (FieldAccess
@@ -290,12 +290,12 @@
                     [ Equation
                         True
                         [ Code
-                            "test/typ/compiler/content-field-00.typ"
+                            "typ/compiler/content-field-00.typ"
                             ( line 39 , column 5 )
                             (Ident (Identifier "equation"))
                         , Text "="
                         , Code
-                            "test/typ/compiler/content-field-00.typ"
+                            "typ/compiler/content-field-00.typ"
                             ( line 39 , column 16 )
                             (Ident (Identifier "result"))
                         ]
@@ -303,7 +303,7 @@
              ])))
 , ParBreak
 , Code
-    "test/typ/compiler/content-field-00.typ"
+    "typ/compiler/content-field-00.typ"
     ( line 42 , column 2 )
     (FuncCall
        (Ident (Identifier "compute"))
@@ -323,7 +323,7 @@
        ])
 , ParBreak
 ]
-"test/typ/compiler/content-field-00.typ" (line 42, column 2):
+"typ/compiler/content-field-00.typ" (line 42, column 2):
 unexpected end of input
 expecting end of input
 panicked with: "unknown math variable: +"

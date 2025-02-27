@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/math/style-06.typ"
+    "typ/math/style-06.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/math/style-06.typ"
+                                 "typ/math/style-06.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/math/style-06.typ"
+                                 "typ/math/style-06.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -41,7 +41,7 @@
 , SoftBreak
 , Comment
 , Code
-    "test/typ/math/style-06.typ"
+    "typ/math/style-06.typ"
     ( line 3 , column 2 )
     (Show
        (Just
@@ -54,16 +54,16 @@
                 [ Equation
                     False
                     [ Code
-                        "test/typ/math/style-06.typ"
+                        "typ/math/style-06.typ"
                         ( line 3 , column 25 )
                         (FuncCall
                            (Ident (Identifier "h")) [ NormalArg (Literal (Numeric 1.0 Em)) ])
                     , Code
-                        "test/typ/math/style-06.typ"
+                        "typ/math/style-06.typ"
                         ( line 3 , column 32 )
                         (Ident (Identifier "it"))
                     , Code
-                        "test/typ/math/style-06.typ"
+                        "typ/math/style-06.typ"
                         ( line 3 , column 36 )
                         (FuncCall
                            (Ident (Identifier "h")) [ NormalArg (Literal (Numeric 1.0 Em)) ])
@@ -74,7 +74,7 @@
     True
     [ Text "a"
     , Code
-        "test/typ/math/style-06.typ"
+        "typ/math/style-06.typ"
         ( line 4 , column 5 )
         (Ident (Identifier "tack"))
     , Text "b"

@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/compiler/return-04.typ"
+    "typ/compiler/return-04.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/compiler/return-04.typ"
+                                 "typ/compiler/return-04.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/compiler/return-04.typ"
+                                 "typ/compiler/return-04.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -41,7 +41,7 @@
 , SoftBreak
 , Comment
 , Code
-    "test/typ/compiler/return-04.typ"
+    "typ/compiler/return-04.typ"
     ( line 3 , column 2 )
     (LetFunc
        (Identifier "sum")
@@ -65,7 +65,7 @@
              ])))
 , ParBreak
 , Code
-    "test/typ/compiler/return-04.typ"
+    "typ/compiler/return-04.typ"
     ( line 11 , column 2 )
     (LetFunc
        (Identifier "f")
@@ -83,7 +83,7 @@
              ])))
 , ParBreak
 , Code
-    "test/typ/compiler/return-04.typ"
+    "typ/compiler/return-04.typ"
     ( line 16 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))

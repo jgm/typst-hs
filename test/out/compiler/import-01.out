@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/compiler/import-01.typ"
+    "typ/compiler/import-01.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/compiler/import-01.typ"
+                                 "typ/compiler/import-01.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/compiler/import-01.typ"
+                                 "typ/compiler/import-01.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -41,14 +41,14 @@
 , SoftBreak
 , Comment
 , Code
-    "test/typ/compiler/import-01.typ"
+    "typ/compiler/import-01.typ"
     ( line 3 , column 2 )
     (Import
        (Literal (String "module.typ"))
        (SomeIdentifiers [ ( Identifier "item" , Nothing ) ]))
 , SoftBreak
 , Code
-    "test/typ/compiler/import-01.typ"
+    "typ/compiler/import-01.typ"
     ( line 4 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
@@ -83,13 +83,13 @@
 , ParBreak
 , Comment
 , Code
-    "test/typ/compiler/import-01.typ"
+    "typ/compiler/import-01.typ"
     ( line 13 , column 2 )
     (Import (Literal (String "module.typ")) AllIdentifiers)
 , ParBreak
 , Comment
 , Code
-    "test/typ/compiler/import-01.typ"
+    "typ/compiler/import-01.typ"
     ( line 16 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))

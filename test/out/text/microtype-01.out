@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/text/microtype-01.typ"
+    "typ/text/microtype-01.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/text/microtype-01.typ"
+                                 "typ/text/microtype-01.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/text/microtype-01.typ"
+                                 "typ/text/microtype-01.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -41,21 +41,21 @@
 , SoftBreak
 , Comment
 , Code
-    "test/typ/text/microtype-01.typ"
+    "typ/text/microtype-01.typ"
     ( line 3 , column 2 )
     (Set
        (Ident (Identifier "page"))
        [ KeyValArg (Identifier "margin") (Literal (Numeric 0.0 Pt)) ])
 , SoftBreak
 , Code
-    "test/typ/text/microtype-01.typ"
+    "typ/text/microtype-01.typ"
     ( line 4 , column 2 )
     (Set
        (Ident (Identifier "align"))
        [ NormalArg (Ident (Identifier "end")) ])
 , SoftBreak
 , Code
-    "test/typ/text/microtype-01.typ"
+    "typ/text/microtype-01.typ"
     ( line 5 , column 2 )
     (Set
        (Ident (Identifier "text"))

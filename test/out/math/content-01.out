@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "test/typ/math/content-01.typ"
+    "typ/math/content-01.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "test/typ/math/content-01.typ"
+                                 "typ/math/content-01.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "test/typ/math/content-01.typ"
+                                 "typ/math/content-01.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -44,13 +44,13 @@
     True
     [ Text "x"
     , Code
-        "test/typ/math/content-01.typ"
+        "typ/math/content-01.typ"
         ( line 3 , column 5 )
         (FieldAccess
            (Ident (Identifier "eq")) (Ident (Identifier "colon")))
     , MFrac
         (Code
-           "test/typ/math/content-01.typ"
+           "typ/math/content-01.typ"
            ( line 3 , column 9 )
            (FuncCall
               (Ident (Identifier "table"))
@@ -59,7 +59,7 @@
               , BlockArg [ Text "y" ]
               ]))
         (Code
-           "test/typ/math/content-01.typ"
+           "typ/math/content-01.typ"
            ( line 3 , column 33 )
            (FuncCall
               (Ident (Identifier "mat"))
@@ -69,7 +69,7 @@
               ]))
     , Text "="
     , Code
-        "test/typ/math/content-01.typ"
+        "typ/math/content-01.typ"
         ( line 4 , column 9 )
         (FuncCall
            (Ident (Identifier "table"))
