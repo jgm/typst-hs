@@ -75,7 +75,6 @@ document(body: { text(body: [
 ]), 
                  text(body: [
 A ]), 
-                 heading(body: text(body: [Heading]), 
-                         level: 1), 
+                 text(body: [B]), 
                  text(body: [ C]), 
                  parbreak() })
