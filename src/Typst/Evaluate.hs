@@ -743,6 +743,7 @@ evalExpr expr =
                 st
                   { evalShowRules =
                       ShowRule
+                        (evalNextShowRuleIdentifier st)
                         selector
                         ( \c ->
                             valToContent
@@ -752,12 +753,14 @@ evalExpr expr =
                                     named = OM.empty
                                   }
                         )
-                        : evalShowRules st
+                        : evalShowRules st,
+                    evalNextShowRuleIdentifier = evalNextShowRuleIdentifier st + 1
                   }
             _ -> updateState $ \st ->
               st
                 { evalShowRules =
                     ShowRule
+                      (evalNextShowRuleIdentifier st)
                       selector
                       ( \c ->
                           case e of
@@ -765,7 +768,8 @@ evalExpr expr =
                             Set _ _ -> pure $ Seq.singleton c
                             _ -> pure (valToContent renderVal)
                       )
-                      : evalShowRules st
+                      : evalShowRules st,
+                    evalNextShowRuleIdentifier = evalNextShowRuleIdentifier st + 1
                 }
           pure VNone
     Binding _ -> fail $ "Encountered binding out of proper context"

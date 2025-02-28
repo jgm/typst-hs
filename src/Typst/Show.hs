@@ -19,22 +19,18 @@ import Typst.Regex (RE (..), makeLiteralRE)
 import Typst.Syntax
 import Typst.Types
 
--- import Debug.Trace
+import Debug.Trace
 
 applyShowRules :: Monad m => Seq Content -> MP m (Seq Content)
 applyShowRules cs = do
   rules <- evalShowRules <$> getState
   foldM (tryShowRules rules) mempty cs
 
-withoutShowRule :: Monad m => Selector -> MP m a -> MP m a
-withoutShowRule selector pa = do
+withoutShowRule :: Monad m => ShowRule -> MP m a -> MP m a
+withoutShowRule rule pa = do
   oldShowRules <- evalShowRules <$> getState
   updateState $ \st ->
-    st
-      { evalShowRules =
-          [ ShowRule sel f | ShowRule sel f <- evalShowRules st, sel /= selector
-          ]
-      }
+    st { evalShowRules = filter (/= rule) (evalShowRules st) }
   res <- pa
   updateState $ \st -> st {evalShowRules = oldShowRules}
   pure res
@@ -49,40 +45,28 @@ tryShowRules ::
   Content ->
   MP m (Seq Content)
 tryShowRules [] cs c = pure $ cs Seq.|> c
-tryShowRules (ShowRule sel f : rs) cs c = do
-  c' <- case c of
-    Elt name pos fields -> do
-      let applyToVal (VContent cs') =
-            VContent
-              <$> foldMap (tryShowRules [ShowRule sel f] mempty) cs'
-          applyToVal (VArray as) = VArray <$> mapM applyToVal as
-          applyToVal x = pure x
-      fields' <- mapM applyToVal fields
-      pure $ Elt name pos fields'
-    _ -> pure c
-  case (sel, c') of
+tryShowRules (r@(ShowRule ident sel f) : rs) cs c = do
+  case (sel, c) of
     (SelectString s, Txt t) ->
       ( do
           re <- makeLiteralRE s
-          withoutShowRule
-            sel
+          withoutShowRule r
             ((cs <>) <$> (replaceRegexContent re t f >>= applyShowRules))
       )
-        <|> tryShowRules rs cs c'
+        <|> tryShowRules rs cs c
     (SelectRegex re, Txt t) ->
-      ( withoutShowRule
-          sel
+      ( withoutShowRule r
           ((cs <>) <$> (replaceRegexContent re t f >>= applyShowRules))
       )
-        <|> tryShowRules rs cs c'
+        <|> tryShowRules rs cs c
     (SelectLabel s, elt@(Elt _ _ fields))
       | Just (VLabel s') <- M.lookup "label" fields,
         s' == s ->
-          withoutShowRule sel ((cs <>) <$> (f elt >>= applyShowRules))
+          withoutShowRule r ((cs <>) <$> (f elt >>= applyShowRules))
     (SelectElement name fields, elt@(Elt name' _ fields'))
       | name == name',
         fieldsMatch fields fields' ->
-          withoutShowRule sel $ (cs <>) <$> (f elt >>= applyShowRules)
+          withoutShowRule r $ (cs <>) <$> (f elt >>= applyShowRules)
     (SelectOr _sel1 _sel2, _elt) ->
       fail "or is not yet implemented for select"
     (SelectAnd _sel1 _sel2, _elt) ->
@@ -91,7 +75,7 @@ tryShowRules (ShowRule sel f : rs) cs c = do
       fail "before is not yet implemented for select"
     (SelectAfter _sel1 _sel2, _elt) ->
       fail "after is not yet implemented for select"
-    _ -> tryShowRules rs cs c'
+    _ -> tryShowRules rs cs c
 
 fieldsMatch :: [(Identifier, Val)] -> (M.Map Identifier Val) -> Bool
 fieldsMatch [] _ = True

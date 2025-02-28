@@ -616,6 +616,7 @@ data EvalState m = EvalState
     evalCounters :: M.Map Counter Integer,
     evalMath :: Bool,
     evalShowRules :: [ShowRule],
+    evalNextShowRuleIdentifier :: Int,
     evalStyles :: M.Map Identifier Arguments,
     evalFlowDirective :: FlowDirective,
     evalPackageRoot :: FilePath,
@@ -631,6 +632,7 @@ emptyEvalState = EvalState
       evalCounters = mempty,
       evalMath = False,
       evalShowRules = [],
+      evalNextShowRuleIdentifier = 1,
       evalStyles = mempty,
       evalFlowDirective = FlowNormal,
       evalPackageRoot = mempty,
@@ -662,10 +664,14 @@ instance MonadFail Attempt where
   fail = Failure
 
 data ShowRule
-  = ShowRule Selector (forall m. Monad m => Content -> MP m (Seq Content))
+  = ShowRule Int Selector (forall m. Monad m => Content -> MP m (Seq Content))
 
 instance Show ShowRule where
-  show (ShowRule sel _) = "ShowRule " <> show sel <> " <function>"
+  show (ShowRule ident sel _) =
+    "ShowRule " <> show ident <> " " <> show sel <> " <function>"
+
+instance Eq ShowRule where
+  (ShowRule id1 _ _) == (ShowRule id2 _ _) = id1 == id2
 
 type MP m = ParsecT [Markup] (EvalState m) m
 
