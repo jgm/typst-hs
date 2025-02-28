@@ -78,8 +78,6 @@ document(body: { text(body: [
 ]), 
                  text(body: [
 ]), 
-                 list(children: ({ text(body: { [], 
-                                                text(body: [🌎]), 
-                                                [] }), 
+                 list(children: ({ text(body: [🌎]), 
                                    parbreak() })), 
                  parbreak() })
