@@ -33,6 +33,13 @@ tryShowRules ::
   [ShowRule] ->
   Content ->
   MP m (Seq Content)
+tryShowRules (r:rest) e@(Elt "text" pos fields) =
+  case M.lookup "body" fields of
+    Just (VContent cs) -> do
+      cs' <- foldMap (tryShowRules (r:rest)) cs
+      pure $ Seq.singleton $
+        Elt "text" pos (M.insert "body" (VContent cs') fields)
+    _ -> applyShowRule r e >>= foldMap (tryShowRules rest)
 tryShowRules rs c =
   case rs of
     [] -> pure $ Seq.singleton c
