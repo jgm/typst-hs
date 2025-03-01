@@ -19,7 +19,7 @@ import qualified Data.Foldable as F
 import Data.List (intersperse, sort, sortOn)
 import qualified Data.Map as M
 import qualified Data.Map.Ordered as OM
-import Data.Maybe (fromMaybe, listToMaybe)
+import Data.Maybe (fromMaybe, listToMaybe, isJust)
 import Data.Text (Text)
 import qualified Data.Text as T
 import qualified Data.Vector as V
@@ -329,16 +329,9 @@ getMethod updateVal val fld = do
               pure $ VContent $ foldMap valToContent xs
         "has" -> pure $ makeFunction $ do
           f <- nthArg 1
-          case F.toList cs of
-            [Elt _ _ fields] -> do
-              case M.lookup (Identifier f) fields of
-                Just _ -> pure $ VBoolean True
-                Nothing -> pure $ VBoolean False
-            _ | f == "children" -> pure $ VBoolean True
-            _ ->
-              fail $
-                "Content is not a single element: "
-                  <> T.unpack (repr (VContent cs))
+          let hasField (Elt _ _ fields) = isJust $ M.lookup (Identifier f) fields
+              hasField _ = False
+          pure $ VBoolean $ any hasField cs
         "at" -> pure $ makeFunction $ do
           (field :: Text) <- ask >>= getPositionalArg 1 >>= fromVal
           defval <- namedArg "default" VNone
