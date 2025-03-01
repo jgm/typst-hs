@@ -525,7 +525,11 @@ evalExpr expr =
             VBoolean False -> pure $ VBoolean False
             _ -> fail $ "Cannot apply 'or' to " <> show val1
         _ -> fail $ "Cannot apply 'or' to " <> show val1
-    Ident ident -> lookupIdentifier ident
+    Ident ident -> do
+      val' <- lookupIdentifier ident
+      case val' of
+        VContent cs -> VContent <$> applyShowRules cs
+        val -> pure val
     Let bind e -> do
       val <- evalExpr e
       case bind of
