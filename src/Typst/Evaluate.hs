@@ -101,6 +101,10 @@ satisfyTok f = tokenPrim show showPos match'
 pContent :: Monad m => MP m (Seq Content)
 pContent = (pTxt <|> pElt) >>= applyShowRules >>= addTextElement
 
+applyShowRulesToVal :: Monad m => Val -> MP m Val
+applyShowRulesToVal (VContent cs) = VContent <$> applyShowRules cs
+applyShowRulesToVal x = pure x
+
 addTextElement :: Monad m => Seq Content -> MP m (Seq Content)
 addTextElement = foldM go mempty
   where
@@ -428,7 +432,7 @@ pExpr :: Monad m => Expr -> MP m (Seq Content)
 pExpr expr = valToContent <$> evalExpr expr
 
 evalExpr :: Monad m => Expr -> MP m Val
-evalExpr expr =
+evalExpr expr = applyShowRulesToVal =<<
   case expr of
     Literal lit -> pure $ evalLiteral lit
     Group e -> evalExpr e
@@ -525,11 +529,7 @@ evalExpr expr =
             VBoolean False -> pure $ VBoolean False
             _ -> fail $ "Cannot apply 'or' to " <> show val1
         _ -> fail $ "Cannot apply 'or' to " <> show val1
-    Ident ident -> do
-      val' <- lookupIdentifier ident
-      case val' of
-        VContent cs -> VContent <$> applyShowRules cs
-        val -> pure val
+    Ident ident -> lookupIdentifier ident
     Let bind e -> do
       val <- evalExpr e
       case bind of
