@@ -16,6 +16,8 @@ build-type:         Simple
 extra-doc-files:    CHANGELOG.md
 extra-source-files: test/typ/**/*.typ
                     test/typ/**/*.out
+                    test/skip/**/*.typ
+                    test/skip/**/*.out
                     test/typ/regression/something.txt
                     test/typ/regression/addons/example.typ
                     test/assets/files/*.png
