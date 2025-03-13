@@ -124,7 +124,7 @@ matrixElement = VFunction (Just "mat") mempty $ Function $ \args -> do
           then as
           else as ++ [VArray (V.fromList bs)]
   -- then any leftovers
-  let fields = M.fromList [("rows", VArray (V.fromList rows))]
+  fields <- M.insert "rows" (VArray (V.fromList rows)) <$> argsToFields [] args
   pure $ VContent . Seq.singleton $ Elt "math.mat" (Just pos) fields
 
 spaceConstants :: M.Map Identifier Content
