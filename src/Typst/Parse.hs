@@ -376,7 +376,7 @@ mArgs =
       ident <- try $ pIdentifier <* sym ":"
       KeyValArg ident
         <$> ( (char '#' *> pExpr <* sep)
-                <|> Block . Content <$> mathContent
+                <|> Block . Content <$> (ws *> mathContent)
             )
     mathContent = do
       xs <- maths
