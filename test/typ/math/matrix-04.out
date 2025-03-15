@@ -66,7 +66,7 @@
                             (Ident (Identifier "mat"))
                             [ BlockArg [ Text "1" ]
                             , BlockArg [ Text "2" ]
-                            , KeyValArg (Identifier "delim") (Block (Content [ Text " [" ]))
+                            , KeyValArg (Identifier "delim") (Block (Content [ Text "[" ]))
                             ])
                      ]
                  ]))
@@ -81,7 +81,7 @@
                          (FuncCall
                             (Ident (Identifier "mat"))
                             [ ArrayArg [ [ Text "1" , Text "2" ] ]
-                            , KeyValArg (Identifier "delim") (Block (Content [ Text " [" ]))
+                            , KeyValArg (Identifier "delim") (Block (Content [ Text "[" ]))
                             ])
                      ]
                  ]))
@@ -95,7 +95,7 @@
                          ( line 10 , column 5 )
                          (FuncCall
                             (Ident (Identifier "mat"))
-                            [ KeyValArg (Identifier "delim") (Block (Content [ Text " [" ]))
+                            [ KeyValArg (Identifier "delim") (Block (Content [ Text "[" ]))
                             , BlockArg [ Text "1" ]
                             , BlockArg [ Text "2" ]
                             ])
@@ -112,7 +112,7 @@
                          (FuncCall
                             (Ident (Identifier "mat"))
                             [ ArrayArg [ [ Text "1" ] , [ Text "2" ] ]
-                            , KeyValArg (Identifier "delim") (Block (Content [ Text " [" ]))
+                            , KeyValArg (Identifier "delim") (Block (Content [ Text "[" ]))
                             ])
                      ]
                  ]))
@@ -127,7 +127,7 @@
                          (FuncCall
                             (Ident (Identifier "mat"))
                             [ ArrayArg [ [ Text "1" ] ]
-                            , KeyValArg (Identifier "delim") (Block (Content [ Text " [" ]))
+                            , KeyValArg (Identifier "delim") (Block (Content [ Text "[" ]))
                             , BlockArg [ Text "2" ]
                             ])
                      ]
@@ -142,7 +142,7 @@
                          ( line 14 , column 5 )
                          (FuncCall
                             (Ident (Identifier "mat"))
-                            [ KeyValArg (Identifier "delim") (Block (Content [ Text " [" ]))
+                            [ KeyValArg (Identifier "delim") (Block (Content [ Text "[" ]))
                             , ArrayArg [ [ Text "1" ] , [ Text "2" ] ]
                             ])
                      ]
@@ -158,7 +158,7 @@
                          (FuncCall
                             (Ident (Identifier "mat"))
                             [ ArrayArg [ [ Text "1" , Text "2" ] ]
-                            , KeyValArg (Identifier "delim") (Block (Content [ Text " [" ]))
+                            , KeyValArg (Identifier "delim") (Block (Content [ Text "[" ]))
                             , BlockArg [ Text "3" ]
                             , BlockArg [ Text "4" ]
                             ])
@@ -174,7 +174,7 @@
                          ( line 17 , column 5 )
                          (FuncCall
                             (Ident (Identifier "mat"))
-                            [ KeyValArg (Identifier "delim") (Block (Content [ Text " [" ]))
+                            [ KeyValArg (Identifier "delim") (Block (Content [ Text "[" ]))
                             , ArrayArg [ [ Text "1" , Text "2" ] , [ Text "3" , Text "4" ] ]
                             ])
                      ]
@@ -190,7 +190,7 @@
                          (FuncCall
                             (Ident (Identifier "mat"))
                             [ ArrayArg [ [ Text "1" , Text "2" ] , [ Text "3" , Text "4" ] ]
-                            , KeyValArg (Identifier "delim") (Block (Content [ Text " [" ]))
+                            , KeyValArg (Identifier "delim") (Block (Content [ Text "[" ]))
                             ])
                      ]
                  ]))
@@ -203,51 +203,51 @@ document(body: { text(body: [
                  text(body: [
 ]), 
                  grid(children: (math.equation(block: true, 
-                                               body: math.mat(delim: text(body: [ []), 
+                                               body: math.mat(delim: text(body: [[]), 
                                                               rows: ((text(body: [1]), 
                                                                       text(body: [2])))), 
                                                numbering: none), 
                                  math.equation(block: true, 
-                                               body: math.mat(delim: text(body: [ []), 
+                                               body: math.mat(delim: text(body: [[]), 
                                                               rows: ((text(body: [1]), 
                                                                       text(body: [2])))), 
                                                numbering: none), 
                                  math.equation(block: true, 
-                                               body: math.mat(delim: text(body: [ []), 
+                                               body: math.mat(delim: text(body: [[]), 
                                                               rows: ((text(body: [1]), 
                                                                       text(body: [2])))), 
                                                numbering: none), 
                                  math.equation(block: true, 
-                                               body: math.mat(delim: text(body: [ []), 
+                                               body: math.mat(delim: text(body: [[]), 
                                                               rows: ((text(body: [1])), 
                                                                      (text(body: [2])))), 
                                                numbering: none), 
                                  math.equation(block: true, 
-                                               body: math.mat(delim: text(body: [ []), 
+                                               body: math.mat(delim: text(body: [[]), 
                                                               rows: ((text(body: [1])), 
                                                                      (text(body: [2])))), 
                                                numbering: none), 
                                  math.equation(block: true, 
-                                               body: math.mat(delim: text(body: [ []), 
+                                               body: math.mat(delim: text(body: [[]), 
                                                               rows: ((text(body: [1])), 
                                                                      (text(body: [2])))), 
                                                numbering: none), 
                                  math.equation(block: true, 
-                                               body: math.mat(delim: text(body: [ []), 
+                                               body: math.mat(delim: text(body: [[]), 
                                                               rows: ((text(body: [1]), 
                                                                       text(body: [2])), 
                                                                      (text(body: [3]), 
                                                                       text(body: [4])))), 
                                                numbering: none), 
                                  math.equation(block: true, 
-                                               body: math.mat(delim: text(body: [ []), 
+                                               body: math.mat(delim: text(body: [[]), 
                                                               rows: ((text(body: [1]), 
                                                                       text(body: [2])), 
                                                                      (text(body: [3]), 
                                                                       text(body: [4])))), 
                                                numbering: none), 
                                  math.equation(block: true, 
-                                               body: math.mat(delim: text(body: [ []), 
+                                               body: math.mat(delim: text(body: [[]), 
                                                               rows: ((text(body: [1]), 
                                                                       text(body: [2])), 
                                                                      (text(body: [3]), 
