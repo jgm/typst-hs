@@ -1,5 +1,31 @@
 # Revision history for typst-hs
 
+## 0.7
+
+  * Fix problems with module loading paths (#62).
+
+  * Skip whitespace before parsing key/value values in math (#64).
+
+  * Parse the `delim` attribute (and any others) in `math.mat` (#64).
+
+  * Methods: fix 'has' method so it works for sequences of elements.
+
+  * Evaluate: run show rules after looking up an identifier.
+
+  * Show rule changes:
+
+    + ShowRule now has an extra parameter for a unique identifier.
+      This allows us to prevent double application of show rules,
+      while allowing distinct rules with the same selector. [API change]
+    + In applying show rules, we no longer recurse into an element's
+      fields, as this caused double application of show rules in nested
+      contexts. (See #63.) However, this is not a complete fix because there
+      are some tests that still fail.
+    + Ensure that show rules are applied to text elements.
+
+  * Reorganized tests. Now put the `.out` and `.typ` files in same directory,
+    rather than having separate trees.
+
 ## 0.6.2
 
   * Allow types to act as constructor functions, as in typst (#61).
