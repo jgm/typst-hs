@@ -290,6 +290,7 @@ types =
   [ ("array", VType TArray)
   , ("bool", VType TBoolean)
   , ("content", VType TContent)
+  , ("dictionary", VType TDict)
   , ("int", VType TInteger)
   , ("float", VType TFloat)
   , ("regex", VType TRegex)
