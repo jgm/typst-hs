@@ -301,6 +301,7 @@ types =
   , ("str", VType TString)
   , ("label", VType TLabel)
   , ("version", VType TVersion)
+  , ("bytes", VType TBytes)
   ]
 
 colors :: [(Identifier, Val)]

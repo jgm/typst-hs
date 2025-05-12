@@ -14,12 +14,14 @@ import qualified Data.Vector as V
 import qualified Data.Map.Ordered as OM
 import qualified Data.Map as M
 import Data.Time (fromGregorian, secondsToDiffTime)
-import Data.Maybe (fromMaybe)
+import Data.Maybe (fromMaybe, mapMaybe)
+import qualified Data.ByteString as B
 import Typst.Types
 import Typst.Util (makeFunction, makeFunctionWithScope, namedArg, nthArg, allArgs)
 import qualified Data.Set as Set
 import Data.Text (Text)
 import qualified Data.Text as T
+import qualified Data.Text.Encoding as TE
 import Typst.Regex (makeRE)
 import Data.List (genericTake)
 import Control.Monad.Reader (asks)
@@ -97,6 +99,14 @@ getConstructor typ =
       case a of
         VModule _ m -> pure $ VDict $ OM.fromList $ M.toList m
         _ -> fail "dictionary constructor requires a module as argument"
+    TBytes -> Just $ makeFunction $ do
+      x <- nthArg 1
+      let extractWord8 (VInteger w) = Just $ fromIntegral w
+          extractWord8 _ = Nothing
+      case x of
+        VString s -> pure $ VBytes $ TE.encodeUtf8 s
+        VArray xs -> pure $ VBytes $ B.pack (mapMaybe extractWord8 $ V.toList xs)
+        _ -> fail "bytes constructor requires a string or array as argument"
     TArguments -> Nothing
     -- TODO https://typst.app/docs/reference/foundations/arguments/
     TSelector -> Nothing
