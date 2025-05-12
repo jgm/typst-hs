@@ -551,8 +551,12 @@ dataLoading =
     ( "read",
       makeFunction $ do
         fp <- nthArg 1
-        t <- lift $ loadFileText fp
-        pure $ VString t
+        enc <- namedArg "encoding" (VString "utf-8")
+        case enc of
+          VNone -> do bs <- lift $ loadFileLazyBytes fp
+                      pure $ VBytes $ BL.toStrict bs
+          _ -> do t <- lift $ loadFileText fp
+                  pure $ VString t
     ),
     ( "toml",
       makeFunction $ do
