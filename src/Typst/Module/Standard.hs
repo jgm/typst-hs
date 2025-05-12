@@ -222,7 +222,7 @@ visualize :: [(Identifier, Val)]
 visualize =
   [ makeElement Nothing "circle" [("body", One (TContent :|: TNone))],
     makeElement Nothing "ellipse" [("body", One (TContent :|: TNone))],
-    makeElement Nothing "image" [("source", One TString :|: One TBytes)],
+    makeElement Nothing "image" [("source", One (TString :|: TBytes))],
     makeElement Nothing "line" [],
     makeElement Nothing "path" [("vertices", Many TArray)],
     makeElement Nothing "polygon" [("vertices", Many TArray)],
