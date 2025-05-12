@@ -68,6 +68,7 @@ import qualified Data.Set as Set
 import Data.String
 import Data.Text (Text)
 import qualified Data.Text as T
+import Data.ByteString (ByteString)
 import Data.Vector (Vector)
 import qualified Data.Vector as V
 import Text.Parsec
@@ -144,7 +145,7 @@ data Val
   | VModule Identifier (M.Map Identifier Val)
   | VStyles -- just a placeholder for now
   | VVersion [Integer]
-  -- Types typically have constructors
+  | VBytes ByteString
   | VType !ValType
   deriving (Show, Eq, Typeable)
 
@@ -205,6 +206,7 @@ data ValType
   | TCounter
   | TLocation
   | TVersion
+  | TBytes
   | TType
   | TAny
   | ValType :|: ValType
@@ -241,6 +243,7 @@ valType v =
     VSelector {} -> TSelector
     VStyles {} -> TStyles
     VVersion {} -> TVersion
+    VBytes {} -> TBytes
     VType {} -> TType
 
 hasType :: ValType -> Val -> Bool
@@ -923,6 +926,7 @@ prettyVal expr =
     VSelector _ -> mempty
     VStyles -> mempty
     VVersion xs -> text $ T.intercalate "." (map (T.pack . show) xs)
+    VBytes bs -> text $ "bytes(" <> T.pack (show (BS.length bs)) <> ")"
     VType ty -> text $ prettyType ty
 
 prettyType :: ValType -> Text
