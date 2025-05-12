@@ -690,6 +690,8 @@ evalExpr expr = applyShowRulesToVal =<<
       case (v1, v2) of
         (VAlignment x1 y1, VAlignment x2 y2) ->
           pure $ VAlignment (x1 `mplus` x2) (y1 `mplus` y2)
+        (VArguments xs, VArguments ys) ->
+          pure $ VArguments (xs <> ys)
         _ -> case maybePlus v1 v2 of
           Nothing -> fail $ "Can't + " <> show v1 <> " and " <> show v2
           Just v -> pure v
