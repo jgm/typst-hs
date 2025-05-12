@@ -222,7 +222,7 @@ visualize :: [(Identifier, Val)]
 visualize =
   [ makeElement Nothing "circle" [("body", One (TContent :|: TNone))],
     makeElement Nothing "ellipse" [("body", One (TContent :|: TNone))],
-    makeElement Nothing "image" [("path", One TString)],
+    makeElement Nothing "image" [("source", One TString :|: One TBytes)],
     makeElement Nothing "line" [],
     makeElement Nothing "path" [("vertices", Many TArray)],
     makeElement Nothing "polygon" [("vertices", Many TArray)],
@@ -232,7 +232,7 @@ visualize =
 
 meta :: [(Identifier, Val)]
 meta =
-  [ makeElement Nothing "bibliography" [("path", One (TString :|: TArray))],
+  [ makeElement Nothing "bibliography" [("source", One (TString :|: TArray :|: TBytes))],
     makeElement Nothing "cite" [("key", One TLabel)],
     makeElement Nothing "document" [],
     makeElementWithScope
