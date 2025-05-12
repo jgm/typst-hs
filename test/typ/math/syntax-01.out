@@ -49,10 +49,7 @@
            (Ident (Identifier "underline"))
            [ BlockArg
                [ Text "f"
-               , Code
-                   "typ/math/syntax-01.typ"
-                   ( line 3 , column 14 )
-                   (Ident (Identifier "prime"))
+               , Text "'"
                , Text ":"
                , Code
                    "typ/math/syntax-01.typ"
@@ -73,10 +70,7 @@
     , Code
         "typ/math/syntax-01.typ"
         ( line 4 , column 5 )
-        (FieldAccess
-           (Ident (Identifier "r"))
-           (FieldAccess
-              (Ident (Identifier "bar")) (Ident (Identifier "arrow"))))
+        (Ident (Identifier "mapsto"))
     , Code
         "typ/math/syntax-01.typ"
         ( line 4 , column 9 )
@@ -150,7 +144,7 @@ document(body: { text(body: [
 ]), 
                  math.equation(block: true, 
                                body: { math.underline(body: { text(body: [f]), 
-                                                              text(body: [′]), 
+                                                              text(body: [']), 
                                                               text(body: [:]), 
                                                               text(body: [ℕ]), 
                                                               text(body: [→]), 
