@@ -1,5 +1,28 @@
 # Revision history for typst-hs
 
+## 0.8
+
+  * Allow `json`, `toml`, `xml` to take either file path or bytes.
+
+  * Allow `read` to return bytes if encoding is 'none'.
+
+  * `bibliography`, `image`: change parameter name to `source` and allow bytes.
+
+  * Add 'bytes' as a type name and constructor.
+
+  * Add VBytes constructor for Val and TBytes for ValType. [API change]
+
+  * Allow values of arguments type to be added together.
+
+  * Support `calc.norm`.
+
+  * Math: add `lcm` operator.
+
+  * Require typst-symbols >= 0.1.8.1 (#67), giving us typst 0.13 symbols.
+
+  * Add "dictionary" as name of TDict type (#65).
+
+
 ## 0.7
 
   * Fix problems with module loading paths (#62).
