@@ -105,7 +105,7 @@ getConstructor typ =
           extractWord8 _ = Nothing
       case x of
         VString s -> pure $ VBytes $ TE.encodeUtf8 s
-        VArray xs -> pure $ VBytes $ B.pack (mapMaybe extractWord8 $ V.toList xs)
+        VArray xs -> pure $ VBytes $ B.pack $ mapMaybe extractWord8 $ V.toList xs
         _ -> fail "bytes constructor requires a string or array as argument"
     TArguments -> Nothing
     -- TODO https://typst.app/docs/reference/foundations/arguments/
