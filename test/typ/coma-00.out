@@ -409,6 +409,6 @@ von ]),
                  text(body: [ zu einem Blatt. Die Höhe des Baumes ist die Höhe der Wurzel.]), 
                  parbreak(), 
                  align(alignment: center, 
-                       body: image(path: "/graph.png", 
+                       body: image(source: "/graph.png", 
                                    width: 75%)), 
                  parbreak() })

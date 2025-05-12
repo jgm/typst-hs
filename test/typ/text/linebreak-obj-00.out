@@ -93,5 +93,5 @@ document(body: { text(body: [
                  text(body: [,
 which is the authoritative source.]), 
                  parbreak(), 
-                 bibliography(path: "/works.bib"), 
+                 bibliography(source: "/works.bib"), 
                  parbreak() })

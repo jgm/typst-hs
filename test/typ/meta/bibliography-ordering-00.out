@@ -130,5 +130,5 @@ document(body: { text(body: [
                  ref(supplement: auto, 
                      target: <restful>), 
                  parbreak(), 
-                 bibliography(path: "/works.bib"), 
+                 bibliography(source: "/works.bib"), 
                  parbreak() })

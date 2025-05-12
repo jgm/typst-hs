@@ -67,6 +67,6 @@ document(body: { text(body: [
 ]), 
                  parbreak(), 
                  text(body: [The ]), 
-                 image(path: "/assets/files/graph.png"), 
+                 image(source: "/assets/files/graph.png"), 
                  text(body: [ has nodes.]), 
                  parbreak() })

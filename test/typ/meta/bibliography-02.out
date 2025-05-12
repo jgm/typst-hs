@@ -142,7 +142,7 @@ document(body: { text(body: [
 ]), 
                  text(body: [
 ]), 
-                 bibliography(path: "/works.bib", 
+                 bibliography(source: "/works.bib", 
                               style: "chicago-author-date", 
                               title: text(body: [Works to be cited])), 
                  text(body: [

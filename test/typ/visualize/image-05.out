@@ -51,5 +51,5 @@
 --- evaluated ---
 document(body: { text(body: [
 ]), 
-                 image(path: "/assets/files/pattern.svg"), 
+                 image(source: "/assets/files/pattern.svg"), 
                  parbreak() })

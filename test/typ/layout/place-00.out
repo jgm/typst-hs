@@ -197,7 +197,7 @@ document(body: { text(body: [
                  heading(body: text(body: [Placement]), 
                          level: 1), 
                  place(alignment: right, 
-                       body: image(path: "/assets/files/tiger.jpg", 
+                       body: image(source: "/assets/files/tiger.jpg", 
                                    width: 1.8cm)), 
                  text(body: [
 Hi there. This is ]), 

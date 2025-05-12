@@ -78,6 +78,6 @@ document(body: { text(body: [
 ]), 
                  align(alignment: Axes(center, horizon), 
                        body: rotate(angle: 20.0deg, 
-                                    body: scale(body: image(path: "/assets/files/tiger.jpg"), 
+                                    body: scale(body: image(source: "/assets/files/tiger.jpg"), 
                                                 factor: 70%))), 
                  parbreak() })

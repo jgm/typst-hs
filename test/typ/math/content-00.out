@@ -109,7 +109,7 @@ document(body: { text(body: [
                                        text(body: [+]), 
                                        math.frac(denom: text(body: [2]), 
                                                  num: move(body: image(height: 1.0em, 
-                                                                       path: "/assets/files/monkey.svg"), 
+                                                                       source: "/assets/files/monkey.svg"), 
                                                            dy: 0.2em)) }, 
                                numbering: none), 
                  parbreak() })

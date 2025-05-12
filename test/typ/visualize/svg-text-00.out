@@ -67,6 +67,6 @@
 document(body: { text(body: [
 ]), 
                  parbreak(), 
-                 figure(body: image(path: "/assets/files/diagram.svg"), 
+                 figure(body: image(source: "/assets/files/diagram.svg"), 
                         caption: text(body: [A textful diagram])), 
                  parbreak() })

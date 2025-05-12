@@ -63,5 +63,5 @@ document(body: { text(body: [
                  text(body: [
 Stuff
 ]), 
-                 image(path: "/assets/files/rhino.png"), 
+                 image(source: "/assets/files/rhino.png"), 
                  parbreak() })

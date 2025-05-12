@@ -141,7 +141,7 @@ document(body: { text(body: [
                                      dest: "https://typst.app/docs")), 
                  text(body: [!
 ]), 
-                 figure(body: image(path: "/assets/files/graph.png", 
+                 figure(body: image(source: "/assets/files/graph.png", 
                                     width: 70%), 
                         caption: { text(body: [
 A graph ]), 

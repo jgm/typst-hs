@@ -70,7 +70,7 @@ document(body: { text(body: [
 קרנפיםRh], 
                       lang: "he"), 
                  box(body: image(height: 11.0pt, 
-                                 path: "/assets/files/rhino.png")), 
+                                 source: "/assets/files/rhino.png")), 
                  text(body: [inoחיים], 
                       lang: "he"), 
                  parbreak() })

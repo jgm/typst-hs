@@ -70,7 +70,7 @@
 --- evaluated ---
 document(body: { parbreak(), 
                  figure(body: table(children: (text(body: [Second cylinder]), 
-                                               image(path: "/assets/files/cylinder.svg")), 
+                                               image(source: "/assets/files/cylinder.svg")), 
                                     columns: 2), 
                         caption: "A table containing images."), 
                  text(body: [ ]), 

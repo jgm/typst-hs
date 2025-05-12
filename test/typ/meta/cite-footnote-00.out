@@ -78,6 +78,6 @@ And again: ]),
                  pagebreak(), 
                  text(body: [
 ]), 
-                 bibliography(path: "/works.bib", 
+                 bibliography(source: "/works.bib", 
                               style: "chicago-notes"), 
                  parbreak() })

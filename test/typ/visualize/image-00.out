@@ -70,9 +70,9 @@ document(body: { text(body: [
 ]), 
                  text(body: [
 ]), 
-                 image(path: "/assets/files/rhino.png"), 
+                 image(source: "/assets/files/rhino.png"), 
                  parbreak(), 
                  text(body: [
 ]), 
-                 image(path: "/assets/files/tiger.jpg"), 
+                 image(source: "/assets/files/tiger.jpg"), 
                  parbreak() })

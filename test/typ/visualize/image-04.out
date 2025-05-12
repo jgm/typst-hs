@@ -64,7 +64,7 @@ document(body: { text(body: [
 ]), 
                  text(body: [A ]), 
                  box(body: image(height: 1.0cm, 
-                                 path: "/assets/files/tiger.jpg", 
+                                 source: "/assets/files/tiger.jpg", 
                                  width: 80%)), 
                  text(body: [ B]), 
                  parbreak() })

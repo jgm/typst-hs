@@ -243,7 +243,7 @@ document(body: { text(body: [
                          level: 1), 
                  locate(func: ), 
                  parbreak(), 
-                 figure(body: image(path: "/assets/files/glacier.jpg"), 
+                 figure(body: image(source: "/assets/files/glacier.jpg"), 
                         caption: text(body: [Glacier melting]), 
                         numbering: "I"), 
                  parbreak(), 
@@ -253,7 +253,7 @@ document(body: { text(body: [
                         numbering: "I", 
                         supplement: "Figure"), 
                  parbreak(), 
-                 figure(body: image(path: "/assets/files/tiger.jpg"), 
+                 figure(body: image(source: "/assets/files/tiger.jpg"), 
                         caption: text(body: [Tiger world]), 
                         numbering: "I"), 
                  parbreak() })

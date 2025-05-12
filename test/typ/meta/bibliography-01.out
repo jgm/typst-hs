@@ -101,5 +101,5 @@ document(body: { text(body: [
                      target: <distress>), 
                  text(body: [.
 ]), 
-                 bibliography(path: "/works.bib"), 
+                 bibliography(source: "/works.bib"), 
                  parbreak() })

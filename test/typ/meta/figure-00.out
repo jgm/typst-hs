@@ -202,7 +202,7 @@ document(body: { text(body: [
                  <tab-basic>, 
                  parbreak(), 
                  figure(body: pad(body: image(height: 2.0cm, 
-                                              path: "/assets/files/cylinder.svg"), 
+                                              source: "/assets/files/cylinder.svg"), 
                                   y: -6.0pt), 
                         caption: text(body: [The basic shapes.]), 
                         numbering: "I"), 

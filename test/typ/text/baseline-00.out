@@ -187,7 +187,7 @@ that ever learned to mimic a human voice.]),
                  text(body: [—
 Hey ]), 
                  box(baseline: 40%, 
-                     body: image(path: "/assets/files/tiger.jpg", 
+                     body: image(source: "/assets/files/tiger.jpg", 
                                  width: 1.5cm)), 
                  text(body: [ there!]), 
                  parbreak() })
