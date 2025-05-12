@@ -17,7 +17,7 @@ import Paths_typst (version)
 import Data.Version (showVersion)
 import Control.Applicative ((<|>))
 import Control.Monad (mplus, unless)
-import Control.Monad.Reader (lift)
+import Control.Monad.Reader (lift, ReaderT)
 import qualified Data.Aeson as Aeson
 import qualified Data.ByteString.Lazy as BL
 import qualified Data.Csv as Csv
@@ -534,16 +534,14 @@ dataLoading =
     ),
     ( "json",
       makeFunction $ do
-        fp <- nthArg 1
-        bs <- lift $ loadFileLazyBytes fp
+        bs <- getFileOrBytes
         case Aeson.eitherDecode bs of
           Left e -> fail e
           Right (v :: Val) -> pure v
     ),
     ( "yaml",
       makeFunction $ do
-        fp <- nthArg 1
-        bs <- lift $ loadFileLazyBytes fp
+        bs <- getFileOrBytes
         case Yaml.decodeEither' (BL.toStrict bs) of
           Left e -> fail $ show e
           Right (v :: Val) -> pure v
@@ -560,16 +558,14 @@ dataLoading =
     ),
     ( "toml",
       makeFunction $ do
-        fp <- nthArg 1
-        t <- lift $ loadFileText fp
-        case Toml.decode t of
+        bs <- getFileOrBytes
+        case Toml.decode (TE.decodeUtf8 $ BL.toStrict bs) of
           Toml.Failure e -> fail (unlines ("toml errors:" : e))
           Toml.Success _ v -> pure v
     ),
     ( "xml",
       makeFunction $ do
-        fp <- nthArg 1
-        bs <- lift $ loadFileLazyBytes fp
+        bs <- getFileOrBytes
         case XML.parseLBS XML.def bs of
           Left e -> fail $ show e
           Right doc ->
@@ -618,3 +614,11 @@ initialEvalState =
                  , evalMathIdentifiers = [(BlockScope, mathModule <> symModule)]
                  , evalStandardIdentifiers = [(BlockScope, standardModule)]
                  }
+
+getFileOrBytes :: Monad m => ReaderT Arguments (MP m) BL.ByteString
+getFileOrBytes = do
+  v <- nthArg 1
+  case v of
+    VString fp -> lift $ loadFileLazyBytes (T.unpack fp)
+    VBytes bs -> pure $ BL.fromStrict bs
+    _ -> fail "expecting file path or bytes"
