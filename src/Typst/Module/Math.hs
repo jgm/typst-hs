@@ -188,6 +188,7 @@ predefinedOperators =
           "hom",
           "mod",
           "ker",
+          "lcm",
           "lg",
           "ln",
           "log",
