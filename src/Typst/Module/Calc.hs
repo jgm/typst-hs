@@ -7,7 +7,7 @@ module Typst.Module.Calc
 where
 
 import qualified Data.Map as M
-import Data.Maybe (fromMaybe)
+import Data.Maybe (fromMaybe, mapMaybe)
 import Typst.Types
 import Typst.Util
 
@@ -112,6 +112,17 @@ calcModule =
           case vs of
             [] -> fail "min requires one or more argument"
             _ : _ -> pure $ minimum vs
+      ),
+      ( "norm",
+        makeFunction $ do
+          p <- namedArg "p" (2.0 :: Double)
+          let extractFloat (VFloat x) = Just x
+              extractFloat (VInteger x) = Just (fromIntegral x)
+              extractFloat _ = Nothing
+          vs <- mapMaybe extractFloat <$> allArgs
+          case vs of
+            [] -> fail "norm requires one or more argument"
+            _ : _ -> pure $ VFloat $ (sum (map ((**p) . abs) vs))**(1.0/p)
       ),
       ( "odd",
         makeFunction $ do
