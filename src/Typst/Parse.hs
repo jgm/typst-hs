@@ -989,14 +989,14 @@ pStr = lexeme $ do
 pUnit :: P Unit
 pUnit =
   (Percent <$ sym "%")
-    <|> (Pt <$ pKeyword "pt")
-    <|> (Mm <$ pKeyword "mm")
-    <|> (Cm <$ pKeyword "cm")
-    <|> (In <$ pKeyword "in")
-    <|> (Deg <$ pKeyword "deg")
-    <|> (Rad <$ pKeyword "rad")
-    <|> (Em <$ pKeyword "em")
-    <|> (Fr <$ pKeyword "fr")
+    <|> (Pt <$ sym "pt")
+    <|> (Mm <$ sym "mm")
+    <|> (Cm <$ sym "cm")
+    <|> (In <$ sym "in")
+    <|> (Deg <$ sym "deg")
+    <|> (Rad <$ sym "rad")
+    <|> (Em <$ sym "em")
+    <|> (Fr <$ sym "fr")
 
 pIdent :: P Expr
 pIdent = Ident <$> pIdentifier
