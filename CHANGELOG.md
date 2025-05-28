@@ -1,5 +1,9 @@
 # Revision history for typst-hs
 
+## 0.8.0.1
+
+  * Fix subtracting units, e.g. `1mm-0mm` (#71, Luke Grehan).
+
 ## 0.8
 
   * Allow `json`, `toml`, `xml` to take either file path or bytes.
