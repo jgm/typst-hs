@@ -1,3 +1,4 @@
+{-# LANGUAGE CPP #-}
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedLists #-}
 {-# LANGUAGE OverloadedStrings #-}
@@ -33,7 +34,9 @@ import qualified Data.Vector as V
 import qualified Data.Yaml as Yaml
 import Text.Parsec (getPosition, getState, updateState, runParserT)
 import Text.Read (readMaybe)
+#ifndef __WASM_COMPAT__
 import qualified Text.XML as XML
+#endif
 import qualified Toml
 import Typst.Emoji (typstEmojis)
 import Typst.Module.Calc (calcModule)
@@ -442,13 +445,13 @@ loremWords :: [Text]
 loremWords =
   cycle $
     T.words $
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\
-      \ eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut\
-      \ enim ad minim veniam, quis nostrud exercitation ullamco laboris\
-      \ nisi ut aliquip ex ea commodo consequat.  Duis aute irure dolor in\
-      \ reprehenderit in voluptate velit esse cillum dolore eu fugiat\
-      \ nulla pariatur. Excepteur sint occaecat cupidatat non proident,\
-      \ sunt in culpa qui officia deserunt mollit anim id est laborum."
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do" <>
+      " eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut" <>
+      " enim ad minim veniam, quis nostrud exercitation ullamco laboris" <>
+      " nisi ut aliquip ex ea commodo consequat.  Duis aute irure dolor in" <>
+      " reprehenderit in voluptate velit esse cillum dolore eu fugiat" <>
+      " nulla pariatur. Excepteur sint occaecat cupidatat non proident," <>
+      " sunt in culpa qui officia deserunt mollit anim id est laborum."
 
 toRatio :: MonadFail m => Val -> m Rational
 toRatio (VRatio r) = pure r
@@ -560,10 +563,11 @@ dataLoading =
       makeFunction $ do
         bs <- getFileOrBytes
         case Toml.decode (TE.decodeUtf8 $ BL.toStrict bs) of
-          Toml.Failure e -> fail (unlines ("toml errors:" : e))
+          Toml.Failure e -> fail (unlines ("tom,l errors:" : e))
           Toml.Success _ v -> pure v
-    ),
-    ( "xml",
+    )
+#ifndef __WASM_COMPAT__
+    , ( "xml",
       makeFunction $ do
         bs <- getFileOrBytes
         case XML.parseLBS XML.def bs of
@@ -598,6 +602,7 @@ dataLoading =
                       )
                     ]
     )
+#endif
   ]
 
 applyPureFunction :: Function -> [Val] -> Attempt Val

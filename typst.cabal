@@ -75,7 +75,7 @@ library
                       cassava,
                       aeson,
                       scientific,
-                      xml-conduit,
+                      -- xml-conduit,
                       yaml,
                       toml-parser ^>= 2.0.0.0,
                       regex-tdfa,
@@ -87,10 +87,18 @@ library
       cpp-options: -D__MACOS__
     if os(windows)
       cpp-options: -D__WINDOWS__
+    if !flag(wasm_compat)
+      build-depends: xml-conduit
+    if flag(wasm_compat)
+      cpp-options: -D__WASM_COMPAT__
     default-language: Haskell2010
 
 Flag executable
   description:       Compile executable to be used in testing and development.
+  default:           False
+
+Flag wasm_compat
+  description:       Exclude the XML support for WASM backend compatibility. 
   default:           False
 
 executable typst-hs
