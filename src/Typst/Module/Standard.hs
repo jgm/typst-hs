@@ -33,7 +33,7 @@ import qualified Data.Vector as V
 import qualified Data.Yaml as Yaml
 import Text.Parsec (getPosition, getState, updateState, runParserT)
 import Text.Read (readMaybe)
-import qualified Text.XML as XML
+import qualified Text.XML.Light as XML
 import qualified Toml
 import Typst.Emoji (typstEmojis)
 import Typst.Module.Calc (calcModule)
@@ -566,37 +566,25 @@ dataLoading =
     ( "xml",
       makeFunction $ do
         bs <- getFileOrBytes
-        case XML.parseLBS XML.def bs of
-          Left e -> fail $ show e
-          Right doc ->
-            pure $
-              VArray $
-                V.fromList $
-                  mapMaybe
-                    nodeToVal
-                    [XML.NodeElement (XML.documentRoot doc)]
-            where
-              showname n = XML.nameLocalName n
-              nodeToVal (XML.NodeElement elt) = Just $ eltToDict elt
-              nodeToVal (XML.NodeContent t) = Just $ VString t
-              nodeToVal _ = Nothing
-              eltToDict elt =
+        case XML.parseXMLDoc bs of
+          Nothing -> fail "XML parse failed! "
+          Just rootElt -> do
+            let
+              contentToVal (XML.Elem elt) = Just $ eltToDict elt
+              contentToVal (XML.Text t) = Just $ VString $ T.pack (XML.cdData t)
+              contentToVal _ = Nothing
+              eltToDict elt = 
                 VDict $
-                  OM.fromList
-                    [ ("tag", VString $ showname (XML.elementName elt)),
-                      ( "attrs",
-                        VDict $
-                          OM.fromList $
-                            map
-                              (\(k, v) -> (Identifier (showname k), VString v))
-                              (M.toList $ XML.elementAttributes elt)
-                      ),
-                      ( "children",
-                        VArray $
-                          V.fromList $
-                            mapMaybe nodeToVal (XML.elementNodes elt)
-                      )
-                    ]
+                  OM.fromList [
+                    ("tag", VString $ T.pack $ XML.qName $ XML.elName elt), 
+                    ("attrs", 
+                      VDict $ OM.fromList $ map (\attr -> 
+                        (Identifier $ T.pack $ XML.qName $ XML.attrKey attr, 
+                        VString $ T.pack $ XML.attrVal attr)) $ XML.elAttribs elt), 
+                    ("children", 
+                      VArray $ V.fromList $ mapMaybe contentToVal $ XML.elContent elt)
+                  ]
+            pure $ VArray $ V.fromList $ mapMaybe contentToVal [XML.Elem rootElt]
     )
   ]
 

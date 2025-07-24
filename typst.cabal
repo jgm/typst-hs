@@ -75,7 +75,7 @@ library
                       cassava,
                       aeson,
                       scientific,
-                      xml-conduit,
+                      xml,
                       yaml,
                       toml-parser ^>= 2.0.0.0,
                       regex-tdfa,
