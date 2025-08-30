@@ -34,7 +34,7 @@ import Text.Parsec
 import Typst.Bind (destructuringBind)
 import Typst.Constructors (getConstructor)
 import Typst.Methods (getMethod)
-import Typst.Module.Standard (loadFileText, standardModule, symModule)
+import Typst.Module.Standard (loadFileText, standardModule, symModule, getPath)
 import Typst.Module.Math (mathModule)
 import Typst.MathClass (mathClassOf, MathClass(Relation))
 import Typst.Parse (parseTypst)
@@ -1024,7 +1024,8 @@ loadModule modname = do
                     Identifier (T.pack $ takeBaseName fp),
                     Nothing,
                     txt )
-  case parseTypst fp txt of
+  fp' <- getPath fp  -- get full path for element positions
+  case parseTypst fp' txt of
     Left err -> fail $ show err
     Right ms -> do
       operations <- evalOperations <$> getState

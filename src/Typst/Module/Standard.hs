@@ -9,6 +9,7 @@ module Typst.Module.Standard
     symModule,
     sysModule,
     loadFileText,
+    getPath,
     applyPureFunction
   )
 where
@@ -41,7 +42,7 @@ import Typst.Module.Math (mathModule)
 import Typst.Symbols (typstSymbols)
 import Typst.Types
 import Typst.Util
-import System.FilePath ((</>))
+import System.FilePath.Posix ((</>), normalise)
 import Data.Time (UTCTime(..))
 import Data.Time.Calendar (fromGregorianValid)
 import Data.Time.Clock (secondsToDiffTime)
@@ -492,7 +493,7 @@ getPath ('/':fp') = do
 getPath fp = do
   pkgroot <- evalPackageRoot <$> getState
   localdir <- evalLocalDir <$> getState
-  pure $ pkgroot </> localdir </> fp
+  pure $ normalise $ pkgroot </> localdir </> fp
 
 getUTCTime :: Monad m => MP m UTCTime
 getUTCTime = getState >>= lift . currentUTCTime . evalOperations
