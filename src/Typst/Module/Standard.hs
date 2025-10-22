@@ -452,6 +452,14 @@ construct =
               Just (VStroke (Stroke paint thickness)) -> (paint, thickness)
               Just (VColor paint) -> (paint, thickness)
               Just (VLength thickness) -> (paint, thickness)
+              Just (VDict m) -> 
+                let paint' = case OM.lookup "paint" m of
+                      Just (VColor c) -> c
+                      _ -> paint
+                    thickness' = case OM.lookup "thickness" m of
+                      Just (VLength l) -> l
+                      _ -> thickness
+                in (paint', thickness')
               _ -> (paint, thickness)
         pure $ VStroke $ Stroke paint thickness
     ),
