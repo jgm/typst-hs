@@ -113,13 +113,6 @@ getConstructor typ =
     -- TODO https://typst.app/docs/reference/foundations/selector/
     TCounter -> Nothing
     -- TODO https://typst.app/docs/reference/introspection/counter/
-    TStroke -> Just $ makeFunction $ do
-      arg <- nthArg 1
-      VStroke <$> case arg of
-        VColor col -> pure $ StrokeColor col
-        VLength len -> pure $ StrokeLength len
-        VDict dict -> pure $ StrokeDict dict
-        _ -> fail "stroke constructor requires a color, length, or dictionary as argument"
     _ -> Nothing
 
 

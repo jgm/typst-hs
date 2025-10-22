@@ -825,10 +825,10 @@ data Color
   | Luma Rational
   deriving (Show, Eq, Ord, Typeable)
 
-data Stroke
-  = StrokeColor Color
-  | StrokeLength Length
-  | StrokeDict (OM.OMap Identifier Val)
+data Stroke = Stroke
+  { paint :: !Color,
+    thickness :: !Length
+  }
   deriving (Show, Eq, Typeable)
 
 data Direction 
@@ -909,9 +909,6 @@ prettyVal expr =
         <> text (toPercent k)
         <> ")"
     VColor (Luma g) -> "luma(" <> text (toPercent g) <> ")"
-    VStroke (StrokeColor col) -> prettyVal (VColor col)
-    VStroke (StrokeLength len) -> prettyVal (VLength len)
-    VStroke (StrokeDict dict) -> "stroke(" <> text (T.pack $ show dict) <> ")"
     VModule (Identifier modid) _ -> "<module " <> text modid <> ">"
     VArguments args ->
       P.parens

@@ -435,12 +435,25 @@ construct =
     ),
     ( "stroke",
       makeFunction $ do
-        arg <- nthArg 1
-        VStroke <$> case arg of
-          VColor col -> pure $ StrokeColor col
-          VLength len -> pure $ StrokeLength len
-          VDict dict -> pure $ StrokeDict dict
-          _ -> fail "stroke function requires a color, length, or dictionary as argument"
+        mbStroke <- (Just <$> nthArg 1) `mplus` pure Nothing
+
+        mbPaint <- namedArg "paint" Nothing
+        let paint = case mbPaint of
+              Just (VColor c) -> c
+              _ -> RGB 0 0 0 1
+
+        mbThickness <- namedArg "thickness" Nothing
+        let thickness = case mbThickness of
+              Just (VLength l) -> l
+              _ -> LExact 1.0 LPt
+
+        (paint, thickness) <- pure $ case mbStroke of
+              Nothing -> (paint, thickness)
+              Just (VStroke (Stroke paint thickness)) -> (paint, thickness)
+              Just (VColor paint) -> (paint, thickness)
+              Just (VLength thickness) -> (paint, thickness)
+              _ -> (paint, thickness)
+        pure $ VStroke $ Stroke paint thickness
     ),
     ( "lorem",
       makeFunction $ do
