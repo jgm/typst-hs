@@ -48,7 +48,7 @@
         (FieldAccess
            (Ident (Identifier "l"))
            (FieldAccess
-              (Ident (Identifier "double")) (Ident (Identifier "bracket"))))
+              (Ident (Identifier "stroked")) (Ident (Identifier "bracket"))))
     , MFrac (Text "a") (Text "b")
     , Code
         "typ/math/delimited-02.typ"
@@ -56,7 +56,7 @@
         (FieldAccess
            (Ident (Identifier "r"))
            (FieldAccess
-              (Ident (Identifier "double")) (Ident (Identifier "bracket"))))
+              (Ident (Identifier "stroked")) (Ident (Identifier "bracket"))))
     , Code
         "typ/math/delimited-02.typ"
         ( line 3 , column 11 )
@@ -73,7 +73,7 @@
                    (FieldAccess
                       (Ident (Identifier "r"))
                       (FieldAccess
-                         (Ident (Identifier "double")) (Ident (Identifier "bracket"))))
+                         (Ident (Identifier "stroked")) (Ident (Identifier "bracket"))))
                , MFrac (Text "a") (Text "b")
                , Code
                    "typ/math/delimited-02.typ"
@@ -81,7 +81,7 @@
                    (FieldAccess
                       (Ident (Identifier "r"))
                       (FieldAccess
-                         (Ident (Identifier "double")) (Ident (Identifier "bracket"))))
+                         (Ident (Identifier "stroked")) (Ident (Identifier "bracket"))))
                ]
            ])
     , Code

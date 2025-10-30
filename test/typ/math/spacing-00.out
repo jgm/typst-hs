@@ -133,7 +133,7 @@
     , Code
         "typ/math/spacing-00.typ"
         ( line 9 , column 8 )
-        (Ident (Identifier "convolve"))
+        (FieldAccess (Ident (Identifier "op")) (Ident (Identifier "ast")))
     , Text "b"
     ]
 , Space

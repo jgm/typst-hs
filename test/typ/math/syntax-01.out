@@ -70,7 +70,10 @@
     , Code
         "typ/math/syntax-01.typ"
         ( line 4 , column 5 )
-        (Ident (Identifier "mapsto"))
+        (FieldAccess
+           (Ident (Identifier "r"))
+           (FieldAccess
+              (Ident (Identifier "bar")) (Ident (Identifier "arrow"))))
     , Code
         "typ/math/syntax-01.typ"
         ( line 4 , column 9 )
@@ -83,7 +86,7 @@
                    (FieldAccess
                       (Ident (Identifier "l"))
                       (FieldAccess
-                         (Ident (Identifier "double")) (Ident (Identifier "bracket"))))
+                         (Ident (Identifier "stroked")) (Ident (Identifier "bracket"))))
                , Text "1"
                , Code
                    "typ/math/syntax-01.typ"
@@ -91,7 +94,7 @@
                    (FieldAccess
                       (Ident (Identifier "r"))
                       (FieldAccess
-                         (Ident (Identifier "double")) (Ident (Identifier "bracket"))))
+                         (Ident (Identifier "stroked")) (Ident (Identifier "bracket"))))
                , MAlignPoint
                , Text "if "
                , Text "n"
@@ -107,7 +110,7 @@
                , Code
                    "typ/math/syntax-01.typ"
                    ( line 6 , column 7 )
-                   (Ident (Identifier "convolve"))
+                   (FieldAccess (Ident (Identifier "op")) (Ident (Identifier "ast")))
                , Text "3"
                , MAlignPoint
                , Text "if "

@@ -67,7 +67,7 @@
         (FieldAccess
            (Ident (Identifier "l"))
            (FieldAccess
-              (Ident (Identifier "double")) (Ident (Identifier "bracket"))))
+              (Ident (Identifier "stroked")) (Ident (Identifier "bracket"))))
     , Text "x"
     , MFrac
         (Code
@@ -76,7 +76,7 @@
            (FieldAccess
               (Ident (Identifier "r"))
               (FieldAccess
-                 (Ident (Identifier "double")) (Ident (Identifier "bracket")))))
+                 (Ident (Identifier "stroked")) (Ident (Identifier "bracket")))))
         (Text "2")
     , HardBreak
     , MFrac (Text "1.2") (Text "3.7")

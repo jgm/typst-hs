@@ -59,4 +59,5 @@ document(body: { text(body: [
 ]), 
                  text(body: [
 What’s up?]), 
-                 parbreak() })
+                 parbreak() }, 
+         title: "Hello")

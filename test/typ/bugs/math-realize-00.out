@@ -170,7 +170,7 @@
     , Code
         "typ/bugs/math-realize-00.typ"
         ( line 12 , column 12 )
-        (Ident (Identifier "convolve"))
+        (FieldAccess (Ident (Identifier "op")) (Ident (Identifier "ast")))
     , Text "2"
     ]
 , ParBreak

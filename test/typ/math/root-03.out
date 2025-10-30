@@ -54,7 +54,7 @@
                    (FieldAccess
                       (Ident (Identifier "l"))
                       (FieldAccess
-                         (Ident (Identifier "double")) (Ident (Identifier "bracket"))))
+                         (Ident (Identifier "stroked")) (Ident (Identifier "bracket"))))
                , Text "x"
                , MAttach
                    Nothing
@@ -65,7 +65,7 @@
                       (FieldAccess
                          (Ident (Identifier "r"))
                          (FieldAccess
-                            (Ident (Identifier "double")) (Ident (Identifier "bracket")))))
+                            (Ident (Identifier "stroked")) (Ident (Identifier "bracket")))))
                , Text "+"
                , Code
                    "typ/math/root-03.typ"
@@ -73,7 +73,7 @@
                    (FieldAccess
                       (Ident (Identifier "l"))
                       (FieldAccess
-                         (Ident (Identifier "double")) (Ident (Identifier "bracket"))))
+                         (Ident (Identifier "stroked")) (Ident (Identifier "bracket"))))
                , Text "y"
                , MAttach
                    Nothing
@@ -84,7 +84,7 @@
                       (FieldAccess
                          (Ident (Identifier "r"))
                          (FieldAccess
-                            (Ident (Identifier "double")) (Ident (Identifier "bracket")))))
+                            (Ident (Identifier "stroked")) (Ident (Identifier "bracket")))))
                ]
            ])
     , Text "<"
@@ -94,7 +94,7 @@
         (FieldAccess
            (Ident (Identifier "l"))
            (FieldAccess
-              (Ident (Identifier "double")) (Ident (Identifier "bracket"))))
+              (Ident (Identifier "stroked")) (Ident (Identifier "bracket"))))
     , Text "z"
     , Code
         "typ/math/root-03.typ"
@@ -102,7 +102,7 @@
         (FieldAccess
            (Ident (Identifier "r"))
            (FieldAccess
-              (Ident (Identifier "double")) (Ident (Identifier "bracket"))))
+              (Ident (Identifier "stroked")) (Ident (Identifier "bracket"))))
     ]
 , SoftBreak
 , Equation

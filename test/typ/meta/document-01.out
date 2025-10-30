@@ -53,6 +53,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
+document(author: ("A", "B"), 
+         body: { text(body: [
 ]), 
                  parbreak() })
