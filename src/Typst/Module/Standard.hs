@@ -236,6 +236,7 @@ meta =
   [ makeElement Nothing "bibliography" [("source", One (TString :|: TArray :|: TBytes))],
     makeElement Nothing "cite" [("key", One TLabel)],
     makeElement Nothing "document" [],
+    makeElement Nothing "title" [("body", One TContent)],
     makeElementWithScope
       Nothing
       "figure"
