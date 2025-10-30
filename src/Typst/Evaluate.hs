@@ -17,6 +17,7 @@ where
 import Control.Monad (MonadPlus (mplus), foldM, foldM_)
 import Control.Monad.State (MonadTrans (lift))
 import Data.List (intersperse, sortOn)
+import Data.Foldable (toList)
 import qualified Data.Map as M
 import qualified Data.Map.Ordered as OM
 import Data.Maybe (isJust, fromMaybe)
@@ -63,7 +64,12 @@ evaluateTypst operations fp =
   runParserT
     (do contents <- mconcat <$> many pContent <* eof
         -- "All documents are automatically wrapped in a document element."
-        pure $ Elt "document" Nothing [("body", VContent contents)])
+        els <- element (Identifier "document")
+                   Arguments {positional = [VContent contents],
+                              named = []}
+        case toList els of
+          [e] -> pure e
+          _ -> fail "element returned something other than a singleton")
     initialEvalState { evalOperations = operations,
                        evalLocalDir = takeDirectory fp }
     fp
