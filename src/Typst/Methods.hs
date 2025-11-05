@@ -148,14 +148,14 @@ getMethod updateVal val fld = do
           pure $ makeFunction $ pure $ VInteger (fromIntegral $ T.length t)
         "rev" ->
           pure $ makeFunction $ pure $ VString (T.reverse t)
-        "first" ->
+        "first" -> pure $ makeFunction $
           if T.null t
-            then fail "string is empty"
-            else pure $ makeFunction $ pure $ VString $ T.take 1 t
-        "last" ->
+            then namedArg "default" Nothing >>= maybe (fail "empty string") pure
+            else pure $ VString $ T.take 1 t
+        "last" -> pure $ makeFunction $
           if T.null t
-            then fail "string is empty"
-            else pure $ makeFunction $ pure $ VString $ T.takeEnd 1 t
+            then namedArg "default" Nothing >>= maybe (fail "empty string") pure
+            else pure $ VString $ T.takeEnd 1 t
         "at" ->
           pure $ makeFunction $ do
             n <- toPos <$> nthArg 1
@@ -391,13 +391,13 @@ getMethod updateVal val fld = do
           pure $
             makeFunction $
               if V.null v
-                then fail "empty array"
+                then namedArg "default" Nothing >>= maybe (fail "empty array") pure
                 else pure $ V.head v
         "last" ->
           pure $
             makeFunction $
               if V.null v
-                then fail "empty array"
+                then namedArg "default" Nothing >>= maybe (fail "empty array") pure
                 else pure $ V.last v
         "at" -> pure $ makeFunction $ do
           pos <- toPos <$> nthArg 1
