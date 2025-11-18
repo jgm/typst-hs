@@ -844,8 +844,9 @@ evalExpr expr = applyShowRulesToVal =<<
       evalExpr e -- TODO for now we just ignore "context"
     Return mbe -> do
       -- these flow directives are examined in CodeBlock
+      result <- maybe (pure VNone) evalExpr mbe
       updateState (\st -> st {evalFlowDirective = FlowReturn (isJust mbe)})
-      maybe (pure VNone) evalExpr mbe
+      pure result
     Continue -> do
       updateState (\st -> st {evalFlowDirective = FlowContinue})
       pure VNone
