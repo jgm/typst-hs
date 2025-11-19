@@ -39,6 +39,7 @@ module Typst.Types
     Horiz (..),
     Vert (..),
     Color (..),
+    Stroke (..),
     Direction (..),
     Identifier (..), -- reexported
     lookupIdentifier,
@@ -115,6 +116,8 @@ data Val
   -- only @rgb@, @cmyk@, and @luma@ are available. 
   -- See issue [#35](https://github.com/jgm/typst-hs/issues/35#issuecomment-1926182040).
   | VColor !Color
+  -- | A @stroke@ value, representing stroke properties for shapes and lines.
+  | VStroke !Stroke
   -- | A @symbol@ value, representing a Unicode symbol.
   | VSymbol !Symbol
   -- | A UTF-8 encoded text @string@.
@@ -188,6 +191,7 @@ data ValType
   | TAngle
   | TFraction
   | TColor
+  | TStroke
   | TSymbol
   | TString
   | TRegex
@@ -226,6 +230,7 @@ valType v =
     VAngle {} -> TAngle
     VFraction {} -> TFraction
     VColor {} -> TColor
+    VStroke {} -> TStroke
     VSymbol {} -> TSymbol
     VString {} -> TString
     VRegex {} -> TRegex
@@ -819,6 +824,12 @@ data Color
   | CMYK Rational Rational Rational Rational
   | Luma Rational
   deriving (Show, Eq, Ord, Typeable)
+
+data Stroke = Stroke
+  { paint :: !Color,
+    thickness :: !Length
+  }
+  deriving (Show, Eq, Typeable)
 
 data Direction 
   = Ltr -- ^ Left to right
