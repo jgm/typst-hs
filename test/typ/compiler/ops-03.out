@@ -65,9 +65,7 @@
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg
-           (ToPower
-              (Minus (Literal (Int 2)) (Literal (Float 1.0e-2)))
-              (Literal (Int 1)))
+           (Minus (Literal (Float 100.0)) (Literal (Float 1.0e-2)))
        , NormalArg (Literal (Float 99.99))
        ])
 , ParBreak
@@ -431,11 +429,7 @@ document(body: { text(body: [
                  text(body: [✅]), 
                  text(body: [
 ]), 
-                 text(body: [❌(]), 
-                 text(body: [1.0]), 
-                 text(body: [ /= ]), 
-                 text(body: [99.99]), 
-                 text(body: [)]), 
+                 text(body: [✅]), 
                  parbreak(), 
                  text(body: [✅]), 
                  parbreak(), 
