@@ -767,11 +767,18 @@ isSpecial '=' = True
 isSpecial '(' = True -- so we don't gobble ( before URLs
 isSpecial _ = False
 
-pIdentifier :: P Identifier
-pIdentifier = lexeme $ try $ do
+pIdentifierOrUnderscore :: P Identifier
+pIdentifierOrUnderscore = lexeme $ try $ do
   c <- satisfy isIdentStart
   cs <- many $ satisfy isIdentContinue
   pure $ Identifier $ T.pack (c : cs)
+
+pIdentifier :: P Identifier
+pIdentifier = do 
+  ident <- pIdentifierOrUnderscore
+  if ident == "_"
+    then fail "expected identifier, found underscore"
+    else pure $ ident
 
 -- ident_start ::= unicode(XID_Start)
 -- ID_Start characters are derived from the Unicode General_Category of
@@ -817,23 +824,26 @@ pKeyword t = lexeme $ try $ string t *> notFollowedBy (satisfy isIdentContinue)
 --             "break", "continue", "return", "import", "include", "from"]
 
 pExpr :: P Expr
-pExpr = buildExpressionParser operatorTable pBasicExpr
+pExpr = buildExpressionParser operatorTable (buildExpressionParser basicOperatorTable (pBaseExpr pIdentOrUnderscore))
+--
 
 -- A basic expression excludes the unary and binary operators outside of parens,
--- but includes field access and function application. Needed for pHash.
+-- but includes field access and function application. A single underscore is
+-- not a valid identifier in a basic expression and should be interpreted as markup.
+-- Needed for pHash.
 pBasicExpr :: P Expr
-pBasicExpr = buildExpressionParser basicOperatorTable pBaseExpr
+pBasicExpr = buildExpressionParser basicOperatorTable (pBaseExpr pIdent)
 
 pQualifiedIdentifier :: P Expr
 pQualifiedIdentifier =
   buildExpressionParser (replicate 4 [fieldAccess]) pIdent
 
-pBaseExpr :: P Expr
-pBaseExpr =
+pBaseExpr :: P Expr -> P Expr
+pBaseExpr ident_parser =
   pLiteral
     <|> pKeywordExpr
     <|> pFuncExpr
-    <|> pIdent
+    <|> ident_parser
     <|> pArrayExpr
     <|> pDictExpr
     <|> inParens pExpr
@@ -1001,6 +1011,13 @@ pUnit =
 pIdent :: P Expr
 pIdent = Ident <$> pIdentifier
 
+pIdentOrUnderscore :: P Expr
+pIdentOrUnderscore = do
+  ident <- pIdentifierOrUnderscore
+  if ident == "_"
+    then pure $ Underscore
+    else pure $ Ident ident
+
 pBlock :: P Expr
 pBlock = Block <$> (pCodeBlock <|> pContent)
 
@@ -1075,7 +1092,7 @@ pFuncExpr = try $ FuncExpr <$> pParamsOrIdent <*> (sym "=>" *> pExpr)
   where
     pParamsOrIdent =
       pParams
-        <|> (do i <- pIdentifier
+        <|> (do i <- pIdentifierOrUnderscore
                 if i == "_"
                    then pure [SkipParam]
                    else pure [NormalParam i])
@@ -1149,7 +1166,7 @@ pBasicBind = BasicBind <$> try (pBindIdentifier <|> inParens pBindIdentifier)
 
 pBindIdentifier :: P (Maybe Identifier)
 pBindIdentifier = do
-  ident <- pIdentifier
+  ident <- pIdentifierOrUnderscore
   if ident == "_"
      then pure Nothing
      else pure $ Just ident

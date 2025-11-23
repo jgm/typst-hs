@@ -882,6 +882,7 @@ evalExpr expr = applyShowRulesToVal =<<
           (cs, _) <- loadModule t
           pure $ VContent cs
         _ -> fail "Include requires a path"
+    Underscore -> fail "expected expression, found underscore"
 
 toFunction ::
   Monad m =>
