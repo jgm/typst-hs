@@ -156,6 +156,7 @@ data Expr
   | Label Text
   | Break
   | Continue
+  | Underscore
   deriving (Show, Ord, Eq, Data, Typeable)
 
 data Imports
