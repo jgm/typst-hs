@@ -889,8 +889,7 @@ operatorTable =
   take 12 (cycle [[fieldAccess], [functionCall]])
     ++
     -- precedence 7 (repeated because of parsec's quirks with postfix, prefix)
-    replicate 6 [Postfix (ToPower <$> try (char 'e' *> notFollowedBy letter *> pExpr))]
-    ++ replicate 6 [Prefix (Negated <$ op "-"), Prefix (id <$ op "+")]
+    replicate 6 [Prefix (Negated <$ op "-"), Prefix (id <$ op "+")]
     ++ [
          -- precedence 6
          [ Infix (Times <$ op "*") AssocLeft,
@@ -959,24 +958,35 @@ pNumber = try $ do
         _ -> fail $ "could not read " <> num <> " as octal digits"
     _ -> do
       as <- many1 digit <|> ("0" <$ lookAhead (try (char '.' *> digit)))
-      pe <- option [] $ string "."
+      pe <- 
+        option 
+          [] 
+          (try ( do
+              void $ char '.'
+              notFollowedBy (char '.' <|> satisfy isIdentStart)
+              pure "."
+          ))
       bs <- many digit
       es <-
         option
           ""
           ( do
-              void $ try $ char 'e' *> lookAhead (digit <|> char '-')
-              minus <- option [] $ count 1 (char '-')
+              void $ try $ oneOf "eE" *> lookAhead (digit <|> oneOf "+-")
+              sign <- option [] $ count 1 (oneOf "+-")
               ds <- many1 digit
-              pure ("e" ++ minus ++ ds)
+              pure ("e" ++ sign ++ ds)
           )
       let num = pref ++ as ++ pe ++ bs ++ es
       case readMaybe num of
         Just (i :: Integer) -> pure $ Left i
         Nothing ->
-          case readMaybe num of
+          case readMaybe $ addTrailingZero num of
             Just (d :: Double) -> pure $ Right d
             Nothing -> fail $ "could not read " <> num <> " as integer"
+
+addTrailingZero :: String -> String
+addTrailingZero []  = [] 
+addTrailingZero num@(_:_) = if last num == '.' then num ++ "0" else num
 
 pNumeric :: P Literal
 pNumeric = lexeme $ do

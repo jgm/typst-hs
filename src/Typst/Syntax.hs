@@ -118,7 +118,6 @@ data Spreadable a =
 data Expr
   = Literal Literal
   | Negated Expr
-  | ToPower Expr Expr
   | Times Expr Expr
   | Divided Expr Expr
   | Plus Expr Expr

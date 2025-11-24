@@ -670,26 +670,6 @@ evalExpr expr = applyShowRulesToVal =<<
       case maybeNegate v of
         Nothing -> fail $ "Can't negate " <> show v
         Just v' -> pure v'
-    ToPower e1 e2 -> do
-      e <- evalExpr e1
-      b <- evalExpr e2
-      case (b, e) of
-        (VInteger i, VInteger j) ->
-          pure $
-            VInteger $
-              floor ((fromIntegral i :: Double) ** (fromIntegral j :: Double))
-        (VInteger i, VRatio j) ->
-          pure $
-            VFloat ((fromIntegral i :: Double) ** (fromRational j :: Double))
-        (VRatio i, VInteger j) ->
-          pure $
-            VFloat (fromRational i ** (fromIntegral j :: Double))
-        (VRatio i, VRatio j) -> pure $ VFloat (fromRational i ** fromRational j)
-        (VFloat i, VInteger j) -> pure $ VFloat (i ** (fromIntegral j :: Double))
-        (VFloat i, VFloat j) -> pure $ VFloat (i ** j)
-        (VInteger i, VFloat j) -> pure $ VFloat ((fromIntegral i :: Double) ** j)
-        (VFloat i, VRatio j) -> pure $ VFloat (i ** fromRational j)
-        _ -> fail $ "Can't exponentiate " <> show b <> " to " <> show e
     Plus e1 e2 -> do
       v1 <- evalExpr e1
       v2 <- evalExpr e2
