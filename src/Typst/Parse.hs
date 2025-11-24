@@ -1162,7 +1162,7 @@ pParam =
           )
     pSkipParam = SkipParam <$ sym "_"
     pNormalOrDefaultParam = do
-      i <- pIdentifier
+      i <- try pIdentifier
       (DefaultParam i <$> (sym ":" *> pExpr)) <|> pure (NormalParam i)
     pDestructuringParam = do
       DestructuringBind parts <- pDestructuringBind
