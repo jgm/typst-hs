@@ -70,8 +70,8 @@
     ( line 10 , column 2 )
     (For
        (DestructuringBind
-          [ Simple (Just (Identifier "i"))
-          , Simple (Just (Identifier "v"))
+          [ Simple (BasicBind (Just (Identifier "i")))
+          , Simple (BasicBind (Just (Identifier "v")))
           ])
        (FuncCall
           (FieldAccess
@@ -119,8 +119,8 @@
     ( line 20 , column 2 )
     (For
        (DestructuringBind
-          [ Simple (Just (Identifier "k"))
-          , Simple (Just (Identifier "v"))
+          [ Simple (BasicBind (Just (Identifier "k")))
+          , Simple (BasicBind (Just (Identifier "v")))
           ])
        (Dict
           [ Reg ( Ident (Identifier "a") , Literal (Int 6) )

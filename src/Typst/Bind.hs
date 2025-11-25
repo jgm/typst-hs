@@ -1,13 +1,24 @@
 {-# LANGUAGE RankNTypes #-}
 
-module Typst.Bind (destructuringBind) where
+module Typst.Bind (destructuringBind, doBind) where
 
 import Control.Monad.State
 import qualified Data.Map.Ordered as OM
-import Data.Maybe (fromMaybe)
 import qualified Data.Vector as V
 import Typst.Syntax
 import Typst.Types
+
+
+doBind ::
+  Monad m =>
+  (forall m'. Monad m' => Identifier -> Val -> MP m' ()) ->
+  Bind ->
+  Val ->
+  MP m ()
+doBind setIdentifier (BasicBind (Just ident)) val = setIdentifier ident val
+doBind _ (BasicBind Nothing) _ = pure ()
+doBind setIdentifier (DestructuringBind parts) val =
+  destructuringBind setIdentifier parts val
 
 destructuringBind ::
   Monad m =>
@@ -46,8 +57,7 @@ destructureDict setIdentifier fronts backs mbsink = do
   where
     handleDictBind :: Monad m => BindPart -> StateT (OM.OMap Identifier Val) (MP m) ()
     handleDictBind (Sink {}) = fail "Bind cannot contain multiple sinks"
-    handleDictBind (Simple Nothing) = pure ()
-    handleDictBind (Simple (Just i)) = do
+    handleDictBind (Simple (BasicBind (Just i))) = do
       m <- get
       case OM.lookup i m of
         Nothing ->
@@ -55,14 +65,16 @@ destructureDict setIdentifier fronts backs mbsink = do
         Just v -> do
           put $ OM.delete i m
           lift $ setIdentifier i v
-    handleDictBind (WithKey key mbident) = do
+    handleDictBind (Simple _) = fail "cannot destructure unnamed pattern from dictionary"
+    handleDictBind (WithKey key bind) = do
       m <- get
       case OM.lookup key m of
         Nothing ->
           fail $ "Destructuring key not found in dictionary: " <> show key
         Just v -> do
           put $ OM.delete key m
-          lift $ setIdentifier (fromMaybe key mbident) v
+          lift $ doBind setIdentifier bind v
+
 
 destructureArray ::
   Monad m =>
@@ -81,25 +93,21 @@ destructureArray setIdentifier fronts backs mbsink = do
     handleFrontBind :: Monad m => BindPart -> StateT (V.Vector Val) (MP m) ()
     handleFrontBind (Sink {}) = fail "Bind cannot contain multiple sinks"
     handleFrontBind (WithKey {}) = fail "Cannot destructure array with key"
-    handleFrontBind (Simple mbi) = do
+    handleFrontBind (Simple bind) = do
       v <- get
       case V.uncons v of
         Nothing -> fail "Array does not contain enough elements to destructure"
         Just (x, v') -> do
           put v'
-          case mbi of
-            Nothing -> pure ()
-            Just i -> lift $ setIdentifier i x
+          lift $ doBind setIdentifier bind x
 
     handleBackBind :: Monad m => BindPart -> StateT (V.Vector Val) (MP m) ()
     handleBackBind (Sink {}) = fail "Bind cannot contain multiple sinks"
     handleBackBind (WithKey {}) = fail "Cannot destructure array with key"
-    handleBackBind (Simple mbi) = do
+    handleBackBind (Simple bind) = do
       v <- get
       case V.unsnoc v of
         Nothing -> fail "Array does not contain enough elements to destructure"
         Just (v', x) -> do
           put v'
-          case mbi of
-            Nothing -> pure ()
-            Just i -> lift $ setIdentifier i x
+          lift $ doBind setIdentifier bind x

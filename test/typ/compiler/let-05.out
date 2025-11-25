@@ -46,10 +46,10 @@
     ( line 4 , column 2 )
     (Let
        (DestructuringBind
-          [ Simple (Just (Identifier "a"))
-          , Simple Nothing
-          , Simple (Just (Identifier "c"))
-          , Simple Nothing
+          [ Simple (BasicBind (Just (Identifier "a")))
+          , Simple (BasicBind Nothing)
+          , Simple (BasicBind (Just (Identifier "c")))
+          , Simple (BasicBind Nothing)
           ])
        (Array
           [ Reg (Literal (Int 1))

@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "typ/compiler/let-19.typ"
+    "typ/compiler/destructuring-01.typ"
     ( line 1 , column 2 )
     (Let
        (BasicBind (Just (Identifier "test")))
@@ -18,7 +18,7 @@
                              [ Text "\10060"
                              , Text "("
                              , Code
-                                 "typ/compiler/let-19.typ"
+                                 "typ/compiler/destructuring-01.typ"
                                  ( line 1 , column 47 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -28,7 +28,7 @@
                              , Text "="
                              , Space
                              , Code
-                                 "typ/compiler/let-19.typ"
+                                 "typ/compiler/destructuring-01.typ"
                                  ( line 1 , column 59 )
                                  (FuncCall
                                     (Ident (Identifier "repr"))
@@ -40,29 +40,16 @@
                 ]))))
 , SoftBreak
 , Comment
-, Comment
 , Code
-    "typ/compiler/let-19.typ"
-    ( line 4 , column 2 )
+    "typ/compiler/destructuring-01.typ"
+    ( line 3 , column 2 )
     (Let
        (DestructuringBind
-          [ WithKey (Identifier "a") (BasicBind Nothing)
-          , Sink (Just (Identifier "b"))
+          [ Simple (BasicBind Nothing)
+          , Simple (BasicBind (Just (Identifier "x")))
           ])
-       (Dict [ Reg ( Ident (Identifier "a") , Literal (Int 1) ) ]))
-, SoftBreak
-, Code
-    "typ/compiler/let-19.typ"
-    ( line 5 , column 2 )
-    (FuncCall
-       (Ident (Identifier "test"))
-       [ NormalArg (Ident (Identifier "b")) , NormalArg (Dict []) ])
+       (Dict [ Reg ( Ident (Identifier "x") , Literal (Int 1) ) ]))
 , ParBreak
 ]
---- evaluated ---
-document(body: { text(body: [
-]), 
-                 text(body: [
-]), 
-                 text(body: [✅]), 
-                 parbreak() })
+"typ/compiler/destructuring-01.typ" (line 3, column 2):
+cannot destructure unnamed pattern from dictionary

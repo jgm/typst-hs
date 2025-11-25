@@ -83,8 +83,8 @@ data Bind
   deriving (Show, Ord, Eq, Data, Typeable)
 
 data BindPart
-  = Simple (Maybe Identifier)
-  | WithKey Identifier (Maybe Identifier)
+  = Simple Bind
+  | WithKey Identifier Bind
   | Sink (Maybe Identifier)
   deriving (Show, Ord, Eq, Data, Typeable)
 

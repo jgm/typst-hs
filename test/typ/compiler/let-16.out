@@ -46,9 +46,9 @@
     ( line 4 , column 2 )
     (Let
        (DestructuringBind
-          [ WithKey (Identifier "a") (Just (Identifier "a"))
-          , Simple (Just (Identifier "b"))
-          , WithKey (Identifier "x") (Just (Identifier "c"))
+          [ WithKey (Identifier "a") (BasicBind (Just (Identifier "a")))
+          , Simple (BasicBind (Just (Identifier "b")))
+          , WithKey (Identifier "x") (BasicBind (Just (Identifier "c")))
           ])
        (Dict
           [ Reg ( Ident (Identifier "a") , Literal (Int 1) )

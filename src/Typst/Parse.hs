@@ -1184,21 +1184,18 @@ pBindIdentifier = do
 pDestructuringBind :: P Bind
 pDestructuringBind =
   inParens $
-    DestructuringBind <$> (pBindPart `sepEndBy` (sym ","))
+    DestructuringBind <$> ((pSink <|> pWithKey <|> pSimple) `sepEndBy` (sym ","))
   where
-    pBindPart = do
-      sink <- option False $ True <$ string ".."
-      if sink
-        then do
-          ident <- option Nothing pBindIdentifier -- ..
-          pure $ Sink ident
-        else do
-          ident <- pBindIdentifier
-          case ident of
-            Nothing -> pure (Simple ident)
-            Just key ->
-              (WithKey key <$> (sym ":" *> pBindIdentifier))
-                <|> pure (Simple ident)
+    pSink = do
+      void $ string ".."
+      ident <- option Nothing pBindIdentifier
+      pure $ Sink ident
+    pWithKey = do
+      key <- try $ pBindIdentifier <* sym ":"
+      case key of
+        Nothing -> fail "expected identifier, found underscore"
+        Just ident -> WithKey ident <$> pBind
+    pSimple = Simple <$> pBind
 
 -- let-expr ::= 'let' ident params? '=' expr
 pLetExpr :: P Expr
