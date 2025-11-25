@@ -80,12 +80,14 @@ data Param
 data Bind
   = BasicBind (Maybe Identifier)
   | DestructuringBind [BindPart]
+  | ExprBind Expr
   deriving (Show, Ord, Eq, Data, Typeable)
 
 data BindPart
   = Simple Bind
   | WithKey Identifier Bind
   | Sink (Maybe Identifier)
+  | ExprSink Expr
   deriving (Show, Ord, Eq, Data, Typeable)
 
 data Unit = Pt | Mm | Cm | In | Deg | Rad | Em | Fr | Percent

@@ -846,7 +846,8 @@ pBaseExpr ident_parser =
     <|> ident_parser
     <|> pArrayExpr
     <|> pDictExpr
-    <|> inParens pExpr
+    <|> try (inParens pExpr)
+    <|> (Binding <$> pDestructuringBind True)
     <|> pLabel
     <|> (Block . Content . (: [])
          <$> lexeme (pRawBlock <|> pRawInline <|> pEquation))
@@ -1165,11 +1166,20 @@ pParam =
       i <- try pIdentifier
       (DefaultParam i <$> (sym ":" *> pExpr)) <|> pure (NormalParam i)
     pDestructuringParam = do
-      DestructuringBind parts <- pDestructuringBind
+      DestructuringBind parts <- pDestructuringBind False
       pure $ DestructuringParam parts
 
-pBind :: P Bind
-pBind = pBasicBind <|> pDestructuringBind
+pBind :: Bool -> P Bind
+pBind False = pBasicBind <|> pDestructuringBind False
+-- arbitrary expressions are allowed in assignment binds but DestructuringBind is preferred
+pBind True = pDestructuringBind True <|> pExprBind
+  where
+    pExprBind = do
+      expr <- pExpr
+      pure $ case expr of
+        Underscore -> BasicBind Nothing
+        Ident ident -> BasicBind $ Just ident
+        _ -> ExprBind expr
 
 pBasicBind :: P Bind
 pBasicBind = BasicBind <$> try (pBindIdentifier <|> inParens pBindIdentifier)
@@ -1181,27 +1191,34 @@ pBindIdentifier = do
      then pure Nothing
      else pure $ Just ident
 
-pDestructuringBind :: P Bind
-pDestructuringBind =
+pDestructuringBind :: Bool -> P Bind
+pDestructuringBind allowExpr =
   inParens $
     DestructuringBind <$> ((pSink <|> pWithKey <|> pSimple) `sepEndBy` (sym ","))
   where
     pSink = do
       void $ string ".."
-      ident <- option Nothing pBindIdentifier
-      pure $ Sink ident
+      if allowExpr
+        then do
+          mbexpr <- option Nothing $ Just <$> pExpr
+          pure $ case mbexpr of
+            Nothing -> Sink Nothing
+            Just Underscore -> Sink Nothing
+            Just (Ident ident) -> Sink $ Just ident
+            Just (expr) -> ExprSink expr
+        else Sink <$> option Nothing pBindIdentifier
     pWithKey = do
       key <- try $ pBindIdentifier <* sym ":"
       case key of
         Nothing -> fail "expected identifier, found underscore"
-        Just ident -> WithKey ident <$> pBind
-    pSimple = Simple <$> pBind
+        Just ident -> WithKey ident <$> pBind allowExpr
+    pSimple = Simple <$> pBind allowExpr
 
 -- let-expr ::= 'let' ident params? '=' expr
 pLetExpr :: P Expr
 pLetExpr = do
   pKeyword "let"
-  bind <- pBind
+  bind <- pBind False
   case bind of
     BasicBind mbname -> do
       mbparams <- option Nothing $ Just <$> pParams
@@ -1252,7 +1269,7 @@ pWhileExpr = pKeyword "while" *> (While <$> pExpr <*> pBlock)
 -- for-expr ::= 'for' bind 'in' expr block
 pForExpr :: P Expr
 pForExpr =
-  pKeyword "for" *> (For <$> pBind <*> (pKeyword "in" *> pExpr) <*> pBlock)
+  pKeyword "for" *> (For <$> pBind False <*> (pKeyword "in" *> pExpr) <*> pBlock)
 
 pImportExpr :: P Expr
 pImportExpr = pKeyword "import" *> (Import <$> pExpr <*> pImportItems)
