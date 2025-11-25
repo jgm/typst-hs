@@ -46,8 +46,8 @@
     ( line 4 , column 2 )
     (Let
        (DestructuringBind
-          [ Simple (Just (Identifier "a"))
-          , Simple (Just (Identifier "b"))
+          [ Simple (BasicBind (Just (Identifier "a")))
+          , Simple (BasicBind (Just (Identifier "b")))
           , Sink (Just (Identifier "c"))
           ])
        (Array [ Reg (Literal (Int 1)) , Reg (Literal (Int 2)) ]))

@@ -32,7 +32,7 @@ import GHC.Generics (Generic)
 import System.FilePath (replaceFileName, takeBaseName,
                         takeFileName, takeDirectory, (</>))
 import Text.Parsec
-import Typst.Bind (destructuringBind)
+import Typst.Bind (destructuringBind, doBind)
 import Typst.Constructors (getConstructor)
 import Typst.Methods (getMethod)
 import Typst.Module.Standard (loadFileText, standardModule, symModule, getPath)
@@ -538,10 +538,7 @@ evalExpr expr = applyShowRulesToVal =<<
     Ident ident -> lookupIdentifier ident
     Let bind e -> do
       val <- evalExpr e
-      case bind of
-        BasicBind (Just ident) -> addIdentifier ident val
-        BasicBind Nothing -> pure ()
-        DestructuringBind parts -> destructuringBind addIdentifier parts val
+      doBind addIdentifier bind val
       pure VNone
     LetFunc name params e -> do
       val <- toFunction (Just name) params e
@@ -768,10 +765,7 @@ evalExpr expr = applyShowRulesToVal =<<
     Assign e1 e2 -> do
       val <- evalExpr e2
       case e1 of
-        Binding (BasicBind (Just ident)) -> updateIdentifier ident val
-        Binding (BasicBind Nothing) -> pure ()
-        Binding (DestructuringBind parts) ->
-          destructuringBind updateIdentifier parts val
+        Binding bind -> doBind updateIdentifier bind val
         x -> updateExpression x val
       pure VNone
     If clauses -> do
@@ -798,11 +792,7 @@ evalExpr expr = applyShowRulesToVal =<<
     For bind e1 e2 -> do
       let go [] result = pure result
           go (x : xs) result = do
-            case bind of
-              BasicBind (Just ident) -> addIdentifier ident x
-              BasicBind Nothing -> pure ()
-              DestructuringBind parts ->
-                destructuringBind addIdentifier parts x
+            doBind addIdentifier bind x
             val <- evalExpr e2
             hadBreak <- (== FlowBreak) . evalFlowDirective <$> getState
             joinVals result val >>= if hadBreak then pure else go xs

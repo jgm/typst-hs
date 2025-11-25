@@ -1,0 +1,311 @@
+--- parse tree ---
+[ Code
+    "typ/compiler/destructuring-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060"
+                             , Text "("
+                             , Code
+                                 "typ/compiler/destructuring-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "typ/compiler/destructuring-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Code
+    "typ/compiler/destructuring-00.typ"
+    ( line 2 , column 2 )
+    (Let
+       (DestructuringBind
+          [ Simple (BasicBind Nothing)
+          , Simple
+              (DestructuringBind
+                 [ Simple (BasicBind (Just (Identifier "x")))
+                 , Simple (BasicBind (Just (Identifier "y")))
+                 , Simple (BasicBind Nothing)
+                 ])
+          ])
+       (Array
+          [ Reg (Literal (Int 1))
+          , Reg
+              (Array
+                 [ Reg (Literal (Int 2))
+                 , Reg (Literal (Int 3))
+                 , Reg (Literal (Int 4))
+                 ])
+          ]))
+, SoftBreak
+, Code
+    "typ/compiler/destructuring-00.typ"
+    ( line 3 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Array
+              [ Reg (Ident (Identifier "x")) , Reg (Ident (Identifier "y")) ])
+       , NormalArg
+           (Array [ Reg (Literal (Int 2)) , Reg (Literal (Int 3)) ])
+       ])
+, ParBreak
+, Code
+    "typ/compiler/destructuring-00.typ"
+    ( line 5 , column 2 )
+    (Let
+       (DestructuringBind
+          [ WithKey
+              (Identifier "x")
+              (DestructuringBind
+                 [ Simple (BasicBind (Just (Identifier "v")))
+                 , Simple (BasicBind Nothing)
+                 , Simple (BasicBind (Just (Identifier "w")))
+                 ])
+          , Simple (BasicBind (Just (Identifier "p")))
+          ])
+       (Dict
+          [ Reg ( Ident (Identifier "p") , Literal (Int 1) )
+          , Reg
+              ( Ident (Identifier "x")
+              , Array
+                  [ Reg (Literal (Int 5))
+                  , Reg (Literal (Int 6))
+                  , Reg (Literal (Int 7))
+                  ]
+              )
+          ]))
+, SoftBreak
+, Code
+    "typ/compiler/destructuring-00.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Array
+              [ Reg (Ident (Identifier "v"))
+              , Reg (Ident (Identifier "w"))
+              , Reg (Ident (Identifier "p"))
+              ])
+       , NormalArg
+           (Array
+              [ Reg (Literal (Int 5))
+              , Reg (Literal (Int 7))
+              , Reg (Literal (Int 1))
+              ])
+       ])
+, ParBreak
+, Code
+    "typ/compiler/destructuring-00.typ"
+    ( line 8 , column 2 )
+    (Let
+       (DestructuringBind
+          [ WithKey
+              (Identifier "x")
+              (DestructuringBind
+                 [ Simple (BasicBind (Just (Identifier "n")))
+                 , WithKey
+                     (Identifier "o")
+                     (DestructuringBind
+                        [ Simple (BasicBind Nothing)
+                        , Simple (BasicBind (Just (Identifier "h")))
+                        ])
+                 , Simple (BasicBind (Just (Identifier "m")))
+                 ])
+          , Simple (BasicBind (Just (Identifier "r")))
+          ])
+       (Dict
+          [ Reg ( Ident (Identifier "r") , Literal (Int 1) )
+          , Reg
+              ( Ident (Identifier "x")
+              , Dict
+                  [ Reg ( Ident (Identifier "m") , Literal (Int 5) )
+                  , Reg ( Ident (Identifier "n") , Literal (Int 6) )
+                  , Reg
+                      ( Ident (Identifier "o")
+                      , Array [ Reg (Literal (Int 7)) , Reg (Literal (Int 8)) ]
+                      )
+                  ]
+              )
+          ]))
+, SoftBreak
+, Code
+    "typ/compiler/destructuring-00.typ"
+    ( line 9 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Array
+              [ Reg (Ident (Identifier "n"))
+              , Reg (Ident (Identifier "h"))
+              , Reg (Ident (Identifier "m"))
+              , Reg (Ident (Identifier "r"))
+              ])
+       , NormalArg
+           (Array
+              [ Reg (Literal (Int 6))
+              , Reg (Literal (Int 8))
+              , Reg (Literal (Int 5))
+              , Reg (Literal (Int 1))
+              ])
+       ])
+, ParBreak
+, Code
+    "typ/compiler/destructuring-00.typ"
+    ( line 11 , column 2 )
+    (Let
+       (DestructuringBind
+          [ Simple (BasicBind Nothing)
+          , Simple
+              (DestructuringBind [ Simple (BasicBind (Just (Identifier "x"))) ])
+          ])
+       (Array
+          [ Reg (Literal (Int 1))
+          , Reg (Array [ Reg (Literal (Int 12)) ])
+          ]))
+, SoftBreak
+, Code
+    "typ/compiler/destructuring-00.typ"
+    ( line 12 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg (Ident (Identifier "x"))
+       , NormalArg (Literal (Int 12))
+       ])
+, ParBreak
+, Code
+    "typ/compiler/destructuring-00.typ"
+    ( line 14 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "f")))
+       (FuncExpr
+          [ SkipParam
+          , DestructuringParam
+              [ Simple (BasicBind (Just (Identifier "x")))
+              , Simple
+                  (DestructuringBind
+                     [ Simple (BasicBind Nothing)
+                     , Simple (BasicBind (Just (Identifier "y")))
+                     ])
+              , Sink Nothing
+              ]
+          ]
+          (Array
+             [ Reg (Ident (Identifier "x")) , Reg (Ident (Identifier "y")) ])))
+, SoftBreak
+, Code
+    "typ/compiler/destructuring-00.typ"
+    ( line 15 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "f"))
+              [ NormalArg (Literal (Int 21))
+              , NormalArg
+                  (Array
+                     [ Reg (Literal (Int 22))
+                     , Reg (Array [ Reg (Literal (Int 0)) , Reg (Literal (Int 23)) ])
+                     , Reg (Literal (Int 24))
+                     ])
+              ])
+       , NormalArg
+           (Array [ Reg (Literal (Int 22)) , Reg (Literal (Int 23)) ])
+       ])
+, SoftBreak
+, Code
+    "typ/compiler/destructuring-00.typ"
+    ( line 16 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "f")))
+       (FuncExpr
+          [ SkipParam
+          , DestructuringParam
+              [ Simple (BasicBind (Just (Identifier "x")))
+              , WithKey
+                  (Identifier "y")
+                  (DestructuringBind
+                     [ Simple (BasicBind Nothing)
+                     , Simple (BasicBind (Just (Identifier "y")))
+                     ])
+              , Sink Nothing
+              ]
+          ]
+          (Array
+             [ Reg (Ident (Identifier "x")) , Reg (Ident (Identifier "y")) ])))
+, SoftBreak
+, Code
+    "typ/compiler/destructuring-00.typ"
+    ( line 17 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "f"))
+              [ NormalArg (Literal (Int 1))
+              , NormalArg
+                  (Dict
+                     [ Reg ( Ident (Identifier "x") , Literal (Int 2) )
+                     , Reg
+                         ( Ident (Identifier "y")
+                         , Array [ Reg (Literal (Int 0)) , Reg (Literal (Int 3)) ]
+                         )
+                     ])
+              ])
+       , NormalArg
+           (Array [ Reg (Literal (Int 2)) , Reg (Literal (Int 3)) ])
+       ])
+, ParBreak
+]
+--- evaluated ---
+document(body: { text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 parbreak(), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 parbreak(), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 parbreak(), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 parbreak(), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 parbreak() })

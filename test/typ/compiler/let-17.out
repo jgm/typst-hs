@@ -46,7 +46,7 @@
     ( line 4 , column 2 )
     (Let
        (DestructuringBind
-          [ WithKey (Identifier "a") Nothing
+          [ WithKey (Identifier "a") (BasicBind Nothing)
           , Sink (Just (Identifier "b"))
           ])
        (Dict

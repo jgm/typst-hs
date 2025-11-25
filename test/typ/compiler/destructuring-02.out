@@ -1,0 +1,4 @@
+"typ/compiler/destructuring-02.typ" (line 3, column 10):
+unexpected "x"
+expecting "//" or "/*"
+expected identifier, found underscore

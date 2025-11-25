@@ -91,8 +91,8 @@
        (BasicBind (Just (Identifier "items")))
        (For
           (DestructuringBind
-             [ Simple (Just (Identifier "i"))
-             , Simple (Just (Identifier "w"))
+             [ Simple (BasicBind (Just (Identifier "i")))
+             , Simple (BasicBind (Just (Identifier "w")))
              ])
           (FuncCall
              (FieldAccess
