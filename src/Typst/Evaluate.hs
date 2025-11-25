@@ -539,7 +539,7 @@ evalExpr expr = applyShowRulesToVal =<<
     Ident ident -> lookupIdentifier ident
     Let bind e -> do
       val <- evalExpr e
-      doBind addIdentifier bind val
+      doBind addIdentifierByExpr bind val
       pure VNone
     LetFunc name params e -> do
       val <- toFunction (Just name) params e
@@ -766,7 +766,13 @@ evalExpr expr = applyShowRulesToVal =<<
     Assign e1 e2 -> do
       val <- evalExpr e2
       case e1 of
-        Binding bind -> doBind updateIdentifier bind val
+        Binding bind -> doBind updateExpression bind val
+        Array spreadables -> do
+          bind <- arrayExprToBind spreadables
+          doBind updateExpression bind val
+        Dict spreadables -> do
+          bind <- dictExprToBind spreadables
+          doBind updateExpression bind val
         x -> updateExpression x val
       pure VNone
     If clauses -> do
@@ -793,7 +799,7 @@ evalExpr expr = applyShowRulesToVal =<<
     For bind e1 e2 -> do
       let go [] result = pure result
           go (x : xs) result = do
-            doBind addIdentifier bind x
+            doBind addIdentifierByExpr bind x
             val <- evalExpr e2
             hadBreak <- (== FlowBreak) . evalFlowDirective <$> getState
             joinVals result val >>= if hadBreak then pure else go xs
@@ -886,7 +892,7 @@ toFunction mbname params e = do
               case positional as of
                 [] -> fail ("Expected parameter " <> show parts)
                 (x : xs) -> do
-                  destructuringBind addIdentifier parts x
+                  destructuringBind addIdentifierByExpr parts x
                   pure $ as {positional = xs}
             setParam as SkipParam = do
               case positional as of
@@ -1110,6 +1116,12 @@ addIdentifier ident val = do
     ((s, i) : is) -> updateState $ \st ->
       st { evalIdentifiers = (s, M.insert ident val i) : is }
 
+addIdentifierByExpr :: Monad m => Expr -> Val -> MP m ()
+addIdentifierByExpr Underscore _ = pure ()
+addIdentifierByExpr (Ident ident) val = addIdentifier ident val
+addIdentifierByExpr _ _ = fail "expected pattern, found expression"
+
+
 updateIdentifier :: Monad m => Identifier -> Val -> MP m ()
 updateIdentifier ident val = do
   let go (True, is) (s, m) = pure (True, (s, m) : is)
@@ -1169,9 +1181,12 @@ updateExpression' allowNewIndices e arg val = do
     idx <- evalExpr arg
     case container of
       VArray v ->
-        case idx of
+        let toPos n = if n < 0
+              then V.length v + n
+              else n
+        in case idx of
           VInteger i ->
-            let i' = fromIntegral i
+            let i' = toPos $ fromIntegral i
             in case v V.!? i' of
                  Nothing | not allowNewIndices
                      -> fail $ "Vector does not contain index " <> show i'
@@ -1204,3 +1219,26 @@ toSelector (VRegex re) = pure $ SelectRegex re
 toSelector (VLabel t) = pure $ SelectLabel t
 toSelector (VSymbol (Symbol t _ _)) = pure $ SelectString t
 toSelector v = fail $ "could not convert " <> show v <> " to selector"
+
+arrayExprToBind :: Monad m => [Spreadable Expr] -> MP m Bind
+arrayExprToBind spredables = DestructuringBind <$> mapM spreadableToBindPart spredables
+    where
+      spreadableToBindPart (Reg expr) = Simple <$> exprToBind expr
+      spreadableToBindPart (Spr (Ident ident)) = pure $ Sink $ Just ident
+      spreadableToBindPart (Spr expr) = pure $ ExprSink expr
+
+dictExprToBind :: Monad m => [Spreadable (Expr, Expr)] -> MP m Bind
+dictExprToBind spredables = DestructuringBind <$> mapM spreadableToBindPart spredables
+    where
+      spreadableToBindPart (Reg (Ident ident, expr)) = WithKey ident <$> exprToBind expr
+      spreadableToBindPart (Reg (_, _)) = fail $ "expected identifier"
+      spreadableToBindPart (Spr (Ident ident)) = pure $ Sink $ Just ident
+      spreadableToBindPart (Spr expr) = pure $ ExprSink expr
+
+exprToBind :: Monad m => Expr -> MP m Bind
+exprToBind (Binding bind) = pure $ bind
+exprToBind Underscore = pure $ BasicBind $ Nothing
+exprToBind (Ident ident) = pure $ BasicBind $ Just ident
+exprToBind (Array spredables) = arrayExprToBind spredables
+exprToBind (Dict spredables) = dictExprToBind spredables
+exprToBind expr = pure $ ExprBind expr

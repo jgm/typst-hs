@@ -1,0 +1,503 @@
+--- parse tree ---
+[ Code
+    "typ/compiler/ops-16.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060"
+                             , Text "("
+                             , Code
+                                 "typ/compiler/ops-16.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "typ/compiler/ops-16.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, SoftBreak
+, Code
+    "typ/compiler/ops-16.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Block
+              (CodeBlock
+                 [ Let (BasicBind (Just (Identifier "a"))) (Literal (Int 1))
+                 , Let (BasicBind (Just (Identifier "b"))) (Literal (Int 2))
+                 , Assign
+                     (Array
+                        [ Reg (Ident (Identifier "a")) , Reg (Ident (Identifier "b")) ])
+                     (Array
+                        [ Reg (Ident (Identifier "b")) , Reg (Ident (Identifier "a")) ])
+                 , Array
+                     [ Reg (Ident (Identifier "a")) , Reg (Ident (Identifier "b")) ]
+                 ]))
+       , NormalArg
+           (Array [ Reg (Literal (Int 2)) , Reg (Literal (Int 1)) ])
+       ])
+, ParBreak
+, Code
+    "typ/compiler/ops-16.typ"
+    ( line 13 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Block
+              (CodeBlock
+                 [ Let (BasicBind (Just (Identifier "a"))) (Literal (Int 1))
+                 , Let (BasicBind (Just (Identifier "b"))) (Literal (Int 2))
+                 , Assign
+                     (Array [ Reg (Ident (Identifier "a")) , Reg Underscore ])
+                     (Array
+                        [ Reg (Ident (Identifier "b")) , Reg (Ident (Identifier "a")) ])
+                 , Array
+                     [ Reg (Ident (Identifier "a")) , Reg (Ident (Identifier "b")) ]
+                 ]))
+       , NormalArg
+           (Array [ Reg (Literal (Int 2)) , Reg (Literal (Int 2)) ])
+       ])
+, ParBreak
+, Code
+    "typ/compiler/ops-16.typ"
+    ( line 22 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Block
+              (CodeBlock
+                 [ Let (BasicBind (Just (Identifier "a"))) (Literal (Int 0))
+                 , Let (BasicBind (Just (Identifier "b"))) (Literal (Int 0))
+                 , Assign
+                     (Array
+                        [ Reg Underscore
+                        , Reg (Array [ Reg Underscore , Reg (Ident (Identifier "a")) ])
+                        , Reg (Ident (Identifier "b"))
+                        ])
+                     (Array
+                        [ Reg (Literal (Int 1))
+                        , Reg (Array [ Reg (Literal (Int 2)) , Reg (Literal (Int 3)) ])
+                        , Reg (Literal (Int 4))
+                        ])
+                 , Array
+                     [ Reg (Ident (Identifier "a")) , Reg (Ident (Identifier "b")) ]
+                 ]))
+       , NormalArg
+           (Array [ Reg (Literal (Int 3)) , Reg (Literal (Int 4)) ])
+       ])
+, ParBreak
+, Code
+    "typ/compiler/ops-16.typ"
+    ( line 33 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Block
+              (CodeBlock
+                 [ Let (BasicBind (Just (Identifier "x"))) (Literal (Int 0))
+                 , Let (BasicBind (Just (Identifier "y"))) (Literal (Int 0))
+                 , Let (BasicBind (Just (Identifier "z"))) (Literal (Int 0))
+                 , Assign
+                     (Dict
+                        [ Reg
+                            ( Ident (Identifier "x")
+                            , Array
+                                [ Reg (Ident (Identifier "y"))
+                                , Reg
+                                    (Binding
+                                       (DestructuringBind
+                                          [ Simple (BasicBind (Just (Identifier "x")))
+                                          , WithKey
+                                              (Identifier "z")
+                                              (DestructuringBind
+                                                 [ Simple (BasicBind Nothing)
+                                                 , Simple (BasicBind (Just (Identifier "z")))
+                                                 ])
+                                          ]))
+                                ]
+                            )
+                        ])
+                     (Dict
+                        [ Reg ( Ident (Identifier "z") , Literal (Int 1) )
+                        , Reg
+                            ( Ident (Identifier "x")
+                            , Array
+                                [ Reg (Literal (Int 10))
+                                , Reg
+                                    (Dict
+                                       [ Reg ( Ident (Identifier "x") , Literal (Int 100) )
+                                       , Reg ( Ident (Identifier "y") , Literal (Int 200) )
+                                       , Reg
+                                           ( Ident (Identifier "z")
+                                           , Array
+                                               [ Reg (Literal (Int 1000))
+                                               , Reg (Literal (Int 2000))
+                                               ]
+                                           )
+                                       ])
+                                ]
+                            )
+                        ])
+                 , Array
+                     [ Reg (Ident (Identifier "x"))
+                     , Reg (Ident (Identifier "y"))
+                     , Reg (Ident (Identifier "z"))
+                     ]
+                 ]))
+       , NormalArg
+           (Array
+              [ Reg (Literal (Int 100))
+              , Reg (Literal (Int 10))
+              , Reg (Literal (Int 2000))
+              ])
+       ])
+, ParBreak
+, Code
+    "typ/compiler/ops-16.typ"
+    ( line 44 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Block
+              (CodeBlock
+                 [ Let
+                     (BasicBind (Just (Identifier "a")))
+                     (Array
+                        [ Reg (Literal (Int 1))
+                        , Reg (Literal (Int 2))
+                        , Reg (Literal (Int 3))
+                        ])
+                 , Assign
+                     (Dict
+                        [ Reg
+                            ( Ident (Identifier "x")
+                            , Array
+                                [ Reg
+                                    (FuncCall
+                                       (FieldAccess
+                                          (Ident (Identifier "first")) (Ident (Identifier "a")))
+                                       [])
+                                , Reg
+                                    (Dict
+                                       [ Reg
+                                           ( Ident (Identifier "x")
+                                           , FuncCall
+                                               (FieldAccess
+                                                  (Ident (Identifier "at"))
+                                                  (Ident (Identifier "a")))
+                                               [ NormalArg (Literal (Int 1)) ]
+                                           )
+                                       , Reg
+                                           ( Ident (Identifier "z")
+                                           , Array
+                                               [ Reg Underscore
+                                               , Reg
+                                                   (FuncCall
+                                                      (FieldAccess
+                                                         (Ident (Identifier "last"))
+                                                         (Ident (Identifier "a")))
+                                                      [])
+                                               ]
+                                           )
+                                       ])
+                                ]
+                            )
+                        ])
+                     (Dict
+                        [ Reg ( Ident (Identifier "z") , Literal (Int 1) )
+                        , Reg
+                            ( Ident (Identifier "x")
+                            , Array
+                                [ Reg (Literal (Int 10))
+                                , Reg
+                                    (Dict
+                                       [ Reg ( Ident (Identifier "x") , Literal (Int 100) )
+                                       , Reg ( Ident (Identifier "y") , Literal (Int 200) )
+                                       , Reg
+                                           ( Ident (Identifier "z")
+                                           , Array
+                                               [ Reg (Literal (Int 1000))
+                                               , Reg (Literal (Int 2000))
+                                               ]
+                                           )
+                                       ])
+                                ]
+                            )
+                        ])
+                 , Ident (Identifier "a")
+                 ]))
+       , NormalArg
+           (Array
+              [ Reg (Literal (Int 10))
+              , Reg (Literal (Int 100))
+              , Reg (Literal (Int 2000))
+              ])
+       ])
+, ParBreak
+, Code
+    "typ/compiler/ops-16.typ"
+    ( line 53 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Block
+              (CodeBlock
+                 [ Let
+                     (BasicBind (Just (Identifier "d")))
+                     (Dict
+                        [ Reg ( Ident (Identifier "x") , Literal (Int 1) )
+                        , Reg ( Ident (Identifier "y") , Literal (Int 2) )
+                        , Reg ( Ident (Identifier "z") , Literal (Int 3) )
+                        ])
+                 , Assign
+                     (Dict
+                        [ Reg
+                            ( Ident (Identifier "x")
+                            , Array
+                                [ Reg
+                                    (FieldAccess (Ident (Identifier "x")) (Ident (Identifier "d")))
+                                , Reg
+                                    (Dict
+                                       [ Reg
+                                           ( Ident (Identifier "x")
+                                           , FieldAccess
+                                               (Ident (Identifier "y")) (Ident (Identifier "d"))
+                                           )
+                                       , Reg
+                                           ( Ident (Identifier "z")
+                                           , Array
+                                               [ Reg Underscore
+                                               , Reg
+                                                   (FieldAccess
+                                                      (Ident (Identifier "z"))
+                                                      (Ident (Identifier "d")))
+                                               ]
+                                           )
+                                       ])
+                                ]
+                            )
+                        ])
+                     (Dict
+                        [ Reg ( Ident (Identifier "z") , Literal (Int 1) )
+                        , Reg
+                            ( Ident (Identifier "x")
+                            , Array
+                                [ Reg (Literal (Int 10))
+                                , Reg
+                                    (Dict
+                                       [ Reg ( Ident (Identifier "x") , Literal (Int 100) )
+                                       , Reg ( Ident (Identifier "y") , Literal (Int 200) )
+                                       , Reg
+                                           ( Ident (Identifier "z")
+                                           , Array
+                                               [ Reg (Literal (Int 1000))
+                                               , Reg (Literal (Int 2000))
+                                               ]
+                                           )
+                                       ])
+                                ]
+                            )
+                        ])
+                 , Ident (Identifier "d")
+                 ]))
+       , NormalArg
+           (Dict
+              [ Reg ( Ident (Identifier "x") , Literal (Int 10) )
+              , Reg ( Ident (Identifier "y") , Literal (Int 100) )
+              , Reg ( Ident (Identifier "z") , Literal (Int 2000) )
+              ])
+       ])
+, ParBreak
+, Code
+    "typ/compiler/ops-16.typ"
+    ( line 62 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Block
+              (CodeBlock
+                 [ Let
+                     (BasicBind (Just (Identifier "d")))
+                     (Dict
+                        [ Reg ( Ident (Identifier "x") , Literal (Int 1) )
+                        , Reg
+                            ( Ident (Identifier "y")
+                            , Array
+                                [ Reg (Negated (Literal (Int 1)))
+                                , Reg (Negated (Literal (Int 2)))
+                                ]
+                            )
+                        ])
+                 , Let (BasicBind (Just (Identifier "i"))) (Literal (Int 1))
+                 , Assign
+                     (Array
+                        [ Spr
+                            (FieldAccess (Ident (Identifier "x")) (Ident (Identifier "d")))
+                        , Reg
+                            (Array
+                               [ Reg Underscore
+                               , Reg
+                                   (Array
+                                      [ Reg Underscore
+                                      , Reg
+                                          (FuncCall
+                                             (FieldAccess
+                                                (Ident (Identifier "at"))
+                                                (FieldAccess
+                                                   (Ident (Identifier "y"))
+                                                   (Ident (Identifier "d"))))
+                                             [ NormalArg (Ident (Identifier "i")) ])
+                                      ])
+                               , Reg Underscore
+                               ])
+                        ])
+                     (Array
+                        [ Reg (Literal (Int 0))
+                        , Reg (Literal (Int 1))
+                        , Reg
+                            (Array
+                               [ Reg (Literal (Int 2))
+                               , Reg (Array [ Reg (Literal (Int 3)) , Reg (Literal (Int 4)) ])
+                               , Reg (Literal (Int 5))
+                               ])
+                        ])
+                 , Ident (Identifier "d")
+                 ]))
+       , NormalArg
+           (Dict
+              [ Reg
+                  ( Ident (Identifier "x")
+                  , Array [ Reg (Literal (Int 0)) , Reg (Literal (Int 1)) ]
+                  )
+              , Reg
+                  ( Ident (Identifier "y")
+                  , Array [ Reg (Negated (Literal (Int 1))) , Reg (Literal (Int 4)) ]
+                  )
+              ])
+       ])
+, ParBreak
+, Comment
+, SoftBreak
+, Code
+    "typ/compiler/ops-16.typ"
+    ( line 73 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Block
+              (CodeBlock
+                 [ Let (BasicBind (Just (Identifier "x"))) (Literal (Int 0))
+                 , Assign
+                     (Array
+                        [ Reg (Ident (Identifier "x")) , Reg (Ident (Identifier "x")) ])
+                     (Array [ Reg (Literal (Int 1)) , Reg (Literal (Int 2)) ])
+                 , Ident (Identifier "x")
+                 ]))
+       , NormalArg (Literal (Int 2))
+       ])
+, ParBreak
+, Code
+    "typ/compiler/ops-16.typ"
+    ( line 79 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Block
+              (CodeBlock
+                 [ Let (BasicBind (Just (Identifier "x"))) (Literal (Int 0))
+                 , Assign
+                     (Binding
+                        (DestructuringBind
+                           [ Sink Nothing
+                           , Simple (BasicBind (Just (Identifier "x")))
+                           , Simple (BasicBind (Just (Identifier "x")))
+                           ]))
+                     (Array [ Reg (Literal (Int 1)) , Reg (Literal (Int 2)) ])
+                 , Ident (Identifier "x")
+                 ]))
+       , NormalArg (Literal (Int 2))
+       ])
+, ParBreak
+, Code
+    "typ/compiler/ops-16.typ"
+    ( line 85 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Block
+              (CodeBlock
+                 [ Let (BasicBind (Just (Identifier "x"))) (Literal (Int 0))
+                 , Assign
+                     (Array
+                        [ Reg (Ident (Identifier "x"))
+                        , Spr (Ident (Identifier "x"))
+                        , Reg (Ident (Identifier "x"))
+                        ])
+                     (Array [ Reg (Literal (Int 1)) , Reg (Literal (Int 2)) ])
+                 , Ident (Identifier "x")
+                 ]))
+       , NormalArg (Literal (Int 2))
+       ])
+, ParBreak
+]
+--- evaluated ---
+document(body: { text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 parbreak(), 
+                 text(body: [✅]), 
+                 parbreak(), 
+                 text(body: [✅]), 
+                 parbreak(), 
+                 text(body: [✅]), 
+                 parbreak(), 
+                 text(body: [✅]), 
+                 parbreak(), 
+                 text(body: [✅]), 
+                 parbreak(), 
+                 text(body: [✅]), 
+                 parbreak(), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 parbreak(), 
+                 text(body: [❌(]), 
+                 text(body: [1]), 
+                 text(body: [ /= ]), 
+                 text(body: [2]), 
+                 text(body: [)]), 
+                 parbreak(), 
+                 text(body: [❌(]), 
+                 text(body: [()]), 
+                 text(body: [ /= ]), 
+                 text(body: [2]), 
+                 text(body: [)]), 
+                 parbreak() })
