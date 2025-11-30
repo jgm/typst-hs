@@ -1,5 +1,24 @@
 # Revision history for typst-hs
 
+## 0.8.1
+
+  * Fix parsing and evaluation of closures with _ (#84, Norbert Pozar).
+
+  * Improve parsing of float literals (#83, Norbert Pozar).
+
+  * Fix incorrect parsing of underscores in code (#82, Norbert Pozar).
+
+  * Fix early return from function (#81).
+
+  * Add default parameter for `first`, `last` methods on string, array
+    (typst 0.14 addition).
+
+  * Make the top-level document susceptible to set rules (#80).
+
+  * Handle `#title` (#80).
+
+  * Use typst-symbols 0.1.9 (typst 0.14 symbols).
+
 ## 0.8.0.2
 
   * Give correct source positions even with nested includes (#74).
