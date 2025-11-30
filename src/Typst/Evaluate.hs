@@ -897,7 +897,10 @@ toFunction mbname params e = do
                 (x : xs) -> do
                   destructuringBind addIdentifier parts x
                   pure $ as {positional = xs}
-            setParam as SkipParam = pure as
+            setParam as SkipParam = do
+              case positional as of
+                [] -> fail ("missing argument: pattern parameter")
+                (_ : xs) -> pure $ as {positional = xs}
         inBlock FunctionScope $ do
           -- We create a closure around the identifiers defined
           -- where the function is defined:
