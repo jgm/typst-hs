@@ -74,12 +74,22 @@
               ]
           , FuncCall
               (Ident (Identifier "test"))
-              [ NormalArg (Dict [ Spr (Literal None) ]) , NormalArg (Array []) ]
+              [ NormalArg (Array [ Spr (Literal None) ]) , NormalArg (Array []) ]
+          , FuncCall
+              (Ident (Identifier "test"))
+              [ NormalArg (Array [ Spr (Ident (Identifier "l")) ])
+              , NormalArg (Ident (Identifier "l"))
+              ]
+          , FuncCall
+              (Ident (Identifier "test"))
+              [ NormalArg (Array [ Spr (Ident (Identifier "l")) ])
+              , NormalArg (Ident (Identifier "l"))
+              ]
           ]))
 , ParBreak
 , Code
     "typ/compiler/spread-09.typ"
-    ( line 10 , column 2 )
+    ( line 12 , column 2 )
     (Block
        (CodeBlock
           [ Let
@@ -121,7 +131,14 @@
           ]))
 , ParBreak
 ]
-"typ/compiler/spread-09.typ" (line 3, column 2):
-unexpected end of input
-expecting end of input
-Could not spread TNone into dictionary
+--- evaluated ---
+document(body: { text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [✅]), 
+                 text(body: [✅]), 
+                 text(body: [✅]), 
+                 parbreak(), 
+                 text(body: [✅]), 
+                 text(body: [✅]), 
+                 parbreak() })
