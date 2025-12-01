@@ -1070,7 +1070,7 @@ pEndOfContent =
       then void (lookAhead (char ']'))
       else mzero
 
--- array-expr ::= '(' ((expr ',') | (expr (',' expr)+ ','?))? ')'
+-- array-expr ::= '(' (('..' expr) | (expr ',') | (expr (',' expr)+ ','?))? ')'
 pArrayExpr :: P Expr
 pArrayExpr =
   try $
@@ -1078,9 +1078,9 @@ pArrayExpr =
       ( do
           v <- pSpread <|> (Reg <$> pExpr)
           vs <- many $ try $ sym "," *> (pSpread <|> (Reg <$> pExpr))
-          if null vs
-            then void $ sym ","
-            else optional $ void $ sym ","
+          case (v, vs) of
+            ((Reg _), []) -> void $ sym ","
+            _ -> optional $ void $ sym ","
           pure $ Array (v : vs)
       )
         <|> (Array [] <$ optional (void $ sym ","))

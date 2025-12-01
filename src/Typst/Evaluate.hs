@@ -480,6 +480,7 @@ evalExpr expr = applyShowRulesToVal =<<
                    val <- evalExpr y
                    case val of
                      VArray ys -> pure (xs <> ys)
+                     VNone -> pure xs
                      _ -> fail $ "Could not spread " <> show (valType val) <>
                                  " into array"
                  Reg e -> do
