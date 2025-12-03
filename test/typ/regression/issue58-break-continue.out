@@ -1,0 +1,271 @@
+--- parse tree ---
+[ Code
+    "typ/regression/issue58-break-continue.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060"
+                             , Text "("
+                             , Code
+                                 "typ/regression/issue58-break-continue.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "typ/regression/issue58-break-continue.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "typ/regression/issue58-break-continue.typ"
+    ( line 3 , column 2 )
+    (LetFunc
+       (Identifier "f")
+       []
+       (Block
+          (CodeBlock
+             [ For
+                 (BasicBind (Just (Identifier "i")))
+                 (FuncCall
+                    (Ident (Identifier "range")) [ NormalArg (Literal (Int 2)) ])
+                 (Block
+                    (CodeBlock
+                       [ For
+                           (BasicBind (Just (Identifier "j")))
+                           (FuncCall
+                              (Ident (Identifier "range")) [ NormalArg (Literal (Int 2)) ])
+                           (Block
+                              (CodeBlock
+                                 [ Array
+                                     [ Reg
+                                         (Array
+                                            [ Reg (Ident (Identifier "i"))
+                                            , Reg (Ident (Identifier "j"))
+                                            ])
+                                     ]
+                                 , Break
+                                 , Array [ Reg (Times (Literal (Int 10)) (Ident (Identifier "j"))) ]
+                                 ]))
+                       ]))
+             , Array [ Reg (Negated (Literal (Int 1))) ]
+             ])))
+, ParBreak
+, Code
+    "typ/regression/issue58-break-continue.typ"
+    ( line 14 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg (FuncCall (Ident (Identifier "f")) [])
+       , NormalArg
+           (Array
+              [ Reg (Array [ Reg (Literal (Int 0)) , Reg (Literal (Int 0)) ])
+              , Reg (Array [ Reg (Literal (Int 1)) , Reg (Literal (Int 0)) ])
+              , Reg (Negated (Literal (Int 1)))
+              ])
+       ])
+, ParBreak
+, Code
+    "typ/regression/issue58-break-continue.typ"
+    ( line 16 , column 2 )
+    (LetFunc
+       (Identifier "g")
+       []
+       (Block
+          (CodeBlock
+             [ For
+                 (BasicBind (Just (Identifier "i")))
+                 (FuncCall
+                    (Ident (Identifier "range")) [ NormalArg (Literal (Int 2)) ])
+                 (Block
+                    (CodeBlock
+                       [ For
+                           (BasicBind (Just (Identifier "j")))
+                           (FuncCall
+                              (Ident (Identifier "range")) [ NormalArg (Literal (Int 2)) ])
+                           (Block
+                              (CodeBlock
+                                 [ Array
+                                     [ Reg
+                                         (Array
+                                            [ Reg (Ident (Identifier "i"))
+                                            , Reg (Ident (Identifier "j"))
+                                            ])
+                                     ]
+                                 , Continue
+                                 , Array [ Reg (Plus (Literal (Int 10)) (Ident (Identifier "j"))) ]
+                                 ]))
+                       , Array [ Reg (Plus (Literal (Int 100)) (Ident (Identifier "i"))) ]
+                       ]))
+             , Array [ Reg (Negated (Literal (Int 1))) ]
+             ])))
+, ParBreak
+, Code
+    "typ/regression/issue58-break-continue.typ"
+    ( line 28 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg (FuncCall (Ident (Identifier "g")) [])
+       , NormalArg
+           (Array
+              [ Reg (Array [ Reg (Literal (Int 0)) , Reg (Literal (Int 0)) ])
+              , Reg (Array [ Reg (Literal (Int 0)) , Reg (Literal (Int 1)) ])
+              , Reg (Literal (Int 100))
+              , Reg (Array [ Reg (Literal (Int 1)) , Reg (Literal (Int 0)) ])
+              , Reg (Array [ Reg (Literal (Int 1)) , Reg (Literal (Int 1)) ])
+              , Reg (Literal (Int 101))
+              , Reg (Negated (Literal (Int 1)))
+              ])
+       ])
+, ParBreak
+, Code
+    "typ/regression/issue58-break-continue.typ"
+    ( line 30 , column 2 )
+    (LetFunc
+       (Identifier "f")
+       []
+       (Block
+          (CodeBlock
+             [ Let (BasicBind (Just (Identifier "i"))) (Literal (Int 0))
+             , While
+                 (LessThan (Ident (Identifier "i")) (Literal (Int 2)))
+                 (Block
+                    (CodeBlock
+                       [ Assign
+                           (Ident (Identifier "i"))
+                           (Plus (Ident (Identifier "i")) (Literal (Int 1)))
+                       , Let (BasicBind (Just (Identifier "j"))) (Literal (Int 0))
+                       , While
+                           (LessThan (Ident (Identifier "j")) (Literal (Int 2)))
+                           (Block
+                              (CodeBlock
+                                 [ Array
+                                     [ Reg
+                                         (Array
+                                            [ Reg (Ident (Identifier "i"))
+                                            , Reg (Ident (Identifier "j"))
+                                            ])
+                                     ]
+                                 , Assign
+                                     (Ident (Identifier "j"))
+                                     (Plus (Ident (Identifier "j")) (Literal (Int 1)))
+                                 , Break
+                                 , Array [ Reg (Times (Literal (Int 10)) (Ident (Identifier "j"))) ]
+                                 ]))
+                       , Array [ Reg (Plus (Literal (Int 100)) (Ident (Identifier "i"))) ]
+                       ]))
+             , Array [ Reg (Negated (Literal (Int 1))) ]
+             ])))
+, ParBreak
+, Code
+    "typ/regression/issue58-break-continue.typ"
+    ( line 46 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg (FuncCall (Ident (Identifier "f")) [])
+       , NormalArg
+           (Array
+              [ Reg (Array [ Reg (Literal (Int 1)) , Reg (Literal (Int 0)) ])
+              , Reg (Literal (Int 101))
+              , Reg (Array [ Reg (Literal (Int 2)) , Reg (Literal (Int 0)) ])
+              , Reg (Literal (Int 102))
+              , Reg (Negated (Literal (Int 1)))
+              ])
+       ])
+, ParBreak
+, Code
+    "typ/regression/issue58-break-continue.typ"
+    ( line 48 , column 2 )
+    (LetFunc
+       (Identifier "g")
+       []
+       (Block
+          (CodeBlock
+             [ Let (BasicBind (Just (Identifier "i"))) (Literal (Int 0))
+             , While
+                 (LessThan (Ident (Identifier "i")) (Literal (Int 2)))
+                 (Block
+                    (CodeBlock
+                       [ Assign
+                           (Ident (Identifier "i"))
+                           (Plus (Ident (Identifier "i")) (Literal (Int 1)))
+                       , Let (BasicBind (Just (Identifier "j"))) (Literal (Int 0))
+                       , While
+                           (LessThan (Ident (Identifier "j")) (Literal (Int 2)))
+                           (Block
+                              (CodeBlock
+                                 [ Array
+                                     [ Reg
+                                         (Array
+                                            [ Reg (Ident (Identifier "i"))
+                                            , Reg (Ident (Identifier "j"))
+                                            ])
+                                     ]
+                                 , Assign
+                                     (Ident (Identifier "j"))
+                                     (Plus (Ident (Identifier "j")) (Literal (Int 1)))
+                                 , Continue
+                                 , Array [ Reg (Plus (Literal (Int 10)) (Ident (Identifier "j"))) ]
+                                 ]))
+                       , Array [ Reg (Plus (Literal (Int 100)) (Ident (Identifier "i"))) ]
+                       ]))
+             , Array [ Reg (Negated (Literal (Int 1))) ]
+             ])))
+, ParBreak
+, Code
+    "typ/regression/issue58-break-continue.typ"
+    ( line 64 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg (FuncCall (Ident (Identifier "g")) [])
+       , NormalArg
+           (Array
+              [ Reg (Array [ Reg (Literal (Int 1)) , Reg (Literal (Int 0)) ])
+              , Reg (Array [ Reg (Literal (Int 1)) , Reg (Literal (Int 1)) ])
+              , Reg (Literal (Int 101))
+              , Reg (Array [ Reg (Literal (Int 2)) , Reg (Literal (Int 0)) ])
+              , Reg (Array [ Reg (Literal (Int 2)) , Reg (Literal (Int 1)) ])
+              , Reg (Literal (Int 102))
+              , Reg (Negated (Literal (Int 1)))
+              ])
+       ])
+, ParBreak
+]
+--- evaluated ---
+document(body: { text(body: [
+]), 
+                 parbreak(), 
+                 text(body: [✅]), 
+                 parbreak(), 
+                 parbreak(), 
+                 text(body: [✅]), 
+                 parbreak(), 
+                 parbreak(), 
+                 text(body: [✅]), 
+                 parbreak(), 
+                 parbreak(), 
+                 text(body: [✅]), 
+                 parbreak() })

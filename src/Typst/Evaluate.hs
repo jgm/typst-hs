@@ -14,7 +14,7 @@ module Typst.Evaluate
   )
 where
 
-import Control.Monad (MonadPlus (mplus), foldM, foldM_)
+import Control.Monad (MonadPlus (mplus), foldM, foldM_, when)
 import Control.Monad.State (MonadTrans (lift))
 import Data.List (intersperse, sortOn)
 import Data.Foldable (toList)
@@ -790,19 +790,16 @@ evalExpr expr = applyShowRulesToVal =<<
             case condval of
               VBoolean True -> do
                 val <- evalExpr e2
-                hadBreak <- (== FlowBreak) . evalFlowDirective <$> getState
-                joinVals result val >>= if hadBreak then pure else go
+                joinVals result val >>= ifNotBreakOrReturn go
               VBoolean False -> pure result
               _ -> fail "While loop requires a boolean condition"
-      updateState $ \st -> st {evalFlowDirective = FlowNormal}
-      go VNone
+      go VNone >>= finalizeLoop
     For bind e1 e2 -> do
       let go [] result = pure result
           go (x : xs) result = do
             doBind addIdentifierByExpr bind x
             val <- evalExpr e2
-            hadBreak <- (== FlowBreak) . evalFlowDirective <$> getState
-            joinVals result val >>= if hadBreak then pure else go xs
+            joinVals result val >>= ifNotBreakOrReturn (go xs)
       source <- evalExpr e1
       items <- case source of
         VString t -> pure $ map (VString . T.singleton) (T.unpack t)
@@ -815,8 +812,7 @@ evalExpr expr = applyShowRulesToVal =<<
               )
               (OM.assocs m)
         _ -> fail $ "For expression requires an Array or Dictionary"
-      updateState $ \st -> st {evalFlowDirective = FlowNormal}
-      go items VNone
+      go items VNone >>= finalizeLoop
     Context e -> do
       evalExpr e -- TODO for now we just ignore "context"
     Return mbe -> do
@@ -1151,6 +1147,23 @@ inBlock scope pa = do
         evalStyles = oldStyles
       }
   pure result
+
+ifNotBreakOrReturn :: Monad m => (Val -> MP m Val) -> Val -> MP m Val
+ifNotBreakOrReturn go val = do
+  flow <- evalFlowDirective <$> getState
+  case flow of
+    FlowBreak -> pure val
+    FlowReturn _ -> pure val
+    _ -> go val
+
+finalizeLoop :: Monad m => Val -> MP m Val
+finalizeLoop result = do
+  flow <- evalFlowDirective <$> getState
+  -- do not reset FlowReturn
+  when (flow == FlowBreak || flow == FlowContinue) $
+    updateState $ \st -> st {evalFlowDirective = FlowNormal}
+  pure result
+  
 
 updateExpression :: Monad m => Expr -> Val -> MP m ()
 updateExpression
