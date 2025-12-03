@@ -1,0 +1,245 @@
+--- parse tree ---
+[ Code
+    "typ/regression/issue58-return.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060"
+                             , Text "("
+                             , Code
+                                 "typ/regression/issue58-return.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "typ/regression/issue58-return.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Comment
+, Code
+    "typ/regression/issue58-return.typ"
+    ( line 3 , column 2 )
+    (LetFunc
+       (Identifier "h")
+       []
+       (Block
+          (CodeBlock
+             [ For
+                 (BasicBind (Just (Identifier "i")))
+                 (FuncCall
+                    (Ident (Identifier "range")) [ NormalArg (Literal (Int 2)) ])
+                 (Block
+                    (CodeBlock
+                       [ For
+                           (BasicBind (Just (Identifier "j")))
+                           (FuncCall
+                              (Ident (Identifier "range")) [ NormalArg (Literal (Int 2)) ])
+                           (Block
+                              (CodeBlock
+                                 [ Array
+                                     [ Reg
+                                         (Array
+                                            [ Reg (Ident (Identifier "i"))
+                                            , Reg (Ident (Identifier "j"))
+                                            ])
+                                     ]
+                                 , Return Nothing
+                                 , Array [ Reg (Times (Literal (Int 10)) (Ident (Identifier "j"))) ]
+                                 ]))
+                       ]))
+             , Array [ Reg (Negated (Literal (Int 1))) ]
+             ])))
+, ParBreak
+, Code
+    "typ/regression/issue58-return.typ"
+    ( line 14 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg (FuncCall (Ident (Identifier "h")) [])
+       , NormalArg
+           (Array
+              [ Reg (Array [ Reg (Literal (Int 0)) , Reg (Literal (Int 0)) ]) ])
+       ])
+, ParBreak
+, Code
+    "typ/regression/issue58-return.typ"
+    ( line 16 , column 2 )
+    (LetFunc
+       (Identifier "h")
+       []
+       (Block
+          (CodeBlock
+             [ Let (BasicBind (Just (Identifier "i"))) (Literal (Int 0))
+             , While
+                 (LessThan (Ident (Identifier "i")) (Literal (Int 2)))
+                 (Block
+                    (CodeBlock
+                       [ Assign
+                           (Ident (Identifier "i"))
+                           (Plus (Ident (Identifier "i")) (Literal (Int 1)))
+                       , Let (BasicBind (Just (Identifier "j"))) (Literal (Int 0))
+                       , While
+                           (LessThan (Ident (Identifier "j")) (Literal (Int 2)))
+                           (Block
+                              (CodeBlock
+                                 [ Array
+                                     [ Reg
+                                         (Array
+                                            [ Reg (Ident (Identifier "i"))
+                                            , Reg (Ident (Identifier "j"))
+                                            ])
+                                     ]
+                                 , Assign
+                                     (Ident (Identifier "j"))
+                                     (Plus (Ident (Identifier "j")) (Literal (Int 1)))
+                                 , Return Nothing
+                                 , Array [ Reg (Times (Literal (Int 10)) (Ident (Identifier "j"))) ]
+                                 ]))
+                       , Array [ Reg (Plus (Literal (Int 100)) (Ident (Identifier "i"))) ]
+                       ]))
+             , Array [ Reg (Negated (Literal (Int 1))) ]
+             ])))
+, ParBreak
+, Code
+    "typ/regression/issue58-return.typ"
+    ( line 32 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg (FuncCall (Ident (Identifier "h")) [])
+       , NormalArg
+           (Array
+              [ Reg (Array [ Reg (Literal (Int 1)) , Reg (Literal (Int 0)) ]) ])
+       ])
+, ParBreak
+, Comment
+, Code
+    "typ/regression/issue58-return.typ"
+    ( line 35 , column 2 )
+    (LetFunc
+       (Identifier "h")
+       []
+       (Block
+          (CodeBlock
+             [ For
+                 (BasicBind (Just (Identifier "i")))
+                 (FuncCall
+                    (Ident (Identifier "range")) [ NormalArg (Literal (Int 2)) ])
+                 (Block
+                    (CodeBlock
+                       [ For
+                           (BasicBind (Just (Identifier "j")))
+                           (FuncCall
+                              (Ident (Identifier "range")) [ NormalArg (Literal (Int 2)) ])
+                           (Block
+                              (CodeBlock
+                                 [ Array
+                                     [ Reg
+                                         (Array
+                                            [ Reg (Ident (Identifier "i"))
+                                            , Reg (Ident (Identifier "j"))
+                                            ])
+                                     ]
+                                 , Return (Just (Block (Content [ Text "a" ])))
+                                 , Array [ Reg (Times (Literal (Int 10)) (Ident (Identifier "j"))) ]
+                                 ]))
+                       ]))
+             , Array [ Reg (Negated (Literal (Int 1))) ]
+             ])))
+, ParBreak
+, Code
+    "typ/regression/issue58-return.typ"
+    ( line 46 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg (FuncCall (Ident (Identifier "h")) [])
+       , NormalArg (Block (Content [ Text "a" ]))
+       ])
+, ParBreak
+, Code
+    "typ/regression/issue58-return.typ"
+    ( line 48 , column 2 )
+    (LetFunc
+       (Identifier "h")
+       []
+       (Block
+          (CodeBlock
+             [ Let (BasicBind (Just (Identifier "i"))) (Literal (Int 0))
+             , While
+                 (LessThan (Ident (Identifier "i")) (Literal (Int 2)))
+                 (Block
+                    (CodeBlock
+                       [ Assign
+                           (Ident (Identifier "i"))
+                           (Plus (Ident (Identifier "i")) (Literal (Int 1)))
+                       , Let (BasicBind (Just (Identifier "j"))) (Literal (Int 0))
+                       , While
+                           (LessThan (Ident (Identifier "j")) (Literal (Int 2)))
+                           (Block
+                              (CodeBlock
+                                 [ Array
+                                     [ Reg
+                                         (Array
+                                            [ Reg (Ident (Identifier "i"))
+                                            , Reg (Ident (Identifier "j"))
+                                            ])
+                                     ]
+                                 , Assign
+                                     (Ident (Identifier "j"))
+                                     (Plus (Ident (Identifier "j")) (Literal (Int 1)))
+                                 , Return (Just (Block (Content [ Text "a" ])))
+                                 , Array [ Reg (Times (Literal (Int 10)) (Ident (Identifier "j"))) ]
+                                 ]))
+                       , Array [ Reg (Plus (Literal (Int 100)) (Ident (Identifier "i"))) ]
+                       ]))
+             , Array [ Reg (Negated (Literal (Int 1))) ]
+             ])))
+, ParBreak
+, Code
+    "typ/regression/issue58-return.typ"
+    ( line 64 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg (FuncCall (Ident (Identifier "h")) [])
+       , NormalArg (Block (Content [ Text "a" ]))
+       ])
+, ParBreak
+]
+--- evaluated ---
+document(body: { text(body: [
+]), 
+                 parbreak(), 
+                 text(body: [✅]), 
+                 parbreak(), 
+                 parbreak(), 
+                 text(body: [✅]), 
+                 parbreak(), 
+                 parbreak(), 
+                 text(body: [✅]), 
+                 parbreak(), 
+                 parbreak(), 
+                 text(body: [✅]), 
+                 parbreak() })
