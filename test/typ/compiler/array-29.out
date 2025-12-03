@@ -103,6 +103,20 @@
        , NormalArg (Literal (String "(a, b, c)"))
        ])
 , ParBreak
+, Comment
+, Code
+    "typ/compiler/array-29.typ"
+    ( line 9 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "join")) (Array [ Reg (Literal (Int 1)) ]))
+              [ NormalArg (Literal (Int 2)) ])
+       , NormalArg (Literal (Int 1))
+       ])
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
@@ -116,5 +130,7 @@ document(body: { text(body: [
                  text(body: [✅]), 
                  text(body: [
 ]), 
+                 text(body: [✅]), 
+                 parbreak(), 
                  text(body: [✅]), 
                  parbreak() })

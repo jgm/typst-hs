@@ -59,6 +59,17 @@
        ])
 , Text "."
 , ParBreak
+, Comment
+, Code
+    "typ/compiler/array-32.typ"
+    ( line 7 , column 2 )
+    (FuncCall
+       (FieldAccess
+          (Ident (Identifier "join"))
+          (Array [ Reg (Block (Content [ Text "One" ])) ]))
+       [ NormalArg (Block (Content [ Text "," , Space ])) ])
+, Text "."
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
@@ -68,5 +79,8 @@ document(body: { text(body: [
                  text(body: [Two]), 
                  text(body: [ and ]), 
                  text(body: [Three]), 
+                 text(body: [.]), 
+                 parbreak(), 
+                 text(body: [One]), 
                  text(body: [.]), 
                  parbreak() })
