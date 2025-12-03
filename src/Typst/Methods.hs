@@ -545,6 +545,7 @@ getMethod updateVal val fld = do
           let xs' = F.toList v
           let xs = case xs' of
                 [] -> []
+                [_] -> xs'
                 _ -> intersperse separator (init xs') ++ [lastsep, last xs']
           foldM joinVals VNone xs
         "sorted" -> pure $ makeFunction $ do
