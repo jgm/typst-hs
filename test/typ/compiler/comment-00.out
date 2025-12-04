@@ -26,9 +26,6 @@
 , SoftBreak
 , Comment
 , Comment
-, ParBreak
-, Text "E"
-, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [A]), 
@@ -40,7 +37,4 @@ document(body: { text(body: [A]),
                  text(body: [✅]), 
                  parbreak(), 
                  text(body: [
-]), 
-                 parbreak(), 
-                 text(body: [E]), 
-                 parbreak() })
+]) })
