@@ -18,8 +18,8 @@
         ( line 3 , column 4 )
         (FuncCall
            (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 5)) ])
-    , ParBreak
     ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
@@ -27,5 +27,4 @@ document(body: { text(body: [
                  text(body: [Lorem ipsum dolor sit amet,]), 
                  text(body: [
 ]), 
-                 list(children: ({ text(body: [Lorem ipsum dolor sit amet,]), 
-                                   parbreak() })) })
+                 list(children: (text(body: [Lorem ipsum dolor sit amet,]))) })

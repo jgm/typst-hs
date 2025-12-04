@@ -3,16 +3,9 @@
     [ Text "En" , Space , Text "dash" , Text ":" , Space , EnDash ]
 , SoftBreak
 , BulletListItem
-    [ Text "Em"
-    , Space
-    , Text "dash"
-    , Text ":"
-    , Space
-    , EmDash
-    , ParBreak
-    ]
+    [ Text "Em" , Space , Text "dash" , Text ":" , Space , EmDash ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: list(children: (text(body: [En dash: –]), 
-                               { text(body: [Em dash: —]), 
-                                 parbreak() })))
+                               text(body: [Em dash: —]))))

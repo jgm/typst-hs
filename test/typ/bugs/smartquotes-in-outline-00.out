@@ -29,6 +29,7 @@
     , Text "test"
     , Quote '"'
     ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
@@ -36,4 +37,5 @@ document(body: { text(body: [
                  outline(), 
                  parbreak(), 
                  heading(body: text(body: [“This” “is” “a” “test”]), 
-                         level: 1) })
+                         level: 1), 
+                 parbreak() })

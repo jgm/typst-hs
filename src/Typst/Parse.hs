@@ -37,8 +37,7 @@ parseTypst fp inp =
     Right r -> Right r
 
 data PState = PState
-  { stIndent :: [Int],
-    stLineStartCol :: !Int,
+  { stAtStart :: !Bool,
     stAllowNewlines :: !Int, -- allow newlines if > 0
     stSpaceBefore :: Maybe (SourcePos, Text),
     stLastMathTok :: Maybe (SourcePos, Markup),
@@ -50,8 +49,7 @@ data PState = PState
 initialState :: PState
 initialState =
   PState
-    { stIndent = [],
-      stLineStartCol = 1,
+    { stAtStart = True,
       stAllowNewlines = 0,
       stSpaceBefore = Nothing,
       stLastMathTok = Nothing,
@@ -118,11 +116,17 @@ inBraces :: P a -> P a
 inBraces pa = withNewlines (between (sym "{") (char '}') pa) <* ws
 
 pMarkup :: P Markup
-pMarkup =
-  pSpace
-    <|> pHeading
-    <|> pComment
-    <|> pEol
+pMarkup = pTrivia <|> pNonTriviaMarkup
+
+pTrivia :: P Markup
+pTrivia = pTriviaWithoutEol <|> pEol
+
+pTriviaWithoutEol :: P Markup
+pTriviaWithoutEol = pSpace <|> pComment
+
+pNonTriviaMarkup :: P Markup
+pNonTriviaMarkup = do
+  mp <- pHeading
     <|> pHardbreak
     <|> pStrong
     <|> pEmph
@@ -141,6 +145,8 @@ pMarkup =
     <|> pRef
     <|> pHash
     <|> pSymbol
+  updateState $ \st -> st {stAtStart = False}
+  pure mp
 
 pSymbol :: P Markup
 pSymbol = do
@@ -433,44 +439,71 @@ mSymbol =
   lexeme ( Text . T.singleton
             <$> satisfy (\c -> not (isSpace c) && c /= '$' && c /= '\\'))
 
-withIndent :: Int -> P a -> P a
-withIndent indent pa = do
-  oldIndent <- stIndent <$> getState
-  updateState $ \st -> st {stIndent = indent : oldIndent}
-  ms <- pa
-  updateState $ \st -> st {stIndent = oldIndent}
-  pure ms
+-- Parser that discards leading trivia, and does not parse trailing trivia
+-- unless followed by non-trivia markup. Stops when non-trivia markup would
+-- match `stop` parser.
+-- Does not allow new lines except in block comments.
+pSinglelineWhileNot :: P a -> P [Markup]
+pSinglelineWhileNot stop = do
+  option [] $ (concat . drop 1 . concat) <$> many1 pSinglelineChunk
+  where
+    pSinglelineChunk :: P [[Markup]]
+    pSinglelineChunk = try $ do
+      trivia <- many1 pTriviaWithoutEol
+      markup <- manyNonTriviaMarkupExcept
+      guard (not (null markup))
+      pure [trivia, markup]
+      where
+        manyNonTriviaMarkupExcept = (lookAhead (try stop) >> pure [])
+                 <|> (pNonTriviaMarkup >>= \x -> (x:) <$> manyNonTriviaMarkupExcept)
+                 <|> pure []   
 
 -- list ::= '-' space markup
 -- enum ::= (digit+ '.' | '+') space markup
 -- desc ::= '/' space markup ':' space markup
 pListItem :: P Markup
 pListItem = do
+  getState >>= guard . stAtStart
   col <- sourceColumn <$> getPosition
-  startLine <- stLineStartCol <$> getState
-  guard (col == startLine)
   try
     ( do
-        void $ char '-'
-        void (char ' ') <|> pBlankline
-        BulletListItem <$> withIndent col (many pMarkup)
+        char '-' *> guardAfterListOrHeadingMarker
+        BulletListItem <$> pIndented col
     )
     <|> try
       ( do
           start <- (Nothing <$ char '+') <|> (Just <$> enumListStart)
-          void (char ' ') <|> pBlankline
-          EnumListItem start <$> withIndent col (many pMarkup)
+          guardAfterListOrHeadingMarker
+          EnumListItem start <$> pIndented col
       )
-    <|> try
-      ( do
+    <|> do
           -- desc list
-          void (char '/')
-          void (many1 (char ' '))
-          term <- manyTill pMarkup (char ':')
-          skipMany spaceChar
-          optional pBlankline
-          DescListItem term <$> withIndent col (many pMarkup)
-      )
+          try $ char '/' *> guardAfterListOrHeadingMarker
+          updateState $ \st -> st {stAtStart = False}
+          term <- pSinglelineWhileNot (char ':')
+          -- previous parser might have left trivia before `:`
+          skipMany pTriviaWithoutEol <* char ':'
+          updateState $ \st -> st {stAtStart = True}
+          DescListItem term <$> pIndented col
+  where
+    -- Parser that discards leading trivia, and does not parse trailing trivia
+    -- if not followed by properly indented non-trivia markup.
+    pIndented :: Int -> P [Markup]
+    pIndented indent = do
+      option [] $ (concat . drop 1 . concat) <$> many1 pIndentedChunk
+      where
+        pIndentedChunk :: P [[Markup]]
+        pIndentedChunk = try $ do
+          -- there might be no trivia following `:` in desc list
+          trivia <- many pTrivia
+          col <- sourceColumn <$> getPosition
+          guard (col > indent)
+          markup <- many1 pNonTriviaMarkup
+          pure [trivia, markup]
+
+guardAfterListOrHeadingMarker :: P ()
+guardAfterListOrHeadingMarker = lookAhead $ 
+  void (satisfy isSpace) <|> void (string "//") <|> void (string "/*") <|>  eof
 
 enumListStart :: P Int
 enumListStart = do
@@ -512,6 +545,7 @@ pSpace = Space <$ some (satisfy (\c -> isSpace c && c /= '\r' && c /= '\n'))
 pEol :: P Markup
 pEol = do
   pBaseEol
+  updateState $ \st -> st {stAtStart = True}
   (ParBreak <$ many1 pBaseEol)
     <|> (ParBreak <$ pEndOfContent)
     <|> pure SoftBreak
@@ -519,18 +553,7 @@ pEol = do
 pBaseEol :: P ()
 pBaseEol = try $ do
   void endOfLine
-  -- fail if we can't indent enough
-  indents <- stIndent <$> getState
-  case indents of
-    (i : _) -> void (try (count i (char ' '))) <|> pBlankline
-    [] -> pure ()
-  eatPrefixSpaces
-
-eatPrefixSpaces :: P ()
-eatPrefixSpaces = do
   skipMany spaceChar
-  col <- sourceColumn <$> getPosition
-  updateState $ \st -> st {stLineStartCol = col}
 
 spaceChar :: P Char
 spaceChar = satisfy (\c -> c == ' ' || c == '\t')
@@ -538,11 +561,6 @@ spaceChar = satisfy (\c -> c == ' ' || c == '\t')
 pHardbreak :: P Markup
 pHardbreak =
   HardBreak <$ try (char '\\' *> (void spaceChar <|> pBaseEol) *> skipMany spaceChar)
-
-pBlankline :: P ()
-pBlankline = try $ do
-  skipMany spaceChar
-  void (lookAhead endOfLine) <|> pEndOfContent
 
 pRawInline :: P Markup
 pRawInline =
@@ -602,26 +620,24 @@ pRawBlock = do
             _            -> xs
 
 pStrong :: P Markup
-pStrong = Strong <$> (char '*' *> manyTill pMarkup (char '*'))
+pStrong = do
+  void $ char '*'
+  updateState $ \st -> st {stAtStart = False}
+  Strong <$> manyTill pMarkup (char '*')
 
 pEmph :: P Markup
-pEmph = Emph <$> (char '_' *> manyTill pMarkup (char '_'))
+pEmph = do
+  void $ char '_'
+  updateState $ \st -> st {stAtStart = False}
+  Emph <$> manyTill pMarkup (char '_')
 
 pHeading :: P Markup
 pHeading = try $ do
-  col <- sourceColumn <$> getPosition
-  lineStartCol <- stLineStartCol <$> getState
-  guard (col == lineStartCol)
+  getState >>= guard . stAtStart
   lev <- length <$> many1 (char '=')
-  void (many1 (char ' ')) <|> void (lookAhead endOfLine)
-  -- Note: == hi _foo
-  -- bar_ is parsed as a heading with "hi emph(foobar)"
-  ms <- manyTill pMarkup (    void pEol
-                          <|> pEndOfContent
-                          <|> void (lookAhead (try (spaces *> pLabel)))
-                          <|> void (lookAhead (char ']')))
-  skipMany spaceChar
-  pure $ Heading lev ms
+  guardAfterListOrHeadingMarker
+  updateState $ \st -> st {stAtStart = False}
+  Heading lev <$> pSinglelineWhileNot pLabel
 
 pUrl :: P Markup
 pUrl = try $ do
@@ -1073,16 +1089,12 @@ pContent :: P Block
 pContent = do
   pos <- getPosition
   void $ char '['
-  col <- sourceColumn <$> getPosition
-  oldLineStartCol <- stLineStartCol <$> getState
-  oldIndent <- stIndent <$> getState
   oldBracketNesting <- stBracketNesting <$> getState
   updateState $ \st ->
     st
-      { stLineStartCol = col,
+      { stAtStart = True,
         stContentBlockNesting =
           stContentBlockNesting st + 1,
-        stIndent = [],
         stBracketNesting = 0
       }
   ms <- many pMarkup
@@ -1090,10 +1102,9 @@ pContent = do
   ws
   updateState $ \st ->
     st
-      { stLineStartCol = oldLineStartCol,
+      { stAtStart = False,
         stContentBlockNesting =
           stContentBlockNesting st - 1,
-        stIndent = oldIndent,
         stBracketNesting = oldBracketNesting
       }
   pure $ Content ms

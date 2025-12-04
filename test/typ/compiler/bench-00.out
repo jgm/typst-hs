@@ -178,6 +178,7 @@
                    (FuncCall
                       (Ident (Identifier "v")) [ NormalArg (Literal (Numeric 4.0 Mm)) ])
                ]
+           , SoftBreak
            , Strong
                [ Text "Abgabe"
                , Text ":"
@@ -436,6 +437,8 @@ document(body: { parbreak(),
                                heading(body: { text(body: [3. Übungsblatt Computerorientierte Mathematik II ]), 
                                                v(amount: 4.0mm) }, 
                                        level: 4), 
+                               text(body: [
+]), 
                                strong(body: text(body: [Abgabe: 03.05.2019])), 
                                text(body: [ (bis 10:10 Uhr in MA 001) ]), 
                                v(amount: 4.0mm), 

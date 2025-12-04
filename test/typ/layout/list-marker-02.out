@@ -29,7 +29,8 @@
         [ Text "D" , SoftBreak , BulletListItem [ Text "E" ] ]
     ]
 , SoftBreak
-, BulletListItem [ Text "F" , ParBreak ]
+, BulletListItem [ Text "F" ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
@@ -45,6 +46,5 @@ document(body: { text(body: [
                                                      list(children: (text(body: [E])), 
                                                           marker: ) }), 
                                         marker: ) }, 
-                                 { text(body: [F]), 
-                                   parbreak() }), 
+                                 text(body: [F])), 
                       marker: ) })

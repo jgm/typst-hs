@@ -7,6 +7,7 @@
        [ KeyValArg (Identifier "width") (Literal (Numeric 200.0 Pt)) ])
 , SoftBreak
 , Heading 1 [ Text "Details" ]
+, SoftBreak
 , Text "See"
 , Space
 , Text "also"
@@ -48,7 +49,8 @@ document(body: { text(body: [
 ]), 
                  heading(body: text(body: [Details]), 
                          level: 1), 
-                 text(body: [See also ]), 
+                 text(body: [
+See also ]), 
                  cite(key: <distress>, 
                       supplement: text(body: [p. 22])), 
                  text(body: [, ]), 

@@ -10,13 +10,12 @@
     [ Text "\1502\1497\1502\1497\1503"
     , Space
     , Text "\1500\1513\1502\1488\1500"
-    , ParBreak
     ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
 ], 
                       dir: rtl), 
-                 list(children: ({ text(body: [מימין לשמאל], 
-                                        dir: rtl), 
-                                   parbreak() })) })
+                 list(children: (text(body: [מימין לשמאל], 
+                                      dir: rtl))) })

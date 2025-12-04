@@ -28,8 +28,8 @@
 , ParBreak
 , RawBlock "rust" "fn main() {}"
 , ParBreak
-, BulletListItem [ Text "List" , SoftBreak ]
-, SoftBreak
+, BulletListItem [ Text "List" ]
+, ParBreak
 , Text "Paragraph"
 , ParBreak
 ]
@@ -45,7 +45,6 @@ document(body: { text(body: [
                      lang: "rust", 
                      text: "fn main() {}"), 
                  parbreak(), 
-                 list(children: (text(body: [List
-]))), 
+                 list(children: (text(body: [List]))), 
                  text(body: [Paragraph]), 
                  parbreak() })

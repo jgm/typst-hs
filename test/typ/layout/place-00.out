@@ -16,6 +16,7 @@
        ])
 , ParBreak
 , Heading 1 [ Text "Placement" ]
+, SoftBreak
 , Code
     "typ/layout/place-00.typ"
     ( line 5 , column 2 )
@@ -154,6 +155,8 @@ document(body: { text(body: [
                  parbreak(), 
                  heading(body: text(body: [Placement]), 
                          level: 1), 
+                 text(body: [
+]), 
                  place(alignment: right, 
                        body: image(source: "/assets/files/tiger.jpg", 
                                    width: 1.8cm)), 

@@ -35,8 +35,11 @@
           [ NormalArg (Ident (Identifier "green")) ]))
 , SoftBreak
 , Heading 1 [ Text "Red" ]
+, SoftBreak
 , Heading 2 [ Text "Blue" ]
+, SoftBreak
 , Heading 3 [ Text "Green" ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
@@ -47,7 +50,12 @@ document(body: { text(body: [
 ]), 
                  heading(body: text(body: [Red]), 
                          level: 1), 
+                 text(body: [
+]), 
                  heading(body: text(body: [Blue]), 
                          level: 2), 
+                 text(body: [
+]), 
                  heading(body: text(body: [Green]), 
-                         level: 3) })
+                         level: 3), 
+                 parbreak() })

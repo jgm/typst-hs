@@ -27,7 +27,9 @@
              ])))
 , ParBreak
 , Heading 1 [ Text "Heading" ]
+, SoftBreak
 , Heading 5 [ Text "Heading" , Space , Text "\127757" ]
+, SoftBreak
 , Code
     "typ/meta/heading-03.typ"
     ( line 8 , column 2 )
@@ -44,10 +46,14 @@ document(body: { text(body: [
                  parbreak(), 
                  heading(body: text(body: [Heading]), 
                          level: 1), 
+                 text(body: [
+]), 
                  block(body: text(body: { text(body: [Heading 🌍]), 
                                           text(body: [!]) }, 
                                   fill: rgb(13%,61%,67%,100%), 
                                   font: "Roboto")), 
+                 text(body: [
+]), 
                  block(body: text(body: { text(body: [Heading]), 
                                           text(body: [!]) }, 
                                   fill: rgb(13%,61%,67%,100%), 

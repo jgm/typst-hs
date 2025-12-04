@@ -17,9 +17,11 @@
        , BlockArg
            [ SoftBreak
            , Heading 1 [ Text "A" ]
+           , SoftBreak
            , Text "Text"
            , SoftBreak
            , Heading 1 [ Text "B" ]
+           , SoftBreak
            , Text "Text"
            , ParBreak
            ]
@@ -34,11 +36,13 @@ document(body: { parbreak(),
 ]), 
                                  heading(body: text(body: [A]), 
                                          level: 1), 
-                                 text(body: [Text
+                                 text(body: [
+Text
 ]), 
                                  heading(body: text(body: [B]), 
                                          level: 1), 
-                                 text(body: [Text]), 
+                                 text(body: [
+Text]), 
                                  parbreak() }, 
                          count: 2), 
                  parbreak() })

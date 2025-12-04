@@ -7,8 +7,10 @@
        (Block (Content [ Text "1234" ])))
 , SoftBreak
 , Heading 1 [ Text "Heading" ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
 ]), 
-                 text(body: [1234]) })
+                 text(body: [1234]), 
+                 parbreak() })

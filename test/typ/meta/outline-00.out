@@ -48,6 +48,7 @@
     (FuncCall (Ident (Identifier "outline")) [])
 , ParBreak
 , Heading 1 [ Text "Einleitung" ]
+, SoftBreak
 , Code
     "typ/meta/outline-00.typ"
     ( line 9 , column 2 )
@@ -55,6 +56,7 @@
        (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 12)) ])
 , ParBreak
 , Heading 1 [ Text "Analyse" ]
+, SoftBreak
 , Code
     "typ/meta/outline-00.typ"
     ( line 12 , column 2 )
@@ -75,6 +77,7 @@
                  [ KeyValArg (Identifier "outlined") (Literal (Boolean False)) ])
           , SoftBreak
           , Heading 2 [ Text "Methodik" ]
+          , SoftBreak
           , Code
               "typ/meta/outline-00.typ"
               ( line 17 , column 4 )
@@ -84,6 +87,7 @@
           ]))
 , ParBreak
 , Heading 2 [ Text "Verarbeitung" ]
+, SoftBreak
 , Code
     "typ/meta/outline-00.typ"
     ( line 21 , column 2 )
@@ -91,9 +95,11 @@
        (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 4)) ])
 , ParBreak
 , Heading 2 [ Text "Programmierung" ]
+, SoftBreak
 , RawBlock "rust" "fn main() {\n  panic!(\"in the disco\");\n}"
 , ParBreak
 , Heading 4 [ Text "Deep" , Space , Text "Stuff" ]
+, SoftBreak
 , Text "Ok"
 , Space
 , Ellipsis
@@ -117,6 +123,7 @@
            ])
     , Text "fassung"
     ]
+, SoftBreak
 , Code
     "typ/meta/outline-00.typ"
     ( line 36 , column 2 )
@@ -137,11 +144,15 @@ document(body: { text(body: [
                  heading(body: text(body: [Einleitung]), 
                          level: 1, 
                          numbering: "(1/a)"), 
+                 text(body: [
+]), 
                  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor]), 
                  parbreak(), 
                  heading(body: text(body: [Analyse]), 
                          level: 1, 
                          numbering: "(1/a)"), 
+                 text(body: [
+]), 
                  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do]), 
                  parbreak(), 
                  text(body: [
@@ -152,6 +163,8 @@ document(body: { text(body: [
                          level: 2, 
                          numbering: "(1/a)", 
                          outlined: false), 
+                 text(body: [
+]), 
                  text(body: [Lorem ipsum dolor sit amet, consectetur]), 
                  parbreak(), 
                  parbreak(), 
@@ -159,12 +172,16 @@ document(body: { text(body: [
                          level: 2, 
                          numbering: "(1/a)", 
                          outlined: false), 
+                 text(body: [
+]), 
                  text(body: [Lorem ipsum dolor sit]), 
                  parbreak(), 
                  heading(body: text(body: [Programmierung]), 
                          level: 2, 
                          numbering: "(1/a)", 
                          outlined: false), 
+                 text(body: [
+]), 
                  raw(block: true, 
                      lang: "rust", 
                      text: "fn main() {\n  panic!(\"in the disco\");\n}"), 
@@ -173,7 +190,8 @@ document(body: { text(body: [
                          level: 4, 
                          numbering: "(1/a)", 
                          outlined: false), 
-                 text(body: [Ok …]), 
+                 text(body: [
+Ok …]), 
                  parbreak(), 
                  parbreak(), 
                  heading(body: { text(body: text(body: [Zusammen]), 
@@ -182,5 +200,7 @@ document(body: { text(body: [
                          level: 1, 
                          numbering: "(I)", 
                          outlined: false), 
+                 text(body: [
+]), 
                  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do]), 
                  parbreak() })

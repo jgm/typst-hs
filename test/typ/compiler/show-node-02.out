@@ -24,6 +24,7 @@
     , Space
     , Text "here!"
     ]
+, SoftBreak
 , Text "my"
 , Space
 , Text "heading?"
@@ -35,5 +36,6 @@ document(body: { text(body: [
                  parbreak(), 
                  text(body: [Where is
 ]), 
-                 text(body: [my heading?]), 
+                 text(body: [
+my heading?]), 
                  parbreak() })

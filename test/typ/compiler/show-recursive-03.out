@@ -48,7 +48,8 @@
     , BulletListItem [ Text "List" ]
     ]
 , SoftBreak
-, BulletListItem [ Text "Recursive!" , ParBreak ]
+, BulletListItem [ Text "Recursive!" ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
@@ -70,5 +71,4 @@ document(body: { text(body: [
 ]), 
                                                block(body: list(children: (text(body: [Nested]), 
                                                                            text(body: [List])))) }, 
-                                             { text(body: [Recursive!]), 
-                                               parbreak() }))) })
+                                             text(body: [Recursive!])))) })

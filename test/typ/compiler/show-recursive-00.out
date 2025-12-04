@@ -10,6 +10,7 @@
           [ NormalParam (Identifier "it") ] (Ident (Identifier "it"))))
 , SoftBreak
 , Heading 1 [ Text "Heading" ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
@@ -17,4 +18,5 @@ document(body: { text(body: [
                  text(body: [
 ]), 
                  heading(body: text(body: [Heading]), 
-                         level: 1) })
+                         level: 1), 
+                 parbreak() })

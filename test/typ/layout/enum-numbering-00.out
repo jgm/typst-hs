@@ -23,7 +23,8 @@
         ]
     ]
 , SoftBreak
-, EnumListItem Nothing [ Text "Normal" , ParBreak ]
+, EnumListItem Nothing [ Text "Normal" ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
@@ -39,6 +40,5 @@ document(body: { text(body: [
                                                           numbering: "(1.a.*)") }), 
                                         numbering: "(1.a.*)", 
                                         start: 2) }, 
-                                 { text(body: [Normal]), 
-                                   parbreak() }), 
+                                 text(body: [Normal])), 
                       numbering: "(1.a.*)") })

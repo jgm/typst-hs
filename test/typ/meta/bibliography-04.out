@@ -23,6 +23,7 @@
           [ KeyValArg (Identifier "numbering") (Literal (String "1.")) ]))
 , ParBreak
 , Heading 1 [ Text "Multiple" , Space , Text "Bibs" ]
+, SoftBreak
 , Text "Now"
 , Space
 , Text "we"
@@ -68,7 +69,8 @@ document(body: { text(body: [
                  heading(body: text(body: [Multiple Bibs]), 
                          level: 1, 
                          numbering: "1."), 
-                 text(body: [Now we have multiple bibliographies containing ]), 
+                 text(body: [
+Now we have multiple bibliographies containing ]), 
                  cite(key: <glacier-melt>), 
                  cite(key: <keshav2007read>), 
                  text(body: [

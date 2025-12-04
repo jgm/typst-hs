@@ -67,12 +67,14 @@
              ])))
 , ParBreak
 , Heading 1 [ Text "Task" , Space , Text "1" ]
+, SoftBreak
 , Text "Some"
 , Space
 , Text "text"
 , Text "."
 , ParBreak
 , Heading 2 [ Text "Subtask" ]
+, SoftBreak
 , Text "Some"
 , Space
 , Text "more"
@@ -81,6 +83,7 @@
 , Text "."
 , ParBreak
 , Heading 1 [ Text "Task" , Space , Text "2" ]
+, SoftBreak
 , Text "Another"
 , Space
 , Text "text"
@@ -98,7 +101,8 @@ document(body: { text(body: [
                                underline(body: text(body: text(body: [Task 1]), 
                                                     color: rgb(0%,45%,85%,100%), 
                                                     size: 1.25em)) }), 
-                 text(body: [Some text.]), 
+                 text(body: [
+Some text.]), 
                  parbreak(), 
                  block(body: { box(body: move(body: text(body: [📖], 
                                                          size: 10.0pt), 
@@ -107,7 +111,8 @@ document(body: { text(body: [
                                text(body: text(body: [Subtask]), 
                                     color: rgb(100%,25%,21%,100%), 
                                     size: 10.0pt) }), 
-                 text(body: [Some more text.]), 
+                 text(body: [
+Some more text.]), 
                  parbreak(), 
                  block(body: { box(body: move(body: text(body: [📖], 
                                                          size: 10.0pt), 
@@ -116,5 +121,6 @@ document(body: { text(body: [
                                underline(body: text(body: text(body: [Task 2]), 
                                                     color: rgb(0%,45%,85%,100%), 
                                                     size: 1.25em)) }), 
-                 text(body: [Another text.]), 
+                 text(body: [
+Another text.]), 
                  parbreak() })

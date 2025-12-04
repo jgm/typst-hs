@@ -17,9 +17,9 @@
            (Identifier "number-align") (Ident (Identifier "start"))
        ])
 , ParBreak
-, EnumListItem (Just 4) [ Space , Text "c" ]
+, EnumListItem (Just 4) [ Text "c" ]
 , SoftBreak
-, EnumListItem (Just 8) [ Space , Text "d" ]
+, EnumListItem (Just 8) [ Text "d" ]
 , SoftBreak
 , EnumListItem
     (Just 16)
@@ -27,12 +27,13 @@
     , HardBreak
     , Text "f"
     , SoftBreak
-    , EnumListItem (Just 2) [ Space , Text "f" , HardBreak , Text "g" ]
+    , EnumListItem (Just 2) [ Text "f" , HardBreak , Text "g" ]
     , SoftBreak
     , EnumListItem (Just 32) [ Text "g" ]
     , SoftBreak
-    , EnumListItem (Just 64) [ Text "h" , ParBreak ]
+    , EnumListItem (Just 64) [ Text "h" ]
     ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
@@ -40,18 +41,17 @@ document(body: { text(body: [
                  text(body: [
 ]), 
                  parbreak(), 
-                 enum(children: (text(body: [ c]), 
-                                 text(body: [ d]), 
+                 enum(children: (text(body: [c]), 
+                                 text(body: [d]), 
                                  { text(body: [e]), 
                                    linebreak(), 
                                    text(body: [f
 ]), 
-                                   enum(children: ({ text(body: [ f]), 
+                                   enum(children: ({ text(body: [f]), 
                                                      linebreak(), 
                                                      text(body: [g]) }, 
                                                    text(body: [g]), 
-                                                   { text(body: [h]), 
-                                                     parbreak() }), 
+                                                   text(body: [h])), 
                                         number-align: start, 
                                         start: 2) }), 
                       number-align: start, 

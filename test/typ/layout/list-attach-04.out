@@ -10,8 +10,8 @@
 , SoftBreak
 , Text "Hello"
 , SoftBreak
-, BulletListItem [ Text "A" , SoftBreak ]
-, SoftBreak
+, BulletListItem [ Text "A" ]
+, ParBreak
 , BulletListItem [ Text "B" ]
 , SoftBreak
 , Text "World"
@@ -23,8 +23,7 @@ document(body: { text(body: [
                  text(body: [
 Hello
 ]), 
-                 list(children: (text(body: [A
-]), 
+                 list(children: (text(body: [A]), 
                                  text(body: [B]))), 
                  text(body: [World]), 
                  parbreak() })

@@ -8,6 +8,7 @@
        (BasicBind (Just (Identifier "name"))) (Literal (String "Klaus")))
 , ParBreak
 , Heading 2 [ Text "Chapter" , Space , Text "2" ]
+, SoftBreak
 , Text "Their"
 , Space
 , Text "motivations,"
@@ -180,7 +181,8 @@ document(body: { parbreak(),
                  parbreak(), 
                  heading(body: text(body: [Chapter 2]), 
                          level: 2), 
-                 text(body: [Their motivations, however, were pretty descript, so to speak. ]), 
+                 text(body: [
+Their motivations, however, were pretty descript, so to speak. ]), 
                  text(body: [Klaus]), 
                  text(body: [ had not yet
 conceptualized their consequences, but that should change pretty quickly. ]), 

@@ -2,21 +2,31 @@
 [ Comment
 , ParBreak
 , Heading 1 [ Text "Level" , Space , Text "1" ]
+, SoftBreak
 , Heading 2 [ Text "Level" , Space , Text "2" ]
+, SoftBreak
 , Heading 3 [ Text "Level" , Space , Text "3" ]
+, ParBreak
 , Comment
 , SoftBreak
 , Heading 11 [ Text "Level" , Space , Text "11" ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: { parbreak(), 
                  heading(body: text(body: [Level 1]), 
                          level: 1), 
+                 text(body: [
+]), 
                  heading(body: text(body: [Level 2]), 
                          level: 2), 
+                 text(body: [
+]), 
                  heading(body: text(body: [Level 3]), 
                          level: 3), 
+                 parbreak(), 
                  text(body: [
 ]), 
                  heading(body: text(body: [Level 11]), 
-                         level: 11) })
+                         level: 11), 
+                 parbreak() })

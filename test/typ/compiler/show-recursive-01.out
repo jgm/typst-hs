@@ -30,6 +30,7 @@
 , BulletListItem [ Text "List" ]
 , SoftBreak
 , Heading 1 [ Text "Nope" ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
@@ -44,4 +45,5 @@ document(body: { text(body: [
                                              text(body: [Tight]), 
                                              text(body: [List]))), 
                        origin: left, 
-                       x: 80%) })
+                       x: 80%), 
+                 parbreak() })

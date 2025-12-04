@@ -33,6 +33,7 @@
 , ParBreak
 , Heading
     1 [ Text "List" , Space , Text "of" , Space , Text "Figures" ]
+, SoftBreak
 , Code
     "typ/meta/query-figure-00.typ"
     ( line 11 , column 2 )
@@ -199,6 +200,8 @@ document(body: { parbreak(),
                  parbreak(), 
                  heading(body: text(body: [List of Figures]), 
                          level: 1), 
+                 text(body: [
+]), 
                  locate(func: ), 
                  parbreak(), 
                  figure(body: image(source: "/assets/files/glacier.jpg"), 

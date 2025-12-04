@@ -22,6 +22,7 @@
        (Ident (Identifier "underline")))
 , ParBreak
 , Heading 1 [ Text "Introduction" ]
+, Space
 , Code
     "typ/compiler/label-00.typ" ( line 5 , column 16 ) (Label "intro")
 , SoftBreak
@@ -31,6 +32,7 @@
 , Text "."
 , ParBreak
 , Heading 1 [ Text "Conclusion" ]
+, SoftBreak
 , Text "The"
 , Space
 , Text "end"
@@ -45,11 +47,13 @@ document(body: { text(body: [
                  parbreak(), 
                  heading(body: text(body: [Introduction]), 
                          level: 1), 
+                 text(body: [ ]), 
                  <intro>, 
                  text(body: [
 The beginning.]), 
                  parbreak(), 
                  heading(body: text(body: [Conclusion]), 
                          level: 1), 
-                 text(body: [The end.]), 
+                 text(body: [
+The end.]), 
                  parbreak() })
