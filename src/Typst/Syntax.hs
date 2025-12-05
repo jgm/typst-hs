@@ -39,7 +39,6 @@ data Markup
   | Equation Bool [Markup] -- Bool is True for displayed format
   | Strong [Markup]
   | Emph [Markup]
-  | Bracketed [Markup]
   | RawInline Text
   | RawBlock Text Text
   | Heading Int [Markup]

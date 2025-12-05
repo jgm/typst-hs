@@ -42,7 +42,8 @@ data PState = PState
     stAllowNewlines :: !Int, -- allow newlines if > 0
     stSpaceBefore :: Maybe (SourcePos, Text),
     stLastMathTok :: Maybe (SourcePos, Markup),
-    stContentBlockNesting :: Int
+    stContentBlockNesting :: Int,
+    stBracketNesting :: Int
   }
   deriving (Show)
 
@@ -54,7 +55,8 @@ initialState =
       stAllowNewlines = 0,
       stSpaceBefore = Nothing,
       stLastMathTok = Nothing,
-      stContentBlockNesting = 0
+      stContentBlockNesting = 0,
+      stBracketNesting = 0
     }
 
 type P = Parsec Text PState
@@ -138,20 +140,18 @@ pMarkup =
     <|> pLabelInContent
     <|> pRef
     <|> pHash
-    <|> pBracketed
     <|> pSymbol
-
--- We need to group paired brackets or the closing bracketed may be
--- taken to close a pContent block:
-pBracketed :: P Markup
-pBracketed =
-  Bracketed <$> try (between (char '[') (char ']') (many pMarkup))
 
 pSymbol :: P Markup
 pSymbol = do
-  blockNesting <- stContentBlockNesting <$> getState
-  let isSpecial' c = isSpecial c && (c /= ']' || blockNesting == 0)
-  Text . T.singleton <$> satisfy isSpecial'
+  bracketNesting <- stBracketNesting <$> getState
+  let isSpecial' c = isSpecial c && (c /= ']' || bracketNesting > 0)
+  c <- satisfy isSpecial'
+  case c of
+    '[' -> updateState $ \st -> st { stBracketNesting = bracketNesting + 1}
+    ']' -> updateState $ \st -> st { stBracketNesting = bracketNesting - 1}
+    _ -> pure ()
+  pure $ Text $ T.singleton $ c
 
 -- equation ::= ('$' math* '$') | ('$ ' math* ' $')
 pEquation :: P Markup
@@ -1041,25 +1041,30 @@ pCode = sepEndBy pExpr (void (sym ";") <|> ws)
 -- content-block ::= '[' markup ']'
 pContent :: P Block
 pContent = do
+  pos <- getPosition
   void $ char '['
   col <- sourceColumn <$> getPosition
   oldLineStartCol <- stLineStartCol <$> getState
   oldIndent <- stIndent <$> getState
+  oldBracketNesting <- stBracketNesting <$> getState
   updateState $ \st ->
     st
       { stLineStartCol = col,
         stContentBlockNesting =
           stContentBlockNesting st + 1,
-        stIndent = []
+        stIndent = [],
+        stBracketNesting = 0
       }
-  ms <- manyTill pMarkup (char ']')
+  ms <- many pMarkup
+  void $ (char ']' <?> "unclosed delimiter at" <> show pos)
   ws
   updateState $ \st ->
     st
       { stLineStartCol = oldLineStartCol,
         stContentBlockNesting =
           stContentBlockNesting st - 1,
-        stIndent = oldIndent
+        stIndent = oldIndent,
+        stBracketNesting = oldBracketNesting
       }
   pure $ Content ms
 
