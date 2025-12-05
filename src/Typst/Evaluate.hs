@@ -217,9 +217,6 @@ pElt = do
     Strong ms -> do
       body <- pInnerContents ms
       element "strong" Arguments {positional = [VContent body], named = OM.empty}
-    Bracketed ms -> do
-      body <- pInnerContents ms
-      pure $ (Txt "[" Seq.<| body) Seq.|> Txt "]"
     RawBlock lang txt ->
       element
         "raw"

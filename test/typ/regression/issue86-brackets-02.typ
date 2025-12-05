@@ -1,0 +1,2 @@
+// Should error: unexpected `]`
+]

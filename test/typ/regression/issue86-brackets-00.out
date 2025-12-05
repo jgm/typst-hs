@@ -1,0 +1,299 @@
+--- parse tree ---
+[ Code
+    "typ/regression/issue86-brackets-00.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "test")))
+       (FuncExpr
+          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
+          (Block
+             (CodeBlock
+                [ If
+                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
+                      , Block (Content [ Text "\9989" ])
+                      )
+                    , ( Literal (Boolean True)
+                      , Block
+                          (Content
+                             [ Text "\10060"
+                             , Text "("
+                             , Code
+                                 "typ/regression/issue86-brackets-00.typ"
+                                 ( line 1 , column 47 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "x")) ])
+                             , Space
+                             , Text "/"
+                             , Text "="
+                             , Space
+                             , Code
+                                 "typ/regression/issue86-brackets-00.typ"
+                                 ( line 1 , column 59 )
+                                 (FuncCall
+                                    (Ident (Identifier "repr"))
+                                    [ NormalArg (Ident (Identifier "y")) ])
+                             , Text ")"
+                             ])
+                      )
+                    ]
+                ]))))
+, SoftBreak
+, Text "("
+, Text "("
+, Text "["
+, Text "a"
+, Text "]"
+, Text ","
+, Space
+, Text "["
+, Text "b"
+, Text "]"
+, Text ","
+, Space
+, Text "["
+, Text "]"
+, Text "),"
+, Space
+, Text "("
+, Text "["
+, Text "a"
+, Text "]"
+, Text ","
+, Space
+, Text "["
+, Text "b"
+, Text "]"
+, Text ","
+, Space
+, Text "["
+, Text "]"
+, Text "),"
+, Space
+, Text "("
+, Text "["
+, Text "a"
+, Text "]"
+, Text ","
+, Space
+, Text "["
+, Text "b"
+, Text "]"
+, Text ","
+, Space
+, Text "["
+, Text "]"
+, Text "),"
+, Space
+, Text "("
+, Text "["
+, Text "a"
+, Text "]"
+, Text ","
+, Space
+, Text "["
+, Text "b"
+, Text "]"
+, Text ","
+, Space
+, Text "["
+, Text "]"
+, Text "),"
+, Space
+, Text "("
+, Text "["
+, Text "a"
+, Text "]"
+, Text ","
+, Space
+, Text "["
+, Text "b"
+, Text "]"
+, Text ","
+, Space
+, Text "["
+, Text "]"
+, Text "),"
+, Space
+, Text "("
+, Text "["
+, Text "a"
+, Text "]"
+, Text ","
+, Space
+, Text "["
+, Text "b"
+, Text "]"
+, Text ","
+, Space
+, Text "["
+, Text "]"
+, Text "),"
+, Space
+, Text "("
+, Text "["
+, Text "a"
+, Text "]"
+, Text ","
+, Space
+, Text "["
+, Text "b"
+, Text "]"
+, Text ","
+, Space
+, Text "["
+, Text "]"
+, Text "),"
+, Space
+, Text "("
+, Text "["
+, Text "a"
+, Text "]"
+, Text ","
+, Space
+, Text "["
+, Text "b"
+, Text "]"
+, Text ","
+, Space
+, Text "["
+, Text "]"
+, Text "))"
+, ParBreak
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "["
+, Text "]"
+, Text "]"
+, ParBreak
+, Text "["
+, Text "outer"
+, Text "["
+, Code
+    "typ/regression/issue86-brackets-00.typ"
+    ( line 6 , column 9 )
+    (Block
+       (Content
+          [ Text "["
+          , Text "["
+          , Text "["
+          , Code
+              "typ/regression/issue86-brackets-00.typ"
+              ( line 6 , column 14 )
+              (Block
+                 (Content
+                    [ Text "["
+                    , Text "["
+                    , Code
+                        "typ/regression/issue86-brackets-00.typ"
+                        ( line 6 , column 18 )
+                        (Block
+                           (Content
+                              [ Text "inner" , Text "[" , Text "x" , Text "]" , Text "y" ]))
+                    , Text "a"
+                    , Text "]"
+                    , Text "b"
+                    , Text "]"
+                    , Text "mid"
+                    ]))
+          , Text "x"
+          , Text "]"
+          , Text "y"
+          , Text "]"
+          , Text "z"
+          , Text "]"
+          , Text "w"
+          ]))
+, Text "outer"
+, Text "]"
+, ParBreak
+]
+--- evaluated ---
+document(body: { text(body: [
+(([a], [b], []), ([a], [b], []), ([a], [b], []), ([a], [b], []), ([a], [b], []), ([a], [b], []), ([a], [b], []), ([a], [b], []))]), 
+                 parbreak(), 
+                 text(body: [[][][][][][][][][][][][][][][][][][][][[][][][][][][][][][][][][][][][][][][][]]]), 
+                 parbreak(), 
+                 text(body: [[outer[]), 
+                 text(body: [[[[]), 
+                 text(body: [[[]), 
+                 text(body: [inner[x]y]), 
+                 text(body: [a]b]mid]), 
+                 text(body: [x]y]z]w]), 
+                 text(body: [outer]]), 
+                 parbreak() })
