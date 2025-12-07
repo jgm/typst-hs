@@ -1,0 +1,19 @@
+--- parse tree ---
+[ Comment
+, SoftBreak
+, Text "par"
+, Space
+, Text "one"
+, Comment
+, ParBreak
+, Text "par"
+, Space
+, Text "two"
+, ParBreak
+]
+--- evaluated ---
+document(body: { text(body: [
+par one]), 
+                 parbreak(), 
+                 text(body: [par two]), 
+                 parbreak() })

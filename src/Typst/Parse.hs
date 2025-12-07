@@ -495,7 +495,6 @@ pLineComment :: P ()
 pLineComment = do
   void $ string "//"
   skipMany (satisfy (\c -> c /= '\n' && c /= '\r'))
-  void endOfLine <|> eof
 
 pBlockComment :: P ()
 pBlockComment = do
