@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/text/em-01.typ"
     ( line 2 , column 2 )
@@ -64,8 +65,9 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
-], 
-                      size: 5.0pt), 
+]), 
+                 text(body: [
+], size: 5.0pt), 
                  text(body: [
 ], size: 2.0em), 
                  parbreak(), 

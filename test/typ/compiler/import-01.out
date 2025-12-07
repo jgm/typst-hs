@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/compiler/import-01.typ"
     ( line 2 , column 2 )
@@ -20,6 +21,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Text "{"
 , SoftBreak
 , Text "import"
@@ -42,12 +44,14 @@
 , Text "}"
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/import-01.typ"
     ( line 12 , column 2 )
     (Import (Literal (String "module.typ")) AllIdentifiers)
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/import-01.typ"
     ( line 15 , column 2 )
@@ -61,13 +65,20 @@
 --- evaluated ---
 document(body: { text(body: [
 ]), 
+                 text(body: [
+]), 
                  text(body: [✅]), 
                  parbreak(), 
-                 text(body: [{
+                 text(body: [
+{
 import “module.typ”: b
 test(b, 1)
 }]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [✅]), 
                  parbreak() })

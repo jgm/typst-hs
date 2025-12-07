@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/text/linebreak-obj-01.typ"
     ( line 2 , column 2 )
@@ -81,7 +82,9 @@
 , HardBreak
 ]
 --- evaluated ---
-document(body: { parbreak(), 
+document(body: { text(body: [
+]), 
+                 parbreak(), 
                  text(body: [We prove ]), 
                  math.equation(block: false, 
                                body: { text(body: [1]), 

@@ -1,7 +1,8 @@
 --- parse tree ---
 [ Comment
-, SoftBreak
+, ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/block-00.typ"
     ( line 4 , column 2 )
@@ -27,6 +28,7 @@
           ]))
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/block-00.typ"
     ( line 11 , column 2 )
@@ -46,12 +48,15 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
+document(body: { parbreak(), 
+                 text(body: [
 ]), 
                  text(body: [Hello, ]), 
                  text(body: [my fri]), 
                  text(body: [end.]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [How]), 
                  text(body: [ are]), 
                  text(body: [ ]), 

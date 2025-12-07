@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/compute/calc-31.typ"
     ( line 2 , column 2 )
@@ -97,7 +98,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [✅]), 
+document(body: { text(body: [
+]), 
+                 text(body: [✅]), 
                  text(body: [
 ]), 
                  text(body: [✅]), 

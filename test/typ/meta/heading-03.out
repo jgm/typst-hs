@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/meta/heading-03.typ"
     ( line 2 , column 2 )
@@ -38,7 +39,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { parbreak(), 
+document(body: { text(body: [
+]), 
+                 parbreak(), 
                  heading(body: text(body: [Heading]), 
                          level: 1), 
                  block(body: text(body: { text(body: [Heading 🌍]), 

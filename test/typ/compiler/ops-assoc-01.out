@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "{"
 , SoftBreak
 , Text "let"
@@ -49,7 +50,8 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [{
+document(body: { text(body: [
+{
 let x = 1
 let y = 2
 x = y = “ok”

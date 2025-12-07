@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/text/lorem-01.typ"
     ( line 2 , column 2 )
@@ -68,7 +69,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { parbreak(), 
+document(body: { text(body: [
+]), 
+                 parbreak(), 
                  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.], 
                       size: 8.0pt), 
                  text(body: [ ], size: 8.0pt), 

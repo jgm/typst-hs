@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/meta/link-07.typ"
     ( line 2 , column 2 )
@@ -41,7 +42,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { link(body: block(body: { text(body: [
+document(body: { text(body: [
+]), 
+                 link(body: block(body: { text(body: [
 My cool rhino
 ]), 
                                           box(body: move(body: image(source: "/assets/files/rhino.png", 

@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/layout/columns-04.typ"
     ( line 2 , column 2 )
@@ -57,6 +58,8 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
 ]), 
                  parbreak(), 
                  rect(fill: rgb(18%,80%,25%,100%), 

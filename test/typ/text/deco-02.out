@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/text/deco-02.typ"
     ( line 2 , column 2 )
@@ -25,6 +26,8 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
 ]), 
                  underline(body: text(body: text(body: [DANGER!]), 
                                       color: rgb(100%,25%,21%,100%)), 

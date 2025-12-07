@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/layout/table-02.typ"
     ( line 2 , column 2 )
@@ -25,6 +26,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/layout/table-02.typ"
     ( line 9 , column 2 )
@@ -52,7 +54,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { table(align: (left, 
+document(body: { text(body: [
+]), 
+                 table(align: (left, 
                                center, 
                                right), 
                        children: (text(body: [A]), 
@@ -62,6 +66,8 @@ document(body: { table(align: (left,
                                  1.0fr, 
                                  1.0fr)), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [
 ]), 
                  table(align: (), 

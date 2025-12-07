@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , BulletListItem []
 , SoftBreak
 , Text "Not"
@@ -13,7 +14,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { list(children: ({  })), 
+document(body: { text(body: [
+]), 
+                 list(children: ({  })), 
                  text(body: [Not in list
 -Nope]), 
                  parbreak() })

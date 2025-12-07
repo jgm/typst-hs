@@ -1,7 +1,8 @@
 --- parse tree ---
 [ Comment
-, SoftBreak
+, ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/ops-08.typ"
     ( line 4 , column 2 )
@@ -139,6 +140,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/ops-08.typ"
     ( line 17 , column 2 )
@@ -162,6 +164,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/ops-08.typ"
     ( line 21 , column 2 )
@@ -224,7 +227,8 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
+document(body: { parbreak(), 
+                 text(body: [
 ]), 
                  text(body: [✅]), 
                  text(body: [
@@ -258,6 +262,8 @@ document(body: { text(body: [
 ]), 
                  text(body: [✅]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [❌(]), 
                  text(body: [false]), 
                  text(body: [ /= ]), 
@@ -267,6 +273,8 @@ document(body: { text(body: [
 ]), 
                  text(body: [✅]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [
 ]), 
                  text(body: [✅]), 

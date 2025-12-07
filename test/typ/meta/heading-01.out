@@ -1,7 +1,8 @@
 --- parse tree ---
 [ Comment
-, SoftBreak
+, ParBreak
 , Comment
+, SoftBreak
 , Comment
 , Space
 , Text "="
@@ -23,6 +24,7 @@
        [ BlockArg [ Heading 3 [ Text "Level" , Space , Text "3" ] ] ])
 , ParBreak
 , Comment
+, SoftBreak
 , Text "No"
 , Space
 , Text "="
@@ -30,6 +32,7 @@
 , Text "heading"
 , ParBreak
 , Comment
+, SoftBreak
 , Text "="
 , Space
 , Text "No"
@@ -38,7 +41,8 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
+document(body: { parbreak(), 
+                 text(body: [
 ]), 
                  text(body: [ = Level 1
 ]), 
@@ -49,7 +53,9 @@ document(body: { text(body: [
                  box(body: heading(body: text(body: [Level 3]), 
                                    level: 3)), 
                  parbreak(), 
-                 text(body: [No = heading]), 
+                 text(body: [
+No = heading]), 
                  parbreak(), 
-                 text(body: [= No heading]), 
+                 text(body: [
+= No heading]), 
                  parbreak() })

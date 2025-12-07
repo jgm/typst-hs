@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/text/microtype-00.typ"
     ( line 2 , column 2 )
@@ -100,6 +101,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/text/microtype-00.typ"
     ( line 12 , column 2 )
@@ -151,6 +153,8 @@ document(body: { text(body: [
                  text(body: [
 ]), 
                  text(body: [
+]), 
+                 text(body: [
 ], size: 9.0pt), 
                  rect(body: { text(body: [
 This is a little bit of text that builds up to
@@ -162,6 +166,8 @@ some punctuation in the margin.],
                       inset: 0.0pt, 
                       width: 100%), 
                  parbreak(), 
+                 text(body: [
+], size: 9.0pt), 
                  text(body: [
 בנייה נכונה של משפטים ארוכים דורשת ידע בשפה. אז בואו נדבר על מזג האוויר.], 
                       font: ("PT Sans", 

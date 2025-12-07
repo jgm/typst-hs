@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/layout/columns-01.typ"
     ( line 2 , column 2 )
@@ -96,7 +97,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { parbreak(), 
+document(body: { text(body: [
+]), 
+                 parbreak(), 
                  rect(body: columns(body: { text(body: [
 A special plight has befallen our document.
 Columns in text boxes reigned down unto the soil

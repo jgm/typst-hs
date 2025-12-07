@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Comment
-, SoftBreak
+, ParBreak
 , Code
     "typ/meta/counter-page-00.typ"
     ( line 3 , column 2 )
@@ -65,8 +65,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
+document(body: { parbreak(), 
                  text(body: [
 ]), 
                  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor]), 

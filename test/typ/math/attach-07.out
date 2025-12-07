@@ -7,6 +7,7 @@
        [ KeyValArg (Identifier "size") (Literal (Numeric 8.0 Pt)) ])
 , ParBreak
 , Comment
+, SoftBreak
 , Equation
     True
     [ MAttach (Just (Text "1")) Nothing (Text "x")
@@ -156,6 +157,8 @@
 ]
 --- evaluated ---
 document(body: { parbreak(), 
+                 text(body: [
+], size: 8.0pt), 
                  math.equation(block: true, 
                                body: { math.attach(b: text(body: [1], 
                                                            size: 8.0pt), 

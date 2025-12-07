@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/visualize/stroke-04.typ"
     ( line 2 , column 2 )
@@ -136,7 +137,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { stack(children: (polygon(stroke: (thickness: 4.0pt,
+document(body: { text(body: [
+]), 
+                 stack(children: (polygon(stroke: (thickness: 4.0pt,
                                                    paint: rgb(0%,45%,85%,100%),
                                                    join: "round"), 
                                           vertices: ((0.0pt, 

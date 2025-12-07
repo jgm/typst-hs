@@ -1,5 +1,6 @@
 --- parse tree ---
-[ Comment , Quote '"' , Quote '"' , ParBreak ]
+[ Comment , SoftBreak , Quote '"' , Quote '"' , ParBreak ]
 --- evaluated ---
-document(body: { text(body: [””]), 
+document(body: { text(body: [
+“”]), 
                  parbreak() })

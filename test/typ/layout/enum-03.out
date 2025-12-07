@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , BulletListItem [ Text "Bullet" , Space , Text "List" ]
 , SoftBreak
 , EnumListItem Nothing [ Text "Numbered" , Space , Text "List" ]
@@ -7,7 +8,9 @@
 , DescListItem [ Text "Term" ] [ Text "List" , ParBreak ]
 ]
 --- evaluated ---
-document(body: { list(children: (text(body: [Bullet List]))), 
+document(body: { text(body: [
+]), 
+                 list(children: (text(body: [Bullet List]))), 
                  enum(children: (text(body: [Numbered List]))), 
                  terms(children: ((text(body: [Term]), 
                                    { text(body: [List]), 

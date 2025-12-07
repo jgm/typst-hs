@@ -1,6 +1,8 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Code
     "typ/meta/document-01.typ"
     ( line 3 , column 2 )
@@ -14,4 +16,8 @@
 ]
 --- evaluated ---
 document(author: ("A", "B"), 
-         body: parbreak())
+         body: { text(body: [
+]), 
+                 text(body: [
+]), 
+                 parbreak() })

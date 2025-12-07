@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/layout/repeat-00.typ"
     ( line 2 , column 2 )
@@ -66,7 +67,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { parbreak(), 
+document(body: { text(body: [
+]), 
+                 parbreak(), 
                  text(body: [
 ]), 
                  text(body: [Introduction]), 

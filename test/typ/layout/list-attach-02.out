@@ -1,6 +1,8 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Text "Hello"
 , ParBreak
 , BulletListItem [ Text "A" , SoftBreak ]
@@ -10,7 +12,10 @@
 , BulletListItem [ Text "B" , ParBreak ]
 ]
 --- evaluated ---
-document(body: { text(body: [Hello]), 
+document(body: { text(body: [
+]), 
+                 text(body: [
+Hello]), 
                  parbreak(), 
                  list(children: (text(body: [A
 ]))), 

@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "Hello"
 , SoftBreak
 , Code
@@ -16,7 +17,8 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [Hello
+document(body: { text(body: [
+Hello
 ]), 
                  list(children: (text(body: [A]), 
                                  text(body: [B])), 

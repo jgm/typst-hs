@@ -1,8 +1,10 @@
 --- parse tree ---
 [ Comment
-, Comment
 , SoftBreak
 , Comment
+, ParBreak
+, Comment
+, SoftBreak
 , Code
     "typ/compiler/import-00.typ"
     ( line 5 , column 2 )
@@ -11,6 +13,7 @@
        (Block (Content [ Text "foo" ])))
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/import-00.typ"
     ( line 8 , column 2 )
@@ -36,7 +39,9 @@
     (Ident (Identifier "value"))
 , ParBreak
 , Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/import-00.typ"
     ( line 14 , column 2 )
@@ -53,6 +58,11 @@ document(body: { text(body: [
                  parbreak(), 
                  text(body: [
 ]), 
+                 parbreak(), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
                  rect(body: text(body: [Like and Subscribe!]), 
                       fill: rgb(18%,80%,25%,100%), 
                       inset: 5.0pt), 
@@ -60,5 +70,9 @@ document(body: { text(body: [
 ]), 
                  text(body: [hi]), 
                  parbreak(), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
                  text(body: [bye]), 
                  parbreak() })

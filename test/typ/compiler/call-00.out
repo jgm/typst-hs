@@ -1,7 +1,8 @@
 --- parse tree ---
 [ Comment
-, SoftBreak
+, ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/call-00.typ"
     ( line 4 , column 2 )
@@ -20,6 +21,7 @@
           ]))
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/call-00.typ"
     ( line 8 , column 2 )
@@ -56,6 +58,7 @@
        [ NormalArg (Literal (Int 3)) ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/call-00.typ"
     ( line 12 , column 2 )
@@ -122,7 +125,8 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
+document(body: { parbreak(), 
+                 text(body: [
 ]), 
                  text(body: [
 ]), 
@@ -130,10 +134,14 @@ document(body: { text(body: [
                  parbreak(), 
                  text(body: [
 ]), 
+                 text(body: [
+]), 
                  text(body: [1]), 
                  text(body: [2]), 
                  text(body: [3]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [ (it)]), 
                  parbreak(), 
                  text(body: [

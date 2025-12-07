@@ -1,7 +1,8 @@
 --- parse tree ---
 [ Comment
-, SoftBreak
+, ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/for-00.typ"
     ( line 4 , column 2 )
@@ -11,7 +12,9 @@
        (Block (Content [ Text "Nope" ])))
 , ParBreak
 , Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/for-00.typ"
     ( line 8 , column 2 )
@@ -42,7 +45,9 @@
              ])))
 , ParBreak
 , Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/for-00.typ"
     ( line 14 , column 2 )
@@ -96,7 +101,9 @@
           ]))
 , ParBreak
 , Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/for-00.typ"
     ( line 29 , column 2 )
@@ -130,6 +137,7 @@
              ])))
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/for-00.typ"
     ( line 32 , column 2 )
@@ -213,9 +221,14 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
+document(body: { parbreak(), 
+                 text(body: [
 ]), 
                  parbreak(), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
                  text(body: [
 ]), 
                  text(body: [Name]), 
@@ -231,6 +244,10 @@ document(body: { text(body: [
                  text(body: [.]), 
                  parbreak(), 
                  parbreak(), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
                  text(body: [[]), 
                  text(body: [1]), 
                  text(body: [st]), 
@@ -245,11 +262,17 @@ document(body: { text(body: [
                  text(body: [th]), 
                  text(body: []]), 
                  parbreak(), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
                  text(body: [2]), 
                  text(body: [3]), 
                  text(body: [4]), 
                  text(body: [5]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [
 ]), 
                  text(body: [

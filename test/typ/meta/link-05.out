@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/meta/link-05.typ"
     ( line 2 , column 2 )
@@ -54,6 +55,8 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
 You could also make the
 ]), 
                  underline(body: text(body: link(body: text(body: [link look way more typical.]), 

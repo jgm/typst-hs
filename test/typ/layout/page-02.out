@@ -1,6 +1,8 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Code
     "typ/layout/page-02.typ"
     ( line 3 , column 2 )
@@ -39,6 +41,7 @@
           ]))
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/layout/page-02.typ"
     ( line 8 , column 2 )
@@ -61,10 +64,16 @@
 --- evaluated ---
 document(body: { text(body: [
 ]), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
                  text(body: [High]), 
                  text(body: [
 ]), 
                  text(body: [Wide]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [Flipped A11]), 
                  parbreak() })

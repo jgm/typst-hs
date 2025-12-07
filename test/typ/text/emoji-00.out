@@ -1,23 +1,31 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "\128105\8205\128105\8205\128102"
 , ParBreak
 , Comment
+, SoftBreak
 , Text "\127987\65039\8205\127752"
 , ParBreak
 , Comment
+, SoftBreak
 , Text "\128077\127999"
 , ParBreak
 , Comment
+, SoftBreak
 , Text "1\65039\8419"
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [👩‍👩‍👦]), 
+document(body: { text(body: [
+👩‍👩‍👦]), 
                  parbreak(), 
-                 text(body: [🏳️‍🌈]), 
+                 text(body: [
+🏳️‍🌈]), 
                  parbreak(), 
-                 text(body: [👍🏿]), 
+                 text(body: [
+👍🏿]), 
                  parbreak(), 
-                 text(body: [1️⃣]), 
+                 text(body: [
+1️⃣]), 
                  parbreak() })

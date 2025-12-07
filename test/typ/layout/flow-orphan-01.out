@@ -16,6 +16,7 @@
        [ KeyValArg (Identifier "weight") (Literal (Int 700)) ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/layout/flow-orphan-01.typ"
     ( line 5 , column 2 )
@@ -30,6 +31,7 @@
        (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 27)) ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/layout/flow-orphan-01.typ"
     ( line 9 , column 2 )
@@ -37,7 +39,9 @@
        (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 20)) ])
 , ParBreak
 , Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Code
     "typ/layout/flow-orphan-01.typ"
     ( line 13 , column 2 )
@@ -58,6 +62,7 @@
        (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 13)) ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/layout/flow-orphan-01.typ"
     ( line 19 , column 2 )
@@ -77,6 +82,8 @@ document(body: { text(body: [
 ]), 
                  parbreak(), 
                  text(body: [
+], weight: 700), 
+                 text(body: [
 ], 
                       color: rgb(0%,45%,85%,100%), 
                       weight: 700), 
@@ -84,10 +91,22 @@ document(body: { text(body: [
                       color: rgb(0%,45%,85%,100%), 
                       weight: 700), 
                  parbreak(), 
+                 text(body: [
+], 
+                      color: rgb(0%,45%,85%,100%), 
+                      weight: 700), 
                  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut], 
                       color: rgb(0%,45%,85%,100%), 
                       weight: 700), 
                  parbreak(), 
+                 text(body: [
+], 
+                      color: rgb(0%,45%,85%,100%), 
+                      weight: 700), 
+                 text(body: [
+], 
+                      color: rgb(0%,45%,85%,100%), 
+                      weight: 700), 
                  text(body: [
 ], 
                       color: rgb(52%,7%,29%,100%), 
@@ -100,6 +119,10 @@ document(body: { text(body: [
                       color: rgb(52%,7%,29%,100%), 
                       weight: 700), 
                  parbreak(), 
+                 text(body: [
+], 
+                      color: rgb(52%,7%,29%,100%), 
+                      weight: 700), 
                  text(body: [
 ], 
                       color: rgb(23%,60%,43%,100%), 

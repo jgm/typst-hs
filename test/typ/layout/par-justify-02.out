@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "A"
 , Space
 , Text "B"
@@ -28,7 +29,8 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [A B C ]), 
+document(body: { text(body: [
+A B C ]), 
                  linebreak(justify: true), 
                  text(body: [
 D E F ]), 

@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "A"
 , Code
     "typ/meta/footnote-01.typ"
@@ -18,7 +19,8 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [A]), 
+document(body: { text(body: [
+A]), 
                  footnote(body: text(body: [A])), 
                  text(body: [ ]), 
                  linebreak(), 

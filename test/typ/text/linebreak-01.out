@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "Supercalifragilisticexpialidocious"
 , Space
 , Text "Expialigoricmetrioxidation"
@@ -7,5 +8,6 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [Supercalifragilisticexpialidocious Expialigoricmetrioxidation.]), 
+document(body: { text(body: [
+Supercalifragilisticexpialidocious Expialigoricmetrioxidation.]), 
                  parbreak() })

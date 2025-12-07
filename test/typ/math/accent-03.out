@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Equation
     False
     [ Code
@@ -28,7 +29,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { math.equation(block: false, 
+document(body: { text(body: [
+]), 
+                 math.equation(block: false, 
                                body: { math.sqrt(radicand: math.accent(accent: ∼, 
                                                                        base: text(body: [T]))), 
                                        text(body: [+]), 

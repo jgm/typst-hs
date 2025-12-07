@@ -8,12 +8,14 @@
 , ParBreak
 , Heading 1 [ Text "Document" ]
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/include-00.typ"
     ( line 6 , column 2 )
     (Include (Literal (String "modules/chap1.typ")))
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/include-00.typ"
     ( line 9 , column 2 )
@@ -43,6 +45,7 @@ document(body: { parbreak(),
                  text(body: [
 ]), 
                  parbreak(), 
+                 parbreak(), 
                  heading(body: text(body: [Chapter 1]), 
                          level: 2), 
                  text(body: [Klaus]), 
@@ -54,13 +57,14 @@ totally ruin his semi-new outdorsy jacket but then again, most of us spend
 considerable time in non-descript environments.]), 
                  parbreak(), 
                  parbreak(), 
+                 text(body: [
+]), 
                  parbreak(), 
                  text(body: [– ]), 
                  emph(body: text(body: [Intermission])), 
                  text(body: [ –
 ]), 
-                 text(body: [
-]), 
+                 parbreak(), 
                  parbreak(), 
                  heading(body: text(body: [Chapter 2]), 
                          level: 2), 

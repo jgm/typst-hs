@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Equation
     True
     [ Code
@@ -35,7 +36,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { math.equation(block: true, 
+document(body: { text(body: [
+]), 
+                 math.equation(block: true, 
                                body: { math.lr(body: ({ text(body: []]), 
                                                         math.attach(b: { text(body: [x]), 
                                                                          text(body: [=]), 

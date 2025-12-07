@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/compiler/string-07.typ"
     ( line 2 , column 2 )
@@ -57,7 +58,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [✅]), 
+document(body: { text(body: [
+]), 
+                 text(body: [✅]), 
                  text(body: [
 ]), 
                  text(body: [❌(]), 

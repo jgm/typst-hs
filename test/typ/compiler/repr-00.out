@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/compiler/repr-00.typ" ( line 2 , column 2 ) (Literal Auto)
 , Space
@@ -24,7 +25,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [auto]), 
+document(body: { text(body: [
+]), 
+                 text(body: [auto]), 
                  text(body: [ ]), 
                  linebreak(), 
                  text(body: [ (empty) ]), 

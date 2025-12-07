@@ -1,11 +1,13 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/compiler/import-05.typ"
     ( line 2 , column 2 )
     (Import (Literal (String "module.typ")) AllIdentifiers)
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/import-05.typ"
     ( line 5 , column 2 )
@@ -16,5 +18,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { parbreak(), 
+document(body: { text(body: [
+]), 
+                 parbreak(), 
+                 text(body: [
+]), 
                  parbreak() })

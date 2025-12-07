@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "Emoji"
 , Text ":"
 , Space
@@ -45,7 +46,8 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [Emoji: ]), 
+document(body: { text(body: [
+Emoji: ]), 
                  box(body: text(body: [🐪, 🌋, 🏞]), 
                      height: 0.5em, 
                      stroke: (thickness: 1.0pt,

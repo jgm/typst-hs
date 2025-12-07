@@ -1,9 +1,12 @@
 --- parse tree ---
 [ Comment
+, ParBreak
+, Comment
 , SoftBreak
 , Comment
+, SoftBreak
 , Comment
-, Comment
+, SoftBreak
 , Code
     "typ/layout/par-justify-cjk-00.typ"
     ( line 6 , column 2 )
@@ -57,7 +60,12 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
+document(body: { parbreak(), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [
 ]), 
                  text(body: [
 ]), 

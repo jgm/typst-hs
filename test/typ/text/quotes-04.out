@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "He"
 , Quote '\''
 , Text "s"
@@ -51,7 +52,8 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [He’s told some books contain questionable “example text”.]), 
+document(body: { text(body: [
+He’s told some books contain questionable “example text”.]), 
                  parbreak(), 
                  text(body: [
 He’s told some books contain questionable “example text”.]), 

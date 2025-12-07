@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/text/tracking-spacing-02.typ"
     ( line 2 , column 2 )
@@ -25,6 +26,8 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
 ], 
                       font: ("PT Sans", 
                              "Noto Serif Hebrew")), 

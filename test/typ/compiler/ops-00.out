@@ -1,6 +1,8 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/ops-00.typ"
     ( line 3 , column 2 )
@@ -10,7 +12,11 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { strong(body: text(body: [Hello])), 
+document(body: { text(body: [
+]), 
+                 text(body: [
+]), 
+                 strong(body: text(body: [Hello])), 
                  text(body: [ ]), 
                  text(body: [world!]), 
                  parbreak() })

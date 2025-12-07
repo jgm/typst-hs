@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "The"
 , Space
 , Text "5"
@@ -34,5 +35,6 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [The 5'11" ‘quick' brown fox jumps over the "lazy” dog's ear.]), 
+document(body: { text(body: [
+The 5'11" ‘quick' brown fox jumps over the "lazy” dog's ear.]), 
                  parbreak() })

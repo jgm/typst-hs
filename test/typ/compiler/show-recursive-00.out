@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/compiler/show-recursive-00.typ"
     ( line 2 , column 2 )
@@ -12,6 +13,8 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
 ]), 
                  heading(body: text(body: [Heading]), 
                          level: 1) })

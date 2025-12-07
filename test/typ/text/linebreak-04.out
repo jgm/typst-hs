@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "Hard"
 , Space
 , Text "break"
@@ -16,7 +17,8 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [Hard break directly after ]), 
+document(body: { text(body: [
+Hard break directly after ]), 
                  linebreak(), 
                  text(body: [normal break.]), 
                  parbreak() })

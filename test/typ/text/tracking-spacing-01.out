@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "I"
 , Quote '\''
 , Text "m"
@@ -19,7 +20,8 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [I’m in]), 
+document(body: { text(body: [
+I’m in]), 
                  text(body: text(body: [ spaace]), 
                       tracking: 0.15em + 1.5pt), 
                  text(body: [!]), 

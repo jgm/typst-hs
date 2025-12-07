@@ -30,6 +30,7 @@
           ]))
 , ParBreak
 , Comment
+, SoftBreak
 , Text "Sometimes,"
 , Space
 , Text "we"
@@ -68,7 +69,8 @@
 document(body: { text(body: [
 ]), 
                  parbreak(), 
-                 text(body: [Sometimes, we work ]), 
+                 text(body: [
+Sometimes, we work ]), 
                  strike(body: text(body: [in secret]), 
                         extent: 5.0e-2em, 
                         stroke: 10.0pt), 

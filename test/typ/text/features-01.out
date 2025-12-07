@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/text/features-01.typ"
     ( line 2 , column 2 )
@@ -8,5 +9,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { smallcaps(body: text(body: [Smallcaps])), 
+document(body: { text(body: [
+]), 
+                 smallcaps(body: text(body: [Smallcaps])), 
                  parbreak() })

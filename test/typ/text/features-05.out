@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/text/features-05.typ"
     ( line 2 , column 2 )
@@ -34,7 +35,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: text(body: [0123456789]), 
+document(body: { text(body: [
+]), 
+                 text(body: text(body: [0123456789]), 
                       number-width: "proportional"), 
                  text(body: [ ]), 
                  linebreak(), 

@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Comment
-, SoftBreak
+, ParBreak
 , Code
     "typ/compiler/ops-16.typ"
     ( line 3 , column 2 )
@@ -363,7 +363,7 @@
        ])
 , ParBreak
 , Comment
-, SoftBreak
+, ParBreak
 , Code
     "typ/compiler/ops-16.typ"
     ( line 72 , column 2 )
@@ -427,8 +427,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
+document(body: { parbreak(), 
                  text(body: [✅]), 
                  parbreak(), 
                  text(body: [✅]), 
@@ -443,8 +442,7 @@ document(body: { text(body: [
                  parbreak(), 
                  text(body: [✅]), 
                  parbreak(), 
-                 text(body: [
-]), 
+                 parbreak(), 
                  text(body: [✅]), 
                  parbreak(), 
                  text(body: [❌(]), 

@@ -1,7 +1,8 @@
 --- parse tree ---
 [ Comment
-, SoftBreak
+, ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/visualize/image-01.typ"
     ( line 4 , column 2 )
@@ -29,6 +30,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/visualize/image-01.typ"
     ( line 8 , column 2 )
@@ -41,6 +43,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/visualize/image-01.typ"
     ( line 11 , column 2 )
@@ -59,7 +62,8 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
+document(body: { parbreak(), 
+                 text(body: [
 ]), 
                  box(body: image(source: "/assets/files/rhino.png", 
                                  width: 30.0pt)), 
@@ -68,11 +72,15 @@ document(body: { text(body: [
                  box(body: image(height: 30.0pt, 
                                  source: "/assets/files/rhino.png")), 
                  parbreak(), 
+                 text(body: [
+]), 
                  image(fit: "stretch", 
                        height: 20.0pt, 
                        source: "/assets/files/monkey.svg", 
                        width: 100%), 
                  parbreak(), 
+                 text(body: [
+]), 
                  align(alignment: Axes(right, bottom), 
                        body: image(alt: "A tiger", 
                                    source: "/assets/files/tiger.jpg", 

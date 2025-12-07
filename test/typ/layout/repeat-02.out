@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "A"
 , Space
 , Code
@@ -16,7 +17,8 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [A ]), 
+document(body: { text(body: [
+A ]), 
                  box(body: repeat(body: {  }), 
                      width: 1.0fr), 
                  text(body: [ B]), 

@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/layout/grid-3-02.typ"
     ( line 2 , column 2 )
@@ -43,6 +44,8 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
 ]), 
                  grid(children: (text(body: [A]), 
                                  text(body: [B]), 

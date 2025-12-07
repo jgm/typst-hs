@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/layout/list-marker-03.typ"
     ( line 2 , column 2 )
@@ -23,6 +24,8 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
 ]), 
                  list(children: (text(body: [Bare hyphen is]), 
                                  { text(body: [a bad marker]), 

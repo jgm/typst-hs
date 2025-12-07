@@ -1,8 +1,10 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Url "https://example.com/"
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/meta/link-00.typ"
     ( line 5 , column 2 )
@@ -21,6 +23,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Text "This"
 , Space
 , Text "link"
@@ -50,6 +53,7 @@
 , Text "."
 , ParBreak
 , Comment
+, SoftBreak
 , Text "Contact"
 , Space
 , Code
@@ -79,18 +83,24 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { link(body: [https://example.com/], 
+document(body: { text(body: [
+]), 
+                 link(body: [https://example.com/], 
                       dest: "https://example.com/"), 
                  parbreak(), 
+                 text(body: [
+]), 
                  link(body: text(body: [Some text text text]), 
                       dest: "https://typst.org/"), 
                  parbreak(), 
-                 text(body: [This link appears ]), 
+                 text(body: [
+This link appears ]), 
                  link(body: text(body: [in the middle of]), 
                       dest: "https://google.com/"), 
                  text(body: [ a paragraph.]), 
                  parbreak(), 
-                 text(body: [Contact ]), 
+                 text(body: [
+Contact ]), 
                  link(dest: "mailto:hi@typst.app"), 
                  text(body: [ or
 call ]), 

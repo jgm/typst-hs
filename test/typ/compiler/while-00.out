@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/compiler/while-00.typ"
     ( line 2 , column 2 )
@@ -28,6 +29,7 @@
              ])))
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/while-00.typ"
     ( line 9 , column 2 )
@@ -60,6 +62,8 @@ document(body: { text(body: [
 ]), 
                  text(body: [
 ]), 
+                 text(body: [
+]), 
                  text(body: [2]), 
                  parbreak(), 
                  text(body: [
@@ -87,6 +91,8 @@ document(body: { text(body: [
                  text(body: [10]), 
                  parbreak(), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [
 ]), 
                  text(body: [Hi.]), 

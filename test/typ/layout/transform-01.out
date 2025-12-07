@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/layout/transform-01.typ"
     ( line 2 , column 2 )
@@ -33,6 +34,8 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
 ]), 
                  align(alignment: Axes(center, horizon), 
                        body: rotate(angle: 20.0deg, 

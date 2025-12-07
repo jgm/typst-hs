@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/compiler/label-05.typ"
     ( line 2 , column 2 )
@@ -27,6 +28,8 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
 ]), 
                  strong(body: text(body: [This is])), 
                  text(body: [ ]), 

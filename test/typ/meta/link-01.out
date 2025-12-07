@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/meta/link-01.typ"
     ( line 2 , column 2 )
@@ -13,6 +14,7 @@
 , Text "Wahttp"
 , Text ":"
 , Comment
+, SoftBreak
 , Text "Nohttps"
 , Text ":"
 , Text "/"
@@ -28,12 +30,15 @@
 --- evaluated ---
 document(body: { text(body: [
 ]), 
+                 text(body: [
+]), 
                  underline(body: link(body: [https://a.b.?q=%10#.], 
                                       dest: "https://a.b.?q=%10#.")), 
                  text(body: [ ]), 
                  linebreak(), 
                  text(body: [Wahttp:]), 
-                 text(body: [Nohttps://link ]), 
+                 text(body: [
+Nohttps://link ]), 
                  linebreak(), 
                  text(body: [Nohttp:]), 
                  parbreak() })

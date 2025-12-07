@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/compiler/repr-02.typ"
     ( line 2 , column 2 )
@@ -25,6 +26,7 @@
           [ NormalArg (Literal (String "f7a205")) ]))
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/repr-02.typ"
     ( line 7 , column 2 )
@@ -44,6 +46,7 @@
        [ NormalArg (Literal (String "a\n[]\"\128640string")) ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/repr-02.typ"
     ( line 11 , column 2 )
@@ -56,6 +59,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Text "Nothing"
 , SoftBreak
 , Code
@@ -84,8 +88,9 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
-], 
-                      size: 0.8em), 
+]), 
+                 text(body: [
+], size: 0.8em), 
                  text(body: [rgb(96%,63%,1%,100%)], 
                       size: 0.8em), 
                  text(body: [ ], size: 0.8em), 
@@ -94,6 +99,8 @@ document(body: { text(body: [
  color: rgb(96%,63%,1%,100%))], 
                       size: 0.8em), 
                  parbreak(), 
+                 text(body: [
+], size: 0.8em), 
                  raw(lang: "typc", 
                      text: "\"hi\""), 
                  text(body: [
@@ -101,10 +108,13 @@ document(body: { text(body: [
                  text(body: ["a\n[]\"🚀string"], 
                       size: 0.8em), 
                  parbreak(), 
+                 text(body: [
+], size: 0.8em), 
                  raw(lang: "typc", 
                      text: "strong(body: text(body: [Hey], \n                  size: 0.8em))"), 
                  parbreak(), 
-                 text(body: [Nothing
+                 text(body: [
+Nothing
 ], 
                       size: 0.8em), 
                  text(body: [

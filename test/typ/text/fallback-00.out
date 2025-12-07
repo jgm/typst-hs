@@ -1,8 +1,10 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "A\128512B"
 , ParBreak
 , Comment
+, SoftBreak
 , Text "\1583\1593"
 , Space
 , Text "\1575\1604\1606\1589"
@@ -12,28 +14,38 @@
 , Text "\1593\1604\1610\1603"
 , ParBreak
 , Comment
+, SoftBreak
 , Text "\1576\128008\128512\1587\1605"
 , ParBreak
 , Comment
+, SoftBreak
 , Text "A\1576\128512\127966\1587\1605B"
 , ParBreak
 , Comment
+, SoftBreak
 , Text "01\65039\8419\&2"
 , ParBreak
 , Comment
+, SoftBreak
 , Text "A\128008\4850\4638B"
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [A😀B]), 
+document(body: { text(body: [
+A😀B]), 
                  parbreak(), 
-                 text(body: [دع النص يمطر عليك]), 
+                 text(body: [
+دع النص يمطر عليك]), 
                  parbreak(), 
-                 text(body: [ب🐈😀سم]), 
+                 text(body: [
+ب🐈😀سم]), 
                  parbreak(), 
-                 text(body: [Aب😀🏞سمB]), 
+                 text(body: [
+Aب😀🏞سمB]), 
                  parbreak(), 
-                 text(body: [01️⃣2]), 
+                 text(body: [
+01️⃣2]), 
                  parbreak(), 
-                 text(body: [A🐈ዲሞB]), 
+                 text(body: [
+A🐈ዲሞB]), 
                  parbreak() })

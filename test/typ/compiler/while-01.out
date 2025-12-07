@@ -1,7 +1,8 @@
 --- parse tree ---
 [ Comment
-, Comment
 , SoftBreak
+, Comment
+, ParBreak
 , Code
     "typ/compiler/while-01.typ"
     ( line 4 , column 2 )
@@ -45,6 +46,7 @@
 --- evaluated ---
 document(body: { text(body: [
 ]), 
+                 parbreak(), 
                  text(body: [✅]), 
                  parbreak(), 
                  text(body: [

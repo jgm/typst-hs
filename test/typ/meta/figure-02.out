@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/meta/figure-02.typ"
     ( line 3 , column 2 )

@@ -1,6 +1,8 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Equation
     False
     [ Code
@@ -51,7 +53,11 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { math.equation(block: false, 
+document(body: { text(body: [
+]), 
+                 text(body: [
+]), 
+                 math.equation(block: false, 
                                body: math.sqrt(radicand: text(body: [x])), 
                                numbering: none), 
                  text(body: [

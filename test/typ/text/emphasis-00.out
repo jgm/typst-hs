@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Emph
     [ Text "Emphasized"
     , Space
@@ -11,11 +12,13 @@
     ]
 , ParBreak
 , Comment
+, SoftBreak
 , Text "hello_world"
 , Space
 , Text "Nutzer*innen"
 , ParBreak
 , Comment
+, SoftBreak
 , Emph
     [ Text "Still"
     , Space
@@ -30,12 +33,17 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { emph(body: { text(body: [Emphasized and ]), 
+document(body: { text(body: [
+]), 
+                 emph(body: { text(body: [Emphasized and ]), 
                               strong(body: text(body: [strong])), 
                               text(body: [ words!]) }), 
                  parbreak(), 
-                 text(body: [hello_world Nutzer*innen]), 
+                 text(body: [
+hello_world Nutzer*innen]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  emph(body: { text(body: [Still ]), 
                               parbreak(), 
                               text(body: [ emphasized.]) }), 

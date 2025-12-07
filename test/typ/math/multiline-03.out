@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Equation
     True
     [ Text "f"
@@ -29,7 +30,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { math.equation(block: true, 
+document(body: { text(body: [
+]), 
+                 math.equation(block: true, 
                                body: { text(body: [f]), 
                                        text(body: [≔]), 
                                        math.cases(children: ({ text(body: [1]), 

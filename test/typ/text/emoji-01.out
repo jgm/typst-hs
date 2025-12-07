@@ -1,5 +1,6 @@
 --- parse tree ---
-[ Comment , Text "\127966\8205\127755" , ParBreak ]
+[ Comment , SoftBreak , Text "\127966\8205\127755" , ParBreak ]
 --- evaluated ---
-document(body: { text(body: [🏞‍🌋]), 
+document(body: { text(body: [
+🏞‍🌋]), 
                  parbreak() })

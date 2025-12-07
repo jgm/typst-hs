@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/compiler/field-01.typ"
     ( line 2 , column 2 )
@@ -29,5 +30,7 @@
 , BulletListItem [ Text "C" , ParBreak ]
 ]
 --- evaluated ---
-document(body: { parbreak(), 
+document(body: { text(body: [
+]), 
+                 parbreak(), 
                  text(body: [✅]) })

@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Equation
     False
     [ MAttach Nothing (Just (Text "x")) (Text "A")
@@ -37,7 +38,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { math.equation(block: false, 
+document(body: { text(body: [
+]), 
+                 math.equation(block: false, 
                                body: { math.attach(b: none, 
                                                    base: text(body: [A]), 
                                                    t: text(body: [x])), 

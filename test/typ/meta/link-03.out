@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/meta/link-03.typ"
     ( line 2 , column 2 )
@@ -11,7 +12,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { link(body: [https://example.com/], 
+document(body: { text(body: [
+]), 
+                 link(body: [https://example.com/], 
                       dest: "https://example.com/"), 
                  text(body: [ ]), 
                  linebreak(), 

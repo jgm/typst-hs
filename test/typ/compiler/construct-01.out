@@ -1,7 +1,10 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/construct-01.typ"
     ( line 4 , column 2 )
@@ -35,6 +38,12 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [
 ]), 
                  list(children: ({ text(body: [
 ]), 

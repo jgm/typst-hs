@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "1"
 , Space
 , Text "<"
@@ -24,7 +25,8 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [1 < 2 is ]), 
+document(body: { text(body: [
+1 < 2 is ]), 
                  text(body: [not]), 
                  text(body: [ a label.]), 
                  parbreak() })

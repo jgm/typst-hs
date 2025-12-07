@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/compiler/show-text-01.typ"
     ( line 2 , column 2 )
@@ -74,6 +75,8 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
 ]), 
                  parbreak(), 
                  box(body: text(body: { text(body: [T]), 

@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/visualize/image-03.typ"
     ( line 2 , column 2 )
@@ -19,6 +20,8 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
 Stuff
 ]), 
                  image(source: "/assets/files/rhino.png"), 

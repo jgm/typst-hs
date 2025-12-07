@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/compiler/set-03.typ"
     ( line 2 , column 2 )
@@ -21,7 +22,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [Blue ], 
+document(body: { text(body: [
+]), 
+                 text(body: [Blue ], 
                       color: rgb(0%,45%,85%,100%)), 
                  text(body: [Not blue]), 
                  parbreak() })

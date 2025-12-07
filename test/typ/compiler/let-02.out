@@ -1,6 +1,8 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/let-02.typ"
     ( line 3 , column 2 )
@@ -10,4 +12,8 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: parbreak())
+document(body: { text(body: [
+]), 
+                 text(body: [
+]), 
+                 parbreak() })

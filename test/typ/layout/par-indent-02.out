@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/layout/par-indent-02.typ"
     ( line 2 , column 2 )
@@ -19,6 +20,8 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
 ]), 
                  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do]), 
                  parbreak() })

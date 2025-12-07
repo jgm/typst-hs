@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/layout/columns-06.typ"
     ( line 2 , column 2 )
@@ -39,7 +40,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { parbreak(), 
+document(body: { text(body: [
+]), 
+                 parbreak(), 
                  rect(body: text(body: [So there isn’t anything in the second column?]), 
                       inset: 3.0pt, 
                       width: 100%), 

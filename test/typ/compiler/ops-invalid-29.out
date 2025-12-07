@@ -1,6 +1,8 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/ops-invalid-29.typ"
     ( line 3 , column 2 )
@@ -14,5 +16,9 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [
 ]), 
                  parbreak() })

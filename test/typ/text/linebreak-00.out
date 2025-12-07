@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "This"
 , Space
 , Text "is"
@@ -11,5 +12,6 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [This is a spaceexceedinglylongy.]), 
+document(body: { text(body: [
+This is a spaceexceedinglylongy.]), 
                  parbreak() })

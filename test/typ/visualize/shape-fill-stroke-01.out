@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/visualize/shape-fill-stroke-01.typ"
     ( line 2 , column 2 )
@@ -83,7 +84,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { parbreak(), 
+document(body: { text(body: [
+]), 
+                 parbreak(), 
                  text(body: [
 ]), 
                  box(body: square(size: 10.0pt, 

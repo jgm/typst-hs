@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/visualize/shape-rounded-00.typ"
     ( line 2 , column 2 )
@@ -18,7 +19,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { rect(radius: -20.0pt), 
+document(body: { text(body: [
+]), 
+                 rect(radius: -20.0pt), 
                  text(body: [
 ]), 
                  square(radius: 30.0pt), 

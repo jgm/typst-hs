@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/math/op-02.typ"
     ( line 2 , column 2 )
@@ -69,6 +70,8 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
 Discuss ], 
                       font: "New Computer Modern"), 
                  math.equation(block: false, 

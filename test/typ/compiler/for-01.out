@@ -5,6 +5,7 @@
     (Let (BasicBind (Just (Identifier "out"))) (Array []))
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/for-01.typ"
     ( line 4 , column 2 )
@@ -25,6 +26,7 @@
              ])))
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/for-01.typ"
     ( line 9 , column 2 )
@@ -55,6 +57,7 @@
              ])))
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/for-01.typ"
     ( line 14 , column 2 )
@@ -74,6 +77,7 @@
              ])))
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/for-01.typ"
     ( line 19 , column 2 )
@@ -123,6 +127,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/for-01.typ"
     ( line 27 , column 2 )
@@ -160,6 +165,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/for-01.typ"
     ( line 37 , column 2 )
@@ -193,15 +199,25 @@
 ]
 --- evaluated ---
 document(body: { parbreak(), 
+                 text(body: [
+]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [✅]), 
                  text(body: [✅]), 
                  text(body: [✅]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  parbreak(), 
                  text(body: [✅]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [
 ]), 
                  parbreak(), 
@@ -211,6 +227,8 @@ document(body: { parbreak(),
                  text(body: ["a, b, c, 👩‍👩‍👦‍👦"]), 
                  text(body: [)]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [✅]), 
                  text(body: [
 ]), 

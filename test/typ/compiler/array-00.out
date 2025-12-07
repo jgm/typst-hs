@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Comment
-, SoftBreak
+, ParBreak
 , Code
     "typ/compiler/array-00.typ"
     ( line 3 , column 2 )
@@ -9,19 +9,23 @@
        [ KeyValArg (Identifier "width") (Literal (Numeric 150.0 Pt)) ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code "typ/compiler/array-00.typ" ( line 6 , column 2 ) (Array [])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/array-00.typ" ( line 9 , column 2 ) (Literal (Int 1))
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/array-00.typ"
     ( line 12 , column 2 )
     (Array [ Reg (Negated (Literal (Int 1))) ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/array-00.typ"
     ( line 15 , column 2 )
@@ -29,6 +33,7 @@
        [ Reg (Literal (Boolean True)) , Reg (Literal (Boolean False)) ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/array-00.typ"
     ( line 18 , column 2 )
@@ -41,16 +46,25 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
+document(body: { parbreak(), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [()]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [1]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [(-1)]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [(true, false)]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [("1", rgb(0%,0%,0%,100%))]), 
                  parbreak() })
