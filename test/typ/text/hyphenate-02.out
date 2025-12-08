@@ -1,55 +1,15 @@
 --- parse tree ---
-[ Code
-    "typ/text/hyphenate-02.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/text/hyphenate-02.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/text/hyphenate-02.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Code
     "typ/text/hyphenate-02.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (Set
        (Ident (Identifier "page"))
        [ KeyValArg (Identifier "width") (Literal (Numeric 80.0 Pt)) ])
 , SoftBreak
 , Code
     "typ/text/hyphenate-02.typ"
-    ( line 4 , column 2 )
+    ( line 3 , column 2 )
     (Set
        (Ident (Identifier "text"))
        [ KeyValArg (Identifier "hyphenate") (Literal (Boolean True)) ])
@@ -62,7 +22,7 @@
 , Space
 , Code
     "typ/text/hyphenate-02.typ"
-    ( line 5 , column 9 )
+    ( line 4 , column 9 )
     (FuncCall (Ident (Identifier "emph")) [ BlockArg [ Text "Tree" ] ])
 , Text "beard"
 , Text "."
@@ -70,8 +30,6 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
 ]), 
                  text(body: [
 It’s a ], 

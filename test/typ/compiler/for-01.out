@@ -2,52 +2,12 @@
 [ Code
     "typ/compiler/for-01.typ"
     ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/compiler/for-01.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/compiler/for-01.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Code
-    "typ/compiler/for-01.typ"
-    ( line 2 , column 2 )
     (Let (BasicBind (Just (Identifier "out"))) (Array []))
 , ParBreak
 , Comment
 , Code
     "typ/compiler/for-01.typ"
-    ( line 5 , column 2 )
+    ( line 4 , column 2 )
     (For
        (BasicBind (Just (Identifier "v")))
        (Array
@@ -67,7 +27,7 @@
 , Comment
 , Code
     "typ/compiler/for-01.typ"
-    ( line 10 , column 2 )
+    ( line 9 , column 2 )
     (For
        (DestructuringBind
           [ Simple (BasicBind (Just (Identifier "i")))
@@ -97,7 +57,7 @@
 , Comment
 , Code
     "typ/compiler/for-01.typ"
-    ( line 15 , column 2 )
+    ( line 14 , column 2 )
     (For
        (BasicBind (Just (Identifier "v")))
        (Dict
@@ -116,7 +76,7 @@
 , Comment
 , Code
     "typ/compiler/for-01.typ"
-    ( line 20 , column 2 )
+    ( line 19 , column 2 )
     (For
        (DestructuringBind
           [ Simple (BasicBind (Just (Identifier "k")))
@@ -142,7 +102,7 @@
 , ParBreak
 , Code
     "typ/compiler/for-01.typ"
-    ( line 25 , column 2 )
+    ( line 24 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (Ident (Identifier "out"))
@@ -165,13 +125,13 @@
 , Comment
 , Code
     "typ/compiler/for-01.typ"
-    ( line 28 , column 2 )
+    ( line 27 , column 2 )
     (Let
        (BasicBind (Just (Identifier "first"))) (Literal (Boolean True)))
 , SoftBreak
 , Code
     "typ/compiler/for-01.typ"
-    ( line 29 , column 2 )
+    ( line 28 , column 2 )
     (Let
        (BasicBind (Just (Identifier "joined")))
        (For
@@ -190,7 +150,7 @@
 , ParBreak
 , Code
     "typ/compiler/for-01.typ"
-    ( line 35 , column 2 )
+    ( line 34 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (Ident (Identifier "joined"))
@@ -202,7 +162,7 @@
 , Comment
 , Code
     "typ/compiler/for-01.typ"
-    ( line 38 , column 2 )
+    ( line 37 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg
@@ -215,7 +175,7 @@
 , SoftBreak
 , Code
     "typ/compiler/for-01.typ"
-    ( line 39 , column 2 )
+    ( line 38 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg
@@ -232,9 +192,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 parbreak(), 
+document(body: { parbreak(), 
                  parbreak(), 
                  text(body: [✅]), 
                  text(body: [✅]), 

@@ -1,48 +1,8 @@
 --- parse tree ---
-[ Code
-    "typ/layout/par-bidi-06.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/layout/par-bidi-06.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/layout/par-bidi-06.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Code
     "typ/layout/par-bidi-06.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (Set
        (Ident (Identifier "text"))
        [ KeyValArg (Identifier "lang") (Literal (String "he")) ])
@@ -50,7 +10,7 @@
 , Text "\1511\1512\1504\1508\1497\1501Rh"
 , Code
     "typ/layout/par-bidi-06.typ"
-    ( line 4 , column 10 )
+    ( line 3 , column 10 )
     (FuncCall
        (Ident (Identifier "box"))
        [ NormalArg
@@ -65,8 +25,6 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
 קרנפיםRh], 
                       lang: "he"), 
                  box(body: image(height: 11.0pt, 

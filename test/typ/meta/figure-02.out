@@ -1,48 +1,8 @@
 --- parse tree ---
-[ Code
-    "typ/meta/figure-02.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/meta/figure-02.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/meta/figure-02.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, ParBreak
-, Comment
+[ Comment
 , Code
     "typ/meta/figure-02.typ"
-    ( line 4 , column 2 )
+    ( line 3 , column 2 )
     (Show
        (Just
           (FuncCall
@@ -69,7 +29,7 @@
                                        [ Space
                                        , Code
                                            "typ/meta/figure-02.typ"
-                                           ( line 7 , column 15 )
+                                           ( line 6 , column 15 )
                                            (FuncCall
                                               (Ident (Identifier "emph"))
                                               [ NormalArg
@@ -161,33 +121,33 @@
                                   (Content
                                      [ Code
                                          "typ/meta/figure-02.typ"
-                                         ( line 29 , column 9 )
+                                         ( line 28 , column 9 )
                                          (Ident (Identifier "title"))
                                      , Code
                                          "typ/meta/figure-02.typ"
-                                         ( line 29 , column 15 )
+                                         ( line 28 , column 15 )
                                          (Ident (Identifier "name"))
                                      , Code
                                          "typ/meta/figure-02.typ"
-                                         ( line 29 , column 20 )
+                                         ( line 28 , column 20 )
                                          (FuncCall
                                             (Ident (Identifier "h"))
                                             [ NormalArg (Literal (Numeric 0.1 Em)) ])
                                      , Text ":"
                                      , Code
                                          "typ/meta/figure-02.typ"
-                                         ( line 29 , column 30 )
+                                         ( line 28 , column 30 )
                                          (FuncCall
                                             (Ident (Identifier "h"))
                                             [ NormalArg (Literal (Numeric 0.2 Em)) ])
                                      , Code
                                          "typ/meta/figure-02.typ"
-                                         ( line 29 , column 39 )
+                                         ( line 28 , column 39 )
                                          (FieldAccess
                                             (Ident (Identifier "body")) (Ident (Identifier "it")))
                                      , Code
                                          "typ/meta/figure-02.typ"
-                                         ( line 29 , column 47 )
+                                         ( line 28 , column 47 )
                                          (FuncCall
                                             (Ident (Identifier "v"))
                                             [ NormalArg (Literal (Numeric 0.5 Em)) ])
@@ -198,14 +158,14 @@
 , ParBreak
 , Code
     "typ/meta/figure-02.typ"
-    ( line 34 , column 2 )
+    ( line 33 , column 2 )
     (Set
        (Ident (Identifier "page"))
        [ KeyValArg (Identifier "width") (Literal (Numeric 150.0 Pt)) ])
 , SoftBreak
 , Code
     "typ/meta/figure-02.typ"
-    ( line 35 , column 2 )
+    ( line 34 , column 2 )
     (FuncCall
        (Ident (Identifier "figure"))
        [ NormalArg
@@ -229,12 +189,12 @@
 , Space
 , Code
     "typ/meta/figure-02.typ"
-    ( line 41 , column 3 )
+    ( line 40 , column 3 )
     (Label "fig-formula")
 , ParBreak
 , Code
     "typ/meta/figure-02.typ"
-    ( line 43 , column 2 )
+    ( line 42 , column 2 )
     (FuncCall
        (Ident (Identifier "figure"))
        [ NormalArg
@@ -259,12 +219,12 @@
 , Space
 , Code
     "typ/meta/figure-02.typ"
-    ( line 49 , column 3 )
+    ( line 48 , column 3 )
     (Label "fig-formula")
 , ParBreak
 , Code
     "typ/meta/figure-02.typ"
-    ( line 51 , column 2 )
+    ( line 50 , column 2 )
     (FuncCall
        (Ident (Identifier "figure"))
        [ NormalArg
@@ -287,5 +247,5 @@
        ])
 , ParBreak
 ]
-"typ/meta/figure-02.typ" (line 35, column 2):
+"typ/meta/figure-02.typ" (line 34, column 2):
 Content does not have a method "counter" or FieldAccess requires a dictionary

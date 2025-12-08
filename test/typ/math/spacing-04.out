@@ -1,48 +1,8 @@
 --- parse tree ---
-[ Code
-    "typ/math/spacing-04.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/math/spacing-04.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/math/spacing-04.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Code
     "typ/math/spacing-04.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (Set
        (Ident (Identifier "page"))
        [ KeyValArg (Identifier "width") (Literal Auto) ])
@@ -52,19 +12,19 @@
     [ Text "a"
     , Code
         "typ/math/spacing-04.typ"
-        ( line 4 , column 4 )
+        ( line 3 , column 4 )
         (Ident (Identifier "equiv"))
     , Text "b"
     , Text "+"
     , Text "c"
     , Code
         "typ/math/spacing-04.typ"
-        ( line 4 , column 16 )
+        ( line 3 , column 16 )
         (Ident (Identifier "minus"))
     , Text "d"
     , Code
         "typ/math/spacing-04.typ"
-        ( line 4 , column 20 )
+        ( line 3 , column 20 )
         (FieldAccess
            (Ident (Identifier "r"))
            (FieldAccess
@@ -72,13 +32,93 @@
     , Text "e"
     , Code
         "typ/math/spacing-04.typ"
-        ( line 4 , column 25 )
+        ( line 3 , column 25 )
         (Ident (Identifier "log"))
     , Text "5"
     , Code
         "typ/math/spacing-04.typ"
-        ( line 4 , column 31 )
+        ( line 3 , column 31 )
         (FuncCall (Ident (Identifier "op")) [ BlockArg [ Text "ln" ] ])
+    , Text "6"
+    ]
+, Space
+, HardBreak
+, Equation
+    False
+    [ Text "a"
+    , Code
+        "typ/math/spacing-04.typ"
+        ( line 4 , column 4 )
+        (FuncCall
+           (Ident (Identifier "cancel"))
+           [ BlockArg
+               [ Code
+                   "typ/math/spacing-04.typ"
+                   ( line 4 , column 11 )
+                   (Ident (Identifier "equiv"))
+               ]
+           ])
+    , Text "b"
+    , Code
+        "typ/math/spacing-04.typ"
+        ( line 4 , column 20 )
+        (FuncCall
+           (Ident (Identifier "overline")) [ BlockArg [ Text "+" ] ])
+    , Text "c"
+    , Code
+        "typ/math/spacing-04.typ"
+        ( line 4 , column 34 )
+        (FuncCall
+           (Ident (Identifier "arrow"))
+           [ BlockArg
+               [ Code
+                   "typ/math/spacing-04.typ"
+                   ( line 4 , column 40 )
+                   (Ident (Identifier "minus"))
+               ]
+           ])
+    , Text "d"
+    , Code
+        "typ/math/spacing-04.typ"
+        ( line 4 , column 45 )
+        (FuncCall
+           (Ident (Identifier "hat"))
+           [ BlockArg
+               [ Code
+                   "typ/math/spacing-04.typ"
+                   ( line 4 , column 49 )
+                   (FieldAccess
+                      (Ident (Identifier "r"))
+                      (FieldAccess
+                         (Ident (Identifier "double")) (Ident (Identifier "arrow"))))
+               ]
+           ])
+    , Text "e"
+    , Code
+        "typ/math/spacing-04.typ"
+        ( line 4 , column 55 )
+        (FuncCall
+           (Ident (Identifier "cancel"))
+           [ BlockArg
+               [ Code
+                   "typ/math/spacing-04.typ"
+                   ( line 4 , column 62 )
+                   (Ident (Identifier "log"))
+               ]
+           ])
+    , Text "5"
+    , Code
+        "typ/math/spacing-04.typ"
+        ( line 4 , column 69 )
+        (FuncCall
+           (Ident (Identifier "dot"))
+           [ BlockArg
+               [ Code
+                   "typ/math/spacing-04.typ"
+                   ( line 4 , column 73 )
+                   (FuncCall (Ident (Identifier "op")) [ BlockArg [ Text "ln" ] ])
+               ]
+           ])
     , Text "6"
     ]
 , Space
@@ -90,123 +130,43 @@
         "typ/math/spacing-04.typ"
         ( line 5 , column 4 )
         (FuncCall
-           (Ident (Identifier "cancel"))
-           [ BlockArg
-               [ Code
-                   "typ/math/spacing-04.typ"
-                   ( line 5 , column 11 )
-                   (Ident (Identifier "equiv"))
-               ]
-           ])
-    , Text "b"
-    , Code
-        "typ/math/spacing-04.typ"
-        ( line 5 , column 20 )
-        (FuncCall
-           (Ident (Identifier "overline")) [ BlockArg [ Text "+" ] ])
-    , Text "c"
-    , Code
-        "typ/math/spacing-04.typ"
-        ( line 5 , column 34 )
-        (FuncCall
-           (Ident (Identifier "arrow"))
-           [ BlockArg
-               [ Code
-                   "typ/math/spacing-04.typ"
-                   ( line 5 , column 40 )
-                   (Ident (Identifier "minus"))
-               ]
-           ])
-    , Text "d"
-    , Code
-        "typ/math/spacing-04.typ"
-        ( line 5 , column 45 )
-        (FuncCall
-           (Ident (Identifier "hat"))
-           [ BlockArg
-               [ Code
-                   "typ/math/spacing-04.typ"
-                   ( line 5 , column 49 )
-                   (FieldAccess
-                      (Ident (Identifier "r"))
-                      (FieldAccess
-                         (Ident (Identifier "double")) (Ident (Identifier "arrow"))))
-               ]
-           ])
-    , Text "e"
-    , Code
-        "typ/math/spacing-04.typ"
-        ( line 5 , column 55 )
-        (FuncCall
-           (Ident (Identifier "cancel"))
-           [ BlockArg
-               [ Code
-                   "typ/math/spacing-04.typ"
-                   ( line 5 , column 62 )
-                   (Ident (Identifier "log"))
-               ]
-           ])
-    , Text "5"
-    , Code
-        "typ/math/spacing-04.typ"
-        ( line 5 , column 69 )
-        (FuncCall
-           (Ident (Identifier "dot"))
-           [ BlockArg
-               [ Code
-                   "typ/math/spacing-04.typ"
-                   ( line 5 , column 73 )
-                   (FuncCall (Ident (Identifier "op")) [ BlockArg [ Text "ln" ] ])
-               ]
-           ])
-    , Text "6"
-    ]
-, Space
-, HardBreak
-, Equation
-    False
-    [ Text "a"
-    , Code
-        "typ/math/spacing-04.typ"
-        ( line 6 , column 4 )
-        (FuncCall
            (Ident (Identifier "overbrace"))
            [ BlockArg
                [ Code
                    "typ/math/spacing-04.typ"
-                   ( line 6 , column 14 )
+                   ( line 5 , column 14 )
                    (Ident (Identifier "equiv"))
                ]
            ])
     , Text "b"
     , Code
         "typ/math/spacing-04.typ"
-        ( line 6 , column 23 )
+        ( line 5 , column 23 )
         (FuncCall
            (Ident (Identifier "underline")) [ BlockArg [ Text "+" ] ])
     , Text "c"
     , Code
         "typ/math/spacing-04.typ"
-        ( line 6 , column 38 )
+        ( line 5 , column 38 )
         (FuncCall
            (Ident (Identifier "grave"))
            [ BlockArg
                [ Code
                    "typ/math/spacing-04.typ"
-                   ( line 6 , column 44 )
+                   ( line 5 , column 44 )
                    (Ident (Identifier "minus"))
                ]
            ])
     , Text "d"
     , Code
         "typ/math/spacing-04.typ"
-        ( line 6 , column 49 )
+        ( line 5 , column 49 )
         (FuncCall
            (Ident (Identifier "underbracket"))
            [ BlockArg
                [ Code
                    "typ/math/spacing-04.typ"
-                   ( line 6 , column 62 )
+                   ( line 5 , column 62 )
                    (FieldAccess
                       (Ident (Identifier "r"))
                       (FieldAccess
@@ -216,26 +176,26 @@
     , Text "e"
     , Code
         "typ/math/spacing-04.typ"
-        ( line 6 , column 68 )
+        ( line 5 , column 68 )
         (FuncCall
            (Ident (Identifier "circle"))
            [ BlockArg
                [ Code
                    "typ/math/spacing-04.typ"
-                   ( line 6 , column 75 )
+                   ( line 5 , column 75 )
                    (Ident (Identifier "log"))
                ]
            ])
     , Text "5"
     , Code
         "typ/math/spacing-04.typ"
-        ( line 6 , column 82 )
+        ( line 5 , column 82 )
         (FuncCall
            (Ident (Identifier "caron"))
            [ BlockArg
                [ Code
                    "typ/math/spacing-04.typ"
-                   ( line 6 , column 88 )
+                   ( line 5 , column 88 )
                    (FuncCall (Ident (Identifier "op")) [ BlockArg [ Text "ln" ] ])
                ]
            ])
@@ -249,13 +209,13 @@
     [ Text "a"
     , Code
         "typ/math/spacing-04.typ"
-        ( line 8 , column 4 )
+        ( line 7 , column 4 )
         (FuncCall
            (Ident (Identifier "attach"))
            [ BlockArg
                [ Code
                    "typ/math/spacing-04.typ"
-                   ( line 8 , column 11 )
+                   ( line 7 , column 11 )
                    (Ident (Identifier "equiv"))
                ]
            , KeyValArg (Identifier "tl") (Block (Content [ Text "a" ]))
@@ -264,13 +224,13 @@
     , Text "b"
     , Code
         "typ/math/spacing-04.typ"
-        ( line 8 , column 34 )
+        ( line 7 , column 34 )
         (FuncCall
            (Ident (Identifier "attach"))
            [ BlockArg
                [ Code
                    "typ/math/spacing-04.typ"
-                   ( line 8 , column 41 )
+                   ( line 7 , column 41 )
                    (FuncCall (Ident (Identifier "limits")) [ BlockArg [ Text "+" ] ])
                ]
            , KeyValArg (Identifier "t") (Block (Content [ Text "a" ]))
@@ -279,26 +239,26 @@
     , Text "c"
     , Code
         "typ/math/spacing-04.typ"
-        ( line 8 , column 66 )
+        ( line 7 , column 66 )
         (FuncCall
            (Ident (Identifier "tilde"))
            [ BlockArg
                [ Code
                    "typ/math/spacing-04.typ"
-                   ( line 8 , column 72 )
+                   ( line 7 , column 72 )
                    (Ident (Identifier "minus"))
                ]
            ])
     , Text "d"
     , Code
         "typ/math/spacing-04.typ"
-        ( line 8 , column 77 )
+        ( line 7 , column 77 )
         (FuncCall
            (Ident (Identifier "breve"))
            [ BlockArg
                [ Code
                    "typ/math/spacing-04.typ"
-                   ( line 8 , column 83 )
+                   ( line 7 , column 83 )
                    (FieldAccess
                       (Ident (Identifier "r"))
                       (FieldAccess
@@ -308,19 +268,19 @@
     , Text "e"
     , Code
         "typ/math/spacing-04.typ"
-        ( line 8 , column 89 )
+        ( line 7 , column 89 )
         (FuncCall
            (Ident (Identifier "attach"))
            [ BlockArg
                [ Code
                    "typ/math/spacing-04.typ"
-                   ( line 8 , column 96 )
+                   ( line 7 , column 96 )
                    (FuncCall
                       (Ident (Identifier "limits"))
                       [ BlockArg
                           [ Code
                               "typ/math/spacing-04.typ"
-                              ( line 8 , column 103 )
+                              ( line 7 , column 103 )
                               (Ident (Identifier "log"))
                           ]
                       ])
@@ -331,13 +291,13 @@
     , Text "5"
     , Code
         "typ/math/spacing-04.typ"
-        ( line 8 , column 123 )
+        ( line 7 , column 123 )
         (FuncCall
            (Ident (Identifier "attach"))
            [ BlockArg
                [ Code
                    "typ/math/spacing-04.typ"
-                   ( line 8 , column 130 )
+                   ( line 7 , column 130 )
                    (FuncCall (Ident (Identifier "op")) [ BlockArg [ Text "ln" ] ])
                ]
            , KeyValArg (Identifier "tr") (Block (Content [ Text "a" ]))
@@ -349,8 +309,6 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
 ]), 
                  math.equation(block: false, 
                                body: { text(body: [a]), 

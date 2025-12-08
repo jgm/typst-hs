@@ -1,50 +1,10 @@
 --- parse tree ---
-[ Code
-    "typ/layout/container-03.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/layout/container-03.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/layout/container-03.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Text "Hello"
 , Space
 , Code
     "typ/layout/container-03.typ"
-    ( line 3 , column 8 )
+    ( line 2 , column 8 )
     (FuncCall
        (Ident (Identifier "box"))
        [ KeyValArg (Identifier "width") (Literal (Numeric 1.0 Fr))
@@ -60,9 +20,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 text(body: [Hello ]), 
+document(body: { text(body: [Hello ]), 
                  box(body: rect(height: 0.7em, 
                                 width: 100%), 
                      width: 1.0fr), 

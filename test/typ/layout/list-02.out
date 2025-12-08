@@ -1,45 +1,5 @@
 --- parse tree ---
-[ Code
-    "typ/layout/list-02.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/layout/list-02.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/layout/list-02.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, BulletListItem
+[ BulletListItem
     [ Text "Level"
     , Space
     , Text "1"
@@ -49,7 +9,7 @@
         , Space
         , Code
             "typ/layout/list-02.typ"
-            ( line 3 , column 12 )
+            ( line 2 , column 12 )
             (Block
                (Content
                   [ SoftBreak
@@ -67,12 +27,10 @@
     ]
 ]
 --- evaluated ---
-document(body: { text(body: [
+document(body: list(children: ({ text(body: [Level 1
 ]), 
-                 list(children: ({ text(body: [Level 1
-]), 
-                                   list(children: ({ text(body: [Level ]), 
-                                                     text(body: [
+                                 list(children: ({ text(body: [Level ]), 
+                                                   text(body: [
 2 through content block]), 
-                                                     parbreak(), 
-                                                     parbreak() })) })) })
+                                                   parbreak(), 
+                                                   parbreak() })) })))

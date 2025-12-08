@@ -1,55 +1,15 @@
 --- parse tree ---
-[ Code
-    "typ/visualize/shape-aspect-01.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/visualize/shape-aspect-01.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/visualize/shape-aspect-01.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Code
     "typ/visualize/shape-aspect-01.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (Set
        (Ident (Identifier "text"))
        [ NormalArg (Literal (Numeric 8.0 Pt)) ])
 , SoftBreak
 , Code
     "typ/visualize/shape-aspect-01.typ"
-    ( line 4 , column 2 )
+    ( line 3 , column 2 )
     (FuncCall
        (Ident (Identifier "box"))
        [ NormalArg
@@ -64,7 +24,7 @@
                   , Space
                   , Code
                       "typ/visualize/shape-aspect-01.typ"
-                      ( line 5 , column 15 )
+                      ( line 4 , column 15 )
                       (FuncCall
                          (Ident (Identifier "align"))
                          [ NormalArg
@@ -83,7 +43,7 @@
 , SoftBreak
 , Code
     "typ/visualize/shape-aspect-01.typ"
-    ( line 7 , column 2 )
+    ( line 6 , column 2 )
     (FuncCall
        (Ident (Identifier "box"))
        [ NormalArg
@@ -102,9 +62,8 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
-], size: 8.0pt), 
+], 
+                      size: 8.0pt), 
                  box(body: square(body: { text(body: [
 Hey there, ], 
                                                size: 8.0pt), 

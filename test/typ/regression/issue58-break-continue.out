@@ -1,48 +1,8 @@
 --- parse tree ---
-[ Code
-    "typ/regression/issue58-break-continue.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/regression/issue58-break-continue.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/regression/issue58-break-continue.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Code
     "typ/regression/issue58-break-continue.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (LetFunc
        (Identifier "f")
        []
@@ -76,7 +36,7 @@
 , ParBreak
 , Code
     "typ/regression/issue58-break-continue.typ"
-    ( line 14 , column 2 )
+    ( line 13 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (FuncCall (Ident (Identifier "f")) [])
@@ -90,7 +50,7 @@
 , ParBreak
 , Code
     "typ/regression/issue58-break-continue.typ"
-    ( line 16 , column 2 )
+    ( line 15 , column 2 )
     (LetFunc
        (Identifier "g")
        []
@@ -125,7 +85,7 @@
 , ParBreak
 , Code
     "typ/regression/issue58-break-continue.typ"
-    ( line 28 , column 2 )
+    ( line 27 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (FuncCall (Ident (Identifier "g")) [])
@@ -143,7 +103,7 @@
 , ParBreak
 , Code
     "typ/regression/issue58-break-continue.typ"
-    ( line 30 , column 2 )
+    ( line 29 , column 2 )
     (LetFunc
        (Identifier "f")
        []
@@ -182,7 +142,7 @@
 , ParBreak
 , Code
     "typ/regression/issue58-break-continue.typ"
-    ( line 46 , column 2 )
+    ( line 45 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (FuncCall (Ident (Identifier "f")) [])
@@ -198,7 +158,7 @@
 , ParBreak
 , Code
     "typ/regression/issue58-break-continue.typ"
-    ( line 48 , column 2 )
+    ( line 47 , column 2 )
     (LetFunc
        (Identifier "g")
        []
@@ -237,7 +197,7 @@
 , ParBreak
 , Code
     "typ/regression/issue58-break-continue.typ"
-    ( line 64 , column 2 )
+    ( line 63 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (FuncCall (Ident (Identifier "g")) [])
@@ -255,9 +215,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 parbreak(), 
+document(body: { parbreak(), 
                  text(body: [✅]), 
                  parbreak(), 
                  parbreak(), 

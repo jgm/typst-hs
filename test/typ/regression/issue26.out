@@ -3,52 +3,12 @@
     "typ/regression/issue26.typ"
     ( line 1 , column 2 )
     (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/regression/issue26.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/regression/issue26.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Code
-    "typ/regression/issue26.typ"
-    ( line 2 , column 2 )
-    (Let
        (BasicBind (Just (Identifier "x")))
        (Dict [ Reg ( Ident (Identifier "a") , Literal (Int 4) ) ]))
 , SoftBreak
 , Code
     "typ/regression/issue26.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (Block
        (CodeBlock
           [ Assign
@@ -60,9 +20,9 @@
 , SoftBreak
 , Code
     "typ/regression/issue26.typ"
-    ( line 6 , column 2 )
+    ( line 5 , column 2 )
     (Ident (Identifier "x"))
 , ParBreak
 ]
-"typ/regression/issue26.typ" (line 3, column 2):
+"typ/regression/issue26.typ" (line 2, column 2):
 Dictionary does not contain key "b"

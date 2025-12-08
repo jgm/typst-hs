@@ -1,124 +1,82 @@
 --- parse tree ---
-[ Code
-    "typ/compiler/repr-01.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/compiler/repr-01.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/compiler/repr-01.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Code
-    "typ/compiler/repr-01.typ" ( line 3 , column 2 ) (Literal (Int 1))
+    "typ/compiler/repr-01.typ" ( line 2 , column 2 ) (Literal (Int 1))
 , Space
 , HardBreak
 , Code
     "typ/compiler/repr-01.typ"
-    ( line 4 , column 2 )
+    ( line 3 , column 2 )
     (Literal (Float 1.0e-4))
 , Space
 , HardBreak
 , Code
     "typ/compiler/repr-01.typ"
-    ( line 5 , column 2 )
+    ( line 4 , column 2 )
     (Literal (Float 3.15))
 , Space
 , HardBreak
 , Code
     "typ/compiler/repr-01.typ"
-    ( line 6 , column 2 )
+    ( line 5 , column 2 )
     (Literal (Float 1.0e-10))
 , Space
 , HardBreak
 , Code
     "typ/compiler/repr-01.typ"
-    ( line 7 , column 2 )
+    ( line 6 , column 2 )
     (Literal (Numeric 50.368 Percent))
 , HardBreak
 , Code
     "typ/compiler/repr-01.typ"
-    ( line 8 , column 2 )
+    ( line 7 , column 2 )
     (Literal (Numeric 1.2345e-6 Pt))
 , HardBreak
 , Code
     "typ/compiler/repr-01.typ"
-    ( line 9 , column 2 )
+    ( line 8 , column 2 )
     (Literal (Numeric 4.5 Cm))
 , HardBreak
 , Code
     "typ/compiler/repr-01.typ"
-    ( line 10 , column 2 )
+    ( line 9 , column 2 )
     (Literal (Numeric 120.0 Pt))
 , HardBreak
 , Code
     "typ/compiler/repr-01.typ"
-    ( line 11 , column 2 )
+    ( line 10 , column 2 )
     (Literal (Numeric 2.5 Rad))
 , HardBreak
 , Code
     "typ/compiler/repr-01.typ"
-    ( line 12 , column 2 )
+    ( line 11 , column 2 )
     (Literal (Numeric 45.0 Deg))
 , HardBreak
 , Code
     "typ/compiler/repr-01.typ"
-    ( line 13 , column 2 )
+    ( line 12 , column 2 )
     (Literal (Numeric 1.7 Em))
 , HardBreak
 , Code
     "typ/compiler/repr-01.typ"
-    ( line 14 , column 2 )
+    ( line 13 , column 2 )
     (Plus (Literal (Numeric 1.0 Cm)) (Literal (Numeric 0.0 Em)))
 , Space
 , HardBreak
 , Code
     "typ/compiler/repr-01.typ"
-    ( line 15 , column 2 )
+    ( line 14 , column 2 )
     (Plus (Literal (Numeric 2.0 Em)) (Literal (Numeric 10.0 Pt)))
 , Space
 , HardBreak
 , Code
     "typ/compiler/repr-01.typ"
-    ( line 16 , column 2 )
+    ( line 15 , column 2 )
     (Literal (Numeric 2.3 Fr))
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 text(body: [1]), 
+document(body: { text(body: [1]), 
                  text(body: [ ]), 
                  linebreak(), 
                  text(body: [1.0e-4]), 

@@ -1,57 +1,17 @@
 --- parse tree ---
 [ Code
     "typ/regression/issue43.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/regression/issue43.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/regression/issue43.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Code
-    "typ/regression/issue43.typ"
-    ( line 2 , column 1 )
+    ( line 1 , column 1 )
     (Label "foo:bar")
 , ParBreak
 , Code
     "typ/regression/issue43.typ"
-    ( line 4 , column 2 )
+    ( line 3 , column 2 )
     (Let (BasicBind (Just (Identifier "a"))) (Literal (String "a")))
 , ParBreak
 , Code
     "typ/regression/issue43.typ"
-    ( line 6 , column 2 )
+    ( line 5 , column 2 )
     (Let
        (BasicBind (Just (Identifier "w")))
        (FuncExpr
@@ -62,56 +22,54 @@
 , ParBreak
 , Code
     "typ/regression/issue43.typ"
-    ( line 8 , column 2 )
+    ( line 7 , column 2 )
     (Let
        (BasicBind (Just (Identifier "x")))
        (Block (Content [ RawInline "hello" ])))
 , ParBreak
 , Code
     "typ/regression/issue43.typ"
-    ( line 10 , column 2 )
+    ( line 9 , column 2 )
     (Let
        (BasicBind (Just (Identifier "a")))
        (Dict [ Reg ( Ident (Identifier "a") , Literal (Int 1) ) ]))
 , ParBreak
 , Code
     "typ/regression/issue43.typ"
-    ( line 12 , column 2 )
+    ( line 11 , column 2 )
     (Let
        (BasicBind (Just (Identifier "b")))
        (Dict [ Reg ( Ident (Identifier "b") , Literal (Int 2) ) ]))
 , ParBreak
 , Code
     "typ/regression/issue43.typ"
-    ( line 14 , column 2 )
+    ( line 13 , column 2 )
     (Let
        (BasicBind (Just (Identifier "c")))
        (Dict [ Reg ( Ident (Identifier "c") , Literal (Int 3) ) ]))
 , ParBreak
 , Code
     "typ/regression/issue43.typ"
-    ( line 16 , column 2 )
+    ( line 15 , column 2 )
     (Let
        (BasicBind (Just (Identifier "d")))
        (Dict [ Spr (Ident (Identifier "a")) ]))
 , ParBreak
 , Code
     "typ/regression/issue43.typ"
-    ( line 18 , column 2 )
+    ( line 17 , column 2 )
     (Let
        (BasicBind (Just (Identifier "e")))
        (Dict [ Spr (Ident (Identifier "b")) ]))
 , ParBreak
 , Code
     "typ/regression/issue43.typ"
-    ( line 20 , column 2 )
+    ( line 19 , column 2 )
     (Let (BasicBind (Just (Identifier "f"))) (Dict []))
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 <foo:bar>, 
+document(body: { <foo:bar>, 
                  parbreak(), 
                  parbreak(), 
                  parbreak(), 

@@ -1,45 +1,5 @@
 --- parse tree ---
-[ Code
-    "typ/math/frac-02.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/math/frac-02.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/math/frac-02.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Equation
     True
     [ Text "x"
@@ -50,24 +10,24 @@
            (Just ")")
            [ Code
                "typ/math/frac-02.typ"
-               ( line 3 , column 8 )
+               ( line 2 , column 8 )
                (Ident (Identifier "minus"))
            , Text "b"
            , Code
                "typ/math/frac-02.typ"
-               ( line 3 , column 11 )
+               ( line 2 , column 11 )
                (FieldAccess
                   (Ident (Identifier "minus")) (Ident (Identifier "plus")))
            , Code
                "typ/math/frac-02.typ"
-               ( line 3 , column 22 )
+               ( line 2 , column 22 )
                (FuncCall
                   (Ident (Identifier "sqrt"))
                   [ BlockArg
                       [ MAttach Nothing (Just (Text "2")) (Text "b")
                       , Code
                           "typ/math/frac-02.typ"
-                          ( line 3 , column 31 )
+                          ( line 2 , column 31 )
                           (Ident (Identifier "minus"))
                       , Text "4"
                       , Text "a"
@@ -80,9 +40,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 math.equation(block: true, 
+document(body: { math.equation(block: true, 
                                body: { text(body: [x]), 
                                        text(body: [=]), 
                                        math.frac(denom: { text(body: [2]), 

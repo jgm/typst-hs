@@ -1,47 +1,7 @@
 --- parse tree ---
 [ Code
     "typ/meta/ref-03.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/meta/ref-03.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/meta/ref-03.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, ParBreak
-, Code
-    "typ/meta/ref-03.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (Show
        (Just (Ident (Identifier "ref")))
        (FuncExpr
@@ -105,7 +65,7 @@
 , ParBreak
 , Code
     "typ/meta/ref-03.typ"
-    ( line 17 , column 2 )
+    ( line 16 , column 2 )
     (FuncCall
        (Ident (Identifier "figure"))
        [ NormalArg
@@ -120,11 +80,11 @@
        , KeyValArg (Identifier "supplement") (Literal (String "Fig"))
        ])
 , Space
-, Code "typ/meta/ref-03.typ" ( line 21 , column 3 ) (Label "fig1")
+, Code "typ/meta/ref-03.typ" ( line 20 , column 3 ) (Label "fig1")
 , ParBreak
 , Code
     "typ/meta/ref-03.typ"
-    ( line 23 , column 2 )
+    ( line 22 , column 2 )
     (FuncCall
        (Ident (Identifier "figure"))
        [ NormalArg
@@ -139,11 +99,11 @@
        , KeyValArg (Identifier "supplement") (Literal (String "Figg"))
        ])
 , Space
-, Code "typ/meta/ref-03.typ" ( line 27 , column 3 ) (Label "fig2")
+, Code "typ/meta/ref-03.typ" ( line 26 , column 3 ) (Label "fig2")
 , ParBreak
 , Code
     "typ/meta/ref-03.typ"
-    ( line 29 , column 2 )
+    ( line 28 , column 2 )
     (FuncCall
        (Ident (Identifier "figure"))
        [ NormalArg
@@ -153,7 +113,7 @@
        , KeyValArg (Identifier "supplement") (Literal (String "Equa"))
        ])
 , Space
-, Code "typ/meta/ref-03.typ" ( line 34 , column 3 ) (Label "eq1")
+, Code "typ/meta/ref-03.typ" ( line 33 , column 3 ) (Label "eq1")
 , SoftBreak
 , Ref "fig1" (Literal Auto)
 , ParBreak
@@ -162,5 +122,5 @@
 , Ref "eq1" (Literal Auto)
 , ParBreak
 ]
-"typ/meta/ref-03.typ" (line 34, column 3):
+"typ/meta/ref-03.typ" (line 33, column 3):
 Content does not have a method "element" or FieldAccess requires a dictionary

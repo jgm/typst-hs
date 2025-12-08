@@ -2,60 +2,20 @@
 [ Code
     "typ/text/edge-00.typ"
     ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/text/edge-00.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/text/edge-00.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Code
-    "typ/text/edge-00.typ"
-    ( line 2 , column 2 )
     (Set
        (Ident (Identifier "page"))
        [ KeyValArg (Identifier "width") (Literal (Numeric 160.0 Pt)) ])
 , SoftBreak
 , Code
     "typ/text/edge-00.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (Set
        (Ident (Identifier "text"))
        [ KeyValArg (Identifier "size") (Literal (Numeric 8.0 Pt)) ])
 , ParBreak
 , Code
     "typ/text/edge-00.typ"
-    ( line 5 , column 2 )
+    ( line 4 , column 2 )
     (LetFunc
        (Identifier "try")
        [ NormalParam (Identifier "top")
@@ -69,7 +29,7 @@
               [ SoftBreak
               , Code
                   "typ/text/edge-00.typ"
-                  ( line 6 , column 4 )
+                  ( line 5 , column 4 )
                   (Set
                      (Ident (Identifier "text"))
                      [ KeyValArg (Identifier "font") (Literal (String "IBM Plex Mono"))
@@ -82,14 +42,14 @@
               , Space
               , Code
                   "typ/text/edge-00.typ"
-                  ( line 7 , column 9 )
+                  ( line 6 , column 9 )
                   (Ident (Identifier "top"))
               , Space
               , Text "to"
               , Space
               , Code
                   "typ/text/edge-00.typ"
-                  ( line 7 , column 17 )
+                  ( line 6 , column 17 )
                   (Ident (Identifier "bottom"))
               , ParBreak
               ]
@@ -97,7 +57,7 @@
 , ParBreak
 , Code
     "typ/text/edge-00.typ"
-    ( line 10 , column 2 )
+    ( line 9 , column 2 )
     (FuncCall
        (Ident (Identifier "try"))
        [ NormalArg (Literal (String "ascender"))
@@ -106,7 +66,7 @@
 , SoftBreak
 , Code
     "typ/text/edge-00.typ"
-    ( line 11 , column 2 )
+    ( line 10 , column 2 )
     (FuncCall
        (Ident (Identifier "try"))
        [ NormalArg (Literal (String "ascender"))
@@ -115,7 +75,7 @@
 , SoftBreak
 , Code
     "typ/text/edge-00.typ"
-    ( line 12 , column 2 )
+    ( line 11 , column 2 )
     (FuncCall
        (Ident (Identifier "try"))
        [ NormalArg (Literal (String "cap-height"))
@@ -124,7 +84,7 @@
 , SoftBreak
 , Code
     "typ/text/edge-00.typ"
-    ( line 13 , column 2 )
+    ( line 12 , column 2 )
     (FuncCall
        (Ident (Identifier "try"))
        [ NormalArg (Literal (String "x-height"))
@@ -133,7 +93,7 @@
 , SoftBreak
 , Code
     "typ/text/edge-00.typ"
-    ( line 14 , column 2 )
+    ( line 13 , column 2 )
     (FuncCall
        (Ident (Identifier "try"))
        [ NormalArg (Literal (Numeric 4.0 Pt))
@@ -142,7 +102,7 @@
 , SoftBreak
 , Code
     "typ/text/edge-00.typ"
-    ( line 15 , column 2 )
+    ( line 14 , column 2 )
     (FuncCall
        (Ident (Identifier "try"))
        [ NormalArg
@@ -153,8 +113,6 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
 ]), 
                  parbreak(), 
                  parbreak(), 

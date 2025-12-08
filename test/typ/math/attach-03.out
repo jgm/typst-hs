@@ -1,45 +1,5 @@
 --- parse tree ---
-[ Code
-    "typ/math/attach-03.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/math/attach-03.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/math/attach-03.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Equation
     False
     [ MAttach
@@ -47,7 +7,7 @@
         Nothing
         (Code
            "typ/math/attach-03.typ"
-           ( line 3 , column 2 )
+           ( line 2 , column 2 )
            (Ident (Identifier "pi")))
     , MGroup (Just "(") (Just ")") [ Text "Y" ]
     , Text ","
@@ -65,7 +25,7 @@
         (Just
            (Code
               "typ/math/attach-03.typ"
-              ( line 3 , column 21 )
+              ( line 2 , column 21 )
               (FuncCall (Ident (Identifier "zeta")) [ BlockArg [ Text "x" ] ])))
         (Text "a")
     , HardBreak
@@ -74,7 +34,7 @@
         (Just
            (Code
               "typ/math/attach-03.typ"
-              ( line 4 , column 4 )
+              ( line 3 , column 4 )
               (FuncCall
                  (FieldAccess
                     (Ident (Identifier "eq")) (Ident (Identifier "subset")))
@@ -88,7 +48,7 @@
               Nothing
               [ Code
                   "typ/math/attach-03.typ"
-                  ( line 4 , column 21 )
+                  ( line 3 , column 21 )
                   (FuncCall (Ident (Identifier "zeta")) [ BlockArg [ Text "x" ] ])
               ]))
         Nothing
@@ -103,15 +63,13 @@
         Nothing
         (Code
            "typ/math/attach-03.typ"
-           ( line 4 , column 31 )
+           ( line 3 , column 31 )
            (Ident (Identifier "pi")))
     ]
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 math.equation(block: false, 
+document(body: { math.equation(block: false, 
                                body: { math.attach(b: text(body: [1]), 
                                                    base: text(body: [π]), 
                                                    t: none), 

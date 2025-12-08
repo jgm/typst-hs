@@ -1,50 +1,10 @@
 --- parse tree ---
-[ Code
-    "typ/layout/par-bidi-05.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/layout/par-bidi-05.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/layout/par-bidi-05.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Text "L"
 , Space
 , Code
     "typ/layout/par-bidi-05.typ"
-    ( line 3 , column 4 )
+    ( line 2 , column 4 )
     (FuncCall
        (Ident (Identifier "h")) [ NormalArg (Literal (Numeric 1.0 Cm)) ])
 , Space
@@ -55,7 +15,7 @@
 , Space
 , Code
     "typ/layout/par-bidi-05.typ"
-    ( line 4 , column 9 )
+    ( line 3 , column 9 )
     (FuncCall
        (Ident (Identifier "h")) [ NormalArg (Literal (Numeric 1.0 Cm)) ])
 , Space
@@ -63,9 +23,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 text(body: [L ]), 
+document(body: { text(body: [L ]), 
                  h(amount: 1.0cm), 
                  text(body: [ ריווחR ]), 
                  linebreak(), 

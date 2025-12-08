@@ -1,52 +1,12 @@
 --- parse tree ---
-[ Code
-    "typ/math/root-00.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/math/root-00.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/math/root-00.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Equation
     False
     [ Text "A"
     , Text "="
     , Code
         "typ/math/root-00.typ"
-        ( line 3 , column 6 )
+        ( line 2 , column 6 )
         (FuncCall
            (Ident (Identifier "sqrt"))
            [ BlockArg [ Text "x" , Text "+" , Text "y" ] ])
@@ -56,9 +16,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 math.equation(block: false, 
+document(body: { math.equation(block: false, 
                                body: { text(body: [A]), 
                                        text(body: [=]), 
                                        math.sqrt(radicand: { text(body: [x]), 

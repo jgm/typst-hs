@@ -1,48 +1,8 @@
 --- parse tree ---
-[ Code
-    "typ/math/op-02.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/math/op-02.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/math/op-02.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Code
     "typ/math/op-02.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (Set
        (Ident (Identifier "text"))
        [ KeyValArg
@@ -61,17 +21,17 @@
               [ Text "n"
               , Code
                   "typ/math/op-02.typ"
-                  ( line 4 , column 16 )
+                  ( line 3 , column 16 )
                   (FieldAccess (Ident (Identifier "r")) (Ident (Identifier "arrow")))
               , Code
                   "typ/math/op-02.typ"
-                  ( line 4 , column 18 )
+                  ( line 3 , column 18 )
                   (Ident (Identifier "oo"))
               ]))
         Nothing
         (Code
            "typ/math/op-02.typ"
-           ( line 4 , column 10 )
+           ( line 3 , column 10 )
            (Ident (Identifier "lim")))
     , MFrac (Text "1") (Text "n")
     ]
@@ -89,17 +49,17 @@
               [ Text "n"
               , Code
                   "typ/math/op-02.typ"
-                  ( line 5 , column 9 )
+                  ( line 4 , column 9 )
                   (FieldAccess (Ident (Identifier "r")) (Ident (Identifier "arrow")))
               , Code
                   "typ/math/op-02.typ"
-                  ( line 5 , column 11 )
+                  ( line 4 , column 11 )
                   (Ident (Identifier "infinity"))
               ]))
         Nothing
         (Code
            "typ/math/op-02.typ"
-           ( line 5 , column 3 )
+           ( line 4 , column 3 )
            (Ident (Identifier "lim")))
     , MFrac (Text "1") (Text "n")
     , Text "="
@@ -109,8 +69,6 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
 Discuss ], 
                       font: "New Computer Modern"), 
                  math.equation(block: false, 

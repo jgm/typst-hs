@@ -1,48 +1,8 @@
 --- parse tree ---
-[ Code
-    "typ/meta/figure-01.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/meta/figure-01.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/meta/figure-01.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, ParBreak
-, Comment
+[ Comment
 , Code
     "typ/meta/figure-01.typ"
-    ( line 4 , column 2 )
+    ( line 3 , column 2 )
     (FuncCall
        (Ident (Identifier "figure"))
        [ NormalArg
@@ -63,13 +23,12 @@
 , Space
 , Code
     "typ/meta/figure-01.typ"
-    ( line 11 , column 3 )
+    ( line 10 , column 3 )
     (Label "fig-image-in-table")
 , ParBreak
 ]
 --- evaluated ---
-document(body: { parbreak(), 
-                 figure(body: table(children: (text(body: [Second cylinder]), 
+document(body: { figure(body: table(children: (text(body: [Second cylinder]), 
                                                image(source: "/assets/files/cylinder.svg")), 
                                     columns: 2), 
                         caption: "A table containing images."), 

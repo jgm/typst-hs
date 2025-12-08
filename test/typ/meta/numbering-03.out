@@ -2,53 +2,13 @@
 [ Code
     "typ/meta/numbering-03.typ"
     ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/meta/numbering-03.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/meta/numbering-03.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Code
-    "typ/meta/numbering-03.typ"
-    ( line 2 , column 2 )
     (Set
        (Ident (Identifier "text"))
        [ KeyValArg (Identifier "lang") (Literal (String "zh")) ])
 , SoftBreak
 , Code
     "typ/meta/numbering-03.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (For
        (BasicBind (Just (Identifier "i")))
        (FuncCall
@@ -77,7 +37,7 @@
                     , Space
                     , Code
                         "typ/meta/numbering-03.typ"
-                        ( line 7 , column 10 )
+                        ( line 6 , column 10 )
                         (Ident (Identifier "i"))
                     , Space
                     , HardBreak
@@ -87,9 +47,8 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
-], lang: "zh"), 
+], 
+                      lang: "zh"), 
                  numbering(numbering: "一", 
                            numbers: (9)), 
                  text(body: [ and ], 

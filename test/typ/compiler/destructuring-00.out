@@ -3,46 +3,6 @@
     "typ/compiler/destructuring-00.typ"
     ( line 1 , column 2 )
     (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/compiler/destructuring-00.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/compiler/destructuring-00.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Code
-    "typ/compiler/destructuring-00.typ"
-    ( line 2 , column 2 )
-    (Let
        (DestructuringBind
           [ Simple (BasicBind Nothing)
           , Simple
@@ -64,7 +24,7 @@
 , SoftBreak
 , Code
     "typ/compiler/destructuring-00.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg
@@ -76,7 +36,7 @@
 , ParBreak
 , Code
     "typ/compiler/destructuring-00.typ"
-    ( line 5 , column 2 )
+    ( line 4 , column 2 )
     (Let
        (DestructuringBind
           [ WithKey
@@ -102,7 +62,7 @@
 , SoftBreak
 , Code
     "typ/compiler/destructuring-00.typ"
-    ( line 6 , column 2 )
+    ( line 5 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg
@@ -121,7 +81,7 @@
 , ParBreak
 , Code
     "typ/compiler/destructuring-00.typ"
-    ( line 8 , column 2 )
+    ( line 7 , column 2 )
     (Let
        (DestructuringBind
           [ WithKey
@@ -155,7 +115,7 @@
 , SoftBreak
 , Code
     "typ/compiler/destructuring-00.typ"
-    ( line 9 , column 2 )
+    ( line 8 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg
@@ -176,7 +136,7 @@
 , ParBreak
 , Code
     "typ/compiler/destructuring-00.typ"
-    ( line 11 , column 2 )
+    ( line 10 , column 2 )
     (Let
        (DestructuringBind
           [ Simple (BasicBind Nothing)
@@ -190,7 +150,7 @@
 , SoftBreak
 , Code
     "typ/compiler/destructuring-00.typ"
-    ( line 12 , column 2 )
+    ( line 11 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (Ident (Identifier "x"))
@@ -199,7 +159,7 @@
 , ParBreak
 , Code
     "typ/compiler/destructuring-00.typ"
-    ( line 14 , column 2 )
+    ( line 13 , column 2 )
     (Let
        (BasicBind (Just (Identifier "f")))
        (FuncExpr
@@ -219,7 +179,7 @@
 , SoftBreak
 , Code
     "typ/compiler/destructuring-00.typ"
-    ( line 15 , column 2 )
+    ( line 14 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg
@@ -239,7 +199,7 @@
 , SoftBreak
 , Code
     "typ/compiler/destructuring-00.typ"
-    ( line 16 , column 2 )
+    ( line 15 , column 2 )
     (Let
        (BasicBind (Just (Identifier "f")))
        (FuncExpr
@@ -260,7 +220,7 @@
 , SoftBreak
 , Code
     "typ/compiler/destructuring-00.typ"
-    ( line 17 , column 2 )
+    ( line 16 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg
@@ -283,8 +243,6 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
 ]), 
                  text(body: [✅]), 
                  parbreak(), 

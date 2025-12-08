@@ -1,49 +1,9 @@
 --- parse tree ---
-[ Code
-    "typ/visualize/line-01.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/visualize/line-01.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/visualize/line-01.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , SoftBreak
 , Code
     "typ/visualize/line-01.typ"
-    ( line 4 , column 2 )
+    ( line 3 , column 2 )
     (Set
        (Ident (Identifier "page"))
        [ KeyValArg
@@ -55,14 +15,14 @@
 , SoftBreak
 , Code
     "typ/visualize/line-01.typ"
-    ( line 5 , column 2 )
+    ( line 4 , column 2 )
     (Set
        (Ident (Identifier "line"))
        [ KeyValArg (Identifier "stroke") (Ident (Identifier "white")) ])
 , ParBreak
 , Code
     "typ/visualize/line-01.typ"
-    ( line 7 , column 2 )
+    ( line 6 , column 2 )
     (LetFunc
        (Identifier "star")
        [ NormalParam (Identifier "size")
@@ -76,7 +36,7 @@
               [ SoftBreak
               , Code
                   "typ/visualize/line-01.typ"
-                  ( line 8 , column 4 )
+                  ( line 7 , column 4 )
                   (Set
                      (Ident (Identifier "text"))
                      [ KeyValArg (Identifier "spacing") (Literal (Numeric 0.0 Percent))
@@ -84,28 +44,28 @@
               , SoftBreak
               , Code
                   "typ/visualize/line-01.typ"
-                  ( line 9 , column 4 )
+                  ( line 8 , column 4 )
                   (Set
                      (Ident (Identifier "line"))
                      [ SpreadArg (Ident (Identifier "args")) ])
               , SoftBreak
               , Code
                   "typ/visualize/line-01.typ"
-                  ( line 10 , column 4 )
+                  ( line 9 , column 4 )
                   (Set
                      (Ident (Identifier "align"))
                      [ NormalArg (Ident (Identifier "left")) ])
               , SoftBreak
               , Code
                   "typ/visualize/line-01.typ"
-                  ( line 11 , column 4 )
+                  ( line 10 , column 4 )
                   (FuncCall
                      (Ident (Identifier "v"))
                      [ NormalArg (Literal (Numeric 30.0 Percent)) ])
               , SoftBreak
               , Code
                   "typ/visualize/line-01.typ"
-                  ( line 12 , column 4 )
+                  ( line 11 , column 4 )
                   (FuncCall
                      (Ident (Identifier "place"))
                      [ NormalArg
@@ -123,7 +83,7 @@
               , SoftBreak
               , Code
                   "typ/visualize/line-01.typ"
-                  ( line 13 , column 4 )
+                  ( line 12 , column 4 )
                   (FuncCall
                      (Ident (Identifier "place"))
                      [ NormalArg
@@ -143,7 +103,7 @@
               , SoftBreak
               , Code
                   "typ/visualize/line-01.typ"
-                  ( line 14 , column 4 )
+                  ( line 13 , column 4 )
                   (FuncCall
                      (Ident (Identifier "place"))
                      [ NormalArg
@@ -162,7 +122,7 @@
               , SoftBreak
               , Code
                   "typ/visualize/line-01.typ"
-                  ( line 15 , column 4 )
+                  ( line 14 , column 4 )
                   (FuncCall
                      (Ident (Identifier "place"))
                      [ NormalArg
@@ -180,7 +140,7 @@
               , SoftBreak
               , Code
                   "typ/visualize/line-01.typ"
-                  ( line 16 , column 4 )
+                  ( line 15 , column 4 )
                   (FuncCall
                      (Ident (Identifier "place"))
                      [ NormalArg
@@ -201,7 +161,7 @@
               , SoftBreak
               , Code
                   "typ/visualize/line-01.typ"
-                  ( line 17 , column 4 )
+                  ( line 16 , column 4 )
                   (FuncCall
                      (Ident (Identifier "place"))
                      [ NormalArg
@@ -220,7 +180,7 @@
               , SoftBreak
               , Code
                   "typ/visualize/line-01.typ"
-                  ( line 18 , column 4 )
+                  ( line 17 , column 4 )
                   (FuncCall
                      (Ident (Identifier "place"))
                      [ NormalArg
@@ -240,7 +200,7 @@
               , SoftBreak
               , Code
                   "typ/visualize/line-01.typ"
-                  ( line 19 , column 4 )
+                  ( line 18 , column 4 )
                   (FuncCall
                      (Ident (Identifier "place"))
                      [ NormalArg
@@ -260,7 +220,7 @@
               , SoftBreak
               , Code
                   "typ/visualize/line-01.typ"
-                  ( line 20 , column 4 )
+                  ( line 19 , column 4 )
                   (FuncCall
                      (Ident (Identifier "place"))
                      [ NormalArg
@@ -280,7 +240,7 @@
               , SoftBreak
               , Code
                   "typ/visualize/line-01.typ"
-                  ( line 21 , column 4 )
+                  ( line 20 , column 4 )
                   (FuncCall
                      (Ident (Identifier "place"))
                      [ NormalArg
@@ -302,7 +262,7 @@
 , ParBreak
 , Code
     "typ/visualize/line-01.typ"
-    ( line 24 , column 2 )
+    ( line 23 , column 2 )
     (FuncCall
        (Ident (Identifier "align"))
        [ NormalArg (Ident (Identifier "center"))
@@ -329,8 +289,6 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
 ]), 
                  text(body: [
 ]), 

@@ -1,48 +1,8 @@
 --- parse tree ---
-[ Code
-    "typ/math/spacing-03.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/math/spacing-03.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/math/spacing-03.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Code
     "typ/math/spacing-03.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (Set
        (Ident (Identifier "page"))
        [ KeyValArg (Identifier "width") (Literal Auto) ])
@@ -55,18 +15,18 @@
         [ Text "x"
         , Code
             "typ/math/spacing-03.typ"
-            ( line 4 , column 7 )
+            ( line 3 , column 7 )
             (Ident (Identifier "in"))
         , Code
             "typ/math/spacing-03.typ"
-            ( line 4 , column 10 )
+            ( line 3 , column 10 )
             (Ident (Identifier "RR"))
         , MGroup Nothing Nothing [ Nbsp , Text "|" , Nbsp ]
         , Text "x"
         , Text " is natural "
         , Code
             "typ/math/spacing-03.typ"
-            ( line 4 , column 30 )
+            ( line 3 , column 30 )
             (Ident (Identifier "and"))
         , Text "x"
         , Text "<"
@@ -77,8 +37,6 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
 ]), 
                  math.equation(block: true, 
                                body: math.lr(body: ({ [{], 

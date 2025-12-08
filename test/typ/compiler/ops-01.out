@@ -1,50 +1,10 @@
 --- parse tree ---
-[ Code
-    "typ/compiler/ops-01.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/compiler/ops-01.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/compiler/ops-01.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , SoftBreak
 , Comment
 , Code
     "typ/compiler/ops-01.typ"
-    ( line 5 , column 2 )
+    ( line 4 , column 2 )
     (For
        (BasicBind (Just (Identifier "v")))
        (Array
@@ -84,7 +44,7 @@
 , ParBreak
 , Code
     "typ/compiler/ops-01.typ"
-    ( line 17 , column 2 )
+    ( line 16 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (Negated (Plus (Literal (Int 4)) (Literal (Int 2))))
@@ -94,7 +54,7 @@
 , Comment
 , Code
     "typ/compiler/ops-01.typ"
-    ( line 20 , column 2 )
+    ( line 19 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (Plus (Literal (Int 2)) (Literal (Int 4)))
@@ -103,7 +63,7 @@
 , SoftBreak
 , Code
     "typ/compiler/ops-01.typ"
-    ( line 21 , column 2 )
+    ( line 20 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (Plus (Literal (String "a")) (Literal (String "b")))
@@ -112,7 +72,7 @@
 , SoftBreak
 , Code
     "typ/compiler/ops-01.typ"
-    ( line 22 , column 2 )
+    ( line 21 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg
@@ -128,7 +88,7 @@
 , SoftBreak
 , Code
     "typ/compiler/ops-01.typ"
-    ( line 23 , column 2 )
+    ( line 22 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg
@@ -144,7 +104,7 @@
 , SoftBreak
 , Code
     "typ/compiler/ops-01.typ"
-    ( line 24 , column 2 )
+    ( line 23 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg
@@ -156,7 +116,7 @@
 , SoftBreak
 , Code
     "typ/compiler/ops-01.typ"
-    ( line 25 , column 2 )
+    ( line 24 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg
@@ -174,7 +134,7 @@
 , SoftBreak
 , Code
     "typ/compiler/ops-01.typ"
-    ( line 26 , column 2 )
+    ( line 25 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg
@@ -195,8 +155,6 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
 ]), 
                  text(body: [✅]), 
                  text(body: [✅]), 

@@ -2,53 +2,13 @@
 [ Code
     "typ/layout/align-00.typ"
     ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/layout/align-00.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/layout/align-00.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Code
-    "typ/layout/align-00.typ"
-    ( line 2 , column 2 )
     (Set
        (Ident (Identifier "page"))
        [ KeyValArg (Identifier "height") (Literal (Numeric 100.0 Pt)) ])
 , SoftBreak
 , Code
     "typ/layout/align-00.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (FuncCall
        (Ident (Identifier "stack"))
        [ KeyValArg (Identifier "dir") (Ident (Identifier "ltr"))
@@ -89,7 +49,7 @@
 , SoftBreak
 , Code
     "typ/layout/align-00.typ"
-    ( line 8 , column 2 )
+    ( line 7 , column 2 )
     (FuncCall
        (Ident (Identifier "align"))
        [ NormalArg
@@ -104,7 +64,7 @@
 , SoftBreak
 , Code
     "typ/layout/align-00.typ"
-    ( line 9 , column 2 )
+    ( line 8 , column 2 )
     (FuncCall
        (Ident (Identifier "align"))
        [ NormalArg (Ident (Identifier "bottom"))
@@ -135,8 +95,6 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
 ]), 
                  stack(children: (align(alignment: left, 
                                         body: square(fill: rgb(13%,61%,67%,100%), 

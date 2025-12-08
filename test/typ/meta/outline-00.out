@@ -2,46 +2,6 @@
 [ Code
     "typ/meta/outline-00.typ"
     ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/meta/outline-00.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/meta/outline-00.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Code
-    "typ/meta/outline-00.typ"
-    ( line 2 , column 2 )
     (Set
        (Ident (Identifier "page"))
        [ NormalArg (Literal (String "a7"))
@@ -51,14 +11,14 @@
 , SoftBreak
 , Code
     "typ/meta/outline-00.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (Set
        (Ident (Identifier "heading"))
        [ KeyValArg (Identifier "numbering") (Literal (String "(1/a)")) ])
 , SoftBreak
 , Code
     "typ/meta/outline-00.typ"
-    ( line 4 , column 2 )
+    ( line 3 , column 2 )
     (Show
        (Just
           (FuncCall
@@ -71,7 +31,7 @@
 , SoftBreak
 , Code
     "typ/meta/outline-00.typ"
-    ( line 5 , column 2 )
+    ( line 4 , column 2 )
     (Show
        (Just
           (FuncCall
@@ -84,32 +44,32 @@
 , ParBreak
 , Code
     "typ/meta/outline-00.typ"
-    ( line 7 , column 2 )
+    ( line 6 , column 2 )
     (FuncCall (Ident (Identifier "outline")) [])
 , ParBreak
 , Heading 1 [ Text "Einleitung" ]
 , Code
     "typ/meta/outline-00.typ"
-    ( line 10 , column 2 )
+    ( line 9 , column 2 )
     (FuncCall
        (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 12)) ])
 , ParBreak
 , Heading 1 [ Text "Analyse" ]
 , Code
     "typ/meta/outline-00.typ"
-    ( line 13 , column 2 )
+    ( line 12 , column 2 )
     (FuncCall
        (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 10)) ])
 , ParBreak
 , Code
     "typ/meta/outline-00.typ"
-    ( line 15 , column 2 )
+    ( line 14 , column 2 )
     (Block
        (Content
           [ SoftBreak
           , Code
               "typ/meta/outline-00.typ"
-              ( line 16 , column 4 )
+              ( line 15 , column 4 )
               (Set
                  (Ident (Identifier "heading"))
                  [ KeyValArg (Identifier "outlined") (Literal (Boolean False)) ])
@@ -117,7 +77,7 @@
           , Heading 2 [ Text "Methodik" ]
           , Code
               "typ/meta/outline-00.typ"
-              ( line 18 , column 4 )
+              ( line 17 , column 4 )
               (FuncCall
                  (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 6)) ])
           , ParBreak
@@ -126,7 +86,7 @@
 , Heading 2 [ Text "Verarbeitung" ]
 , Code
     "typ/meta/outline-00.typ"
-    ( line 22 , column 2 )
+    ( line 21 , column 2 )
     (FuncCall
        (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 4)) ])
 , ParBreak
@@ -140,7 +100,7 @@
 , ParBreak
 , Code
     "typ/meta/outline-00.typ"
-    ( line 34 , column 2 )
+    ( line 33 , column 2 )
     (Set
        (Ident (Identifier "heading"))
        [ KeyValArg (Identifier "numbering") (Literal (String "(I)")) ])
@@ -149,7 +109,7 @@
     1
     [ Code
         "typ/meta/outline-00.typ"
-        ( line 36 , column 4 )
+        ( line 35 , column 4 )
         (FuncCall
            (Ident (Identifier "text"))
            [ NormalArg (Ident (Identifier "blue"))
@@ -159,15 +119,13 @@
     ]
 , Code
     "typ/meta/outline-00.typ"
-    ( line 37 , column 2 )
+    ( line 36 , column 2 )
     (FuncCall
        (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 10)) ])
 , ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
 ]), 
                  text(body: [
 ]), 

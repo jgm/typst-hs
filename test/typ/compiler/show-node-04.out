@@ -1,48 +1,8 @@
 --- parse tree ---
-[ Code
-    "typ/compiler/show-node-04.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/compiler/show-node-04.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/compiler/show-node-04.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Code
     "typ/compiler/show-node-04.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (Show
        (Just (Ident (Identifier "heading")))
        (FuncExpr
@@ -61,9 +21,7 @@
 , Heading 1 [ Text "Heading" ]
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 parbreak(), 
+document(body: { parbreak(), 
                  text(body: { [Hea], 
                               text(body: [🛎], 
                                    color: rgb(100%,25%,21%,100%)), 

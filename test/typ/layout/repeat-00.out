@@ -1,48 +1,8 @@
 --- parse tree ---
-[ Code
-    "typ/layout/repeat-00.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/layout/repeat-00.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/layout/repeat-00.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Code
     "typ/layout/repeat-00.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (Let
        (BasicBind (Just (Identifier "sections")))
        (Array
@@ -68,7 +28,7 @@
 , ParBreak
 , Code
     "typ/layout/repeat-00.typ"
-    ( line 12 , column 2 )
+    ( line 11 , column 2 )
     (For
        (BasicBind (Just (Identifier "section")))
        (Ident (Identifier "sections"))
@@ -77,7 +37,7 @@
              [ SoftBreak
              , Code
                  "typ/layout/repeat-00.typ"
-                 ( line 13 , column 4 )
+                 ( line 12 , column 4 )
                  (FuncCall
                     (FieldAccess
                        (Ident (Identifier "at")) (Ident (Identifier "section")))
@@ -85,7 +45,7 @@
              , Space
              , Code
                  "typ/layout/repeat-00.typ"
-                 ( line 13 , column 19 )
+                 ( line 12 , column 19 )
                  (FuncCall
                     (Ident (Identifier "box"))
                     [ KeyValArg (Identifier "width") (Literal (Numeric 1.0 Fr))
@@ -95,7 +55,7 @@
              , Space
              , Code
                  "typ/layout/repeat-00.typ"
-                 ( line 13 , column 47 )
+                 ( line 12 , column 47 )
                  (FuncCall
                     (FieldAccess
                        (Ident (Identifier "at")) (Ident (Identifier "section")))
@@ -106,9 +66,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 parbreak(), 
+document(body: { parbreak(), 
                  text(body: [
 ]), 
                  text(body: [Introduction]), 

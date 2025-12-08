@@ -2,60 +2,20 @@
 [ Code
     "typ/meta/state-01.typ"
     ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/meta/state-01.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/meta/state-01.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Code
-    "typ/meta/state-01.typ"
-    ( line 2 , column 2 )
     (Set
        (Ident (Identifier "page"))
        [ KeyValArg (Identifier "width") (Literal (Numeric 200.0 Pt)) ])
 , SoftBreak
 , Code
     "typ/meta/state-01.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (Set
        (Ident (Identifier "text"))
        [ NormalArg (Literal (Numeric 8.0 Pt)) ])
 , ParBreak
 , Code
     "typ/meta/state-01.typ"
-    ( line 5 , column 2 )
+    ( line 4 , column 2 )
     (Let
        (BasicBind (Just (Identifier "ls")))
        (FuncCall
@@ -72,7 +32,7 @@
 , SoftBreak
 , Code
     "typ/meta/state-01.typ"
-    ( line 6 , column 2 )
+    ( line 5 , column 2 )
     (LetFunc
        (Identifier "loremum")
        [ NormalParam (Identifier "count") ]
@@ -117,7 +77,7 @@
 , ParBreak
 , Code
     "typ/meta/state-01.typ"
-    ( line 11 , column 2 )
+    ( line 10 , column 2 )
     (Let
        (BasicBind (Just (Identifier "fs")))
        (FuncCall
@@ -128,7 +88,7 @@
 , SoftBreak
 , Code
     "typ/meta/state-01.typ"
-    ( line 12 , column 2 )
+    ( line 11 , column 2 )
     (LetFunc
        (Identifier "trait")
        [ NormalParam (Identifier "title") ]
@@ -138,7 +98,7 @@
               [ SoftBreak
               , Code
                   "typ/meta/state-01.typ"
-                  ( line 13 , column 4 )
+                  ( line 12 , column 4 )
                   (FuncCall
                      (FieldAccess
                         (Ident (Identifier "display")) (Ident (Identifier "fs")))
@@ -153,14 +113,14 @@
                                    , Strong
                                        [ Code
                                            "typ/meta/state-01.typ"
-                                           ( line 14 , column 7 )
+                                           ( line 13 , column 7 )
                                            (Ident (Identifier "title"))
                                        , Text ":"
                                        ]
                                    , Space
                                    , Code
                                        "typ/meta/state-01.typ"
-                                       ( line 14 , column 16 )
+                                       ( line 13 , column 16 )
                                        (FuncCall
                                           (Ident (Identifier "loremum"))
                                           [ NormalArg (Literal (Int 1)) ])
@@ -171,7 +131,7 @@
               , SoftBreak
               , Code
                   "typ/meta/state-01.typ"
-                  ( line 16 , column 4 )
+                  ( line 15 , column 4 )
                   (FuncCall
                      (FieldAccess
                         (Ident (Identifier "update")) (Ident (Identifier "fs")))
@@ -189,28 +149,28 @@
 , ParBreak
 , Code
     "typ/meta/state-01.typ"
-    ( line 19 , column 2 )
+    ( line 18 , column 2 )
     (FuncCall
        (Ident (Identifier "trait")) [ BlockArg [ Text "Boldness" ] ])
 , SoftBreak
 , Code
     "typ/meta/state-01.typ"
-    ( line 20 , column 2 )
+    ( line 19 , column 2 )
     (FuncCall
        (Ident (Identifier "trait")) [ BlockArg [ Text "Adventure" ] ])
 , SoftBreak
 , Code
     "typ/meta/state-01.typ"
-    ( line 21 , column 2 )
+    ( line 20 , column 2 )
     (FuncCall
        (Ident (Identifier "trait")) [ BlockArg [ Text "Fear" ] ])
 , SoftBreak
 , Code
     "typ/meta/state-01.typ"
-    ( line 22 , column 2 )
+    ( line 21 , column 2 )
     (FuncCall
        (Ident (Identifier "trait")) [ BlockArg [ Text "Anger" ] ])
 , ParBreak
 ]
-"typ/meta/state-01.typ" (line 13, column 4):
+"typ/meta/state-01.typ" (line 12, column 4):
 Content does not have a method "display" or FieldAccess requires a dictionary

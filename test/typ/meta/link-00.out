@@ -1,51 +1,11 @@
 --- parse tree ---
-[ Code
-    "typ/meta/link-00.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/meta/link-00.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/meta/link-00.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Url "https://example.com/"
 , ParBreak
 , Comment
 , Code
     "typ/meta/link-00.typ"
-    ( line 6 , column 2 )
+    ( line 5 , column 2 )
     (FuncCall
        (Ident (Identifier "link"))
        [ NormalArg (Literal (String "https://typst.org/"))
@@ -69,7 +29,7 @@
 , Space
 , Code
     "typ/meta/link-00.typ"
-    ( line 9 , column 20 )
+    ( line 8 , column 20 )
     (FuncCall
        (Ident (Identifier "link"))
        [ NormalArg (Literal (String "https://google.com/"))
@@ -94,7 +54,7 @@
 , Space
 , Code
     "typ/meta/link-00.typ"
-    ( line 12 , column 10 )
+    ( line 11 , column 10 )
     (FuncCall
        (Ident (Identifier "link"))
        [ NormalArg (Literal (String "mailto:hi@typst.app")) ])
@@ -105,7 +65,7 @@
 , Space
 , Code
     "typ/meta/link-00.typ"
-    ( line 13 , column 7 )
+    ( line 12 , column 7 )
     (FuncCall
        (Ident (Identifier "link"))
        [ NormalArg (Literal (String "tel:123")) ])
@@ -119,9 +79,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 link(body: [https://example.com/], 
+document(body: { link(body: [https://example.com/], 
                       dest: "https://example.com/"), 
                  parbreak(), 
                  link(body: text(body: [Some text text text]), 

@@ -1,50 +1,10 @@
 --- parse tree ---
-[ Code
-    "typ/compiler/bench-00.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/compiler/bench-00.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/compiler/bench-00.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , SoftBreak
 , Comment
 , Code
     "typ/compiler/bench-00.typ"
-    ( line 5 , column 2 )
+    ( line 4 , column 2 )
     (Set
        (Ident (Identifier "page"))
        [ KeyValArg (Identifier "width") (Literal (Numeric 450.0 Pt))
@@ -54,7 +14,7 @@
 , Comment
 , Code
     "typ/compiler/bench-00.typ"
-    ( line 8 , column 2 )
+    ( line 7 , column 2 )
     (Let
        (BasicBind (Just (Identifier "city"))) (Literal (String "Berlin")))
 , ParBreak
@@ -63,7 +23,7 @@
 , Comment
 , Code
     "typ/compiler/bench-00.typ"
-    ( line 13 , column 2 )
+    ( line 12 , column 2 )
     (Let
        (BasicBind (Just (Identifier "university")))
        (Block
@@ -75,14 +35,14 @@
                  , Space
                  , Code
                      "typ/compiler/bench-00.typ"
-                     ( line 13 , column 45 )
+                     ( line 12 , column 45 )
                      (Ident (Identifier "city"))
                  ]
              ])))
 , SoftBreak
 , Code
     "typ/compiler/bench-00.typ"
-    ( line 14 , column 2 )
+    ( line 13 , column 2 )
     (Let
        (BasicBind (Just (Identifier "faculty")))
        (Block
@@ -105,7 +65,7 @@
 , Comment
 , Code
     "typ/compiler/bench-00.typ"
-    ( line 19 , column 2 )
+    ( line 18 , column 2 )
     (FuncCall
        (Ident (Identifier "box"))
        [ BlockArg
@@ -114,13 +74,13 @@
            , Space
            , Code
                "typ/compiler/bench-00.typ"
-               ( line 21 , column 4 )
+               ( line 20 , column 4 )
                (Ident (Identifier "university"))
            , Space
            , HardBreak
            , Code
                "typ/compiler/bench-00.typ"
-               ( line 22 , column 4 )
+               ( line 21 , column 4 )
                (Ident (Identifier "faculty"))
            , Space
            , HardBreak
@@ -150,7 +110,7 @@
 , SoftBreak
 , Code
     "typ/compiler/bench-00.typ"
-    ( line 27 , column 2 )
+    ( line 26 , column 2 )
     (FuncCall
        (Ident (Identifier "align"))
        [ NormalArg (Ident (Identifier "right"))
@@ -172,7 +132,7 @@
 , Comment
 , Code
     "typ/compiler/bench-00.typ"
-    ( line 30 , column 2 )
+    ( line 29 , column 2 )
     (FuncCall
        (Ident (Identifier "v")) [ NormalArg (Literal (Numeric 6.0 Mm)) ])
 , ParBreak
@@ -180,7 +140,7 @@
 , Comment
 , Code
     "typ/compiler/bench-00.typ"
-    ( line 34 , column 2 )
+    ( line 33 , column 2 )
     (FuncCall
        (Ident (Identifier "align"))
        [ NormalArg (Ident (Identifier "center"))
@@ -203,7 +163,7 @@
                , Space
                , Code
                    "typ/compiler/bench-00.typ"
-                   ( line 36 , column 58 )
+                   ( line 35 , column 58 )
                    (FuncCall
                       (Ident (Identifier "v")) [ NormalArg (Literal (Numeric 4.0 Mm)) ])
                ]
@@ -235,7 +195,7 @@
            , Space
            , Code
                "typ/compiler/bench-00.typ"
-               ( line 37 , column 51 )
+               ( line 36 , column 51 )
                (FuncCall
                   (Ident (Identifier "v")) [ NormalArg (Literal (Numeric 4.0 Mm)) ])
            , SoftBreak
@@ -259,7 +219,7 @@
 , Space
 , Code
     "typ/compiler/bench-00.typ"
-    ( line 41 , column 15 )
+    ( line 40 , column 15 )
     (FuncCall
        (Ident (Identifier "align"))
        [ NormalArg (Ident (Identifier "right"))
@@ -396,15 +356,13 @@
 , ParBreak
 , Code
     "typ/compiler/bench-00.typ"
-    ( line 48 , column 2 )
+    ( line 47 , column 2 )
     (FuncCall
        (Ident (Identifier "v")) [ NormalArg (Literal (Numeric 6.0 Mm)) ])
 , ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
 ]), 
                  parbreak(), 
                  parbreak(), 

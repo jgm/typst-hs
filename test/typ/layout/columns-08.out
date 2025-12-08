@@ -1,48 +1,8 @@
 --- parse tree ---
-[ Code
-    "typ/layout/columns-08.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/layout/columns-08.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/layout/columns-08.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Code
     "typ/layout/columns-08.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (Set
        (Ident (Identifier "page"))
        [ KeyValArg (Identifier "width") (Literal (Numeric 7.05 Cm))
@@ -92,7 +52,7 @@
 , ParBreak
 , Code
     "typ/layout/columns-08.typ"
-    ( line 8 , column 2 )
+    ( line 7 , column 2 )
     (FuncCall
        (Ident (Identifier "rect"))
        [ KeyValArg (Identifier "fill") (Ident (Identifier "green"))
@@ -108,7 +68,7 @@
 , Space
 , Code
     "typ/layout/columns-08.typ"
-    ( line 10 , column 19 )
+    ( line 9 , column 19 )
     (FuncCall (Ident (Identifier "colbreak")) [])
 , Space
 , RawInline "#colbreak()"
@@ -130,9 +90,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 parbreak(), 
+document(body: { parbreak(), 
                  text(body: [There can be as much content as you want in the left column
 and the document will grow with it.]), 
                  parbreak(), 

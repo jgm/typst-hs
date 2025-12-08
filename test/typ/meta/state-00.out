@@ -3,46 +3,6 @@
     "typ/meta/state-00.typ"
     ( line 1 , column 2 )
     (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/meta/state-00.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/meta/state-00.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Code
-    "typ/meta/state-00.typ"
-    ( line 2 , column 2 )
-    (Let
        (BasicBind (Just (Identifier "s")))
        (FuncCall
           (Ident (Identifier "state"))
@@ -52,7 +12,7 @@
 , SoftBreak
 , Code
     "typ/meta/state-00.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (LetFunc
        (Identifier "double")
        [ NormalParam (Identifier "it") ]
@@ -60,7 +20,7 @@
 , ParBreak
 , Code
     "typ/meta/state-00.typ"
-    ( line 5 , column 2 )
+    ( line 4 , column 2 )
     (FuncCall
        (FieldAccess
           (Ident (Identifier "update")) (Ident (Identifier "s")))
@@ -68,7 +28,7 @@
 , SoftBreak
 , Code
     "typ/meta/state-00.typ"
-    ( line 6 , column 2 )
+    ( line 5 , column 2 )
     (FuncCall
        (FieldAccess
           (Ident (Identifier "update")) (Ident (Identifier "s")))
@@ -78,7 +38,7 @@
 , SoftBreak
 , Code
     "typ/meta/state-00.typ"
-    ( line 8 , column 2 )
+    ( line 7 , column 2 )
     (FuncCall
        (FieldAccess
           (Ident (Identifier "update")) (Ident (Identifier "s")))
@@ -89,7 +49,7 @@
 , Space
 , Code
     "typ/meta/state-00.typ"
-    ( line 10 , column 6 )
+    ( line 9 , column 6 )
     (FuncCall
        (FieldAccess
           (Ident (Identifier "display")) (Ident (Identifier "s")))
@@ -101,7 +61,7 @@
 , Space
 , Code
     "typ/meta/state-00.typ"
-    ( line 11 , column 7 )
+    ( line 10 , column 7 )
     (FuncCall
        (Ident (Identifier "locate"))
        [ NormalArg
@@ -135,5 +95,5 @@
 , Text "."
 , ParBreak
 ]
-"typ/meta/state-00.typ" (line 5, column 2):
+"typ/meta/state-00.typ" (line 4, column 2):
 Content does not have a method "update" or FieldAccess requires a dictionary

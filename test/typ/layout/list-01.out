@@ -1,45 +1,5 @@
 --- parse tree ---
-[ Code
-    "typ/layout/list-01.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/layout/list-01.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/layout/list-01.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, BulletListItem
+[ BulletListItem
     [ Text "First"
     , Space
     , Text "level"
@@ -98,18 +58,16 @@
     ]
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 list(children: ({ text(body: [First level.]), 
-                                   parbreak(), 
-                                   list(children: ({ text(body: [Second level.
+document(body: list(children: ({ text(body: [First level.]), 
+                                 parbreak(), 
+                                 list(children: ({ text(body: [Second level.
 There are multiple paragraphs.]), 
-                                                     parbreak(), 
-                                                     list(children: (text(body: [Third level.
+                                                   parbreak(), 
+                                                   list(children: (text(body: [Third level.
 ]))), 
-                                                     text(body: [Still the same bullet point.
+                                                   text(body: [Still the same bullet point.
 ]) }, 
-                                                   text(body: [Still level 2.
+                                                 text(body: [Still level 2.
 ]))) }, 
-                                 { text(body: [At the top.]), 
-                                   parbreak() })) })
+                               { text(body: [At the top.]), 
+                                 parbreak() })))

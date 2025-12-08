@@ -1,45 +1,5 @@
 --- parse tree ---
-[ Code
-    "typ/math/op-03.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/math/op-03.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/math/op-03.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Equation
     True
     [ MAttach
@@ -50,7 +10,7 @@
               [ Text "x"
               , Code
                   "typ/math/op-03.typ"
-                  ( line 3 , column 32 )
+                  ( line 2 , column 32 )
                   (FieldAccess
                      (Ident (Identifier "eq")) (Ident (Identifier "colon")))
               , Text "1"
@@ -58,7 +18,7 @@
         Nothing
         (Code
            "typ/math/op-03.typ"
-           ( line 3 , column 3 )
+           ( line 2 , column 3 )
            (FuncCall
               (Ident (Identifier "op"))
               [ BlockArg [ Text "myop" ]
@@ -74,7 +34,7 @@
               [ Text "x"
               , Code
                   "typ/math/op-03.typ"
-                  ( line 4 , column 31 )
+                  ( line 3 , column 31 )
                   (FieldAccess
                      (Ident (Identifier "eq")) (Ident (Identifier "colon")))
               , Text "1"
@@ -82,7 +42,7 @@
         Nothing
         (Code
            "typ/math/op-03.typ"
-           ( line 4 , column 3 )
+           ( line 3 , column 3 )
            (FuncCall
               (Ident (Identifier "op"))
               [ BlockArg [ Text "myop" ]
@@ -93,9 +53,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 math.equation(block: true, 
+document(body: { math.equation(block: true, 
                                body: { math.attach(b: { text(body: [x]), 
                                                         text(body: [≔]), 
                                                         text(body: [1]) }, 

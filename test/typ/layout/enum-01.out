@@ -1,45 +1,5 @@
 --- parse tree ---
-[ Code
-    "typ/layout/enum-01.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/layout/enum-01.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/layout/enum-01.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, EnumListItem (Just 0) [ Text "Before" , Space , Text "first!" ]
+[ EnumListItem (Just 0) [ Text "Before" , Space , Text "first!" ]
 , SoftBreak
 , EnumListItem
     (Just 1)
@@ -52,14 +12,12 @@
 , EnumListItem Nothing [ Text "Second" , ParBreak ]
 ]
 --- evaluated ---
-document(body: { text(body: [
+document(body: enum(children: (text(body: [Before first!]), 
+                               { text(body: [First.
 ]), 
-                 enum(children: (text(body: [Before first!]), 
-                                 { text(body: [First.
-]), 
-                                   enum(children: (text(body: [Indented
+                                 enum(children: (text(body: [Indented
 ])), 
-                                        start: 2) }, 
-                                 { text(body: [Second]), 
-                                   parbreak() }), 
-                      start: 0) })
+                                      start: 2) }, 
+                               { text(body: [Second]), 
+                                 parbreak() }), 
+                    start: 0))

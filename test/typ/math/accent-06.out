@@ -1,56 +1,16 @@
 --- parse tree ---
-[ Code
-    "typ/math/accent-06.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/math/accent-06.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/math/accent-06.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Equation
     True
     [ Code
         "typ/math/accent-06.typ"
-        ( line 3 , column 3 )
+        ( line 2 , column 3 )
         (FuncCall
            (Ident (Identifier "tilde"))
            [ BlockArg
                [ Code
                    "typ/math/accent-06.typ"
-                   ( line 3 , column 9 )
+                   ( line 2 , column 9 )
                    (Ident (Identifier "integral"))
                ]
            ])
@@ -60,20 +20,20 @@
         (Just (Text "b"))
         (Code
            "typ/math/accent-06.typ"
-           ( line 3 , column 20 )
+           ( line 2 , column 20 )
            (FuncCall
               (Ident (Identifier "tilde"))
               [ BlockArg
                   [ Code
                       "typ/math/accent-06.typ"
-                      ( line 3 , column 26 )
+                      ( line 2 , column 26 )
                       (Ident (Identifier "integral"))
                   ]
               ]))
     , Text ","
     , Code
         "typ/math/accent-06.typ"
-        ( line 3 , column 41 )
+        ( line 2 , column 41 )
         (FuncCall
            (Ident (Identifier "tilde"))
            [ BlockArg
@@ -82,7 +42,7 @@
                    (Just (Text "b"))
                    (Code
                       "typ/math/accent-06.typ"
-                      ( line 3 , column 47 )
+                      ( line 2 , column 47 )
                       (Ident (Identifier "integral")))
                ]
            ])
@@ -90,9 +50,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 math.equation(block: true, 
+document(body: { math.equation(block: true, 
                                body: { math.accent(accent: ∼, 
                                                    base: text(body: [∫])), 
                                        text(body: [,]), 

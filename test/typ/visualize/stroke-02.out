@@ -1,48 +1,8 @@
 --- parse tree ---
-[ Code
-    "typ/visualize/stroke-02.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/visualize/stroke-02.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/visualize/stroke-02.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Code
     "typ/visualize/stroke-02.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (FuncCall
        (Ident (Identifier "rect"))
        [ KeyValArg (Identifier "width") (Literal (Numeric 20.0 Pt))
@@ -52,13 +12,13 @@
 , SoftBreak
 , Code
     "typ/visualize/stroke-02.typ"
-    ( line 4 , column 2 )
+    ( line 3 , column 2 )
     (FuncCall
        (Ident (Identifier "v")) [ NormalArg (Literal (Numeric 3.0 Pt)) ])
 , SoftBreak
 , Code
     "typ/visualize/stroke-02.typ"
-    ( line 5 , column 2 )
+    ( line 4 , column 2 )
     (FuncCall
        (Ident (Identifier "rect"))
        [ KeyValArg (Identifier "width") (Literal (Numeric 20.0 Pt))
@@ -79,13 +39,13 @@
 , SoftBreak
 , Code
     "typ/visualize/stroke-02.typ"
-    ( line 6 , column 2 )
+    ( line 5 , column 2 )
     (FuncCall
        (Ident (Identifier "v")) [ NormalArg (Literal (Numeric 3.0 Pt)) ])
 , SoftBreak
 , Code
     "typ/visualize/stroke-02.typ"
-    ( line 7 , column 2 )
+    ( line 6 , column 2 )
     (FuncCall
        (Ident (Identifier "rect"))
        [ KeyValArg (Identifier "width") (Literal (Numeric 20.0 Pt))
@@ -100,9 +60,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 rect(height: 20.0pt, 
+document(body: { rect(height: 20.0pt, 
                       stroke: rgb(100%,25%,21%,100%), 
                       width: 20.0pt), 
                  text(body: [

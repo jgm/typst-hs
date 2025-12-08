@@ -1,48 +1,8 @@
 --- parse tree ---
-[ Code
-    "typ/math/matrix-00.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/math/matrix-00.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/math/matrix-00.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Code
     "typ/math/matrix-00.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (Set
        (Ident (Identifier "align"))
        [ NormalArg (Ident (Identifier "center")) ])
@@ -51,62 +11,62 @@
     False
     [ Code
         "typ/math/matrix-00.typ"
-        ( line 4 , column 2 )
+        ( line 3 , column 2 )
         (FuncCall (Ident (Identifier "mat")) [])
     , Code
         "typ/math/matrix-00.typ"
-        ( line 4 , column 8 )
+        ( line 3 , column 8 )
+        (Ident (Identifier "dot"))
+    , Code
+        "typ/math/matrix-00.typ"
+        ( line 4 , column 2 )
+        (FuncCall
+           (Ident (Identifier "mat"))
+           [ ArrayArg [ [ MGroup Nothing Nothing [] ] ] ])
+    , Code
+        "typ/math/matrix-00.typ"
+        ( line 4 , column 9 )
         (Ident (Identifier "dot"))
     , Code
         "typ/math/matrix-00.typ"
         ( line 5 , column 2 )
         (FuncCall
            (Ident (Identifier "mat"))
-           [ ArrayArg [ [ MGroup Nothing Nothing [] ] ] ])
+           [ BlockArg [ Text "1" ] , BlockArg [ Text "2" ] ])
     , Code
         "typ/math/matrix-00.typ"
-        ( line 5 , column 9 )
+        ( line 5 , column 12 )
         (Ident (Identifier "dot"))
     , Code
         "typ/math/matrix-00.typ"
         ( line 6 , column 2 )
         (FuncCall
            (Ident (Identifier "mat"))
-           [ BlockArg [ Text "1" ] , BlockArg [ Text "2" ] ])
-    , Code
-        "typ/math/matrix-00.typ"
-        ( line 6 , column 12 )
-        (Ident (Identifier "dot"))
+           [ ArrayArg [ [ Text "1" , Text "2" ] ] ])
+    , HardBreak
     , Code
         "typ/math/matrix-00.typ"
         ( line 7 , column 2 )
         (FuncCall
            (Ident (Identifier "mat"))
-           [ ArrayArg [ [ Text "1" , Text "2" ] ] ])
-    , HardBreak
+           [ ArrayArg [ [ Text "1" ] , [ Text "2" ] ] ])
+    , Code
+        "typ/math/matrix-00.typ"
+        ( line 7 , column 12 )
+        (Ident (Identifier "dot"))
     , Code
         "typ/math/matrix-00.typ"
         ( line 8 , column 2 )
         (FuncCall
            (Ident (Identifier "mat"))
-           [ ArrayArg [ [ Text "1" ] , [ Text "2" ] ] ])
+           [ ArrayArg [ [ Text "1" , Text "2" ] , [ Text "3" , Text "4" ] ] ])
     , Code
         "typ/math/matrix-00.typ"
-        ( line 8 , column 12 )
+        ( line 8 , column 18 )
         (Ident (Identifier "dot"))
     , Code
         "typ/math/matrix-00.typ"
         ( line 9 , column 2 )
-        (FuncCall
-           (Ident (Identifier "mat"))
-           [ ArrayArg [ [ Text "1" , Text "2" ] , [ Text "3" , Text "4" ] ] ])
-    , Code
-        "typ/math/matrix-00.typ"
-        ( line 9 , column 18 )
-        (Ident (Identifier "dot"))
-    , Code
-        "typ/math/matrix-00.typ"
-        ( line 10 , column 2 )
         (FuncCall
            (Ident (Identifier "mat"))
            [ ArrayArg
@@ -122,8 +82,6 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
 ]), 
                  math.equation(block: false, 
                                body: { math.mat(rows: ()), 

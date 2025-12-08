@@ -2,46 +2,6 @@
 [ Code
     "typ/text/quotes-00.typ"
     ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/text/quotes-00.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/text/quotes-00.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Code
-    "typ/text/quotes-00.typ"
-    ( line 2 , column 2 )
     (Set
        (Ident (Identifier "page"))
        [ KeyValArg (Identifier "width") (Literal (Numeric 250.0 Pt)) ])
@@ -49,7 +9,7 @@
 , Comment
 , Code
     "typ/text/quotes-00.typ"
-    ( line 5 , column 2 )
+    ( line 4 , column 2 )
     (Set
        (Ident (Identifier "text"))
        [ KeyValArg (Identifier "lang") (Literal (String "en")) ])
@@ -91,7 +51,7 @@
 , ParBreak
 , Code
     "typ/text/quotes-00.typ"
-    ( line 8 , column 2 )
+    ( line 7 , column 2 )
     (Set
        (Ident (Identifier "text"))
        [ KeyValArg (Identifier "lang") (Literal (String "de")) ])
@@ -129,7 +89,7 @@
 , ParBreak
 , Code
     "typ/text/quotes-00.typ"
-    ( line 11 , column 2 )
+    ( line 10 , column 2 )
     (Set
        (Ident (Identifier "text"))
        [ KeyValArg (Identifier "lang") (Literal (String "de"))
@@ -169,7 +129,7 @@
 , ParBreak
 , Code
     "typ/text/quotes-00.typ"
-    ( line 14 , column 2 )
+    ( line 13 , column 2 )
     (Set
        (Ident (Identifier "text"))
        [ KeyValArg (Identifier "lang") (Literal (String "es"))
@@ -211,7 +171,7 @@
 , ParBreak
 , Code
     "typ/text/quotes-00.typ"
-    ( line 17 , column 2 )
+    ( line 16 , column 2 )
     (Set
        (Ident (Identifier "text"))
        [ KeyValArg (Identifier "lang") (Literal (String "es"))
@@ -253,7 +213,7 @@
 , ParBreak
 , Code
     "typ/text/quotes-00.typ"
-    ( line 20 , column 2 )
+    ( line 19 , column 2 )
     (Set
        (Ident (Identifier "text"))
        [ KeyValArg (Identifier "lang") (Literal (String "fr"))
@@ -301,7 +261,7 @@
 , ParBreak
 , Code
     "typ/text/quotes-00.typ"
-    ( line 23 , column 2 )
+    ( line 22 , column 2 )
     (Set
        (Ident (Identifier "text"))
        [ KeyValArg (Identifier "lang") (Literal (String "fi")) ])
@@ -333,7 +293,7 @@
 , ParBreak
 , Code
     "typ/text/quotes-00.typ"
-    ( line 26 , column 2 )
+    ( line 25 , column 2 )
     (Set
        (Ident (Identifier "text"))
        [ KeyValArg (Identifier "lang") (Literal (String "he")) ])
@@ -367,7 +327,7 @@
 , ParBreak
 , Code
     "typ/text/quotes-00.typ"
-    ( line 29 , column 2 )
+    ( line 28 , column 2 )
     (Set
        (Ident (Identifier "text"))
        [ KeyValArg (Identifier "lang") (Literal (String "ro")) ])
@@ -407,7 +367,7 @@
 , ParBreak
 , Code
     "typ/text/quotes-00.typ"
-    ( line 32 , column 2 )
+    ( line 31 , column 2 )
     (Set
        (Ident (Identifier "text"))
        [ KeyValArg (Identifier "lang") (Literal (String "ru")) ])
@@ -447,9 +407,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 parbreak(), 
+document(body: { parbreak(), 
                  text(body: [
 “The horse eats no cucumber salad” was the first sentence ever uttered on the ‘telephone.’], 
                       lang: "en"), 

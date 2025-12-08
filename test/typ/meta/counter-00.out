@@ -1,48 +1,8 @@
 --- parse tree ---
-[ Code
-    "typ/meta/counter-00.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/meta/counter-00.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/meta/counter-00.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Code
     "typ/meta/counter-00.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (Let
        (BasicBind (Just (Identifier "mine")))
        (FuncCall
@@ -54,7 +14,7 @@
 , Space
 , Code
     "typ/meta/counter-00.typ"
-    ( line 5 , column 9 )
+    ( line 4 , column 9 )
     (FuncCall
        (Ident (Identifier "locate"))
        [ NormalArg
@@ -73,7 +33,7 @@
 , HardBreak
 , Code
     "typ/meta/counter-00.typ"
-    ( line 6 , column 2 )
+    ( line 5 , column 2 )
     (FuncCall
        (FieldAccess
           (Ident (Identifier "step")) (Ident (Identifier "mine")))
@@ -84,7 +44,7 @@
 , Space
 , Code
     "typ/meta/counter-00.typ"
-    ( line 7 , column 9 )
+    ( line 6 , column 9 )
     (FuncCall
        (FieldAccess
           (Ident (Identifier "display")) (Ident (Identifier "mine")))
@@ -93,7 +53,7 @@
 , HardBreak
 , Code
     "typ/meta/counter-00.typ"
-    ( line 8 , column 2 )
+    ( line 7 , column 2 )
     (FuncCall
        (FieldAccess
           (Ident (Identifier "update")) (Ident (Identifier "mine")))
@@ -101,7 +61,7 @@
 , SoftBreak
 , Code
     "typ/meta/counter-00.typ"
-    ( line 9 , column 2 )
+    ( line 8 , column 2 )
     (FuncCall
        (FieldAccess
           (Ident (Identifier "display")) (Ident (Identifier "mine")))
@@ -112,7 +72,7 @@
 , HardBreak
 , Code
     "typ/meta/counter-00.typ"
-    ( line 10 , column 2 )
+    ( line 9 , column 2 )
     (FuncCall
        (FieldAccess
           (Ident (Identifier "step")) (Ident (Identifier "mine")))
@@ -120,7 +80,7 @@
 , SoftBreak
 , Code
     "typ/meta/counter-00.typ"
-    ( line 11 , column 2 )
+    ( line 10 , column 2 )
     (FuncCall
        (FieldAccess
           (Ident (Identifier "step")) (Ident (Identifier "mine")))
@@ -131,7 +91,7 @@
 , Space
 , Code
     "typ/meta/counter-00.typ"
-    ( line 12 , column 10 )
+    ( line 11 , column 10 )
     (FuncCall
        (FieldAccess
           (Ident (Identifier "display")) (Ident (Identifier "mine")))
@@ -139,7 +99,7 @@
 , SoftBreak
 , Code
     "typ/meta/counter-00.typ"
-    ( line 13 , column 2 )
+    ( line 12 , column 2 )
     (FuncCall
        (FieldAccess
           (Ident (Identifier "update")) (Ident (Identifier "mine")))
@@ -151,7 +111,7 @@
 , SoftBreak
 , Code
     "typ/meta/counter-00.typ"
-    ( line 14 , column 2 )
+    ( line 13 , column 2 )
     (FuncCall
        (FieldAccess
           (Ident (Identifier "step")) (Ident (Identifier "mine")))
@@ -159,9 +119,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 parbreak(), 
+document(body: { parbreak(), 
                  text(body: [Final: ]), 
                  locate(func: ), 
                  text(body: [ ]), 

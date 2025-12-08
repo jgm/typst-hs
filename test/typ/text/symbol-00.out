@@ -2,52 +2,12 @@
 [ Code
     "typ/text/symbol-00.typ"
     ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/text/symbol-00.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/text/symbol-00.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Code
-    "typ/text/symbol-00.typ"
-    ( line 2 , column 2 )
     (FieldAccess
        (Ident (Identifier "face")) (Ident (Identifier "emoji")))
 , SoftBreak
 , Code
     "typ/text/symbol-00.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (FieldAccess
        (Ident (Identifier "old"))
        (FieldAccess
@@ -55,13 +15,13 @@
 , SoftBreak
 , Code
     "typ/text/symbol-00.typ"
-    ( line 4 , column 2 )
+    ( line 3 , column 2 )
     (FieldAccess
        (Ident (Identifier "turtle")) (Ident (Identifier "emoji")))
 , ParBreak
 , Code
     "typ/text/symbol-00.typ"
-    ( line 6 , column 2 )
+    ( line 5 , column 2 )
     (Set
        (Ident (Identifier "text"))
        [ KeyValArg
@@ -70,13 +30,13 @@
 , SoftBreak
 , Code
     "typ/text/symbol-00.typ"
-    ( line 7 , column 2 )
+    ( line 6 , column 2 )
     (FieldAccess
        (Ident (Identifier "arrow")) (Ident (Identifier "sym")))
 , SoftBreak
 , Code
     "typ/text/symbol-00.typ"
-    ( line 8 , column 2 )
+    ( line 7 , column 2 )
     (FieldAccess
        (Ident (Identifier "l"))
        (FieldAccess
@@ -84,7 +44,7 @@
 , SoftBreak
 , Code
     "typ/text/symbol-00.typ"
-    ( line 9 , column 2 )
+    ( line 8 , column 2 )
     (FieldAccess
        (Ident (Identifier "squiggly"))
        (FieldAccess
@@ -94,7 +54,7 @@
 , SoftBreak
 , Code
     "typ/text/symbol-00.typ"
-    ( line 10 , column 2 )
+    ( line 9 , column 2 )
     (FieldAccess
        (Ident (Identifier "hook"))
        (FieldAccess
@@ -104,7 +64,7 @@
 , ParBreak
 , Code
     "typ/text/symbol-00.typ"
-    ( line 12 , column 2 )
+    ( line 11 , column 2 )
     (FieldAccess
        (Ident (Identifier "r"))
        (FieldAccess
@@ -116,7 +76,7 @@
 , Text "this"
 , Code
     "typ/text/symbol-00.typ"
-    ( line 12 , column 28 )
+    ( line 11 , column 28 )
     (FieldAccess
        (Ident (Identifier "l"))
        (FieldAccess
@@ -124,9 +84,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 text(body: [😀]), 
+document(body: { text(body: [😀]), 
                  text(body: [
 ]), 
                  text(body: [👵]), 

@@ -1,48 +1,8 @@
 --- parse tree ---
-[ Code
-    "typ/math/style-05.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/math/style-05.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/math/style-05.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Code
     "typ/math/style-05.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (Show
        (Just
           (FieldAccess
@@ -56,12 +16,12 @@
     [ Text "v"
     , Code
         "typ/math/style-05.typ"
-        ( line 4 , column 5 )
+        ( line 3 , column 5 )
         (FieldAccess
            (Ident (Identifier "eq")) (Ident (Identifier "colon")))
     , Code
         "typ/math/style-05.typ"
-        ( line 4 , column 8 )
+        ( line 3 , column 8 )
         (FuncCall
            (Ident (Identifier "vec"))
            [ BlockArg [ Text "1" , Text "+" , Text "2" ]
@@ -69,20 +29,20 @@
                [ Text "2"
                , Code
                    "typ/math/style-05.typ"
-                   ( line 4 , column 21 )
+                   ( line 3 , column 21 )
                    (Ident (Identifier "minus"))
                , Text "4"
                ]
            , BlockArg
                [ Code
                    "typ/math/style-05.typ"
-                   ( line 4 , column 26 )
+                   ( line 3 , column 26 )
                    (FuncCall (Ident (Identifier "sqrt")) [ BlockArg [ Text "3" ] ])
                ]
            , BlockArg
                [ Code
                    "typ/math/style-05.typ"
-                   ( line 4 , column 35 )
+                   ( line 3 , column 35 )
                    (FuncCall (Ident (Identifier "arrow")) [ BlockArg [ Text "x" ] ])
                ]
            ])
@@ -93,8 +53,6 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
 ]), 
                  math.equation(block: true, 
                                body: { text(body: [v]), 

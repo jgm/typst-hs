@@ -3,46 +3,6 @@
     "typ/text/deco-00.typ"
     ( line 1 , column 2 )
     (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/text/deco-00.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/text/deco-00.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Code
-    "typ/text/deco-00.typ"
-    ( line 2 , column 2 )
-    (Let
        (BasicBind (Just (Identifier "red")))
        (FuncCall
           (Ident (Identifier "rgb"))
@@ -51,7 +11,7 @@
 , Comment
 , Code
     "typ/text/deco-00.typ"
-    ( line 5 , column 2 )
+    ( line 4 , column 2 )
     (FuncCall
        (Ident (Identifier "strike"))
        [ BlockArg
@@ -75,7 +35,7 @@
 , Comment
 , Code
     "typ/text/deco-00.typ"
-    ( line 8 , column 2 )
+    ( line 7 , column 2 )
     (FuncCall
        (Ident (Identifier "underline"))
        [ KeyValArg (Identifier "offset") (Literal (Numeric 5.0 Pt))
@@ -85,7 +45,7 @@
 , Comment
 , Code
     "typ/text/deco-00.typ"
-    ( line 11 , column 2 )
+    ( line 10 , column 2 )
     (FuncCall
        (Ident (Identifier "underline"))
        [ KeyValArg (Identifier "stroke") (Ident (Identifier "red"))
@@ -107,7 +67,7 @@
 , Comment
 , Code
     "typ/text/deco-00.typ"
-    ( line 14 , column 2 )
+    ( line 13 , column 2 )
     (FuncCall
        (Ident (Identifier "text"))
        [ KeyValArg (Identifier "fill") (Ident (Identifier "red"))
@@ -130,7 +90,7 @@
 , Comment
 , Code
     "typ/text/deco-00.typ"
-    ( line 17 , column 2 )
+    ( line 16 , column 2 )
     (FuncCall
        (Ident (Identifier "overline"))
        [ NormalArg
@@ -151,9 +111,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 parbreak(), 
+document(body: { parbreak(), 
                  strike(body: text(body: [Statements dreamt up by the utterly deranged.])), 
                  parbreak(), 
                  underline(body: text(body: [Further below.]), 

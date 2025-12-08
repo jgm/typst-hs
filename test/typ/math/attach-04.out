@@ -1,45 +1,5 @@
 --- parse tree ---
-[ Code
-    "typ/math/attach-04.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/math/attach-04.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/math/attach-04.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Equation
     True
     [ MFrac
@@ -63,7 +23,7 @@
         (Text "1")
         (Code
            "typ/math/attach-04.typ"
-           ( line 4 , column 5 )
+           ( line 3 , column 5 )
            (FuncCall
               (Ident (Identifier "attach"))
               [ BlockArg [ Text "V" ]
@@ -73,7 +33,7 @@
                      (Content
                         [ Code
                             "typ/math/attach-04.typ"
-                            ( line 4 , column 19 )
+                            ( line 3 , column 19 )
                             (FuncCall
                                (Ident (Identifier "attach"))
                                [ BlockArg [ Text "2" ]
@@ -83,7 +43,7 @@
                                       (Content
                                          [ Code
                                              "typ/math/attach-04.typ"
-                                             ( line 4 , column 33 )
+                                             ( line 3 , column 33 )
                                              (FuncCall
                                                 (Ident (Identifier "attach"))
                                                 [ BlockArg [ Text "3" ]
@@ -93,7 +53,7 @@
                                                        (Content
                                                           [ Code
                                                               "typ/math/attach-04.typ"
-                                                              ( line 4 , column 47 )
+                                                              ( line 3 , column 47 )
                                                               (FuncCall
                                                                  (Ident (Identifier "attach"))
                                                                  [ BlockArg [ Text "4" ]
@@ -110,13 +70,13 @@
     , Text ","
     , Code
         "typ/math/attach-04.typ"
-        ( line 5 , column 3 )
+        ( line 4 , column 3 )
         (FuncCall
            (Ident (Identifier "attach"))
            [ BlockArg
                [ Code
                    "typ/math/attach-04.typ"
-                   ( line 5 , column 10 )
+                   ( line 4 , column 10 )
                    (Ident (Identifier "Omega"))
                ]
            , KeyValArg
@@ -125,7 +85,7 @@
                   (Content
                      [ Code
                          "typ/math/attach-04.typ"
-                         ( line 6 , column 9 )
+                         ( line 5 , column 9 )
                          (FuncCall
                             (Ident (Identifier "attach"))
                             [ BlockArg [ Text "2" ]
@@ -135,7 +95,7 @@
                                    (Content
                                       [ Code
                                           "typ/math/attach-04.typ"
-                                          ( line 6 , column 23 )
+                                          ( line 5 , column 23 )
                                           (FuncCall
                                              (Ident (Identifier "attach"))
                                              [ BlockArg [ Text "3" ]
@@ -145,7 +105,7 @@
                                                     (Content
                                                        [ Code
                                                            "typ/math/attach-04.typ"
-                                                           ( line 6 , column 37 )
+                                                           ( line 5 , column 37 )
                                                            (FuncCall
                                                               (Ident (Identifier "attach"))
                                                               [ BlockArg [ Text "4" ]
@@ -164,7 +124,7 @@
                   (Content
                      [ Code
                          "typ/math/attach-04.typ"
-                         ( line 7 , column 9 )
+                         ( line 6 , column 9 )
                          (FuncCall
                             (Ident (Identifier "attach"))
                             [ BlockArg [ Text "2" ]
@@ -174,7 +134,7 @@
                                    (Content
                                       [ Code
                                           "typ/math/attach-04.typ"
-                                          ( line 7 , column 23 )
+                                          ( line 6 , column 23 )
                                           (FuncCall
                                              (Ident (Identifier "attach"))
                                              [ BlockArg [ Text "3" ]
@@ -184,7 +144,7 @@
                                                     (Content
                                                        [ Code
                                                            "typ/math/attach-04.typ"
-                                                           ( line 7 , column 37 )
+                                                           ( line 6 , column 37 )
                                                            (FuncCall
                                                               (Ident (Identifier "attach"))
                                                               [ BlockArg [ Text "4" ]
@@ -203,7 +163,7 @@
                   (Content
                      [ Code
                          "typ/math/attach-04.typ"
-                         ( line 8 , column 9 )
+                         ( line 7 , column 9 )
                          (FuncCall
                             (Ident (Identifier "attach"))
                             [ BlockArg [ Text "2" ]
@@ -213,7 +173,7 @@
                                    (Content
                                       [ Code
                                           "typ/math/attach-04.typ"
-                                          ( line 8 , column 23 )
+                                          ( line 7 , column 23 )
                                           (FuncCall
                                              (Ident (Identifier "attach"))
                                              [ BlockArg [ Text "3" ]
@@ -223,7 +183,7 @@
                                                     (Content
                                                        [ Code
                                                            "typ/math/attach-04.typ"
-                                                           ( line 8 , column 37 )
+                                                           ( line 7 , column 37 )
                                                            (FuncCall
                                                               (Ident (Identifier "attach"))
                                                               [ BlockArg [ Text "4" ]
@@ -242,7 +202,7 @@
                   (Content
                      [ Code
                          "typ/math/attach-04.typ"
-                         ( line 9 , column 9 )
+                         ( line 8 , column 9 )
                          (FuncCall
                             (Ident (Identifier "attach"))
                             [ BlockArg [ Text "2" ]
@@ -252,7 +212,7 @@
                                    (Content
                                       [ Code
                                           "typ/math/attach-04.typ"
-                                          ( line 9 , column 23 )
+                                          ( line 8 , column 23 )
                                           (FuncCall
                                              (Ident (Identifier "attach"))
                                              [ BlockArg [ Text "3" ]
@@ -262,7 +222,7 @@
                                                     (Content
                                                        [ Code
                                                            "typ/math/attach-04.typ"
-                                                           ( line 9 , column 37 )
+                                                           ( line 8 , column 37 )
                                                            (FuncCall
                                                               (Ident (Identifier "attach"))
                                                               [ BlockArg [ Text "4" ]
@@ -280,9 +240,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 math.equation(block: true, 
+document(body: { math.equation(block: true, 
                                body: { math.frac(denom: math.attach(b: none, 
                                                                     base: math.attach(b: none, 
                                                                                       base: math.attach(b: none, 

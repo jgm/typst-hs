@@ -1,48 +1,8 @@
 --- parse tree ---
-[ Code
-    "typ/meta/footnote-04.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/meta/footnote-04.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/meta/footnote-04.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Code
     "typ/meta/footnote-04.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (Show
        (Just (Ident (Identifier "footnote")))
        (Set
@@ -51,7 +11,7 @@
 , SoftBreak
 , Code
     "typ/meta/footnote-04.typ"
-    ( line 4 , column 2 )
+    ( line 3 , column 2 )
     (Show
        (Just
           (FieldAccess
@@ -64,7 +24,7 @@
 , SoftBreak
 , Code
     "typ/meta/footnote-04.typ"
-    ( line 5 , column 2 )
+    ( line 4 , column 2 )
     (Set
        (FieldAccess
           (Ident (Identifier "entry")) (Ident (Identifier "footnote")))
@@ -83,7 +43,7 @@
 , Space
 , Code
     "typ/meta/footnote-04.typ"
-    ( line 12 , column 23 )
+    ( line 11 , column 23 )
     (FuncCall
        (Ident (Identifier "footnote"))
        [ BlockArg
@@ -100,8 +60,6 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
 ]), 
                  text(body: [
 ]), 

@@ -2,53 +2,13 @@
 [ Code
     "typ/layout/grid-1-01.typ"
     ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/layout/grid-1-01.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/layout/grid-1-01.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Code
-    "typ/layout/grid-1-01.typ"
-    ( line 2 , column 2 )
     (Set
        (Ident (Identifier "rect"))
        [ KeyValArg (Identifier "inset") (Literal (Numeric 0.0 Pt)) ])
 , SoftBreak
 , Code
     "typ/layout/grid-1-01.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (FuncCall
        (Ident (Identifier "grid"))
        [ KeyValArg
@@ -88,8 +48,6 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
 ]), 
                  grid(children: (rect(body: text(body: [dddaa aaa aaa]), 
                                       fill: rgb(13%,61%,67%,100%), 

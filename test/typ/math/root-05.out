@@ -1,50 +1,10 @@
 --- parse tree ---
-[ Code
-    "typ/math/root-05.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/math/root-05.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/math/root-05.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Equation
     True
     [ Code
         "typ/math/root-05.typ"
-        ( line 3 , column 3 )
+        ( line 2 , column 3 )
         (FuncCall
            (Ident (Identifier "root"))
            [ NormalArg
@@ -53,7 +13,7 @@
     , Text "="
     , Code
         "typ/math/root-05.typ"
-        ( line 3 , column 10 )
+        ( line 2 , column 10 )
         (FuncCall
            (Ident (Identifier "sqrt"))
            [ BlockArg [ MAttach Nothing (Just (Text "3")) (Text "2") ] ])
@@ -63,18 +23,18 @@
     True
     [ Code
         "typ/math/root-05.typ"
-        ( line 4 , column 3 )
+        ( line 3 , column 3 )
         (Ident (Identifier "root"))
     , MGroup (Just "(") (Just ")") [ Text "x" , Text "+" , Text "y" ]
     , Code
         "typ/math/root-05.typ"
-        ( line 4 , column 10 )
+        ( line 3 , column 10 )
         (Ident (Identifier "quad"))
     , Text "\8731"
     , Text "x"
     , Code
         "typ/math/root-05.typ"
-        ( line 4 , column 18 )
+        ( line 3 , column 18 )
         (Ident (Identifier "quad"))
     , Text "\8732"
     , Text "x"
@@ -87,7 +47,7 @@
         (Just ")")
         [ Code
             "typ/math/root-05.typ"
-            ( line 5 , column 4 )
+            ( line 4 , column 4 )
             (FuncCall
                (Ident (Identifier "root"))
                [ NormalArg (Block (Content [ Text "2" ])) ])
@@ -100,7 +60,7 @@
         (Just ")")
         [ Code
             "typ/math/root-05.typ"
-            ( line 5 , column 13 )
+            ( line 4 , column 13 )
             (FuncCall (Ident (Identifier "sqrt")) [ BlockArg [ Text "2" ] ])
         , Text "+"
         , Text "3"
@@ -109,9 +69,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 math.equation(block: true, 
+document(body: { math.equation(block: true, 
                                body: { math.root(index: math.attach(b: none, 
                                                                     base: text(body: [2]), 
                                                                     t: text(body: [3]))), 

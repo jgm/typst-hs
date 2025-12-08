@@ -1,45 +1,53 @@
 --- parse tree ---
-[ Code
-    "typ/math/matrix-alignment-06.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/math/matrix-alignment-06.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/math/matrix-alignment-06.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
+[ Comment
+, Equation
+    True
+    [ Code
+        "typ/math/matrix-alignment-06.typ"
+        ( line 2 , column 3 )
+        (FuncCall
+           (Ident (Identifier "mat"))
+           [ ArrayArg
+               [ [ MGroup
+                     Nothing
+                     Nothing
+                     [ Code
+                         "typ/math/matrix-alignment-06.typ"
+                         ( line 2 , column 7 )
+                         (Ident (Identifier "minus"))
+                     , Text "1"
+                     ]
+                 , Text "1"
+                 , Text "1"
+                 ]
+               , [ Text "1"
+                 , MGroup
+                     Nothing
+                     Nothing
+                     [ Code
+                         "typ/math/matrix-alignment-06.typ"
+                         ( line 2 , column 20 )
+                         (Ident (Identifier "minus"))
+                     , Text "1"
+                     ]
+                 , Text "1"
+                 ]
+               , [ Text "1"
+                 , Text "1"
+                 , MGroup
+                     Nothing
+                     Nothing
+                     [ Code
+                         "typ/math/matrix-alignment-06.typ"
+                         ( line 2 , column 33 )
+                         (Ident (Identifier "minus"))
+                     , Text "1"
+                     ]
+                 ]
+               ]
+           ])
+    ]
 , SoftBreak
-, Comment
 , Equation
     True
     [ Code
@@ -56,32 +64,35 @@
                          ( line 3 , column 7 )
                          (Ident (Identifier "minus"))
                      , Text "1"
+                     , MAlignPoint
                      ]
-                 , Text "1"
-                 , Text "1"
+                 , MGroup Nothing Nothing [ Text "1" , MAlignPoint ]
+                 , MGroup Nothing Nothing [ Text "1" , MAlignPoint ]
                  ]
-               , [ Text "1"
+               , [ MGroup Nothing Nothing [ Text "1" , MAlignPoint ]
                  , MGroup
                      Nothing
                      Nothing
                      [ Code
                          "typ/math/matrix-alignment-06.typ"
-                         ( line 3 , column 20 )
+                         ( line 3 , column 24 )
                          (Ident (Identifier "minus"))
                      , Text "1"
+                     , MAlignPoint
                      ]
-                 , Text "1"
+                 , MGroup Nothing Nothing [ Text "1" , MAlignPoint ]
                  ]
-               , [ Text "1"
-                 , Text "1"
+               , [ MGroup Nothing Nothing [ Text "1" , MAlignPoint ]
+                 , MGroup Nothing Nothing [ Text "1" , MAlignPoint ]
                  , MGroup
                      Nothing
                      Nothing
                      [ Code
                          "typ/math/matrix-alignment-06.typ"
-                         ( line 3 , column 33 )
+                         ( line 3 , column 41 )
                          (Ident (Identifier "minus"))
                      , Text "1"
+                     , MAlignPoint
                      ]
                  ]
                ]
@@ -109,30 +120,28 @@
                  , MGroup Nothing Nothing [ Text "1" , MAlignPoint ]
                  , MGroup Nothing Nothing [ Text "1" , MAlignPoint ]
                  ]
-               , [ MGroup Nothing Nothing [ Text "1" , MAlignPoint ]
+               , [ Text "1"
                  , MGroup
                      Nothing
                      Nothing
                      [ Code
                          "typ/math/matrix-alignment-06.typ"
-                         ( line 4 , column 24 )
+                         ( line 4 , column 23 )
                          (Ident (Identifier "minus"))
                      , Text "1"
-                     , MAlignPoint
                      ]
-                 , MGroup Nothing Nothing [ Text "1" , MAlignPoint ]
+                 , Text "1"
                  ]
-               , [ MGroup Nothing Nothing [ Text "1" , MAlignPoint ]
-                 , MGroup Nothing Nothing [ Text "1" , MAlignPoint ]
+               , [ Text "1"
+                 , Text "1"
                  , MGroup
                      Nothing
                      Nothing
                      [ Code
                          "typ/math/matrix-alignment-06.typ"
-                         ( line 4 , column 41 )
+                         ( line 4 , column 36 )
                          (Ident (Identifier "minus"))
                      , Text "1"
-                     , MAlignPoint
                      ]
                  ]
                ]
@@ -150,15 +159,15 @@
                [ [ MGroup
                      Nothing
                      Nothing
-                     [ Code
+                     [ MAlignPoint
+                     , Code
                          "typ/math/matrix-alignment-06.typ"
-                         ( line 5 , column 7 )
+                         ( line 5 , column 8 )
                          (Ident (Identifier "minus"))
                      , Text "1"
-                     , MAlignPoint
                      ]
-                 , MGroup Nothing Nothing [ Text "1" , MAlignPoint ]
-                 , MGroup Nothing Nothing [ Text "1" , MAlignPoint ]
+                 , MGroup Nothing Nothing [ MAlignPoint , Text "1" ]
+                 , MGroup Nothing Nothing [ MAlignPoint , Text "1" ]
                  ]
                , [ Text "1"
                  , MGroup
@@ -187,61 +196,10 @@
                ]
            ])
     ]
-, SoftBreak
-, Equation
-    True
-    [ Code
-        "typ/math/matrix-alignment-06.typ"
-        ( line 6 , column 3 )
-        (FuncCall
-           (Ident (Identifier "mat"))
-           [ ArrayArg
-               [ [ MGroup
-                     Nothing
-                     Nothing
-                     [ MAlignPoint
-                     , Code
-                         "typ/math/matrix-alignment-06.typ"
-                         ( line 6 , column 8 )
-                         (Ident (Identifier "minus"))
-                     , Text "1"
-                     ]
-                 , MGroup Nothing Nothing [ MAlignPoint , Text "1" ]
-                 , MGroup Nothing Nothing [ MAlignPoint , Text "1" ]
-                 ]
-               , [ Text "1"
-                 , MGroup
-                     Nothing
-                     Nothing
-                     [ Code
-                         "typ/math/matrix-alignment-06.typ"
-                         ( line 6 , column 23 )
-                         (Ident (Identifier "minus"))
-                     , Text "1"
-                     ]
-                 , Text "1"
-                 ]
-               , [ Text "1"
-                 , Text "1"
-                 , MGroup
-                     Nothing
-                     Nothing
-                     [ Code
-                         "typ/math/matrix-alignment-06.typ"
-                         ( line 6 , column 36 )
-                         (Ident (Identifier "minus"))
-                     , Text "1"
-                     ]
-                 ]
-               ]
-           ])
-    ]
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 math.equation(block: true, 
+document(body: { math.equation(block: true, 
                                body: math.mat(rows: (({ text(body: [−]), 
                                                         text(body: [1]) }, 
                                                       text(body: [1]), 

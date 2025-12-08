@@ -1,72 +1,32 @@
 --- parse tree ---
-[ Code
-    "typ/math/spacing-02.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/math/spacing-02.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/math/spacing-02.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Equation
     False
     [ Text "a"
     , Code
         "typ/math/spacing-02.typ"
-        ( line 3 , column 4 )
+        ( line 2 , column 4 )
         (Ident (Identifier "thin"))
     , Text "b"
     , Text ","
     , Text "a"
     , Code
         "typ/math/spacing-02.typ"
-        ( line 3 , column 14 )
+        ( line 2 , column 14 )
         (Ident (Identifier "med"))
     , Text "b"
     , Text ","
     , Text "a"
     , Code
         "typ/math/spacing-02.typ"
-        ( line 3 , column 23 )
+        ( line 2 , column 23 )
         (Ident (Identifier "thick"))
     , Text "b"
     , Text ","
     , Text "a"
     , Code
         "typ/math/spacing-02.typ"
-        ( line 3 , column 34 )
+        ( line 2 , column 34 )
         (Ident (Identifier "quad"))
     , Text "b"
     ]
@@ -78,7 +38,7 @@
     , Text "="
     , Code
         "typ/math/spacing-02.typ"
-        ( line 4 , column 6 )
+        ( line 3 , column 6 )
         (Ident (Identifier "thin"))
     , Text "b"
     ]
@@ -89,24 +49,24 @@
     [ Text "a"
     , Code
         "typ/math/spacing-02.typ"
-        ( line 5 , column 4 )
+        ( line 4 , column 4 )
         (Ident (Identifier "minus"))
     , Text "b"
     , Code
         "typ/math/spacing-02.typ"
-        ( line 5 , column 8 )
+        ( line 4 , column 8 )
         (Ident (Identifier "equiv"))
     , Text "c"
     , Code
         "typ/math/spacing-02.typ"
-        ( line 5 , column 16 )
+        ( line 4 , column 16 )
         (Ident (Identifier "quad"))
     , MGroup
         (Just "(")
         (Just ")")
         [ Code
             "typ/math/spacing-02.typ"
-            ( line 5 , column 22 )
+            ( line 4 , column 22 )
             (Ident (Identifier "mod"))
         , Text "2"
         ]
@@ -114,9 +74,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 math.equation(block: false, 
+document(body: { math.equation(block: false, 
                                body: { text(body: [a]), 
                                        text(body: [ ]), 
                                        text(body: [b]), 
