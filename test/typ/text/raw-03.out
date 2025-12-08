@@ -1,13 +1,9 @@
 --- parse tree ---
-[ Comment
-, SoftBreak
-, RawBlock "" "```backticks```\n"
-, ParBreak
-]
+[ Comment , SoftBreak , RawBlock "" "```backticks```" , ParBreak ]
 --- evaluated ---
 document(body: { text(body: [
 ]), 
                  raw(block: true, 
                      lang: none, 
-                     text: "```backticks```\n"), 
+                     text: "```backticks```"), 
                  parbreak() })

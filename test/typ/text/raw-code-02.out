@@ -13,7 +13,7 @@
        (Ident (Identifier "text"))
        [ NormalArg (Literal (Numeric 6.0 Pt)) ])
 , ParBreak
-, RawBlock "py" "import this\n\ndef hi():\n  print(\"Hi!\")\n"
+, RawBlock "py" "import this\n\ndef hi():\n  print(\"Hi!\")"
 , ParBreak
 ]
 --- evaluated ---
@@ -22,5 +22,5 @@ document(body: { text(body: [
                  parbreak(), 
                  raw(block: true, 
                      lang: "py", 
-                     text: "import this\n\ndef hi():\n  print(\"Hi!\")\n"), 
+                     text: "import this\n\ndef hi():\n  print(\"Hi!\")"), 
                  parbreak() })

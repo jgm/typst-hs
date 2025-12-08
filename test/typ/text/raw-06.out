@@ -1,13 +1,9 @@
 --- parse tree ---
-[ Comment
-, SoftBreak
-, RawBlock "" "  A\n        B\n       C\n     "
-, ParBreak
-]
+[ Comment , SoftBreak , RawBlock "" "  A\n   B\n  C" , ParBreak ]
 --- evaluated ---
 document(body: { text(body: [
 ]), 
                  raw(block: true, 
                      lang: none, 
-                     text: "  A\n        B\n       C\n     "), 
+                     text: "  A\n   B\n  C"), 
                  parbreak() })

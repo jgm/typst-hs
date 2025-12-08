@@ -91,7 +91,7 @@
        (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 4)) ])
 , ParBreak
 , Heading 2 [ Text "Programmierung" ]
-, RawBlock "rust" "fn main() {\n  panic!(\"in the disco\");\n}\n"
+, RawBlock "rust" "fn main() {\n  panic!(\"in the disco\");\n}"
 , ParBreak
 , Heading 4 [ Text "Deep" , Space , Text "Stuff" ]
 , Text "Ok"
@@ -167,7 +167,7 @@ document(body: { text(body: [
                          outlined: false), 
                  raw(block: true, 
                      lang: "rust", 
-                     text: "fn main() {\n  panic!(\"in the disco\");\n}\n"), 
+                     text: "fn main() {\n  panic!(\"in the disco\");\n}"), 
                  parbreak(), 
                  heading(body: text(body: [Deep Stuff]), 
                          level: 4, 

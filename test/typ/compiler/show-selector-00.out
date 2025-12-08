@@ -99,7 +99,7 @@
 , Text "justification"
 , Text "."
 , ParBreak
-, RawBlock "rs" "code!(\"it\");\n"
+, RawBlock "rs" "code!(\"it\");"
 , ParBreak
 , Text "You"
 , Space
@@ -146,7 +146,7 @@ with selectors and justification.]),
                  parbreak(), 
                  block(body: raw(block: true, 
                                  lang: "rs", 
-                                 text: "code!(\"it\");\n"), 
+                                 text: "code!(\"it\");"), 
                        fill: luma(23000%), 
                        inset: 11.0pt, 
                        outset: -3.0pt, 

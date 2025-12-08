@@ -23,7 +23,7 @@
 , Space
 , HardBreak
 , Text "("
-, RawBlock "" "trimmed` "
+, RawBlock "" "trimmed`"
 , Text ")"
 , Space
 , HardBreak
@@ -64,7 +64,7 @@ The keyword ]),
                  text(body: [(]), 
                  raw(block: true, 
                      lang: none, 
-                     text: "trimmed` "), 
+                     text: "trimmed`"), 
                  text(body: [) ]), 
                  linebreak(), 
                  text(body: [(]), 

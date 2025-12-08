@@ -24,7 +24,7 @@
 , ParBreak
 , Text "Interacting"
 , SoftBreak
-, RawBlock "" "#set text(blue)\nBlue #move(dy: -0.15em)[\127754]\n"
+, RawBlock "" "#set text(blue)\nBlue #move(dy: -0.15em)[\127754]"
 , ParBreak
 ]
 --- evaluated ---
@@ -36,7 +36,6 @@ Blue ],
                                    color: rgb(0%,45%,85%,100%)), 
                               move(body: text(body: [🌊], 
                                               color: rgb(0%,45%,85%,100%)), 
-                                   dy: -0.15em), 
-                              parbreak() }, 
+                                   dy: -0.15em) }, 
                       font: "PT Sans"), 
                  parbreak() })
