@@ -1,50 +1,10 @@
 --- parse tree ---
-[ Code
-    "typ/math/matrix-01.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/math/matrix-01.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/math/matrix-01.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Equation
     True
     [ Code
         "typ/math/matrix-01.typ"
-        ( line 3 , column 3 )
+        ( line 2 , column 3 )
         (FuncCall
            (Ident (Identifier "mat"))
            [ ArrayArg
@@ -52,7 +12,7 @@
                  , Text "2"
                  , Code
                      "typ/math/matrix-01.typ"
-                     ( line 4 , column 9 )
+                     ( line 3 , column 9 )
                      (FieldAccess (Ident (Identifier "h")) (Ident (Identifier "dots")))
                  , Text "10"
                  ]
@@ -60,33 +20,33 @@
                  , Text "2"
                  , Code
                      "typ/math/matrix-01.typ"
-                     ( line 5 , column 9 )
+                     ( line 4 , column 9 )
                      (FieldAccess (Ident (Identifier "h")) (Ident (Identifier "dots")))
                  , Text "10"
                  ]
                , [ Code
                      "typ/math/matrix-01.typ"
-                     ( line 6 , column 3 )
+                     ( line 5 , column 3 )
                      (FieldAccess (Ident (Identifier "v")) (Ident (Identifier "dots")))
                  , Code
                      "typ/math/matrix-01.typ"
-                     ( line 6 , column 11 )
+                     ( line 5 , column 11 )
                      (FieldAccess (Ident (Identifier "v")) (Ident (Identifier "dots")))
                  , Code
                      "typ/math/matrix-01.typ"
-                     ( line 6 , column 19 )
+                     ( line 5 , column 19 )
                      (FieldAccess
                         (Ident (Identifier "down")) (Ident (Identifier "dots")))
                  , Code
                      "typ/math/matrix-01.typ"
-                     ( line 6 , column 30 )
+                     ( line 5 , column 30 )
                      (FieldAccess (Ident (Identifier "v")) (Ident (Identifier "dots")))
                  ]
                , [ Text "10"
                  , Text "10"
                  , Code
                      "typ/math/matrix-01.typ"
-                     ( line 7 , column 11 )
+                     ( line 6 , column 11 )
                      (FieldAccess (Ident (Identifier "h")) (Ident (Identifier "dots")))
                  , Text "10"
                  ]
@@ -96,9 +56,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 math.equation(block: true, 
+document(body: { math.equation(block: true, 
                                body: math.mat(rows: ((text(body: [1]), 
                                                       text(body: [2]), 
                                                       text(body: […]), 

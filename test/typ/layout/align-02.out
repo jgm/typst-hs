@@ -1,48 +1,8 @@
 --- parse tree ---
-[ Code
-    "typ/layout/align-02.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/layout/align-02.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/layout/align-02.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Code
     "typ/layout/align-02.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (FuncCall
        (Ident (Identifier "rotate"))
        [ NormalArg (Negated (Literal (Numeric 30.0 Deg)))
@@ -54,14 +14,14 @@
 , ParBreak
 , Code
     "typ/layout/align-02.typ"
-    ( line 5 , column 2 )
+    ( line 4 , column 2 )
     (Set
        (Ident (Identifier "text"))
        [ KeyValArg (Identifier "lang") (Literal (String "de")) ])
 , SoftBreak
 , Code
     "typ/layout/align-02.typ"
-    ( line 6 , column 2 )
+    ( line 5 , column 2 )
     (FuncCall
        (Ident (Identifier "align"))
        [ NormalArg (Ident (Identifier "start"))
@@ -70,7 +30,7 @@
 , SoftBreak
 , Code
     "typ/layout/align-02.typ"
-    ( line 7 , column 2 )
+    ( line 6 , column 2 )
     (FuncCall
        (Ident (Identifier "align"))
        [ NormalArg (Ident (Identifier "end"))
@@ -79,14 +39,14 @@
 , ParBreak
 , Code
     "typ/layout/align-02.typ"
-    ( line 9 , column 2 )
+    ( line 8 , column 2 )
     (Set
        (Ident (Identifier "text"))
        [ KeyValArg (Identifier "lang") (Literal (String "ar")) ])
 , SoftBreak
 , Code
     "typ/layout/align-02.typ"
-    ( line 10 , column 2 )
+    ( line 9 , column 2 )
     (FuncCall
        (Ident (Identifier "align"))
        [ NormalArg (Ident (Identifier "start"))
@@ -95,7 +55,7 @@
 , SoftBreak
 , Code
     "typ/layout/align-02.typ"
-    ( line 11 , column 2 )
+    ( line 10 , column 2 )
     (FuncCall
        (Ident (Identifier "align"))
        [ NormalArg (Ident (Identifier "end"))
@@ -104,9 +64,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 rotate(angle: -30.0deg, 
+document(body: { rotate(angle: -30.0deg, 
                         body: text(body: [Hello]), 
                         origin: Axes(end, horizon)), 
                  parbreak(), 

@@ -1,45 +1,5 @@
 --- parse tree ---
-[ Code
-    "typ/text/linebreak-02.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/text/linebreak-02.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/text/linebreak-02.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Text "This"
 , Space
 , Text "is"
@@ -49,16 +9,14 @@
 , Text "emp"
 , Code
     "typ/text/linebreak-02.typ"
-    ( line 3 , column 20 )
+    ( line 2 , column 20 )
     (FuncCall (Ident (Identifier "emph")) [ BlockArg [ Text "has" ] ])
 , Text "ized"
 , Text "."
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 text(body: [This is partly emp]), 
+document(body: { text(body: [This is partly emp]), 
                  emph(body: text(body: [has])), 
                  text(body: [ized.]), 
                  parbreak() })

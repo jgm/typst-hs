@@ -1,55 +1,15 @@
 --- parse tree ---
-[ Code
-    "typ/compiler/import-01.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/compiler/import-01.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/compiler/import-01.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Code
     "typ/compiler/import-01.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (Import
        (Literal (String "module.typ"))
        (SomeIdentifiers [ ( Identifier "item" , Nothing ) ]))
 , SoftBreak
 , Code
     "typ/compiler/import-01.typ"
-    ( line 4 , column 2 )
+    ( line 3 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg
@@ -84,13 +44,13 @@
 , Comment
 , Code
     "typ/compiler/import-01.typ"
-    ( line 13 , column 2 )
+    ( line 12 , column 2 )
     (Import (Literal (String "module.typ")) AllIdentifiers)
 , ParBreak
 , Comment
 , Code
     "typ/compiler/import-01.typ"
-    ( line 16 , column 2 )
+    ( line 15 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (Ident (Identifier "d"))
@@ -100,8 +60,6 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
 ]), 
                  text(body: [✅]), 
                  parbreak(), 

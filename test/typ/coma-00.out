@@ -2,46 +2,6 @@
 [ Code
     "typ/coma-00.typ"
     ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/coma-00.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/coma-00.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Code
-    "typ/coma-00.typ"
-    ( line 2 , column 2 )
     (Set
        (Ident (Identifier "page"))
        [ KeyValArg (Identifier "width") (Literal (Numeric 450.0 Pt))
@@ -58,7 +18,7 @@
 , Space
 , Code
     "typ/coma-00.typ"
-    ( line 4 , column 34 )
+    ( line 3 , column 34 )
     (FuncCall
        (Ident (Identifier "h")) [ NormalArg (Literal (Numeric 1.0 Fr)) ])
 , Space
@@ -80,7 +40,7 @@
 , Space
 , Code
     "typ/coma-00.typ"
-    ( line 5 , column 41 )
+    ( line 4 , column 41 )
     (FuncCall
        (Ident (Identifier "h")) [ NormalArg (Literal (Numeric 1.0 Fr)) ])
 , Space
@@ -112,13 +72,13 @@
 , ParBreak
 , Code
     "typ/coma-00.typ"
-    ( line 10 , column 2 )
+    ( line 9 , column 2 )
     (FuncCall
        (Ident (Identifier "v")) [ NormalArg (Literal (Numeric 3.0 Mm)) ])
 , SoftBreak
 , Code
     "typ/coma-00.typ"
-    ( line 11 , column 2 )
+    ( line 10 , column 2 )
     (FuncCall
        (Ident (Identifier "align"))
        [ NormalArg (Ident (Identifier "center"))
@@ -126,14 +86,14 @@
            [ SoftBreak
            , Code
                "typ/coma-00.typ"
-               ( line 12 , column 4 )
+               ( line 11 , column 4 )
                (Set
                   (Ident (Identifier "par"))
                   [ KeyValArg (Identifier "leading") (Literal (Numeric 3.0 Mm)) ])
            , SoftBreak
            , Code
                "typ/coma-00.typ"
-               ( line 13 , column 4 )
+               ( line 12 , column 4 )
                (FuncCall
                   (Ident (Identifier "text"))
                   [ NormalArg (Literal (Numeric 1.2 Em))
@@ -201,7 +161,7 @@
 , Space
 , Code
     "typ/coma-00.typ"
-    ( line 18 , column 15 )
+    ( line 17 , column 15 )
     (FuncCall
        (Ident (Identifier "h")) [ NormalArg (Literal (Numeric 1.0 Fr)) ])
 , Space
@@ -335,7 +295,7 @@
 , ParBreak
 , Code
     "typ/coma-00.typ"
-    ( line 25 , column 2 )
+    ( line 24 , column 2 )
     (FuncCall
        (Ident (Identifier "align"))
        [ NormalArg (Ident (Identifier "center"))
@@ -349,9 +309,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 parbreak(), 
+document(body: { parbreak(), 
                  strong(body: text(body: [Technische Universität Berlin])), 
                  text(body: [ ]), 
                  h(amount: 1.0fr), 

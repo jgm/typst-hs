@@ -1,48 +1,8 @@
 --- parse tree ---
-[ Code
-    "typ/compute/construct-07.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/compute/construct-07.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/compute/construct-07.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Code
     "typ/compute/construct-07.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (Let
        (BasicBind (Just (Identifier "envelope")))
        (FuncCall
@@ -72,24 +32,24 @@
 , ParBreak
 , Code
     "typ/compute/construct-07.typ"
-    ( line 11 , column 2 )
+    ( line 10 , column 2 )
     (Ident (Identifier "envelope"))
 , SoftBreak
 , Code
     "typ/compute/construct-07.typ"
-    ( line 12 , column 2 )
+    ( line 11 , column 2 )
     (FieldAccess
        (Ident (Identifier "stamped")) (Ident (Identifier "envelope")))
 , SoftBreak
 , Code
     "typ/compute/construct-07.typ"
-    ( line 13 , column 2 )
+    ( line 12 , column 2 )
     (FieldAccess
        (Ident (Identifier "pen")) (Ident (Identifier "envelope")))
 , SoftBreak
 , Code
     "typ/compute/construct-07.typ"
-    ( line 14 , column 2 )
+    ( line 13 , column 2 )
     (FieldAccess
        (Ident (Identifier "pen"))
        (FieldAccess
@@ -97,21 +57,19 @@
 , SoftBreak
 , Code
     "typ/compute/construct-07.typ"
-    ( line 15 , column 2 )
+    ( line 14 , column 2 )
     (FieldAccess
        (Ident (Identifier "lightning")) (Ident (Identifier "envelope")))
 , SoftBreak
 , Code
     "typ/compute/construct-07.typ"
-    ( line 16 , column 2 )
+    ( line 15 , column 2 )
     (FieldAccess
        (Ident (Identifier "fly")) (Ident (Identifier "envelope")))
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 parbreak(), 
+document(body: { parbreak(), 
                  text(body: [🖂]), 
                  text(body: [
 ]), 

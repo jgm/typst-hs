@@ -1,50 +1,10 @@
 --- parse tree ---
-[ Code
-    "typ/math/attach-05.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/math/attach-05.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/math/attach-05.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Equation
     True
     [ Code
         "typ/math/attach-05.typ"
-        ( line 3 , column 3 )
+        ( line 2 , column 3 )
         (FuncCall
            (Ident (Identifier "sqrt"))
            [ BlockArg
@@ -53,7 +13,7 @@
                    (Just
                       (Code
                          "typ/math/attach-05.typ"
-                         ( line 3 , column 16 )
+                         ( line 2 , column 16 )
                          (Ident (Identifier "zeta"))))
                    (Text "a")
                ]
@@ -61,7 +21,7 @@
     , Text ","
     , Code
         "typ/math/attach-05.typ"
-        ( line 3 , column 23 )
+        ( line 2 , column 23 )
         (FuncCall
            (Ident (Identifier "sqrt"))
            [ BlockArg
@@ -69,7 +29,7 @@
                    (Just
                       (Code
                          "typ/math/attach-05.typ"
-                         ( line 3 , column 30 )
+                         ( line 2 , column 30 )
                          (Ident (Identifier "alpha"))))
                    (Just (MGroup Nothing Nothing [ MFrac (Text "1") (Text "2") ]))
                    (Text "a")
@@ -78,7 +38,7 @@
     , Text ","
     , Code
         "typ/math/attach-05.typ"
-        ( line 3 , column 44 )
+        ( line 2 , column 44 )
         (FuncCall
            (Ident (Identifier "sqrt"))
            [ BlockArg
@@ -91,13 +51,13 @@
     , HardBreak
     , Code
         "typ/math/attach-05.typ"
-        ( line 4 , column 3 )
+        ( line 3 , column 3 )
         (FuncCall
            (Ident (Identifier "sqrt"))
            [ BlockArg
                [ Code
                    "typ/math/attach-05.typ"
-                   ( line 4 , column 8 )
+                   ( line 3 , column 8 )
                    (FuncCall
                       (Ident (Identifier "attach"))
                       [ BlockArg [ Text "a" ]
@@ -111,13 +71,13 @@
     , Text ","
     , Code
         "typ/math/attach-05.typ"
-        ( line 5 , column 3 )
+        ( line 4 , column 3 )
         (FuncCall
            (Ident (Identifier "sqrt"))
            [ BlockArg
                [ Code
                    "typ/math/attach-05.typ"
-                   ( line 5 , column 8 )
+                   ( line 4 , column 8 )
                    (FuncCall
                       (Ident (Identifier "attach"))
                       [ BlockArg [ Text "a" ]
@@ -136,9 +96,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 math.equation(block: true, 
+document(body: { math.equation(block: true, 
                                body: { math.sqrt(radicand: math.attach(b: math.frac(denom: text(body: [2]), 
                                                                                     num: text(body: [1])), 
                                                                        base: text(body: [a]), 

@@ -1,48 +1,8 @@
 --- parse tree ---
-[ Code
-    "typ/layout/columns-02.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/layout/columns-02.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/layout/columns-02.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Code
     "typ/layout/columns-02.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (Set
        (Ident (Identifier "page"))
        [ KeyValArg (Identifier "height") (Literal (Numeric 5.0 Cm))
@@ -94,7 +54,7 @@
 , SoftBreak
 , Code
     "typ/layout/columns-02.typ"
-    ( line 7 , column 2 )
+    ( line 6 , column 2 )
     (FuncCall
        (Ident (Identifier "align"))
        [ NormalArg (Ident (Identifier "bottom"))
@@ -109,7 +69,7 @@
 , SoftBreak
 , Code
     "typ/layout/columns-02.typ"
-    ( line 8 , column 2 )
+    ( line 7 , column 2 )
     (FuncCall (Ident (Identifier "colbreak")) [])
 , ParBreak
 , Text "so"
@@ -184,9 +144,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 parbreak(), 
+document(body: { parbreak(), 
                  text(body: [Lorem ipsum dolor sit amet is a common blind text
 and I again am in need of filling up this page
 ]), 

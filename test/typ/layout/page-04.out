@@ -1,49 +1,9 @@
 --- parse tree ---
-[ Code
-    "typ/layout/page-04.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/layout/page-04.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/layout/page-04.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Comment
 , Code
     "typ/layout/page-04.typ"
-    ( line 4 , column 2 )
+    ( line 3 , column 2 )
     (FuncCall
        (Ident (Identifier "page"))
        [ NormalArg (Literal (String "a11"))
@@ -54,14 +14,12 @@
 , SoftBreak
 , Code
     "typ/layout/page-04.typ"
-    ( line 5 , column 2 )
+    ( line 4 , column 2 )
     (FuncCall (Ident (Identifier "pagebreak")) [])
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 page(body: [a11], 
+document(body: { page(body: [a11], 
                       fill: rgb(100%,25%,21%,100%), 
                       flipped: true), 
                  text(body: [

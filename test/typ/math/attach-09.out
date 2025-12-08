@@ -1,45 +1,5 @@
 --- parse tree ---
-[ Code
-    "typ/math/attach-09.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/math/attach-09.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/math/attach-09.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Equation
     True
     [ MAttach
@@ -47,11 +7,11 @@
         (Just (Text "2"))
         (Code
            "typ/math/attach-09.typ"
-           ( line 3 , column 3 )
+           ( line 2 , column 3 )
            (FuncCall (Ident (Identifier "limits")) [ BlockArg [ Text "A" ] ]))
     , Code
         "typ/math/attach-09.typ"
-        ( line 3 , column 17 )
+        ( line 2 , column 17 )
         (FieldAccess (Ident (Identifier "not")) (Ident (Identifier "eq")))
     , MAttach (Just (Text "1")) (Just (Text "2")) (Text "A")
     ]
@@ -63,26 +23,26 @@
         (Just (Text "2"))
         (Code
            "typ/math/attach-09.typ"
-           ( line 4 , column 3 )
+           ( line 3 , column 3 )
            (FuncCall
               (Ident (Identifier "scripts"))
               [ BlockArg
                   [ Code
                       "typ/math/attach-09.typ"
-                      ( line 4 , column 11 )
+                      ( line 3 , column 11 )
                       (Ident (Identifier "sum"))
                   ]
               ]))
     , Code
         "typ/math/attach-09.typ"
-        ( line 4 , column 20 )
+        ( line 3 , column 20 )
         (FieldAccess (Ident (Identifier "not")) (Ident (Identifier "eq")))
     , MAttach
         (Just (Text "1"))
         (Just (Text "2"))
         (Code
            "typ/math/attach-09.typ"
-           ( line 4 , column 23 )
+           ( line 3 , column 23 )
            (Ident (Identifier "sum")))
     ]
 , SoftBreak
@@ -93,34 +53,32 @@
         (Just (Text "b"))
         (Code
            "typ/math/attach-09.typ"
-           ( line 5 , column 3 )
+           ( line 4 , column 3 )
            (FuncCall
               (Ident (Identifier "limits"))
               [ BlockArg
                   [ Code
                       "typ/math/attach-09.typ"
-                      ( line 5 , column 10 )
+                      ( line 4 , column 10 )
                       (Ident (Identifier "integral"))
                   ]
               ]))
     , Code
         "typ/math/attach-09.typ"
-        ( line 5 , column 24 )
+        ( line 4 , column 24 )
         (FieldAccess (Ident (Identifier "not")) (Ident (Identifier "eq")))
     , MAttach
         (Just (Text "a"))
         (Just (Text "b"))
         (Code
            "typ/math/attach-09.typ"
-           ( line 5 , column 27 )
+           ( line 4 , column 27 )
            (Ident (Identifier "integral")))
     ]
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 math.equation(block: true, 
+document(body: { math.equation(block: true, 
                                body: { math.attach(b: text(body: [1]), 
                                                    base: math.limits(body: text(body: [A])), 
                                                    t: text(body: [2])), 

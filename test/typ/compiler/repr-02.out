@@ -1,55 +1,15 @@
 --- parse tree ---
-[ Code
-    "typ/compiler/repr-02.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/compiler/repr-02.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/compiler/repr-02.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Code
     "typ/compiler/repr-02.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (Set
        (Ident (Identifier "text"))
        [ NormalArg (Literal (Numeric 0.8 Em)) ])
 , SoftBreak
 , Code
     "typ/compiler/repr-02.typ"
-    ( line 4 , column 2 )
+    ( line 3 , column 2 )
     (FuncCall
        (Ident (Identifier "rgb"))
        [ NormalArg (Literal (String "f7a205")) ])
@@ -57,7 +17,7 @@
 , HardBreak
 , Code
     "typ/compiler/repr-02.typ"
-    ( line 5 , column 2 )
+    ( line 4 , column 2 )
     (Plus
        (Literal (Numeric 2.0 Pt))
        (FuncCall
@@ -67,7 +27,7 @@
 , Comment
 , Code
     "typ/compiler/repr-02.typ"
-    ( line 8 , column 2 )
+    ( line 7 , column 2 )
     (FuncCall
        (Ident (Identifier "raw"))
        [ NormalArg
@@ -78,7 +38,7 @@
 , SoftBreak
 , Code
     "typ/compiler/repr-02.typ"
-    ( line 9 , column 2 )
+    ( line 8 , column 2 )
     (FuncCall
        (Ident (Identifier "repr"))
        [ NormalArg (Literal (String "a\n[]\"\128640string")) ])
@@ -86,7 +46,7 @@
 , Comment
 , Code
     "typ/compiler/repr-02.typ"
-    ( line 12 , column 2 )
+    ( line 11 , column 2 )
     (FuncCall
        (Ident (Identifier "raw"))
        [ KeyValArg (Identifier "lang") (Literal (String "typc"))
@@ -100,7 +60,7 @@
 , SoftBreak
 , Code
     "typ/compiler/repr-02.typ"
-    ( line 16 , column 2 )
+    ( line 15 , column 2 )
     (LetFunc
        (Identifier "f")
        [ NormalParam (Identifier "x") ]
@@ -108,25 +68,24 @@
 , SoftBreak
 , Code
     "typ/compiler/repr-02.typ"
-    ( line 17 , column 2 )
+    ( line 16 , column 2 )
     (Ident (Identifier "f"))
 , SoftBreak
 , Code
     "typ/compiler/repr-02.typ"
-    ( line 18 , column 2 )
+    ( line 17 , column 2 )
     (Ident (Identifier "rect"))
 , SoftBreak
 , Code
     "typ/compiler/repr-02.typ"
-    ( line 19 , column 2 )
+    ( line 18 , column 2 )
     (FuncExpr [] (Literal None))
 , ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
-], size: 0.8em), 
+], 
+                      size: 0.8em), 
                  text(body: [rgb(96%,63%,1%,100%)], 
                       size: 0.8em), 
                  text(body: [ ], size: 0.8em), 

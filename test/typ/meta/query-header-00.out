@@ -2,46 +2,6 @@
 [ Code
     "typ/meta/query-header-00.typ"
     ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/meta/query-header-00.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/meta/query-header-00.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Code
-    "typ/meta/query-header-00.typ"
-    ( line 2 , column 2 )
     (Set
        (Ident (Identifier "page"))
        [ KeyValArg (Identifier "paper") (Literal (String "a7"))
@@ -147,35 +107,33 @@
 , ParBreak
 , Code
     "typ/meta/query-header-00.typ"
-    ( line 21 , column 2 )
+    ( line 20 , column 2 )
     (FuncCall (Ident (Identifier "outline")) [])
 , ParBreak
 , Heading 1 [ Text "Introduction" ]
 , Code
     "typ/meta/query-header-00.typ"
-    ( line 24 , column 2 )
+    ( line 23 , column 2 )
     (FuncCall
        (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 35)) ])
 , ParBreak
 , Heading 1 [ Text "Background" ]
 , Code
     "typ/meta/query-header-00.typ"
-    ( line 27 , column 2 )
+    ( line 26 , column 2 )
     (FuncCall
        (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 35)) ])
 , ParBreak
 , Heading 1 [ Text "Approach" ]
 , Code
     "typ/meta/query-header-00.typ"
-    ( line 30 , column 2 )
+    ( line 29 , column 2 )
     (FuncCall
        (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 60)) ])
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 parbreak(), 
+document(body: { parbreak(), 
                  outline(), 
                  parbreak(), 
                  heading(body: text(body: [Introduction]), 

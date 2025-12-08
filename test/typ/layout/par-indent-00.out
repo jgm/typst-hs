@@ -2,46 +2,6 @@
 [ Code
     "typ/layout/par-indent-00.typ"
     ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/layout/par-indent-00.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/layout/par-indent-00.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Code
-    "typ/layout/par-indent-00.typ"
-    ( line 2 , column 2 )
     (Set
        (Ident (Identifier "par"))
        [ KeyValArg
@@ -51,14 +11,14 @@
 , SoftBreak
 , Code
     "typ/layout/par-indent-00.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (Set
        (Ident (Identifier "block"))
        [ KeyValArg (Identifier "spacing") (Literal (Numeric 5.0 Pt)) ])
 , SoftBreak
 , Code
     "typ/layout/par-indent-00.typ"
-    ( line 4 , column 2 )
+    ( line 3 , column 2 )
     (Show
        (Just (Ident (Identifier "heading")))
        (Set
@@ -91,7 +51,7 @@
 , ParBreak
 , Code
     "typ/layout/par-indent-00.typ"
-    ( line 10 , column 2 )
+    ( line 9 , column 2 )
     (FuncCall
        (Ident (Identifier "box"))
        [ NormalArg
@@ -117,7 +77,7 @@
 , ParBreak
 , Code
     "typ/layout/par-indent-00.typ"
-    ( line 13 , column 2 )
+    ( line 12 , column 2 )
     (FuncCall
        (Ident (Identifier "align"))
        [ NormalArg (Ident (Identifier "center"))
@@ -161,7 +121,7 @@
 , SoftBreak
 , Code
     "typ/layout/par-indent-00.typ"
-    ( line 21 , column 2 )
+    ( line 20 , column 2 )
     (Set
        (Ident (Identifier "text"))
        [ NormalArg (Literal (Numeric 8.0 Pt))
@@ -176,7 +136,7 @@
 , SoftBreak
 , Code
     "typ/layout/par-indent-00.typ"
-    ( line 22 , column 2 )
+    ( line 21 , column 2 )
     (Set
        (Ident (Identifier "par"))
        [ KeyValArg (Identifier "leading") (Literal (Numeric 8.0 Pt)) ])
@@ -212,8 +172,6 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
 ]), 
                  text(body: [
 ]), 

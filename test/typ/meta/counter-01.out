@@ -1,53 +1,13 @@
 --- parse tree ---
-[ Code
-    "typ/meta/counter-01.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/meta/counter-01.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/meta/counter-01.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Code
     "typ/meta/counter-01.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (Let (BasicBind (Just (Identifier "label"))) (Label "heya"))
 , SoftBreak
 , Code
     "typ/meta/counter-01.typ"
-    ( line 4 , column 2 )
+    ( line 3 , column 2 )
     (Let
        (BasicBind (Just (Identifier "count")))
        (FuncCall
@@ -60,7 +20,7 @@
 , SoftBreak
 , Code
     "typ/meta/counter-01.typ"
-    ( line 5 , column 2 )
+    ( line 4 , column 2 )
     (LetFunc
        (Identifier "elem")
        [ NormalParam (Identifier "it") ]
@@ -68,46 +28,44 @@
           (Content
              [ Code
                  "typ/meta/counter-01.typ"
-                 ( line 5 , column 19 )
+                 ( line 4 , column 19 )
                  (FuncCall
                     (Ident (Identifier "box")) [ NormalArg (Ident (Identifier "it")) ])
              , Space
              , Code
                  "typ/meta/counter-01.typ"
-                 ( line 5 , column 28 )
+                 ( line 4 , column 28 )
                  (Ident (Identifier "label"))
              ])))
 , ParBreak
 , Code
     "typ/meta/counter-01.typ"
-    ( line 7 , column 2 )
+    ( line 6 , column 2 )
     (FuncCall
        (Ident (Identifier "elem"))
        [ BlockArg [ Text "hey," , Space , Text "there!" ] ])
 , Space
 , Code
     "typ/meta/counter-01.typ"
-    ( line 7 , column 21 )
+    ( line 6 , column 21 )
     (Ident (Identifier "count"))
 , Space
 , HardBreak
 , Code
     "typ/meta/counter-01.typ"
-    ( line 8 , column 2 )
+    ( line 7 , column 2 )
     (FuncCall
        (Ident (Identifier "elem"))
        [ BlockArg [ Text "more" , Space , Text "here!" ] ])
 , Space
 , Code
     "typ/meta/counter-01.typ"
-    ( line 8 , column 20 )
+    ( line 7 , column 20 )
     (Ident (Identifier "count"))
 , ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
 ]), 
                  text(body: [
 ]), 

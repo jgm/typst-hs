@@ -1,48 +1,8 @@
 --- parse tree ---
-[ Code
-    "typ/compiler/if-01.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/compiler/if-01.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/compiler/if-01.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Code
     "typ/compiler/if-01.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (If
        [ ( Block (CodeBlock [ Literal (Boolean True) ])
          , Block (Content [ SoftBreak , Text "One" , Text "." , ParBreak ])
@@ -52,7 +12,7 @@
 , Comment
 , Code
     "typ/compiler/if-01.typ"
-    ( line 8 , column 2 )
+    ( line 7 , column 2 )
     (If
        [ ( Not (Equals (Block (Content [])) (Literal None))
          , Block (Content [ SoftBreak , Text "Two" , Text "." , ParBreak ])
@@ -62,7 +22,7 @@
 , Comment
 , Code
     "typ/compiler/if-01.typ"
-    ( line 13 , column 2 )
+    ( line 12 , column 2 )
     (If
        [ ( Equals
              (Plus (Literal (Int 1)) (Literal (Int 1))) (Literal (Int 1))
@@ -76,7 +36,7 @@
 , Comment
 , Code
     "typ/compiler/if-01.typ"
-    ( line 23 , column 2 )
+    ( line 22 , column 2 )
     (If
        [ ( Literal (Boolean False)
          , Block (Content [ SoftBreak , Text "Bad" , Text "." , ParBreak ])
@@ -94,7 +54,7 @@
 , Comment
 , Code
     "typ/compiler/if-01.typ"
-    ( line 31 , column 2 )
+    ( line 30 , column 2 )
     (Block
        (CodeBlock
           [ If
@@ -117,12 +77,12 @@
 , ParBreak
 , Code
     "typ/compiler/if-01.typ"
-    ( line 36 , column 2 )
+    ( line 35 , column 2 )
     (Let (BasicBind (Just (Identifier "i"))) (Literal (Int 3)))
 , SoftBreak
 , Code
     "typ/compiler/if-01.typ"
-    ( line 37 , column 2 )
+    ( line 36 , column 2 )
     (If
        [ ( LessThan (Ident (Identifier "i")) (Literal (Int 2))
          , Block (Content [ SoftBreak , Text "Five" , Text "." , ParBreak ])
@@ -139,8 +99,6 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
 One.]), 
                  parbreak(), 
                  parbreak(), 

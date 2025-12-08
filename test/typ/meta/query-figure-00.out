@@ -2,46 +2,6 @@
 [ Code
     "typ/meta/query-figure-00.typ"
     ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/meta/query-figure-00.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/meta/query-figure-00.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Code
-    "typ/meta/query-figure-00.typ"
-    ( line 2 , column 2 )
     (Set
        (Ident (Identifier "page"))
        [ KeyValArg (Identifier "paper") (Literal (String "a7"))
@@ -56,14 +16,14 @@
 , ParBreak
 , Code
     "typ/meta/query-figure-00.typ"
-    ( line 8 , column 2 )
+    ( line 7 , column 2 )
     (Set
        (Ident (Identifier "figure"))
        [ KeyValArg (Identifier "numbering") (Literal (String "I")) ])
 , SoftBreak
 , Code
     "typ/meta/query-figure-00.typ"
-    ( line 9 , column 2 )
+    ( line 8 , column 2 )
     (Show
        (Just (Ident (Identifier "figure")))
        (Set
@@ -75,7 +35,7 @@
     1 [ Text "List" , Space , Text "of" , Space , Text "Figures" ]
 , Code
     "typ/meta/query-figure-00.typ"
-    ( line 12 , column 2 )
+    ( line 11 , column 2 )
     (FuncCall
        (Ident (Identifier "locate"))
        [ NormalArg
@@ -107,7 +67,7 @@
                               , SoftBreak
                               , Code
                                   "typ/meta/query-figure-00.typ"
-                                  ( line 16 , column 6 )
+                                  ( line 15 , column 6 )
                                   (FuncCall
                                      (Ident (Identifier "numbering"))
                                      [ NormalArg
@@ -133,13 +93,13 @@
                               , SoftBreak
                               , Code
                                   "typ/meta/query-figure-00.typ"
-                                  ( line 18 , column 6 )
+                                  ( line 17 , column 6 )
                                   (FieldAccess
                                      (Ident (Identifier "caption")) (Ident (Identifier "it")))
                               , SoftBreak
                               , Code
                                   "typ/meta/query-figure-00.typ"
-                                  ( line 19 , column 6 )
+                                  ( line 18 , column 6 )
                                   (FuncCall
                                      (Ident (Identifier "box"))
                                      [ KeyValArg (Identifier "width") (Literal (Numeric 1.0 Fr))
@@ -150,7 +110,7 @@
                               , SoftBreak
                               , Code
                                   "typ/meta/query-figure-00.typ"
-                                  ( line 20 , column 6 )
+                                  ( line 19 , column 6 )
                                   (FuncCall
                                      (FieldAccess
                                         (Ident (Identifier "first"))
@@ -176,7 +136,7 @@
 , ParBreak
 , Code
     "typ/meta/query-figure-00.typ"
-    ( line 24 , column 2 )
+    ( line 23 , column 2 )
     (FuncCall
        (Ident (Identifier "figure"))
        [ NormalArg
@@ -190,7 +150,7 @@
 , ParBreak
 , Code
     "typ/meta/query-figure-00.typ"
-    ( line 29 , column 2 )
+    ( line 28 , column 2 )
     (FuncCall
        (Ident (Identifier "figure"))
        [ NormalArg
@@ -219,7 +179,7 @@
 , ParBreak
 , Code
     "typ/meta/query-figure-00.typ"
-    ( line 36 , column 2 )
+    ( line 35 , column 2 )
     (FuncCall
        (Ident (Identifier "figure"))
        [ NormalArg
@@ -233,9 +193,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 parbreak(), 
+document(body: { parbreak(), 
                  text(body: [
 ]), 
                  parbreak(), 

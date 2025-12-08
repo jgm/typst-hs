@@ -2,46 +2,6 @@
 [ Code
     "typ/bugs/grid-1-01.typ"
     ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/bugs/grid-1-01.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/bugs/grid-1-01.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Code
-    "typ/bugs/grid-1-01.typ"
-    ( line 2 , column 2 )
     (FuncCall
        (Ident (Identifier "rect"))
        [ KeyValArg (Identifier "width") (Literal (Numeric 100.0 Percent))
@@ -51,7 +11,7 @@
 , BulletListItem
     [ Code
         "typ/bugs/grid-1-01.typ"
-        ( line 3 , column 4 )
+        ( line 2 , column 4 )
         (FuncCall
            (Ident (Identifier "rect"))
            [ KeyValArg (Identifier "width") (Literal (Numeric 100.0 Percent))
@@ -61,7 +21,7 @@
     , BulletListItem
         [ Code
             "typ/bugs/grid-1-01.typ"
-            ( line 4 , column 6 )
+            ( line 3 , column 6 )
             (FuncCall
                (Ident (Identifier "rect"))
                [ KeyValArg (Identifier "width") (Literal (Numeric 100.0 Percent))
@@ -72,9 +32,7 @@
     ]
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 rect(height: 1.0em, 
+document(body: { rect(height: 1.0em, 
                       width: 100%), 
                  text(body: [
 ]), 

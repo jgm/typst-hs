@@ -14,6 +14,7 @@ import Test.Tasty.Golden (findByExtension, goldenVsStringDiff)
 import Text.Show.Pretty (ppShow)
 import Typst.Evaluate (evaluateTypst)
 import Typst.Parse (parseTypst)
+import Typst.Syntax (Markup)
 import Typst.Types (Val (VContent), repr, Operations(..))
 import Data.Time (getCurrentTime)
 import System.Directory (doesFileExist, setCurrentDirectory)
@@ -32,25 +33,27 @@ operations = Operations
 
 goldenTests :: IO TestTree
 goldenTests = do
+  let testCommand =
+        "#let test = (x,y) => { if x == y [✅] else [❌(#repr(x) /= #repr(y))] }"
+  let testParse = either (error . show) id $ parseTypst "test-command" testCommand
+  
   setCurrentDirectory "test"
   inputs <- findByExtension [".typ"] "typ"
   pure $
     localOption (Timeout 1000000 "1s") $
-      testGroup "golden tests" (map runTest inputs)
+      testGroup "golden tests" (map (runTest testParse) inputs)
 
-runTest :: FilePath -> TestTree
-runTest input =
+runTest :: [Markup] -> FilePath -> TestTree
+runTest testParse input =
   goldenVsStringDiff
     input
     (\ref new -> ["diff", "-u", ref, new])
     (replaceExtension input ".out")
-    (writeTest input)
+    (writeTest testParse input)
 
-writeTest :: FilePath -> IO BL.ByteString
-writeTest input = do
+writeTest :: [Markup] -> FilePath -> IO BL.ByteString
+writeTest testParse input = do
   let fromText = BL.fromStrict . TE.encodeUtf8 . (<> "\n")
-  let testCommand =
-        "#let test = (x,y) => { if x == y [✅] else [❌(#repr(x) /= #repr(y))] }\n"
   contents <- TIO.readFile input
   if "// Error"
     `T.isInfixOf` contents
@@ -60,11 +63,11 @@ writeTest input = do
     `T.isInfixOf` contents
     then pure $ fromText "--- skipped ---\n"
     else do
-      let parseResult = parseTypst input (testCommand <> contents)
+      let parseResult = parseTypst input contents
       case parseResult of
         Left e -> pure $ fromText $ T.pack $ show e
         Right parsed -> do
-          evalResult <- evaluateTypst operations input parsed
+          evalResult <- evaluateTypst operations input (testParse <> parsed)
           let parseOutput = "--- parse tree ---\n" <> T.pack (ppShow parsed) <> "\n"
           case evalResult of
             Left e ->

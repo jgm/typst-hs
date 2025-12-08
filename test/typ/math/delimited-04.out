@@ -1,74 +1,34 @@
 --- parse tree ---
-[ Code
-    "typ/math/delimited-04.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/math/delimited-04.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/math/delimited-04.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Equation
     True
     [ Code
         "typ/math/delimited-04.typ"
-        ( line 3 , column 3 )
+        ( line 2 , column 3 )
         (FieldAccess
            (Ident (Identifier "l")) (Ident (Identifier "bracket")))
     , MFrac (Text "a") (Text "b")
     , Code
         "typ/math/delimited-04.typ"
-        ( line 3 , column 17 )
+        ( line 2 , column 17 )
         (FieldAccess
            (Ident (Identifier "r")) (Ident (Identifier "bracket")))
     , Text "="
     , Code
         "typ/math/delimited-04.typ"
-        ( line 4 , column 5 )
+        ( line 3 , column 5 )
         (FuncCall
            (Ident (Identifier "lr"))
            [ BlockArg
                [ Code
                    "typ/math/delimited-04.typ"
-                   ( line 4 , column 8 )
+                   ( line 3 , column 8 )
                    (FieldAccess
                       (Ident (Identifier "l")) (Ident (Identifier "bracket")))
                , MFrac (Text "a") (Text "b")
                , Code
                    "typ/math/delimited-04.typ"
-                   ( line 4 , column 22 )
+                   ( line 3 , column 22 )
                    (FieldAccess
                       (Ident (Identifier "r")) (Ident (Identifier "bracket")))
                ]
@@ -77,9 +37,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 math.equation(block: true, 
+document(body: { math.equation(block: true, 
                                body: { text(body: [[]), 
                                        math.frac(denom: text(body: [b]), 
                                                  num: text(body: [a])), 

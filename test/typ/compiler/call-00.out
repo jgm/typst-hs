@@ -1,60 +1,20 @@
 --- parse tree ---
-[ Code
-    "typ/compiler/call-00.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/compiler/call-00.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/compiler/call-00.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , SoftBreak
 , Comment
 , Code
     "typ/compiler/call-00.typ"
-    ( line 5 , column 2 )
+    ( line 4 , column 2 )
     (LetFunc (Identifier "f") [] (Block (CodeBlock [])))
 , SoftBreak
 , Code
     "typ/compiler/call-00.typ"
-    ( line 6 , column 2 )
+    ( line 5 , column 2 )
     (Block
        (Content
           [ Code
               "typ/compiler/call-00.typ"
-              ( line 6 , column 4 )
+              ( line 5 , column 4 )
               (FuncCall (Ident (Identifier "f")) [])
           , Strong [ Text "Bold" ]
           ]))
@@ -62,7 +22,7 @@
 , Comment
 , Code
     "typ/compiler/call-00.typ"
-    ( line 9 , column 2 )
+    ( line 8 , column 2 )
     (LetFunc
        (Identifier "f")
        [ NormalParam (Identifier "x") , NormalParam (Identifier "body") ]
@@ -74,7 +34,7 @@
                    (Content
                       [ Code
                           "typ/compiler/call-00.typ"
-                          ( line 9 , column 28 )
+                          ( line 8 , column 28 )
                           (Ident (Identifier "x"))
                       ]))
                 (Ident (Identifier "body")))
@@ -82,13 +42,13 @@
                 (Content
                    [ Code
                        "typ/compiler/call-00.typ"
-                       ( line 9 , column 42 )
+                       ( line 8 , column 42 )
                        (Ident (Identifier "y"))
                    ])))))
 , SoftBreak
 , Code
     "typ/compiler/call-00.typ"
-    ( line 10 , column 2 )
+    ( line 9 , column 2 )
     (FuncCall
        (FuncCall
           (Ident (Identifier "f"))
@@ -98,7 +58,7 @@
 , Comment
 , Code
     "typ/compiler/call-00.typ"
-    ( line 13 , column 2 )
+    ( line 12 , column 2 )
     (Ident (Identifier "test"))
 , Space
 , Text "("
@@ -106,11 +66,16 @@
 , ParBreak
 , Code
     "typ/compiler/call-00.typ"
-    ( line 15 , column 2 )
+    ( line 14 , column 2 )
     (LetFunc
        (Identifier "f")
        [ NormalParam (Identifier "body") ]
        (Ident (Identifier "body")))
+, SoftBreak
+, Code
+    "typ/compiler/call-00.typ"
+    ( line 15 , column 2 )
+    (FuncCall (Ident (Identifier "f")) [ BlockArg [ Text "A" ] ])
 , SoftBreak
 , Code
     "typ/compiler/call-00.typ"
@@ -120,18 +85,13 @@
 , Code
     "typ/compiler/call-00.typ"
     ( line 17 , column 2 )
-    (FuncCall (Ident (Identifier "f")) [ BlockArg [ Text "A" ] ])
-, SoftBreak
-, Code
-    "typ/compiler/call-00.typ"
-    ( line 18 , column 2 )
     (FuncCall
        (Ident (Identifier "f"))
        [ NormalArg (Block (Content [ Text "A" ])) ])
 , ParBreak
 , Code
     "typ/compiler/call-00.typ"
-    ( line 20 , column 2 )
+    ( line 19 , column 2 )
     (LetFunc
        (Identifier "g")
        [ NormalParam (Identifier "a") , NormalParam (Identifier "b") ]
@@ -139,14 +99,14 @@
 , SoftBreak
 , Code
     "typ/compiler/call-00.typ"
-    ( line 21 , column 2 )
+    ( line 20 , column 2 )
     (FuncCall
        (Ident (Identifier "g"))
        [ BlockArg [ Text "A" ] , BlockArg [ Text "B" ] ])
 , SoftBreak
 , Code
     "typ/compiler/call-00.typ"
-    ( line 22 , column 2 )
+    ( line 21 , column 2 )
     (FuncCall
        (Ident (Identifier "g"))
        [ NormalArg (Block (Content [ Text "A" ]))
@@ -155,7 +115,7 @@
 , SoftBreak
 , Code
     "typ/compiler/call-00.typ"
-    ( line 23 , column 2 )
+    ( line 22 , column 2 )
     (FuncCall
        (Ident (Identifier "g"))
        [ BlockArg [ Text "A" ] , BlockArg [ Text "B" ] ])
@@ -163,8 +123,6 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
 ]), 
                  text(body: [
 ]), 

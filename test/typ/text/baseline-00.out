@@ -1,45 +1,5 @@
 --- parse tree ---
-[ Code
-    "typ/text/baseline-00.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/text/baseline-00.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/text/baseline-00.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , SoftBreak
 , EmDash
 , SoftBreak
@@ -47,7 +7,7 @@
 , Space
 , Code
     "typ/text/baseline-00.typ"
-    ( line 5 , column 5 )
+    ( line 4 , column 5 )
     (FuncCall
        (Ident (Identifier "text"))
        [ NormalArg (Literal (Numeric 1.5 Em)) , BlockArg [ Text "You" ] ])
@@ -55,7 +15,7 @@
 , Space
 , Code
     "typ/text/baseline-00.typ"
-    ( line 5 , column 24 )
+    ( line 4 , column 24 )
     (FuncCall
        (Ident (Identifier "text"))
        [ NormalArg (Literal (Numeric 0.75 Em))
@@ -77,7 +37,7 @@
 , SoftBreak
 , Code
     "typ/text/baseline-00.typ"
-    ( line 8 , column 2 )
+    ( line 7 , column 2 )
     (FuncCall
        (Ident (Identifier "text"))
        [ KeyValArg
@@ -85,7 +45,7 @@
        , BlockArg
            [ Code
                "typ/text/baseline-00.typ"
-               ( line 8 , column 26 )
+               ( line 7 , column 26 )
                (FuncCall
                   (Ident (Identifier "box"))
                   [ NormalArg
@@ -100,7 +60,7 @@
 , SoftBreak
 , Code
     "typ/text/baseline-00.typ"
-    ( line 9 , column 2 )
+    ( line 8 , column 2 )
     (FuncCall
        (Ident (Identifier "text"))
        [ KeyValArg (Identifier "baseline") (Literal (Numeric 0.2 Em))
@@ -109,7 +69,7 @@
            , Space
            , Code
                "typ/text/baseline-00.typ"
-               ( line 9 , column 31 )
+               ( line 8 , column 31 )
                (FuncCall
                   (Ident (Identifier "box"))
                   [ NormalArg
@@ -143,7 +103,7 @@
 , Space
 , Code
     "typ/text/baseline-00.typ"
-    ( line 13 , column 6 )
+    ( line 12 , column 6 )
     (FuncCall
        (Ident (Identifier "box"))
        [ KeyValArg
@@ -161,8 +121,6 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
 —
 Hi ]), 
                  text(body: text(body: [You]), 

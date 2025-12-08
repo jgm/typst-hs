@@ -1,105 +1,65 @@
 --- parse tree ---
-[ Code
-    "typ/math/style-02.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/math/style-02.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/math/style-02.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Equation
     False
     [ Text "h"
     , Text ","
     , Code
         "typ/math/style-02.typ"
-        ( line 3 , column 5 )
+        ( line 2 , column 5 )
         (FuncCall (Ident (Identifier "bb")) [ BlockArg [ Text "N" ] ])
     , Text ","
     , Code
         "typ/math/style-02.typ"
-        ( line 3 , column 12 )
+        ( line 2 , column 12 )
         (FuncCall (Ident (Identifier "cal")) [ BlockArg [ Text "R" ] ])
     , Text ","
     , Code
         "typ/math/style-02.typ"
-        ( line 3 , column 20 )
+        ( line 2 , column 20 )
         (Ident (Identifier "Theta"))
     , Text ","
     , Code
         "typ/math/style-02.typ"
-        ( line 3 , column 27 )
+        ( line 2 , column 27 )
         (FuncCall
            (Ident (Identifier "italic"))
            [ BlockArg
                [ Code
                    "typ/math/style-02.typ"
-                   ( line 3 , column 34 )
+                   ( line 2 , column 34 )
                    (Ident (Identifier "Theta"))
                ]
            ])
     , Text ","
     , Code
         "typ/math/style-02.typ"
-        ( line 3 , column 42 )
+        ( line 2 , column 42 )
         (FuncCall
            (Ident (Identifier "sans"))
            [ BlockArg
                [ Code
                    "typ/math/style-02.typ"
-                   ( line 3 , column 47 )
+                   ( line 2 , column 47 )
                    (Ident (Identifier "Theta"))
                ]
            ])
     , Text ","
     , Code
         "typ/math/style-02.typ"
-        ( line 3 , column 55 )
+        ( line 2 , column 55 )
         (FuncCall
            (Ident (Identifier "sans"))
            [ BlockArg
                [ Code
                    "typ/math/style-02.typ"
-                   ( line 3 , column 60 )
+                   ( line 2 , column 60 )
                    (FuncCall
                       (Ident (Identifier "italic"))
                       [ BlockArg
                           [ Code
                               "typ/math/style-02.typ"
-                              ( line 3 , column 67 )
+                              ( line 2 , column 67 )
                               (Ident (Identifier "Theta"))
                           ]
                       ])
@@ -109,9 +69,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 math.equation(block: false, 
+document(body: { math.equation(block: false, 
                                body: { text(body: [h]), 
                                        text(body: [,]), 
                                        math.bb(body: text(body: [N])), 

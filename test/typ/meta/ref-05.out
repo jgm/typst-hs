@@ -1,47 +1,7 @@
 --- parse tree ---
 [ Code
     "typ/meta/ref-05.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/meta/ref-05.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/meta/ref-05.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, ParBreak
-, Code
-    "typ/meta/ref-05.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (Show
        (Just (Ident (Identifier "ref")))
        (FuncExpr
@@ -119,13 +79,13 @@
 , Space
 , Text "unreferable"
 , Space
-, Code "typ/meta/ref-05.typ" ( line 25 , column 27 ) (Label "txt")
+, Code "typ/meta/ref-05.typ" ( line 24 , column 27 ) (Label "txt")
 , ParBreak
 , Ref "under" (Literal Auto)
 , SoftBreak
 , Code
     "typ/meta/ref-05.typ"
-    ( line 28 , column 2 )
+    ( line 27 , column 2 )
     (FuncCall
        (Ident (Identifier "underline"))
        [ BlockArg
@@ -140,8 +100,8 @@
            ]
        ])
 , Space
-, Code "typ/meta/ref-05.typ" ( line 30 , column 3 ) (Label "under")
+, Code "typ/meta/ref-05.typ" ( line 29 , column 3 ) (Label "under")
 , ParBreak
 ]
-"typ/meta/ref-05.typ" (line 3, column 2):
+"typ/meta/ref-05.typ" (line 2, column 2):
 Content does not have a method "element" or FieldAccess requires a dictionary

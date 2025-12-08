@@ -1,59 +1,19 @@
 --- parse tree ---
-[ Code
-    "typ/compiler/ops-10.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/compiler/ops-10.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/compiler/ops-10.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , SoftBreak
 , Code
     "typ/compiler/ops-10.typ"
-    ( line 4 , column 2 )
+    ( line 3 , column 2 )
     (Let (BasicBind (Just (Identifier "x"))) (Literal (Int 0)))
 , SoftBreak
 , Code
     "typ/compiler/ops-10.typ"
-    ( line 5 , column 2 )
+    ( line 4 , column 2 )
     (Assign (Ident (Identifier "x")) (Literal (Int 10)))
 , Space
 , Code
     "typ/compiler/ops-10.typ"
-    ( line 5 , column 18 )
+    ( line 4 , column 18 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (Ident (Identifier "x"))
@@ -62,14 +22,14 @@
 , SoftBreak
 , Code
     "typ/compiler/ops-10.typ"
-    ( line 6 , column 2 )
+    ( line 5 , column 2 )
     (Assign
        (Ident (Identifier "x"))
        (Minus (Ident (Identifier "x")) (Literal (Int 5))))
 , Space
 , Code
     "typ/compiler/ops-10.typ"
-    ( line 6 , column 18 )
+    ( line 5 , column 18 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (Ident (Identifier "x"))
@@ -78,14 +38,14 @@
 , SoftBreak
 , Code
     "typ/compiler/ops-10.typ"
-    ( line 7 , column 2 )
+    ( line 6 , column 2 )
     (Assign
        (Ident (Identifier "x"))
        (Plus (Ident (Identifier "x")) (Literal (Int 1))))
 , Space
 , Code
     "typ/compiler/ops-10.typ"
-    ( line 7 , column 18 )
+    ( line 6 , column 18 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (Ident (Identifier "x"))
@@ -94,14 +54,14 @@
 , SoftBreak
 , Code
     "typ/compiler/ops-10.typ"
-    ( line 8 , column 2 )
+    ( line 7 , column 2 )
     (Assign
        (Ident (Identifier "x"))
        (Times (Ident (Identifier "x")) (Ident (Identifier "x"))))
 , Space
 , Code
     "typ/compiler/ops-10.typ"
-    ( line 8 , column 18 )
+    ( line 7 , column 18 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (Ident (Identifier "x"))
@@ -110,14 +70,14 @@
 , SoftBreak
 , Code
     "typ/compiler/ops-10.typ"
-    ( line 9 , column 2 )
+    ( line 8 , column 2 )
     (Assign
        (Ident (Identifier "x"))
        (Divided (Ident (Identifier "x")) (Literal (Float 2.0))))
 , Space
 , Code
     "typ/compiler/ops-10.typ"
-    ( line 9 , column 18 )
+    ( line 8 , column 18 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (Ident (Identifier "x"))
@@ -126,12 +86,12 @@
 , SoftBreak
 , Code
     "typ/compiler/ops-10.typ"
-    ( line 10 , column 2 )
+    ( line 9 , column 2 )
     (Assign (Ident (Identifier "x")) (Literal (String "some")))
 , Space
 , Code
     "typ/compiler/ops-10.typ"
-    ( line 10 , column 18 )
+    ( line 9 , column 18 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (Ident (Identifier "x"))
@@ -140,14 +100,14 @@
 , SoftBreak
 , Code
     "typ/compiler/ops-10.typ"
-    ( line 11 , column 2 )
+    ( line 10 , column 2 )
     (Assign
        (Ident (Identifier "x"))
        (Plus (Ident (Identifier "x")) (Literal (String "thing"))))
 , Space
 , Code
     "typ/compiler/ops-10.typ"
-    ( line 11 , column 18 )
+    ( line 10 , column 18 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (Ident (Identifier "x"))
@@ -157,8 +117,6 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
 ]), 
                  text(body: [
 ]), 

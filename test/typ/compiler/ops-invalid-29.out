@@ -1,60 +1,18 @@
 --- parse tree ---
-[ Code
-    "typ/compiler/ops-invalid-29.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/compiler/ops-invalid-29.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/compiler/ops-invalid-29.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Comment
 , Code
     "typ/compiler/ops-invalid-29.typ"
-    ( line 4 , column 2 )
+    ( line 3 , column 2 )
     (Let (BasicBind (Just (Identifier "rect"))) (Literal (String "")))
 , SoftBreak
 , Code
     "typ/compiler/ops-invalid-29.typ"
-    ( line 5 , column 2 )
+    ( line 4 , column 2 )
     (Assign (Ident (Identifier "rect")) (Literal (String "hi")))
 , ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
 ]), 
                  parbreak() })

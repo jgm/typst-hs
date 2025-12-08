@@ -1,56 +1,16 @@
 --- parse tree ---
-[ Code
-    "typ/math/root-03.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/math/root-03.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/math/root-03.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Equation
     True
     [ Code
         "typ/math/root-03.typ"
-        ( line 3 , column 3 )
+        ( line 2 , column 3 )
         (FuncCall
            (Ident (Identifier "sqrt"))
            [ BlockArg
                [ Code
                    "typ/math/root-03.typ"
-                   ( line 3 , column 8 )
+                   ( line 2 , column 8 )
                    (FieldAccess
                       (Ident (Identifier "l"))
                       (FieldAccess
@@ -61,7 +21,7 @@
                    (Just (Text "2"))
                    (Code
                       "typ/math/root-03.typ"
-                      ( line 3 , column 11 )
+                      ( line 2 , column 11 )
                       (FieldAccess
                          (Ident (Identifier "r"))
                          (FieldAccess
@@ -69,7 +29,7 @@
                , Text "+"
                , Code
                    "typ/math/root-03.typ"
-                   ( line 3 , column 18 )
+                   ( line 2 , column 18 )
                    (FieldAccess
                       (Ident (Identifier "l"))
                       (FieldAccess
@@ -80,7 +40,7 @@
                    (Just (Text "2"))
                    (Code
                       "typ/math/root-03.typ"
-                      ( line 3 , column 21 )
+                      ( line 2 , column 21 )
                       (FieldAccess
                          (Ident (Identifier "r"))
                          (FieldAccess
@@ -90,7 +50,7 @@
     , Text "<"
     , Code
         "typ/math/root-03.typ"
-        ( line 3 , column 29 )
+        ( line 2 , column 29 )
         (FieldAccess
            (Ident (Identifier "l"))
            (FieldAccess
@@ -98,7 +58,7 @@
     , Text "z"
     , Code
         "typ/math/root-03.typ"
-        ( line 3 , column 32 )
+        ( line 2 , column 32 )
         (FieldAccess
            (Ident (Identifier "r"))
            (FieldAccess
@@ -111,7 +71,7 @@
     , Text "="
     , Code
         "typ/math/root-03.typ"
-        ( line 4 , column 7 )
+        ( line 3 , column 7 )
         (FuncCall
            (Ident (Identifier "sqrt"))
            [ BlockArg
@@ -123,7 +83,7 @@
     , Text "="
     , Code
         "typ/math/root-03.typ"
-        ( line 5 , column 6 )
+        ( line 4 , column 6 )
         (FuncCall
            (Ident (Identifier "root"))
            [ BlockArg [ Text "3" ]
@@ -140,7 +100,7 @@
     , Text "="
     , Code
         "typ/math/root-03.typ"
-        ( line 6 , column 6 )
+        ( line 5 , column 6 )
         (FuncCall
            (Ident (Identifier "root"))
            [ BlockArg [ Text "4" ]
@@ -166,9 +126,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 math.equation(block: true, 
+document(body: { math.equation(block: true, 
                                body: { math.sqrt(radicand: { text(body: [⟦]), 
                                                              text(body: [x]), 
                                                              math.attach(b: none, 

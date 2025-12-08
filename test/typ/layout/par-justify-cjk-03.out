@@ -1,50 +1,10 @@
 --- parse tree ---
-[ Code
-    "typ/layout/par-justify-cjk-03.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/layout/par-justify-cjk-03.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/layout/par-justify-cjk-03.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , SoftBreak
 , Comment
 , Code
     "typ/layout/par-justify-cjk-03.typ"
-    ( line 5 , column 2 )
+    ( line 4 , column 2 )
     (Set
        (Ident (Identifier "page"))
        [ KeyValArg
@@ -58,7 +18,7 @@
 , SoftBreak
 , Code
     "typ/layout/par-justify-cjk-03.typ"
-    ( line 6 , column 2 )
+    ( line 5 , column 2 )
     (Set
        (Ident (Identifier "text"))
        [ KeyValArg
@@ -68,7 +28,7 @@
 , SoftBreak
 , Code
     "typ/layout/par-justify-cjk-03.typ"
-    ( line 7 , column 2 )
+    ( line 6 , column 2 )
     (Set
        (Ident (Identifier "par"))
        [ KeyValArg (Identifier "justify") (Literal (Boolean True)) ])
@@ -81,7 +41,7 @@
 , ParBreak
 , Code
     "typ/layout/par-justify-cjk-03.typ"
-    ( line 11 , column 2 )
+    ( line 10 , column 2 )
     (Set
        (Ident (Identifier "text"))
        [ KeyValArg
@@ -96,8 +56,6 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
 ]), 
                  text(body: [
 ]), 

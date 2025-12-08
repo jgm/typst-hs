@@ -3,46 +3,6 @@
     "typ/bugs/math-realize-00.typ"
     ( line 1 , column 2 )
     (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/bugs/math-realize-00.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/bugs/math-realize-00.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Code
-    "typ/bugs/math-realize-00.typ"
-    ( line 2 , column 2 )
-    (Let
        (BasicBind (Just (Identifier "my")))
        (Block
           (Content
@@ -50,14 +10,14 @@
                  False
                  [ Code
                      "typ/bugs/math-realize-00.typ"
-                     ( line 2 , column 12 )
+                     ( line 1 , column 12 )
                      (Ident (Identifier "pi"))
                  ]
              ])))
 , SoftBreak
 , Code
     "typ/bugs/math-realize-00.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (Let
        (BasicBind (Just (Identifier "f1")))
        (FuncCall
@@ -68,7 +28,7 @@
 , SoftBreak
 , Code
     "typ/bugs/math-realize-00.typ"
-    ( line 4 , column 2 )
+    ( line 3 , column 2 )
     (Let
        (BasicBind (Just (Identifier "f2")))
        (FuncCall
@@ -80,7 +40,7 @@
 , SoftBreak
 , Code
     "typ/bugs/math-realize-00.typ"
-    ( line 5 , column 2 )
+    ( line 4 , column 2 )
     (Show
        (Just
           (FieldAccess
@@ -91,7 +51,7 @@
     True
     [ Code
         "typ/bugs/math-realize-00.typ"
-        ( line 7 , column 3 )
+        ( line 6 , column 3 )
         (Ident (Identifier "pi"))
     , Text "a"
     ]
@@ -100,7 +60,7 @@
     True
     [ Code
         "typ/bugs/math-realize-00.typ"
-        ( line 8 , column 3 )
+        ( line 7 , column 3 )
         (Ident (Identifier "my"))
     , Text "a"
     ]
@@ -111,14 +71,14 @@
     , Text "+"
     , Code
         "typ/bugs/math-realize-00.typ"
-        ( line 9 , column 7 )
+        ( line 8 , column 7 )
         (FuncCall
            (Ident (Identifier "sqrt"))
            [ BlockArg [ MFrac (Text "x") (Text "2") ] ])
     , Text "+"
     , Code
         "typ/bugs/math-realize-00.typ"
-        ( line 9 , column 19 )
+        ( line 8 , column 19 )
         (FuncCall
            (Ident (Identifier "sqrt"))
            [ NormalArg
@@ -137,7 +97,7 @@
     , Text "x"
     , Code
         "typ/bugs/math-realize-00.typ"
-        ( line 10 , column 8 )
+        ( line 9 , column 8 )
         (FuncCall
            (Ident (Identifier "link"))
            [ NormalArg (Literal (String "url"))
@@ -151,11 +111,11 @@
     [ Text "f"
     , Code
         "typ/bugs/math-realize-00.typ"
-        ( line 11 , column 5 )
+        ( line 10 , column 5 )
         (Ident (Identifier "f1"))
     , Code
         "typ/bugs/math-realize-00.typ"
-        ( line 11 , column 8 )
+        ( line 10 , column 8 )
         (Ident (Identifier "f2"))
     ]
 , SoftBreak
@@ -163,13 +123,13 @@
     True
     [ Code
         "typ/bugs/math-realize-00.typ"
-        ( line 12 , column 3 )
+        ( line 11 , column 3 )
         (FuncCall
            (Ident (Identifier "vec"))
            [ BlockArg [ Text "1" ] , BlockArg [ Text "2" ] ])
     , Code
         "typ/bugs/math-realize-00.typ"
-        ( line 12 , column 12 )
+        ( line 11 , column 12 )
         (FieldAccess (Ident (Identifier "op")) (Ident (Identifier "ast")))
     , Text "2"
     ]
@@ -177,8 +137,6 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
 ]), 
                  text(body: [
 ]), 

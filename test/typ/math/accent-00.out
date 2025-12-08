@@ -1,109 +1,69 @@
 --- parse tree ---
-[ Code
-    "typ/math/accent-00.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/math/accent-00.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/math/accent-00.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Equation
     False
     [ Code
         "typ/math/accent-00.typ"
-        ( line 3 , column 2 )
+        ( line 2 , column 2 )
         (FuncCall (Ident (Identifier "grave")) [ BlockArg [ Text "a" ] ])
     , Text ","
     , Code
         "typ/math/accent-00.typ"
-        ( line 3 , column 12 )
+        ( line 2 , column 12 )
         (FuncCall (Ident (Identifier "acute")) [ BlockArg [ Text "b" ] ])
     , Text ","
     , Code
         "typ/math/accent-00.typ"
-        ( line 3 , column 22 )
+        ( line 2 , column 22 )
         (FuncCall (Ident (Identifier "hat")) [ BlockArg [ Text "f" ] ])
     , Text ","
     , Code
         "typ/math/accent-00.typ"
-        ( line 3 , column 30 )
+        ( line 2 , column 30 )
         (FuncCall
            (Ident (Identifier "tilde")) [ BlockArg [ Text "\167" ] ])
     , Text ","
     , Code
         "typ/math/accent-00.typ"
-        ( line 3 , column 40 )
+        ( line 2 , column 40 )
         (FuncCall
            (Ident (Identifier "macron")) [ BlockArg [ Text "\228" ] ])
     , Text ","
     , Code
         "typ/math/accent-00.typ"
-        ( line 3 , column 51 )
+        ( line 2 , column 51 )
         (FuncCall (Ident (Identifier "diaer")) [ BlockArg [ Text "a" ] ])
     , Text ","
     , Text "\228"
     , HardBreak
     , Code
         "typ/math/accent-00.typ"
-        ( line 4 , column 2 )
+        ( line 3 , column 2 )
         (FuncCall (Ident (Identifier "breve")) [ BlockArg [ Text "&" ] ])
     , Text ","
     , Code
         "typ/math/accent-00.typ"
-        ( line 4 , column 13 )
+        ( line 3 , column 13 )
         (FuncCall (Ident (Identifier "dot")) [ BlockArg [ Text "!" ] ])
     , Text ","
     , Code
         "typ/math/accent-00.typ"
-        ( line 4 , column 21 )
+        ( line 3 , column 21 )
         (FuncCall (Ident (Identifier "circle")) [ BlockArg [ Text "a" ] ])
     , Text ","
     , Code
         "typ/math/accent-00.typ"
-        ( line 4 , column 32 )
+        ( line 3 , column 32 )
         (FuncCall (Ident (Identifier "caron")) [ BlockArg [ Text "@" ] ])
     , Text ","
     , Code
         "typ/math/accent-00.typ"
-        ( line 4 , column 42 )
+        ( line 3 , column 42 )
         (FuncCall (Ident (Identifier "arrow")) [ BlockArg [ Text "Z" ] ])
     , Text ","
     , Code
         "typ/math/accent-00.typ"
-        ( line 4 , column 52 )
+        ( line 3 , column 52 )
         (FuncCall
            (FieldAccess (Ident (Identifier "l")) (Ident (Identifier "arrow")))
            [ BlockArg [ Text "Z" ] ])
@@ -111,9 +71,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 math.equation(block: false, 
+document(body: { math.equation(block: false, 
                                body: { math.accent(accent: `, 
                                                    base: text(body: [a])), 
                                        text(body: [,]), 

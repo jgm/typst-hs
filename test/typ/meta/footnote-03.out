@@ -1,49 +1,9 @@
 --- parse tree ---
-[ Code
-    "typ/meta/footnote-03.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/meta/footnote-03.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/meta/footnote-03.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Comment
 , Code
     "typ/meta/footnote-03.typ"
-    ( line 4 , column 2 )
+    ( line 3 , column 2 )
     (FuncCall
        (Ident (Identifier "footnote"))
        [ BlockArg
@@ -51,7 +11,7 @@
            , Space
            , Code
                "typ/meta/footnote-03.typ"
-               ( line 4 , column 15 )
+               ( line 3 , column 15 )
                (FuncCall
                   (Ident (Identifier "footnote")) [ BlockArg [ Text "B" ] ])
            ]
@@ -60,15 +20,13 @@
 , Space
 , Code
     "typ/meta/footnote-03.typ"
-    ( line 4 , column 30 )
+    ( line 3 , column 30 )
     (FuncCall
        (Ident (Identifier "footnote")) [ BlockArg [ Text "C" ] ])
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 footnote(body: { text(body: [A, ]), 
+document(body: { footnote(body: { text(body: [A, ]), 
                                   footnote(body: text(body: [B])) }), 
                  text(body: [, ]), 
                  footnote(body: text(body: [C])), 

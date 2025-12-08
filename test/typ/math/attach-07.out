@@ -2,46 +2,6 @@
 [ Code
     "typ/math/attach-07.typ"
     ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/math/attach-07.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/math/attach-07.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Code
-    "typ/math/attach-07.typ"
-    ( line 2 , column 2 )
     (Set
        (Ident (Identifier "text"))
        [ KeyValArg (Identifier "size") (Literal (Numeric 8.0 Pt)) ])
@@ -56,7 +16,7 @@
         Nothing
         (Code
            "typ/math/attach-07.typ"
-           ( line 5 , column 11 )
+           ( line 4 , column 11 )
            (FuncCall (Ident (Identifier "frak")) [ BlockArg [ Text "p" ] ]))
     , MAttach (Just (Text "1")) Nothing (Text "2")
     , MAttach
@@ -64,14 +24,14 @@
         Nothing
         (Code
            "typ/math/attach-07.typ"
-           ( line 5 , column 25 )
+           ( line 4 , column 25 )
            (Ident (Identifier "dot")))
     , MAttach
         (Just (Text "1"))
         Nothing
         (Code
            "typ/math/attach-07.typ"
-           ( line 5 , column 31 )
+           ( line 4 , column 31 )
            (Ident (Identifier "lg")))
     , MAttach (Just (Text "1")) Nothing (Text "!")
     , MAttach (Just (Text "1")) Nothing (Text "\\")
@@ -82,7 +42,7 @@
         Nothing
         (Code
            "typ/math/attach-07.typ"
-           ( line 5 , column 56 )
+           ( line 4 , column 56 )
            (FuncCall (Ident (Identifier "op")) [ BlockArg [ Text "iq" ] ]))
     , HardBreak
     , MAttach Nothing (Just (Text "1")) (Text "x")
@@ -92,7 +52,7 @@
         (Just (Text "1"))
         (Code
            "typ/math/attach-07.typ"
-           ( line 6 , column 11 )
+           ( line 5 , column 11 )
            (FuncCall (Ident (Identifier "frak")) [ BlockArg [ Text "b" ] ]))
     , MAttach Nothing (Just (Text "1")) (Text "2")
     , MAttach
@@ -100,14 +60,14 @@
         (Just (Text "1"))
         (Code
            "typ/math/attach-07.typ"
-           ( line 6 , column 25 )
+           ( line 5 , column 25 )
            (Ident (Identifier "dot")))
     , MAttach
         Nothing
         (Just (Text "1"))
         (Code
            "typ/math/attach-07.typ"
-           ( line 6 , column 31 )
+           ( line 5 , column 31 )
            (Ident (Identifier "lg")))
     , MAttach Nothing (Just (Text "1")) (Text "!")
     , MAttach Nothing (Just (Text "1")) (Text "\\")
@@ -118,7 +78,7 @@
         (Just (Text "1"))
         (Code
            "typ/math/attach-07.typ"
-           ( line 6 , column 56 )
+           ( line 5 , column 56 )
            (FuncCall (Ident (Identifier "op")) [ BlockArg [ Text "id" ] ]))
     , HardBreak
     , MAttach (Just (Text "1")) Nothing (Text "x")
@@ -129,7 +89,7 @@
     , MAttach Nothing (Just (Text "1")) (Text " `")
     , Code
         "typ/math/attach-07.typ"
-        ( line 7 , column 31 )
+        ( line 6 , column 31 )
         (FuncCall
            (Ident (Identifier "attach"))
            [ BlockArg [ Text "I" ]
@@ -143,13 +103,13 @@
         (Just (Text "1"))
         (Code
            "typ/math/attach-07.typ"
-           ( line 8 , column 3 )
+           ( line 7 , column 3 )
            (FuncCall
               (Ident (Identifier "scripts"))
               [ BlockArg
                   [ Code
                       "typ/math/attach-07.typ"
-                      ( line 8 , column 11 )
+                      ( line 7 , column 11 )
                       (Ident (Identifier "sum"))
                   ]
               ]))
@@ -158,7 +118,7 @@
         (Just (Text "1"))
         (Code
            "typ/math/attach-07.typ"
-           ( line 8 , column 20 )
+           ( line 7 , column 20 )
            (Ident (Identifier "integral")))
     , Text "|"
     , MFrac (Text "1") (Text "2")
@@ -172,7 +132,7 @@
     , MAttach (Just (Text "1")) (Just (Text "1")) (Text ")")
     , Code
         "typ/math/attach-07.typ"
-        ( line 9 , column 24 )
+        ( line 8 , column 24 )
         (FieldAccess (Ident (Identifier "not")) (Ident (Identifier "eq")))
     , MAttach
         (Just (Text "1"))
@@ -188,16 +148,14 @@
            (Just "]")
            [ Code
                "typ/math/attach-07.typ"
-               ( line 9 , column 47 )
+               ( line 8 , column 47 )
                (Ident (Identifier "integral"))
            ])
     ]
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 parbreak(), 
+document(body: { parbreak(), 
                  math.equation(block: true, 
                                body: { math.attach(b: text(body: [1], 
                                                            size: 8.0pt), 

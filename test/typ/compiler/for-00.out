@@ -1,50 +1,10 @@
 --- parse tree ---
-[ Code
-    "typ/compiler/for-00.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/compiler/for-00.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/compiler/for-00.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , SoftBreak
 , Comment
 , Code
     "typ/compiler/for-00.typ"
-    ( line 5 , column 2 )
+    ( line 4 , column 2 )
     (For
        (BasicBind (Just (Identifier "x")))
        (Array [])
@@ -54,7 +14,7 @@
 , Comment
 , Code
     "typ/compiler/for-00.typ"
-    ( line 9 , column 2 )
+    ( line 8 , column 2 )
     (For
        (DestructuringBind
           [ Simple (BasicBind (Just (Identifier "k")))
@@ -69,13 +29,13 @@
              [ SoftBreak
              , Code
                  "typ/compiler/for-00.typ"
-                 ( line 10 , column 4 )
+                 ( line 9 , column 4 )
                  (Ident (Identifier "k"))
              , Text ":"
              , Space
              , Code
                  "typ/compiler/for-00.typ"
-                 ( line 10 , column 8 )
+                 ( line 9 , column 8 )
                  (Ident (Identifier "v"))
              , Text "."
              , ParBreak
@@ -85,7 +45,7 @@
 , Comment
 , Code
     "typ/compiler/for-00.typ"
-    ( line 15 , column 2 )
+    ( line 14 , column 2 )
     (Block
        (CodeBlock
           [ Literal (String "[")
@@ -108,7 +68,7 @@
                         (Content
                            [ Code
                                "typ/compiler/for-00.typ"
-                               ( line 19 , column 7 )
+                               ( line 18 , column 7 )
                                (Ident (Identifier "v"))
                            ])
                     , If
@@ -139,7 +99,7 @@
 , Comment
 , Code
     "typ/compiler/for-00.typ"
-    ( line 30 , column 2 )
+    ( line 29 , column 2 )
     (For
        (BasicBind (Just (Identifier "v")))
        (Array
@@ -155,7 +115,7 @@
           (Content
              [ Code
                  "typ/compiler/for-00.typ"
-                 ( line 30 , column 35 )
+                 ( line 29 , column 35 )
                  (If
                     [ ( And
                           (GreaterThanOrEqual (Ident (Identifier "v")) (Literal (Int 2)))
@@ -172,7 +132,7 @@
 , Comment
 , Code
     "typ/compiler/for-00.typ"
-    ( line 33 , column 2 )
+    ( line 32 , column 2 )
     (LetFunc
        (Identifier "f1")
        [ SinkParam (Just (Identifier "args")) ]
@@ -187,7 +147,7 @@
 , SoftBreak
 , Code
     "typ/compiler/for-00.typ"
-    ( line 34 , column 2 )
+    ( line 33 , column 2 )
     (LetFunc
        (Identifier "f2")
        [ SinkParam (Just (Identifier "args")) ]
@@ -226,7 +186,7 @@
 , SoftBreak
 , Code
     "typ/compiler/for-00.typ"
-    ( line 35 , column 2 )
+    ( line 34 , column 2 )
     (LetFunc
        (Identifier "f")
        [ SinkParam (Just (Identifier "args")) ]
@@ -244,7 +204,7 @@
 , SoftBreak
 , Code
     "typ/compiler/for-00.typ"
-    ( line 36 , column 2 )
+    ( line 35 , column 2 )
     (FuncCall
        (Ident (Identifier "f"))
        [ NormalArg (Literal (Int 1))
@@ -254,8 +214,6 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
 ]), 
                  parbreak(), 
                  text(body: [

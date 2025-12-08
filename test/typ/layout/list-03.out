@@ -1,53 +1,17 @@
 --- parse tree ---
-[ Code
-    "typ/layout/list-03.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/layout/list-03.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/layout/list-03.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, BulletListItem
-    [ Text "Top" , Text "-" , Text "level" , Space , Text "indent" ]
+[ Text "-"
+, Space
+, Text "Top"
+, Text "-"
+, Text "level"
+, Space
+, Text "indent"
 , SoftBreak
 , BulletListItem
     [ Text "is" , Space , Text "fine" , Text "." , ParBreak ]
 ]
 --- evaluated ---
-document(body: { text(body: [
+document(body: { text(body: [- Top-level indent
 ]), 
-                 list(children: (text(body: [Top-level indent]), 
-                                 { text(body: [is fine.]), 
+                 list(children: ({ text(body: [is fine.]), 
                                    parbreak() })) })

@@ -1,57 +1,17 @@
 --- parse tree ---
-[ Code
-    "typ/math/content-01.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/math/content-01.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/math/content-01.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Equation
     True
     [ Text "x"
     , Code
         "typ/math/content-01.typ"
-        ( line 3 , column 5 )
+        ( line 2 , column 5 )
         (FieldAccess
            (Ident (Identifier "eq")) (Ident (Identifier "colon")))
     , MFrac
         (Code
            "typ/math/content-01.typ"
-           ( line 3 , column 9 )
+           ( line 2 , column 9 )
            (FuncCall
               (Ident (Identifier "table"))
               [ KeyValArg (Identifier "columns") (Literal (Int 2))
@@ -60,7 +20,7 @@
               ]))
         (Code
            "typ/math/content-01.typ"
-           ( line 3 , column 33 )
+           ( line 2 , column 33 )
            (FuncCall
               (Ident (Identifier "mat"))
               [ BlockArg [ Text "1" ]
@@ -70,7 +30,7 @@
     , Text "="
     , Code
         "typ/math/content-01.typ"
-        ( line 4 , column 9 )
+        ( line 3 , column 9 )
         (FuncCall
            (Ident (Identifier "table"))
            [ BlockArg [ Text "A" ]
@@ -81,9 +41,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 math.equation(block: true, 
+document(body: { math.equation(block: true, 
                                body: { text(body: [x]), 
                                        text(body: [≔]), 
                                        math.frac(denom: math.mat(rows: ((text(body: [1]), 

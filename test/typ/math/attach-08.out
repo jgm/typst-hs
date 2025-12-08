@@ -1,45 +1,5 @@
 --- parse tree ---
-[ Code
-    "typ/math/attach-08.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/math/attach-08.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/math/attach-08.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Equation
     True
     [ MAttach
@@ -50,11 +10,11 @@
               [ Text "n"
               , Code
                   "typ/math/attach-08.typ"
-                  ( line 3 , column 9 )
+                  ( line 2 , column 9 )
                   (FieldAccess (Ident (Identifier "r")) (Ident (Identifier "arrow")))
               , Code
                   "typ/math/attach-08.typ"
-                  ( line 3 , column 11 )
+                  ( line 2 , column 11 )
                   (Ident (Identifier "oo"))
               , HardBreak
               , Text "n"
@@ -63,7 +23,7 @@
         Nothing
         (Code
            "typ/math/attach-08.typ"
-           ( line 3 , column 3 )
+           ( line 2 , column 3 )
            (Ident (Identifier "lim")))
     , MAttach
         (Just
@@ -77,26 +37,24 @@
               , Text "k"
               , Code
                   "typ/math/attach-08.typ"
-                  ( line 3 , column 40 )
+                  ( line 2 , column 40 )
                   (Ident (Identifier "in"))
               , Code
                   "typ/math/attach-08.typ"
-                  ( line 3 , column 43 )
+                  ( line 2 , column 43 )
                   (Ident (Identifier "NN"))
               ]))
         (Just (Text "n"))
         (Code
            "typ/math/attach-08.typ"
-           ( line 3 , column 27 )
+           ( line 2 , column 27 )
            (Ident (Identifier "sum")))
     , Text "k"
     ]
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 math.equation(block: true, 
+document(body: { math.equation(block: true, 
                                body: { math.attach(b: { text(body: [n]), 
                                                         text(body: [→]), 
                                                         text(body: [∞]), 

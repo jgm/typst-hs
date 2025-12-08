@@ -1,45 +1,5 @@
 --- parse tree ---
-[ Code
-    "typ/meta/footnote-container-00.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/meta/footnote-container-00.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/meta/footnote-container-00.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Text "Read"
 , Space
 , Text "the"
@@ -48,7 +8,7 @@
 , Space
 , Code
     "typ/meta/footnote-container-00.typ"
-    ( line 3 , column 16 )
+    ( line 2 , column 16 )
     (FuncCall
        (Ident (Identifier "footnote"))
        [ BlockArg [ Url "https://typst.app/docs" ] ])
@@ -56,7 +16,7 @@
 , SoftBreak
 , Code
     "typ/meta/footnote-container-00.typ"
-    ( line 4 , column 2 )
+    ( line 3 , column 2 )
     (FuncCall
        (Ident (Identifier "figure"))
        [ NormalArg
@@ -76,7 +36,7 @@
                  , Space
                  , Code
                      "typ/meta/footnote-container-00.typ"
-                     ( line 7 , column 14 )
+                     ( line 6 , column 14 )
                      (FuncCall
                         (Ident (Identifier "footnote"))
                         [ BlockArg
@@ -108,7 +68,7 @@
 , Space
 , Code
     "typ/meta/footnote-container-00.typ"
-    ( line 10 , column 7 )
+    ( line 9 , column 7 )
     (FuncCall
        (Ident (Identifier "footnote"))
        [ BlockArg [ Text "just" , Space , Text "for" , Space , Ellipsis ]
@@ -118,7 +78,7 @@
 , Space
 , Code
     "typ/meta/footnote-container-00.typ"
-    ( line 10 , column 41 )
+    ( line 9 , column 41 )
     (FuncCall
        (Ident (Identifier "footnote"))
        [ BlockArg
@@ -134,9 +94,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 text(body: [Read the docs ]), 
+document(body: { text(body: [Read the docs ]), 
                  footnote(body: link(body: [https://typst.app/docs], 
                                      dest: "https://typst.app/docs")), 
                  text(body: [!

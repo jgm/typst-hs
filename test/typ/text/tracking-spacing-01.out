@@ -1,45 +1,5 @@
 --- parse tree ---
-[ Code
-    "typ/text/tracking-spacing-01.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/text/tracking-spacing-01.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/text/tracking-spacing-01.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Text "I"
 , Quote '\''
 , Text "m"
@@ -47,7 +7,7 @@
 , Text "in"
 , Code
     "typ/text/tracking-spacing-01.typ"
-    ( line 3 , column 8 )
+    ( line 2 , column 8 )
     (FuncCall
        (Ident (Identifier "text"))
        [ KeyValArg
@@ -59,9 +19,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 text(body: [I’m in]), 
+document(body: { text(body: [I’m in]), 
                  text(body: text(body: [ spaace]), 
                       tracking: 0.15em + 1.5pt), 
                  text(body: [!]), 

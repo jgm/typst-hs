@@ -2,46 +2,6 @@
 [ Code
     "typ/meta/query-before-after-00.typ"
     ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/meta/query-before-after-00.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/meta/query-before-after-00.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Code
-    "typ/meta/query-before-after-00.typ"
-    ( line 2 , column 2 )
     (Set
        (Ident (Identifier "page"))
        [ KeyValArg (Identifier "paper") (Literal (String "a7"))
@@ -56,7 +16,7 @@
 , ParBreak
 , Code
     "typ/meta/query-before-after-00.typ"
-    ( line 8 , column 2 )
+    ( line 7 , column 2 )
     (Show
        (Just
           (FuncCall
@@ -72,12 +32,12 @@
                 [ SoftBreak
                 , Code
                     "typ/meta/query-before-after-00.typ"
-                    ( line 9 , column 4 )
+                    ( line 8 , column 4 )
                     (Ident (Identifier "it"))
                 , ParBreak
                 , Code
                     "typ/meta/query-before-after-00.typ"
-                    ( line 11 , column 4 )
+                    ( line 10 , column 4 )
                     (Set
                        (Ident (Identifier "text"))
                        [ KeyValArg (Identifier "size") (Literal (Numeric 12.0 Pt))
@@ -86,7 +46,7 @@
                 , SoftBreak
                 , Code
                     "typ/meta/query-before-after-00.typ"
-                    ( line 12 , column 4 )
+                    ( line 11 , column 4 )
                     (FuncCall
                        (Ident (Identifier "outline"))
                        [ KeyValArg
@@ -153,7 +113,7 @@
 , ParBreak
 , Code
     "typ/meta/query-before-after-00.typ"
-    ( line 28 , column 2 )
+    ( line 27 , column 2 )
     (Set
        (Ident (Identifier "heading"))
        [ KeyValArg (Identifier "outlined") (Literal (Boolean True))
@@ -177,5 +137,5 @@
 , Heading 3 [ Text "Subsubsection" , Space , Text "3" ]
 , Heading 2 [ Text "Subsection" , Space , Text "3" ]
 ]
-"typ/meta/query-before-after-00.typ" (line 12, column 4):
+"typ/meta/query-before-after-00.typ" (line 11, column 4):
 Method "location" is not yet implemented or FieldAccess requires a dictionary

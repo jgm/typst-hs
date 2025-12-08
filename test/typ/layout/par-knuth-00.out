@@ -2,46 +2,6 @@
 [ Code
     "typ/layout/par-knuth-00.typ"
     ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/layout/par-knuth-00.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/layout/par-knuth-00.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Code
-    "typ/layout/par-knuth-00.typ"
-    ( line 2 , column 2 )
     (Set
        (Ident (Identifier "page"))
        [ KeyValArg (Identifier "width") (Literal Auto)
@@ -50,7 +10,7 @@
 , SoftBreak
 , Code
     "typ/layout/par-knuth-00.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (Set
        (Ident (Identifier "par"))
        [ KeyValArg (Identifier "leading") (Literal (Numeric 4.0 Pt))
@@ -59,7 +19,7 @@
 , SoftBreak
 , Code
     "typ/layout/par-knuth-00.typ"
-    ( line 4 , column 2 )
+    ( line 3 , column 2 )
     (Set
        (Ident (Identifier "text"))
        [ KeyValArg
@@ -68,7 +28,7 @@
 , ParBreak
 , Code
     "typ/layout/par-knuth-00.typ"
-    ( line 6 , column 2 )
+    ( line 5 , column 2 )
     (Let
        (BasicBind (Just (Identifier "story")))
        (Block
@@ -306,7 +266,7 @@
 , ParBreak
 , Code
     "typ/layout/par-knuth-00.typ"
-    ( line 17 , column 2 )
+    ( line 16 , column 2 )
     (LetFunc
        (Identifier "column")
        [ NormalParam (Identifier "title")
@@ -327,7 +287,7 @@
                      [ SoftBreak
                      , Code
                          "typ/layout/par-knuth-00.typ"
-                         ( line 19 , column 6 )
+                         ( line 18 , column 6 )
                          (Set
                             (Ident (Identifier "par"))
                             [ KeyValArg
@@ -336,7 +296,7 @@
                      , SoftBreak
                      , Code
                          "typ/layout/par-knuth-00.typ"
-                         ( line 20 , column 6 )
+                         ( line 19 , column 6 )
                          (Set
                             (Ident (Identifier "text"))
                             [ KeyValArg
@@ -345,7 +305,7 @@
                      , SoftBreak
                      , Code
                          "typ/layout/par-knuth-00.typ"
-                         ( line 21 , column 6 )
+                         ( line 20 , column 6 )
                          (FuncCall
                             (Ident (Identifier "strong"))
                             [ NormalArg (Ident (Identifier "title")) ])
@@ -353,7 +313,7 @@
                      , HardBreak
                      , Code
                          "typ/layout/par-knuth-00.typ"
-                         ( line 21 , column 23 )
+                         ( line 20 , column 23 )
                          (Ident (Identifier "story"))
                      , ParBreak
                      ]
@@ -362,7 +322,7 @@
 , ParBreak
 , Code
     "typ/layout/par-knuth-00.typ"
-    ( line 25 , column 2 )
+    ( line 24 , column 2 )
     (FuncCall
        (Ident (Identifier "grid"))
        [ KeyValArg (Identifier "columns") (Literal (Int 3))
@@ -412,8 +372,6 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
 ]), 
                  text(body: [
 ]), 

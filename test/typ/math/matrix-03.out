@@ -1,48 +1,8 @@
 --- parse tree ---
-[ Code
-    "typ/math/matrix-03.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/math/matrix-03.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/math/matrix-03.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Code
     "typ/math/matrix-03.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (Set
        (FieldAccess
           (Ident (Identifier "mat")) (Ident (Identifier "math")))
@@ -52,7 +12,7 @@
     True
     [ Code
         "typ/math/matrix-03.typ"
-        ( line 4 , column 3 )
+        ( line 3 , column 3 )
         (FuncCall
            (Ident (Identifier "mat"))
            [ ArrayArg [ [ Text "1" , Text "2" ] , [ Text "3" , Text "4" ] ] ])
@@ -64,7 +24,7 @@
     , Text "+"
     , Code
         "typ/math/matrix-03.typ"
-        ( line 5 , column 7 )
+        ( line 4 , column 7 )
         (FuncCall
            (Ident (Identifier "mat"))
            [ KeyValArg (Identifier "delim") (Literal None)
@@ -77,8 +37,6 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
 ]), 
                  math.equation(block: true, 
                                body: math.mat(delim: "[", 

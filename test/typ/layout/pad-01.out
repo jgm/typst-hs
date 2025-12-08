@@ -1,48 +1,8 @@
 --- parse tree ---
-[ Code
-    "typ/layout/pad-01.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/layout/pad-01.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/layout/pad-01.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , Code
     "typ/layout/pad-01.typ"
-    ( line 3 , column 2 )
+    ( line 2 , column 2 )
     (FuncCall
        (Ident (Identifier "pad"))
        [ KeyValArg (Identifier "left") (Literal (Numeric 10.0 Pt))
@@ -52,7 +12,7 @@
            , Space
            , Code
                "typ/layout/pad-01.typ"
-               ( line 3 , column 35 )
+               ( line 2 , column 35 )
                (FuncCall
                   (Ident (Identifier "h")) [ NormalArg (Literal (Numeric 1.0 Fr)) ])
            , Space
@@ -62,9 +22,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 pad(body: { text(body: [PL ]), 
+document(body: { pad(body: { text(body: [PL ]), 
                              h(amount: 1.0fr), 
                              text(body: [ PR]) }, 
                      left: 10.0pt, 

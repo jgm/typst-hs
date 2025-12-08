@@ -1,71 +1,31 @@
 --- parse tree ---
-[ Code
-    "typ/compiler/ops-11.typ"
-    ( line 1 , column 2 )
-    (Let
-       (BasicBind (Just (Identifier "test")))
-       (FuncExpr
-          [ NormalParam (Identifier "x") , NormalParam (Identifier "y") ]
-          (Block
-             (CodeBlock
-                [ If
-                    [ ( Equals (Ident (Identifier "x")) (Ident (Identifier "y"))
-                      , Block (Content [ Text "\9989" ])
-                      )
-                    , ( Literal (Boolean True)
-                      , Block
-                          (Content
-                             [ Text "\10060"
-                             , Text "("
-                             , Code
-                                 "typ/compiler/ops-11.typ"
-                                 ( line 1 , column 47 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "x")) ])
-                             , Space
-                             , Text "/"
-                             , Text "="
-                             , Space
-                             , Code
-                                 "typ/compiler/ops-11.typ"
-                                 ( line 1 , column 59 )
-                                 (FuncCall
-                                    (Ident (Identifier "repr"))
-                                    [ NormalArg (Ident (Identifier "y")) ])
-                             , Text ")"
-                             ])
-                      )
-                    ]
-                ]))))
-, SoftBreak
-, Comment
+[ Comment
 , SoftBreak
 , Code
     "typ/compiler/ops-11.typ"
-    ( line 4 , column 2 )
+    ( line 3 , column 2 )
     (Let (BasicBind (Just (Identifier "a"))) (Literal None))
 , SoftBreak
 , Code
     "typ/compiler/ops-11.typ"
-    ( line 5 , column 2 )
+    ( line 4 , column 2 )
     (Let (BasicBind (Just (Identifier "b"))) (Literal None))
 , SoftBreak
 , Code
     "typ/compiler/ops-11.typ"
-    ( line 6 , column 2 )
+    ( line 5 , column 2 )
     (Let (BasicBind (Just (Identifier "c"))) (Literal None))
 , SoftBreak
 , Code
     "typ/compiler/ops-11.typ"
-    ( line 7 , column 2 )
+    ( line 6 , column 2 )
     (Assign
        (Array [ Reg (Ident (Identifier "a")) ])
        (Array [ Reg (Literal (Int 1)) ]))
 , SoftBreak
 , Code
     "typ/compiler/ops-11.typ"
-    ( line 8 , column 2 )
+    ( line 7 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (Ident (Identifier "a"))
@@ -74,7 +34,7 @@
 , ParBreak
 , Code
     "typ/compiler/ops-11.typ"
-    ( line 10 , column 2 )
+    ( line 9 , column 2 )
     (Assign
        (Array
           [ Reg Underscore
@@ -91,7 +51,7 @@
 , SoftBreak
 , Code
     "typ/compiler/ops-11.typ"
-    ( line 11 , column 2 )
+    ( line 10 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (Ident (Identifier "a"))
@@ -100,7 +60,7 @@
 , SoftBreak
 , Code
     "typ/compiler/ops-11.typ"
-    ( line 12 , column 2 )
+    ( line 11 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (Ident (Identifier "b"))
@@ -109,7 +69,7 @@
 , ParBreak
 , Code
     "typ/compiler/ops-11.typ"
-    ( line 14 , column 2 )
+    ( line 13 , column 2 )
     (Assign
        (Array
           [ Reg (Ident (Identifier "a"))
@@ -127,7 +87,7 @@
 , SoftBreak
 , Code
     "typ/compiler/ops-11.typ"
-    ( line 15 , column 2 )
+    ( line 14 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (Ident (Identifier "a"))
@@ -136,7 +96,7 @@
 , SoftBreak
 , Code
     "typ/compiler/ops-11.typ"
-    ( line 16 , column 2 )
+    ( line 15 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (Ident (Identifier "b"))
@@ -145,7 +105,7 @@
 , SoftBreak
 , Code
     "typ/compiler/ops-11.typ"
-    ( line 17 , column 2 )
+    ( line 16 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (Ident (Identifier "c"))
@@ -160,7 +120,7 @@
 , ParBreak
 , Code
     "typ/compiler/ops-11.typ"
-    ( line 19 , column 2 )
+    ( line 18 , column 2 )
     (Assign
        (Binding
           (DestructuringBind
@@ -176,7 +136,7 @@
 , SoftBreak
 , Code
     "typ/compiler/ops-11.typ"
-    ( line 20 , column 2 )
+    ( line 19 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (Ident (Identifier "a"))
@@ -185,7 +145,7 @@
 , SoftBreak
 , Code
     "typ/compiler/ops-11.typ"
-    ( line 21 , column 2 )
+    ( line 20 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (Ident (Identifier "b"))
@@ -194,7 +154,7 @@
 , SoftBreak
 , Code
     "typ/compiler/ops-11.typ"
-    ( line 22 , column 2 )
+    ( line 21 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (Ident (Identifier "c"))
@@ -203,14 +163,14 @@
 , ParBreak
 , Code
     "typ/compiler/ops-11.typ"
-    ( line 24 , column 2 )
+    ( line 23 , column 2 )
     (Let
        (BasicBind (Just (Identifier "a")))
        (Array [ Reg (Literal (Int 1)) , Reg (Literal (Int 2)) ]))
 , SoftBreak
 , Code
     "typ/compiler/ops-11.typ"
-    ( line 25 , column 2 )
+    ( line 24 , column 2 )
     (Assign
        (Binding
           (DestructuringBind
@@ -229,7 +189,7 @@
 , SoftBreak
 , Code
     "typ/compiler/ops-11.typ"
-    ( line 26 , column 2 )
+    ( line 25 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (Ident (Identifier "a"))
@@ -239,7 +199,7 @@
 , SoftBreak
 , Code
     "typ/compiler/ops-11.typ"
-    ( line 27 , column 2 )
+    ( line 26 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (Ident (Identifier "b"))
@@ -248,14 +208,14 @@
 , ParBreak
 , Code
     "typ/compiler/ops-11.typ"
-    ( line 29 , column 2 )
+    ( line 28 , column 2 )
     (Let
        (BasicBind (Just (Identifier "a")))
        (Array [ Reg (Literal (Int 1)) , Reg (Literal (Int 2)) ]))
 , SoftBreak
 , Code
     "typ/compiler/ops-11.typ"
-    ( line 30 , column 2 )
+    ( line 29 , column 2 )
     (Assign
        (Array
           [ Reg
@@ -268,7 +228,7 @@
 , SoftBreak
 , Code
     "typ/compiler/ops-11.typ"
-    ( line 31 , column 2 )
+    ( line 30 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (Ident (Identifier "a"))
@@ -278,7 +238,7 @@
 , SoftBreak
 , Code
     "typ/compiler/ops-11.typ"
-    ( line 32 , column 2 )
+    ( line 31 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (Ident (Identifier "b"))
@@ -287,7 +247,7 @@
 , ParBreak
 , Code
     "typ/compiler/ops-11.typ"
-    ( line 34 , column 2 )
+    ( line 33 , column 2 )
     (Assign
        (Array
           [ Reg (Ident (Identifier "a")) , Spr (Ident (Identifier "b")) ])
@@ -300,7 +260,7 @@
 , SoftBreak
 , Code
     "typ/compiler/ops-11.typ"
-    ( line 35 , column 2 )
+    ( line 34 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (Ident (Identifier "a"))
@@ -309,7 +269,7 @@
 , SoftBreak
 , Code
     "typ/compiler/ops-11.typ"
-    ( line 36 , column 2 )
+    ( line 35 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (Ident (Identifier "b"))
@@ -323,14 +283,14 @@
 , ParBreak
 , Code
     "typ/compiler/ops-11.typ"
-    ( line 38 , column 2 )
+    ( line 37 , column 2 )
     (Let
        (BasicBind (Just (Identifier "a")))
        (Array [ Reg (Literal (Int 1)) , Reg (Literal (Int 2)) ]))
 , SoftBreak
 , Code
     "typ/compiler/ops-11.typ"
-    ( line 39 , column 2 )
+    ( line 38 , column 2 )
     (Assign
        (Array
           [ Reg (Ident (Identifier "b"))
@@ -348,7 +308,7 @@
 , SoftBreak
 , Code
     "typ/compiler/ops-11.typ"
-    ( line 40 , column 2 )
+    ( line 39 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (Ident (Identifier "a"))
@@ -366,7 +326,7 @@
 , SoftBreak
 , Code
     "typ/compiler/ops-11.typ"
-    ( line 41 , column 2 )
+    ( line 40 , column 2 )
     (FuncCall
        (Ident (Identifier "test"))
        [ NormalArg (Ident (Identifier "b"))
@@ -376,8 +336,6 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
-]), 
-                 text(body: [
 ]), 
                  text(body: [
 ]), 
