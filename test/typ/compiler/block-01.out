@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/compiler/block-01.typ"
     ( line 2 , column 2 )
@@ -8,6 +9,7 @@
        [ NormalArg (Block (CodeBlock [])) , NormalArg (Literal None) ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/block-01.typ"
     ( line 5 , column 2 )
@@ -21,6 +23,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/block-01.typ"
     ( line 8 , column 2 )
@@ -31,6 +34,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/block-01.typ"
     ( line 11 , column 2 )
@@ -46,6 +50,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/block-01.typ"
     ( line 14 , column 2 )
@@ -62,6 +67,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/block-01.typ"
     ( line 21 , column 2 )
@@ -79,15 +85,27 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [✅]), 
-                 parbreak(), 
+document(body: { text(body: [
+]), 
                  text(body: [✅]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [✅]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [✅]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [✅]), 
                  parbreak(), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 parbreak(), 
+                 text(body: [
+]), 
                  text(body: [✅]), 
                  parbreak() })

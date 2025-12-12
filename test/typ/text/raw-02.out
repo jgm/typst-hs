@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Comment
-, SoftBreak
+, ParBreak
 , Text "Text"
 , SoftBreak
 , RawBlock "rust" "fn code() {}\n"
@@ -9,8 +9,8 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-Text
+document(body: { parbreak(), 
+                 text(body: [Text
 ]), 
                  raw(block: true, 
                      lang: "rust", 

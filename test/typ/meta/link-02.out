@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Url "https://[::1]:8080/"
 , Space
 , HardBreak
@@ -12,7 +13,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { link(body: [https://[::1]:8080/], 
+document(body: { text(body: [
+]), 
+                 link(body: [https://[::1]:8080/], 
                       dest: "https://[::1]:8080/"), 
                  text(body: [ ]), 
                  linebreak(), 

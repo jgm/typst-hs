@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "Text"
 , Space
 , Code "typ/meta/link-09.typ" ( line 2 , column 6 ) (Label "hey")
@@ -16,7 +17,8 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [Text ]), 
+document(body: { text(body: [
+Text ]), 
                  <hey>, 
                  text(body: [
 ]), 

@@ -1,6 +1,8 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compute/construct-01.typ"
     ( line 3 , column 2 )
@@ -28,7 +30,11 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { stack(children: (rect(fill: luma(0%)), 
+document(body: { text(body: [
+]), 
+                 text(body: [
+]), 
+                 stack(children: (rect(fill: luma(0%)), 
                                   rect(fill: luma(80%))), 
                        dir: ltr), 
                  parbreak() })

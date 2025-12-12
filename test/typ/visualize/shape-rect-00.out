@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/visualize/shape-rect-00.typ"
     ( line 2 , column 2 )
@@ -7,5 +8,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { rect(), 
+document(body: { text(body: [
+]), 
+                 rect(), 
                  parbreak() })

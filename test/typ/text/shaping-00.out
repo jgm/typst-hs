@@ -1,12 +1,16 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "ABC\2309\2346\2366\2352\2381\2335\2350\2375\2306\2335"
 , ParBreak
 , Comment
+, SoftBreak
 , Text "\2309\2346\2366\2352\2381\2335\2350\2375\2306\2335"
 , ParBreak
 , Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Text "\2309"
 , Space
 , Text "\2346\2366"
@@ -21,9 +25,14 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [ABCअपार्टमेंट]), 
+document(body: { text(body: [
+ABCअपार्टमेंट]), 
                  parbreak(), 
-                 text(body: [अपार्टमेंट]), 
+                 text(body: [
+अपार्टमेंट]), 
                  parbreak(), 
-                 text(body: [अ पा र् ट में ट]), 
+                 text(body: [
+]), 
+                 text(body: [
+अ पा र् ट में ट]), 
                  parbreak() })

@@ -1,6 +1,8 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/construct-04.typ"
     ( line 3 , column 2 )
@@ -24,6 +26,10 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [
 ]), 
                  enum(children: (text(body: [A]), 
                                  enum(children: (text(body: [B])))), 

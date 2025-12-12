@@ -9,6 +9,7 @@
           [ NormalArg (Literal (String "fc0030")) ]))
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/text/deco-00.typ"
     ( line 4 , column 2 )
@@ -33,6 +34,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/text/deco-00.typ"
     ( line 7 , column 2 )
@@ -43,6 +45,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/text/deco-00.typ"
     ( line 10 , column 2 )
@@ -65,6 +68,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/text/deco-00.typ"
     ( line 13 , column 2 )
@@ -88,6 +92,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/text/deco-00.typ"
     ( line 16 , column 2 )
@@ -112,17 +117,27 @@
 ]
 --- evaluated ---
 document(body: { parbreak(), 
+                 text(body: [
+]), 
                  strike(body: text(body: [Statements dreamt up by the utterly deranged.])), 
                  parbreak(), 
+                 text(body: [
+]), 
                  underline(body: text(body: [Further below.]), 
                            offset: 5.0pt), 
                  parbreak(), 
+                 text(body: [
+]), 
                  underline(body: text(body: [Critical information is conveyed here.]), 
                            evade: false, 
                            stroke: rgb(98%,0%,18%,100%)), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: underline(body: text(body: [Change with the wind.])), 
                       fill: rgb(98%,0%,18%,100%)), 
                  parbreak(), 
+                 text(body: [
+]), 
                  overline(body: underline(body: text(body: [Running amongst the wolves.]))), 
                  parbreak() })

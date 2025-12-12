@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/layout/spacing-00.typ"
     ( line 2 , column 2 )
@@ -29,6 +30,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Text "Inv"
 , Code
     "typ/layout/spacing-00.typ"
@@ -38,6 +40,7 @@
 , Text "isible"
 , ParBreak
 , Comment
+, SoftBreak
 , Text "Add"
 , Space
 , Code
@@ -55,6 +58,7 @@
 , Text "up"
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/layout/spacing-00.typ"
     ( line 11 , column 2 )
@@ -90,6 +94,7 @@
 , Text "|"
 , ParBreak
 , Comment
+, SoftBreak
 , Text "|"
 , Space
 , Code
@@ -118,7 +123,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { box(body: { text(body: [A ]), 
+document(body: { text(body: [
+]), 
+                 box(body: { text(body: [A ]), 
                              linebreak(), 
                              text(body: [B]) }), 
                  text(body: [ ]), 
@@ -127,16 +134,20 @@ document(body: { box(body: { text(body: [A ]),
                                weak: true), 
                              text(body: [ B]) }), 
                  parbreak(), 
-                 text(body: [Inv]), 
+                 text(body: [
+Inv]), 
                  h(amount: 0.0pt), 
                  text(body: [isible]), 
                  parbreak(), 
-                 text(body: [Add ]), 
+                 text(body: [
+Add ]), 
                  h(amount: 10.0pt), 
                  text(body: [ ]), 
                  h(amount: 10.0pt), 
                  text(body: [ up]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [
 |]), 
                  h(amount: -4.0pt + 25%), 
@@ -148,7 +159,8 @@ document(body: { box(body: { text(body: [A ]),
                  h(amount: -4.0pt + 25%), 
                  text(body: [|]), 
                  parbreak(), 
-                 text(body: [| ]), 
+                 text(body: [
+| ]), 
                  h(amount: 1.0fr), 
                  text(body: [ | ]), 
                  h(amount: 2.0fr), 

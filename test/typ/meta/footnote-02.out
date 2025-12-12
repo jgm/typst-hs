@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "First"
 , Space
 , HardBreak
@@ -55,7 +56,8 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [First ]), 
+document(body: { text(body: [
+First ]), 
                  linebreak(), 
                  text(body: [Second ]), 
                  footnote(body: { text(body: [A, ]), 

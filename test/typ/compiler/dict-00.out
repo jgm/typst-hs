@@ -1,10 +1,12 @@
 --- parse tree ---
 [ Comment
-, SoftBreak
+, ParBreak
 , Comment
+, SoftBreak
 , Code "typ/compiler/dict-00.typ" ( line 4 , column 2 ) (Dict [])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/dict-00.typ"
     ( line 7 , column 2 )
@@ -45,10 +47,13 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
+document(body: { parbreak(), 
+                 text(body: [
 ]), 
                  text(body: [()]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [
 ]), 
                  text(body: [(normal: 1, spacy key: 2)]), 

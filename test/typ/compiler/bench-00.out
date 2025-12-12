@@ -1,7 +1,8 @@
 --- parse tree ---
 [ Comment
-, SoftBreak
+, ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/bench-00.typ"
     ( line 4 , column 2 )
@@ -12,6 +13,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/bench-00.typ"
     ( line 7 , column 2 )
@@ -19,8 +21,11 @@
        (BasicBind (Just (Identifier "city"))) (Literal (String "Berlin")))
 , ParBreak
 , Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/bench-00.typ"
     ( line 12 , column 2 )
@@ -61,8 +66,11 @@
              ])))
 , ParBreak
 , Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/bench-00.typ"
     ( line 18 , column 2 )
@@ -71,7 +79,7 @@
        [ BlockArg
            [ SoftBreak
            , Comment
-           , Space
+           , SoftBreak
            , Code
                "typ/compiler/bench-00.typ"
                ( line 20 , column 4 )
@@ -130,6 +138,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/bench-00.typ"
     ( line 29 , column 2 )
@@ -137,7 +146,9 @@
        (Ident (Identifier "v")) [ NormalArg (Literal (Numeric 6.0 Mm)) ])
 , ParBreak
 , Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/bench-00.typ"
     ( line 33 , column 2 )
@@ -147,7 +158,7 @@
        , BlockArg
            [ SoftBreak
            , Comment
-           , Space
+           , SoftBreak
            , Heading
                4
                [ Text "3"
@@ -362,16 +373,32 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
+document(body: { parbreak(), 
+                 text(body: [
 ]), 
-                 parbreak(), 
                  parbreak(), 
                  text(body: [
 ]), 
                  parbreak(), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
+                 parbreak(), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
                  box(body: { text(body: [
 ]), 
-                             text(body: [ ]), 
+                             text(body: [
+]), 
                              strong(body: { text(body: [Technische Universität ]), 
                                             text(body: [Berlin]) }), 
                              text(body: [ ]), 
@@ -393,12 +420,19 @@ document(body: { text(body: [
                                          linebreak(), 
                                          text(body: [Woche 3]) })), 
                  parbreak(), 
+                 text(body: [
+]), 
                  v(amount: 6.0mm), 
                  parbreak(), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
                  align(alignment: center, 
                        body: { text(body: [
 ]), 
-                               text(body: [ ]), 
+                               text(body: [
+]), 
                                heading(body: { text(body: [3. Übungsblatt Computerorientierte Mathematik II ]), 
                                                v(amount: 4.0mm) }, 
                                        level: 4), 

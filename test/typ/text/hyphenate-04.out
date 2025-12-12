@@ -1,8 +1,12 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Code
     "typ/text/hyphenate-04.typ"
     ( line 5 , column 2 )
@@ -33,6 +37,14 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [
 ]), 
                  text(body: [
 ], 

@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/math/spacing-03.typ"
     ( line 2 , column 2 )
@@ -37,6 +38,8 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
 ]), 
                  math.equation(block: true, 
                                body: math.lr(body: ({ [{], 

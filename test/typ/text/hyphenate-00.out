@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/text/hyphenate-00.typ"
     ( line 2 , column 2 )
@@ -54,6 +55,8 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
 ], 
                       hyphenate: true), 
                  text(body: [

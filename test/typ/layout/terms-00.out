@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/layout/terms-00.typ"
     ( line 2 , column 2 )
@@ -19,7 +20,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { terms(children: ((text(body: [One]), 
+document(body: { text(body: [
+]), 
+                 terms(children: ((text(body: [One]), 
                                    text(body: [First])), 
                                   (text(body: [Two]), 
                                    text(body: [Second])))), 

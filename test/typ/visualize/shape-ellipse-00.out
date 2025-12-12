@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/visualize/shape-ellipse-00.typ"
     ( line 2 , column 2 )
@@ -7,5 +8,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { ellipse(), 
+document(body: { text(body: [
+]), 
+                 ellipse(), 
                  parbreak() })

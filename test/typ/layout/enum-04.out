@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "1"
 , Text "."
 , Text "2"
@@ -24,7 +25,8 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [1.2 ]), 
+document(body: { text(body: [
+1.2 ]), 
                  linebreak(), 
                  text(body: [This is 0. ]), 
                  linebreak(), 

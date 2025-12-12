@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , RawBlock "typ" "#let x = 1"
 , Space
 , HardBreak
@@ -7,7 +8,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { raw(block: true, 
+document(body: { text(body: [
+]), 
+                 raw(block: true, 
                      lang: "typ", 
                      text: "#let x = 1"), 
                  text(body: [ ]), 

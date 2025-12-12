@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "P"
 , Code
     "typ/text/emphasis-01.typ"
@@ -18,7 +19,8 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [P]), 
+document(body: { text(body: [
+P]), 
                  strong(body: text(body: [art])), 
                  text(body: [ly em]), 
                  emph(body: text(body: [phas])), 

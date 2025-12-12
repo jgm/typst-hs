@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "Hello"
 , Space
 , Code
@@ -20,7 +21,8 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [Hello ]), 
+document(body: { text(body: [
+Hello ]), 
                  box(body: rect(height: 0.7em, 
                                 width: 100%), 
                      width: 1.0fr), 

@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/meta/document-00.typ"
     ( line 2 , column 2 )
@@ -16,6 +17,8 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
 What’s up?]), 
                  parbreak() }, 
          title: "Hello")

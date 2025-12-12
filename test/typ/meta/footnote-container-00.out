@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "Read"
 , Space
 , Text "the"
@@ -94,7 +95,8 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [Read the docs ]), 
+document(body: { text(body: [
+Read the docs ]), 
                  footnote(body: link(body: [https://typst.app/docs], 
                                      dest: "https://typst.app/docs")), 
                  text(body: [!

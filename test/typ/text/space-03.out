@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "Left"
 , Space
 , Code
@@ -14,7 +15,8 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [Left ]), 
+document(body: { text(body: [
+Left ]), 
                  text(body: text(body: [Right]), 
                       font: "IBM Plex Serif"), 
                  text(body: [.]), 

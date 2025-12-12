@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/layout/page-margin-01.typ"
     ( line 2 , column 2 )
@@ -110,6 +111,7 @@
           ]))
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/layout/page-margin-01.typ"
     ( line 9 , column 2 )
@@ -135,6 +137,8 @@
 --- evaluated ---
 document(body: { text(body: [
 ]), 
+                 text(body: [
+]), 
                  text(body: [ ]), 
                  align(alignment: left, 
                        body: text(body: [Left])), 
@@ -154,5 +158,7 @@ document(body: { text(body: [
                  align(alignment: bottom, 
                        body: text(body: [Bottom])), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [ Overridden]), 
                  parbreak() })

@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/meta/figure-03.typ"
     ( line 2 , column 2 )
@@ -38,6 +39,8 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
 ]), 
                  parbreak(), 
                  figure(body: table(children: (text(body: [a]), 

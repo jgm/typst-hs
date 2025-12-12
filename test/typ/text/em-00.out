@@ -9,6 +9,7 @@
 , Text "A"
 , Space
 , Comment
+, SoftBreak
 , Code
     "typ/text/em-00.typ"
     ( line 3 , column 2 )
@@ -25,7 +26,7 @@
           , Text "B"
           , Space
           , Comment
-          , Space
+          , SoftBreak
           , Code
               "typ/text/em-00.typ"
               ( line 6 , column 4 )
@@ -45,7 +46,7 @@
                     , Text "C"
                     , Space
                     , Comment
-                    , Space
+                    , SoftBreak
                     , Code
                         "typ/text/em-00.typ"
                         ( line 9 , column 6 )
@@ -56,16 +57,17 @@
                            ])
                     , Space
                     , Comment
-                    , Space
+                    , SoftBreak
                     , Text "E"
                     , Space
                     , Comment
-                    , Space
+                    , ParBreak
                     ]))
           , SoftBreak
           , Text "F"
           , Space
           , Comment
+          , ParBreak
           ]))
 , SoftBreak
 , Text "G"
@@ -80,28 +82,33 @@ A ],
                  text(body: [
 ], size: 5.0pt), 
                  text(body: [
+], size: 5.0pt), 
+                 text(body: [
 B ], 
                       size: 2.0em), 
-                 text(body: [ ], size: 2.0em), 
+                 text(body: [
+], size: 2.0em), 
                  text(body: [
 ], size: 2.0em), 
                  text(body: [
 C ], 
                       size: 1.5em + 1.0pt), 
-                 text(body: [ ], 
+                 text(body: [
+], 
                       size: 1.5em + 1.0pt), 
                  text(body: text(body: [D], 
                                  size: 1.5em + 1.0pt), 
                       size: 2.0em), 
                  text(body: [ ], 
                       size: 1.5em + 1.0pt), 
-                 text(body: [ E ], 
+                 text(body: [
+E ], 
                       size: 1.5em + 1.0pt), 
-                 text(body: [ ], 
-                      size: 1.5em + 1.0pt), 
+                 parbreak(), 
                  text(body: [
 F ], 
                       size: 1.5em + 1.0pt), 
+                 parbreak(), 
                  text(body: [
 G ], 
                       size: 1.5em + 1.0pt), 

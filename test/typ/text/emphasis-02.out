@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "Normal"
 , ParBreak
 , Code
@@ -31,7 +32,8 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [Normal]), 
+document(body: { text(body: [
+Normal]), 
                  parbreak(), 
                  text(body: [
 ]), 

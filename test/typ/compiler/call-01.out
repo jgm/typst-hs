@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/compiler/call-01.typ"
     ( line 2 , column 2 )
@@ -10,6 +11,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/call-01.typ"
     ( line 5 , column 2 )
@@ -30,6 +32,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/call-01.typ"
     ( line 9 , column 2 )
@@ -61,12 +64,18 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [✅]), 
+document(body: { text(body: [
+]), 
+                 text(body: [✅]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [
 ]), 
                  text(body: [✅]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [✅]), 
                  text(body: [✅]), 
                  parbreak() })

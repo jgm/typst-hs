@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "\\"
 , Space
 , Text "/"
@@ -46,6 +47,7 @@
 , Text "A"
 , ParBreak
 , Comment
+, SoftBreak
 , Text "("
 , Space
 , Text ")"
@@ -53,6 +55,7 @@
 , Text ";"
 , ParBreak
 , Comment
+, SoftBreak
 , Text "/"
 , Text "/"
 , SoftBreak
@@ -66,6 +69,7 @@
 , Strong [ Space , Text "*" , Text "/" , Space ]
 , ParBreak
 , Comment
+, SoftBreak
 , Text "\127957"
 , Space
 , Text "="
@@ -74,6 +78,7 @@
 , Text "\127957"
 , ParBreak
 , Comment
+, SoftBreak
 , Text "A"
 , Space
 , Text "vs"
@@ -86,6 +91,7 @@
 , Text "}"
 , ParBreak
 , Comment
+, SoftBreak
 , Text "let"
 , Space
 , Text "f"
@@ -117,6 +123,7 @@
 , Quote '"'
 , ParBreak
 , Comment
+, SoftBreak
 , Text "10"
 , Text "."
 , Space
@@ -124,22 +131,29 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [\ / [ ] { } # * _ + = ~ ]), 
+document(body: { text(body: [
+\ / [ ] { } # * _ + = ~ ]), 
                  linebreak(), 
                  text(body: [` $ " ' < > @ ( ) A]), 
                  parbreak(), 
-                 text(body: [( ) ;]), 
+                 text(body: [
+( ) ;]), 
                  parbreak(), 
-                 text(body: [//
+                 text(body: [
+//
 /* */
 /]), 
                  strong(body: text(body: [ */ ])), 
                  parbreak(), 
-                 text(body: [🏕 == 🏕]), 
+                 text(body: [
+🏕 == 🏕]), 
                  parbreak(), 
-                 text(body: [A vs. \u{41}]), 
+                 text(body: [
+A vs. \u{41}]), 
                  parbreak(), 
-                 text(body: [let f() , ; : | + - /= == 12 “string”]), 
+                 text(body: [
+let f() , ; : | + - /= == 12 “string”]), 
                  parbreak(), 
-                 text(body: [10. May]), 
+                 text(body: [
+10. May]), 
                  parbreak() })

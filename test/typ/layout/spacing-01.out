@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/layout/spacing-01.typ"
     ( line 2 , column 2 )
@@ -43,6 +44,8 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
 A ]), 
                  h(amount: 0.0pt), 
                  text(body: [ B ]), 

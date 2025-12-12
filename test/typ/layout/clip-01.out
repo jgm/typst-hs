@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/layout/clip-01.typ"
     ( line 2 , column 2 )
@@ -86,7 +87,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { block(body: { text(body: [
+document(body: { text(body: [
+]), 
+                 block(body: { text(body: [
 But, soft! what light through ]), 
                                parbreak() }, 
                        clip: false, 

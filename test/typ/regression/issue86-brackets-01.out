@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "["
 , Text "["
 , Text "["
@@ -56,5 +57,6 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]), 
+document(body: { text(body: [
+[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]), 
                  parbreak() })

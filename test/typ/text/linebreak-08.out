@@ -1,28 +1,36 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "First"
 , Space
 , Text "part"
 , Comment
+, SoftBreak
 , Text "Second"
 , Space
 , Text "part"
 , ParBreak
 , Comment
+, SoftBreak
 , Text "First"
 , Space
 , Text "part"
 , Space
 , Comment
+, SoftBreak
 , Text "Second"
 , Space
 , Text "part"
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [First part]), 
-                 text(body: [Second part]), 
+document(body: { text(body: [
+First part]), 
+                 text(body: [
+Second part]), 
                  parbreak(), 
-                 text(body: [First part ]), 
-                 text(body: [Second part]), 
+                 text(body: [
+First part ]), 
+                 text(body: [
+Second part]), 
                  parbreak() })

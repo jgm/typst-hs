@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "Attached"
 , Space
 , Text "to"
@@ -23,7 +24,8 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [Attached to:
+document(body: { text(body: [
+Attached to:
 ]), 
                  list(children: (text(body: [the bottom]), 
                                  text(body: [of the paragraph

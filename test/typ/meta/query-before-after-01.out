@@ -24,6 +24,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/meta/query-before-after-01.typ"
     ( line 11 , column 2 )
@@ -123,6 +124,8 @@
 --- evaluated ---
 document(body: { parbreak(), 
                  parbreak(), 
+                 text(body: [
+]), 
                  locate(func: ), 
                  parbreak(), 
                  heading(body: [A], 

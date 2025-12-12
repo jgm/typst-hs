@@ -1,15 +1,15 @@
 --- parse tree ---
 [ Comment
-, Space
-, Text "-"
-, Space
-, Text "A"
-, Space
-, Text "with"
-, Space
-, Text "1"
-, Space
-, Text "tab"
+, SoftBreak
+, BulletListItem
+    [ Text "A"
+    , Space
+    , Text "with"
+    , Space
+    , Text "1"
+    , Space
+    , Text "tab"
+    ]
 , SoftBreak
 , BulletListItem
     [ Text "B"
@@ -23,7 +23,8 @@
     ]
 ]
 --- evaluated ---
-document(body: { text(body: [ - A with 1 tab
+document(body: { text(body: [
 ]), 
-                 list(children: ({ text(body: [B with 2 tabs]), 
+                 list(children: (text(body: [A with 1 tab]), 
+                                 { text(body: [B with 2 tabs]), 
                                    parbreak() })) })

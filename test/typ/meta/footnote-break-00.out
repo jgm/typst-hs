@@ -20,7 +20,7 @@
        [ BlockArg
            [ Space
            , Comment
-           , Space
+           , SoftBreak
            , Text "A"
            , Space
            , Text "simple"
@@ -47,6 +47,7 @@
                   ])
            , Space
            , Comment
+           , ParBreak
            ]
        ])
 , SoftBreak
@@ -76,6 +77,7 @@
        ])
 , Space
 , Comment
+, SoftBreak
 , Code
     "typ/meta/footnote-break-00.typ"
     ( line 10 , column 2 )
@@ -104,6 +106,7 @@
        ])
 , Space
 , Comment
+, SoftBreak
 , Code
     "typ/meta/footnote-break-00.typ"
     ( line 12 , column 2 )
@@ -128,6 +131,7 @@
        ])
 , Space
 , Comment
+, ParBreak
 ]
 --- evaluated ---
 document(body: { parbreak(), 
@@ -135,10 +139,12 @@ document(body: { parbreak(),
                  text(body: [
 ]), 
                  footnote(body: { text(body: [ ]), 
-                                  text(body: [ A simple footnote.
+                                  text(body: [
+A simple footnote.
 ]), 
                                   footnote(body: text(body: [Well, not that simple …])), 
-                                  text(body: [ ]) }), 
+                                  text(body: [ ]), 
+                                  parbreak() }), 
                  text(body: [
 ]), 
                  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore]), 
@@ -147,14 +153,19 @@ document(body: { parbreak(),
                  footnote(body: { text(body: [Another footnote: ]), 
                                   text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi]) }), 
                  text(body: [ ]), 
+                 text(body: [
+]), 
                  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore]), 
                  text(body: [
 ]), 
                  footnote(body: { text(body: [My fourth footnote: ]), 
                                   text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat]) }), 
                  text(body: [ ]), 
+                 text(body: [
+]), 
                  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore]), 
                  text(body: [
 ]), 
                  footnote(body: text(body: [And a final footnote.])), 
-                 text(body: [ ]) })
+                 text(body: [ ]), 
+                 parbreak() })

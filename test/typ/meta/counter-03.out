@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/meta/counter-03.typ"
     ( line 2 , column 2 )
@@ -108,7 +109,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { figure(body: emph(body: text(body: [AAAA!])), 
+document(body: { text(body: [
+]), 
+                 figure(body: emph(body: text(body: [AAAA!])), 
                         caption: text(body: [Four ‘A’s]), 
                         kind: , 
                         numbering: "A", 

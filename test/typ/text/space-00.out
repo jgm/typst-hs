@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "A"
 , Code
     "typ/text/space-00.typ"
@@ -152,7 +153,8 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [A]), 
+document(body: { text(body: [
+A]), 
                  text(body: [B ]), 
                  text(body: [✅]), 
                  text(body: [ ]), 

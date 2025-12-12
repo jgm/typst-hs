@@ -1,6 +1,8 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Code
     "typ/layout/page-01.typ"
     ( line 3 , column 2 )
@@ -14,7 +16,11 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { page(body: [a11], 
+document(body: { text(body: [
+]), 
+                 text(body: [
+]), 
+                 page(body: [a11], 
                       fill: rgb(18%,80%,25%,100%), 
                       flipped: true), 
                  parbreak() })

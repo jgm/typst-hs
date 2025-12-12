@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/layout/terms-01.typ"
     ( line 2 , column 2 )
@@ -36,6 +37,8 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
 ]), 
                  terms(children: ((text(body: [Lorem]), 
                                    { text(body: [Latin stuff.]), 

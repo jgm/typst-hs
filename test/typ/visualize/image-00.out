@@ -1,7 +1,8 @@
 --- parse tree ---
 [ Comment
-, SoftBreak
+, ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/visualize/image-00.typ"
     ( line 4 , column 2 )
@@ -10,6 +11,7 @@
        [ NormalArg (Literal (String "/assets/files/rhino.png")) ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/visualize/image-00.typ"
     ( line 7 , column 2 )
@@ -26,10 +28,13 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
+document(body: { parbreak(), 
+                 text(body: [
 ]), 
                  image(source: "/assets/files/rhino.png"), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [
 ]), 
                  image(source: "/assets/files/tiger.jpg"), 

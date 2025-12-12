@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/layout/align-02.typ"
     ( line 2 , column 2 )
@@ -64,7 +65,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { rotate(angle: -30.0deg, 
+document(body: { text(body: [
+]), 
+                 rotate(angle: -30.0deg, 
                         body: text(body: [Hello]), 
                         origin: Axes(end, horizon)), 
                  parbreak(), 

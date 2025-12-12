@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Equation
     True
     [ MGroup (Just "(") (Just ")") [ Text "a" ]
@@ -41,7 +42,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { math.equation(block: true, 
+document(body: { text(body: [
+]), 
+                 math.equation(block: true, 
                                body: { math.lr(body: ({ [(], 
                                                         text(body: [a]), 
                                                         [)] })), 

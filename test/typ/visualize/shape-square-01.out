@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/visualize/shape-square-01.typ"
     ( line 2 , column 2 )
@@ -24,7 +25,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { square(body: { text(body: [
+document(body: { text(body: [
+]), 
+                 square(body: { text(body: [
 ]), 
                                 text(body: [
 Typst], 

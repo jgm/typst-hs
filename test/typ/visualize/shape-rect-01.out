@@ -7,6 +7,7 @@
        [ KeyValArg (Identifier "width") (Literal (Numeric 150.0 Pt)) ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/visualize/shape-rect-01.typ"
     ( line 4 , column 2 )
@@ -17,6 +18,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/visualize/shape-rect-01.typ"
     ( line 7 , column 2 )
@@ -42,6 +44,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/visualize/shape-rect-01.typ"
     ( line 14 , column 2 )
@@ -58,6 +61,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/visualize/shape-rect-01.typ"
     ( line 17 , column 2 )
@@ -74,6 +78,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Text "{"
 , Code
     "typ/visualize/shape-rect-01.typ"
@@ -131,6 +136,7 @@
 , Text "}"
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/visualize/shape-rect-01.typ"
     ( line 25 , column 2 )
@@ -173,6 +179,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/visualize/shape-rect-01.typ"
     ( line 39 , column 2 )
@@ -202,24 +209,33 @@
 ]
 --- evaluated ---
 document(body: { parbreak(), 
+                 text(body: [
+]), 
                  rect(body: text(body: [Textbox]), 
                       fill: rgb(18%,80%,25%,100%)), 
                  parbreak(), 
+                 text(body: [
+]), 
                  block(body: rect(fill: rgb(27%,70%,76%,100%), 
                                   height: 15.0pt, 
                                   stroke: (thickness: 2.0pt,
                                            color: rgb(13%,28%,58%,100%)))), 
                  parbreak(), 
+                 text(body: [
+]), 
                  rect(body: text(body: [Fixed and padded]), 
                       fill: rgb(58%,31%,83%,100%), 
                       width: 2.0cm), 
                  parbreak(), 
+                 text(body: [
+]), 
                  rect(body: text(body: [Topleft]), 
                       fill: rgb(45%,29%,92%,100%), 
                       height: 1.0cm, 
                       width: 100%), 
                  parbreak(), 
-                 text(body: [{]), 
+                 text(body: [
+{]), 
                  box(body: rect(fill: rgb(83%,80%,40%,100%), 
                                 height: 7.0pt, 
                                 width: 0.5in)), 
@@ -235,6 +251,8 @@ document(body: { parbreak(),
                                 width: 0.5in)), 
                  text(body: [}]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  stack(children: (rect(radius: 60%, 
                                        width: 2.0cm), 
                                   rect(radius: (left: 10.0pt,
@@ -248,6 +266,8 @@ document(body: { parbreak(),
                        dir: ltr, 
                        spacing: 1.0fr), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [
 ]), 
                  rect(fill: rgb(0%,100%,43%,100%), 

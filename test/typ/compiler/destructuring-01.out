@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/compiler/destructuring-01.typ"
     ( line 2 , column 2 )

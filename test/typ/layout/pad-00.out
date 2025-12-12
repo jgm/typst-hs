@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/layout/pad-00.typ"
     ( line 2 , column 2 )
@@ -10,6 +11,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/layout/pad-00.typ"
     ( line 5 , column 2 )
@@ -61,9 +63,13 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { pad(body: text(body: [Indented!]), 
+document(body: { text(body: [
+]), 
+                 pad(body: text(body: [Indented!]), 
                      left: 10.0pt), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [
 ]), 
                  rect(body: pad(body: rect(fill: rgb(92%,32%,47%,100%), 

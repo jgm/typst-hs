@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/layout/terms-04.typ"
     ( line 2 , column 2 )
@@ -50,7 +51,9 @@
     [ Text "CCC" ] [ Text "Three" , Space , Text "letters" , ParBreak ]
 ]
 --- evaluated ---
-document(body: { parbreak(), 
+document(body: { text(body: [
+]), 
+                 parbreak(), 
                  table(children: (emph(body: text(body: [A])), 
                                   text(body: [One letter]), 
                                   emph(body: text(body: [BB])), 

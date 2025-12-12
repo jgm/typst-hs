@@ -1,6 +1,8 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Code
     "typ/layout/pagebreak-03.typ"
     ( line 3 , column 2 )
@@ -63,6 +65,10 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [
 ]), 
                  text(body: [ First]), 
                  text(body: [

@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/text/features-00.typ"
     ( line 2 , column 2 )
@@ -21,7 +22,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: text(body: [Tq]), 
+document(body: { text(body: [
+]), 
+                 text(body: text(body: [Tq]), 
                       kerning: true), 
                  text(body: [ ]), 
                  linebreak(), 

@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/layout/terms-02.typ"
     ( line 2 , column 2 )
@@ -38,7 +39,9 @@
     ]
 ]
 --- evaluated ---
-document(body: { parbreak(), 
+document(body: { text(body: [
+]), 
+                 parbreak(), 
                  terms(children: ((text(body: [Fruit], 
                                         size: 8.0pt), 
                                    text(body: [A tasty, edible thing.], 

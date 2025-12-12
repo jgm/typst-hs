@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/text/tracking-spacing-00.typ"
     ( line 2 , column 2 )
@@ -27,6 +28,8 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
 I saw Zoe yӛsterday, on the tram.], 
                       tracking: -1.0e-2em), 
                  parbreak() })

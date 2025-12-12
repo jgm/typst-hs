@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Comment
-, SoftBreak
+, ParBreak
 , Code
     "typ/visualize/stroke-07.typ"
     ( line 3 , column 2 )
@@ -221,8 +221,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
+document(body: { parbreak(), 
                  rect(height: 10.0pt, 
                       stroke: none, 
                       width: 10.0pt), 

@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/layout/pad-01.typ"
     ( line 2 , column 2 )
@@ -22,7 +23,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { pad(body: { text(body: [PL ]), 
+document(body: { text(body: [
+]), 
+                 pad(body: { text(body: [PL ]), 
                              h(amount: 1.0fr), 
                              text(body: [ PR]) }, 
                      left: 10.0pt, 

@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/compiler/color-00.typ"
     ( line 2 , column 2 )
@@ -112,6 +113,8 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
 ]), 
                  stack(children: (rect(fill: cmyk(69%,11%,69%,41%), 
                                        width: 1.0cm), 

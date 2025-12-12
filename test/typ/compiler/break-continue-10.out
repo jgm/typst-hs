@@ -1,7 +1,10 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/break-continue-10.typ"
     ( line 4 , column 2 )
@@ -20,5 +23,11 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [Hello]), 
+document(body: { text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [Hello]), 
                  parbreak() })

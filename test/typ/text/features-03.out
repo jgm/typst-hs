@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "fi"
 , Space
 , Text "vs"
@@ -16,7 +17,8 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [fi vs. ]), 
+document(body: { text(body: [
+fi vs. ]), 
                  text(body: text(body: [No fi]), 
                       ligatures: false), 
                  parbreak() })

@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/compiler/show-bare-02.typ"
     ( line 2 , column 2 )
@@ -24,6 +25,8 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
 ], 
                       fill: rgb(13%,61%,67%,100%), 
                       size: 1.5em), 

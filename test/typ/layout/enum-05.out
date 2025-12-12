@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , EnumListItem Nothing []
 , SoftBreak
 , Text "Empty"
@@ -17,7 +18,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { enum(children: ({  })), 
+document(body: { text(body: [
+]), 
+                 enum(children: ({  })), 
                  text(body: [Empty ]), 
                  linebreak(), 
                  text(body: [+Nope ]), 

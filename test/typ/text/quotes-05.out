@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Quote '"'
 , Text "She"
 , Space
@@ -76,7 +77,8 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [“She suddenly started speaking french: ]), 
+document(body: { text(body: [
+“She suddenly started speaking french: ]), 
                  text(body: text(body: [‘Je suis une banane.’]), 
                       lang: "fr"), 
                  text(body: [” Roman told me.]), 

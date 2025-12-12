@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/layout/transform-02.typ"
     ( line 2 , column 2 )
@@ -19,7 +20,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { rotate(angle: 10.0deg, 
+document(body: { text(body: [
+]), 
+                 rotate(angle: 10.0deg, 
                         body: image(source: "/assets/files/tiger.jpg", 
                                     width: 50%), 
                         origin: Axes(left, top)), 

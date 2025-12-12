@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "Two"
 , Space
 , Text "consecutive"
@@ -19,7 +20,8 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [Two consecutive ]), 
+document(body: { text(body: [
+Two consecutive ]), 
                  linebreak(), 
                  linebreak(), 
                  text(body: [breaks and three ]), 

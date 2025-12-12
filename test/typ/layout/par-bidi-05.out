@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "L"
 , Space
 , Code
@@ -23,7 +24,8 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [L ]), 
+document(body: { text(body: [
+L ]), 
                  h(amount: 1.0cm), 
                  text(body: [ ריווחR ]), 
                  linebreak(), 

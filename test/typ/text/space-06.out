@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "LLLLLLLLLLLLLLLLLL"
 , Space
 , Text "R"
@@ -8,6 +9,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [LLLLLLLLLLLLLLLLLL R ]), 
+document(body: { text(body: [
+LLLLLLLLLLLLLLLLLL R ]), 
                  emph(body: text(body: [L])), 
                  parbreak() })

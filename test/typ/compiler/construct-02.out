@@ -1,6 +1,8 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/construct-02.typ"
     ( line 3 , column 2 )
@@ -29,7 +31,11 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: rect(body: rect(fill: rgb(100%,86%,0%,100%)), 
+document(body: { text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: rect(body: rect(fill: rgb(100%,86%,0%,100%)), 
                                  fill: rgb(100%,86%,0%,100%), 
                                  inset: 5.0pt), 
                       size: 1.0em), 

@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/visualize/shape-aspect-02.typ"
     ( line 2 , column 2 )
@@ -23,7 +24,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { stack(children: (square(height: 40.0pt, 
+document(body: { text(body: [
+]), 
+                 stack(children: (square(height: 40.0pt, 
                                          width: 20.0pt), 
                                   circle(height: 100.0pt, 
                                          width: 20%)), 

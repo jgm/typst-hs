@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/text/raw-07.typ"
     ( line 2 , column 2 )
@@ -14,6 +15,8 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
 ]), 
                  raw(block: false, 
                      lang: none, 

@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/visualize/shape-square-04.typ"
     ( line 2 , column 2 )
@@ -39,6 +40,8 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
 ]), 
                  square(body: { text(body: [
 But, soft! what light through yonder window breaks?]), 

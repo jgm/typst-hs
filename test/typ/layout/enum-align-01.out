@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , EnumListItem (Just 1) [ Text "a" ]
 , SoftBreak
 , EnumListItem (Just 10) [ Text "b" ]
@@ -22,7 +23,9 @@
 , EnumListItem (Just 16) [ Text "c" , ParBreak ]
 ]
 --- evaluated ---
-document(body: { enum(children: (text(body: [a]), 
+document(body: { text(body: [
+]), 
+                 enum(children: (text(body: [a]), 
                                  text(body: [b]), 
                                  text(body: [c
 ])), 

@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/compiler/show-node-04.typ"
     ( line 2 , column 2 )
@@ -21,7 +22,9 @@
 , Heading 1 [ Text "Heading" ]
 ]
 --- evaluated ---
-document(body: { parbreak(), 
+document(body: { text(body: [
+]), 
+                 parbreak(), 
                  text(body: { [Hea], 
                               text(body: [🛎], 
                                    color: rgb(100%,25%,21%,100%)), 

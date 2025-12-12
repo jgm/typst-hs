@@ -7,6 +7,7 @@
        [ KeyValArg (Identifier "width") (Literal (Numeric 250.0 Pt)) ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/text/quotes-00.typ"
     ( line 4 , column 2 )
@@ -408,6 +409,8 @@
 ]
 --- evaluated ---
 document(body: { parbreak(), 
+                 text(body: [
+]), 
                  text(body: [
 “The horse eats no cucumber salad” was the first sentence ever uttered on the ‘telephone.’], 
                       lang: "en"), 

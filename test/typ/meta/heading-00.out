@@ -1,20 +1,22 @@
 --- parse tree ---
 [ Comment
-, SoftBreak
+, ParBreak
 , Heading 1 [ Text "Level" , Space , Text "1" ]
 , Heading 2 [ Text "Level" , Space , Text "2" ]
 , Heading 3 [ Text "Level" , Space , Text "3" ]
 , Comment
+, SoftBreak
 , Heading 11 [ Text "Level" , Space , Text "11" ]
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
+document(body: { parbreak(), 
                  heading(body: text(body: [Level 1]), 
                          level: 1), 
                  heading(body: text(body: [Level 2]), 
                          level: 2), 
                  heading(body: text(body: [Level 3]), 
                          level: 3), 
+                 text(body: [
+]), 
                  heading(body: text(body: [Level 11]), 
                          level: 11) })

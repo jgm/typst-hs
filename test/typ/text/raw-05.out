@@ -1,7 +1,9 @@
 --- parse tree ---
-[ Comment , RawInline "rust let" , ParBreak ]
+[ Comment , SoftBreak , RawInline "rust let" , ParBreak ]
 --- evaluated ---
-document(body: { raw(block: false, 
+document(body: { text(body: [
+]), 
+                 raw(block: false, 
                      lang: none, 
                      text: "rust let"), 
                  parbreak() })

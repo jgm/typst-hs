@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/meta/figure-01.typ"
     ( line 3 , column 2 )
@@ -28,7 +29,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { figure(body: table(children: (text(body: [Second cylinder]), 
+document(body: { text(body: [
+]), 
+                 figure(body: table(children: (text(body: [Second cylinder]), 
                                                image(source: "/assets/files/cylinder.svg")), 
                                     columns: 2), 
                         caption: "A table containing images."), 

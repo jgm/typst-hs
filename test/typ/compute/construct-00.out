@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/compute/construct-00.typ"
     ( line 2 , column 2 )
@@ -19,6 +20,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compute/construct-00.typ"
     ( line 5 , column 2 )
@@ -39,6 +41,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compute/construct-00.typ"
     ( line 8 , column 2 )
@@ -126,18 +129,24 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [❌(]), 
+document(body: { text(body: [
+]), 
+                 text(body: [❌(]), 
                  text(body: [rgb(0%,30%,70%,100%)]), 
                  text(body: [ /= ]), 
                  text(body: [rgb(0%,30%,70%,100%)]), 
                  text(body: [)]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [❌(]), 
                  text(body: [rgb(100%,0%,0%,50%)]), 
                  text(body: [ /= ]), 
                  text(body: [rgb(100%,0%,0%,50%)]), 
                  text(body: [)]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [✅]), 
                  text(body: [
 ]), 

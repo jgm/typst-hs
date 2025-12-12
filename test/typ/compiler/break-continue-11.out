@@ -1,7 +1,8 @@
 --- parse tree ---
 [ Comment
-, Comment
 , SoftBreak
+, Comment
+, ParBreak
 , Code
     "typ/compiler/break-continue-11.typ"
     ( line 4 , column 2 )
@@ -28,6 +29,7 @@
 --- evaluated ---
 document(body: { text(body: [
 ]), 
+                 parbreak(), 
                  table(children: (text(body: [A]), 
                                   { text(body: [B]), 
                                     text(body: [B]), 

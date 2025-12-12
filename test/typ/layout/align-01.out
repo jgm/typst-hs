@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/layout/align-01.typ"
     ( line 2 , column 2 )
@@ -19,7 +20,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { align(alignment: center, 
+document(body: { text(body: [
+]), 
+                 align(alignment: center, 
                        body: { text(body: [
 Lorem Ipsum]), 
                                parbreak(), 

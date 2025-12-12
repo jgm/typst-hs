@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/math/alignment-00.typ"
     ( line 2 , column 2 )
@@ -42,6 +43,8 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
 ]), 
                  math.equation(block: true, 
                                body: { text(body: [ a ]), 

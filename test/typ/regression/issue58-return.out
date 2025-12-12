@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/regression/issue58-return.typ"
     ( line 2 , column 2 )
@@ -96,6 +97,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/regression/issue58-return.typ"
     ( line 34 , column 2 )
@@ -189,12 +191,16 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { parbreak(), 
+document(body: { text(body: [
+]), 
+                 parbreak(), 
                  text(body: [✅]), 
                  parbreak(), 
                  parbreak(), 
                  text(body: [✅]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  parbreak(), 
                  text(body: [✅]), 
                  parbreak(), 

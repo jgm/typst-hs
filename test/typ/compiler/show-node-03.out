@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/compiler/show-node-03.typ"
     ( line 2 , column 2 )
@@ -87,7 +88,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { parbreak(), 
+document(body: { text(body: [
+]), 
+                 parbreak(), 
                  block(body: { box(body: move(body: text(body: [📖], 
                                                          size: 10.0pt), 
                                               dy: -1.0pt)), 

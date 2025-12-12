@@ -1,7 +1,8 @@
 --- parse tree ---
 [ Comment
-, Comment
 , SoftBreak
+, Comment
+, ParBreak
 , Code
     "typ/compiler/return-02.typ"
     ( line 4 , column 2 )

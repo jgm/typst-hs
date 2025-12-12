@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "This"
 , Space
 , Text "is"
@@ -16,7 +17,8 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [This is partly emp]), 
+document(body: { text(body: [
+This is partly emp]), 
                  emph(body: text(body: [has])), 
                  text(body: [ized.]), 
                  parbreak() })

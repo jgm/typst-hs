@@ -1,7 +1,8 @@
 --- parse tree ---
 [ Comment
-, SoftBreak
+, ParBreak
 , Comment
+, SoftBreak
 , Text "The"
 , Space
 , Text "keyword"
@@ -10,6 +11,7 @@
 , Text "."
 , ParBreak
 , Comment
+, SoftBreak
 , Text "("
 , RawInline ""
 , Text ")"
@@ -38,15 +40,16 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [
-]), 
-                 text(body: [The keyword ]), 
+document(body: { parbreak(), 
+                 text(body: [
+The keyword ]), 
                  raw(block: true, 
                      lang: "rust", 
                      text: "let"), 
                  text(body: [.]), 
                  parbreak(), 
-                 text(body: [(]), 
+                 text(body: [
+(]), 
                  raw(block: false, 
                      lang: none, 
                      text: ""), 

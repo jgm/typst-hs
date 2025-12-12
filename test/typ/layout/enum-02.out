@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/layout/enum-02.typ"
     ( line 2 , column 2 )
@@ -27,7 +28,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { enum(children: (numbering(numbering: "I", 
+document(body: { text(body: [
+]), 
+                 enum(children: (numbering(numbering: "I", 
                                            numbers: (1)))), 
                  enum(children: (numbering(numbering: "I", 
                                            numbers: (2)))), 

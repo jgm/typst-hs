@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/meta/bibliography-02.typ"
     ( line 2 , column 2 )
@@ -99,6 +100,8 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
 ]), 
                  bibliography(source: "/works.bib", 
                               style: "chicago-author-date", 

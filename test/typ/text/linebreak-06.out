@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "Trailing"
 , Space
 , Text "break"
@@ -9,7 +10,8 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [Trailing break ]), 
+document(body: { text(body: [
+Trailing break ]), 
                  linebreak(), 
                  linebreak(), 
                  parbreak() })

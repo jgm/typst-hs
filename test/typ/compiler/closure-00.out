@@ -1,13 +1,15 @@
 --- parse tree ---
 [ Comment
-, Comment
 , SoftBreak
+, Comment
+, ParBreak
 , Code
     "typ/compiler/closure-00.typ"
     ( line 4 , column 2 )
     (Let (BasicBind (Just (Identifier "x"))) (Literal (String "x")))
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/closure-00.typ"
     ( line 7 , column 2 )
@@ -19,4 +21,7 @@
 document(body: { text(body: [
 ]), 
                  parbreak(), 
+                 parbreak(), 
+                 text(body: [
+]), 
                  parbreak() })

@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/compiler/show-selector-00.typ"
     ( line 2 , column 2 )
@@ -30,6 +31,7 @@
           ]))
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/show-selector-00.typ"
     ( line 10 , column 2 )
@@ -122,7 +124,11 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { parbreak(), 
+document(body: { text(body: [
+]), 
+                 parbreak(), 
+                 text(body: [
+]), 
                  parbreak(), 
                  text(body: [
 ]), 

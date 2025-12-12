@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Equation
     True
     [ Text " abc " , MAlignPoint , Text "=" , Text "c" , HardBreak ]
@@ -15,7 +16,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { math.equation(block: true, 
+document(body: { text(body: [
+]), 
+                 math.equation(block: true, 
                                body: { text(body: [ abc ]), 
                                        math.alignpoint(), 
                                        text(body: [=]), 

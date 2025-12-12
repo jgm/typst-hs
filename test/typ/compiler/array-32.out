@@ -1,6 +1,8 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/array-32.typ"
     ( line 3 , column 2 )
@@ -20,6 +22,7 @@
 , Text "."
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/array-32.typ"
     ( line 6 , column 2 )
@@ -32,13 +35,19 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [One]), 
+document(body: { text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [One]), 
                  text(body: [, ]), 
                  text(body: [Two]), 
                  text(body: [ and ]), 
                  text(body: [Three]), 
                  text(body: [.]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [One]), 
                  text(body: [.]), 
                  parbreak() })

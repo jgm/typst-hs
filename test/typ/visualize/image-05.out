@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/visualize/image-05.typ"
     ( line 2 , column 2 )
@@ -9,5 +10,7 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { image(source: "/assets/files/pattern.svg"), 
+document(body: { text(body: [
+]), 
+                 image(source: "/assets/files/pattern.svg"), 
                  parbreak() })

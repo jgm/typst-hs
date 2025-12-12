@@ -16,6 +16,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/visualize/polygon-00.typ"
     ( line 5 , column 2 )
@@ -152,6 +153,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/visualize/polygon-00.typ"
     ( line 19 , column 2 )
@@ -175,6 +177,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/visualize/polygon-00.typ"
     ( line 22 , column 2 )
@@ -203,6 +206,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/visualize/polygon-00.typ"
     ( line 25 , column 2 )
@@ -240,6 +244,8 @@
 document(body: { text(body: [
 ]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  polygon(fill: rgb(0%,45%,85%,100%), 
                          stroke: 0.75pt, 
                          vertices: ()), 
@@ -284,12 +290,16 @@ document(body: { text(body: [
                                     (0.0pt, 10.0pt), 
                                     (10.0pt, 10.0pt))), 
                  parbreak(), 
+                 text(body: [
+]), 
                  polygon(fill: rgb(0%,45%,85%,100%), 
                          stroke: 0.75pt, 
                          vertices: ((0.0pt, 0.0pt), 
                                     (100%, 5.0pt), 
                                     (50%, 10.0pt))), 
                  parbreak(), 
+                 text(body: [
+]), 
                  polygon(fill: rgb(0%,45%,85%,100%), 
                          stroke: 0.75pt, 
                          vertices: ((0.0pt, 5.0pt), 
@@ -297,6 +307,8 @@ document(body: { text(body: [
                                     (0.0pt, 10.0pt), 
                                     (5.0pt, 15.0pt))), 
                  parbreak(), 
+                 text(body: [
+]), 
                  polygon(fill: rgb(0%,45%,85%,100%), 
                          stroke: 0.75pt, 
                          vertices: ((0.0pt, 10.0pt), 

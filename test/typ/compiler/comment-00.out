@@ -1,15 +1,19 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Text "A"
 , Comment
+, SoftBreak
 , Text "B"
 , ParBreak
 , Comment
+, SoftBreak
 , Text "C"
 , Comment
 , Text "D"
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/comment-00.typ"
     ( line 11 , column 2 )
@@ -22,25 +26,29 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
+, Comment
+, ParBreak
 , Comment
 , SoftBreak
 , Comment
-, Comment
-, ParBreak
-, Text "E"
-, ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [A]), 
-                 text(body: [B]), 
+document(body: { text(body: [
+A]), 
+                 text(body: [
+B]), 
                  parbreak(), 
-                 text(body: [C]), 
+                 text(body: [
+C]), 
                  text(body: [D]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [✅]), 
                  parbreak(), 
                  text(body: [
 ]), 
                  parbreak(), 
-                 text(body: [E]), 
-                 parbreak() })
+                 text(body: [
+]) })

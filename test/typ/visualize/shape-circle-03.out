@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/visualize/shape-circle-03.typ"
     ( line 2 , column 2 )
@@ -70,6 +71,8 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
 ], 
                       fill: rgb(100%,100%,100%,100%)), 
                  rect(body: { text(body: [

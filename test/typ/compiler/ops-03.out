@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/compiler/ops-03.typ"
     ( line 2 , column 2 )
@@ -30,6 +31,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/ops-03.typ"
     ( line 7 , column 2 )
@@ -40,6 +42,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/ops-03.typ"
     ( line 10 , column 2 )
@@ -60,6 +63,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/ops-03.typ"
     ( line 14 , column 2 )
@@ -102,6 +106,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/ops-03.typ"
     ( line 18 , column 2 )
@@ -119,6 +124,7 @@
        ])
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/ops-03.typ"
     ( line 23 , column 2 )
@@ -229,9 +235,13 @@
              ])))
 , ParBreak
 , Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/ops-03.typ"
     ( line 55 , column 2 )
@@ -327,6 +337,7 @@
              ])))
 , ParBreak
 , Comment
+, SoftBreak
 , Code
     "typ/compiler/ops-03.typ"
     ( line 69 , column 2 )
@@ -381,7 +392,20 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [✅]), 
+document(body: { text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 parbreak(), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 parbreak(), 
                  text(body: [
 ]), 
                  text(body: [✅]), 
@@ -389,20 +413,19 @@ document(body: { text(body: [✅]),
 ]), 
                  text(body: [✅]), 
                  parbreak(), 
-                 text(body: [✅]), 
-                 parbreak(), 
+                 text(body: [
+]), 
                  text(body: [✅]), 
                  text(body: [
 ]), 
                  text(body: [✅]), 
                  parbreak(), 
-                 text(body: [✅]), 
                  text(body: [
 ]), 
                  text(body: [✅]), 
                  parbreak(), 
-                 text(body: [✅]), 
-                 parbreak(), 
+                 text(body: [
+]), 
                  parbreak(), 
                  text(body: [✅]), 
                  text(body: [✅]), 
@@ -528,6 +551,14 @@ document(body: { text(body: [✅]),
                  parbreak(), 
                  text(body: [
 ]), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
                  text(body: [✅]), 
                  text(body: [✅]), 
                  text(body: [✅]), 
@@ -601,6 +632,8 @@ document(body: { text(body: [✅]),
                  text(body: [✅]), 
                  text(body: [✅]), 
                  parbreak(), 
+                 text(body: [
+]), 
                  text(body: [✅]), 
                  text(body: [✅]), 
                  text(body: [✅]), 

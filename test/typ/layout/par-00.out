@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/layout/par-00.typ"
     ( line 2 , column 2 )
@@ -31,5 +32,7 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
+]), 
+                 text(body: [
 To the right! Where the sunlight peeks behind the mountain.]), 
                  parbreak() })

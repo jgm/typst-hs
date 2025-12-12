@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/layout/columns-08.typ"
     ( line 2 , column 2 )
@@ -90,7 +91,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { parbreak(), 
+document(body: { text(body: [
+]), 
+                 parbreak(), 
                  text(body: [There can be as much content as you want in the left column
 and the document will grow with it.]), 
                  parbreak(), 

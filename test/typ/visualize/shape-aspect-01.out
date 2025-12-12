@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/visualize/shape-aspect-01.typ"
     ( line 2 , column 2 )
@@ -62,8 +63,9 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
-], 
-                      size: 8.0pt), 
+]), 
+                 text(body: [
+], size: 8.0pt), 
                  box(body: square(body: { text(body: [
 Hey there, ], 
                                                size: 8.0pt), 

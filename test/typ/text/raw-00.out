@@ -1,7 +1,9 @@
 --- parse tree ---
-[ Comment , RawInline "A" , RawInline "B" , ParBreak ]
+[ Comment , SoftBreak , RawInline "A" , RawInline "B" , ParBreak ]
 --- evaluated ---
-document(body: { raw(block: false, 
+document(body: { text(body: [
+]), 
+                 raw(block: false, 
                      lang: none, 
                      text: "A"), 
                  raw(block: false, 

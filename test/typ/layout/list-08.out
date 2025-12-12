@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/layout/list-08.typ"
     ( line 2 , column 2 )
@@ -17,7 +18,9 @@
     ]
 ]
 --- evaluated ---
-document(body: { parbreak(), 
+document(body: { text(body: [
+]), 
+                 parbreak(), 
                  list(children: ({ text(body: [ABCDEF]), 
                                    linebreak(), 
                                    text(body: [GHIJKL]), 

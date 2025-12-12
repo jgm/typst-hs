@@ -1,5 +1,6 @@
 --- parse tree ---
 [ Comment
+, SoftBreak
 , Code
     "typ/text/linebreak-obj-00.typ"
     ( line 2 , column 2 )
@@ -44,7 +45,9 @@
 , ParBreak
 ]
 --- evaluated ---
-document(body: { parbreak(), 
+document(body: { text(body: [
+]), 
+                 parbreak(), 
                  text(body: [They can look for the details in ]), 
                  ref(supplement: auto, 
                      target: <netwok>), 

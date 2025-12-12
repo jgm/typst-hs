@@ -481,15 +481,20 @@ enumListStart = do
     Just x -> pure x
 
 -- line-comment = '//' (!unicode(Newline))*
--- block-comment = '/*' (. | block-comment)* '*/'
+-- block-comment = '/*' (block-comment | .)* ('*/' | eof)
 pComment :: P Markup
-pComment = Comment <$ (pLineComment <|> pBlockComment)
+pComment = (
+              do
+                pos <- getPosition
+                void $ string "*/"
+                setPosition pos
+                fail "Unexpected end of block comment"
+            ) <|> Comment <$ (pLineComment <|> pBlockComment)
 
 pLineComment :: P ()
 pLineComment = do
   void $ string "//"
   skipMany (satisfy (\c -> c /= '\n' && c /= '\r'))
-  void endOfLine <|> eof
 
 pBlockComment :: P ()
 pBlockComment = do
@@ -497,10 +502,9 @@ pBlockComment = do
   void $
     manyTill
       ( pBlockComment
-          <|> pLineComment
           <|> void anyChar
       )
-      (string "*/")
+      (void (string "*/") <|> eof)
 
 pSpace :: P Markup
 pSpace = Space <$ some (satisfy (\c -> isSpace c && c /= '\r' && c /= '\n'))
