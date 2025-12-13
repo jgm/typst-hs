@@ -1,0 +1,35 @@
+--- parse tree ---
+[ Code
+    "typ/regression/issue57.typ"
+    ( line 1 , column 2 )
+    (FuncCall
+       (FuncCall
+          (FieldAccess
+             (Ident (Identifier "func"))
+             (FieldAccess
+                (Ident (Identifier "body"))
+                (Block
+                   (Content
+                      [ Equation
+                          False
+                          [ MAttach
+                              Nothing
+                              (Just
+                                 (Code
+                                    "typ/regression/issue57.typ"
+                                    ( line 1 , column 5 )
+                                    (FieldAccess
+                                       (Ident (Identifier "op")) (Ident (Identifier "ast")))))
+                              (Text "b")
+                          ]
+                      ]))))
+          [])
+       [ NormalArg (Block (Content [ Text "1" ]))
+       , KeyValArg (Identifier "t") (Block (Content [ Text "2" ]))
+       ])
+, ParBreak
+]
+--- evaluated ---
+document(body: { math.attach(base: text(body: [1]), 
+                             t: text(body: [2])), 
+                 parbreak() })
