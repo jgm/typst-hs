@@ -37,7 +37,7 @@
            [ SoftBreak
            , RawBlock
                "html"
-               "<!DOCTYPE html>\n  <html>\n    <head>\n      <meta charset=\"utf-8\">\n    </head>\n    <body>\n      <h1>Topic</h1>\n      <p>The Hypertext Markup Language.</p>\n      <script>\n        function foo(a, b) {\n          return a + b + \"string\";\n        }\n      </script>\n    </body>\n  </html>\n  "
+               "<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset=\"utf-8\">\n  </head>\n  <body>\n    <h1>Topic</h1>\n    <p>The Hypertext Markup Language.</p>\n    <script>\n      function foo(a, b) {\n        return a + b + \"string\";\n      }\n    </script>\n  </body>\n</html>"
            , ParBreak
            ]
        ])
@@ -52,7 +52,7 @@ document(body: { text(body: [
                                    size: 6.0pt), 
                               raw(block: true, 
                                   lang: "html", 
-                                  text: "<!DOCTYPE html>\n  <html>\n    <head>\n      <meta charset=\"utf-8\">\n    </head>\n    <body>\n      <h1>Topic</h1>\n      <p>The Hypertext Markup Language.</p>\n      <script>\n        function foo(a, b) {\n          return a + b + \"string\";\n        }\n      </script>\n    </body>\n  </html>\n  "), 
+                                  text: "<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset=\"utf-8\">\n  </head>\n  <body>\n    <h1>Topic</h1>\n    <p>The Hypertext Markup Language.</p>\n    <script>\n      function foo(a, b) {\n        return a + b + \"string\";\n      }\n    </script>\n  </body>\n</html>"), 
                               parbreak() }, 
                       fill: rgb(93%,94%,95%,100%), 
                       inset: (x: 4.0pt, y: 5.0pt), 

@@ -231,8 +231,7 @@
        [ NormalArg
            (Block
               (Content
-                 [ RawBlock "rust" "fn main() {\n    println!(\"Hello!\");\n  }\n  "
-                 ]))
+                 [ RawBlock "rust" "fn main() {\n  println!(\"Hello!\");\n}" ]))
        , KeyValArg
            (Identifier "caption")
            (Block

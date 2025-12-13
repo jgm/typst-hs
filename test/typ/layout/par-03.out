@@ -26,7 +26,7 @@
           (Ident (Identifier "block"))
           [ KeyValArg (Identifier "spacing") (Literal (Numeric 2.5 Pt)) ]))
 , ParBreak
-, RawBlock "rust" "fn main() {}\n"
+, RawBlock "rust" "fn main() {}"
 , ParBreak
 , BulletListItem [ Text "List" , SoftBreak ]
 , SoftBreak
@@ -43,7 +43,7 @@ document(body: { text(body: [
                  parbreak(), 
                  raw(block: true, 
                      lang: "rust", 
-                     text: "fn main() {}\n"), 
+                     text: "fn main() {}"), 
                  parbreak(), 
                  list(children: (text(body: [List
 ]))), 

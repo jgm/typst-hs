@@ -7,7 +7,7 @@ module Typst.Parse
   )
 where
 
-import Data.List (sortOn)
+import Data.List (sortOn, intercalate, dropWhileEnd)
 import Control.Applicative (some)
 import Control.Monad (MonadPlus (mzero), guard, void, when)
 import Control.Monad.Identity (Identity)
@@ -553,27 +553,53 @@ pRawBlock :: P Markup
 pRawBlock = do
   void $ string "```"
   numticks <- (+ 3) . length <$> many (char '`')
-  lang <- T.pack <$> (many alphaNum <* optional (char ' '))
-  optional $ try $ skipMany (char ' ') *> pEol
-  let nl = newline <* optionalGobbleIndent
-  code <-
-    T.pack
-      <$> manyTill
-        (nl <|> anyChar)
-        (string (replicate numticks '`'))
-  skipMany (char '`')
-  pure $ RawBlock lang code
+  lang <- T.pack <$> option "" pLangTag
+  code <- manyTill anyChar (string (replicate numticks '`'))
 
-optionalGobbleIndent :: P ()
-optionalGobbleIndent = do
-  indents <- stIndent <$> getState
-  case indents of
-    (i : _) -> gobble i
-    [] -> pure ()
+  -- Dedent raw text; detailed description at
+  -- 0.14.2: https://github.com/typst/typst/blob/b33de9de113c91c184214b299bd7a8eb3070c3ab/crates/typst-syntax/src/lexer.rs#L310-L338 
+  
+  -- Use parser to handle CRLF; built-in `lines` would also strip trailing \n
+  let (most, lst) = either (\_ -> ([], "")) id $ runParser splitlines () "" code
+  let nonblankSkipFirst = filter (not . all isSpace) $ drop 1 most
+  -- The last line is always considered
+  let dedent = minOrZero $ map (length . takeWhile isSpace) $ lst:nonblankSkipFirst
+  
+  let mostDedented = case most of
+                        [] -> []
+                        (x:xs) | all isSpace x -> map (drop dedent) xs
+                        -- remove optional single space after the language tag/opening ```
+                        ((' ':x):xs) -> x:(map (drop dedent) xs) 
+                        (x:xs) -> x:(map (drop dedent) xs) 
+  let dedented = if not (all isSpace lst)
+                then mostDedented <> [stripOneSpaceIfEndsWithBacktick $ drop dedent lst]
+                else mostDedented
+
+  pure $ RawBlock lang (T.pack $ intercalate "\n" dedented)
   where
-    gobble :: Int -> P ()
-    gobble 0 = pure ()
-    gobble n = (char ' ' *> gobble (n - 1)) <|> pure ()
+    -- This parser should always succeed
+    splitlines :: Parsec String () ([String], String)
+    splitlines = do
+      most <- many (try $ manyTill anyChar endOfLine)
+      lst <- manyTill anyChar eof
+      pure (most, lst)
+    minOrZero [] = 0
+    minOrZero xs = minimum xs
+    -- Allowed lang tag might change in future Typst versions, see
+    -- https://github.com/typst/typst/pull/7337
+    pLangTag = do
+      c <- satisfy isIdentStart
+      cs <- many $ satisfy isIdentContinue
+      pure $ (c : cs)
+    stripOneSpaceIfEndsWithBacktick s = case dropWhileEnd isSpace s of
+        [] -> s
+        xs | last xs == '`' -> dropOneSpaceAtEnd s
+        _ -> s
+      where
+        dropOneSpaceAtEnd xs =
+          case reverse xs of
+            (' ' : rest) -> reverse rest
+            _            -> xs
 
 pStrong :: P Markup
 pStrong = Strong <$> (char '*' *> manyTill pMarkup (char '*'))

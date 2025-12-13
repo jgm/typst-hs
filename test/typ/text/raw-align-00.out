@@ -30,7 +30,7 @@
 , ParBreak
 , RawBlock
     "py"
-    "def something(x):\n  return x\n\na = 342395823859823958329\nb = 324923\n"
+    "def something(x):\n  return x\n\na = 342395823859823958329\nb = 324923"
 , ParBreak
 , Code
     "typ/text/raw-align-00.typ"
@@ -52,7 +52,7 @@ document(body: { text(body: [
                  parbreak(), 
                  raw(block: true, 
                      lang: "py", 
-                     text: "def something(x):\n  return x\n\na = 342395823859823958329\nb = 324923\n"), 
+                     text: "def something(x):\n  return x\n\na = 342395823859823958329\nb = 324923"), 
                  parbreak(), 
                  text(body: [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut], 
                       size: 6.0pt), 

@@ -3,7 +3,7 @@
 , ParBreak
 , Text "Text"
 , SoftBreak
-, RawBlock "rust" "fn code() {}\n"
+, RawBlock "rust" "fn code() {}"
 , SoftBreak
 , Text "Text"
 , ParBreak
@@ -14,7 +14,7 @@ document(body: { parbreak(),
 ]), 
                  raw(block: true, 
                      lang: "rust", 
-                     text: "fn code() {}\n"), 
+                     text: "fn code() {}"), 
                  text(body: [
 Text]), 
                  parbreak() })
