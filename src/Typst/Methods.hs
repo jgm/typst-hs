@@ -322,7 +322,17 @@ getMethod updateVal val fld = do
       case fld of
         "func" -> pure $ makeFunction $ do
           case F.toList cs of
-            [Elt name _ _] -> lift $ lookupIdentifier name
+            [Elt name@(Identifier ident) _ _] -> lift $ do
+                      case T.splitOn "." ident of
+                        [] -> lookupIdentifier name
+                        (n:ns) -> do 
+                          lookupIdentifier (Identifier n) >>= go n ns
+                    where
+                      go _ [] i = pure i
+                      go path (n:ns) (VModule _ m) = case M.lookup (Identifier n) m of
+                            Just x -> go (path <> "." <> n) ns x
+                            Nothing -> fail $ "Module " <> show path <> " does not contain " <> show n
+                      go path _ _ = fail $ show path <> " is not a module"
             [Txt _] -> lift $ lookupIdentifier "text"
             _ -> pure $ makeFunction $ do
               xs <- allArgs
