@@ -443,20 +443,15 @@ mSymbol =
 -- unless followed by non-trivia markup. Stops when non-trivia markup would
 -- match `stop` parser.
 -- Does not allow new lines except in block comments.
-pSinglelineWhileNot :: P a -> P [Markup]
+pSinglelineWhileNot :: Show a => P a -> P [Markup]
 pSinglelineWhileNot stop = do
   option [] $ (concat . drop 1 . concat) <$> many1 pSinglelineChunk
   where
     pSinglelineChunk :: P [[Markup]]
     pSinglelineChunk = try $ do
       trivia <- many1 pTriviaWithoutEol
-      markup <- manyNonTriviaMarkupExcept
-      guard (not (null markup))
+      markup <- many1 (notFollowedBy stop >> pNonTriviaMarkup)
       pure [trivia, markup]
-      where
-        manyNonTriviaMarkupExcept = (lookAhead (try stop) >> pure [])
-                 <|> (pNonTriviaMarkup >>= \x -> (x:) <$> manyNonTriviaMarkupExcept)
-                 <|> pure []   
 
 -- list ::= '-' space markup
 -- enum ::= (digit+ '.' | '+') space markup
@@ -497,9 +492,13 @@ pListItem = do
           -- there might be no trivia following `:` in desc list
           trivia <- many pTrivia
           col <- sourceColumn <$> getPosition
-          guard (col > indent)
+          guard $ (col > indent) || not (any isEol trivia)
           markup <- many1 pNonTriviaMarkup
           pure [trivia, markup]
+          where
+            isEol SoftBreak = True
+            isEol ParBreak = True
+            isEol _ = False
 
 guardAfterListOrHeadingMarker :: P ()
 guardAfterListOrHeadingMarker = lookAhead $ 

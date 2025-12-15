@@ -1,0 +1,11 @@
+--- parse tree ---
+[ BulletListItem [ Text "one" , Space , Comment , Text "two" ]
+, SoftBreak
+, Text "three"
+, ParBreak
+]
+--- evaluated ---
+document(body: { list(children: ({ text(body: [one ]), 
+                                   text(body: [two]) })), 
+                 text(body: [three]), 
+                 parbreak() })
