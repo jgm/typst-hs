@@ -445,7 +445,7 @@ mSymbol =
 -- Does not allow new lines except in block comments.
 pSinglelineWhileNot :: Show a => P a -> P [Markup]
 pSinglelineWhileNot stop = do
-  option [] $ (concat . drop 1 . concat) <$> many1 pSinglelineChunk
+  (concat . drop 1 . concat) <$> many pSinglelineChunk
   where
     pSinglelineChunk :: P [[Markup]]
     pSinglelineChunk = try $ do
@@ -485,7 +485,7 @@ pListItem = do
     -- if not followed by properly indented non-trivia markup.
     pIndented :: Int -> P [Markup]
     pIndented indent = do
-      option [] $ (concat . drop 1 . concat) <$> many1 pIndentedChunk
+      (concat . drop 1 . concat) <$> many pIndentedChunk
       where
         pIndentedChunk :: P [[Markup]]
         pIndentedChunk = try $ do
