@@ -45,5 +45,4 @@ document(body: { text(body: [
                                              text(body: [Tight]), 
                                              text(body: [List]))), 
                        origin: left, 
-                       x: 80%), 
-                 parbreak() })
+                       x: 80%) })

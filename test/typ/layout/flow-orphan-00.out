@@ -39,6 +39,5 @@ document(body: { text(body: [
                  parbreak(), 
                  heading(body: text(body: [Introduction]), 
                          level: 1), 
-                 text(body: [
-This is the start and it goes on.]), 
+                 text(body: [This is the start and it goes on.]), 
                  parbreak() })

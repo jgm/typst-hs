@@ -54,6 +54,5 @@ The beginning.]),
                  parbreak(), 
                  heading(body: text(body: [Conclusion]), 
                          level: 1), 
-                 text(body: [
-The end.]), 
+                 text(body: [The end.]), 
                  parbreak() })

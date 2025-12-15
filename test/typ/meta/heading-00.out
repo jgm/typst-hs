@@ -16,17 +16,11 @@
 document(body: { parbreak(), 
                  heading(body: text(body: [Level 1]), 
                          level: 1), 
-                 text(body: [
-]), 
                  heading(body: text(body: [Level 2]), 
                          level: 2), 
-                 text(body: [
-]), 
                  heading(body: text(body: [Level 3]), 
                          level: 3), 
-                 parbreak(), 
                  text(body: [
 ]), 
                  heading(body: text(body: [Level 11]), 
-                         level: 11), 
-                 parbreak() })
+                         level: 11) })

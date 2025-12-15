@@ -121,8 +121,6 @@ document(body: { parbreak(),
                  parbreak(), 
                  heading(body: text(body: [Chapter 1]), 
                          level: 2), 
-                 text(body: [
-]), 
                  text(body: [Klaus]), 
                  text(body: [ stood in a field of wheat. There was nothing of particular interest about
 the field ]), 

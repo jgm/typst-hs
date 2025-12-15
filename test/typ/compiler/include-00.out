@@ -43,15 +43,12 @@
 document(body: { parbreak(), 
                  heading(body: text(body: [Document]), 
                          level: 1), 
-                 parbreak(), 
                  text(body: [
 ]), 
                  parbreak(), 
                  parbreak(), 
                  heading(body: text(body: [Chapter 1]), 
                          level: 2), 
-                 text(body: [
-]), 
                  text(body: [Klaus]), 
                  text(body: [ stood in a field of wheat. There was nothing of particular interest about
 the field ]), 
@@ -72,8 +69,7 @@ considerable time in non-descript environments.]),
                  parbreak(), 
                  heading(body: text(body: [Chapter 2]), 
                          level: 2), 
-                 text(body: [
-Their motivations, however, were pretty descript, so to speak. ]), 
+                 text(body: [Their motivations, however, were pretty descript, so to speak. ]), 
                  text(body: [Klaus]), 
                  text(body: [ had not yet
 conceptualized their consequences, but that should change pretty quickly. ]), 

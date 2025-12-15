@@ -43,8 +43,6 @@ document(body: { parbreak(),
                  text(body: [ ]), 
                  heading(body: text(body: [Level 1]), 
                          level: 1), 
-                 text(body: [
-]), 
                  heading(body: text(body: [Level 2]), 
                          level: 2), 
                  text(body: [

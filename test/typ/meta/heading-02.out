@@ -33,9 +33,7 @@ is
 multiline.]), 
                                  parbreak() }, 
                          level: 1), 
-                 parbreak(), 
                  heading(body: text(body: [This]), 
                          level: 1), 
-                 text(body: [
-is not.]), 
+                 text(body: [is not.]), 
                  parbreak() })

@@ -18,5 +18,4 @@ document(body: { text(body: [
                  text(body: [
 ]), 
                  heading(body: text(body: [Heading]), 
-                         level: 1), 
-                 parbreak() })
+                         level: 1) })

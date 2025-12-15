@@ -37,5 +37,4 @@ document(body: { text(body: [
                  outline(), 
                  parbreak(), 
                  heading(body: text(body: [“This” “is” “a” “test”]), 
-                         level: 1), 
-                 parbreak() })
+                         level: 1) })

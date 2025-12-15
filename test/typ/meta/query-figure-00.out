@@ -200,8 +200,6 @@ document(body: { parbreak(),
                  parbreak(), 
                  heading(body: text(body: [List of Figures]), 
                          level: 1), 
-                 text(body: [
-]), 
                  locate(func: ), 
                  parbreak(), 
                  figure(body: image(source: "/assets/files/glacier.jpg"), 

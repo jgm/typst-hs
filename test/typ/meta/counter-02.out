@@ -133,22 +133,18 @@ document(body: { text(body: [
                  heading(body: text(body: [Alpha]), 
                          level: 1, 
                          numbering: "1.a."), 
-                 text(body: [
-In ]), 
+                 text(body: [In ]), 
                  text(body: [1]), 
                  text(body: [
 ]), 
                  heading(body: text(body: [Beta]), 
                          level: 2, 
                          numbering: "1.a."), 
-                 parbreak(), 
                  text(body: [
 ]), 
                  heading(body: text(body: [Gamma]), 
                          level: 1, 
                          numbering: none), 
-                 text(body: [
-]), 
                  heading(body: text(body: [Delta]), 
                          numbering: "I."), 
                  parbreak(), 

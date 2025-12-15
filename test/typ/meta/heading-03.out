@@ -46,14 +46,10 @@ document(body: { text(body: [
                  parbreak(), 
                  heading(body: text(body: [Heading]), 
                          level: 1), 
-                 text(body: [
-]), 
                  block(body: text(body: { text(body: [Heading 🌍]), 
                                           text(body: [!]) }, 
                                   fill: rgb(13%,61%,67%,100%), 
                                   font: "Roboto")), 
-                 text(body: [
-]), 
                  block(body: text(body: { text(body: [Heading]), 
                                           text(body: [!]) }, 
                                   fill: rgb(13%,61%,67%,100%), 

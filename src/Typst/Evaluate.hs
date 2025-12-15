@@ -244,6 +244,7 @@ pElt = do
                 ]
           }
     Heading level ms -> do
+      skipMany $ satisfyTok isBreak
       content <- pInnerContents ms
       element
         "heading"

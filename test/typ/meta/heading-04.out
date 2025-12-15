@@ -28,7 +28,6 @@ document(body: { text(body: [
                  heading(body: {  }, 
                          level: 1, 
                          numbering: "1."), 
-                 text(body: [
-Not in heading
+                 text(body: [Not in heading
 =Nope]), 
                  parbreak() })

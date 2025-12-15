@@ -29,5 +29,4 @@ document(body: { text(body: [
                  text(body: { [Hea], 
                               text(body: [🛎], 
                                    color: rgb(100%,25%,21%,100%)), 
-                              [] }), 
-                 parbreak() })
+                              [] }) })

@@ -12,5 +12,4 @@
 --- evaluated ---
 document(body: { text(body: [
 ]), 
-                 text(body: [1234]), 
-                 parbreak() })
+                 text(body: [1234]) })
