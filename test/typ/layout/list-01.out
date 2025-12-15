@@ -20,9 +20,8 @@
         , Text "paragraphs"
         , Text "."
         , ParBreak
-        , BulletListItem
-            [ Text "Third" , Space , Text "level" , Text "." , SoftBreak ]
-        , SoftBreak
+        , BulletListItem [ Text "Third" , Space , Text "level" , Text "." ]
+        , ParBreak
         , Text "Still"
         , Space
         , Text "the"
@@ -33,9 +32,8 @@
         , Space
         , Text "point"
         , Text "."
-        , SoftBreak
         ]
-    , SoftBreak
+    , ParBreak
     , BulletListItem
         [ Text "Still"
         , Space
@@ -43,19 +41,12 @@
         , Space
         , Text "2"
         , Text "."
-        , SoftBreak
         ]
     ]
-, SoftBreak
+, ParBreak
 , BulletListItem
-    [ Text "At"
-    , Space
-    , Text "the"
-    , Space
-    , Text "top"
-    , Text "."
-    , ParBreak
-    ]
+    [ Text "At" , Space , Text "the" , Space , Text "top" , Text "." ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: list(children: ({ text(body: [First level.]), 
@@ -63,11 +54,7 @@ document(body: list(children: ({ text(body: [First level.]),
                                  list(children: ({ text(body: [Second level.
 There are multiple paragraphs.]), 
                                                    parbreak(), 
-                                                   list(children: (text(body: [Third level.
-]))), 
-                                                   text(body: [Still the same bullet point.
-]) }, 
-                                                 text(body: [Still level 2.
-]))) }, 
-                               { text(body: [At the top.]), 
-                                 parbreak() })))
+                                                   list(children: (text(body: [Third level.]))), 
+                                                   text(body: [Still the same bullet point.]) }, 
+                                                 text(body: [Still level 2.]))) }, 
+                               text(body: [At the top.]))))

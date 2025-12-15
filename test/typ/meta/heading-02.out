@@ -17,7 +17,9 @@
               , ParBreak
               ]))
     ]
+, ParBreak
 , Heading 1 [ Text "This" ]
+, SoftBreak
 , Text "is"
 , Space
 , Text "not"

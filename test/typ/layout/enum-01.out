@@ -6,18 +6,17 @@
     [ Text "First"
     , Text "."
     , SoftBreak
-    , EnumListItem (Just 2) [ Text "Indented" , SoftBreak ]
+    , EnumListItem (Just 2) [ Text "Indented" ]
     ]
-, SoftBreak
-, EnumListItem Nothing [ Text "Second" , ParBreak ]
+, ParBreak
+, EnumListItem Nothing [ Text "Second" ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: enum(children: (text(body: [Before first!]), 
                                { text(body: [First.
 ]), 
-                                 enum(children: (text(body: [Indented
-])), 
+                                 enum(children: (text(body: [Indented])), 
                                       start: 2) }, 
-                               { text(body: [Second]), 
-                                 parbreak() }), 
+                               text(body: [Second])), 
                     start: 0))

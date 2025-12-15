@@ -8,6 +8,7 @@
        (BasicBind (Just (Identifier "name"))) (Literal (String "Klaus")))
 , ParBreak
 , Heading 2 [ Text "Chapter" , Space , Text "1" ]
+, SoftBreak
 , Code
     "typ/compiler/modules/chap1.typ"
     ( line 6 , column 2 )

@@ -27,9 +27,9 @@
                [ KeyValArg (Identifier "width") (Literal (Numeric 100.0 Percent))
                , KeyValArg (Identifier "height") (Literal (Numeric 1.0 Em))
                ])
-        , ParBreak
         ]
     ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: { rect(height: 1.0em, 
@@ -40,6 +40,5 @@ document(body: { rect(height: 1.0em,
                                         width: 100%), 
                                    text(body: [
 ]), 
-                                   list(children: ({ rect(height: 1.0em, 
-                                                          width: 100%), 
-                                                     parbreak() })) })) })
+                                   list(children: (rect(height: 1.0em, 
+                                                        width: 100%))) })) })

@@ -90,6 +90,7 @@
        ])
 , ParBreak
 , Heading 1 [ Text "Headings" ]
+, SoftBreak
 , BulletListItem [ Text "And" , Space , Text "lists" , Text "." ]
 , SoftBreak
 , BulletListItem
@@ -116,9 +117,8 @@
     , Space
     , Text "them"
     , Text "."
-    , SoftBreak
     ]
-, SoftBreak
+, ParBreak
 , Code
     "typ/layout/par-indent-00.typ"
     ( line 20 , column 2 )
@@ -142,6 +142,7 @@
        [ KeyValArg (Identifier "leading") (Literal (Numeric 8.0 Pt)) ])
 , ParBreak
 , Heading 1 [ Text "Arabic" ]
+, SoftBreak
 , Text "\1583\1593"
 , Space
 , Text "\1575\1604\1606\1589"
@@ -194,8 +195,7 @@ starts a paragraph, also with indent.]),
                  list(children: (text(body: [And lists.]), 
                                  { text(body: [Have no indent.]), 
                                    parbreak(), 
-                                   text(body: [Except if you have another paragraph in them.
-]) })), 
+                                   text(body: [Except if you have another paragraph in them.]) })), 
                  text(body: [
 ], 
                       font: ("Noto Sans Arabic", 

@@ -111,6 +111,7 @@
     (FuncCall (Ident (Identifier "outline")) [])
 , ParBreak
 , Heading 1 [ Text "Introduction" ]
+, SoftBreak
 , Code
     "typ/meta/query-header-00.typ"
     ( line 23 , column 2 )
@@ -118,6 +119,7 @@
        (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 35)) ])
 , ParBreak
 , Heading 1 [ Text "Background" ]
+, SoftBreak
 , Code
     "typ/meta/query-header-00.typ"
     ( line 26 , column 2 )
@@ -125,6 +127,7 @@
        (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 35)) ])
 , ParBreak
 , Heading 1 [ Text "Approach" ]
+, SoftBreak
 , Code
     "typ/meta/query-header-00.typ"
     ( line 29 , column 2 )

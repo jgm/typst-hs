@@ -23,6 +23,7 @@
           [ KeyValArg (Identifier "numbering") (Literal (String "1.")) ]))
 , ParBreak
 , Heading 1 [ Text "Multiple" , Space , Text "Bibs" ]
+, SoftBreak
 , Text "Now"
 , Space
 , Text "we"

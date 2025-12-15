@@ -178,6 +178,7 @@
                    (FuncCall
                       (Ident (Identifier "v")) [ NormalArg (Literal (Numeric 4.0 Mm)) ])
                ]
+           , SoftBreak
            , Strong
                [ Text "Abgabe"
                , Text ":"

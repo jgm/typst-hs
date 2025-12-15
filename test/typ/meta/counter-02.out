@@ -29,6 +29,7 @@
        [])
 , ParBreak
 , Heading 1 [ Text "Alpha" ]
+, SoftBreak
 , Text "In"
 , Space
 , Code
@@ -43,6 +44,7 @@
        [])
 , SoftBreak
 , Heading 2 [ Text "Beta" ]
+, ParBreak
 , Code
     "typ/meta/counter-02.typ"
     ( line 10 , column 2 )
@@ -51,6 +53,7 @@
        [ KeyValArg (Identifier "numbering") (Literal None) ])
 , SoftBreak
 , Heading 1 [ Text "Gamma" ]
+, SoftBreak
 , Code
     "typ/meta/counter-02.typ"
     ( line 12 , column 2 )

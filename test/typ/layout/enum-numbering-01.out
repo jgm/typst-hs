@@ -14,8 +14,9 @@
     Nothing
     [ Text "First"
     , SoftBreak
-    , EnumListItem Nothing [ Text "Nested" , ParBreak ]
+    , EnumListItem Nothing [ Text "Nested" ]
     ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
@@ -24,8 +25,7 @@ document(body: { text(body: [
 ]), 
                  enum(children: ({ text(body: [First
 ]), 
-                                   enum(children: ({ text(body: [Nested]), 
-                                                     parbreak() }), 
+                                   enum(children: (text(body: [Nested])), 
                                         full: true, 
                                         numbering: "1.a.") }), 
                       full: true, 

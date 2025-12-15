@@ -6,21 +6,14 @@
     ( line 2 , column 2 )
     (Set
        (Ident (Identifier "list"))
-       [ KeyValArg
-           (Identifier "marker") (Block (Content [ BulletListItem [] ]))
-       ])
+       [ KeyValArg (Identifier "marker") (Block (Content [ Text "-" ])) ])
 , SoftBreak
 , BulletListItem
     [ Text "Bare" , Space , Text "hyphen" , Space , Text "is" ]
 , SoftBreak
 , BulletListItem
-    [ Text "a"
-    , Space
-    , Text "bad"
-    , Space
-    , Text "marker"
-    , ParBreak
-    ]
+    [ Text "a" , Space , Text "bad" , Space , Text "marker" ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
@@ -28,6 +21,5 @@ document(body: { text(body: [
                  text(body: [
 ]), 
                  list(children: (text(body: [Bare hyphen is]), 
-                                 { text(body: [a bad marker]), 
-                                   parbreak() }), 
-                      marker: list(children: ({  }))) })
+                                 text(body: [a bad marker])), 
+                      marker: text(body: [-])) })

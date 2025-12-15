@@ -17,9 +17,11 @@
        , BlockArg
            [ SoftBreak
            , Heading 1 [ Text "A" ]
+           , SoftBreak
            , Text "Text"
            , SoftBreak
            , Heading 1 [ Text "B" ]
+           , SoftBreak
            , Text "Text"
            , ParBreak
            ]

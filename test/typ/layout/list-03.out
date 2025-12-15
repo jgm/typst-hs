@@ -1,17 +1,10 @@
 --- parse tree ---
-[ Text "-"
-, Space
-, Text "Top"
-, Text "-"
-, Text "level"
-, Space
-, Text "indent"
+[ BulletListItem
+    [ Text "Top" , Text "-" , Text "level" , Space , Text "indent" ]
 , SoftBreak
-, BulletListItem
-    [ Text "is" , Space , Text "fine" , Text "." , ParBreak ]
+, BulletListItem [ Text "is" , Space , Text "fine" , Text "." ]
+, ParBreak
 ]
 --- evaluated ---
-document(body: { text(body: [- Top-level indent
-]), 
-                 list(children: ({ text(body: [is fine.]), 
-                                   parbreak() })) })
+document(body: list(children: (text(body: [Top-level indent]), 
+                               text(body: [is fine.]))))

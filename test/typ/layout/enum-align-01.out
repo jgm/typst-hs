@@ -5,8 +5,8 @@
 , SoftBreak
 , EnumListItem (Just 10) [ Text "b" ]
 , SoftBreak
-, EnumListItem (Just 100) [ Text "c" , SoftBreak ]
-, SoftBreak
+, EnumListItem (Just 100) [ Text "c" ]
+, ParBreak
 , Code
     "typ/layout/enum-align-01.typ"
     ( line 6 , column 2 )
@@ -16,25 +16,24 @@
            (Identifier "number-align") (Ident (Identifier "start"))
        ])
 , SoftBreak
-, EnumListItem (Just 1) [ Space , Text "a" ]
+, EnumListItem (Just 1) [ Text "a" ]
 , SoftBreak
-, EnumListItem (Just 8) [ Space , Text "b" ]
+, EnumListItem (Just 8) [ Text "b" ]
 , SoftBreak
-, EnumListItem (Just 16) [ Text "c" , ParBreak ]
+, EnumListItem (Just 16) [ Text "c" ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
 ]), 
                  enum(children: (text(body: [a]), 
                                  text(body: [b]), 
-                                 text(body: [c
-])), 
+                                 text(body: [c])), 
                       start: 1), 
                  text(body: [
 ]), 
-                 enum(children: (text(body: [ a]), 
-                                 text(body: [ b]), 
-                                 { text(body: [c]), 
-                                   parbreak() }), 
+                 enum(children: (text(body: [a]), 
+                                 text(body: [b]), 
+                                 text(body: [c])), 
                       number-align: start, 
                       start: 1) })

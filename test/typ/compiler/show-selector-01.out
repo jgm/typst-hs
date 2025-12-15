@@ -35,8 +35,11 @@
           [ NormalArg (Ident (Identifier "green")) ]))
 , SoftBreak
 , Heading 1 [ Text "Red" ]
+, SoftBreak
 , Heading 2 [ Text "Blue" ]
+, SoftBreak
 , Heading 3 [ Text "Green" ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [

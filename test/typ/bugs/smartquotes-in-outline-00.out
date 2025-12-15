@@ -29,6 +29,7 @@
     , Text "test"
     , Quote '"'
     ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [

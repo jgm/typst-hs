@@ -16,6 +16,7 @@
        ])
 , ParBreak
 , Heading 1 [ Text "Placement" ]
+, SoftBreak
 , Code
     "typ/layout/place-00.typ"
     ( line 5 , column 2 )

@@ -27,7 +27,8 @@
 , SoftBreak
 , BulletListItem [ Text "B" ]
 , SoftBreak
-, BulletListItem [ Text "C" , ParBreak ]
+, BulletListItem [ Text "C" ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [

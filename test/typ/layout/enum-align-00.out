@@ -26,8 +26,8 @@
         ]
     ]
 , SoftBreak
-, EnumListItem
-    Nothing [ Text "BACK" , HardBreak , Text "HERE" , ParBreak ]
+, EnumListItem Nothing [ Text "BACK" , HardBreak , Text "HERE" ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
@@ -46,5 +46,4 @@ document(body: { text(body: [
                                                      text(body: [INNER]) })) }, 
                                  { text(body: [BACK]), 
                                    linebreak(), 
-                                   text(body: [HERE]), 
-                                   parbreak() })) })
+                                   text(body: [HERE]) })) })

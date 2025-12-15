@@ -121,21 +121,37 @@
        ])
 , ParBreak
 , Heading 1 [ Text "Section" , Space , Text "1" ]
+, SoftBreak
 , Heading 2 [ Text "Subsection" , Space , Text "1" ]
+, SoftBreak
 , Heading 2 [ Text "Subsection" , Space , Text "2" ]
+, SoftBreak
 , Heading 3 [ Text "Subsubsection" , Space , Text "1" ]
+, SoftBreak
 , Heading 3 [ Text "Subsubsection" , Space , Text "2" ]
+, SoftBreak
 , Heading 2 [ Text "Subsection" , Space , Text "3" ]
+, ParBreak
 , Heading 1 [ Text "Section" , Space , Text "2" ]
+, SoftBreak
 , Heading 2 [ Text "Subsection" , Space , Text "1" ]
+, SoftBreak
 , Heading 2 [ Text "Subsection" , Space , Text "2" ]
+, ParBreak
 , Heading 1 [ Text "Section" , Space , Text "3" ]
+, SoftBreak
 , Heading 2 [ Text "Subsection" , Space , Text "1" ]
+, SoftBreak
 , Heading 2 [ Text "Subsection" , Space , Text "2" ]
+, SoftBreak
 , Heading 3 [ Text "Subsubsection" , Space , Text "1" ]
+, SoftBreak
 , Heading 3 [ Text "Subsubsection" , Space , Text "2" ]
+, SoftBreak
 , Heading 3 [ Text "Subsubsection" , Space , Text "3" ]
+, SoftBreak
 , Heading 2 [ Text "Subsection" , Space , Text "3" ]
+, ParBreak
 ]
 "typ/meta/query-before-after-00.typ" (line 11, column 4):
 Method "location" is not yet implemented or FieldAccess requires a dictionary

@@ -16,8 +16,8 @@
 , ParBreak
 , BulletListItem [ Text "B" ]
 , SoftBreak
-, BulletListItem [ Text "C" , SoftBreak ]
-, SoftBreak
+, BulletListItem [ Text "C" ]
+, ParBreak
 , Text "More"
 , Text "."
 , ParBreak
@@ -32,7 +32,6 @@ Hello
                  text(body: [World]), 
                  parbreak(), 
                  list(children: (text(body: [B]), 
-                                 text(body: [C
-]))), 
+                                 text(body: [C]))), 
                  text(body: [More.]), 
                  parbreak() })

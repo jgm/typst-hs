@@ -7,6 +7,7 @@
        [ KeyValArg (Identifier "numbering") (Literal (String "1.")) ])
 , ParBreak
 , Heading 1 [ Text "Introduction" ]
+, Space
 , Code "typ/meta/ref-00.typ" ( line 3 , column 16 ) (Label "intro")
 , SoftBreak
 , Text "See"
@@ -15,6 +16,7 @@
 , Text "."
 , ParBreak
 , Heading 2 [ Text "Setup" ]
+, Space
 , Code "typ/meta/ref-00.typ" ( line 6 , column 10 ) (Label "setup")
 , SoftBreak
 , Text "As"
@@ -37,6 +39,7 @@ document(body: { parbreak(),
                  heading(body: text(body: [Introduction]), 
                          level: 1, 
                          numbering: "1."), 
+                 text(body: [ ]), 
                  <intro>, 
                  text(body: [
 See ]), 
@@ -47,6 +50,7 @@ See ]),
                  heading(body: text(body: [Setup]), 
                          level: 2, 
                          numbering: "1."), 
+                 text(body: [ ]), 
                  <setup>, 
                  text(body: [
 As seen in ]), 

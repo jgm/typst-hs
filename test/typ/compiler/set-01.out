@@ -45,13 +45,8 @@
           ]))
 , SoftBreak
 , BulletListItem
-    [ Text "No"
-    , Space
-    , Text "more"
-    , Space
-    , Text "fruit"
-    , ParBreak
-    ]
+    [ Text "No" , Space , Text "more" , Space , Text "fruit" ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
@@ -69,6 +64,5 @@ document(body: { text(body: [
                  parbreak(), 
                  text(body: [
 ]), 
-                 list(children: ({ text(body: [No more fruit]), 
-                                   parbreak() }), 
+                 list(children: (text(body: [No more fruit])), 
                       indent: 10.0pt) })

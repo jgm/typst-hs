@@ -9,22 +9,22 @@
     , Text "1"
     , Space
     , Text "tab"
+    , SoftBreak
+    , BulletListItem
+        [ Text "B"
+        , Space
+        , Text "with"
+        , Space
+        , Text "2"
+        , Space
+        , Text "tabs"
+        ]
     ]
-, SoftBreak
-, BulletListItem
-    [ Text "B"
-    , Space
-    , Text "with"
-    , Space
-    , Text "2"
-    , Space
-    , Text "tabs"
-    , ParBreak
-    ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
 ]), 
-                 list(children: (text(body: [A with 1 tab]), 
-                                 { text(body: [B with 2 tabs]), 
-                                   parbreak() })) })
+                 list(children: ({ text(body: [A with 1 tab
+]), 
+                                   list(children: (text(body: [B with 2 tabs]))) })) })

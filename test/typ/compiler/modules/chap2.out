@@ -8,6 +8,7 @@
        (BasicBind (Just (Identifier "name"))) (Literal (String "Klaus")))
 , ParBreak
 , Heading 2 [ Text "Chapter" , Space , Text "2" ]
+, SoftBreak
 , Text "Their"
 , Space
 , Text "motivations,"

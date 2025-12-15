@@ -22,8 +22,7 @@
 , SoftBreak
 , DescListItem
     [ Text "Veggie" ]
-    [ SoftBreak
-    , Text "An"
+    [ Text "An"
     , Space
     , Text "important"
     , Space
@@ -35,8 +34,8 @@
     , Space
     , Text "vegetarians"
     , Text "."
-    , ParBreak
     ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
@@ -48,8 +47,6 @@ document(body: { text(body: [
                                         size: 8.0pt)), 
                                   (text(body: [Veggie], 
                                         size: 8.0pt), 
-                                   { text(body: [
-An important energy source
+                                   text(body: [An important energy source
 for vegetarians.], 
-                                          size: 8.0pt), 
-                                     parbreak() }))) })
+                                        size: 8.0pt)))) })

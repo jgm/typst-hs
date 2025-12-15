@@ -1,0 +1,49 @@
+--- parse tree ---
+[ Comment
+, SoftBreak
+, BulletListItem
+    [ Text "first" , SoftBreak , Comment , SoftBreak , Text "third" ]
+, ParBreak
+, Comment
+, SoftBreak
+, BulletListItem
+    [ Text "first" , SoftBreak , Comment , SoftBreak , Text "third" ]
+, ParBreak
+, Comment
+, SoftBreak
+, BulletListItem [ Text "first" ]
+, SoftBreak
+, Comment
+, SoftBreak
+, Text "third"
+, ParBreak
+, Comment
+, SoftBreak
+, BulletListItem
+    [ Text "first" , SoftBreak , Comment , Text "third" ]
+, ParBreak
+]
+--- evaluated ---
+document(body: { text(body: [
+]), 
+                 list(children: ({ text(body: [first
+]), 
+                                   text(body: [
+third]) })), 
+                 text(body: [
+]), 
+                 list(children: ({ text(body: [first
+]), 
+                                   text(body: [
+third]) })), 
+                 text(body: [
+]), 
+                 list(children: (text(body: [first]))), 
+                 text(body: [
+third]), 
+                 parbreak(), 
+                 text(body: [
+]), 
+                 list(children: ({ text(body: [first
+]), 
+                                   text(body: [third]) })) })

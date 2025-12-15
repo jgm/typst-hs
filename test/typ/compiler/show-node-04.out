@@ -20,6 +20,7 @@
                 ]))))
 , ParBreak
 , Heading 1 [ Text "Heading" ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [

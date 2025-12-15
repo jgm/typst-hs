@@ -31,7 +31,8 @@
                      ( line 3 , column 6 )
                      (Ident (Identifier "word"))
                  ]
-                 [ Text "Latin" , Space , Text "stuff" , Text "." , ParBreak ]
+                 [ Text "Latin" , Space , Text "stuff" , Text "." ]
+             , ParBreak
              ])))
 , ParBreak
 ]
@@ -41,21 +42,17 @@ document(body: { text(body: [
                  text(body: [
 ]), 
                  terms(children: ((text(body: [Lorem]), 
-                                   { text(body: [Latin stuff.]), 
-                                     parbreak() }))), 
+                                   text(body: [Latin stuff.])))), 
                  text(body: [
 ]), 
                  terms(children: ((text(body: [ipsum]), 
-                                   { text(body: [Latin stuff.]), 
-                                     parbreak() }))), 
+                                   text(body: [Latin stuff.])))), 
                  text(body: [
 ]), 
                  terms(children: ((text(body: [dolor]), 
-                                   { text(body: [Latin stuff.]), 
-                                     parbreak() }))), 
+                                   text(body: [Latin stuff.])))), 
                  text(body: [
 ]), 
                  terms(children: ((text(body: [sit]), 
-                                   { text(body: [Latin stuff.]), 
-                                     parbreak() }))), 
+                                   text(body: [Latin stuff.])))), 
                  parbreak() })

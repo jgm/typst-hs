@@ -30,6 +30,7 @@
 , BulletListItem [ Text "List" ]
 , SoftBreak
 , Heading 1 [ Text "Nope" ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [

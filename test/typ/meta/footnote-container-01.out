@@ -41,9 +41,8 @@
         "typ/meta/footnote-container-01.typ"
         ( line 6 , column 20 )
         (Ident (Identifier "nums"))
-    , SoftBreak
     ]
-, SoftBreak
+, ParBreak
 , BulletListItem
     [ Quote '"'
     , Text "Hello"
@@ -64,9 +63,8 @@
         "typ/meta/footnote-container-01.typ"
         ( line 9 , column 10 )
         (Ident (Identifier "nums"))
-    , SoftBreak
     ]
-, SoftBreak
+, ParBreak
 , EnumListItem
     Nothing
     [ Quote '"'
@@ -89,9 +87,8 @@
         "typ/meta/footnote-container-01.typ"
         ( line 12 , column 10 )
         (Ident (Identifier "nums"))
-    , SoftBreak
     ]
-, SoftBreak
+, ParBreak
 , Code
     "typ/meta/footnote-container-01.typ"
     ( line 14 , column 2 )
@@ -138,21 +135,15 @@ document(body: { text(body: [
                                      footnote(body: text(body: [Languages.])) }), 
                                   (text(body: [“123”]), 
                                    { text(body: [A number ]), 
-                                     footnote(body: text(body: [Numbers.])), 
-                                     text(body: [
-]) }))), 
+                                     footnote(body: text(body: [Numbers.])) }))), 
                  list(children: ({ text(body: [“Hello” ]), 
                                    footnote(body: text(body: [Languages.])) }, 
                                  { text(body: [“123” ]), 
-                                   footnote(body: text(body: [Numbers.])), 
-                                   text(body: [
-]) })), 
+                                   footnote(body: text(body: [Numbers.])) })), 
                  enum(children: ({ text(body: [“Hello” ]), 
                                    footnote(body: text(body: [Languages.])) }, 
                                  { text(body: [“123” ]), 
-                                   footnote(body: text(body: [Numbers.])), 
-                                   text(body: [
-]) })), 
+                                   footnote(body: text(body: [Numbers.])) })), 
                  table(children: (text(body: [Hello]), 
                                   { text(body: [A word ]), 
                                     footnote(body: text(body: [Languages.])) }, 

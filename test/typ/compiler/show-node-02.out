@@ -24,6 +24,7 @@
     , Space
     , Text "here!"
     ]
+, SoftBreak
 , Text "my"
 , Space
 , Text "heading?"

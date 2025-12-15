@@ -97,13 +97,16 @@
                 ]))))
 , ParBreak
 , Heading 1 [ Text "Introduction" ]
+, Space
 , Code
     "typ/meta/ref-04.typ" ( line 18 , column 16 ) (Label "intro")
 , ParBreak
 , Heading 1 [ Text "Summary" ]
+, Space
 , Code "typ/meta/ref-04.typ" ( line 20 , column 11 ) (Label "sum")
 , ParBreak
 , Heading 2 [ Text "Subsection" ]
+, Space
 , Code "typ/meta/ref-04.typ" ( line 22 , column 15 ) (Label "sub")
 , ParBreak
 , Ref "intro" (Literal Auto)

@@ -47,9 +47,8 @@
              , Ident (Identifier "body")
              ])))
 , ParBreak
-, BulletListItem
-    [ Text "Normal" , Space , Text "list" , SoftBreak ]
-, SoftBreak
+, BulletListItem [ Text "Normal" , Space , Text "list" ]
+, ParBreak
 , Code
     "typ/compiler/show-recursive-02.typ"
     ( line 15 , column 2 )
@@ -61,33 +60,31 @@
            , SoftBreak
            , BulletListItem [ Text "Wars" ]
            , SoftBreak
-           , BulletListItem [ Text "List" , ParBreak ]
+           , BulletListItem [ Text "List" ]
+           , ParBreak
            ]
        ])
 , ParBreak
-, BulletListItem [ Text "Normal" , Space , Text "list" , ParBreak ]
+, BulletListItem [ Text "Normal" , Space , Text "list" ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
 ]), 
                  parbreak(), 
-                 list(children: (text(body: [Normal list
-]))), 
+                 list(children: (text(body: [Normal list]))), 
                  text(body: [
 ]), 
                  block(body: stack(children: (text(body: list(children: (text(body: [Star]), 
                                                                          text(body: [Wars]), 
-                                                                         { text(body: [List]), 
-                                                                           parbreak() })), 
+                                                                         text(body: [List]))), 
                                                    color: rgb(100%,25%,21%,100%)), 
                                               1.0fr, 
                                               scale(body: text(body: list(children: (text(body: [Star]), 
                                                                                      text(body: [Wars]), 
-                                                                                     { text(body: [List]), 
-                                                                                       parbreak() })), 
+                                                                                     text(body: [List]))), 
                                                                color: rgb(0%,45%,85%,100%)), 
                                                     x: -100%)), 
                                    dir: ltr)), 
                  parbreak(), 
-                 list(children: ({ text(body: [Normal list]), 
-                                   parbreak() })) })
+                 list(children: (text(body: [Normal list]))) })

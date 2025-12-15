@@ -44,7 +44,8 @@
 , SoftBreak
 , EnumListItem Nothing [ Text "E" ]
 , SoftBreak
-, EnumListItem Nothing [ Text "F" , ParBreak ]
+, EnumListItem Nothing [ Text "F" ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
@@ -71,8 +72,7 @@ document(body: { text(body: [
                                         numbering: ) }, 
                                  text(body: [E], 
                                       font: "New Computer Modern"), 
-                                 { text(body: [F], 
-                                        font: "New Computer Modern"), 
-                                   parbreak() }), 
+                                 text(body: [F], 
+                                      font: "New Computer Modern")), 
                       full: true, 
                       numbering: ) })

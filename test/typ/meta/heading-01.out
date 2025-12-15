@@ -5,11 +5,7 @@
 , SoftBreak
 , Comment
 , Space
-, Text "="
-, Space
-, Text "Level"
-, Space
-, Text "1"
+, Heading 1 [ Text "Level" , Space , Text "1" ]
 , SoftBreak
 , Code
     "typ/meta/heading-01.typ"
@@ -44,8 +40,9 @@
 document(body: { parbreak(), 
                  text(body: [
 ]), 
-                 text(body: [ = Level 1
-]), 
+                 text(body: [ ]), 
+                 heading(body: text(body: [Level 1]), 
+                         level: 1), 
                  heading(body: text(body: [Level 2]), 
                          level: 2), 
                  text(body: [

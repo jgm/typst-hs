@@ -1,0 +1,26 @@
+--- parse tree ---
+[ DescListItem [] []
+, SoftBreak
+, DescListItem [] [ Text "y" ]
+, SoftBreak
+, DescListItem [ Text "x" ] [ Text "y" ]
+, SoftBreak
+, DescListItem [ Text "x" ] [ Text "y" ]
+, SoftBreak
+, DescListItem [ Text "x" ] [ Text "y" ]
+, ParBreak
+, DescListItem [ Text "-" ] [ BulletListItem [ Text "x" ] ]
+, ParBreak
+]
+--- evaluated ---
+document(body: terms(children: (({  }, 
+                                 {  }), 
+                                ({  }, text(body: [y])), 
+                                (text(body: [x]), 
+                                 text(body: [y])), 
+                                (text(body: [x]), 
+                                 text(body: [y])), 
+                                (text(body: [x]), 
+                                 text(body: [y])), 
+                                (text(body: [-]), 
+                                 list(children: (text(body: [x])))))))

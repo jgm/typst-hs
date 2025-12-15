@@ -43,8 +43,8 @@
     , Text "Dependecy"
     , Space
     , Text "Injection"
-    , ParBreak
     ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: { parbreak(), 
@@ -53,5 +53,4 @@ document(body: { parbreak(),
                                    text(body: [ as front-end framework]) }, 
                                  { underline(body: link(body: text(body: [Koin]), 
                                                         dest: "https://github.com/InsertKoinIO/koin/")), 
-                                   text(body: [ for Dependecy Injection]), 
-                                   parbreak() })) })
+                                   text(body: [ for Dependecy Injection]) })) })

@@ -22,9 +22,9 @@
                   , Text "block"
                   , ParBreak
                   ]))
-        , ParBreak
         ]
     ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: list(children: ({ text(body: [Level 1
@@ -32,5 +32,4 @@ document(body: list(children: ({ text(body: [Level 1
                                  list(children: ({ text(body: [Level ]), 
                                                    text(body: [
 2 through content block]), 
-                                                   parbreak(), 
                                                    parbreak() })) })))

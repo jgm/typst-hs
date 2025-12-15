@@ -27,7 +27,9 @@
              ])))
 , ParBreak
 , Heading 1 [ Text "Heading" ]
+, SoftBreak
 , Heading 5 [ Text "Heading" , Space , Text "\127757" ]
+, SoftBreak
 , Code
     "typ/meta/heading-03.typ"
     ( line 8 , column 2 )

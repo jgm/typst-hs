@@ -5,8 +5,8 @@
 , SoftBreak
 , EnumListItem Nothing [ Text "second" ]
 , SoftBreak
-, EnumListItem (Just 5) [ Text "fifth" , SoftBreak ]
-, SoftBreak
+, EnumListItem (Just 5) [ Text "fifth" ]
+, ParBreak
 , Code
     "typ/layout/enum-06.typ"
     ( line 6 , column 2 )
@@ -31,8 +31,7 @@ document(body: { text(body: [
 ]), 
                  enum(children: (text(body: [first]), 
                                  text(body: [second]), 
-                                 text(body: [fifth
-])), 
+                                 text(body: [fifth])), 
                       start: 1), 
                  enum(children: (enum.item(body: text(body: [First]), 
                                            number: 1), 

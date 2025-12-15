@@ -13,6 +13,7 @@
        (Ident (Identifier "lorem")) [ NormalArg (Literal (Int 12)) ])
 , ParBreak
 , Heading 1 [ Text "Introduction" ]
+, SoftBreak
 , Text "This"
 , Space
 , Text "is"

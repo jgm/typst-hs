@@ -14,8 +14,8 @@
     , Text "GHIJKL"
     , HardBreak
     , Text "MNOPQR"
-    , ParBreak
     ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
@@ -25,5 +25,4 @@ document(body: { text(body: [
                                    linebreak(), 
                                    text(body: [GHIJKL]), 
                                    linebreak(), 
-                                   text(body: [MNOPQR]), 
-                                   parbreak() })) })
+                                   text(body: [MNOPQR]) })) })

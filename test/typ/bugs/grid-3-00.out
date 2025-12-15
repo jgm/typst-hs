@@ -19,7 +19,8 @@
 , SoftBreak
 , EnumListItem Nothing [ Text "A" ]
 , SoftBreak
-, EnumListItem Nothing [ Text "B" , ParBreak ]
+, EnumListItem Nothing [ Text "B" ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
@@ -29,5 +30,4 @@ document(body: { text(body: [
 The following:
 ]), 
                  enum(children: (text(body: [A]), 
-                                 { text(body: [B]), 
-                                   parbreak() })) })
+                                 text(body: [B]))) })

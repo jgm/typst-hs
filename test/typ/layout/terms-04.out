@@ -48,7 +48,8 @@
     [ Text "BB" ] [ Text "Two" , Space , Text "letters" ]
 , SoftBreak
 , DescListItem
-    [ Text "CCC" ] [ Text "Three" , Space , Text "letters" , ParBreak ]
+    [ Text "CCC" ] [ Text "Three" , Space , Text "letters" ]
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
@@ -59,7 +60,6 @@ document(body: { text(body: [
                                   emph(body: text(body: [BB])), 
                                   text(body: [Two letters]), 
                                   emph(body: text(body: [CCC])), 
-                                  { text(body: [Three letters]), 
-                                    parbreak() }), 
+                                  text(body: [Three letters])), 
                        columns: 2, 
                        inset: 3.0pt) })

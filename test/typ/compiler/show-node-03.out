@@ -67,12 +67,14 @@
              ])))
 , ParBreak
 , Heading 1 [ Text "Task" , Space , Text "1" ]
+, SoftBreak
 , Text "Some"
 , Space
 , Text "text"
 , Text "."
 , ParBreak
 , Heading 2 [ Text "Subtask" ]
+, SoftBreak
 , Text "Some"
 , Space
 , Text "more"
@@ -81,6 +83,7 @@
 , Text "."
 , ParBreak
 , Heading 1 [ Text "Task" , Space , Text "2" ]
+, SoftBreak
 , Text "Another"
 , Space
 , Text "text"
