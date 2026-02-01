@@ -1,5 +1,103 @@
 # Revision history for typst-hs
 
+## 0.9
+
+  * Tweak parsing of list items and headings to match Typst more closely
+    (#92, #58, #90, #92, Norbert Pozar).
+
+    - Handles trivia (whitespace, comments) as Typst (see #92).
+    - Replaces `stLineStartCol` by `stAtStart`: `stAtStart` is set to `True`
+      after an end of line, at the beginning of content or at the beginning
+      of a list item (since list items can be nested), and set to `False`
+      after any non-trivia markup. This appears simpler and more robust,
+      especially after comments.
+    - Removes `stIndent` state.
+       Indented block is handled completely in `pIndented` parser and does
+      not rely on `stIndent` state.
+
+  * Support `func()` for content elements in submodules (math etc.)
+    (#57, #95, Norbert Pozar). `func()` method now element names with
+    multiple fragements like `math.attach`.
+
+  * Match raw block handling of Typst 0.14 (#94, Norbert Pozar).
+    This commit should produce the same result.
+
+    - Automatically dedent raw text based on the shortest indent of the raw
+      code. In particular, do not use `stIndent` for this since Typst does not
+      dedent the code based on the indentation of the containing list item.
+    - Accept any identifier-like language tags.
+    - Strip the last line if it is only whitespace.
+    - If the last line's nonwhitespace chars ends with `, strip one
+      space from the end.
+
+  * Tweak comment parsing to match Typst (#93, Norbert Pozar).
+
+    - Line comments inside block comments are not parsed as line comments
+      anymore (partially addresses #90).
+    - Block comments do not need to be closed by */ and can be active until
+      the end of file (partially addresses #90).
+    - Error is properly reported when unmatched */ appears instead of
+      misparsing this as a beginning of strong elem.
+    - Stop line comments from eating the end of line character
+      This is important for correctly issuing parbreaks and spaces that
+      follow line comments and a preparation for simpler handling of indented
+      blocks.
+
+  * Hide `#let test..` definition from test parse output (Norbert Pozar).
+    After this change the test function `#let test(...` is only injected
+    at evaluation and its parsed AST no longer appears in `.out` files.
+    Other advantages:
+
+    - Source locations match the input file.
+    - Future changes to AST will not show up in every output.
+    - Easier to read test output.
+    - 5% faster test run (5s -> 4.75s)
+
+  * Simpler tracking of bracket nesting in markup (Norbert Pozar, #86).
+    Keep the count of unclosed brackets in `PState` instead of using a
+    `between` parser to prevent exponential parsing time due to backtracing.
+
+  * Improve handling of control flow statements at loop block boundaries
+    (Norbert Pozar).
+
+    - `break` and `continue` now only affect the innermost `for` and `while`
+      loop by resetting `evalFlowDirective` at the loop end.
+    - `return` now returns even when used inside a loop: it stops the loop the
+      same way `break` does but its state is not reset at the end of the
+      loop so propagates up to the function boundary.
+
+  * `array.join()`: do not prepend separator for length 1 arrays (Norbert
+    Pozar). Separator is now only inserted when the array has at least 2
+    elements.
+
+ *  Support nested destructuring binds and expressions in LHS of assignments
+    (Norbert Pozar).
+
+  * Parse (..expr) as Array (Norbert Pozar, #47).
+    Trailing comma is not required in an array expression with single spread
+    operator. Also spreads `none`.
+
+  * Support nested destructuring (Norbert Pozar).
+    Typst supports nesting of destructuring binds both in array
+    destructuring `(_, (_, _), _)` and dictionary destructuring
+    `(x: (_, _), y)`. This commit adds support for such nested
+    destructuring of arbitrary depth.
+
+    Changes AST for `BindPart` to allow for recursion [API change].
+
+    -  `Simple (Maybe Identifier)` -> `Simple Bind`
+    -  `WithKey Identifier (Maybe Identifier)` -> `WithKey Identifier Bind`
+
+    It also disallows "unnamed patterns" when destructuring from a
+    dictionary (to match Typst behavior):
+
+    ```typst
+    #let (_, x) = (x: 1, y: 1)
+    //    ^ unnamed
+    #let ((a, b), x) = (x: 1, y: 1)
+    //    ^^^^^^ unnamed
+    ```
+
 ## 0.8.1
 
   * Fix parsing and evaluation of closures with _ (#84, Norbert Pozar).
