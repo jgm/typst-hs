@@ -74,6 +74,6 @@ document(body: { text(body: [
                  cite(key: <keshav2007read>), 
                  text(body: [
 ]), 
-                 bibliography(source: ("/works.bib", 
-                                       "/works_too.bib")), 
+                 bibliography(sources: ("/works.bib", 
+                                        "/works_too.bib")), 
                  parbreak() })

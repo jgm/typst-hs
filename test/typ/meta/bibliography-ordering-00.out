@@ -88,5 +88,5 @@ document(body: { parbreak(),
                  ref(supplement: auto, 
                      target: <restful>), 
                  parbreak(), 
-                 bibliography(source: "/works.bib"), 
+                 bibliography(sources: "/works.bib"), 
                  parbreak() })
