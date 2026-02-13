@@ -53,7 +53,7 @@
 ]
 --- evaluated ---
 document(body: { text(body: [
-The 5’11” ‘quick” brown fox jumps over the “lazy” dog’s ear.]), 
+The 5’11” ‘quick’ brown fox jumps over the “lazy” dog’s ear.]), 
                  parbreak(), 
                  text(body: [He said “I’m a big fella.”]), 
                  parbreak() })

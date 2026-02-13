@@ -156,7 +156,7 @@ setQuotes [] = []
 setQuotes (Quote '"' : x : rest)
   | x == Space || x == SoftBreak = Quote '\x201D' : setQuotes (x : rest)
 setQuotes (Quote '\'' : x : rest)
-  | x == Space || x == SoftBreak = Quote '\x201D' : setQuotes (x : rest)
+  | x == Space || x == SoftBreak = Quote '\x2019' : setQuotes (x : rest)
 setQuotes (x : Quote '"' : rest)
   | x == Space || x == SoftBreak = x : Quote '\x201C' : setQuotes rest
 setQuotes (x : Quote '\'' : rest)
