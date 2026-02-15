@@ -299,6 +299,7 @@ types =
   , ("length", VType TLength)
   , ("alignment", VType TAlignment)
   , ("color", VType TColor)
+  , ("stroke", VType TStroke)
   , ("symbol", VType TSymbol)
   , ("str", VType TString)
   , ("label", VType TLabel)
@@ -432,6 +433,36 @@ construct =
                 )
                   <|> (nthArg 1 >>= hexToRGB)
               )
+    ),
+    ( "stroke",
+      makeFunction $ do
+        mbStroke <- (Just <$> nthArg 1) `mplus` pure Nothing
+
+        mbPaint <- namedArg "paint" Nothing
+        let paint = case mbPaint of
+              Just (VColor c) -> c
+              _ -> RGB 0 0 0 1
+
+        mbThickness <- namedArg "thickness" Nothing
+        let thickness = case mbThickness of
+              Just (VLength l) -> l
+              _ -> LExact 1.0 LPt
+
+        (paint, thickness) <- pure $ case mbStroke of
+              Nothing -> (paint, thickness)
+              Just (VStroke (Stroke paint thickness)) -> (paint, thickness)
+              Just (VColor paint) -> (paint, thickness)
+              Just (VLength thickness) -> (paint, thickness)
+              Just (VDict m) -> 
+                let paint' = case OM.lookup "paint" m of
+                      Just (VColor c) -> c
+                      _ -> paint
+                    thickness' = case OM.lookup "thickness" m of
+                      Just (VLength l) -> l
+                      _ -> thickness
+                in (paint', thickness')
+              _ -> (paint, thickness)
+        pure $ VStroke $ Stroke paint thickness
     ),
     ( "lorem",
       makeFunction $ do
