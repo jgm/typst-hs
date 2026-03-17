@@ -1,5 +1,15 @@
 # Revision history for typst-hs
 
+## 0.9.0.1
+
+  * Fix typo that caused close single quote to be parsed as double
+    (jgm/pandoc#11463).
+
+  * Change name of positional param for bibliography to 'sources'.
+    (From 'source'). Per typst documentation.
+
+  * Fix upper bound for base (< not <=).
+
 ## 0.9
 
   * Tweak parsing of list items and headings to match Typst more closely
