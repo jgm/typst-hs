@@ -993,11 +993,19 @@ loadModule modname = do
             fp' <- findPackageEntryPoint modname
             operations <- evalOperations <$> getState
             txt <- lift $ TE.decodeUtf8 <$> loadBytes operations fp'
+            let findPkgRoot "" = fail $ "Could not find package root for " <> fp'
+                findPkgRoot dir' = do
+                  exists <- lift $ checkExistence operations
+                                       (dir' </> "typst.toml")
+                  if exists
+                     then pure dir'
+                     else findPkgRoot (takeDirectory dir')
+            pkgroot <- findPkgRoot (takeDirectory fp')
             pure ( takeFileName fp',
                    Identifier
                     (T.pack $ takeWhile (/= ':') . takeBaseName $
                        T.unpack modname),
-                   Just (takeDirectory fp'),
+                   Just pkgroot,
                    txt )
            else do
              let fp = T.unpack modname
