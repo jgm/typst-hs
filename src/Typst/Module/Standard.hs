@@ -71,7 +71,7 @@ standardModule =
 
 sysModule :: M.Map Identifier Val
 sysModule =
-  M.fromList [ ("version", VVersion [0,12,0])
+  M.fromList [ ("version", VVersion [0,14,0])
              , ("inputs", VDict (OM.fromList
                                   [("typst-hs-version",
                                     VString (T.pack (showVersion version)))]))
