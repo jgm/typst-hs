@@ -7,6 +7,8 @@ module Main where
 import Control.Monad (when)
 import qualified Data.ByteString as BS
 import Data.Maybe (fromMaybe)
+import Data.Text (Text)
+import qualified Data.Text as T
 import qualified Data.Text.Encoding as TE
 import qualified Data.Text.IO as TIO
 import Options.Applicative
@@ -29,6 +31,7 @@ data Opts = Opts
     optShowHtml :: Bool,
     optStandalone :: Bool,
     optTimeout :: Maybe Int,
+    optInputs :: [(Text, Text)],
     optFile :: Maybe FilePath
   }
   deriving (Show, Eq)
@@ -48,7 +51,22 @@ optsParser =
     <*> switch (long "html" <> help "Show HTML output")
     <*> switch (long "standalone" <> help "Standalone mode")
     <*> optional (option auto (long "timeout" <> metavar "MS" <> help "Timeout in milliseconds"))
+    <*> many (option (eitherReader parseInput)
+          (long "input" <> metavar "KEY=VALUE" <> help "Set an input key-value pair (repeatable)"))
     <*> optional (argument str (metavar "FILE" <> help "Input file (reads stdin if omitted)"))
+
+parseInput :: String -> Either String (Text, Text)
+parseInput s =
+  case break (== '=') s of
+    (_, []) -> Left "Expected KEY=VALUE format"
+    (k, '=' : v) -> Right (T.pack k, T.pack (unquote v))
+    _ -> Left "Expected KEY=VALUE format"
+  where
+    unquote ('"' : rest)
+      | not (null rest) && last rest == '"' = init rest
+    unquote ('\'' : rest)
+      | not (null rest) && last rest == '\'' = init rest
+    unquote x = x
 
 operations :: Operations IO
 operations = Operations
@@ -65,7 +83,7 @@ main =
               (fullDesc <> progDesc "Parse and evaluate Typst documents"))
     let mbfile = optFile opts
     let showAll = case opts of
-          Opts False False False False False False _ _ -> True
+          Opts False False False False False False _ _ _ -> True
           _ -> False
     ( case optTimeout opts of
         Nothing -> fmap Just
@@ -80,8 +98,7 @@ main =
             when (optShowParse opts || showAll) $ do
               when showAll $ putStrLn "--- parse tree ---"
               pPrint parseResult
-            let inputs = [] -- TODO
-            result <- evaluateTypst operations inputs "stdin" parseResult
+            result <- evaluateTypst operations (optInputs opts) "stdin" parseResult
             case result of
               Left e -> err $ show e
               Right c -> do
