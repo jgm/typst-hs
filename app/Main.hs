@@ -4,17 +4,17 @@
 
 module Main where
 
-import Control.Monad (foldM, when)
+import Control.Monad (when)
 import qualified Data.ByteString as BS
 import Data.Maybe (fromMaybe)
 import qualified Data.Text.Encoding as TE
 import qualified Data.Text.IO as TIO
+import Options.Applicative
 import System.Directory (doesFileExist)
-import System.Environment (getArgs, lookupEnv)
+import System.Environment (lookupEnv)
 import System.Exit
 import System.IO (hPutStrLn, stderr)
 import System.Timeout (timeout)
-import Text.Read (readMaybe)
 import Text.Show.Pretty (pPrint)
 import Typst (evaluateTypst, parseTypst)
 import Typst.Types (Val (..), repr, Operations(..))
@@ -28,7 +28,8 @@ data Opts = Opts
     optShowLaTeX :: Bool,
     optShowHtml :: Bool,
     optStandalone :: Bool,
-    optTimeout :: Maybe (Maybe Int)
+    optTimeout :: Maybe Int,
+    optFile :: Maybe FilePath
   }
   deriving (Show, Eq)
 
@@ -37,22 +38,17 @@ err msg = do
   hPutStrLn stderr msg
   exitWith (ExitFailure 1)
 
-parseArgs :: [String] -> IO (Maybe FilePath, Opts)
-parseArgs = foldM go (Nothing, Opts False False False False False False Nothing)
-  where
-    go (f, opts) "--parse" = pure (f, opts {optShowParse = True})
-    go (f, opts) "--eval" = pure (f, opts {optShowEval = True})
-    go (f, opts) "--repr" = pure (f, opts {optShowRepr = True})
-    go (f, opts) "--latex" = pure (f, opts {optShowLaTeX = True})
-    go (f, opts) "--html" = pure (f, opts {optShowHtml = True})
-    go (f, opts) "--standalone" = pure (f, opts {optStandalone = True})
-    go (f, opts) "--timeout" = pure (f, opts {optTimeout = Just Nothing })
-    go (f, opts) x
-      | optTimeout opts == Just Nothing =
-          pure (f, opts {optTimeout = Just (readMaybe x) })
-    go _ ('-' : xs) = err $ "Unknown option -" ++ xs
-    go (Nothing, opts) f = pure (Just f, opts)
-    go _ _ = err $ "Only one file can be specified as input."
+optsParser :: Parser Opts
+optsParser =
+  Opts
+    <$> switch (long "parse" <> help "Show parse tree")
+    <*> switch (long "eval" <> help "Show evaluated result")
+    <*> switch (long "repr" <> help "Show repr output")
+    <*> switch (long "latex" <> help "Show LaTeX output")
+    <*> switch (long "html" <> help "Show HTML output")
+    <*> switch (long "standalone" <> help "Standalone mode")
+    <*> optional (option auto (long "timeout" <> metavar "MS" <> help "Timeout in milliseconds"))
+    <*> optional (argument str (metavar "FILE" <> help "Input file (reads stdin if omitted)"))
 
 operations :: Operations IO
 operations = Operations
@@ -65,14 +61,15 @@ operations = Operations
 main :: IO ()
 main =
   () <$ do
-    (mbfile, opts) <- getArgs >>= parseArgs
+    opts <- execParser (info (optsParser <**> helper)
+              (fullDesc <> progDesc "Parse and evaluate Typst documents"))
+    let mbfile = optFile opts
     let showAll = case opts of
-          Opts False False False False False False _ -> True
+          Opts False False False False False False _ _ -> True
           _ -> False
     ( case optTimeout opts of
         Nothing -> fmap Just
-        Just Nothing -> timeout 1000
-        Just (Just ms) -> timeout (ms * 1000)
+        Just ms -> timeout (ms * 1000)
       )
       $ do
         bs <- maybe B.getContents B.readFile mbfile

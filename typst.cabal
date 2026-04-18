@@ -112,7 +112,8 @@ executable typst-hs
         bytestring,
         time,
         pretty-show,
-        ordered-containers
+        ordered-containers,
+        optparse-applicative
     else
       Buildable:         False
 
