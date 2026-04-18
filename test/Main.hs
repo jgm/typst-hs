@@ -67,7 +67,7 @@ writeTest testParse input = do
       case parseResult of
         Left e -> pure $ fromText $ T.pack $ show e
         Right parsed -> do
-          evalResult <- evaluateTypst operations input (testParse <> parsed)
+          evalResult <- evaluateTypst operations [] input (testParse <> parsed)
           let parseOutput = "--- parse tree ---\n" <> T.pack (ppShow parsed) <> "\n"
           case evalResult of
             Left e ->

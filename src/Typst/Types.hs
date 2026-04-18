@@ -624,7 +624,8 @@ data EvalState m = EvalState
     evalFlowDirective :: FlowDirective,
     evalPackageRoot :: FilePath,
     evalLocalDir :: FilePath,
-    evalOperations :: Operations m
+    evalOperations :: Operations m,
+    evalInputs :: [(Text, Text)]
   }
 
 emptyEvalState :: EvalState m
@@ -640,7 +641,8 @@ emptyEvalState = EvalState
       evalFlowDirective = FlowNormal,
       evalPackageRoot = mempty,
       evalLocalDir = mempty,
-      evalOperations = undefined
+      evalOperations = undefined,
+      evalInputs = []
     }
 
 data Attempt a

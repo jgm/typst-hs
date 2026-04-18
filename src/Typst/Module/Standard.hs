@@ -7,15 +7,12 @@
 module Typst.Module.Standard
   ( standardModule,
     symModule,
-    sysModule,
     loadFileText,
     getPath,
     applyPureFunction
   )
 where
 
-import Paths_typst (version)
-import Data.Version (showVersion)
 import Control.Applicative ((<|>))
 import Control.Monad (mplus, unless)
 import Control.Monad.Reader (lift, ReaderT)
@@ -52,9 +49,9 @@ standardModule =
   M.fromList $
     [ ("math", VModule "math" mathModule),
       ("sym", VModule "sym" symModule),
-      ("sys", VModule "sys" sysModule),
       ("emoji", VModule "emoji" emojiModule),
       ("calc", VModule "calc" calcModule)
+      -- sys module is added in initialEvalState
     ]
       ++ types
       ++ colors
@@ -68,14 +65,6 @@ standardModule =
       ++ construct
       ++ time
       ++ dataLoading
-
-sysModule :: M.Map Identifier Val
-sysModule =
-  M.fromList [ ("version", VVersion [0,14,0])
-             , ("inputs", VDict (OM.fromList
-                                  [("typst-hs-version",
-                                    VString (T.pack (showVersion version)))]))
-             ]
 
 symModule :: M.Map Identifier Val
 symModule = M.map VSymbol $ makeSymbolMap typstSymbols
