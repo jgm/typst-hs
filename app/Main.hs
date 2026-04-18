@@ -27,9 +27,6 @@ data Opts = Opts
   { optShowParse :: Bool,
     optShowEval :: Bool,
     optShowRepr :: Bool,
-    optShowLaTeX :: Bool,
-    optShowHtml :: Bool,
-    optStandalone :: Bool,
     optTimeout :: Maybe Int,
     optInputs :: [(Text, Text)],
     optFile :: Maybe FilePath
@@ -47,9 +44,6 @@ optsParser =
     <$> switch (long "parse" <> help "Show parse tree")
     <*> switch (long "eval" <> help "Show evaluated result")
     <*> switch (long "repr" <> help "Show repr output")
-    <*> switch (long "latex" <> help "Show LaTeX output")
-    <*> switch (long "html" <> help "Show HTML output")
-    <*> switch (long "standalone" <> help "Standalone mode")
     <*> optional (option auto (long "timeout" <> metavar "MS" <> help "Timeout in milliseconds"))
     <*> many (option (eitherReader parseInput)
           (long "input" <> metavar "KEY=VALUE" <> help "Set an input key-value pair (repeatable)"))
@@ -83,7 +77,7 @@ main =
               (fullDesc <> progDesc "Parse and evaluate Typst documents"))
     let mbfile = optFile opts
     let showAll = case opts of
-          Opts False False False False False False _ _ _ -> True
+          Opts False False False _ _ _ -> True
           _ -> False
     ( case optTimeout opts of
         Nothing -> fmap Just
