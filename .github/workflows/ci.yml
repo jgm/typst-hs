@@ -10,20 +10,19 @@ jobs:
       fail-fast: true
       matrix:
         versions:
-          - ghc: '8.10'
-            cabal: '3.2'
-          - ghc: '9.0'
-            cabal: '3.4'
-          - ghc: '9.2'
-            cabal: '3.6'
-          - ghc: '9.4'
-            cabal: 'latest'
           - ghc: '9.6'
             cabal: 'latest'
+            cabalopts: '--ghc-option=-Werror'
           - ghc: '9.8'
             cabal: 'latest'
+            cabalopts: '--ghc-option=-Werror'
           - ghc: '9.10'
             cabal: 'latest'
+            cabalopts: '--ghc-option=-Werror'
+          - ghc: '9.12'
+            cabal: 'latest'
+            cabalopts: '--ghc-option=-Werror'
+
     steps:
     - uses: actions/checkout@v4
     - name: Install cabal/ghc
