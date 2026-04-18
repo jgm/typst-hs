@@ -83,7 +83,8 @@ main =
             when (optShowParse opts || showAll) $ do
               when showAll $ putStrLn "--- parse tree ---"
               pPrint parseResult
-            result <- evaluateTypst operations "stdin" parseResult
+            let inputs = [] -- TODO
+            result <- evaluateTypst operations inputs "stdin" parseResult
             case result of
               Left e -> err $ show e
               Right c -> do

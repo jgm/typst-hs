@@ -46,6 +46,8 @@ import Typst.Types
 import Typst.Util (makeFunction, nthArg)
 import qualified Toml as Toml
 import qualified Toml.Schema as Toml
+import Paths_typst (version)
+import Data.Version (showVersion)
 
 -- import Debug.Trace
 
@@ -55,12 +57,14 @@ evaluateTypst ::
   Monad m =>
   -- | Dictionary of functions for IO operations
   Operations m ->
+  -- | Parameters that would be set with --input in typst, for sys.inputs
+  [(Text, Text)] ->
   -- | Path of parsed content
   FilePath ->
   -- | Markup produced by 'parseTypst'
   [Markup] ->
   m (Either ParseError Content)
-evaluateTypst operations fp =
+evaluateTypst operations inputs fp =
   runParserT
     (do contents <- mconcat <$> many pContent <* eof
         -- "All documents are automatically wrapped in a document element."
@@ -70,27 +74,38 @@ evaluateTypst operations fp =
         case toList els of
           [e] -> pure e
           _ -> fail "element returned something other than a singleton")
-    initialEvalState { evalOperations = operations,
-                       evalLocalDir = takeDirectory fp }
+    (initialEvalState inputs) { evalOperations = operations,
+                                evalLocalDir = takeDirectory fp }
     fp
 
-initialEvalState :: EvalState m
-initialEvalState =
+initialEvalState :: [(Text, Text)] -> EvalState m
+initialEvalState inputs =
   emptyEvalState { evalIdentifiers = [(BlockScope, mempty)]
                  , evalMathIdentifiers = [(BlockScope, mathModule <> symModule)]
-                 , evalStandardIdentifiers = [(BlockScope, standardModule'')]
+                 , evalStandardIdentifiers = [(BlockScope, standardModule''')]
                  , evalPackageRoot = "."
+                 , evalInputs = inputs
                  }
   where
     standardModule' = M.insert "eval" evalFunction standardModule
-    standardModule'' = M.insert "std" (VModule "std" standardModule') standardModule'
+    standardModule'' = M.insert
+                        "sys"
+                        (VModule "sys" $ M.fromList
+                         [ ("version", VVersion [0,14,0])
+                         , ("inputs", VDict $
+                              OM.fromList (map (\(k,v) -> (Identifier k, VString v))
+                                           inputs'))
+                         ])
+                      standardModule'
+    standardModule''' = M.insert "std" (VModule "std" standardModule') standardModule''
+    inputs' = ("typst-hs-version", T.pack (showVersion version)) : inputs
     evalFunction = makeFunction $ do
       code :: Text <- nthArg 1
       case parseTypst "eval" ("#{\n" <> code <> "\n}") of
         Left e -> fail $ "eval: " <> show e
         Right [Code _ expr] ->
           -- run in Either monad so we can't access file system
-          case runParserT (evalExpr expr) initialEvalState "eval" [] of
+          case runParserT (evalExpr expr) (initialEvalState inputs) "eval" [] of
             Failure e -> fail $ "eval: " <> e
             Success (Left e) -> fail $ "eval: " <> show e
             Success (Right val) -> pure val
@@ -940,7 +955,7 @@ findPackageEntryPoint :: Monad m => Text -> MP m FilePath
 findPackageEntryPoint modname = do
   let (namespace, rest) = break (=='/') (drop 1 $ T.unpack modname)
   let (name, rest') = break (==':') $ drop 1 rest
-  let version = drop 1 rest'
+  let pkgversion = drop 1 rest'
   operations <- evalOperations <$> getState
   let getEnv var = do
         mbv <- lift $ lookupEnvVar operations var
@@ -965,7 +980,7 @@ findPackageEntryPoint modname = do
   let localDir = dataDir </> "typst"
   let cacheDir = cacheDir' </> "typst"
 #endif
-  let subpath = "packages" </> namespace </> name </> version
+  let subpath = "packages" </> namespace </> name </> pkgversion
   inLocal <- lift $ checkExistence operations (localDir </> subpath </> "typst.toml")
   tomlPath <-
      if inLocal
@@ -1021,6 +1036,7 @@ loadModule modname = do
       operations <- evalOperations <$> getState
       currentLocalDir <- evalLocalDir <$> getState
       currentPackageRoot <- evalPackageRoot <$> getState
+      inputs <- evalInputs <$> getState
       let (pkgroot , localdir) =
             case mbPackageRoot of
               Just r -> (r , takeDirectory fp)
@@ -1035,9 +1051,9 @@ loadModule modname = do
                 s <- getState
                 pure (cs, s)
             )
-            initialEvalState{evalOperations = operations,
-                             evalLocalDir = localdir,
-                             evalPackageRoot = pkgroot }
+            (initialEvalState inputs){evalOperations = operations,
+                                      evalLocalDir = localdir,
+                                      evalPackageRoot = pkgroot }
             fp
             ms
       case res of
