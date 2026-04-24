@@ -20,7 +20,7 @@ import qualified Text.Parsec as P
 import Text.Parsec.Expr
 import Text.Read (readMaybe)
 import Typst.Syntax
-import Typst.Shorthands (mathSymbolShorthands)
+import Typst.Symbols (mathSymbolShorthands)
 
 -- import Debug.Trace
 

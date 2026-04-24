@@ -33,10 +33,9 @@ import Text.Parsec (getPosition, getState, updateState, runParserT)
 import Text.Read (readMaybe)
 import qualified Text.XML as XML
 import qualified Toml
-import Typst.Emoji (typstEmojis)
 import Typst.Module.Calc (calcModule)
 import Typst.Module.Math (mathModule)
-import Typst.Symbols (typstSymbols)
+import Typst.Symbols (typstSymbols, typstEmojis)
 import Typst.Types
 import Typst.Util
 import System.FilePath.Posix ((</>), normalise)

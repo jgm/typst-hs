@@ -29,6 +29,7 @@ import qualified Data.Text as T
 import qualified Data.Vector as V
 import Text.Parsec (getPosition)
 import Typst.Types
+import Typst.Symbols (Sym(..))
 
 data TypeSpec
   = One ValType
@@ -148,11 +149,13 @@ namedArg ident@(Identifier _) defaultVal = do
 allArgs :: Monad m => ReaderT Arguments (MP m) [Val]
 allArgs = asks positional
 
-makeSymbolMap :: [(Text, Bool, Text)] -> M.Map Identifier Symbol
+makeSymbolMap :: [Sym] -> M.Map Identifier Symbol
 makeSymbolMap = foldl' go mempty
   where
-    go :: M.Map Identifier Symbol -> (Text, Bool, Text) -> M.Map Identifier Symbol
-    go m (name, accent, v) =
+    go :: M.Map Identifier Symbol -> Sym -> M.Map Identifier Symbol
+    go m (Sym{ symName = name,
+               symIsAccent = accent,
+               symText = v }) =
       case T.split (== '.') name of
         [] -> m
         (k : ks) ->
