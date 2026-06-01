@@ -1,5 +1,25 @@
 # Revision history for typst-hs
 
+## 0.10
+
+  * Add --input option to cli for passing key-value pairs to the
+    evaluator (as can be done with `typst`).
+
+  * Use optparse-applicative for CLI option parsing.
+
+  * Add `inputs` parameter to `evalTypst`.
+
+  * Remove `sysModule` from `Module.Standard` [API change].
+    We now generate `sys` in `initialEvalState`, since only then
+    do we know the inputs.
+
+  * Properly locate package root for imports (#98).
+    We need to go up the directory hierarchy til we find typst.toml.
+
+  * Use released version of typst-symbols-0.2 with new typst-symbols API.
+
+  * app/Main: remove unused options.
+
 ## 0.9.0.1
 
   * Fix typo that caused close single quote to be parsed as double
