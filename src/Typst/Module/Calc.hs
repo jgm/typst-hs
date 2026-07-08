@@ -8,6 +8,7 @@ where
 
 import qualified Data.Map as M
 import Data.Maybe (fromMaybe, mapMaybe)
+import Data.Number.Erf (erf)
 import Typst.Types
 import Typst.Util
 
@@ -202,6 +203,22 @@ calcModule =
       ("asin", makeFunction $ VAngle . asin <$> nthArg 1),
       ("atan", makeFunction $ VAngle . atan <$> nthArg 1),
       ("atan2", makeFunction $ VAngle <$> (atan2 <$> nthArg 1 <*> nthArg 2)),
+      ("asinh", makeFunction $ VFloat . asinh <$> nthArg 1),
+      ( "acosh",
+        makeFunction $ do
+          (x :: Double) <- nthArg 1
+          if x < 1
+            then fail "value must be greater than or equal to 1"
+            else pure $ VFloat $ acosh x
+      ),
+      ( "atanh",
+        makeFunction $ do
+          (x :: Double) <- nthArg 1
+          if x <= -1 || x >= 1
+            then fail "value must be strictly between -1 and 1"
+            else pure $ VFloat $ atanh x
+      ),
+      ("erf", makeFunction $ VFloat . erf <$> nthArg 1),
       ("e", VFloat (exp 1)),
       ("pi", VFloat pi),
       ("tau", VFloat (2 * pi))

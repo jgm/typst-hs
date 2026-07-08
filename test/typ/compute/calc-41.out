@@ -1,0 +1,195 @@
+--- parse tree ---
+[ Comment
+, SoftBreak
+, Code
+    "typ/compute/calc-41.typ"
+    ( line 2 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "asinh")) (Ident (Identifier "calc")))
+              [ NormalArg (Literal (Int 0)) ])
+       , NormalArg (Literal (Float 0.0))
+       ])
+, SoftBreak
+, Code
+    "typ/compute/calc-41.typ"
+    ( line 3 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "acosh")) (Ident (Identifier "calc")))
+              [ NormalArg (Literal (Int 1)) ])
+       , NormalArg (Literal (Float 0.0))
+       ])
+, SoftBreak
+, Code
+    "typ/compute/calc-41.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "atanh")) (Ident (Identifier "calc")))
+              [ NormalArg (Literal (Int 0)) ])
+       , NormalArg (Literal (Float 0.0))
+       ])
+, SoftBreak
+, Code
+    "typ/compute/calc-41.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "round")) (Ident (Identifier "calc")))
+              [ NormalArg
+                  (FuncCall
+                     (FieldAccess
+                        (Ident (Identifier "asinh")) (Ident (Identifier "calc")))
+                     [ NormalArg
+                         (FuncCall
+                            (FieldAccess
+                               (Ident (Identifier "sinh")) (Ident (Identifier "calc")))
+                            [ NormalArg (Literal (Int 2)) ])
+                     ])
+              , KeyValArg (Identifier "digits") (Literal (Int 10))
+              ])
+       , NormalArg (Literal (Float 2.0))
+       ])
+, SoftBreak
+, Code
+    "typ/compute/calc-41.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "round")) (Ident (Identifier "calc")))
+              [ NormalArg
+                  (FuncCall
+                     (FieldAccess
+                        (Ident (Identifier "acosh")) (Ident (Identifier "calc")))
+                     [ NormalArg
+                         (FuncCall
+                            (FieldAccess
+                               (Ident (Identifier "cosh")) (Ident (Identifier "calc")))
+                            [ NormalArg (Literal (Int 2)) ])
+                     ])
+              , KeyValArg (Identifier "digits") (Literal (Int 10))
+              ])
+       , NormalArg (Literal (Float 2.0))
+       ])
+, SoftBreak
+, Code
+    "typ/compute/calc-41.typ"
+    ( line 7 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "round")) (Ident (Identifier "calc")))
+              [ NormalArg
+                  (FuncCall
+                     (FieldAccess
+                        (Ident (Identifier "atanh")) (Ident (Identifier "calc")))
+                     [ NormalArg
+                         (FuncCall
+                            (FieldAccess
+                               (Ident (Identifier "tanh")) (Ident (Identifier "calc")))
+                            [ NormalArg (Literal (Float 0.5)) ])
+                     ])
+              , KeyValArg (Identifier "digits") (Literal (Int 10))
+              ])
+       , NormalArg (Literal (Float 0.5))
+       ])
+, SoftBreak
+, Code
+    "typ/compute/calc-41.typ"
+    ( line 8 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "erf")) (Ident (Identifier "calc")))
+              [ NormalArg (Literal (Int 0)) ])
+       , NormalArg (Literal (Float 0.0))
+       ])
+, SoftBreak
+, Code
+    "typ/compute/calc-41.typ"
+    ( line 9 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "round")) (Ident (Identifier "calc")))
+              [ NormalArg
+                  (FuncCall
+                     (FieldAccess
+                        (Ident (Identifier "erf")) (Ident (Identifier "calc")))
+                     [ NormalArg (Literal (Int 1)) ])
+              , KeyValArg (Identifier "digits") (Literal (Int 7))
+              ])
+       , NormalArg (Literal (Float 0.8427008))
+       ])
+, SoftBreak
+, Code
+    "typ/compute/calc-41.typ"
+    ( line 10 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "round")) (Ident (Identifier "calc")))
+              [ NormalArg
+                  (FuncCall
+                     (FieldAccess
+                        (Ident (Identifier "erf")) (Ident (Identifier "calc")))
+                     [ NormalArg (Negated (Literal (Int 1))) ])
+              , KeyValArg (Identifier "digits") (Literal (Int 7))
+              ])
+       , NormalArg (Negated (Literal (Float 0.8427008)))
+       ])
+, ParBreak
+]
+--- evaluated ---
+document(body: { text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 parbreak() })

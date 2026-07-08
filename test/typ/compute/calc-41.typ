@@ -1,0 +1,10 @@
+// Test inverse hyperbolic functions and the error function.
+#test(calc.asinh(0), 0.0)
+#test(calc.acosh(1), 0.0)
+#test(calc.atanh(0), 0.0)
+#test(calc.round(calc.asinh(calc.sinh(2)), digits: 10), 2.0)
+#test(calc.round(calc.acosh(calc.cosh(2)), digits: 10), 2.0)
+#test(calc.round(calc.atanh(calc.tanh(0.5)), digits: 10), 0.5)
+#test(calc.erf(0), 0.0)
+#test(calc.round(calc.erf(1), digits: 7), 0.8427008)
+#test(calc.round(calc.erf(-1), digits: 7), -0.8427008)

@@ -81,7 +81,8 @@ library
                       regex-tdfa,
                       array,
                       time,
-                      pretty
+                      pretty,
+                      erf
     hs-source-dirs:   src
     if os(darwin)
       cpp-options: -D__MACOS__
