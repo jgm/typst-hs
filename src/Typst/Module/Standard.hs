@@ -50,7 +50,8 @@ standardModule =
     [ ("math", VModule "math" mathModule),
       ("sym", VModule "sym" symModule),
       ("emoji", VModule "emoji" emojiModule),
-      ("calc", VModule "calc" calcModule)
+      ("calc", VModule "calc" calcModule),
+      ("html", VModule "html" htmlModule)
       -- sys module is added in initialEvalState
     ]
       ++ types
@@ -117,6 +118,50 @@ symModule = M.map VSymbol $ makeSymbolMap typstSymbols
 
 emojiModule :: M.Map Identifier Val
 emojiModule = M.map VSymbol $ makeSymbolMap typstEmojis
+
+htmlModule :: M.Map Identifier Val
+htmlModule =
+  M.fromList $
+    [ makeElement
+        (Just "html")
+        "elem"
+        [ ("tag", One TString),
+          ("body", One (TContent :|: TNone))
+        ],
+      makeElement (Just "html") "frame" [("body", One TContent)]
+    ]
+      ++ map mkTag htmlTags
+      ++ map mkVoidTag htmlVoidTags
+  where
+    mkTag tag =
+      makeElement (Just "html") tag [("body", One (TContent :|: TNone))]
+    mkVoidTag tag = makeElement (Just "html") tag []
+
+-- | Typed HTML elements (https://typst.app/docs/reference/html/typed/),
+-- excluding void elements.
+htmlTags :: [Identifier]
+htmlTags =
+  [ "a", "abbr", "address", "article", "aside", "audio", "b", "bdi",
+    "bdo", "blockquote", "body", "button", "canvas", "caption", "cite",
+    "code", "colgroup", "data", "datalist", "dd", "del", "details",
+    "dfn", "dialog", "div", "dl", "dt", "em", "fieldset", "figcaption",
+    "figure", "footer", "form", "h1", "h2", "h3", "h4", "h5", "h6",
+    "head", "header", "hgroup", "html", "i", "iframe", "ins", "kbd",
+    "label", "legend", "li", "main", "map", "mark", "menu", "meter",
+    "nav", "noscript", "object", "ol", "optgroup", "option", "output",
+    "p", "picture", "pre", "progress", "q", "rp", "rt", "ruby", "s",
+    "samp", "script", "search", "section", "select", "slot", "small",
+    "span", "strong", "style", "sub", "summary", "sup", "table",
+    "tbody", "td", "template", "textarea", "tfoot", "th", "thead",
+    "time", "title", "tr", "u", "ul", "var", "video"
+  ]
+
+-- | Void HTML elements, which take no body.
+htmlVoidTags :: [Identifier]
+htmlVoidTags =
+  [ "area", "base", "br", "col", "embed", "hr", "img", "input", "link",
+    "meta", "source", "track", "wbr"
+  ]
 
 textual :: [(Identifier, Val)]
 textual =

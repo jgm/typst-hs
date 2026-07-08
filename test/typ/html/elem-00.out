@@ -1,0 +1,74 @@
+--- parse tree ---
+[ Comment
+, SoftBreak
+, Code
+    "typ/html/elem-00.typ"
+    ( line 2 , column 2 )
+    (FuncCall
+       (FieldAccess
+          (Ident (Identifier "elem")) (Ident (Identifier "html")))
+       [ NormalArg (Literal (String "section"))
+       , KeyValArg
+           (Identifier "attrs")
+           (Dict
+              [ Reg ( Ident (Identifier "id") , Literal (String "intro") ) ])
+       , BlockArg [ Text "Hello" ]
+       ])
+, SoftBreak
+, Code
+    "typ/html/elem-00.typ"
+    ( line 3 , column 2 )
+    (FuncCall
+       (FieldAccess
+          (Ident (Identifier "div")) (Ident (Identifier "html")))
+       [ KeyValArg (Identifier "class") (Literal (String "container"))
+       , BlockArg [ Text "Some" , Space , Text "text" ]
+       ])
+, SoftBreak
+, Code
+    "typ/html/elem-00.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (FieldAccess
+          (Ident (Identifier "span")) (Ident (Identifier "html")))
+       [ BlockArg [ Text "inline" ] ])
+, SoftBreak
+, Code
+    "typ/html/elem-00.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (FieldAccess (Ident (Identifier "br")) (Ident (Identifier "html")))
+       [])
+, SoftBreak
+, Code
+    "typ/html/elem-00.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (FieldAccess
+          (Ident (Identifier "img")) (Ident (Identifier "html")))
+       [ KeyValArg (Identifier "src") (Literal (String "foo.png"))
+       , KeyValArg (Identifier "alt") (Literal (String "Foo"))
+       ])
+, ParBreak
+]
+--- evaluated ---
+document(body: { text(body: [
+]), 
+                 html.elem(attrs: (id: "intro"), 
+                           body: text(body: [Hello]), 
+                           tag: "section"), 
+                 text(body: [
+]), 
+                 html.div(body: text(body: [Some text]), 
+                          class: "container"), 
+                 text(body: [
+]), 
+                 html.span(body: text(body: [inline])), 
+                 text(body: [
+]), 
+                 html.br(), 
+                 text(body: [
+]), 
+                 html.img(alt: "Foo", 
+                          src: "foo.png"), 
+                 parbreak() })
