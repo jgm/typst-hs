@@ -35,7 +35,8 @@ import Text.Parsec
 import Typst.Bind (destructuringBind, doBind)
 import Typst.Constructors (getConstructor)
 import Typst.Methods (getMethod)
-import Typst.Module.Standard (loadFileText, standardModule, symModule, getPath)
+import Typst.Module.Standard (loadFileText, standardModule, symModule, getPath,
+                              elementDefaults)
 import Typst.Module.Math (mathModule)
 import Typst.MathClass (mathClassOf, MathClass(Relation))
 import Typst.Parse (parseTypst)
@@ -581,6 +582,14 @@ evalExpr expr = applyShowRulesToVal =<<
             case OM.lookup (Identifier fld) m of
               Just x -> pure x
               Nothing -> fail $ show (Identifier fld) <> " not found"
+          -- fall back on default values for settable element fields,
+          -- e.g. it.marker in #show list: it => .. (see #100)
+          VContent cs
+            | [Elt eltname _ _] <- toList cs,
+              Just v <-
+                M.lookup eltname elementDefaults
+                  >>= M.lookup (Identifier fld) ->
+                pure v
           _ -> fail "FieldAccess requires a dictionary"
     FieldAccess _ _ -> fail "FieldAccess requires an identifier"
     FuncCall e args -> do

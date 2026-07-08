@@ -1,0 +1,126 @@
+--- parse tree ---
+[ Comment
+, SoftBreak
+, Comment
+, SoftBreak
+, Comment
+, SoftBreak
+, Code
+    "typ/regression/show-list-fields-00.typ"
+    ( line 4 , column 2 )
+    (LetFunc
+       (Identifier "checklist")
+       [ NormalParam (Identifier "body") ]
+       (Block
+          (CodeBlock
+             [ Show
+                 (Just (Ident (Identifier "list")))
+                 (FuncExpr
+                    [ NormalParam (Identifier "it") ]
+                    (Block
+                       (CodeBlock
+                          [ Let
+                              (BasicBind (Just (Identifier "default-marker")))
+                              (If
+                                 [ ( Equals
+                                       (FuncCall
+                                          (Ident (Identifier "type"))
+                                          [ NormalArg
+                                              (FieldAccess
+                                                 (Ident (Identifier "marker"))
+                                                 (Ident (Identifier "it")))
+                                          ])
+                                       (Ident (Identifier "array"))
+                                   , Block
+                                       (CodeBlock
+                                          [ FuncCall
+                                              (FieldAccess
+                                                 (Ident (Identifier "at"))
+                                                 (FieldAccess
+                                                    (Ident (Identifier "marker"))
+                                                    (Ident (Identifier "it"))))
+                                              [ NormalArg (Literal (Int 0)) ]
+                                          ])
+                                   )
+                                 , ( Literal (Boolean True)
+                                   , Block
+                                       (CodeBlock
+                                          [ FieldAccess
+                                              (Ident (Identifier "marker"))
+                                              (Ident (Identifier "it"))
+                                          ])
+                                   )
+                                 ])
+                          , Block
+                              (Content
+                                 [ Text "("
+                                 , Code
+                                     "typ/regression/show-list-fields-00.typ"
+                                     ( line 11 , column 8 )
+                                     (FieldAccess
+                                        (Ident (Identifier "tight")) (Ident (Identifier "it")))
+                                 , Text ","
+                                 , Space
+                                 , Code
+                                     "typ/regression/show-list-fields-00.typ"
+                                     ( line 11 , column 19 )
+                                     (FieldAccess
+                                        (Ident (Identifier "indent")) (Ident (Identifier "it")))
+                                 , Text ","
+                                 , Space
+                                 , Code
+                                     "typ/regression/show-list-fields-00.typ"
+                                     ( line 11 , column 31 )
+                                     (FieldAccess
+                                        (Ident (Identifier "body-indent"))
+                                        (Ident (Identifier "it")))
+                                 , Text ","
+                                 , Space
+                                 , Code
+                                     "typ/regression/show-list-fields-00.typ"
+                                     ( line 11 , column 48 )
+                                     (FieldAccess
+                                        (Ident (Identifier "spacing")) (Ident (Identifier "it")))
+                                 , Text ","
+                                 , Space
+                                 , Code
+                                     "typ/regression/show-list-fields-00.typ"
+                                     ( line 11 , column 61 )
+                                     (Ident (Identifier "default-marker"))
+                                 , Text ")"
+                                 ])
+                          ])))
+             , Ident (Identifier "body")
+             ])))
+, SoftBreak
+, Code
+    "typ/regression/show-list-fields-00.typ"
+    ( line 15 , column 2 )
+    (Show Nothing (Ident (Identifier "checklist")))
+, SoftBreak
+, BulletListItem
+    [ Text "[" , Space , Text "]" , Space , Text "meow" ]
+, ParBreak
+]
+--- evaluated ---
+document(body: { text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [(]), 
+                 text(body: [true]), 
+                 text(body: [, ]), 
+                 text(body: [0.0pt]), 
+                 text(body: [, ]), 
+                 text(body: [0.5em]), 
+                 text(body: [, ]), 
+                 text(body: [auto]), 
+                 text(body: [, ]), 
+                 text(body: [•]), 
+                 text(body: [)]) })

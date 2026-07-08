@@ -9,7 +9,8 @@ module Typst.Module.Standard
     symModule,
     loadFileText,
     getPath,
-    applyPureFunction
+    applyPureFunction,
+    elementDefaults
   )
 where
 
@@ -64,6 +65,52 @@ standardModule =
       ++ construct
       ++ time
       ++ dataLoading
+
+-- | Default values for the settable fields of certain elements.
+-- In typst, these fields are materialized when an element is
+-- passed to a show rule, so e.g. @it.marker@ works in
+-- @#show list: it => ..@ even if no explicit marker was given.
+elementDefaults :: M.Map Identifier (M.Map Identifier Val)
+elementDefaults =
+  M.fromList
+    [ ( "list",
+        M.fromList
+          [ ("tight", VBoolean True),
+            ("marker", VArray
+              [ VContent [Txt "\x2022"],   -- •
+                VContent [Txt "\x2023"],   -- ‣
+                VContent [Txt "\x2013"] ]), -- –
+            ("indent", VLength (LExact 0 LPt)),
+            ("body-indent", VLength (LExact 0.5 LEm)),
+            ("spacing", VAuto)
+          ]
+      ),
+      ( "enum",
+        M.fromList
+          [ ("tight", VBoolean True),
+            ("numbering", VString "1."),
+            ("start", VAuto),
+            ("full", VBoolean False),
+            ("reversed", VBoolean False),
+            ("indent", VLength (LExact 0 LPt)),
+            ("body-indent", VLength (LExact 0.5 LEm)),
+            ("spacing", VAuto),
+            ("number-align", VAlignment (Just HorizEnd) (Just VertTop))
+          ]
+      ),
+      ( "terms",
+        M.fromList
+          [ ("tight", VBoolean True),
+            ("separator", VContent
+              [ Elt "h" Nothing
+                  [ ("amount", VLength (LExact 0.6 LEm)),
+                    ("weak", VBoolean True) ] ]),
+            ("indent", VLength (LExact 0 LPt)),
+            ("hanging-indent", VLength (LExact 2 LEm)),
+            ("spacing", VAuto)
+          ]
+      )
+    ]
 
 symModule :: M.Map Identifier Val
 symModule = M.map VSymbol $ makeSymbolMap typstSymbols
