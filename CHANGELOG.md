@@ -1,5 +1,37 @@
 # Revision history for typst-hs
 
+## 0.11 (unreleased)
+
+Support for typst 0.15 features:
+
+  * Switch to typst-symbols 0.3 (typst 0.15 symbols).
+
+  * Add `calc.asinh`, `calc.acosh`, `calc.atanh`, and `calc.erf`.
+    This adds a dependency on the erf package.
+
+  * Add `inclusive` parameter to `range`.
+
+  * Add `map` and `filter` methods on dictionaries and arguments.
+
+  * Support `base` parameter in the `int` constructor, and add
+    `int.min` and `int.max`. Field access on a type now falls back to
+    the type's scope, which also makes `str.to-unicode` and
+    `str.from-unicode` accessible.
+
+  * Make delimiter symbols (e.g. `chevron.l`) callable in math mode to
+    produce an `lr` element.
+
+  * Add `html` module, with `html.elem`, `html.frame`, and the typed
+    HTML element functions (`html.div`, `html.span`, etc.).
+
+  * Add the `path` type [API change: adds `VPath` to `Val` and `TPath`
+    to `ValType`]. Relative paths are resolved at construction time,
+    relative to the constructing file. Paths are accepted wherever
+    file-path strings are accepted (`read`, `csv`, `json`, `image`,
+    `bibliography`, etc.); in element fields they are coerced to
+    strings. The deprecated `path` visualize element is removed
+    (typst replaced it with `curve`).
+
 ## 0.10
 
   * Add --input option to cli for passing key-value pairs to the
