@@ -441,19 +441,24 @@ construct =
         first <- nthArg 1
         mbsecond <- nthArg 2
         step <- namedArg "step" 1
+        inclusive <- namedArg "inclusive" False
         pure $
           VArray $
             V.fromList $
               map VInteger $
                 case (first, mbsecond) of
-                  (end, Nothing) -> enumFromThenTo 0 step (end - 1)
+                  (end, Nothing) ->
+                    enumFromThenTo 0 step (if inclusive then end else end - 1)
                   (start, Just end) ->
                     enumFromThenTo
                       start
                       (start + step)
-                      ( if start < end
-                          then end - 1
-                          else end + 1
+                      ( if inclusive
+                          then end
+                          else
+                            if start < end
+                              then end - 1
+                              else end + 1
                       )
     ),
     ( "rgb",

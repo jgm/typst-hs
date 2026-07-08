@@ -1,0 +1,174 @@
+--- parse tree ---
+[ Comment
+, SoftBreak
+, Code
+    "typ/compute/construct-12.typ"
+    ( line 2 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "range"))
+              [ NormalArg (Literal (Int 3))
+              , KeyValArg (Identifier "inclusive") (Literal (Boolean True))
+              ])
+       , NormalArg
+           (Array
+              [ Reg (Literal (Int 0))
+              , Reg (Literal (Int 1))
+              , Reg (Literal (Int 2))
+              , Reg (Literal (Int 3))
+              ])
+       ])
+, SoftBreak
+, Code
+    "typ/compute/construct-12.typ"
+    ( line 3 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "range"))
+              [ NormalArg (Literal (Int 3))
+              , KeyValArg (Identifier "inclusive") (Literal (Boolean False))
+              ])
+       , NormalArg
+           (Array
+              [ Reg (Literal (Int 0))
+              , Reg (Literal (Int 1))
+              , Reg (Literal (Int 2))
+              ])
+       ])
+, SoftBreak
+, Code
+    "typ/compute/construct-12.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "range"))
+              [ NormalArg (Literal (Int 2))
+              , NormalArg (Literal (Int 5))
+              , KeyValArg (Identifier "inclusive") (Literal (Boolean True))
+              ])
+       , NormalArg
+           (Array
+              [ Reg (Literal (Int 2))
+              , Reg (Literal (Int 3))
+              , Reg (Literal (Int 4))
+              , Reg (Literal (Int 5))
+              ])
+       ])
+, SoftBreak
+, Code
+    "typ/compute/construct-12.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "range"))
+              [ NormalArg (Literal (Int 5))
+              , NormalArg (Literal (Int 2))
+              , KeyValArg (Identifier "step") (Negated (Literal (Int 1)))
+              , KeyValArg (Identifier "inclusive") (Literal (Boolean True))
+              ])
+       , NormalArg
+           (Array
+              [ Reg (Literal (Int 5))
+              , Reg (Literal (Int 4))
+              , Reg (Literal (Int 3))
+              , Reg (Literal (Int 2))
+              ])
+       ])
+, SoftBreak
+, Code
+    "typ/compute/construct-12.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "range"))
+              [ NormalArg (Literal (Int 0))
+              , NormalArg (Literal (Int 10))
+              , KeyValArg (Identifier "step") (Literal (Int 3))
+              , KeyValArg (Identifier "inclusive") (Literal (Boolean True))
+              ])
+       , NormalArg
+           (Array
+              [ Reg (Literal (Int 0))
+              , Reg (Literal (Int 3))
+              , Reg (Literal (Int 6))
+              , Reg (Literal (Int 9))
+              ])
+       ])
+, SoftBreak
+, Code
+    "typ/compute/construct-12.typ"
+    ( line 7 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "range"))
+              [ NormalArg (Literal (Int 0))
+              , NormalArg (Literal (Int 9))
+              , KeyValArg (Identifier "step") (Literal (Int 3))
+              , KeyValArg (Identifier "inclusive") (Literal (Boolean True))
+              ])
+       , NormalArg
+           (Array
+              [ Reg (Literal (Int 0))
+              , Reg (Literal (Int 3))
+              , Reg (Literal (Int 6))
+              , Reg (Literal (Int 9))
+              ])
+       ])
+, SoftBreak
+, Code
+    "typ/compute/construct-12.typ"
+    ( line 8 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "range"))
+              [ NormalArg (Literal (Int 0))
+              , NormalArg (Literal (Int 9))
+              , KeyValArg (Identifier "step") (Literal (Int 3))
+              , KeyValArg (Identifier "inclusive") (Literal (Boolean False))
+              ])
+       , NormalArg
+           (Array
+              [ Reg (Literal (Int 0))
+              , Reg (Literal (Int 3))
+              , Reg (Literal (Int 6))
+              ])
+       ])
+, ParBreak
+]
+--- evaluated ---
+document(body: { text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 parbreak() })
