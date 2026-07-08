@@ -302,6 +302,27 @@ layout =
 visualize :: [(Identifier, Val)]
 visualize =
   [ makeElement Nothing "circle" [("body", One (TContent :|: TNone))],
+    makeElementWithScope
+      Nothing
+      "curve"
+      [("components", Many TContent)]
+      [ makeElement (Just "curve") "move" [("start", One TArray)],
+        makeElement (Just "curve") "line" [("end", One TArray)],
+        makeElement
+          (Just "curve")
+          "quad"
+          [ ("control", One (TArray :|: TAuto :|: TNone)),
+            ("end", One TArray)
+          ],
+        makeElement
+          (Just "curve")
+          "cubic"
+          [ ("control-start", One (TArray :|: TAuto :|: TNone)),
+            ("control-end", One (TArray :|: TNone)),
+            ("end", One TArray)
+          ],
+        makeElement (Just "curve") "close" []
+      ],
     makeElement Nothing "ellipse" [("body", One (TContent :|: TNone))],
     makeElement Nothing "image" [("source", One (TString :|: TBytes))],
     makeElement Nothing "line" [],

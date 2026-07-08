@@ -95,6 +95,114 @@
        , BlockArg [ Text "B" ]
        ])
 , ParBreak
+, Code
+    "typ/visualize/stroke-07.typ"
+    ( line 14 , column 2 )
+    (FuncCall
+       (Ident (Identifier "curve"))
+       [ KeyValArg (Identifier "fill") (Ident (Identifier "red"))
+       , KeyValArg (Identifier "stroke") (Literal None)
+       , NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "move")) (Ident (Identifier "curve")))
+              [ NormalArg
+                  (Array
+                     [ Reg (Literal (Numeric 0.0 Percent))
+                     , Reg (Literal (Numeric 0.0 Percent))
+                     ])
+              ])
+       , NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "line")) (Ident (Identifier "curve")))
+              [ NormalArg
+                  (Array
+                     [ Reg (Literal (Numeric 50.0 Percent))
+                     , Reg (Literal (Numeric 50.0 Percent))
+                     ])
+              ])
+       , NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "line")) (Ident (Identifier "curve")))
+              [ NormalArg
+                  (Array
+                     [ Reg (Literal (Numeric 0.0 Percent))
+                     , Reg (Literal (Numeric 50.0 Percent))
+                     ])
+              ])
+       , NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "line")) (Ident (Identifier "curve")))
+              [ NormalArg
+                  (Array
+                     [ Reg (Literal (Numeric 50.0 Percent))
+                     , Reg (Literal (Numeric 0.0 Percent))
+                     ])
+              ])
+       , NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "close")) (Ident (Identifier "curve")))
+              [])
+       ])
+, ParBreak
+, Code
+    "typ/visualize/stroke-07.typ"
+    ( line 24 , column 2 )
+    (FuncCall
+       (Ident (Identifier "curve"))
+       [ KeyValArg (Identifier "fill") (Ident (Identifier "red"))
+       , KeyValArg (Identifier "stroke") (Literal (Numeric 0.0 Pt))
+       , NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "move")) (Ident (Identifier "curve")))
+              [ NormalArg
+                  (Array
+                     [ Reg (Literal (Numeric 0.0 Percent))
+                     , Reg (Literal (Numeric 0.0 Percent))
+                     ])
+              ])
+       , NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "line")) (Ident (Identifier "curve")))
+              [ NormalArg
+                  (Array
+                     [ Reg (Literal (Numeric 50.0 Percent))
+                     , Reg (Literal (Numeric 50.0 Percent))
+                     ])
+              ])
+       , NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "line")) (Ident (Identifier "curve")))
+              [ NormalArg
+                  (Array
+                     [ Reg (Literal (Numeric 0.0 Percent))
+                     , Reg (Literal (Numeric 50.0 Percent))
+                     ])
+              ])
+       , NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "line")) (Ident (Identifier "curve")))
+              [ NormalArg
+                  (Array
+                     [ Reg (Literal (Numeric 50.0 Percent))
+                     , Reg (Literal (Numeric 0.0 Percent))
+                     ])
+              ])
+       , NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "close")) (Ident (Identifier "curve")))
+              [])
+       ])
+, ParBreak
 ]
 --- evaluated ---
 document(body: { parbreak(), 
@@ -138,5 +246,29 @@ document(body: { parbreak(),
                  table(children: (text(body: [A]), 
                                   text(body: [B])), 
                        columns: 2, 
+                       stroke: 0.0pt), 
+                 parbreak(), 
+                 curve(components: (curve.move(start: (0%, 
+                                                       0%)), 
+                                    curve.line(end: (50%, 
+                                                     50%)), 
+                                    curve.line(end: (0%, 
+                                                     50%)), 
+                                    curve.line(end: (50%, 
+                                                     0%)), 
+                                    curve.close()), 
+                       fill: rgb(100%,25%,21%,100%), 
+                       stroke: none), 
+                 parbreak(), 
+                 curve(components: (curve.move(start: (0%, 
+                                                       0%)), 
+                                    curve.line(end: (50%, 
+                                                     50%)), 
+                                    curve.line(end: (0%, 
+                                                     50%)), 
+                                    curve.line(end: (50%, 
+                                                     0%)), 
+                                    curve.close()), 
+                       fill: rgb(100%,25%,21%,100%), 
                        stroke: 0.0pt), 
                  parbreak() })

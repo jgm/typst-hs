@@ -29,8 +29,11 @@ Support for typst 0.15 features:
     relative to the constructing file. Paths are accepted wherever
     file-path strings are accepted (`read`, `csv`, `json`, `image`,
     `bibliography`, etc.); in element fields they are coerced to
-    strings. The deprecated `path` visualize element is removed
-    (typst replaced it with `curve`).
+    strings. The deprecated `path` visualize element is removed.
+
+  * Add `curve` element (the replacement for the removed `path`
+    element), with its `curve.move`, `curve.line`, `curve.quad`,
+    `curve.cubic`, and `curve.close` functions.
 
 ## 0.10
 

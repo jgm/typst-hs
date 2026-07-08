@@ -1,0 +1,75 @@
+--- parse tree ---
+[ Comment
+, SoftBreak
+, Code
+    "typ/layout/container-02.typ"
+    ( line 2 , column 2 )
+    (FuncCall
+       (Ident (Identifier "box"))
+       [ KeyValArg (Identifier "width") (Literal (Numeric 50.0 Pt))
+       , KeyValArg (Identifier "height") (Literal (Numeric 50.0 Pt))
+       , KeyValArg (Identifier "fill") (Ident (Identifier "yellow"))
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "curve"))
+              [ KeyValArg (Identifier "fill") (Ident (Identifier "purple"))
+              , NormalArg
+                  (FuncCall
+                     (FieldAccess
+                        (Ident (Identifier "move")) (Ident (Identifier "curve")))
+                     [ NormalArg
+                         (Array
+                            [ Reg (Literal (Numeric 0.0 Pt))
+                            , Reg (Literal (Numeric 0.0 Pt))
+                            ])
+                     ])
+              , NormalArg
+                  (FuncCall
+                     (FieldAccess
+                        (Ident (Identifier "line")) (Ident (Identifier "curve")))
+                     [ NormalArg
+                         (Array
+                            [ Reg (Literal (Numeric 30.0 Pt))
+                            , Reg (Literal (Numeric 30.0 Pt))
+                            ])
+                     ])
+              , NormalArg
+                  (FuncCall
+                     (FieldAccess
+                        (Ident (Identifier "line")) (Ident (Identifier "curve")))
+                     [ NormalArg
+                         (Array
+                            [ Reg (Literal (Numeric 0.0 Pt))
+                            , Reg (Literal (Numeric 30.0 Pt))
+                            ])
+                     ])
+              , NormalArg
+                  (FuncCall
+                     (FieldAccess
+                        (Ident (Identifier "line")) (Ident (Identifier "curve")))
+                     [ NormalArg
+                         (Array
+                            [ Reg (Literal (Numeric 30.0 Pt))
+                            , Reg (Literal (Numeric 0.0 Pt))
+                            ])
+                     ])
+              ])
+       ])
+, ParBreak
+]
+--- evaluated ---
+document(body: { text(body: [
+]), 
+                 box(body: curve(components: (curve.move(start: (0.0pt, 
+                                                                 0.0pt)), 
+                                              curve.line(end: (30.0pt, 
+                                                               30.0pt)), 
+                                              curve.line(end: (0.0pt, 
+                                                               30.0pt)), 
+                                              curve.line(end: (30.0pt, 
+                                                               0.0pt))), 
+                                 fill: rgb(69%,5%,78%,100%)), 
+                     fill: rgb(100%,86%,0%,100%), 
+                     height: 50.0pt, 
+                     width: 50.0pt), 
+                 parbreak() })

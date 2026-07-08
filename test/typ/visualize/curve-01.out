@@ -1,0 +1,96 @@
+--- parse tree ---
+[ Comment
+, SoftBreak
+, Code
+    "typ/visualize/curve-01.typ"
+    ( line 2 , column 2 )
+    (FuncCall
+       (Ident (Identifier "curve"))
+       [ KeyValArg
+           (Identifier "stroke")
+           (Plus (Literal (Numeric 2.0 Pt)) (Ident (Identifier "red")))
+       , NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "move")) (Ident (Identifier "curve")))
+              [ NormalArg
+                  (Array
+                     [ Reg (Literal (Numeric 0.0 Pt))
+                     , Reg (Literal (Numeric 0.0 Pt))
+                     ])
+              ])
+       , NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "quad")) (Ident (Identifier "curve")))
+              [ NormalArg
+                  (Array
+                     [ Reg (Literal (Numeric 20.0 Pt))
+                     , Reg (Literal (Numeric 40.0 Pt))
+                     ])
+              , NormalArg
+                  (Array
+                     [ Reg (Literal (Numeric 40.0 Pt))
+                     , Reg (Literal (Numeric 0.0 Pt))
+                     ])
+              , KeyValArg (Identifier "relative") (Literal (Boolean True))
+              ])
+       , NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "quad")) (Ident (Identifier "curve")))
+              [ NormalArg (Literal Auto)
+              , NormalArg
+                  (Array
+                     [ Reg (Literal (Numeric 40.0 Pt))
+                     , Reg (Literal (Numeric 0.0 Pt))
+                     ])
+              , KeyValArg (Identifier "relative") (Literal (Boolean True))
+              ])
+       , NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "cubic")) (Ident (Identifier "curve")))
+              [ NormalArg (Literal None)
+              , NormalArg
+                  (Array
+                     [ Reg (Literal (Numeric 90.0 Pt))
+                     , Reg (Literal (Numeric 0.0 Pt))
+                     ])
+              , NormalArg
+                  (Array
+                     [ Reg (Literal (Numeric 50.0 Pt))
+                     , Reg (Literal (Numeric 0.0 Pt))
+                     ])
+              ])
+       , NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "close")) (Ident (Identifier "curve")))
+              [ KeyValArg (Identifier "mode") (Literal (String "straight")) ])
+       ])
+, ParBreak
+]
+--- evaluated ---
+document(body: { text(body: [
+]), 
+                 curve(components: (curve.move(start: (0.0pt, 
+                                                       0.0pt)), 
+                                    curve.quad(control: (20.0pt, 
+                                                         40.0pt), 
+                                               end: (40.0pt, 
+                                                     0.0pt), 
+                                               relative: true), 
+                                    curve.quad(control: auto, 
+                                               end: (40.0pt, 
+                                                     0.0pt), 
+                                               relative: true), 
+                                    curve.cubic(control-end: (90.0pt, 
+                                                              0.0pt), 
+                                                control-start: none, 
+                                                end: (50.0pt, 
+                                                      0.0pt)), 
+                                    curve.close(mode: "straight")), 
+                       stroke: (thickness: 2.0pt,
+                                color: rgb(100%,25%,21%,100%))), 
+                 parbreak() })
