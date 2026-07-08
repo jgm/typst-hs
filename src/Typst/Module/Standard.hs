@@ -343,6 +343,7 @@ meta =
       [("body", One TContent)]
       [makeElement (Just "figure") "caption" [("body", One TContent)]],
     makeElement Nothing "heading" [("body", One TContent)],
+    makeElement Nothing "divider" [],
     makeElement Nothing "quote" [("body", One TContent)],
     makeElement Nothing "layout" [("func", One TFunction)],
     makeElement
