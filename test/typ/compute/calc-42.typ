@@ -1,0 +1,12 @@
+// Test int with base parameter, and int.min/int.max.
+#test(int("ff", base: 16), 255)
+#test(int("FF", base: 16), 255)
+#test(int("-ff", base: 16), -255)
+#test(int("+101", base: 2), 5)
+#test(int("777", base: 8), 511)
+#test(int("z", base: 36), 35)
+#test(int("42", base: 10), 42)
+#test(int.min, -9223372036854775808)
+#test(int.max, 9223372036854775807)
+#test(str.to-unicode("a"), 97)
+#test(str.from-unicode(97), "a")

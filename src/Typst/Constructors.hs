@@ -26,13 +26,28 @@ import Typst.Regex (makeRE)
 import Data.List (genericTake)
 import Control.Monad.Reader (asks)
 import Control.Monad (mplus)
-import Data.Char (ord, chr)
+import Data.Char (ord, chr, isDigit, isAsciiLower, isAsciiUpper)
 
 getConstructor :: ValType -> Maybe Val
 getConstructor typ =
   case typ of
     TFloat -> Just $ makeFunction $ VFloat <$> nthArg 1
-    TInteger -> Just $ makeFunction $ VInteger <$> nthArg 1
+    TInteger -> Just $ makeFunctionWithScope
+      (do
+        val <- nthArg 1
+        (base :: Integer) <- namedArg "base" 10
+        case val of
+          _ | base == 10 -> VInteger <$> fromVal val
+          VString s
+            | base >= 2 && base <= 36 ->
+                maybe (fail "invalid digits for the given base")
+                      (pure . VInteger)
+                      (parseInBase base s)
+            | otherwise -> fail "base must be between 2 and 36"
+          _ -> fail "base is only supported when parsing strings")
+      [ ("min", VInteger (-9223372036854775808)),  -- i64 bounds, as in typst
+        ("max", VInteger 9223372036854775807)
+      ]
     TRegex -> Just $ makeFunction $ VRegex <$> (nthArg 1 >>= makeRE)
     TVersion -> Just $ makeFunction $ VVersion <$> (asks positional >>= mapM fromVal)
     TString -> Just $ makeFunctionWithScope
@@ -115,6 +130,29 @@ getConstructor typ =
     -- TODO https://typst.app/docs/reference/introspection/counter/
     _ -> Nothing
 
+
+-- | Parse an integer (with optional sign) in the given base (2-36).
+parseInBase :: Integer -> Text -> Maybe Integer
+parseInBase base t =
+  case T.uncons t of
+    Just ('-', rest) -> negate <$> go rest
+    Just ('+', rest) -> go rest
+    _ -> go t
+  where
+    go s
+      | T.null s = Nothing
+      | otherwise = T.foldl' step (Just 0) s
+    step macc c = do
+      acc <- macc
+      d <- digitVal c
+      if d < base
+        then Just (acc * base + d)
+        else Nothing
+    digitVal c
+      | isDigit c = Just $ fromIntegral (ord c - ord '0')
+      | isAsciiLower c = Just $ fromIntegral (ord c - ord 'a' + 10)
+      | isAsciiUpper c = Just $ fromIntegral (ord c - ord 'A' + 10)
+      | otherwise = Nothing
 
 -- mDigitsRev, mDigits from the unmaintained digits package
 -- https://hackage.haskell.org/package/digits-0.3.1

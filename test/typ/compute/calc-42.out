@@ -1,0 +1,183 @@
+--- parse tree ---
+[ Comment
+, SoftBreak
+, Code
+    "typ/compute/calc-42.typ"
+    ( line 2 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "int"))
+              [ NormalArg (Literal (String "ff"))
+              , KeyValArg (Identifier "base") (Literal (Int 16))
+              ])
+       , NormalArg (Literal (Int 255))
+       ])
+, SoftBreak
+, Code
+    "typ/compute/calc-42.typ"
+    ( line 3 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "int"))
+              [ NormalArg (Literal (String "FF"))
+              , KeyValArg (Identifier "base") (Literal (Int 16))
+              ])
+       , NormalArg (Literal (Int 255))
+       ])
+, SoftBreak
+, Code
+    "typ/compute/calc-42.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "int"))
+              [ NormalArg (Literal (String "-ff"))
+              , KeyValArg (Identifier "base") (Literal (Int 16))
+              ])
+       , NormalArg (Negated (Literal (Int 255)))
+       ])
+, SoftBreak
+, Code
+    "typ/compute/calc-42.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "int"))
+              [ NormalArg (Literal (String "+101"))
+              , KeyValArg (Identifier "base") (Literal (Int 2))
+              ])
+       , NormalArg (Literal (Int 5))
+       ])
+, SoftBreak
+, Code
+    "typ/compute/calc-42.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "int"))
+              [ NormalArg (Literal (String "777"))
+              , KeyValArg (Identifier "base") (Literal (Int 8))
+              ])
+       , NormalArg (Literal (Int 511))
+       ])
+, SoftBreak
+, Code
+    "typ/compute/calc-42.typ"
+    ( line 7 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "int"))
+              [ NormalArg (Literal (String "z"))
+              , KeyValArg (Identifier "base") (Literal (Int 36))
+              ])
+       , NormalArg (Literal (Int 35))
+       ])
+, SoftBreak
+, Code
+    "typ/compute/calc-42.typ"
+    ( line 8 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "int"))
+              [ NormalArg (Literal (String "42"))
+              , KeyValArg (Identifier "base") (Literal (Int 10))
+              ])
+       , NormalArg (Literal (Int 42))
+       ])
+, SoftBreak
+, Code
+    "typ/compute/calc-42.typ"
+    ( line 9 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FieldAccess (Ident (Identifier "min")) (Ident (Identifier "int")))
+       , NormalArg (Negated (Literal (Int 9223372036854775808)))
+       ])
+, SoftBreak
+, Code
+    "typ/compute/calc-42.typ"
+    ( line 10 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FieldAccess (Ident (Identifier "max")) (Ident (Identifier "int")))
+       , NormalArg (Literal (Int 9223372036854775807))
+       ])
+, SoftBreak
+, Code
+    "typ/compute/calc-42.typ"
+    ( line 11 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "to-unicode")) (Ident (Identifier "str")))
+              [ NormalArg (Literal (String "a")) ])
+       , NormalArg (Literal (Int 97))
+       ])
+, SoftBreak
+, Code
+    "typ/compute/calc-42.typ"
+    ( line 12 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "from-unicode")) (Ident (Identifier "str")))
+              [ NormalArg (Literal (Int 97)) ])
+       , NormalArg (Literal (String "a"))
+       ])
+, ParBreak
+]
+--- evaluated ---
+document(body: { text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 parbreak() })

@@ -578,6 +578,11 @@ evalExpr expr = applyShowRulesToVal =<<
             case M.lookup (Identifier fld) m of
               Just x -> pure x
               Nothing -> fail $ "Function scope does not contain " <> show fld
+          VType ty ->
+            case getConstructor ty of
+              Just (VFunction _ m _)
+                | Just x <- M.lookup (Identifier fld) m -> pure x
+              _ -> fail $ "Type " <> show ty <> " does not contain " <> show fld
           VDict m ->
             case OM.lookup (Identifier fld) m of
               Just x -> pure x
