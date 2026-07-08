@@ -1,0 +1,109 @@
+--- parse tree ---
+[ Comment
+, SoftBreak
+, Equation
+    True
+    [ Code
+        "typ/math/delimited-09.typ"
+        ( line 2 , column 3 )
+        (FuncCall
+           (FieldAccess
+              (Ident (Identifier "l")) (Ident (Identifier "chevron")))
+           [ BlockArg [ MFrac (Text "a") (Text "b") ] ])
+    ]
+, SoftBreak
+, Equation
+    True
+    [ Code
+        "typ/math/delimited-09.typ"
+        ( line 3 , column 3 )
+        (FuncCall
+           (FieldAccess
+              (Ident (Identifier "double"))
+              (FieldAccess
+                 (Ident (Identifier "l")) (Ident (Identifier "chevron"))))
+           [ BlockArg [ Text "x" ] ])
+    ]
+, SoftBreak
+, Equation
+    True
+    [ Code
+        "typ/math/delimited-09.typ"
+        ( line 4 , column 3 )
+        (FuncCall
+           (FieldAccess (Ident (Identifier "l")) (Ident (Identifier "paren")))
+           [ BlockArg [ Text "a" ] , BlockArg [ Text "b" ] ])
+    ]
+, SoftBreak
+, Equation
+    True
+    [ Code
+        "typ/math/delimited-09.typ"
+        ( line 5 , column 3 )
+        (FuncCall
+           (FieldAccess (Ident (Identifier "v")) (Ident (Identifier "bar")))
+           [ BlockArg [ Text "x" ] ])
+    ]
+, SoftBreak
+, Equation
+    True
+    [ Code
+        "typ/math/delimited-09.typ"
+        ( line 6 , column 3 )
+        (FuncCall
+           (FieldAccess (Ident (Identifier "l")) (Ident (Identifier "brace")))
+           [ BlockArg [ Text "x" ] ])
+    , Text "+"
+    , Code
+        "typ/math/delimited-09.typ"
+        ( line 6 , column 16 )
+        (FuncCall
+           (FieldAccess (Ident (Identifier "l")) (Ident (Identifier "fence")))
+           [ BlockArg [ Text "y" ] ])
+    ]
+, ParBreak
+]
+--- evaluated ---
+document(body: { text(body: [
+]), 
+                 math.equation(block: true, 
+                               body: math.lr(body: ({ [⟨], 
+                                                      math.frac(denom: text(body: [b]), 
+                                                                num: text(body: [a])), 
+                                                      [⟩] })), 
+                               numbering: none), 
+                 text(body: [
+]), 
+                 math.equation(block: true, 
+                               body: math.lr(body: ({ [⟪], 
+                                                      text(body: [x]), 
+                                                      [⟫] })), 
+                               numbering: none), 
+                 text(body: [
+]), 
+                 math.equation(block: true, 
+                               body: math.lr(body: ({ [(], 
+                                                      text(body: [a]), 
+                                                      [,], 
+                                                      text(body: [b]), 
+                                                      [)] })), 
+                               numbering: none), 
+                 text(body: [
+]), 
+                 math.equation(block: true, 
+                               body: math.lr(body: ({ [|], 
+                                                      text(body: [x]), 
+                                                      [|] })), 
+                               numbering: none), 
+                 text(body: [
+]), 
+                 math.equation(block: true, 
+                               body: { math.lr(body: ({ [{], 
+                                                        text(body: [x]), 
+                                                        [}] })), 
+                                       text(body: [+]), 
+                                       math.lr(body: ({ [⧘], 
+                                                        text(body: [y]), 
+                                                        [⧙] })) }, 
+                               numbering: none), 
+                 parbreak() })

@@ -204,6 +204,32 @@ pInnerContents ms = do
 single :: Content -> Seq Content
 single = Seq.singleton
 
+-- | Opening delimiters that, when called as functions in math mode,
+-- produce an lr element with the matching closing delimiter.
+matchedDelimiters :: M.Map Text Text
+matchedDelimiters =
+  M.fromList
+    [ ("(", ")"),
+      ("[", "]"),
+      ("{", "}"),
+      ("⟨", "⟩"),
+      ("⟪", "⟫"),
+      ("⟦", "⟧"),
+      ("⟮", "⟯"),
+      ("⌈", "⌉"),
+      ("⌊", "⌋"),
+      ("⌜", "⌝"),
+      ("⌞", "⌟"),
+      ("|", "|"),
+      ("‖", "‖"),
+      ("⧘", "⧙"),
+      ("⧚", "⧛"),
+      ("⦃", "⦄"),
+      ("⦅", "⦆"),
+      ("〔", "〕"),
+      ("❲", "❳")
+    ]
+
 applyElementFunction :: Monad m => Identifier -> Function -> Arguments -> MP m Val
 applyElementFunction name (Function f) args = do
   -- lookup styles set by "set" and apply them as defaults:
@@ -618,6 +644,26 @@ evalExpr expr = applyShowRulesToVal =<<
                 toArguments args
                   >>= f . (\a -> a {positional = positional a ++ [val]})
               _ -> fail "accent not defined"
+        -- delimiter symbols are callable and produce an lr element
+        -- (typst 0.15)
+        VSymbol (Symbol t False _)
+          | mathMode,
+            Just closer <- M.lookup t matchedDelimiters -> do
+              val' <- lookupIdentifier "lr"
+              case val' of
+                VFunction _ _ (Function f) -> do
+                  args' <- toArguments args
+                  let body =
+                        VContent $
+                          single (Txt t)
+                            <> mconcat
+                              ( intersperse
+                                  (single ",")
+                                  (map valToContent (positional args'))
+                              )
+                            <> single (Txt closer)
+                  f Arguments {positional = [body], named = OM.empty}
+                _ -> fail "lr not defined"
         _
           | mathMode -> do
               args' <- toArguments args
