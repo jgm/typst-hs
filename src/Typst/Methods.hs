@@ -12,7 +12,7 @@ module Typst.Methods
   )
 where
 
-import Control.Monad (MonadPlus (mplus), foldM, void)
+import Control.Monad (MonadPlus (mplus), filterM, foldM, void)
 import Control.Monad.Reader (MonadReader (ask), MonadTrans (lift))
 import qualified Data.Array as Array
 import qualified Data.Foldable as F
@@ -105,6 +105,22 @@ getMethod updateVal val fld = do
               Just oldval -> do
                 lift $ updateVal $ VDict $ OM.delete (Identifier key) m
                 pure oldval
+        "map" ->
+          pure $ makeFunction $ do
+            Function fn <- nthArg 1
+            let f (k, v) =
+                  (,) k
+                    <$> lift (fn Arguments {positional = [v], named = OM.empty})
+            VDict . OM.fromList <$> mapM f (OM.assocs m)
+        "filter" ->
+          pure $ makeFunction $ do
+            Function fn <- nthArg 1
+            let predicate (_, v) = do
+                  res <- lift $ fn Arguments {positional = [v], named = OM.empty}
+                  case res of
+                    VBoolean b -> pure b
+                    _ -> fail "function does not return a boolean"
+            VDict . OM.fromList <$> filterM predicate (OM.assocs m)
         _ -> case OM.lookup (Identifier fld) m of
           Just x -> pure x
           Nothing -> fail $ show (Identifier fld) <> " not found"
@@ -679,6 +695,28 @@ getMethod updateVal val fld = do
                   Nothing -> pure defval
               _ -> pure defval
         "named" -> pure $ makeFunction $ pure $ VDict $ named args
+        "map" ->
+          pure $ makeFunction $ do
+            Function fn <- nthArg 1
+            let f v = lift $ fn Arguments {positional = [v], named = OM.empty}
+            pos' <- mapM f (positional args)
+            named' <-
+              OM.fromList
+                <$> mapM (\(k, v) -> (,) k <$> f v) (OM.assocs (named args))
+            pure $ VArguments $ Arguments pos' named'
+        "filter" ->
+          pure $ makeFunction $ do
+            Function fn <- nthArg 1
+            let predicate v = do
+                  res <- lift $ fn Arguments {positional = [v], named = OM.empty}
+                  case res of
+                    VBoolean b -> pure b
+                    _ -> fail "function does not return a boolean"
+            pos' <- filterM predicate (positional args)
+            named' <-
+              OM.fromList
+                <$> filterM (predicate . snd) (OM.assocs (named args))
+            pure $ VArguments $ Arguments pos' named'
         _ -> noMethod "Arguments" fld
     VDateTime mbdate mbtime -> do
       let toSeconds = (floor :: Double -> Integer) . realToFrac

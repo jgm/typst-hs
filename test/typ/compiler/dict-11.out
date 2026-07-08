@@ -1,0 +1,104 @@
+--- parse tree ---
+[ Comment
+, SoftBreak
+, Code
+    "typ/compiler/dict-11.typ"
+    ( line 2 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "dict")))
+       (Dict
+          [ Reg ( Ident (Identifier "a") , Literal (Int 1) )
+          , Reg ( Ident (Identifier "b") , Negated (Literal (Int 2)) )
+          , Reg ( Ident (Identifier "c") , Literal (Int 3) )
+          ]))
+, SoftBreak
+, Code
+    "typ/compiler/dict-11.typ"
+    ( line 3 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "map")) (Ident (Identifier "dict")))
+              [ NormalArg
+                  (FuncExpr
+                     [ NormalParam (Identifier "v") ]
+                     (Times (Ident (Identifier "v")) (Literal (Int 10))))
+              ])
+       , NormalArg
+           (Dict
+              [ Reg ( Ident (Identifier "a") , Literal (Int 10) )
+              , Reg ( Ident (Identifier "b") , Negated (Literal (Int 20)) )
+              , Reg ( Ident (Identifier "c") , Literal (Int 30) )
+              ])
+       ])
+, SoftBreak
+, Code
+    "typ/compiler/dict-11.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "filter")) (Ident (Identifier "dict")))
+              [ NormalArg
+                  (FuncExpr
+                     [ NormalParam (Identifier "v") ]
+                     (GreaterThan (Ident (Identifier "v")) (Literal (Int 0))))
+              ])
+       , NormalArg
+           (Dict
+              [ Reg ( Ident (Identifier "a") , Literal (Int 1) )
+              , Reg ( Ident (Identifier "c") , Literal (Int 3) )
+              ])
+       ])
+, SoftBreak
+, Code
+    "typ/compiler/dict-11.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess (Ident (Identifier "map")) (Dict []))
+              [ NormalArg
+                  (FuncExpr
+                     [ NormalParam (Identifier "v") ] (Ident (Identifier "v")))
+              ])
+       , NormalArg (Dict [])
+       ])
+, SoftBreak
+, Code
+    "typ/compiler/dict-11.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess (Ident (Identifier "filter")) (Dict []))
+              [ NormalArg
+                  (FuncExpr
+                     [ NormalParam (Identifier "v") ] (Literal (Boolean True)))
+              ])
+       , NormalArg (Dict [])
+       ])
+, ParBreak
+]
+--- evaluated ---
+document(body: { text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 parbreak() })

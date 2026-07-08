@@ -1,0 +1,153 @@
+--- parse tree ---
+[ Comment
+, SoftBreak
+, Code
+    "typ/compiler/args-00.typ"
+    ( line 2 , column 2 )
+    (LetFunc
+       (Identifier "collect")
+       [ SinkParam (Just (Identifier "args")) ]
+       (Ident (Identifier "args")))
+, SoftBreak
+, Code
+    "typ/compiler/args-00.typ"
+    ( line 3 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "args")))
+       (FuncCall
+          (Ident (Identifier "collect"))
+          [ NormalArg (Literal (Int 1))
+          , NormalArg (Literal (Int 2))
+          , KeyValArg (Identifier "x") (Literal (Int 3))
+          ]))
+, SoftBreak
+, Code
+    "typ/compiler/args-00.typ"
+    ( line 4 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "doubled")))
+       (FuncCall
+          (FieldAccess
+             (Ident (Identifier "map")) (Ident (Identifier "args")))
+          [ NormalArg
+              (FuncExpr
+                 [ NormalParam (Identifier "v") ]
+                 (Times (Ident (Identifier "v")) (Literal (Int 2))))
+          ]))
+, SoftBreak
+, Code
+    "typ/compiler/args-00.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "pos")) (Ident (Identifier "doubled")))
+              [])
+       , NormalArg
+           (Array [ Reg (Literal (Int 2)) , Reg (Literal (Int 4)) ])
+       ])
+, SoftBreak
+, Code
+    "typ/compiler/args-00.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "named")) (Ident (Identifier "doubled")))
+              [])
+       , NormalArg
+           (Dict [ Reg ( Ident (Identifier "x") , Literal (Int 6) ) ])
+       ])
+, SoftBreak
+, Code
+    "typ/compiler/args-00.typ"
+    ( line 7 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "filtered")))
+       (FuncCall
+          (FieldAccess
+             (Ident (Identifier "filter")) (Ident (Identifier "args")))
+          [ NormalArg
+              (FuncExpr
+                 [ NormalParam (Identifier "v") ]
+                 (GreaterThan (Ident (Identifier "v")) (Literal (Int 1))))
+          ]))
+, SoftBreak
+, Code
+    "typ/compiler/args-00.typ"
+    ( line 8 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "pos")) (Ident (Identifier "filtered")))
+              [])
+       , NormalArg (Array [ Reg (Literal (Int 2)) ])
+       ])
+, SoftBreak
+, Code
+    "typ/compiler/args-00.typ"
+    ( line 9 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "named")) (Ident (Identifier "filtered")))
+              [])
+       , NormalArg
+           (Dict [ Reg ( Ident (Identifier "x") , Literal (Int 3) ) ])
+       ])
+, SoftBreak
+, Code
+    "typ/compiler/args-00.typ"
+    ( line 10 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (FieldAccess
+                 (Ident (Identifier "pos"))
+                 (FuncCall
+                    (FieldAccess
+                       (Ident (Identifier "map"))
+                       (FuncCall (Ident (Identifier "collect")) []))
+                    [ NormalArg
+                        (FuncExpr
+                           [ NormalParam (Identifier "v") ] (Ident (Identifier "v")))
+                    ]))
+              [])
+       , NormalArg (Array [])
+       ])
+, ParBreak
+]
+--- evaluated ---
+document(body: { text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 parbreak() })
