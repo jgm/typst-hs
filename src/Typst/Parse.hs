@@ -426,13 +426,8 @@ mShorthand =
    lexeme (Code pos <$> choice (map toShorthandParser shorthands))
  where
   shorthands = reverse (sortOn (T.length . fst) mathSymbolShorthands)
-  toShorthandParser (short, symname) =
-    toSym symname <$ try (string (T.unpack short))
-  toSym name =
-    case map (Ident . Identifier) $ T.split (== '.') name of
-      [] -> Literal None
-      [i] -> i
-      (i:is) -> foldr FieldAccess i is
+  toShorthandParser (short, txt) =
+    Literal (String txt) <$ try (string (T.unpack short))
 
 mSymbol :: P Markup
 mSymbol =
