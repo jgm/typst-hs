@@ -76,8 +76,14 @@ argsToFields specs args' =
     hasType' TContent VString {} = True
     hasType' TContent VSymbol {} = True
     hasType' TString (VContent _) = True
+    hasType' TString VPath {} = True
     hasType' TTermItem VArray {} = True
+    hasType' (t1 :|: t2) v@VPath {} = hasType' t1 v || hasType' t2 v
     hasType' x y = hasType x y
+    toType TString (VPath fp) = VString (T.pack fp)
+    toType (t1 :|: t2) v@VPath {}
+      | hasType' t1 v = toType t1 v
+      | otherwise = toType t2 v
     toType TContent x = VContent $ valToContent x
     toType TTermItem (VArray [VContent t, VContent d]) = VTermItem t d
     toType TTermItem (VArray [VContent t]) = VTermItem t mempty

@@ -305,7 +305,6 @@ visualize =
     makeElement Nothing "ellipse" [("body", One (TContent :|: TNone))],
     makeElement Nothing "image" [("source", One (TString :|: TBytes))],
     makeElement Nothing "line" [],
-    makeElement Nothing "path" [("vertices", Many TArray)],
     makeElement Nothing "polygon" [("vertices", Many TArray)],
     makeElement Nothing "rect" [("body", One (TContent :|: TNone))],
     makeElement Nothing "square" [("body", One (TContent :|: TNone))]
@@ -384,6 +383,7 @@ types =
   , ("label", VType TLabel)
   , ("version", VType TVersion)
   , ("bytes", VType TBytes)
+  , ("path", VType TPath)
   ]
 
 colors :: [(Identifier, Val)]
@@ -559,17 +559,25 @@ hexToRGB (VString s) = do
     _ -> fail "could not read string as hex color"
 hexToRGB _ = fail "expected string"
 
-loadFileLazyBytes :: Monad m => FilePath -> MP m BL.ByteString
-loadFileLazyBytes fp = do
+loadResolvedLazyBytes :: Monad m => FilePath -> MP m BL.ByteString
+loadResolvedLazyBytes path = do
   operations <- evalOperations <$> getState
-  path <- getPath fp
   lift $ BL.fromStrict <$> loadBytes operations path
 
 loadFileText :: Monad m => FilePath -> MP m T.Text
-loadFileText fp = do
+loadFileText fp = getPath fp >>= loadResolvedText
+
+loadResolvedText :: Monad m => FilePath -> MP m T.Text
+loadResolvedText path = do
   operations <- evalOperations <$> getState
-  path <- getPath fp
   lift $ TE.decodeUtf8 <$> loadBytes operations path
+
+-- | Resolve a string or path value to a 'FilePath'. Paths are
+-- already resolved; strings are resolved relative to the current file.
+resolvePathVal :: Monad m => Val -> MP m FilePath
+resolvePathVal (VPath fp) = pure fp
+resolvePathVal (VString fp) = getPath (T.unpack fp)
+resolvePathVal v = fail $ "expected string or path, got " <> show (valType v)
 
 -- a leading / = relative to package root
 getPath :: Monad m => FilePath -> MP m FilePath
@@ -612,8 +620,8 @@ dataLoading :: [(Identifier, Val)]
 dataLoading =
   [ ( "csv",
       makeFunction $ do
-        fp <- nthArg 1
-        bs <- lift $ loadFileLazyBytes fp
+        arg <- nthArg 1
+        bs <- lift $ resolvePathVal arg >>= loadResolvedLazyBytes
         case Csv.decode Csv.NoHeader bs of
           Left e -> fail e
           Right (v :: V.Vector (V.Vector String)) ->
@@ -635,12 +643,13 @@ dataLoading =
     ),
     ( "read",
       makeFunction $ do
-        fp <- nthArg 1
+        v <- nthArg 1
+        fp <- lift $ resolvePathVal v
         enc <- namedArg "encoding" (VString "utf-8")
         case enc of
-          VNone -> do bs <- lift $ loadFileLazyBytes fp
+          VNone -> do bs <- lift $ loadResolvedLazyBytes fp
                       pure $ VBytes $ BL.toStrict bs
-          _ -> do t <- lift $ loadFileText fp
+          _ -> do t <- lift $ loadResolvedText fp
                   pure $ VString t
     ),
     ( "toml",
@@ -706,6 +715,5 @@ getFileOrBytes :: Monad m => ReaderT Arguments (MP m) BL.ByteString
 getFileOrBytes = do
   v <- nthArg 1
   case v of
-    VString fp -> lift $ loadFileLazyBytes (T.unpack fp)
     VBytes bs -> pure $ BL.fromStrict bs
-    _ -> fail "expecting file path or bytes"
+    _ -> lift $ resolvePathVal v >>= loadResolvedLazyBytes

@@ -146,6 +146,9 @@ data Val
   | VStyles -- just a placeholder for now
   | VVersion [Integer]
   | VBytes ByteString
+  -- | A @path@ value, referring to a file. The path is stored
+  -- already resolved (relative to the file in which it was constructed).
+  | VPath !FilePath
   | VType !ValType
   deriving (Show, Eq, Typeable)
 
@@ -207,6 +210,7 @@ data ValType
   | TLocation
   | TVersion
   | TBytes
+  | TPath
   | TType
   | TAny
   | ValType :|: ValType
@@ -244,6 +248,7 @@ valType v =
     VStyles {} -> TStyles
     VVersion {} -> TVersion
     VBytes {} -> TBytes
+    VPath {} -> TPath
     VType {} -> TType
 
 hasType :: ValType -> Val -> Bool
@@ -404,6 +409,7 @@ instance Compare Val where
   comp (VColor c1) (VColor c2) = Just $ compare c1 c2
   comp (VSymbol (Symbol s1 _ _)) (VSymbol (Symbol s2 _ _)) = Just $ compare s1 s2
   comp (VString s1) (VString s2) = Just $ compare s1 s2
+  comp (VPath p1) (VPath p2) = Just $ compare p1 p2
   comp (VContent c1) (VContent c2) = Just $ compare c1 c2
   comp (VArray v1) (VArray v2) =
     Just $ liftCompare (\x y -> fromMaybe LT (comp x y)) v1 v2
@@ -929,6 +935,7 @@ prettyVal expr =
     VStyles -> mempty
     VVersion xs -> text $ T.intercalate "." (map (T.pack . show) xs)
     VBytes bs -> text $ "bytes(" <> T.pack (show (BS.length bs)) <> ")"
+    VPath fp -> "path(\"" <> escString (T.pack fp) <> "\")"
     VType ty -> text $ prettyType ty
 
 prettyType :: ValType -> Text

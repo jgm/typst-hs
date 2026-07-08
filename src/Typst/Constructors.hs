@@ -24,7 +24,8 @@ import qualified Data.Text as T
 import qualified Data.Text.Encoding as TE
 import Typst.Regex (makeRE)
 import Data.List (genericTake)
-import Control.Monad.Reader (asks)
+import Control.Monad.Reader (asks, lift)
+import Typst.Module.Standard (getPath)
 import Control.Monad (mplus)
 import Data.Char (ord, chr, isDigit, isAsciiLower, isAsciiUpper)
 
@@ -114,6 +115,15 @@ getConstructor typ =
       case a of
         VModule _ m -> pure $ VDict $ OM.fromList $ M.toList m
         _ -> fail "dictionary constructor requires a module as argument"
+    TPath -> Just $ makeFunction $ do
+      v <- nthArg 1
+      case v of
+        -- paths are returned unchanged
+        VPath _ -> pure v
+        -- relative paths are resolved at construction time,
+        -- relative to the constructing file
+        VString fp -> VPath <$> lift (getPath (T.unpack fp))
+        _ -> fail "expected string or path"
     TBytes -> Just $ makeFunction $ do
       x <- nthArg 1
       let extractWord8 (VInteger w) = Just $ fromIntegral w

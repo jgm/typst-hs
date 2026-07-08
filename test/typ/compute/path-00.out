@@ -1,0 +1,153 @@
+--- parse tree ---
+[ Comment
+, SoftBreak
+, Code
+    "typ/compute/path-00.typ"
+    ( line 2 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "p")))
+       (FuncCall
+          (Ident (Identifier "path"))
+          [ NormalArg (Literal (String "/assets/files/hello.txt")) ]))
+, SoftBreak
+, Code
+    "typ/compute/path-00.typ"
+    ( line 3 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "type")) [ NormalArg (Ident (Identifier "p")) ])
+       , NormalArg (Ident (Identifier "path"))
+       ])
+, SoftBreak
+, Code
+    "typ/compute/path-00.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Equals
+              (FuncCall
+                 (Ident (Identifier "type")) [ NormalArg (Ident (Identifier "p")) ])
+              (Ident (Identifier "path")))
+       , NormalArg (Literal (Boolean True))
+       ])
+, SoftBreak
+, Comment
+, SoftBreak
+, Code
+    "typ/compute/path-00.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "path")) [ NormalArg (Ident (Identifier "p")) ])
+       , NormalArg (Ident (Identifier "p"))
+       ])
+, SoftBreak
+, Code
+    "typ/compute/path-00.typ"
+    ( line 7 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Equals
+              (Ident (Identifier "p"))
+              (FuncCall
+                 (Ident (Identifier "path"))
+                 [ NormalArg (Literal (String "/assets/files/hello.txt")) ]))
+       , NormalArg (Literal (Boolean True))
+       ])
+, SoftBreak
+, Code
+    "typ/compute/path-00.typ"
+    ( line 8 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Equals
+              (Ident (Identifier "p"))
+              (FuncCall
+                 (Ident (Identifier "path"))
+                 [ NormalArg (Literal (String "/assets/files/data.csv")) ]))
+       , NormalArg (Literal (Boolean False))
+       ])
+, SoftBreak
+, Comment
+, SoftBreak
+, Code
+    "typ/compute/path-00.typ"
+    ( line 10 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "read")) [ NormalArg (Ident (Identifier "p")) ])
+       , NormalArg (Literal (String "Hello, world!"))
+       ])
+, SoftBreak
+, Code
+    "typ/compute/path-00.typ"
+    ( line 11 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "csv"))
+              [ NormalArg
+                  (FuncCall
+                     (Ident (Identifier "path"))
+                     [ NormalArg (Literal (String "/assets/files/data.csv")) ])
+              ])
+       , NormalArg
+           (FuncCall
+              (Ident (Identifier "csv"))
+              [ NormalArg (Literal (String "/assets/files/data.csv")) ])
+       ])
+, SoftBreak
+, Code
+    "typ/compute/path-00.typ"
+    ( line 12 , column 2 )
+    (FuncCall
+       (Ident (Identifier "image"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "path"))
+              [ NormalArg (Literal (String "/assets/files/rhino.png")) ])
+       ])
+, ParBreak
+]
+--- evaluated ---
+document(body: { text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 image(source: "./assets/files/rhino.png"), 
+                 parbreak() })
