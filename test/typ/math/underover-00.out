@@ -18,7 +18,7 @@
                , Code
                    "typ/math/underover-00.typ"
                    ( line 3 , column 11 )
-                   (FieldAccess (Ident (Identifier "h")) (Ident (Identifier "dots")))
+                   (Literal (String "\8230"))
                , Text "+"
                , Text "5"
                ]

@@ -96,7 +96,7 @@
                      [ Code
                          "typ/math/matrix-alignment-05.typ"
                          ( line 5 , column 17 )
-                         (FieldAccess (Ident (Identifier "h")) (Ident (Identifier "dots")))
+                         (Literal (String "\8230"))
                      , Text "."
                      , Text "."
                      , MAlignPoint
@@ -105,7 +105,7 @@
                      , Code
                          "typ/math/matrix-alignment-05.typ"
                          ( line 5 , column 25 )
-                         (FieldAccess (Ident (Identifier "h")) (Ident (Identifier "dots")))
+                         (Literal (String "\8230"))
                      , Text "."
                      , Text "."
                      ]

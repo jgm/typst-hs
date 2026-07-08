@@ -18,8 +18,7 @@
     , Code
         "typ/math/style-05.typ"
         ( line 3 , column 5 )
-        (FieldAccess
-           (Ident (Identifier "eq")) (Ident (Identifier "colon")))
+        (Literal (String "\8788"))
     , Code
         "typ/math/style-05.typ"
         ( line 3 , column 8 )
@@ -31,7 +30,7 @@
                , Code
                    "typ/math/style-05.typ"
                    ( line 3 , column 21 )
-                   (Ident (Identifier "minus"))
+                   (Literal (String "\8722"))
                , Text "4"
                ]
            , BlockArg

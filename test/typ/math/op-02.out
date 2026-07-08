@@ -23,7 +23,7 @@
               , Code
                   "typ/math/op-02.typ"
                   ( line 3 , column 16 )
-                  (FieldAccess (Ident (Identifier "r")) (Ident (Identifier "arrow")))
+                  (Literal (String "\8594"))
               , Code
                   "typ/math/op-02.typ"
                   ( line 3 , column 18 )
@@ -51,7 +51,7 @@
               , Code
                   "typ/math/op-02.typ"
                   ( line 4 , column 9 )
-                  (FieldAccess (Ident (Identifier "r")) (Ident (Identifier "arrow")))
+                  (Literal (String "\8594"))
               , Code
                   "typ/math/op-02.typ"
                   ( line 4 , column 11 )

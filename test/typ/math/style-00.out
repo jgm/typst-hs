@@ -28,22 +28,5 @@
     ]
 , ParBreak
 ]
---- evaluated ---
-document(body: { text(body: [
-]), 
-                 math.equation(block: false, 
-                               body: { text(body: [a]), 
-                                       text(body: [,]), 
-                                       text(body: [A]), 
-                                       text(body: [,]), 
-                                       text(body: [δ]), 
-                                       text(body: [,]), 
-                                       text(body: [ϵ]), 
-                                       text(body: [,]), 
-                                       text(body: [∂]), 
-                                       text(body: [,]), 
-                                       text(body: [Δ]), 
-                                       text(body: [,]), 
-                                       text(body: [ϴ]) }, 
-                               numbering: none), 
-                 parbreak() })
+"typ/math/style-00.typ" (line 2, column 18):
+Identifier "diff" not found

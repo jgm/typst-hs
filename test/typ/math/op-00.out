@@ -12,12 +12,12 @@
               , Code
                   "typ/math/op-00.typ"
                   ( line 2 , column 9 )
-                  (FieldAccess (Ident (Identifier "eq")) (Ident (Identifier "lt")))
+                  (Literal (String "\8804"))
               , Text "n"
               , Code
                   "typ/math/op-00.typ"
                   ( line 2 , column 12 )
-                  (FieldAccess (Ident (Identifier "eq")) (Ident (Identifier "lt")))
+                  (Literal (String "\8804"))
               , Text "m"
               ]))
         Nothing

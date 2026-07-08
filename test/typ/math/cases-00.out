@@ -10,8 +10,7 @@
     , Code
         "typ/math/cases-00.typ"
         ( line 1 , column 11 )
-        (FieldAccess
-           (Ident (Identifier "eq")) (Ident (Identifier "colon")))
+        (Literal (String "\8788"))
     , Code
         "typ/math/cases-00.typ"
         ( line 1 , column 14 )
@@ -40,7 +39,7 @@
                , Code
                    "typ/math/cases-00.typ"
                    ( line 2 , column 28 )
-                   (FieldAccess (Ident (Identifier "eq")) (Ident (Identifier "lt")))
+                   (Literal (String "\8804"))
                , Text "0"
                ]
            , BlockArg

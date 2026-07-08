@@ -134,7 +134,7 @@
     , Code
         "typ/math/attach-07.typ"
         ( line 8 , column 24 )
-        (FieldAccess (Ident (Identifier "not")) (Ident (Identifier "eq")))
+        (Literal (String "\8800"))
     , MAttach
         (Just (Text "1"))
         (Just (Text "1"))

@@ -21,15 +21,12 @@
     , Code
         "typ/math/spacing-04.typ"
         ( line 3 , column 16 )
-        (Ident (Identifier "minus"))
+        (Literal (String "\8722"))
     , Text "d"
     , Code
         "typ/math/spacing-04.typ"
         ( line 3 , column 20 )
-        (FieldAccess
-           (Ident (Identifier "r"))
-           (FieldAccess
-              (Ident (Identifier "double")) (Ident (Identifier "arrow"))))
+        (Literal (String "\8658"))
     , Text "e"
     , Code
         "typ/math/spacing-04.typ"
@@ -75,7 +72,7 @@
                [ Code
                    "typ/math/spacing-04.typ"
                    ( line 4 , column 40 )
-                   (Ident (Identifier "minus"))
+                   (Literal (String "\8722"))
                ]
            ])
     , Text "d"
@@ -88,10 +85,7 @@
                [ Code
                    "typ/math/spacing-04.typ"
                    ( line 4 , column 49 )
-                   (FieldAccess
-                      (Ident (Identifier "r"))
-                      (FieldAccess
-                         (Ident (Identifier "double")) (Ident (Identifier "arrow"))))
+                   (Literal (String "\8658"))
                ]
            ])
     , Text "e"
@@ -155,7 +149,7 @@
                [ Code
                    "typ/math/spacing-04.typ"
                    ( line 5 , column 44 )
-                   (Ident (Identifier "minus"))
+                   (Literal (String "\8722"))
                ]
            ])
     , Text "d"
@@ -168,10 +162,7 @@
                [ Code
                    "typ/math/spacing-04.typ"
                    ( line 5 , column 62 )
-                   (FieldAccess
-                      (Ident (Identifier "r"))
-                      (FieldAccess
-                         (Ident (Identifier "double")) (Ident (Identifier "arrow"))))
+                   (Literal (String "\8658"))
                ]
            ])
     , Text "e"
@@ -247,7 +238,7 @@
                [ Code
                    "typ/math/spacing-04.typ"
                    ( line 7 , column 72 )
-                   (Ident (Identifier "minus"))
+                   (Literal (String "\8722"))
                ]
            ])
     , Text "d"
@@ -260,10 +251,7 @@
                [ Code
                    "typ/math/spacing-04.typ"
                    ( line 7 , column 83 )
-                   (FieldAccess
-                      (Ident (Identifier "r"))
-                      (FieldAccess
-                         (Ident (Identifier "double")) (Ident (Identifier "arrow"))))
+                   (Literal (String "\8658"))
                ]
            ])
     , Text "e"

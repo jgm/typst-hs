@@ -6,22 +6,16 @@
     [ Code
         "typ/math/delimited-02.typ"
         ( line 2 , column 3 )
-        (FieldAccess
-           (Ident (Identifier "l"))
-           (FieldAccess
-              (Ident (Identifier "stroked")) (Ident (Identifier "bracket"))))
+        (Literal (String "\10214"))
     , MFrac (Text "a") (Text "b")
     , Code
         "typ/math/delimited-02.typ"
         ( line 2 , column 8 )
-        (FieldAccess
-           (Ident (Identifier "r"))
-           (FieldAccess
-              (Ident (Identifier "stroked")) (Ident (Identifier "bracket"))))
+        (Literal (String "\10215"))
     , Code
         "typ/math/delimited-02.typ"
         ( line 2 , column 11 )
-        (FieldAccess (Ident (Identifier "not")) (Ident (Identifier "eq")))
+        (Literal (String "\8800"))
     , Code
         "typ/math/delimited-02.typ"
         ( line 2 , column 14 )
@@ -31,24 +25,18 @@
                [ Code
                    "typ/math/delimited-02.typ"
                    ( line 2 , column 17 )
-                   (FieldAccess
-                      (Ident (Identifier "r"))
-                      (FieldAccess
-                         (Ident (Identifier "stroked")) (Ident (Identifier "bracket"))))
+                   (Literal (String "\10215"))
                , MFrac (Text "a") (Text "b")
                , Code
                    "typ/math/delimited-02.typ"
                    ( line 2 , column 22 )
-                   (FieldAccess
-                      (Ident (Identifier "r"))
-                      (FieldAccess
-                         (Ident (Identifier "stroked")) (Ident (Identifier "bracket"))))
+                   (Literal (String "\10215"))
                ]
            ])
     , Code
         "typ/math/delimited-02.typ"
         ( line 2 , column 26 )
-        (FieldAccess (Ident (Identifier "not")) (Ident (Identifier "eq")))
+        (Literal (String "\8800"))
     , MGroup
         (Just "[") Nothing [ MFrac (Text "a") (Text "b") , Text ")" ]
     ]

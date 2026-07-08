@@ -38,8 +38,7 @@
     , Code
         "typ/math/numbering-00.typ"
         ( line 5 , column 11 )
-        (FieldAccess
-           (Ident (Identifier "eq")) (Ident (Identifier "colon")))
+        (Literal (String "\8788"))
     , MFrac
         (MGroup
            (Just "(")

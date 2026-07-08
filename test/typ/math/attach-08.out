@@ -12,7 +12,7 @@
               , Code
                   "typ/math/attach-08.typ"
                   ( line 2 , column 9 )
-                  (FieldAccess (Ident (Identifier "r")) (Ident (Identifier "arrow")))
+                  (Literal (String "\8594"))
               , Code
                   "typ/math/attach-08.typ"
                   ( line 2 , column 11 )

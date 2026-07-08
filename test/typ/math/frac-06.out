@@ -25,19 +25,13 @@
     , Code
         "typ/math/frac-06.typ"
         ( line 2 , column 36 )
-        (FieldAccess
-           (Ident (Identifier "l"))
-           (FieldAccess
-              (Ident (Identifier "stroked")) (Ident (Identifier "bracket"))))
+        (Literal (String "\10214"))
     , Text "x"
     , MFrac
         (Code
            "typ/math/frac-06.typ"
            ( line 2 , column 39 )
-           (FieldAccess
-              (Ident (Identifier "r"))
-              (FieldAccess
-                 (Ident (Identifier "stroked")) (Ident (Identifier "bracket")))))
+           (Literal (String "\10215")))
         (Text "2")
     , HardBreak
     , MFrac (Text "1.2") (Text "3.7")

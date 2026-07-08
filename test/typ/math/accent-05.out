@@ -7,7 +7,7 @@
     , Code
         "typ/math/accent-05.typ"
         ( line 2 , column 6 )
-        (FieldAccess (Ident (Identifier "not")) (Ident (Identifier "eq")))
+        (Literal (String "\8800"))
     , MAttach
         Nothing
         (Just (Text "x"))
@@ -18,7 +18,7 @@
     , Code
         "typ/math/accent-05.typ"
         ( line 2 , column 18 )
-        (FieldAccess (Ident (Identifier "not")) (Ident (Identifier "eq")))
+        (Literal (String "\8800"))
     , MAttach
         Nothing
         (Just (Text "x"))

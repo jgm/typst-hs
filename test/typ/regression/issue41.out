@@ -7,8 +7,7 @@
         (Code
            "typ/regression/issue41.typ"
            ( line 1 , column 2 )
-           (FieldAccess
-              (Ident (Identifier "circle")) (Ident (Identifier "plus"))))
+           (FieldAccess (Ident (Identifier "o")) (Ident (Identifier "plus"))))
     ]
 , ParBreak
 ]

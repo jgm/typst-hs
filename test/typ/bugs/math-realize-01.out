@@ -16,7 +16,7 @@
                        [ Code
                            "typ/bugs/math-realize-01.typ"
                            ( line 1 , column 15 )
-                           (FieldAccess (Ident (Identifier "eq")) (Ident (Identifier "gt")))
+                           (Literal (String "\8805"))
                        , Code
                            "typ/bugs/math-realize-01.typ"
                            ( line 1 , column 18 )
@@ -61,8 +61,7 @@
                , Code
                    "typ/bugs/math-realize-01.typ"
                    ( line 3 , column 18 )
-                   (FieldAccess
-                      (Ident (Identifier "eq")) (Ident (Identifier "colon")))
+                   (Literal (String "\8788"))
                , MAttach Nothing (Just (Text "2")) (Text "x")
                ]
            ]

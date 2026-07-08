@@ -23,7 +23,7 @@
                 , Code
                     "typ/math/delimited-01.typ"
                     ( line 2 , column 16 )
-                    (FieldAccess (Ident (Identifier "not")) (Ident (Identifier "eq")))
+                    (Literal (String "\8800"))
                 , Code
                     "typ/math/delimited-01.typ"
                     ( line 2 , column 19 )

@@ -1,1 +1,1 @@
-$plus.circle_2$
+$plus.o_2$

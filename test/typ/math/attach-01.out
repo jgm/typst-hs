@@ -27,7 +27,7 @@
                      , Code
                          "typ/math/attach-01.typ"
                          ( line 4 , column 47 )
-                         (Ident (Identifier "minus"))
+                         (Literal (String "\8722"))
                      ]))
            ])
     , Text ","
@@ -59,7 +59,7 @@
                      [ Code
                          "typ/math/attach-01.typ"
                          ( line 5 , column 56 )
-                         (Ident (Identifier "minus"))
+                         (Literal (String "\8722"))
                      , Text "1"
                      ]))
            , KeyValArg (Identifier "tl") (Block (Content [ Text "0" ]))

@@ -7,8 +7,7 @@
     , Code
         "typ/math/multiline-03.typ"
         ( line 2 , column 5 )
-        (FieldAccess
-           (Ident (Identifier "eq")) (Ident (Identifier "colon")))
+        (Literal (String "\8788"))
     , Code
         "typ/math/multiline-03.typ"
         ( line 2 , column 8 )

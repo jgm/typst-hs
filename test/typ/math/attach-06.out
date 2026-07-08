@@ -12,7 +12,7 @@
            [ Code
                "typ/math/attach-06.typ"
                ( line 2 , column 4 )
-               (Ident (Identifier "minus"))
+               (Literal (String "\8722"))
            , Text "1"
            ])
     , Text "+"
@@ -25,7 +25,7 @@
               [ Code
                   "typ/math/attach-06.typ"
                   ( line 2 , column 23 )
-                  (Ident (Identifier "minus"))
+                  (Literal (String "\8722"))
               , MFrac (Text "1") (Text "2")
               ]))
         (MGroup

@@ -12,7 +12,7 @@
            [ Code
                "typ/math/frac-02.typ"
                ( line 2 , column 8 )
-               (Ident (Identifier "minus"))
+               (Literal (String "\8722"))
            , Text "b"
            , Code
                "typ/math/frac-02.typ"
@@ -29,7 +29,7 @@
                       , Code
                           "typ/math/frac-02.typ"
                           ( line 2 , column 31 )
-                          (Ident (Identifier "minus"))
+                          (Literal (String "\8722"))
                       , Text "4"
                       , Text "a"
                       , Text "c"

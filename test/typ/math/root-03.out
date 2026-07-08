@@ -12,10 +12,7 @@
                [ Code
                    "typ/math/root-03.typ"
                    ( line 2 , column 8 )
-                   (FieldAccess
-                      (Ident (Identifier "l"))
-                      (FieldAccess
-                         (Ident (Identifier "stroked")) (Ident (Identifier "bracket"))))
+                   (Literal (String "\10214"))
                , Text "x"
                , MAttach
                    Nothing
@@ -23,18 +20,12 @@
                    (Code
                       "typ/math/root-03.typ"
                       ( line 2 , column 11 )
-                      (FieldAccess
-                         (Ident (Identifier "r"))
-                         (FieldAccess
-                            (Ident (Identifier "stroked")) (Ident (Identifier "bracket")))))
+                      (Literal (String "\10215")))
                , Text "+"
                , Code
                    "typ/math/root-03.typ"
                    ( line 2 , column 18 )
-                   (FieldAccess
-                      (Ident (Identifier "l"))
-                      (FieldAccess
-                         (Ident (Identifier "stroked")) (Ident (Identifier "bracket"))))
+                   (Literal (String "\10214"))
                , Text "y"
                , MAttach
                    Nothing
@@ -42,28 +33,19 @@
                    (Code
                       "typ/math/root-03.typ"
                       ( line 2 , column 21 )
-                      (FieldAccess
-                         (Ident (Identifier "r"))
-                         (FieldAccess
-                            (Ident (Identifier "stroked")) (Ident (Identifier "bracket")))))
+                      (Literal (String "\10215")))
                ]
            ])
     , Text "<"
     , Code
         "typ/math/root-03.typ"
         ( line 2 , column 29 )
-        (FieldAccess
-           (Ident (Identifier "l"))
-           (FieldAccess
-              (Ident (Identifier "stroked")) (Ident (Identifier "bracket"))))
+        (Literal (String "\10214"))
     , Text "z"
     , Code
         "typ/math/root-03.typ"
         ( line 2 , column 32 )
-        (FieldAccess
-           (Ident (Identifier "r"))
-           (FieldAccess
-              (Ident (Identifier "stroked")) (Ident (Identifier "bracket"))))
+        (Literal (String "\10215"))
     ]
 , SoftBreak
 , Equation

@@ -18,8 +18,7 @@
                                  (Code
                                     "typ/regression/issue57.typ"
                                     ( line 1 , column 5 )
-                                    (FieldAccess
-                                       (Ident (Identifier "op")) (Ident (Identifier "ast")))))
+                                    (Literal (String "\8727"))))
                               (Text "b")
                           ]
                       ]))))

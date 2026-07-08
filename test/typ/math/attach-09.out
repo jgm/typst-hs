@@ -13,7 +13,7 @@
     , Code
         "typ/math/attach-09.typ"
         ( line 2 , column 17 )
-        (FieldAccess (Ident (Identifier "not")) (Ident (Identifier "eq")))
+        (Literal (String "\8800"))
     , MAttach (Just (Text "1")) (Just (Text "2")) (Text "A")
     ]
 , SoftBreak
@@ -37,7 +37,7 @@
     , Code
         "typ/math/attach-09.typ"
         ( line 3 , column 20 )
-        (FieldAccess (Ident (Identifier "not")) (Ident (Identifier "eq")))
+        (Literal (String "\8800"))
     , MAttach
         (Just (Text "1"))
         (Just (Text "2"))
@@ -67,7 +67,7 @@
     , Code
         "typ/math/attach-09.typ"
         ( line 4 , column 24 )
-        (FieldAccess (Ident (Identifier "not")) (Ident (Identifier "eq")))
+        (Literal (String "\8800"))
     , MAttach
         (Just (Text "a"))
         (Just (Text "b"))

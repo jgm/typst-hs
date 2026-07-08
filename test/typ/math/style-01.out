@@ -74,20 +74,20 @@
                [ Code
                    "typ/math/style-01.typ"
                    ( line 4 , column 9 )
-                   (Ident (Identifier "diff"))
+                   (Ident (Identifier "partial"))
                ]
            ])
     , Text ","
     , Code
         "typ/math/style-01.typ"
-        ( line 4 , column 16 )
+        ( line 4 , column 19 )
         (FuncCall
            (Ident (Identifier "upright"))
            [ BlockArg
                [ Code
                    "typ/math/style-01.typ"
-                   ( line 4 , column 24 )
-                   (Ident (Identifier "diff"))
+                   ( line 4 , column 27 )
+                   (Ident (Identifier "partial"))
                ]
            ])
     , Text ","

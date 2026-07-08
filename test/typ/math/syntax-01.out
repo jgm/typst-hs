@@ -19,7 +19,7 @@
                , Code
                    "typ/math/syntax-01.typ"
                    ( line 2 , column 21 )
-                   (FieldAccess (Ident (Identifier "r")) (Ident (Identifier "arrow")))
+                   (Literal (String "\8594"))
                , Code
                    "typ/math/syntax-01.typ"
                    ( line 2 , column 24 )
@@ -31,10 +31,7 @@
     , Code
         "typ/math/syntax-01.typ"
         ( line 3 , column 5 )
-        (FieldAccess
-           (Ident (Identifier "r"))
-           (FieldAccess
-              (Ident (Identifier "bar")) (Ident (Identifier "arrow"))))
+        (Literal (String "\8614"))
     , Code
         "typ/math/syntax-01.typ"
         ( line 3 , column 9 )
@@ -44,26 +41,19 @@
                [ Code
                    "typ/math/syntax-01.typ"
                    ( line 4 , column 5 )
-                   (FieldAccess
-                      (Ident (Identifier "l"))
-                      (FieldAccess
-                         (Ident (Identifier "stroked")) (Ident (Identifier "bracket"))))
+                   (Literal (String "\10214"))
                , Text "1"
                , Code
                    "typ/math/syntax-01.typ"
                    ( line 4 , column 8 )
-                   (FieldAccess
-                      (Ident (Identifier "r"))
-                      (FieldAccess
-                         (Ident (Identifier "stroked")) (Ident (Identifier "bracket"))))
+                   (Literal (String "\10215"))
                , MAlignPoint
                , Text "if "
                , Text "n"
                , Code
                    "typ/math/syntax-01.typ"
                    ( line 4 , column 19 )
-                   (FieldAccess
-                      (Ident (Identifier "triple")) (Ident (Identifier "gt")))
+                   (Literal (String "\8921"))
                , Text "10"
                ]
            , BlockArg
@@ -71,7 +61,7 @@
                , Code
                    "typ/math/syntax-01.typ"
                    ( line 5 , column 7 )
-                   (FieldAccess (Ident (Identifier "op")) (Ident (Identifier "ast")))
+                   (Literal (String "\8727"))
                , Text "3"
                , MAlignPoint
                , Text "if "
@@ -79,7 +69,7 @@
                , Code
                    "typ/math/syntax-01.typ"
                    ( line 5 , column 19 )
-                   (FieldAccess (Ident (Identifier "not")) (Ident (Identifier "eq")))
+                   (Literal (String "\8800"))
                , Text "5"
                ]
            , BlockArg
@@ -87,7 +77,7 @@
                , Code
                    "typ/math/syntax-01.typ"
                    ( line 6 , column 7 )
-                   (Ident (Identifier "minus"))
+                   (Literal (String "\8722"))
                , Text "0"
                , Code
                    "typ/math/syntax-01.typ"
@@ -97,7 +87,7 @@
                , Code
                    "typ/math/syntax-01.typ"
                    ( line 6 , column 18 )
-                   (FieldAccess (Ident (Identifier "h")) (Ident (Identifier "dots")))
+                   (Literal (String "\8230"))
                ]
            ])
     ]

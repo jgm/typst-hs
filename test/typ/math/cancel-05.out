@@ -16,7 +16,7 @@
     , Code
         "typ/math/cancel-05.typ"
         ( line 2 , column 34 )
-        (Ident (Identifier "minus"))
+        (Literal (String "\8722"))
     , Code
         "typ/math/cancel-05.typ"
         ( line 2 , column 36 )
@@ -45,7 +45,7 @@
     , Code
         "typ/math/cancel-05.typ"
         ( line 3 , column 31 )
-        (Ident (Identifier "minus"))
+        (Literal (String "\8722"))
     , Code
         "typ/math/cancel-05.typ"
         ( line 3 , column 33 )

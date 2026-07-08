@@ -12,8 +12,7 @@
               , Code
                   "typ/math/op-03.typ"
                   ( line 2 , column 32 )
-                  (FieldAccess
-                     (Ident (Identifier "eq")) (Ident (Identifier "colon")))
+                  (Literal (String "\8788"))
               , Text "1"
               ]))
         Nothing
@@ -36,8 +35,7 @@
               , Code
                   "typ/math/op-03.typ"
                   ( line 3 , column 31 )
-                  (FieldAccess
-                     (Ident (Identifier "eq")) (Ident (Identifier "colon")))
+                  (Literal (String "\8788"))
               , Text "1"
               ]))
         Nothing

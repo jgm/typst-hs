@@ -40,7 +40,7 @@
     , Code
         "typ/math/spacing-00.typ"
         ( line 4 , column 8 )
-        (Ident (Identifier "minus"))
+        (Literal (String "\8722"))
     , Text "|"
     , Text ","
     , MGroup (Just "[") Nothing [ Text "=" ]
@@ -65,7 +65,7 @@
     [ Code
         "typ/math/spacing-00.typ"
         ( line 6 , column 2 )
-        (Ident (Identifier "minus"))
+        (Literal (String "\8722"))
     , Text "a"
     , Text ","
     , Text "+"
@@ -94,7 +94,7 @@
     , Code
         "typ/math/spacing-00.typ"
         ( line 8 , column 8 )
-        (FieldAccess (Ident (Identifier "op")) (Ident (Identifier "ast")))
+        (Literal (String "\8727"))
     , Text "b"
     ]
 , Space
