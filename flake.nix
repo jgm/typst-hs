@@ -38,6 +38,7 @@
             ghcid
             cabal-install
             git
+            typst
           ];
           inputsFrom = map (__getAttr "env") (__attrValues self.packages.${system});
         };
