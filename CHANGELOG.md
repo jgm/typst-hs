@@ -1,39 +1,40 @@
 # Revision history for typst-hs
 
-## 0.11 (unreleased)
+## 0.11
 
-Support for typst 0.15 features:
+  * Fall back on defaults for settable element fields (#100).
+    In typst, settable fields like list.marker are materialized when
+    an element is passed to a show rule, so e.g. `it.marker` works in
+    `#show list: it => ..` even when no explicit marker was given.
+    Previously such accesses caused an evaluation failure in typst-hs
+    (e.g. with the cheq package).
 
-  * Switch to typst-symbols 0.3 (typst 0.15 symbols).
+  * flake.nix: also ensure presence of typst compiler, for testing.
 
-  * Add `calc.asinh`, `calc.acosh`, `calc.atanh`, and `calc.erf`.
-    This adds a dependency on the erf package.
+  * Support for typst 0.15 features:
 
-  * Add `inclusive` parameter to `range`.
-
-  * Add `map` and `filter` methods on dictionaries and arguments.
-
-  * Support `base` parameter in the `int` constructor, and add
-    `int.min` and `int.max`. Field access on a type now falls back to
-    the type's scope, which also makes `str.to-unicode` and
-    `str.from-unicode` accessible.
-
-  * Make delimiter symbols (e.g. `chevron.l`) callable in math mode to
-    produce an `lr` element.
-
-  * Add `html` module, with `html.elem`, `html.frame`, and the typed
-    HTML element functions (`html.div`, `html.span`, etc.).
-
-  * Add the `path` type [API change: adds `VPath` to `Val` and `TPath`
-    to `ValType`]. Relative paths are resolved at construction time,
-    relative to the constructing file. Paths are accepted wherever
-    file-path strings are accepted (`read`, `csv`, `json`, `image`,
-    `bibliography`, etc.); in element fields they are coerced to
-    strings. The deprecated `path` visualize element is removed.
-
-  * Add `curve` element (the replacement for the removed `path`
-    element), with its `curve.move`, `curve.line`, `curve.quad`,
-    `curve.cubic`, and `curve.close` functions.
+    + Switch to typst-symbols 0.3 (typst 0.15 symbols).
+    + Add `calc.asinh`, `calc.acosh`, `calc.atanh`, and `calc.erf`.
+        This adds a dependency on the erf package.
+    + Add `inclusive` parameter to `range`.
+    + Add `map` and `filter` methods on dictionaries and arguments.
+    + Support `base` parameter in the `int` constructor, and add
+      `int.min` and `int.max`. Field access on a type now falls back to
+      the type's scope, which also makes `str.to-unicode` and
+      `str.from-unicode` accessible.
+    + Make delimiter symbols (e.g. `chevron.l`) callable in math mode to
+      produce an `lr` element.
+    + Add `html` module, with `html.elem`, `html.frame`, and the typed
+      HTML element functions (`html.div`, `html.span`, etc.).
+    + Add the `path` type [API change: adds `VPath` to `Val` and `TPath`
+      to `ValType`]. Relative paths are resolved at construction time,
+      relative to the constructing file. Paths are accepted wherever
+      file-path strings are accepted (`read`, `csv`, `json`, `image`,
+      `bibliography`, etc.); in element fields they are coerced to
+      strings. The deprecated `path` visualize element is removed.
+    + Add `curve` element (the replacement for the removed `path`
+      element), with its `curve.move`, `curve.line`, `curve.quad`,
+      `curve.cubic`, and `curve.close` functions.
 
 ## 0.10
 
