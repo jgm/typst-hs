@@ -146,11 +146,12 @@ calcModule =
           base <- nthArg 1
           ex <- nthArg 2
           case (base, ex) of
-            (VInteger x, VInteger y) -> pure $ VInteger $ x ^ y
+            (VInteger x, VInteger y)
+              | y >= 0 -> pure $ VInteger $ x ^ y
             _ -> do
               (base' :: Double) <- fromVal base
               (ex' :: Integer) <- fromVal ex
-              pure $ VFloat $ (base') ^ (ex')
+              pure $ VFloat $ (base') ^^ (ex')
       ),
       ( "quo",
         makeFunction $ do

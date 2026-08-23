@@ -1,0 +1,46 @@
+--- parse tree ---
+[ Code
+    "typ/regression/issue-102.typ"
+    ( line 1 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "r")))
+       (FuncCall
+          (FieldAccess
+             (Ident (Identifier "pow")) (Ident (Identifier "calc")))
+          [ NormalArg (Literal (Float 1.125))
+          , NormalArg (Negated (Literal (Int 2)))
+          ]))
+, SoftBreak
+, Code
+    "typ/regression/issue-102.typ"
+    ( line 2 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "s")))
+       (FuncCall
+          (FieldAccess
+             (Ident (Identifier "pow")) (Ident (Identifier "calc")))
+          [ NormalArg (Literal (Int 1))
+          , NormalArg (Negated (Literal (Int 2)))
+          ]))
+, SoftBreak
+, Code
+    "typ/regression/issue-102.typ"
+    ( line 3 , column 2 )
+    (Ident (Identifier "r"))
+, SoftBreak
+, Code
+    "typ/regression/issue-102.typ"
+    ( line 4 , column 2 )
+    (Ident (Identifier "s"))
+, ParBreak
+]
+--- evaluated ---
+document(body: { text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [0.7901234567901234]), 
+                 text(body: [
+]), 
+                 text(body: [1.0]), 
+                 parbreak() })
