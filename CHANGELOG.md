@@ -1,5 +1,9 @@
 # Revision history for typst-hs
 
+## 0.11.0.1
+
+  * Fix `calc.pow` so it accepts negative exponents (#102).
+
 ## 0.11
 
   * Fall back on defaults for settable element fields (#100).
