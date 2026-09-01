@@ -1,5 +1,12 @@
 # Revision history for typst-hs
 
+## 0.11.0.2
+
+  * Return an evaluation error instead of crashing on integer division by
+    zero. `5 / 0`, `calc.quo(5, 0)`, and `calc.rem(5, 0)` raised an uncaught
+    `divide by zero` exception; they now fail gracefully like other
+    evaluation errors.
+
 ## 0.11.0.1
 
   * Fix `calc.pow` so it accepts negative exponents (#102).

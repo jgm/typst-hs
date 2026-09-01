@@ -523,9 +523,11 @@ instance Multipliable Val where
   maybeTimes v1 v2 = fail $ "could not multiply " <> show v1 <> " and " <> show v2
 
   maybeDividedBy (VInteger i1) (VInteger i2) =
-    if i1 `mod` i2 == 0
-      then pure $ VInteger (i1 `div` i2)
-      else pure $ VFloat (fromIntegral i1 / fromIntegral i2)
+    if i2 == 0
+      then fail "division by zero"
+      else if i1 `mod` i2 == 0
+        then pure $ VInteger (i1 `div` i2)
+        else pure $ VFloat (fromIntegral i1 / fromIntegral i2)
   maybeDividedBy (VFloat x1) (VFloat x2) = maybeTimes (VFloat x1) (VFloat (1 / x2))
   maybeDividedBy (VInteger i1) (VFloat f2) = pure $ VFloat (fromIntegral i1 / f2)
   maybeDividedBy (VFloat f1) (VInteger i2) = pure $ VFloat (f1 / fromIntegral i2)

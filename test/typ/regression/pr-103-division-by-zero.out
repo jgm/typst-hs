@@ -1,0 +1,13 @@
+--- parse tree ---
+[ Comment
+, SoftBreak
+, Comment
+, SoftBreak
+, Code
+    "typ/regression/pr-103-division-by-zero.typ"
+    ( line 3 , column 2 )
+    (Divided (Literal (Int 5)) (Literal (Int 0)))
+, ParBreak
+]
+"typ/regression/pr-103-division-by-zero.typ" (line 3, column 2):
+Can't / VInteger 5 and VInteger 0
