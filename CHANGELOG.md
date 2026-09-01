@@ -1,5 +1,11 @@
 # Revision history for typst-hs
 
+## 0.11.0.2
+
+  * Return an error instead of crashing when `array.slice` is given a
+    start index that is out of bounds (e.g. a large negative index),
+    which previously raised an out-of-range `Data.Vector.slice` exception.
+
 ## 0.11.0.1
 
   * Fix `calc.pow` so it accepts negative exponents (#102).
