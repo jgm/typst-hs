@@ -157,16 +157,21 @@ calcModule =
         makeFunction $ do
           (a :: Integer) <- nthArg 1
           (b :: Integer) <- nthArg 2
-          pure $ VInteger $ a `quot` b
+          if b == 0
+            then fail "division by zero"
+            else pure $ VInteger $ a `quot` b
       ),
       ( "rem",
         makeFunction $ do
           (a :: Integer, f :: Double) <- properFraction <$> nthArg 1
           (b :: Integer) <- nthArg 2
-          pure $
-            if f == 0
-              then VInteger $ rem a b
-              else VFloat $ fromIntegral (rem a b) + f
+          if b == 0
+            then fail "division by zero"
+            else
+              pure $
+                if f == 0
+                  then VInteger $ rem a b
+                  else VFloat $ fromIntegral (rem a b) + f
       ),
       ( "round",
         makeFunction $ do
