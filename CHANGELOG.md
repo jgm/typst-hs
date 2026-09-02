@@ -1,5 +1,11 @@
 # Revision history for typst-hs
 
+## 0.11.0.2
+
+  * Return the default instead of crashing when `arguments.at` is given a
+    negative index, which previously raised a `Prelude.!!: negative index`
+    exception.
+
 ## 0.11.0.1
 
   * Fix `calc.pow` so it accepts negative exponents (#102).
