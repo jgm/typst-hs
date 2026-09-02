@@ -446,7 +446,7 @@ getMethod updateVal val fld = do
           mbcount <- namedArg "count" Nothing
           end <- (toPos <$> nthArg 2) `mplus`
                     pure (maybe (V.length v) (+ start) mbcount)
-          if V.length v < end
+          if start < 0 || V.length v < end
             then fail "array contains insufficient elements for slice"
             else
               if end < start

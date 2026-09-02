@@ -1,0 +1,21 @@
+--- parse tree ---
+[ Comment
+, SoftBreak
+, Comment
+, SoftBreak
+, Code
+    "typ/regression/pr-104.typ"
+    ( line 3 , column 2 )
+    (FuncCall
+       (FieldAccess
+          (Ident (Identifier "slice"))
+          (Array
+             [ Reg (Literal (Int 1))
+             , Reg (Literal (Int 2))
+             , Reg (Literal (Int 3))
+             ]))
+       [ NormalArg (Negated (Literal (Int 100))) ])
+, ParBreak
+]
+"typ/regression/pr-104.typ" (line 3, column 2):
+Cannot convert VNone to integer or array contains insufficient elements for slice
