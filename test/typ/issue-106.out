@@ -1,0 +1,83 @@
+--- parse tree ---
+[ Comment
+, SoftBreak
+, Code
+    "typ/issue-106.typ"
+    ( line 2 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (InCollection
+              (Literal (String "divider")) (Ident (Identifier "std")))
+       , NormalArg (Literal (Boolean True))
+       ])
+, SoftBreak
+, Code
+    "typ/issue-106.typ"
+    ( line 3 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (InCollection
+              (Literal (String "nonexistent")) (Ident (Identifier "std")))
+       , NormalArg (Literal (Boolean False))
+       ])
+, SoftBreak
+, Code
+    "typ/issue-106.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Not
+              (InCollection
+                 (Literal (String "divider")) (Ident (Identifier "std"))))
+       , NormalArg (Literal (Boolean False))
+       ])
+, SoftBreak
+, Code
+    "typ/issue-106.typ"
+    ( line 5 , column 2 )
+    (Let
+       (BasicBind (Just (Identifier "divider")))
+       (If
+          [ ( InCollection
+                (Literal (String "divider")) (Ident (Identifier "std"))
+            , Block (CodeBlock [ Ident (Identifier "divider") ])
+            )
+          , ( Literal (Boolean True) , Block (CodeBlock [ Literal None ]) )
+          ]))
+, SoftBreak
+, Code
+    "typ/issue-106.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "str"))
+              [ NormalArg
+                  (FuncCall
+                     (Ident (Identifier "type"))
+                     [ NormalArg (Ident (Identifier "divider")) ])
+              ])
+       , NormalArg (Literal (String "function"))
+       ])
+, ParBreak
+]
+--- evaluated ---
+document(body: { text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 parbreak() })

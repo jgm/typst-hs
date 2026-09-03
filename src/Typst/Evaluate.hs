@@ -734,6 +734,10 @@ evalExpr expr = applyShowRulesToVal =<<
           case v1 of
             VString t -> pure $ VBoolean $ isJust $ OM.lookup (Identifier t) m
             _ -> pure $ VBoolean False
+        VModule _ m ->
+          case v1 of
+            VString t -> pure $ VBoolean $ isJust $ M.lookup (Identifier t) m
+            _ -> pure $ VBoolean False
         _ -> fail $ "Can't apply 'in' to " <> show v2 <> show (e1,e2)
 
     Negated e -> do
