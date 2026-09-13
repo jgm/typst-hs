@@ -687,7 +687,7 @@ getMethod updateVal val fld = do
               VInteger{} -> do
                 i <- fromVal x
                 case positional args of
-                  xs | i < length xs -> pure $ xs !! i
+                  xs | i >= 0, i < length xs -> pure $ xs !! i
                      | otherwise -> pure defval
               VString t ->
                 case OM.lookup (Identifier t) (named args) of

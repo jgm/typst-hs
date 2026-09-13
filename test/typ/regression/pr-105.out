@@ -1,0 +1,37 @@
+--- parse tree ---
+[ Comment
+, SoftBreak
+, Comment
+, SoftBreak
+, Code
+    "typ/regression/pr-105.typ"
+    ( line 3 , column 2 )
+    (LetFunc
+       (Identifier "f")
+       [ SinkParam (Just (Identifier "a")) ]
+       (FuncCall
+          (FieldAccess (Ident (Identifier "at")) (Ident (Identifier "a")))
+          [ NormalArg (Negated (Literal (Int 1)))
+          , KeyValArg (Identifier "default") (Literal (String "none"))
+          ]))
+, SoftBreak
+, Code
+    "typ/regression/pr-105.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "f"))
+       [ NormalArg (Literal (Int 1))
+       , NormalArg (Literal (Int 2))
+       , NormalArg (Literal (Int 3))
+       ])
+, ParBreak
+]
+--- evaluated ---
+document(body: { text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [none]), 
+                 parbreak() })
