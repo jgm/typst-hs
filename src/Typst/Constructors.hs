@@ -25,7 +25,7 @@ import qualified Data.Text.Encoding as TE
 import Typst.Regex (makeRE)
 import Data.List (genericTake)
 import Control.Monad.Reader (asks, lift)
-import Typst.Module.Standard (getPath)
+import Typst.Module.Standard (getPath, strokeConstructor)
 import Control.Monad (mplus)
 import Data.Char (ord, chr, isDigit, isAsciiLower, isAsciiUpper)
 
@@ -81,6 +81,7 @@ getConstructor typ =
              pure $ VString $ T.pack [chr val] )
       ]
     TLabel -> Just $ makeFunction $ VLabel <$> nthArg 1
+    TStroke -> Just strokeConstructor
     TSymbol -> Just $ makeFunction $ do
         (t :: Text) <- nthArg 1
         vs <- drop 1 <$> allArgs

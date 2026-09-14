@@ -10,7 +10,8 @@ module Typst.Module.Standard
     loadFileText,
     getPath,
     applyPureFunction,
-    elementDefaults
+    elementDefaults,
+    strokeConstructor
   )
 where
 
@@ -400,6 +401,9 @@ types =
   , ("length", VType TLength)
   , ("alignment", VType TAlignment)
   , ("color", VType TColor)
+  -- The stroke type is bound to VType, like other types; stroke(...)
+  -- works because VType values are callable via getConstructor.
+  , ("stroke", VType TStroke)
   , ("symbol", VType TSymbol)
   , ("str", VType TString)
   , ("label", VType TLabel)
@@ -546,6 +550,31 @@ construct =
         pure $ VString $ T.unwords $ take num loremWords
     )
   ]
+
+-- | The stroke() constructor, also used by getConstructor for TStroke.
+strokeConstructor :: Val
+strokeConstructor =
+  makeFunction $ do
+    base <-
+      nthArg 1 >>= \case
+        VNone -> pure emptyStroke
+        VStroke s -> pure s
+        VColor c -> pure emptyStroke { paint = Just c }
+        VLength l -> pure emptyStroke { thickness = Just l }
+        VDict m -> strokeFromDict m
+        _ -> fail "expected stroke, color, length, or dictionary"
+    -- getNamed (not namedArg) so an explicit `none` is not conflated
+    -- with an absent argument; typst errors on e.g. `paint: none`.
+    mbPaint <- getNamed "paint"
+    mbThickness <- getNamed "thickness"
+    -- A named argument overrides the base field; auto resets it.
+    let override get f mb = case mb of
+          Nothing -> pure (get base)
+          Just VAuto -> pure Nothing
+          Just v -> Just <$> f v
+    paint <- override paint asColor mbPaint
+    thickness <- override thickness asLength mbThickness
+    pure $ VStroke $ Stroke paint thickness
 
 loremWords :: [Text]
 loremWords =
@@ -739,3 +768,30 @@ getFileOrBytes = do
   case v of
     VBytes bs -> pure $ BL.fromStrict bs
     _ -> lift $ resolvePathVal v >>= loadResolvedLazyBytes
+
+-- | Build a 'Stroke' from a dictionary such as
+-- @(paint: red, thickness: 2pt)@.
+strokeFromDict :: MonadFail m => OM.OMap Identifier Val -> m Stroke
+strokeFromDict m = do
+  let field k f = case OM.lookup k m of
+        Nothing -> pure Nothing
+        Just VAuto -> pure Nothing
+        Just v -> Just <$> f v
+  paint <- field "paint" asColor
+  thickness <- field "thickness" asLength
+  -- typst errors on unexpected keys (dict.finish in stroke.rs)
+  case filter (`notElem` knownStrokeKeys) (map fst (OM.assocs m)) of
+    [] -> pure ()
+    (Identifier k : _) -> fail $ "unexpected key: " <> T.unpack k
+  pure $ Stroke paint thickness
+
+knownStrokeKeys :: [Identifier]
+knownStrokeKeys = ["paint", "thickness"]
+
+asColor :: MonadFail m => Val -> m Color
+asColor (VColor c) = pure c
+asColor _ = fail "paint must be a color"
+
+asLength :: MonadFail m => Val -> m Length
+asLength (VLength l) = pure l
+asLength _ = fail "thickness must be a length"

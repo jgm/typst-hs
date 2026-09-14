@@ -103,8 +103,7 @@ document(body: { text(body: [
                  text(body: [
 ]), 
                  line(length: 60.0pt, 
-                      stroke: (thickness: 1.5pt,
-                               color: rgb(0%,45%,85%,100%))), 
+                      stroke: 1.5pt + rgb(0%,45%,85%,100%)), 
                  text(body: [
 ]), 
                  v(amount: 3.0pt), 

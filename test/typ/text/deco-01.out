@@ -78,8 +78,7 @@ Sometimes, we work ]),
 There might be ]), 
                  strike(body: text(body: [redacted]), 
                         extent: 5.0e-2em, 
-                        stroke: (thickness: 10.0pt,
-                                 color: rgb(67%,80%,93%,53%))), 
+                        stroke: 10.0pt + rgb(67%,80%,93%,53%)), 
                  text(body: [ things.
 underline()]), 
                  parbreak() })

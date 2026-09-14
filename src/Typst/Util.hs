@@ -13,6 +13,7 @@ module Typst.Util
     argsToFields,
     nthArg,
     namedArg,
+    getNamed,
     allArgs
   )
 where

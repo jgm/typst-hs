@@ -166,8 +166,7 @@ document(body: { text(body: [
                                     body: text(body: [But, soft!])), 
                         fill: rgb(92%,32%,47%,100%), 
                         inset: 0.0pt, 
-                        stroke: (thickness: 2.0pt,
-                                 color: rgb(0%,0%,0%,100%))), 
+                        stroke: 2.0pt + rgb(0%,0%,0%,100%)), 
                  parbreak(), 
                  text(body: [Center-aligned rect in auto-sized circle.
 ]), 

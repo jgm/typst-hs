@@ -39,6 +39,8 @@ module Typst.Types
     Horiz (..),
     Vert (..),
     Color (..),
+    Stroke (..),
+    emptyStroke,
     Direction (..),
     Identifier (..), -- reexported
     lookupIdentifier,
@@ -115,6 +117,8 @@ data Val
   -- only @rgb@, @cmyk@, and @luma@ are available. 
   -- See issue [#35](https://github.com/jgm/typst-hs/issues/35#issuecomment-1926182040).
   | VColor !Color
+  -- | A @stroke@ value, representing stroke properties for shapes and lines.
+  | VStroke !Stroke
   -- | A @symbol@ value, representing a Unicode symbol.
   | VSymbol !Symbol
   -- | A UTF-8 encoded text @string@.
@@ -191,6 +195,7 @@ data ValType
   | TAngle
   | TFraction
   | TColor
+  | TStroke
   | TSymbol
   | TString
   | TRegex
@@ -230,6 +235,7 @@ valType v =
     VAngle {} -> TAngle
     VFraction {} -> TFraction
     VColor {} -> TColor
+    VStroke {} -> TStroke
     VSymbol {} -> TSymbol
     VString {} -> TString
     VRegex {} -> TRegex
@@ -407,6 +413,8 @@ instance Compare Val where
   comp (VAngle x1) (VAngle x2) = Just $ compare x1 x2
   comp (VFraction x1) (VFraction x2) = Just $ compare x1 x2
   comp (VColor c1) (VColor c2) = Just $ compare c1 c2
+  comp (VStroke s1) (VStroke s2) =
+    if s1 == s2 then Just EQ else Nothing
   comp (VSymbol (Symbol s1 _ _)) (VSymbol (Symbol s2 _ _)) = Just $ compare s1 s2
   comp (VString s1) (VString s2) = Just $ compare s1 s2
   comp (VPath p1) (VPath p2) = Just $ compare p1 p2
@@ -473,11 +481,15 @@ instance Summable Val where
   maybePlus (VFraction f1) (VFraction f2) = pure $ VFraction (f1 + f2)
   maybePlus (VArray v1) (VArray v2) = pure $ VArray (v1 <> v2)
   maybePlus (VDict m1) (VDict m2) = pure $ VDict (m1 OM.<>| m2)
+  -- Stroke '1pt + red'
   maybePlus (VColor c) (VLength l) =
-    -- Stroke '1pt + red'
-    pure $ VDict $ OM.fromList [("thickness", VLength l), ("color", VColor c)]
+    pure $ VStroke $ emptyStroke { paint = Just c, thickness = Just l }
   maybePlus (VLength l) (VColor c) = maybePlus (VColor c) (VLength l)
   maybePlus v1 v2 = fail $ "could not add " <> show v1 <> " and " <> show v2
+  -- Typst has no color - length; block the default negate-and-add,
+  -- which would otherwise produce a stroke with negative thickness.
+  maybeMinus (VColor _) (VLength _) = Nothing
+  maybeMinus v1 v2 = maybeNegate v2 >>= maybePlus v1
 
 class Multipliable a where
   maybeTimes :: a -> a -> Maybe a
@@ -828,6 +840,16 @@ data Color
   | Luma Rational
   deriving (Show, Eq, Ord, Typeable)
 
+data Stroke = Stroke
+  { paint :: !(Maybe Color), -- Nothing = auto (default: black)
+    thickness :: !(Maybe Length) -- Nothing = auto (default: 1pt)
+  }
+  deriving (Show, Eq, Typeable)
+
+-- | A stroke with every field unset (auto).
+emptyStroke :: Stroke
+emptyStroke = Stroke Nothing Nothing
+
 data Direction 
   = Ltr -- ^ Left to right
   | Rtl -- ^ Right to left
@@ -885,6 +907,18 @@ prettyVal expr =
     VFunction _ _ _ -> mempty
     VLabel t -> text $ "<" <> t <> ">"
     VCounter _ -> mempty
+    VStroke s ->
+      -- Matches typst's Repr for Stroke: only the "simple stroke" forms
+      -- exist as long as dash, cap, join, and miter-limit are unsupported.
+      case (paint s, thickness s) of
+        (Just p, Just t) ->
+          prettyVal (VLength t) <> " + " <> prettyVal (VColor p)
+        (Just p, Nothing) -> prettyVal (VColor p)
+        (Nothing, Just t) -> prettyVal (VLength t)
+        (Nothing, Nothing) ->
+          prettyVal (VLength (LExact 1.0 LPt))
+            <> " + "
+            <> prettyVal (VColor (RGB 0 0 0 1))
     VColor (RGB r g b o) ->
       "rgb("
         <> text (toPercent r)

@@ -91,6 +91,5 @@ document(body: { text(body: [
                                                 end: (50.0pt, 
                                                       0.0pt)), 
                                     curve.close(mode: "straight")), 
-                       stroke: (thickness: 2.0pt,
-                                color: rgb(100%,25%,21%,100%))), 
+                       stroke: 2.0pt + rgb(100%,25%,21%,100%)), 
                  parbreak() })
