@@ -403,7 +403,7 @@
            (FuncCall
               (Ident (Identifier "repr"))
               [ NormalArg (FuncCall (Ident (Identifier "stroke")) []) ])
-       , NormalArg (Literal (String "1.0pt + rgb(0%,0%,0%,100%)"))
+       , NormalArg (Literal (String "1pt + black"))
        ])
 , ParBreak
 ]

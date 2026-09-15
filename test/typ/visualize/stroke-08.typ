@@ -32,4 +32,4 @@
 #test(repr(2pt + red), "2.0pt + rgb(100%,25%,21%,100%)")
 #test(repr(stroke(red)), "rgb(100%,25%,21%,100%)")
 #test(repr(stroke(2pt)), "2.0pt")
-#test(repr(stroke()), "1.0pt + rgb(0%,0%,0%,100%)")
+#test(repr(stroke()), "1pt + black")

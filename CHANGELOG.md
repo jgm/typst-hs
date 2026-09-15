@@ -14,8 +14,8 @@
     + `length + color` now evaluates to a stroke value instead of a
       dictionary.
     + `repr` renders strokes in Typst's simple-stroke forms
-      (`thickness + paint`, a bare color, a bare length, or a default
-      1pt black stroke when fully unset).
+      (`thickness + paint`, a bare color, a bare length, or
+      `1pt + black` when fully unset).
 
 ## 0.11.0.1
 

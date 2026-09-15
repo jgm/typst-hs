@@ -915,10 +915,9 @@ prettyVal expr =
           prettyVal (VLength t) <> " + " <> prettyVal (VColor p)
         (Just p, Nothing) -> prettyVal (VColor p)
         (Nothing, Just t) -> prettyVal (VLength t)
-        (Nothing, Nothing) ->
-          prettyVal (VLength (LExact 1.0 LPt))
-            <> " + "
-            <> prettyVal (VColor (RGB 0 0 0 1))
+        -- typst hardcodes "1pt + black" for the fully-auto stroke
+        -- (stroke.rs), even though that repr denotes explicit fields.
+        (Nothing, Nothing) -> "1pt + black"
     VColor (RGB r g b o) ->
       "rgb("
         <> text (toPercent r)
