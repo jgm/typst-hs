@@ -154,6 +154,11 @@ getMethod updateVal val fld = do
             CMYK c m y k -> CMYK (1 - c) (1 - m) (1 - y) k
             Luma x -> Luma (1 - x)
         _ -> noMethod "Color" fld
+    VStroke s ->
+      case fld of
+        "paint" -> pure $ maybe VAuto VColor (paint s)
+        "thickness" -> pure $ maybe VAuto VLength (thickness s)
+        _ -> noMethod "Stroke" fld
     VString t -> do
       let toPos n =
             if n < 0

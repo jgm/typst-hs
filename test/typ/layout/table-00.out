@@ -94,6 +94,5 @@ document(body: { text(body: [
                                  1.0fr, 
                                  1.0fr), 
                        fill: , 
-                       stroke: (thickness: 2.0pt,
-                                color: rgb(1%,1%,1%,100%))), 
+                       stroke: 2.0pt + rgb(1%,1%,1%,100%)), 
                  parbreak() })

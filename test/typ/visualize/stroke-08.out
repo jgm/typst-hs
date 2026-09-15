@@ -1,0 +1,491 @@
+--- parse tree ---
+[ Comment
+, ParBreak
+, Code
+    "typ/visualize/stroke-08.typ"
+    ( line 3 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FieldAccess
+              (Ident (Identifier "paint"))
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ NormalArg
+                     (Plus (Literal (Numeric 2.0 Pt)) (Ident (Identifier "red")))
+                 ]))
+       , NormalArg (Ident (Identifier "red"))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-08.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FieldAccess
+              (Ident (Identifier "thickness"))
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ NormalArg
+                     (Plus (Literal (Numeric 2.0 Pt)) (Ident (Identifier "red")))
+                 ]))
+       , NormalArg (Literal (Numeric 2.0 Pt))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-08.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FieldAccess
+              (Ident (Identifier "thickness"))
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ KeyValArg (Identifier "paint") (Ident (Identifier "blue")) ]))
+       , NormalArg (Literal Auto)
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-08.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FieldAccess
+              (Ident (Identifier "paint"))
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ NormalArg (Literal (Numeric 3.0 Pt)) ]))
+       , NormalArg (Literal Auto)
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-08.typ"
+    ( line 7 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FieldAccess
+              (Ident (Identifier "paint"))
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ NormalArg (Ident (Identifier "red")) ]))
+       , NormalArg (Ident (Identifier "red"))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-08.typ"
+    ( line 8 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FieldAccess
+              (Ident (Identifier "thickness"))
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ NormalArg (Literal (Numeric 3.0 Pt)) ]))
+       , NormalArg (Literal (Numeric 3.0 Pt))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-08.typ"
+    ( line 9 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FieldAccess
+              (Ident (Identifier "paint"))
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ KeyValArg (Identifier "paint") (Literal Auto) ]))
+       , NormalArg (Literal Auto)
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-08.typ"
+    ( line 10 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FieldAccess
+              (Ident (Identifier "thickness"))
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ KeyValArg (Identifier "thickness") (Literal Auto) ]))
+       , NormalArg (Literal Auto)
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-08.typ"
+    ( line 11 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FieldAccess
+              (Ident (Identifier "paint"))
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ NormalArg
+                     (Dict [ Reg ( Ident (Identifier "paint") , Literal Auto ) ])
+                 ]))
+       , NormalArg (Literal Auto)
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-08.typ"
+    ( line 12 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FieldAccess
+              (Ident (Identifier "thickness"))
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ NormalArg
+                     (Dict
+                        [ Reg ( Ident (Identifier "thickness") , Literal (Numeric 2.0 Pt) )
+                        ])
+                 ]))
+       , NormalArg (Literal (Numeric 2.0 Pt))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-08.typ"
+    ( line 13 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FieldAccess
+              (Ident (Identifier "paint"))
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ NormalArg
+                     (Dict
+                        [ Reg ( Ident (Identifier "paint") , Ident (Identifier "blue") )
+                        , Reg ( Ident (Identifier "thickness") , Literal (Numeric 2.0 Pt) )
+                        ])
+                 ]))
+       , NormalArg (Ident (Identifier "blue"))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-08.typ"
+    ( line 14 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FieldAccess
+              (Ident (Identifier "paint"))
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ NormalArg
+                     (FuncCall
+                        (Ident (Identifier "stroke"))
+                        [ KeyValArg (Identifier "paint") (Ident (Identifier "red")) ])
+                 ]))
+       , NormalArg (Ident (Identifier "red"))
+       ])
+, ParBreak
+, Code
+    "typ/visualize/stroke-08.typ"
+    ( line 16 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FieldAccess
+              (Ident (Identifier "paint"))
+              (Plus (Literal (Numeric 1.0 Pt)) (Ident (Identifier "red"))))
+       , NormalArg (Ident (Identifier "red"))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-08.typ"
+    ( line 17 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FieldAccess
+              (Ident (Identifier "thickness"))
+              (Plus (Literal (Numeric 1.0 Pt)) (Ident (Identifier "red"))))
+       , NormalArg (Literal (Numeric 1.0 Pt))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-08.typ"
+    ( line 18 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FieldAccess
+              (Ident (Identifier "paint"))
+              (Plus (Ident (Identifier "red")) (Literal (Numeric 1.0 Pt))))
+       , NormalArg (Ident (Identifier "red"))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-08.typ"
+    ( line 19 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FieldAccess
+              (Ident (Identifier "thickness"))
+              (Plus (Ident (Identifier "red")) (Literal (Numeric 1.0 Pt))))
+       , NormalArg (Literal (Numeric 1.0 Pt))
+       ])
+, ParBreak
+, Code
+    "typ/visualize/stroke-08.typ"
+    ( line 21 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Equals
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ NormalArg (Literal (Numeric 1.0 Pt)) ])
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ NormalArg (Literal (Numeric 1.0 Pt)) ]))
+       , NormalArg (Literal (Boolean True))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-08.typ"
+    ( line 22 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Equals
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ NormalArg (Literal (Numeric 1.0 Pt)) ])
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ NormalArg (Literal (Numeric 2.0 Pt)) ]))
+       , NormalArg (Literal (Boolean False))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-08.typ"
+    ( line 23 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Equals
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ NormalArg (Literal (Numeric 1.0 Pt)) ])
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ NormalArg (Ident (Identifier "red")) ]))
+       , NormalArg (Literal (Boolean False))
+       ])
+, SoftBreak
+, Comment
+, SoftBreak
+, Code
+    "typ/visualize/stroke-08.typ"
+    ( line 25 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Equals
+              (FuncCall (Ident (Identifier "stroke")) [])
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ KeyValArg (Identifier "paint") (Ident (Identifier "black")) ]))
+       , NormalArg (Literal (Boolean False))
+       ])
+, ParBreak
+, Code
+    "typ/visualize/stroke-08.typ"
+    ( line 27 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "type"))
+              [ NormalArg
+                  (FuncCall
+                     (Ident (Identifier "stroke"))
+                     [ NormalArg (Literal (Numeric 1.0 Pt)) ])
+              ])
+       , NormalArg (Literal (String "stroke"))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-08.typ"
+    ( line 28 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "type"))
+              [ NormalArg
+                  (FuncCall
+                     (Ident (Identifier "stroke"))
+                     [ NormalArg (Literal (Numeric 1.0 Pt)) ])
+              ])
+       , NormalArg (Ident (Identifier "stroke"))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-08.typ"
+    ( line 29 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "type"))
+              [ NormalArg
+                  (Plus (Literal (Numeric 1.0 Pt)) (Ident (Identifier "red")))
+              ])
+       , NormalArg (Ident (Identifier "stroke"))
+       ])
+, ParBreak
+, Comment
+, SoftBreak
+, Code
+    "typ/visualize/stroke-08.typ"
+    ( line 32 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "repr"))
+              [ NormalArg
+                  (Plus (Literal (Numeric 2.0 Pt)) (Ident (Identifier "red")))
+              ])
+       , NormalArg (Literal (String "2.0pt + rgb(100%,25%,21%,100%)"))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-08.typ"
+    ( line 33 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "repr"))
+              [ NormalArg
+                  (FuncCall
+                     (Ident (Identifier "stroke"))
+                     [ NormalArg (Ident (Identifier "red")) ])
+              ])
+       , NormalArg (Literal (String "rgb(100%,25%,21%,100%)"))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-08.typ"
+    ( line 34 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "repr"))
+              [ NormalArg
+                  (FuncCall
+                     (Ident (Identifier "stroke"))
+                     [ NormalArg (Literal (Numeric 2.0 Pt)) ])
+              ])
+       , NormalArg (Literal (String "2.0pt"))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-08.typ"
+    ( line 35 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "repr"))
+              [ NormalArg (FuncCall (Ident (Identifier "stroke")) []) ])
+       , NormalArg (Literal (String "1pt + black"))
+       ])
+, ParBreak
+]
+--- evaluated ---
+document(body: { parbreak(), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 parbreak(), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 parbreak(), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 parbreak(), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 parbreak(), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 parbreak() })

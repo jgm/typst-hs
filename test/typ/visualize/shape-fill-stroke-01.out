@@ -119,6 +119,5 @@ document(body: { text(body: [
 ]), 
                  box(body: square(fill: rgb(22%,80%,80%,100%), 
                                   size: 10.0pt, 
-                                  stroke: (thickness: 2.0pt,
-                                           color: rgb(0%,45%,85%,100%)))), 
+                                  stroke: 2.0pt + rgb(0%,45%,85%,100%))), 
                  parbreak() })
