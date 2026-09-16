@@ -15,7 +15,8 @@
 #test(stroke(1pt + red).join, auto)
 #test(stroke(1pt + red).miter-limit, auto)
 
-// a named argument overrides the base, and auto resets it
+// a named argument overrides the base, and auto resets it; combining a
+// base with named arguments is a typst-hs extension
 #test(stroke(stroke(cap: "round")).cap, "round")
 #test(stroke(stroke(cap: "round"), cap: auto).cap, auto)
 #test(stroke((cap: "round"), join: "bevel").join, "bevel")
@@ -47,11 +48,18 @@
 #test(repr((1pt + red) + stroke(cap: "round")), "(paint: rgb(100%,25%,21%,100%), thickness: 1.0pt, cap: \"round\")")
 #test(repr(stroke(cap: "round") + stroke(join: "bevel")), "(cap: \"round\", join: \"bevel\")")
 #test(repr(stroke(cap: "round") + stroke(cap: "square")), "(cap: \"square\")")
+#test(repr(stroke(paint: red, cap: "round") + stroke(paint: blue)), "(paint: rgb(0%,45%,85%,100%), cap: \"round\")")
+#test((2pt + red) + 3pt == 3pt + red, true)
+// likewise with the stroke as the right operand
+#test(repr(blue + stroke(2pt)), "2.0pt + rgb(0%,45%,85%,100%)")
+#test(repr(blue + stroke(2pt, paint: red)), "2.0pt + rgb(100%,25%,21%,100%)")
+#test(repr(2pt + stroke(paint: red)), "2.0pt + rgb(100%,25%,21%,100%)")
+#test(repr(2pt + stroke(3pt, cap: "round")), "(thickness: 3.0pt, cap: \"round\")")
 
 // typst-hs leniency, accepted though typst rejects it: `none` resets a
-// field like `auto`, unknown dictionary keys are ignored (including
-// `dash`, until it is supported), and any string or number works for
-// cap, join, and miter-limit.
+// field like `auto`, and any string or number works for cap, join, and
+// miter-limit. Unknown dictionary keys are ignored, and `dash` values
+// are dropped until dash is supported (typst accepts them).
 #test(stroke(paint: none).paint, auto)
 #test(stroke(1pt + red, paint: none).paint, auto)
 #test(stroke((paint: none)).paint, auto)
@@ -60,5 +68,5 @@
 #test(stroke(miter-limit: 250%).miter-limit, 2.5)
 #test(stroke((cap: "round", bogus: 1)).cap, "round")
 #test(stroke((dash: "dashed")).cap, auto)
-#test(repr(stroke(paint: red, cap: "round") + stroke(paint: blue)), "(paint: rgb(0%,45%,85%,100%), cap: \"round\")")
-#test((2pt + red) + 3pt == 3pt + red, true)
+#test(repr(stroke(dash: "dashed")), "1pt + black")
+#test(repr(stroke(2pt, dash: "dashed")), "2.0pt")

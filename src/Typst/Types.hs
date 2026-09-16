@@ -490,6 +490,10 @@ instance Summable Val where
   maybePlus (VStroke s) (VColor c) = pure $ VStroke s { paint = Just c }
   maybePlus (VStroke s) (VLength l) = pure $ VStroke s { thickness = Just l }
   maybePlus (VStroke s1) (VStroke s2) = pure $ VStroke $ mergeStrokes s1 s2
+  maybePlus (VColor c) (VStroke s) =
+    pure $ VStroke $ mergeStrokes (emptyStroke { paint = Just c }) s
+  maybePlus (VLength l) (VStroke s) =
+    pure $ VStroke $ mergeStrokes (emptyStroke { thickness = Just l }) s
   maybePlus v1 v2 = fail $ "could not add " <> show v1 <> " and " <> show v2
   -- Typst has no color - length or stroke - length; block the default
   -- negate-and-add, which would otherwise produce a stroke with
