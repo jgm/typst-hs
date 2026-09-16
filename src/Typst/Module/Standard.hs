@@ -565,7 +565,13 @@ strokeConstructor =
         _ -> fail "expected stroke, color, length, or dictionary"
     -- getNamed (not namedArg) so an explicit `none` is distinguishable
     -- from an absent argument; like `auto`, it resets the field.
-    -- (typst errors on `none` here.)
+    -- (typst errors on `none` here, and rejects combining a base with
+    -- named arguments.)
+    --
+    -- This can't be reduced to `mergeStrokes base <$> strokeFromDict
+    -- named`: mergeStrokes falls back to the base field when a named
+    -- argument is explicitly none or auto, so a reset would silently
+    -- become an inherit.
     mbPaint <- getNamed "paint"
     mbThickness <- getNamed "thickness"
     mbCap <- getNamed "cap"
