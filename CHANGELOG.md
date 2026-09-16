@@ -11,10 +11,14 @@
       fields return `auto` on field access.
     + `stroke()` constructor accepting a stroke, color, length, or
       dictionary, plus named arguments for the fields above.
+      Extension beyond typst: named arguments may also be combined
+      with a positional base, overriding its fields (typst rejects
+      the combination).
     + `length + color` now evaluates to a stroke value instead of a
-      dictionary. As an extension beyond typst, adding a color,
-      length, or stroke to a stroke refines or merges the
-      corresponding fields (in typst only `length + color` and
+      dictionary. As an extension beyond typst, a stroke may also be
+      added to a color, length, or stroke, on either side of the
+      operator, with the right operand's set fields taking
+      precedence (in typst only `length + color` and
       `color + length` are defined).
     + `repr` renders strokes in typst's forms: the simple-stroke
       forms (`thickness + paint`, a bare color, a bare length, or
