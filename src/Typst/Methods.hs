@@ -158,6 +158,9 @@ getMethod updateVal val fld = do
       case fld of
         "paint" -> pure $ maybe VAuto VColor (paint s)
         "thickness" -> pure $ maybe VAuto VLength (thickness s)
+        "cap" -> pure $ maybe VAuto VString (cap s)
+        "join" -> pure $ maybe VAuto VString (join s)
+        "miter-limit" -> pure $ maybe VAuto VFloat (miterLimit s)
         _ -> noMethod "Stroke" fld
     VString t -> do
       let toPos n =

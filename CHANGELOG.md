@@ -2,6 +2,17 @@
 
 ## Unreleased
 
+  * Add support for the `cap`, `join`, and `miter-limit` stroke fields
+    [API change: the `Stroke` record gains three fields]:
+
+    + `stroke()` constructor, dictionaries, and field access for the
+      new fields; unset fields return `auto`.
+    + `repr` uses typst's parenthesized stroke form when any of these
+      fields is set, listing the set fields in typst's order.
+    + Extension beyond typst: adding a color, length, or stroke to a
+      stroke refines or merges the corresponding fields (in typst only
+      `length + color` and `color + length` are defined).
+
   * Add support for the stroke type (#76) [API change: adds `VStroke` to
     `Val` and `TStroke` to `ValType`]:
 

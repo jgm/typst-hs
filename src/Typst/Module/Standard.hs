@@ -567,6 +567,9 @@ strokeConstructor =
     -- with an absent argument; typst errors on e.g. `paint: none`.
     mbPaint <- getNamed "paint"
     mbThickness <- getNamed "thickness"
+    mbCap <- getNamed "cap"
+    mbJoin <- getNamed "join"
+    mbMiterLimit <- getNamed "miter-limit"
     -- A named argument overrides the base field; auto resets it.
     let override get f mb = case mb of
           Nothing -> pure (get base)
@@ -574,7 +577,18 @@ strokeConstructor =
           Just v -> Just <$> f v
     paint <- override paint asColor mbPaint
     thickness <- override thickness asLength mbThickness
-    pure $ VStroke $ Stroke paint thickness
+    cap <- override cap asLineCap mbCap
+    join <- override join asLineJoin mbJoin
+    miterLimit <- override miterLimit asMiterLimit mbMiterLimit
+    pure $
+      VStroke $
+        emptyStroke
+          { paint = paint,
+            thickness = thickness,
+            cap = cap,
+            join = join,
+            miterLimit = miterLimit
+          }
 
 loremWords :: [Text]
 loremWords =
@@ -779,14 +793,24 @@ strokeFromDict m = do
         Just v -> Just <$> f v
   paint <- field "paint" asColor
   thickness <- field "thickness" asLength
+  cap <- field "cap" asLineCap
+  join <- field "join" asLineJoin
+  miterLimit <- field "miter-limit" asMiterLimit
   -- typst errors on unexpected keys (dict.finish in stroke.rs)
   case filter (`notElem` knownStrokeKeys) (map fst (OM.assocs m)) of
     [] -> pure ()
     (Identifier k : _) -> fail $ "unexpected key: " <> T.unpack k
-  pure $ Stroke paint thickness
+  pure $
+    emptyStroke
+      { paint = paint,
+        thickness = thickness,
+        cap = cap,
+        join = join,
+        miterLimit = miterLimit
+      }
 
 knownStrokeKeys :: [Identifier]
-knownStrokeKeys = ["paint", "thickness"]
+knownStrokeKeys = ["paint", "thickness", "cap", "join", "miter-limit"]
 
 asColor :: MonadFail m => Val -> m Color
 asColor (VColor c) = pure c
@@ -795,3 +819,19 @@ asColor _ = fail "paint must be a color"
 asLength :: MonadFail m => Val -> m Length
 asLength (VLength l) = pure l
 asLength _ = fail "thickness must be a length"
+
+asLineCap :: MonadFail m => Val -> m Text
+asLineCap (VString s)
+  | s `elem` (["butt", "round", "square"] :: [Text]) = pure s
+asLineCap _ = fail "cap must be \"butt\", \"round\", or \"square\""
+
+asLineJoin :: MonadFail m => Val -> m Text
+asLineJoin (VString s)
+  | s `elem` (["miter", "round", "bevel"] :: [Text]) = pure s
+asLineJoin _ = fail "join must be \"miter\", \"round\", or \"bevel\""
+
+-- typst accepts an int or float here, but not a ratio.
+asMiterLimit :: MonadFail m => Val -> m Double
+asMiterLimit (VFloat x) = pure x
+asMiterLimit (VInteger x) = pure (fromIntegral x)
+asMiterLimit _ = fail "miter-limit must be an integer or float"

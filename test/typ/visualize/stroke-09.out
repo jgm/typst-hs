@@ -1,0 +1,777 @@
+--- parse tree ---
+[ Comment
+, ParBreak
+, Comment
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 4 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FieldAccess
+              (Ident (Identifier "cap"))
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ KeyValArg (Identifier "cap") (Literal (String "round")) ]))
+       , NormalArg (Literal (String "round"))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 5 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FieldAccess
+              (Ident (Identifier "join"))
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ KeyValArg (Identifier "join") (Literal (String "bevel")) ]))
+       , NormalArg (Literal (String "bevel"))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 6 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FieldAccess
+              (Ident (Identifier "miter-limit"))
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ KeyValArg (Identifier "miter-limit") (Literal (Float 2.5)) ]))
+       , NormalArg (Literal (Float 2.5))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 7 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FieldAccess
+              (Ident (Identifier "miter-limit"))
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ KeyValArg (Identifier "miter-limit") (Literal (Int 4)) ]))
+       , NormalArg (Literal (Float 4.0))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 8 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "type"))
+              [ NormalArg
+                  (FieldAccess
+                     (Ident (Identifier "cap"))
+                     (FuncCall
+                        (Ident (Identifier "stroke"))
+                        [ KeyValArg (Identifier "cap") (Literal (String "round")) ]))
+              ])
+       , NormalArg (Literal (String "string"))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 9 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "type"))
+              [ NormalArg
+                  (FieldAccess
+                     (Ident (Identifier "miter-limit"))
+                     (FuncCall
+                        (Ident (Identifier "stroke"))
+                        [ KeyValArg (Identifier "miter-limit") (Literal (Float 2.5)) ]))
+              ])
+       , NormalArg (Literal (String "float"))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 10 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FieldAccess
+              (Ident (Identifier "cap"))
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ NormalArg
+                     (Dict
+                        [ Reg ( Ident (Identifier "cap") , Literal (String "square") )
+                        , Reg ( Ident (Identifier "miter-limit") , Literal (Float 2.0) )
+                        ])
+                 ]))
+       , NormalArg (Literal (String "square"))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 11 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FieldAccess
+              (Ident (Identifier "join"))
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ NormalArg
+                     (Dict
+                        [ Reg ( Ident (Identifier "join") , Literal (String "round") ) ])
+                 ]))
+       , NormalArg (Literal (String "round"))
+       ])
+, ParBreak
+, Comment
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 14 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FieldAccess
+              (Ident (Identifier "cap"))
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ NormalArg
+                     (Plus (Literal (Numeric 1.0 Pt)) (Ident (Identifier "red")))
+                 ]))
+       , NormalArg (Literal Auto)
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 15 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FieldAccess
+              (Ident (Identifier "join"))
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ NormalArg
+                     (Plus (Literal (Numeric 1.0 Pt)) (Ident (Identifier "red")))
+                 ]))
+       , NormalArg (Literal Auto)
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 16 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FieldAccess
+              (Ident (Identifier "miter-limit"))
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ NormalArg
+                     (Plus (Literal (Numeric 1.0 Pt)) (Ident (Identifier "red")))
+                 ]))
+       , NormalArg (Literal Auto)
+       ])
+, ParBreak
+, Comment
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 19 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FieldAccess
+              (Ident (Identifier "cap"))
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ NormalArg
+                     (FuncCall
+                        (Ident (Identifier "stroke"))
+                        [ KeyValArg (Identifier "cap") (Literal (String "round")) ])
+                 ]))
+       , NormalArg (Literal (String "round"))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 20 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FieldAccess
+              (Ident (Identifier "cap"))
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ NormalArg
+                     (FuncCall
+                        (Ident (Identifier "stroke"))
+                        [ KeyValArg (Identifier "cap") (Literal (String "round")) ])
+                 , KeyValArg (Identifier "cap") (Literal Auto)
+                 ]))
+       , NormalArg (Literal Auto)
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 21 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FieldAccess
+              (Ident (Identifier "join"))
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ NormalArg
+                     (Dict
+                        [ Reg ( Ident (Identifier "cap") , Literal (String "round") ) ])
+                 , KeyValArg (Identifier "join") (Literal (String "bevel"))
+                 ]))
+       , NormalArg (Literal (String "bevel"))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 22 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FieldAccess
+              (Ident (Identifier "cap"))
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ NormalArg
+                     (Dict [ Reg ( Ident (Identifier "cap") , Literal Auto ) ])
+                 ]))
+       , NormalArg (Literal Auto)
+       ])
+, ParBreak
+, Comment
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 25 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Equals
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ KeyValArg (Identifier "cap") (Literal (String "round")) ])
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ KeyValArg (Identifier "cap") (Literal (String "round")) ]))
+       , NormalArg (Literal (Boolean True))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 26 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Equals
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ KeyValArg (Identifier "cap") (Literal (String "round")) ])
+              (FuncCall (Ident (Identifier "stroke")) []))
+       , NormalArg (Literal (Boolean False))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 27 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Equals
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ KeyValArg (Identifier "join") (Literal (String "bevel")) ])
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ KeyValArg (Identifier "join") (Literal (String "round")) ]))
+       , NormalArg (Literal (Boolean False))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 28 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Equals
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ KeyValArg (Identifier "miter-limit") (Literal (Int 4)) ])
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ KeyValArg (Identifier "miter-limit") (Literal (Float 4.0)) ]))
+       , NormalArg (Literal (Boolean True))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 29 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Equals
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ KeyValArg (Identifier "miter-limit") (Literal (Int 4)) ])
+              (FuncCall (Ident (Identifier "stroke")) []))
+       , NormalArg (Literal (Boolean False))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 30 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Equals
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ KeyValArg (Identifier "cap") (Literal (String "round"))
+                 , KeyValArg (Identifier "join") (Literal (String "bevel"))
+                 ])
+              (FuncCall
+                 (Ident (Identifier "stroke"))
+                 [ KeyValArg (Identifier "join") (Literal (String "bevel"))
+                 , KeyValArg (Identifier "cap") (Literal (String "round"))
+                 ]))
+       , NormalArg (Literal (Boolean True))
+       ])
+, ParBreak
+, Comment
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 33 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "repr"))
+              [ NormalArg
+                  (FuncCall
+                     (Ident (Identifier "stroke"))
+                     [ KeyValArg (Identifier "cap") (Literal (String "round")) ])
+              ])
+       , NormalArg (Literal (String "(cap: \"round\")"))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 34 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "repr"))
+              [ NormalArg
+                  (FuncCall
+                     (Ident (Identifier "stroke"))
+                     [ KeyValArg (Identifier "join") (Literal (String "bevel")) ])
+              ])
+       , NormalArg (Literal (String "(join: \"bevel\")"))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 35 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "repr"))
+              [ NormalArg
+                  (FuncCall
+                     (Ident (Identifier "stroke"))
+                     [ KeyValArg (Identifier "miter-limit") (Literal (Float 3.0)) ])
+              ])
+       , NormalArg (Literal (String "(miter-limit: 3.0)"))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 36 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "repr"))
+              [ NormalArg
+                  (FuncCall
+                     (Ident (Identifier "stroke"))
+                     [ KeyValArg (Identifier "miter-limit") (Literal (Int 4)) ])
+              ])
+       , NormalArg (Literal (String "(miter-limit: 4.0)"))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 37 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "repr"))
+              [ NormalArg
+                  (FuncCall
+                     (Ident (Identifier "stroke"))
+                     [ KeyValArg (Identifier "paint") (Ident (Identifier "red"))
+                     , KeyValArg (Identifier "cap") (Literal (String "round"))
+                     ])
+              ])
+       , NormalArg
+           (Literal
+              (String "(paint: rgb(100%,25%,21%,100%), cap: \"round\")"))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 38 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "repr"))
+              [ NormalArg
+                  (FuncCall
+                     (Ident (Identifier "stroke"))
+                     [ KeyValArg (Identifier "thickness") (Literal (Numeric 2.0 Pt))
+                     , KeyValArg (Identifier "miter-limit") (Literal (Float 4.0))
+                     ])
+              ])
+       , NormalArg
+           (Literal (String "(thickness: 2.0pt, miter-limit: 4.0)"))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 39 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "repr"))
+              [ NormalArg
+                  (FuncCall
+                     (Ident (Identifier "stroke"))
+                     [ NormalArg
+                         (Dict
+                            [ Reg ( Ident (Identifier "paint") , Ident (Identifier "red") )
+                            , Reg ( Ident (Identifier "cap") , Literal (String "round") )
+                            , Reg ( Ident (Identifier "miter-limit") , Literal (Float 2.0) )
+                            , Reg ( Ident (Identifier "thickness") , Literal (Numeric 1.0 Pt) )
+                            ])
+                     ])
+              ])
+       , NormalArg
+           (Literal
+              (String
+                 "(paint: rgb(100%,25%,21%,100%), thickness: 1.0pt, cap: \"round\", miter-limit: 2.0)"))
+       ])
+, SoftBreak
+, Comment
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 41 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "repr"))
+              [ NormalArg
+                  (FuncCall
+                     (Ident (Identifier "stroke"))
+                     [ NormalArg
+                         (Plus (Literal (Numeric 1.0 Pt)) (Ident (Identifier "red")))
+                     ])
+              ])
+       , NormalArg (Literal (String "1.0pt + rgb(100%,25%,21%,100%)"))
+       ])
+, ParBreak
+, Comment
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 44 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "repr"))
+              [ NormalArg
+                  (Plus
+                     (Plus (Literal (Numeric 2.0 Pt)) (Ident (Identifier "red")))
+                     (Ident (Identifier "blue")))
+              ])
+       , NormalArg (Literal (String "2.0pt + rgb(0%,45%,85%,100%)"))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 45 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "repr"))
+              [ NormalArg
+                  (Plus
+                     (Plus (Literal (Numeric 2.0 Pt)) (Ident (Identifier "red")))
+                     (Literal (Numeric 3.0 Pt)))
+              ])
+       , NormalArg (Literal (String "3.0pt + rgb(100%,25%,21%,100%)"))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 46 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "repr"))
+              [ NormalArg
+                  (Plus
+                     (FuncCall
+                        (Ident (Identifier "stroke"))
+                        [ KeyValArg (Identifier "cap") (Literal (String "round")) ])
+                     (Literal (Numeric 2.0 Pt)))
+              ])
+       , NormalArg (Literal (String "(thickness: 2.0pt, cap: \"round\")"))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 47 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "repr"))
+              [ NormalArg
+                  (Plus
+                     (Plus (Literal (Numeric 1.0 Pt)) (Ident (Identifier "red")))
+                     (FuncCall
+                        (Ident (Identifier "stroke"))
+                        [ KeyValArg (Identifier "cap") (Literal (String "round")) ]))
+              ])
+       , NormalArg
+           (Literal
+              (String
+                 "(paint: rgb(100%,25%,21%,100%), thickness: 1.0pt, cap: \"round\")"))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 48 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "repr"))
+              [ NormalArg
+                  (Plus
+                     (FuncCall
+                        (Ident (Identifier "stroke"))
+                        [ KeyValArg (Identifier "cap") (Literal (String "round")) ])
+                     (FuncCall
+                        (Ident (Identifier "stroke"))
+                        [ KeyValArg (Identifier "join") (Literal (String "bevel")) ]))
+              ])
+       , NormalArg (Literal (String "(cap: \"round\", join: \"bevel\")"))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 49 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "repr"))
+              [ NormalArg
+                  (Plus
+                     (FuncCall
+                        (Ident (Identifier "stroke"))
+                        [ KeyValArg (Identifier "cap") (Literal (String "round")) ])
+                     (FuncCall
+                        (Ident (Identifier "stroke"))
+                        [ KeyValArg (Identifier "cap") (Literal (String "square")) ]))
+              ])
+       , NormalArg (Literal (String "(cap: \"square\")"))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 50 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (FuncCall
+              (Ident (Identifier "repr"))
+              [ NormalArg
+                  (Plus
+                     (FuncCall
+                        (Ident (Identifier "stroke"))
+                        [ KeyValArg (Identifier "paint") (Ident (Identifier "red"))
+                        , KeyValArg (Identifier "cap") (Literal (String "round"))
+                        ])
+                     (FuncCall
+                        (Ident (Identifier "stroke"))
+                        [ KeyValArg (Identifier "paint") (Ident (Identifier "blue")) ]))
+              ])
+       , NormalArg
+           (Literal (String "(paint: rgb(0%,45%,85%,100%), cap: \"round\")"))
+       ])
+, SoftBreak
+, Code
+    "typ/visualize/stroke-09.typ"
+    ( line 51 , column 2 )
+    (FuncCall
+       (Ident (Identifier "test"))
+       [ NormalArg
+           (Equals
+              (Plus
+                 (Plus (Literal (Numeric 2.0 Pt)) (Ident (Identifier "red")))
+                 (Literal (Numeric 3.0 Pt)))
+              (Plus (Literal (Numeric 3.0 Pt)) (Ident (Identifier "red"))))
+       , NormalArg (Literal (Boolean True))
+       ])
+, ParBreak
+]
+--- evaluated ---
+document(body: { parbreak(), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 parbreak(), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 parbreak(), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 parbreak(), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 parbreak(), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 parbreak(), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
+                 parbreak() })
