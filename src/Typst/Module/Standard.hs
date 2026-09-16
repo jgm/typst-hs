@@ -563,17 +563,19 @@ strokeConstructor =
         VLength l -> pure emptyStroke { thickness = Just l }
         VDict m -> strokeFromDict m
         _ -> fail "expected stroke, color, length, or dictionary"
-    -- getNamed (not namedArg) so an explicit `none` is not conflated
-    -- with an absent argument; typst errors on e.g. `paint: none`.
+    -- getNamed (not namedArg) so an explicit `none` is distinguishable
+    -- from an absent argument; like `auto`, it resets the field.
+    -- (typst errors on `none` here.)
     mbPaint <- getNamed "paint"
     mbThickness <- getNamed "thickness"
     mbCap <- getNamed "cap"
     mbJoin <- getNamed "join"
     mbMiterLimit <- getNamed "miter-limit"
-    -- A named argument overrides the base field; auto resets it.
+    -- A named argument overrides the base field; auto or none resets it.
     let override get f mb = case mb of
           Nothing -> pure (get base)
           Just VAuto -> pure Nothing
+          Just VNone -> pure Nothing
           Just v -> Just <$> f v
     paint <- override paint asColor mbPaint
     thickness <- override thickness asLength mbThickness
@@ -790,16 +792,15 @@ strokeFromDict m = do
   let field k f = case OM.lookup k m of
         Nothing -> pure Nothing
         Just VAuto -> pure Nothing
+        Just VNone -> pure Nothing
         Just v -> Just <$> f v
   paint <- field "paint" asColor
   thickness <- field "thickness" asLength
   cap <- field "cap" asLineCap
   join <- field "join" asLineJoin
   miterLimit <- field "miter-limit" asMiterLimit
-  -- typst errors on unexpected keys (dict.finish in stroke.rs)
-  case filter (`notElem` knownStrokeKeys) (map fst (OM.assocs m)) of
-    [] -> pure ()
-    (Identifier k : _) -> fail $ "unexpected key: " <> T.unpack k
+  -- Unknown keys (e.g. `dash` until it is supported) are ignored;
+  -- typst rejects them.
   pure $
     emptyStroke
       { paint = paint,
@@ -809,9 +810,6 @@ strokeFromDict m = do
         miterLimit = miterLimit
       }
 
-knownStrokeKeys :: [Identifier]
-knownStrokeKeys = ["paint", "thickness", "cap", "join", "miter-limit"]
-
 asColor :: MonadFail m => Val -> m Color
 asColor (VColor c) = pure c
 asColor _ = fail "paint must be a color"
@@ -820,18 +818,18 @@ asLength :: MonadFail m => Val -> m Length
 asLength (VLength l) = pure l
 asLength _ = fail "thickness must be a length"
 
+-- typst only defines these for specific strings, but we accept any
+-- string (a superset of what typst accepts).
 asLineCap :: MonadFail m => Val -> m Text
-asLineCap (VString s)
-  | s `elem` (["butt", "round", "square"] :: [Text]) = pure s
-asLineCap _ = fail "cap must be \"butt\", \"round\", or \"square\""
+asLineCap (VString s) = pure s
+asLineCap _ = fail "cap must be a string"
 
 asLineJoin :: MonadFail m => Val -> m Text
-asLineJoin (VString s)
-  | s `elem` (["miter", "round", "bevel"] :: [Text]) = pure s
-asLineJoin _ = fail "join must be \"miter\", \"round\", or \"bevel\""
+asLineJoin (VString s) = pure s
+asLineJoin _ = fail "join must be a string"
 
--- typst accepts an int or float here, but not a ratio.
 asMiterLimit :: MonadFail m => Val -> m Double
 asMiterLimit (VFloat x) = pure x
 asMiterLimit (VInteger x) = pure (fromIntegral x)
-asMiterLimit _ = fail "miter-limit must be an integer or float"
+asMiterLimit (VRatio x) = pure (fromRational x)
+asMiterLimit _ = fail "miter-limit must be a number"
