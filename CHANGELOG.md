@@ -2,31 +2,24 @@
 
 ## Unreleased
 
-  * Add support for the `cap`, `join`, and `miter-limit` stroke fields
-    [API change: the `Stroke` record gains three fields]:
+  * Add support for the stroke type (#76, #107) [API change: adds
+    `VStroke` to `Val`, `TStroke` to `ValType`, and fields to the
+    `Stroke` record]:
 
-    + `stroke()` constructor, dictionaries, and field access for the
-      new fields; unset fields return `auto`.
-    + `repr` uses typst's parenthesized stroke form when any of these
-      fields is set, listing the set fields in typst's order.
-    + Extension beyond typst: adding a color, length, or stroke to a
-      stroke refines or merges the corresponding fields (in typst only
-      `length + color` and `color + length` are defined).
-
-  * Add support for the stroke type (#76) [API change: adds `VStroke` to
-    `Val` and `TStroke` to `ValType`]:
-
-    + New `VStroke` value and `stroke` type, covering Typst's
-      "simple strokes" with `paint` and `thickness` fields.
+    + New `VStroke` value and `stroke` type, with `paint`,
+      `thickness`, `cap`, `join`, and `miter-limit` fields; unset
+      fields return `auto` on field access.
     + `stroke()` constructor accepting a stroke, color, length, or
-      dictionary, plus named arguments `paint` and `thickness`.
-    + Field access on strokes (`paint`, `thickness`); unset fields
-      return `auto`.
+      dictionary, plus named arguments for the fields above.
     + `length + color` now evaluates to a stroke value instead of a
-      dictionary.
-    + `repr` renders strokes in Typst's simple-stroke forms
-      (`thickness + paint`, a bare color, a bare length, or
-      `1pt + black` when fully unset).
+      dictionary. As an extension beyond typst, adding a color,
+      length, or stroke to a stroke refines or merges the
+      corresponding fields (in typst only `length + color` and
+      `color + length` are defined).
+    + `repr` renders strokes in typst's forms: the simple-stroke
+      forms (`thickness + paint`, a bare color, a bare length, or
+      `1pt + black` when fully unset), or a parenthesized list of the
+      set fields when `cap`, `join`, or `miter-limit` is set.
 
 ## 0.11.0.1
 
