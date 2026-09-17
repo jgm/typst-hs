@@ -563,18 +563,40 @@ strokeConstructor =
         VLength l -> pure emptyStroke { thickness = Just l }
         VDict m -> strokeFromDict m
         _ -> fail "expected stroke, color, length, or dictionary"
-    -- getNamed (not namedArg) so an explicit `none` is not conflated
-    -- with an absent argument; typst errors on e.g. `paint: none`.
+    -- getNamed (not namedArg) so an explicit `none` is distinguishable
+    -- from an absent argument; like `auto`, it resets the field.
+    -- (typst errors on `none` here, and rejects combining a base with
+    -- named arguments.)
+    --
+    -- This can't be reduced to `mergeStrokes base <$> strokeFromDict
+    -- named`: mergeStrokes falls back to the base field when a named
+    -- argument is explicitly none or auto, so a reset would silently
+    -- become an inherit.
     mbPaint <- getNamed "paint"
     mbThickness <- getNamed "thickness"
-    -- A named argument overrides the base field; auto resets it.
+    mbCap <- getNamed "cap"
+    mbJoin <- getNamed "join"
+    mbMiterLimit <- getNamed "miter-limit"
+    -- A named argument overrides the base field; auto or none resets it.
     let override get f mb = case mb of
           Nothing -> pure (get base)
           Just VAuto -> pure Nothing
+          Just VNone -> pure Nothing
           Just v -> Just <$> f v
     paint <- override paint asColor mbPaint
     thickness <- override thickness asLength mbThickness
-    pure $ VStroke $ Stroke paint thickness
+    cap <- override cap asLineCap mbCap
+    join <- override join asLineJoin mbJoin
+    miterLimit <- override miterLimit asMiterLimit mbMiterLimit
+    pure $
+      VStroke $
+        emptyStroke
+          { paint = paint,
+            thickness = thickness,
+            cap = cap,
+            join = join,
+            miterLimit = miterLimit
+          }
 
 loremWords :: [Text]
 loremWords =
@@ -776,17 +798,23 @@ strokeFromDict m = do
   let field k f = case OM.lookup k m of
         Nothing -> pure Nothing
         Just VAuto -> pure Nothing
+        Just VNone -> pure Nothing
         Just v -> Just <$> f v
   paint <- field "paint" asColor
   thickness <- field "thickness" asLength
-  -- typst errors on unexpected keys (dict.finish in stroke.rs)
-  case filter (`notElem` knownStrokeKeys) (map fst (OM.assocs m)) of
-    [] -> pure ()
-    (Identifier k : _) -> fail $ "unexpected key: " <> T.unpack k
-  pure $ Stroke paint thickness
-
-knownStrokeKeys :: [Identifier]
-knownStrokeKeys = ["paint", "thickness"]
+  cap <- field "cap" asLineCap
+  join <- field "join" asLineJoin
+  miterLimit <- field "miter-limit" asMiterLimit
+  -- Unknown keys (e.g. `dash` until it is supported) are ignored;
+  -- typst rejects them.
+  pure $
+    emptyStroke
+      { paint = paint,
+        thickness = thickness,
+        cap = cap,
+        join = join,
+        miterLimit = miterLimit
+      }
 
 asColor :: MonadFail m => Val -> m Color
 asColor (VColor c) = pure c
@@ -795,3 +823,19 @@ asColor _ = fail "paint must be a color"
 asLength :: MonadFail m => Val -> m Length
 asLength (VLength l) = pure l
 asLength _ = fail "thickness must be a length"
+
+-- typst only defines these for specific strings, but we accept any
+-- string (a superset of what typst accepts).
+asLineCap :: MonadFail m => Val -> m Text
+asLineCap (VString s) = pure s
+asLineCap _ = fail "cap must be a string"
+
+asLineJoin :: MonadFail m => Val -> m Text
+asLineJoin (VString s) = pure s
+asLineJoin _ = fail "join must be a string"
+
+asMiterLimit :: MonadFail m => Val -> m Double
+asMiterLimit (VFloat x) = pure x
+asMiterLimit (VInteger x) = pure (fromIntegral x)
+asMiterLimit (VRatio x) = pure (fromRational x)
+asMiterLimit _ = fail "miter-limit must be a number"

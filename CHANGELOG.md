@@ -2,20 +2,28 @@
 
 ## Unreleased
 
-  * Add support for the stroke type (#76) [API change: adds `VStroke` to
-    `Val` and `TStroke` to `ValType`]:
+  * Add support for the stroke type (#76, #107) [API change: adds
+    `VStroke` to `Val`, `TStroke` to `ValType`, and fields to the
+    `Stroke` record]:
 
-    + New `VStroke` value and `stroke` type, covering Typst's
-      "simple strokes" with `paint` and `thickness` fields.
+    + New `VStroke` value and `stroke` type, with `paint`,
+      `thickness`, `cap`, `join`, and `miter-limit` fields; unset
+      fields return `auto` on field access.
     + `stroke()` constructor accepting a stroke, color, length, or
-      dictionary, plus named arguments `paint` and `thickness`.
-    + Field access on strokes (`paint`, `thickness`); unset fields
-      return `auto`.
+      dictionary, plus named arguments for the fields above.
+      Extension beyond typst: named arguments may also be combined
+      with a positional base, overriding its fields (typst rejects
+      the combination).
     + `length + color` now evaluates to a stroke value instead of a
-      dictionary.
-    + `repr` renders strokes in Typst's simple-stroke forms
-      (`thickness + paint`, a bare color, a bare length, or
-      `1pt + black` when fully unset).
+      dictionary. As an extension beyond typst, a stroke may also be
+      added to a color, length, or stroke, on either side of the
+      operator, with the right operand's set fields taking
+      precedence (in typst only `length + color` and
+      `color + length` are defined).
+    + `repr` renders strokes in typst's forms: the simple-stroke
+      forms (`thickness + paint`, a bare color, a bare length, or
+      `1pt + black` when fully unset), or a parenthesized list of the
+      set fields when `cap`, `join`, or `miter-limit` is set.
 
 ## 0.11.0.1
 

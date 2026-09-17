@@ -62,7 +62,7 @@ import qualified Data.Foldable as F
 import Data.Functor.Classes (Ord1 (liftCompare))
 import qualified Data.Map as M
 import qualified Data.Map.Ordered as OM
-import Data.Maybe (fromMaybe, isJust, catMaybes)
+import Data.Maybe (fromMaybe, isJust, isNothing, catMaybes)
 import Data.Scientific (floatingOrInteger)
 import Data.Sequence (Seq)
 import qualified Data.Sequence as Seq
@@ -485,10 +485,21 @@ instance Summable Val where
   maybePlus (VColor c) (VLength l) =
     pure $ VStroke $ emptyStroke { paint = Just c, thickness = Just l }
   maybePlus (VLength l) (VColor c) = maybePlus (VColor c) (VLength l)
+  -- typst-hs extension: adding to a stroke refines its fields; adding
+  -- a stroke merges per field, with the right operand taking precedence.
+  maybePlus (VStroke s) (VColor c) = pure $ VStroke s { paint = Just c }
+  maybePlus (VStroke s) (VLength l) = pure $ VStroke s { thickness = Just l }
+  maybePlus (VStroke s1) (VStroke s2) = pure $ VStroke $ mergeStrokes s1 s2
+  maybePlus (VColor c) (VStroke s) =
+    pure $ VStroke $ mergeStrokes (emptyStroke { paint = Just c }) s
+  maybePlus (VLength l) (VStroke s) =
+    pure $ VStroke $ mergeStrokes (emptyStroke { thickness = Just l }) s
   maybePlus v1 v2 = fail $ "could not add " <> show v1 <> " and " <> show v2
-  -- Typst has no color - length; block the default negate-and-add,
-  -- which would otherwise produce a stroke with negative thickness.
+  -- Typst has no color - length or stroke - length; block the default
+  -- negate-and-add, which would otherwise produce a stroke with
+  -- negative thickness.
   maybeMinus (VColor _) (VLength _) = Nothing
+  maybeMinus (VStroke _) (VLength _) = Nothing
   maybeMinus v1 v2 = maybeNegate v2 >>= maybePlus v1
 
 class Multipliable a where
@@ -842,13 +853,28 @@ data Color
 
 data Stroke = Stroke
   { paint :: !(Maybe Color), -- Nothing = auto (default: black)
-    thickness :: !(Maybe Length) -- Nothing = auto (default: 1pt)
+    thickness :: !(Maybe Length), -- Nothing = auto (default: 1pt)
+    cap :: !(Maybe Text), -- Nothing = auto (default: "butt")
+    join :: !(Maybe Text), -- Nothing = auto (default: "miter")
+    miterLimit :: !(Maybe Double) -- Nothing = auto (default: 4.0)
   }
   deriving (Show, Eq, Typeable)
 
 -- | A stroke with every field unset (auto).
 emptyStroke :: Stroke
-emptyStroke = Stroke Nothing Nothing
+emptyStroke = Stroke Nothing Nothing Nothing Nothing Nothing
+
+-- | Merge two strokes, with fields set on the second taking precedence
+-- (the same per-field semantics as typst's Fold for strokes).
+mergeStrokes :: Stroke -> Stroke -> Stroke
+mergeStrokes a b =
+  Stroke
+    { paint = paint b `mplus` paint a,
+      thickness = thickness b `mplus` thickness a,
+      cap = cap b `mplus` cap a,
+      join = join b `mplus` join a,
+      miterLimit = miterLimit b `mplus` miterLimit a
+    }
 
 data Direction 
   = Ltr -- ^ Left to right
@@ -856,6 +882,11 @@ data Direction
   | Ttb -- ^ Top to bottom
   | Btt -- ^ Bottom to top
   deriving (Show, Eq, Ord, Typeable)
+
+-- | Render a set stroke field for the parenthesized stroke repr.
+strokeField :: Text -> Maybe P.Doc -> [P.Doc]
+strokeField _ Nothing = []
+strokeField k (Just v) = [text k <> ": " <> v]
 
 prettyVal :: Val -> P.Doc
 prettyVal expr =
@@ -908,16 +939,27 @@ prettyVal expr =
     VLabel t -> text $ "<" <> t <> ">"
     VCounter _ -> mempty
     VStroke s ->
-      -- Matches typst's Repr for Stroke: only the "simple stroke" forms
-      -- exist as long as dash, cap, join, and miter-limit are unsupported.
-      case (paint s, thickness s) of
-        (Just p, Just t) ->
-          prettyVal (VLength t) <> " + " <> prettyVal (VColor p)
-        (Just p, Nothing) -> prettyVal (VColor p)
-        (Nothing, Just t) -> prettyVal (VLength t)
-        -- typst hardcodes "1pt + black" for the fully-auto stroke
-        -- (stroke.rs), even though that repr denotes explicit fields.
-        (Nothing, Nothing) -> "1pt + black"
+      -- Matches typst's Repr for Stroke: the simple stroke forms are
+      -- used when only paint and thickness are set, otherwise a
+      -- parenthesized list of the set fields, in typst's order.
+      if isNothing (cap s) && isNothing (join s) && isNothing (miterLimit s)
+        then case (paint s, thickness s) of
+          (Just p, Just t) ->
+            prettyVal (VLength t) <> " + " <> prettyVal (VColor p)
+          (Just p, Nothing) -> prettyVal (VColor p)
+          (Nothing, Just t) -> prettyVal (VLength t)
+          -- typst hardcodes "1pt + black" for the fully-auto stroke
+          -- (stroke.rs), even though that repr denotes explicit fields.
+          (Nothing, Nothing) -> "1pt + black"
+        else
+          -- hcat, so the repr is a single line as in typst
+          P.parens . P.hcat . P.punctuate ", " . concat $
+            ([ strokeField "paint" (prettyVal . VColor <$> paint s),
+               strokeField "thickness" (prettyVal . VLength <$> thickness s),
+               strokeField "cap" (prettyVal . VString <$> cap s),
+               strokeField "join" (prettyVal . VString <$> join s),
+               strokeField "miter-limit" (prettyVal . VFloat <$> miterLimit s)
+             ] :: [[P.Doc]])
     VColor (RGB r g b o) ->
       "rgb("
         <> text (toPercent r)
