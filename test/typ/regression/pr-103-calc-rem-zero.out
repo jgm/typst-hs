@@ -1,0 +1,14 @@
+--- parse tree ---
+[ Comment
+, SoftBreak
+, Code
+    "typ/regression/pr-103-calc-rem-zero.typ"
+    ( line 2 , column 2 )
+    (FuncCall
+       (FieldAccess
+          (Ident (Identifier "rem")) (Ident (Identifier "calc")))
+       [ NormalArg (Literal (Int 5)) , NormalArg (Literal (Int 0)) ])
+, ParBreak
+]
+"typ/regression/pr-103-calc-rem-zero.typ" (line 2, column 2):
+Module does not have a method "rem" or division by zero
