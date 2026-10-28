@@ -8,6 +8,9 @@
 = Short <fig>
 = Longer <fig:alpha>
 = Dotted <a.b.>
+= Run One <a..b>
+= Run Two <a.:b>
+= Run Three <a::b>
 
 Please see #ref(<my-anchor::>).
 Please see #ref(<my-anchor>).
@@ -33,3 +36,6 @@ Please see @:
 Please see @unknown:x.
 Please see @unknown:x and @unknown:y.
 Please see @a.b..
+Please see @.x and @:x.
+Please see @a..b, @a.:b, @a::b.
+Please see @a.. and @a:b:.

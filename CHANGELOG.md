@@ -7,6 +7,10 @@
 
 ## 0.12
 
+  * Match Typst shorthand reference lexing: allow colon and dot inside labels,
+    preserve trailing punctuation as text, and fall back to text for bare @
+    markers.
+
   * Support 'in' operator on modules (#106).
 
   * Return an error instead of crashing on integer division by zero (#103,

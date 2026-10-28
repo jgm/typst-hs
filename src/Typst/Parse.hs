@@ -16,6 +16,7 @@ import Data.Maybe (isJust, isNothing)
 import Data.Text (Text)
 import qualified Data.Text as T
 import Text.Parsec hiding (string)
+import Text.Parsec.Pos (updatePosString)
 import qualified Text.Parsec as P
 import Text.Parsec.Expr
 import Text.Read (readMaybe)
@@ -761,12 +762,19 @@ pLabel =
       ))
 
 pRef :: P Markup
-pRef = try $ do
-  let labelChar = satisfy isIdentContinue <|> char '_'
-      innerPunct = try (satisfy (\c -> c == '.' || c == ':') <* lookAhead labelChar)
-  target <- char '@' *> many1 (labelChar <|> innerPunct)
+pRef = do
+  let labelChar = satisfy isIdentContinue
+      labelRest = satisfy isIdentContinue <|> char '_' <|> char '.' <|> char ':'
+  target <- try (char '@' *> ((:) <$> labelChar <*> many labelRest))
   supplement <- option (Literal Auto) (Block <$> pContent)
-  pure $ Ref (T.pack target) supplement
+  let targetText = T.pack target
+      trailing = T.takeWhileEnd (\c -> c == '.' || c == ':') targetText
+      keep = T.length targetText - T.length trailing
+  pos <- getPosition
+  inp <- getInput
+  setPosition $ updatePosString pos (T.unpack (T.take keep targetText))
+  setInput $ T.drop keep targetText <> inp
+  pure $ Ref (T.take keep targetText) supplement
 
 -- "If a character would continue the expression but should be interpreted as
 -- text, the expression can forcibly be ended with a semicolon (;)."
