@@ -761,10 +761,12 @@ pLabel =
       ))
 
 pRef :: P Markup
-pRef =
-  Ref
-    <$> (char '@' *> (T.pack <$> many1 (satisfy isIdentContinue <|> char '_')))
-    <*> option (Literal Auto) (Block <$> pContent)
+pRef = do
+  let labelChar = satisfy isIdentContinue <|> char '_'
+      innerPunct = try (satisfy (\c -> c == '.' || c == ':') <* lookAhead labelChar)
+  target <- char '@' *> many1 (labelChar <|> innerPunct)
+  supplement <- option (Literal Auto) (Block <$> pContent)
+  pure $ Ref (T.pack target) supplement
 
 -- "If a character would continue the expression but should be interpreted as
 -- text, the expression can forcibly be ended with a semicolon (;)."

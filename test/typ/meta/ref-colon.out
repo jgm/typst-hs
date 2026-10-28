@@ -1,0 +1,69 @@
+--- parse tree ---
+[ Heading 1 [ Text "First" ]
+, Space
+, Code
+    "typ/meta/ref-colon.typ"
+    ( line 1 , column 9 )
+    (Label "my-anchor::")
+, ParBreak
+, Heading 1 [ Text "Second" ]
+, Space
+, Code
+    "typ/meta/ref-colon.typ" ( line 3 , column 10 ) (Label "my-anchor")
+, ParBreak
+, Text "Please"
+, Space
+, Text "see"
+, Space
+, Code
+    "typ/meta/ref-colon.typ"
+    ( line 5 , column 13 )
+    (FuncCall
+       (Ident (Identifier "ref")) [ NormalArg (Label "my-anchor::") ])
+, Text "."
+, ParBreak
+, Text "Please"
+, Space
+, Text "see"
+, Space
+, Code
+    "typ/meta/ref-colon.typ"
+    ( line 7 , column 13 )
+    (FuncCall
+       (Ident (Identifier "ref")) [ NormalArg (Label "my-anchor") ])
+, Text "."
+, ParBreak
+, Text "Please"
+, Space
+, Text "see"
+, Space
+, Ref "my-anchor" (Literal Auto)
+, Text ":"
+, Text ":"
+, Text "."
+, ParBreak
+]
+--- evaluated ---
+document(body: { heading(body: text(body: [First]), 
+                         level: 1), 
+                 text(body: [ ]), 
+                 <my-anchor::>, 
+                 parbreak(), 
+                 heading(body: text(body: [Second]), 
+                         level: 1), 
+                 text(body: [ ]), 
+                 <my-anchor>, 
+                 parbreak(), 
+                 text(body: [Please see ]), 
+                 ref(target: <my-anchor::>), 
+                 text(body: [.]), 
+                 parbreak(), 
+                 text(body: [Please see ]), 
+                 ref(target: <my-anchor>), 
+                 text(body: [.]), 
+                 parbreak(), 
+                 text(body: [Please see ]), 
+                 ref(supplement: auto, 
+                     target: <my-anchor>), 
+                 text(body: [::.]), 
+                 parbreak() })
