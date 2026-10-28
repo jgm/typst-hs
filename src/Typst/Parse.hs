@@ -761,7 +761,7 @@ pLabel =
       ))
 
 pRef :: P Markup
-pRef = do
+pRef = try $ do
   let labelChar = satisfy isIdentContinue <|> char '_'
       innerPunct = try (satisfy (\c -> c == '.' || c == ':') <* lookAhead labelChar)
   target <- char '@' *> many1 (labelChar <|> innerPunct)
