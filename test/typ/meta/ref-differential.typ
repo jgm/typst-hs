@@ -39,3 +39,5 @@ Please see @a.b..
 Please see @.x and @:x.
 Please see @a..b, @a.:b, @a::b.
 Please see @a.. and @a:b:.
+
+See @my-anchor:. #let z = 1

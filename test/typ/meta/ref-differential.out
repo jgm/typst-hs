@@ -238,8 +238,11 @@
 , Space
 , Text "see"
 , Space
-, Ref "my-anchor" (Block (Content [ Text "note" ]))
+, Ref "my-anchor" (Literal Auto)
 , Text ":"
+, Text "["
+, Text "note"
+, Text "]"
 , SoftBreak
 , Text "Please"
 , Space
@@ -355,166 +358,181 @@
 , Text ":"
 , Text "."
 , ParBreak
+, Text "See"
+, Space
+, Ref "my-anchor" (Literal Auto)
+, Text ":"
+, Text "."
+, Space
+, Code
+    "typ/meta/ref-differential.typ"
+    ( line 43 , column 19 )
+    (Let (BasicBind (Just (Identifier "z"))) (Literal (Int 1)))
+, ParBreak
 ]
 --- evaluated ---
 document(body: { text(body: [
-]),
-                 heading(body: text(body: [First]),
-                         level: 1),
-                 text(body: [ ]),
-                 <my-anchor::>,
+]), 
+                 heading(body: text(body: [First]), 
+                         level: 1), 
+                 text(body: [ ]), 
+                 <my-anchor::>, 
                  text(body: [
-]),
-                 heading(body: text(body: [Second]),
-                         level: 1),
-                 text(body: [ ]),
-                 <my-anchor>,
+]), 
+                 heading(body: text(body: [Second]), 
+                         level: 1), 
+                 text(body: [ ]), 
+                 <my-anchor>, 
                  text(body: [
-]),
-                 heading(body: text(body: [Colon]),
-                         level: 1),
-                 text(body: [ ]),
-                 <tab:attributes>,
+]), 
+                 heading(body: text(body: [Colon]), 
+                         level: 1), 
+                 text(body: [ ]), 
+                 <tab:attributes>, 
                  text(body: [
-]),
-                 heading(body: text(body: [Dot]),
-                         level: 1),
-                 text(body: [ ]),
-                 <fig:sub.1>,
+]), 
+                 heading(body: text(body: [Dot]), 
+                         level: 1), 
+                 text(body: [ ]), 
+                 <fig:sub.1>, 
                  text(body: [
-]),
-                 heading(body: text(body: [Unicode]),
-                         level: 1),
-                 text(body: [ ]),
-                 <α:β.γ>,
+]), 
+                 heading(body: text(body: [Unicode]), 
+                         level: 1), 
+                 text(body: [ ]), 
+                 <α:β.γ>, 
                  text(body: [
-]),
-                 heading(body: text(body: [Multi]),
-                         level: 1),
-                 text(body: [ ]),
-                 <a:b.c:d>,
+]), 
+                 heading(body: text(body: [Multi]), 
+                         level: 1), 
+                 text(body: [ ]), 
+                 <a:b.c:d>, 
                  text(body: [
-]),
-                 heading(body: text(body: [Short]),
-                         level: 1),
-                 text(body: [ ]),
-                 <fig>,
+]), 
+                 heading(body: text(body: [Short]), 
+                         level: 1), 
+                 text(body: [ ]), 
+                 <fig>, 
                  text(body: [
-]),
-                 heading(body: text(body: [Longer]),
-                         level: 1),
-                 text(body: [ ]),
-                 <fig:alpha>,
+]), 
+                 heading(body: text(body: [Longer]), 
+                         level: 1), 
+                 text(body: [ ]), 
+                 <fig:alpha>, 
                  text(body: [
-]),
-                 heading(body: text(body: [Dotted]),
-                         level: 1),
-                 text(body: [ ]),
-                 <a.b.>,
+]), 
+                 heading(body: text(body: [Dotted]), 
+                         level: 1), 
+                 text(body: [ ]), 
+                 <a.b.>, 
                  text(body: [
-]),
-                 heading(body: text(body: [Run One]),
-                         level: 1),
-                 text(body: [ ]),
-                 <a..b>,
+]), 
+                 heading(body: text(body: [Run One]), 
+                         level: 1), 
+                 text(body: [ ]), 
+                 <a..b>, 
                  text(body: [
-]),
-                 heading(body: text(body: [Run Two]),
-                         level: 1),
-                 text(body: [ ]),
-                 <a.:b>,
+]), 
+                 heading(body: text(body: [Run Two]), 
+                         level: 1), 
+                 text(body: [ ]), 
+                 <a.:b>, 
                  text(body: [
-]),
-                 heading(body: text(body: [Run Three]),
-                         level: 1),
-                 text(body: [ ]),
-                 <a::b>,
-                 parbreak(),
-                 text(body: [Please see ]),
-                 text(body: [<my-anchor::>]),
+]), 
+                 heading(body: text(body: [Run Three]), 
+                         level: 1), 
+                 text(body: [ ]), 
+                 <a::b>, 
+                 parbreak(), 
+                 text(body: [Please see ]), 
+                 text(body: [<my-anchor::>]), 
                  text(body: [.
-Please see ]),
-                 text(body: [<my-anchor>]),
+Please see ]), 
+                 text(body: [<my-anchor>]), 
                  text(body: [.
-Please see ]),
-                 text(body: [<my-anchor>]),
+Please see ]), 
+                 text(body: [<my-anchor>]), 
                  text(body: [::.
-Please see ]),
-                 text(body: [<my-anchor>]),
+Please see ]), 
+                 text(body: [<my-anchor>]), 
                  text(body: [:.
-Please see ]),
-                 text(body: [<my-anchor>]),
+Please see ]), 
+                 text(body: [<my-anchor>]), 
                  text(body: [.
-Please see ]),
-                 text(body: [<tab:attributes>]),
-                 text(body: [, ]),
-                 text(body: [<fig:sub.1>]),
+Please see ]), 
+                 text(body: [<tab:attributes>]), 
+                 text(body: [, ]), 
+                 text(body: [<fig:sub.1>]), 
                  text(body: [.
-Please see ]),
-                 text(body: [<α:β.γ>]),
+Please see ]), 
+                 text(body: [<α:β.γ>]), 
                  text(body: [.
-Please see ]),
-                 text(body: [<a:b.c:d>]),
+Please see ]), 
+                 text(body: [<a:b.c:d>]), 
                  text(body: [.
-Please see ]),
-                 text(body: [<fig>]),
+Please see ]), 
+                 text(body: [<fig>]), 
                  text(body: [.
-Please see ]),
-                 text(body: [<fig:alpha>]),
+Please see ]), 
+                 text(body: [<fig:alpha>]), 
                  text(body: [.
-Please see ]),
-                 text(body: [<fig:alpha>]),
-                 text(body: [ and ]),
-                 text(body: [<fig:alpha>]),
+Please see ]), 
+                 text(body: [<fig:alpha>]), 
+                 text(body: [ and ]), 
+                 text(body: [<fig:alpha>]), 
                  text(body: [.
-Please see ]),
-                 text(body: [<my-anchor>]),
+Please see ]), 
+                 text(body: [<my-anchor>]), 
                  text(body: [:: trailing
-Please see ]),
-                 text(body: [<my-anchor>]),
+Please see ]), 
+                 text(body: [<my-anchor>]), 
                  text(body: [: trailing
-Please see ]),
-                 text(body: [<my-anchor>]),
+Please see ]), 
+                 text(body: [<my-anchor>]), 
                  text(body: [. trailing
-Please see ]),
-                 text(body: [<my-anchor>]),
+Please see ]), 
+                 text(body: [<my-anchor>]), 
                  text(body: [:: trailing
-Please see ]),
-                 text(body: [<my-anchor>]),
-                 text(body: [:
-Please see ]),
-                 text(body: [<my-anchor>]),
+Please see ]), 
+                 text(body: [<my-anchor>]), 
+                 text(body: [:[note]
+Please see ]), 
+                 text(body: [<my-anchor>]), 
                  text(body: [. [note]
-Please see ]),
-                 text(body: [<my-anchor>]),
+Please see ]), 
+                 text(body: [<my-anchor>]), 
                  text(body: [: [note]
-Please see ]),
-                 text(body: [<my-anchor>]),
+Please see ]), 
+                 text(body: [<my-anchor>]), 
                  text(body: [ [note]
 Please see @.
 Please see @:
-Please see ]),
-                 text(body: [<unknown:x>]),
+Please see ]), 
+                 text(body: [<unknown:x>]), 
                  text(body: [.
-Please see ]),
-                 text(body: [<unknown:x>]),
-                 text(body: [ and ]),
-                 text(body: [<unknown:y>]),
+Please see ]), 
+                 text(body: [<unknown:x>]), 
+                 text(body: [ and ]), 
+                 text(body: [<unknown:y>]), 
                  text(body: [.
-Please see ]),
-                 text(body: [<a.b>]),
+Please see ]), 
+                 text(body: [<a.b>]), 
                  text(body: [..
 Please see @.x and @:x.
-Please see ]),
-                 text(body: [<a..b>]),
-                 text(body: [, ]),
-                 text(body: [<a.:b>]),
-                 text(body: [, ]),
-                 text(body: [<a::b>]),
+Please see ]), 
+                 text(body: [<a..b>]), 
+                 text(body: [, ]), 
+                 text(body: [<a.:b>]), 
+                 text(body: [, ]), 
+                 text(body: [<a::b>]), 
                  text(body: [.
-Please see ]),
-                 text(body: [<a>]),
-                 text(body: [.. and ]),
-                 text(body: [<a:b>]),
-                 text(body: [:.]),
+Please see ]), 
+                 text(body: [<a>]), 
+                 text(body: [.. and ]), 
+                 text(body: [<a:b>]), 
+                 text(body: [:.]), 
+                 parbreak(), 
+                 text(body: [See ]), 
+                 text(body: [<my-anchor>]), 
+                 text(body: [:. ]), 
                  parbreak() })

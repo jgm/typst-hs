@@ -765,15 +765,18 @@ pRef :: P Markup
 pRef = do
   let labelChar = satisfy isIdentContinue
       labelRest = satisfy isIdentContinue <|> char '_' <|> char '.' <|> char ':'
+  pos0 <- getPosition
   target <- try (char '@' *> ((:) <$> labelChar <*> many labelRest))
-  supplement <- option (Literal Auto) (Block <$> pContent)
   let targetText = T.pack target
       trailing = T.takeWhileEnd (\c -> c == '.' || c == ':') targetText
       keep = T.length targetText - T.length trailing
-  pos <- getPosition
   inp <- getInput
-  setPosition $ updatePosString pos (T.unpack (T.take keep targetText))
-  setInput $ T.drop keep targetText <> inp
+  if keep < T.length targetText
+     then do
+       setPosition $ updatePosString pos0 ('@' : T.unpack (T.take keep targetText))
+       setInput $ T.drop keep targetText <> inp
+     else pure ()
+  supplement <- option (Literal Auto) (Block <$> pContent)
   pure $ Ref (T.take keep targetText) supplement
 
 -- "If a character would continue the expression but should be interpreted as
