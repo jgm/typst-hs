@@ -5,6 +5,10 @@
   * Fix the GHC 9.14 -Werror build by removing redundant Typeable derivations,
     unused imports, and shadowed local names.
 
+  * Match Typst shorthand reference lexing: allow colon and dot inside labels,
+    preserve trailing punctuation as text, and fall back to text for bare @
+    markers.
+
 ## 0.12
 
   * Support 'in' operator on modules (#106).

@@ -1,0 +1,540 @@
+--- parse tree ---
+[ Code
+    "typ/regression/issue108-differential.typ"
+    ( line 1 , column 2 )
+    (Show
+       (Just (Ident (Identifier "ref")))
+       (FuncExpr
+          [ NormalParam (Identifier "it") ]
+          (Block
+             (Content
+                [ Code
+                    "typ/regression/issue108-differential.typ"
+                    ( line 1 , column 20 )
+                    (FuncCall
+                       (Ident (Identifier "str"))
+                       [ NormalArg
+                           (FieldAccess
+                              (Ident (Identifier "target")) (Ident (Identifier "it")))
+                       ])
+                ]))))
+, SoftBreak
+, Heading 1 [ Text "First" ]
+, Space
+, Code
+    "typ/regression/issue108-differential.typ"
+    ( line 2 , column 9 )
+    (Label "my-anchor::")
+, SoftBreak
+, Heading 1 [ Text "Second" ]
+, Space
+, Code
+    "typ/regression/issue108-differential.typ"
+    ( line 3 , column 10 )
+    (Label "my-anchor")
+, SoftBreak
+, Heading 1 [ Text "Colon" ]
+, Space
+, Code
+    "typ/regression/issue108-differential.typ"
+    ( line 4 , column 9 )
+    (Label "tab:attributes")
+, SoftBreak
+, Heading 1 [ Text "Dot" ]
+, Space
+, Code
+    "typ/regression/issue108-differential.typ"
+    ( line 5 , column 7 )
+    (Label "fig:sub.1")
+, SoftBreak
+, Heading 1 [ Text "Unicode" ]
+, Space
+, Code
+    "typ/regression/issue108-differential.typ"
+    ( line 6 , column 11 )
+    (Label "\945:\946.\947")
+, SoftBreak
+, Heading 1 [ Text "Multi" ]
+, Space
+, Code
+    "typ/regression/issue108-differential.typ"
+    ( line 7 , column 9 )
+    (Label "a:b.c:d")
+, SoftBreak
+, Heading 1 [ Text "Short" ]
+, Space
+, Code
+    "typ/regression/issue108-differential.typ"
+    ( line 8 , column 9 )
+    (Label "fig")
+, SoftBreak
+, Heading 1 [ Text "Longer" ]
+, Space
+, Code
+    "typ/regression/issue108-differential.typ"
+    ( line 9 , column 10 )
+    (Label "fig:alpha")
+, SoftBreak
+, Heading 1 [ Text "Dotted" ]
+, Space
+, Code
+    "typ/regression/issue108-differential.typ"
+    ( line 10 , column 10 )
+    (Label "a.b.")
+, SoftBreak
+, Heading 1 [ Text "Run" , Space , Text "One" ]
+, Space
+, Code
+    "typ/regression/issue108-differential.typ"
+    ( line 11 , column 11 )
+    (Label "a..b")
+, SoftBreak
+, Heading 1 [ Text "Run" , Space , Text "Two" ]
+, Space
+, Code
+    "typ/regression/issue108-differential.typ"
+    ( line 12 , column 11 )
+    (Label "a.:b")
+, SoftBreak
+, Heading 1 [ Text "Run" , Space , Text "Three" ]
+, Space
+, Code
+    "typ/regression/issue108-differential.typ"
+    ( line 13 , column 13 )
+    (Label "a::b")
+, ParBreak
+, Text "Please"
+, Space
+, Text "see"
+, Space
+, Code
+    "typ/regression/issue108-differential.typ"
+    ( line 15 , column 13 )
+    (FuncCall
+       (Ident (Identifier "ref")) [ NormalArg (Label "my-anchor::") ])
+, Text "."
+, SoftBreak
+, Text "Please"
+, Space
+, Text "see"
+, Space
+, Code
+    "typ/regression/issue108-differential.typ"
+    ( line 16 , column 13 )
+    (FuncCall
+       (Ident (Identifier "ref")) [ NormalArg (Label "my-anchor") ])
+, Text "."
+, SoftBreak
+, Text "Please"
+, Space
+, Text "see"
+, Space
+, Ref "my-anchor" (Literal Auto)
+, Text ":"
+, Text ":"
+, Text "."
+, SoftBreak
+, Text "Please"
+, Space
+, Text "see"
+, Space
+, Ref "my-anchor" (Literal Auto)
+, Text ":"
+, Text "."
+, SoftBreak
+, Text "Please"
+, Space
+, Text "see"
+, Space
+, Ref "my-anchor" (Literal Auto)
+, Text "."
+, SoftBreak
+, Text "Please"
+, Space
+, Text "see"
+, Space
+, Ref "tab:attributes" (Literal Auto)
+, Text ","
+, Space
+, Ref "fig:sub.1" (Literal Auto)
+, Text "."
+, SoftBreak
+, Text "Please"
+, Space
+, Text "see"
+, Space
+, Ref "\945:\946.\947" (Literal Auto)
+, Text "."
+, SoftBreak
+, Text "Please"
+, Space
+, Text "see"
+, Space
+, Ref "a:b.c:d" (Literal Auto)
+, Text "."
+, SoftBreak
+, Text "Please"
+, Space
+, Text "see"
+, Space
+, Ref "fig" (Literal Auto)
+, Text "."
+, SoftBreak
+, Text "Please"
+, Space
+, Text "see"
+, Space
+, Ref "fig:alpha" (Literal Auto)
+, Text "."
+, SoftBreak
+, Text "Please"
+, Space
+, Text "see"
+, Space
+, Ref "fig:alpha" (Literal Auto)
+, Space
+, Text "and"
+, Space
+, Ref "fig:alpha" (Literal Auto)
+, Text "."
+, SoftBreak
+, Text "Please"
+, Space
+, Text "see"
+, Space
+, Ref "my-anchor" (Literal Auto)
+, Text ":"
+, Text ":"
+, Space
+, Text "trailing"
+, SoftBreak
+, Text "Please"
+, Space
+, Text "see"
+, Space
+, Ref "my-anchor" (Literal Auto)
+, Text ":"
+, Space
+, Text "trailing"
+, SoftBreak
+, Text "Please"
+, Space
+, Text "see"
+, Space
+, Ref "my-anchor" (Literal Auto)
+, Text "."
+, Space
+, Text "trailing"
+, SoftBreak
+, Text "Please"
+, Space
+, Text "see"
+, Space
+, Ref "my-anchor" (Literal Auto)
+, Text ":"
+, Text ":"
+, Space
+, Text "trailing"
+, SoftBreak
+, Text "Please"
+, Space
+, Text "see"
+, Space
+, Ref "my-anchor" (Literal Auto)
+, Text ":"
+, Text "["
+, Text "note"
+, Text "]"
+, SoftBreak
+, Text "Please"
+, Space
+, Text "see"
+, Space
+, Ref "my-anchor" (Literal Auto)
+, Text "."
+, Space
+, Text "["
+, Text "note"
+, Text "]"
+, SoftBreak
+, Text "Please"
+, Space
+, Text "see"
+, Space
+, Ref "my-anchor" (Literal Auto)
+, Text ":"
+, Space
+, Text "["
+, Text "note"
+, Text "]"
+, SoftBreak
+, Text "Please"
+, Space
+, Text "see"
+, Space
+, Ref "my-anchor" (Literal Auto)
+, Space
+, Text "["
+, Text "note"
+, Text "]"
+, SoftBreak
+, Text "Please"
+, Space
+, Text "see"
+, Space
+, Text "@"
+, Text "."
+, SoftBreak
+, Text "Please"
+, Space
+, Text "see"
+, Space
+, Text "@"
+, Text ":"
+, SoftBreak
+, Text "Please"
+, Space
+, Text "see"
+, Space
+, Ref "unknown:x" (Literal Auto)
+, Text "."
+, SoftBreak
+, Text "Please"
+, Space
+, Text "see"
+, Space
+, Ref "unknown:x" (Literal Auto)
+, Space
+, Text "and"
+, Space
+, Ref "unknown:y" (Literal Auto)
+, Text "."
+, SoftBreak
+, Text "Please"
+, Space
+, Text "see"
+, Space
+, Ref "a.b" (Literal Auto)
+, Text "."
+, Text "."
+, SoftBreak
+, Text "Please"
+, Space
+, Text "see"
+, Space
+, Text "@"
+, Text "."
+, Text "x"
+, Space
+, Text "and"
+, Space
+, Text "@"
+, Text ":"
+, Text "x"
+, Text "."
+, SoftBreak
+, Text "Please"
+, Space
+, Text "see"
+, Space
+, Ref "a..b" (Literal Auto)
+, Text ","
+, Space
+, Ref "a.:b" (Literal Auto)
+, Text ","
+, Space
+, Ref "a::b" (Literal Auto)
+, Text "."
+, SoftBreak
+, Text "Please"
+, Space
+, Text "see"
+, Space
+, Ref "a" (Literal Auto)
+, Text "."
+, Text "."
+, Space
+, Text "and"
+, Space
+, Ref "a:b" (Literal Auto)
+, Text ":"
+, Text "."
+, ParBreak
+, Text "See"
+, Space
+, Ref "my-anchor" (Literal Auto)
+, Text ":"
+, Text "."
+, Space
+, Code
+    "typ/regression/issue108-differential.typ"
+    ( line 43 , column 19 )
+    (Let (BasicBind (Just (Identifier "z"))) (Literal (Int 1)))
+, ParBreak
+]
+--- evaluated ---
+document(body: { text(body: [
+]), 
+                 heading(body: text(body: [First]), 
+                         level: 1), 
+                 text(body: [ ]), 
+                 <my-anchor::>, 
+                 text(body: [
+]), 
+                 heading(body: text(body: [Second]), 
+                         level: 1), 
+                 text(body: [ ]), 
+                 <my-anchor>, 
+                 text(body: [
+]), 
+                 heading(body: text(body: [Colon]), 
+                         level: 1), 
+                 text(body: [ ]), 
+                 <tab:attributes>, 
+                 text(body: [
+]), 
+                 heading(body: text(body: [Dot]), 
+                         level: 1), 
+                 text(body: [ ]), 
+                 <fig:sub.1>, 
+                 text(body: [
+]), 
+                 heading(body: text(body: [Unicode]), 
+                         level: 1), 
+                 text(body: [ ]), 
+                 <α:β.γ>, 
+                 text(body: [
+]), 
+                 heading(body: text(body: [Multi]), 
+                         level: 1), 
+                 text(body: [ ]), 
+                 <a:b.c:d>, 
+                 text(body: [
+]), 
+                 heading(body: text(body: [Short]), 
+                         level: 1), 
+                 text(body: [ ]), 
+                 <fig>, 
+                 text(body: [
+]), 
+                 heading(body: text(body: [Longer]), 
+                         level: 1), 
+                 text(body: [ ]), 
+                 <fig:alpha>, 
+                 text(body: [
+]), 
+                 heading(body: text(body: [Dotted]), 
+                         level: 1), 
+                 text(body: [ ]), 
+                 <a.b.>, 
+                 text(body: [
+]), 
+                 heading(body: text(body: [Run One]), 
+                         level: 1), 
+                 text(body: [ ]), 
+                 <a..b>, 
+                 text(body: [
+]), 
+                 heading(body: text(body: [Run Two]), 
+                         level: 1), 
+                 text(body: [ ]), 
+                 <a.:b>, 
+                 text(body: [
+]), 
+                 heading(body: text(body: [Run Three]), 
+                         level: 1), 
+                 text(body: [ ]), 
+                 <a::b>, 
+                 parbreak(), 
+                 text(body: [Please see ]), 
+                 text(body: [<my-anchor::>]), 
+                 text(body: [.
+Please see ]), 
+                 text(body: [<my-anchor>]), 
+                 text(body: [.
+Please see ]), 
+                 text(body: [<my-anchor>]), 
+                 text(body: [::.
+Please see ]), 
+                 text(body: [<my-anchor>]), 
+                 text(body: [:.
+Please see ]), 
+                 text(body: [<my-anchor>]), 
+                 text(body: [.
+Please see ]), 
+                 text(body: [<tab:attributes>]), 
+                 text(body: [, ]), 
+                 text(body: [<fig:sub.1>]), 
+                 text(body: [.
+Please see ]), 
+                 text(body: [<α:β.γ>]), 
+                 text(body: [.
+Please see ]), 
+                 text(body: [<a:b.c:d>]), 
+                 text(body: [.
+Please see ]), 
+                 text(body: [<fig>]), 
+                 text(body: [.
+Please see ]), 
+                 text(body: [<fig:alpha>]), 
+                 text(body: [.
+Please see ]), 
+                 text(body: [<fig:alpha>]), 
+                 text(body: [ and ]), 
+                 text(body: [<fig:alpha>]), 
+                 text(body: [.
+Please see ]), 
+                 text(body: [<my-anchor>]), 
+                 text(body: [:: trailing
+Please see ]), 
+                 text(body: [<my-anchor>]), 
+                 text(body: [: trailing
+Please see ]), 
+                 text(body: [<my-anchor>]), 
+                 text(body: [. trailing
+Please see ]), 
+                 text(body: [<my-anchor>]), 
+                 text(body: [:: trailing
+Please see ]), 
+                 text(body: [<my-anchor>]), 
+                 text(body: [:[note]
+Please see ]), 
+                 text(body: [<my-anchor>]), 
+                 text(body: [. [note]
+Please see ]), 
+                 text(body: [<my-anchor>]), 
+                 text(body: [: [note]
+Please see ]), 
+                 text(body: [<my-anchor>]), 
+                 text(body: [ [note]
+Please see @.
+Please see @:
+Please see ]), 
+                 text(body: [<unknown:x>]), 
+                 text(body: [.
+Please see ]), 
+                 text(body: [<unknown:x>]), 
+                 text(body: [ and ]), 
+                 text(body: [<unknown:y>]), 
+                 text(body: [.
+Please see ]), 
+                 text(body: [<a.b>]), 
+                 text(body: [..
+Please see @.x and @:x.
+Please see ]), 
+                 text(body: [<a..b>]), 
+                 text(body: [, ]), 
+                 text(body: [<a.:b>]), 
+                 text(body: [, ]), 
+                 text(body: [<a::b>]), 
+                 text(body: [.
+Please see ]), 
+                 text(body: [<a>]), 
+                 text(body: [.. and ]), 
+                 text(body: [<a:b>]), 
+                 text(body: [:.]), 
+                 parbreak(), 
+                 text(body: [See ]), 
+                 text(body: [<my-anchor>]), 
+                 text(body: [:. ]), 
+                 parbreak() })
