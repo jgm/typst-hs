@@ -583,19 +583,19 @@ strokeConstructor =
           Just VAuto -> pure Nothing
           Just VNone -> pure Nothing
           Just v -> Just <$> f v
-    paint <- override paint asColor mbPaint
-    thickness <- override thickness asLength mbThickness
-    cap <- override cap asLineCap mbCap
-    join <- override join asLineJoin mbJoin
-    miterLimit <- override miterLimit asMiterLimit mbMiterLimit
+    paintValue <- override paint asColor mbPaint
+    thicknessValue <- override thickness asLength mbThickness
+    capValue <- override cap asLineCap mbCap
+    joinValue <- override join asLineJoin mbJoin
+    miterLimitValue <- override miterLimit asMiterLimit mbMiterLimit
     pure $
       VStroke $
         emptyStroke
-          { paint = paint,
-            thickness = thickness,
-            cap = cap,
-            join = join,
-            miterLimit = miterLimit
+          { paint = paintValue,
+            thickness = thicknessValue,
+            cap = capValue,
+            join = joinValue,
+            miterLimit = miterLimitValue
           }
 
 loremWords :: [Text]
@@ -800,20 +800,20 @@ strokeFromDict m = do
         Just VAuto -> pure Nothing
         Just VNone -> pure Nothing
         Just v -> Just <$> f v
-  paint <- field "paint" asColor
-  thickness <- field "thickness" asLength
-  cap <- field "cap" asLineCap
-  join <- field "join" asLineJoin
-  miterLimit <- field "miter-limit" asMiterLimit
+  paintValue <- field "paint" asColor
+  thicknessValue <- field "thickness" asLength
+  capValue <- field "cap" asLineCap
+  joinValue <- field "join" asLineJoin
+  miterLimitValue <- field "miter-limit" asMiterLimit
   -- Unknown keys (e.g. `dash` until it is supported) are ignored;
   -- typst rejects them.
   pure $
     emptyStroke
-      { paint = paint,
-        thickness = thickness,
-        cap = cap,
-        join = join,
-        miterLimit = miterLimit
+      { paint = paintValue,
+        thickness = thicknessValue,
+        cap = capValue,
+        join = joinValue,
+        miterLimit = miterLimitValue
       }
 
 asColor :: MonadFail m => Val -> m Color

@@ -21,7 +21,6 @@ where
 import qualified Data.Array as Array
 import Data.Text (Text)
 import qualified Data.Text as T
-import Data.Typeable (Typeable)
 import Text.Regex.TDFA (Regex, extract)
 import qualified Text.Regex.TDFA as TDFA
 import qualified Text.Regex.TDFA.Text as TDFA
@@ -31,7 +30,6 @@ import qualified Text.Regex.TDFA.Text as TDFA
 -- | A regular expression. Note that typst-hs does not use the same Regex engine
 -- as Typst. See issue [#28](https://github.com/jgm/typst-hs/issues/28).
 data RE = RE !Text !Regex
-  deriving (Typeable)
 
 instance Eq RE where
   RE t1 _ == RE t2 _ = t1 == t2
@@ -48,7 +46,7 @@ data RegexMatch = RegexMatch
     matchText :: Text,
     matchCaptures :: [Text]
   }
-  deriving (Eq, Ord, Typeable)
+  deriving (Eq, Ord)
 
 replaceRegex :: RE -> Maybe Int -> (RegexMatch -> Text) -> Text -> Text
 replaceRegex (RE _ re) mbCount replaceFn strIn =

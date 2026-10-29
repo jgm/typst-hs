@@ -1,5 +1,10 @@
 # Revision history for typst-hs
 
+## Unreleased
+
+  * Fix the GHC 9.14 -Werror build by removing redundant Typeable derivations,
+    unused imports, and shadowed local names.
+
 ## 0.12
 
   * Support 'in' operator on modules (#106).

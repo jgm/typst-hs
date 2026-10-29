@@ -57,7 +57,6 @@ import Control.Monad (MonadPlus (..))
 import Data.Aeson (FromJSON, parseJSON)
 import qualified Data.Aeson as Aeson
 import qualified Data.ByteString as BS
-import Data.Data (Typeable)
 import qualified Data.Foldable as F
 import Data.Functor.Classes (Ord1 (liftCompare))
 import qualified Data.Map as M
@@ -154,7 +153,7 @@ data Val
   -- already resolved (relative to the file in which it was constructed).
   | VPath !FilePath
   | VType !ValType
-  deriving (Show, Eq, Typeable)
+  deriving (Show, Eq)
 
 instance FromJSON Val where
   parseJSON v@(Aeson.Object {}) =
@@ -219,7 +218,7 @@ data ValType
   | TType
   | TAny
   | ValType :|: ValType
-  deriving (Show, Eq, Ord, Typeable)
+  deriving (Show, Eq, Ord)
 
 valType :: Val -> ValType
 valType v =
@@ -370,14 +369,14 @@ data Selector
   | SelectAnd Selector Selector
   | SelectBefore Selector Selector
   | SelectAfter Selector Selector
-  deriving (Show, Eq, Ord, Typeable)
+  deriving (Show, Eq, Ord)
 
 data Symbol = Symbol
   { symDefault :: !Text,
     symAccent :: !Bool,
     symVariants :: [(Set.Set Text, Text)]
   }
-  deriving (Show, Eq, Typeable)
+  deriving (Show, Eq)
 
 joinVals :: MonadFail m => Val -> Val -> m Val
 joinVals = go
@@ -587,7 +586,7 @@ data Content
         eltPos :: Maybe SourcePos,
         eltFields :: M.Map Identifier Val
       }
-  deriving (Show, Typeable)
+  deriving (Show)
 
 instance Eq Content where
   Txt t1 == Txt t2 = t1 == t2
@@ -610,7 +609,6 @@ instance IsString Content where
   fromString x = Txt (T.pack x)
 
 newtype Function = Function (forall m. Monad m => Arguments -> MP m Val)
-  deriving (Typeable)
 
 instance Show Function where
   show _ = "<function>"
@@ -679,7 +677,7 @@ emptyEvalState = EvalState
 data Attempt a
   = Success a
   | Failure String
-  deriving (Show, Eq, Ord, Typeable)
+  deriving (Show, Eq, Ord)
 
 instance Functor Attempt where
   fmap f (Success x) = Success (f x)
@@ -715,7 +713,7 @@ data Arguments = Arguments
   { positional :: [Val],
     named :: OM.OMap Identifier Val
   }
-  deriving (Show, Eq, Typeable)
+  deriving (Show, Eq)
 
 instance Semigroup Arguments where
   Arguments ps1 ns1 <> Arguments ps2 ns2 =
@@ -756,16 +754,16 @@ data Counter
   | CounterLabel !Text
   | CounterSelector !Selector
   | CounterPage
-  deriving (Eq, Ord, Show, Typeable)
+  deriving (Eq, Ord, Show)
 
 data LUnit = LEm | LPt | LIn | LCm | LMm
-  deriving (Show, Eq, Typeable)
+  deriving (Show, Eq)
 
 data Length
   = LExact Double LUnit
   | LRatio !Rational
   | LSum Length Length
-  deriving (Show, Eq, Typeable)
+  deriving (Show, Eq)
 
 instance Semigroup Length where
   (LExact x xu) <> (LExact y yu)
@@ -842,16 +840,16 @@ negateLength (LRatio x) = LRatio (negate x)
 negateLength (LSum x y) = LSum (negateLength x) (negateLength y)
 
 data Horiz = HorizStart | HorizEnd | HorizLeft | HorizCenter | HorizRight
-  deriving (Show, Eq, Ord, Typeable)
+  deriving (Show, Eq, Ord)
 
 data Vert = VertTop | VertHorizon | VertBottom
-  deriving (Show, Eq, Ord, Typeable)
+  deriving (Show, Eq, Ord)
 
 data Color
   = RGB Rational Rational Rational Rational
   | CMYK Rational Rational Rational Rational
   | Luma Rational
-  deriving (Show, Eq, Ord, Typeable)
+  deriving (Show, Eq, Ord)
 
 data Stroke = Stroke
   { paint :: !(Maybe Color), -- Nothing = auto (default: black)
@@ -860,7 +858,7 @@ data Stroke = Stroke
     join :: !(Maybe Text), -- Nothing = auto (default: "miter")
     miterLimit :: !(Maybe Double) -- Nothing = auto (default: 4.0)
   }
-  deriving (Show, Eq, Typeable)
+  deriving (Show, Eq)
 
 -- | A stroke with every field unset (auto).
 emptyStroke :: Stroke
@@ -883,7 +881,7 @@ data Direction
   | Rtl -- ^ Right to left
   | Ttb -- ^ Top to bottom
   | Btt -- ^ Bottom to top
-  deriving (Show, Eq, Ord, Typeable)
+  deriving (Show, Eq, Ord)
 
 -- | Render a set stroke field for the parenthesized stroke repr.
 strokeField :: Text -> Maybe P.Doc -> [P.Doc]
