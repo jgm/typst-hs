@@ -20,7 +20,6 @@ where
 
 import Control.Monad (foldM)
 import Control.Monad.Reader (ReaderT (runReaderT), asks)
-import Data.List (foldl')
 import qualified Data.Map as M
 import qualified Data.Map.Ordered as OM
 import qualified Data.Sequence as Seq

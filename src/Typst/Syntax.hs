@@ -17,7 +17,7 @@ module Typst.Syntax
   )
 where
 
-import Data.Data (Data, Typeable)
+import Data.Data (Data)
 import Data.String
 import Data.Text (Text)
 import qualified Data.Text as T
@@ -52,10 +52,10 @@ data Markup
   | MFrac Markup Markup
   | MAttach (Maybe Markup) (Maybe Markup) Markup -- bottom then top
   | MGroup (Maybe Text) (Maybe Text) [Markup] -- maybes are open/cloes delims
-  deriving (Show, Ord, Eq, Data, Typeable)
+  deriving (Show, Ord, Eq, Data)
 
 newtype Identifier = Identifier Text
-  deriving (Show, Eq, Ord, Data, Typeable, Semigroup, Monoid)
+  deriving (Show, Eq, Ord, Data, Semigroup, Monoid)
 
 instance IsString Identifier where
   fromString = Identifier . T.pack
@@ -66,7 +66,7 @@ data Arg
   | ArrayArg [[Markup]]
   | SpreadArg Expr
   | BlockArg [Markup]
-  deriving (Show, Ord, Eq, Data, Typeable)
+  deriving (Show, Ord, Eq, Data)
 
 data Param
   = DefaultParam Identifier Expr
@@ -74,23 +74,23 @@ data Param
   | DestructuringParam [BindPart]
   | SinkParam (Maybe Identifier)
   | SkipParam -- _
-  deriving (Show, Ord, Eq, Data, Typeable)
+  deriving (Show, Ord, Eq, Data)
 
 data Bind
   = BasicBind (Maybe Identifier)
   | DestructuringBind [BindPart]
   | ExprBind Expr
-  deriving (Show, Ord, Eq, Data, Typeable)
+  deriving (Show, Ord, Eq, Data)
 
 data BindPart
   = Simple Bind
   | WithKey Identifier Bind
   | Sink (Maybe Identifier)
   | ExprSink Expr
-  deriving (Show, Ord, Eq, Data, Typeable)
+  deriving (Show, Ord, Eq, Data)
 
 data Unit = Pt | Mm | Cm | In | Deg | Rad | Em | Fr | Percent
-  deriving (Show, Ord, Eq, Data, Typeable)
+  deriving (Show, Ord, Eq, Data)
 
 data Literal
   = String Text
@@ -100,17 +100,17 @@ data Literal
   | Numeric Double Unit
   | None
   | Auto
-  deriving (Show, Ord, Eq, Data, Typeable)
+  deriving (Show, Ord, Eq, Data)
 
 data Block
   = Content [Markup]
   | CodeBlock [Expr]
-  deriving (Show, Ord, Eq, Data, Typeable)
+  deriving (Show, Ord, Eq, Data)
 
 data Spreadable a =
     Spr Expr
   | Reg a
-  deriving (Show, Ord, Eq, Data, Typeable)
+  deriving (Show, Ord, Eq, Data)
 
 -- binary-op ::=
 --   '+' | '-' | '*' | '/' | 'and' | 'or' | '==' | '!=' |
@@ -157,10 +157,10 @@ data Expr
   | Break
   | Continue
   | Underscore
-  deriving (Show, Ord, Eq, Data, Typeable)
+  deriving (Show, Ord, Eq, Data)
 
 data Imports
   = AllIdentifiers
   | SomeIdentifiers [(Identifier, Maybe Identifier)] -- Maybe is the 'as'
   | NoIdentifiers (Maybe Identifier)  -- Maybe is the 'as'
-  deriving (Show, Ord, Eq, Data, Typeable)
+  deriving (Show, Ord, Eq, Data)
