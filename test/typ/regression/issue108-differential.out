@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "typ/meta/ref-differential.typ"
+    "typ/regression/issue108-differential.typ"
     ( line 1 , column 2 )
     (Show
        (Just (Ident (Identifier "ref")))
@@ -9,7 +9,7 @@
           (Block
              (Content
                 [ Code
-                    "typ/meta/ref-differential.typ"
+                    "typ/regression/issue108-differential.typ"
                     ( line 1 , column 20 )
                     (FuncCall
                        (Ident (Identifier "str"))
@@ -22,82 +22,84 @@
 , Heading 1 [ Text "First" ]
 , Space
 , Code
-    "typ/meta/ref-differential.typ"
+    "typ/regression/issue108-differential.typ"
     ( line 2 , column 9 )
     (Label "my-anchor::")
 , SoftBreak
 , Heading 1 [ Text "Second" ]
 , Space
 , Code
-    "typ/meta/ref-differential.typ"
+    "typ/regression/issue108-differential.typ"
     ( line 3 , column 10 )
     (Label "my-anchor")
 , SoftBreak
 , Heading 1 [ Text "Colon" ]
 , Space
 , Code
-    "typ/meta/ref-differential.typ"
+    "typ/regression/issue108-differential.typ"
     ( line 4 , column 9 )
     (Label "tab:attributes")
 , SoftBreak
 , Heading 1 [ Text "Dot" ]
 , Space
 , Code
-    "typ/meta/ref-differential.typ"
+    "typ/regression/issue108-differential.typ"
     ( line 5 , column 7 )
     (Label "fig:sub.1")
 , SoftBreak
 , Heading 1 [ Text "Unicode" ]
 , Space
 , Code
-    "typ/meta/ref-differential.typ"
+    "typ/regression/issue108-differential.typ"
     ( line 6 , column 11 )
     (Label "\945:\946.\947")
 , SoftBreak
 , Heading 1 [ Text "Multi" ]
 , Space
 , Code
-    "typ/meta/ref-differential.typ"
+    "typ/regression/issue108-differential.typ"
     ( line 7 , column 9 )
     (Label "a:b.c:d")
 , SoftBreak
 , Heading 1 [ Text "Short" ]
 , Space
 , Code
-    "typ/meta/ref-differential.typ" ( line 8 , column 9 ) (Label "fig")
+    "typ/regression/issue108-differential.typ"
+    ( line 8 , column 9 )
+    (Label "fig")
 , SoftBreak
 , Heading 1 [ Text "Longer" ]
 , Space
 , Code
-    "typ/meta/ref-differential.typ"
+    "typ/regression/issue108-differential.typ"
     ( line 9 , column 10 )
     (Label "fig:alpha")
 , SoftBreak
 , Heading 1 [ Text "Dotted" ]
 , Space
 , Code
-    "typ/meta/ref-differential.typ"
+    "typ/regression/issue108-differential.typ"
     ( line 10 , column 10 )
     (Label "a.b.")
 , SoftBreak
 , Heading 1 [ Text "Run" , Space , Text "One" ]
 , Space
 , Code
-    "typ/meta/ref-differential.typ"
+    "typ/regression/issue108-differential.typ"
     ( line 11 , column 11 )
     (Label "a..b")
 , SoftBreak
 , Heading 1 [ Text "Run" , Space , Text "Two" ]
 , Space
 , Code
-    "typ/meta/ref-differential.typ"
+    "typ/regression/issue108-differential.typ"
     ( line 12 , column 11 )
     (Label "a.:b")
 , SoftBreak
 , Heading 1 [ Text "Run" , Space , Text "Three" ]
 , Space
 , Code
-    "typ/meta/ref-differential.typ"
+    "typ/regression/issue108-differential.typ"
     ( line 13 , column 13 )
     (Label "a::b")
 , ParBreak
@@ -106,7 +108,7 @@
 , Text "see"
 , Space
 , Code
-    "typ/meta/ref-differential.typ"
+    "typ/regression/issue108-differential.typ"
     ( line 15 , column 13 )
     (FuncCall
        (Ident (Identifier "ref")) [ NormalArg (Label "my-anchor::") ])
@@ -117,7 +119,7 @@
 , Text "see"
 , Space
 , Code
-    "typ/meta/ref-differential.typ"
+    "typ/regression/issue108-differential.typ"
     ( line 16 , column 13 )
     (FuncCall
        (Ident (Identifier "ref")) [ NormalArg (Label "my-anchor") ])
@@ -365,7 +367,7 @@
 , Text "."
 , Space
 , Code
-    "typ/meta/ref-differential.typ"
+    "typ/regression/issue108-differential.typ"
     ( line 43 , column 19 )
     (Let (BasicBind (Just (Identifier "z"))) (Literal (Int 1)))
 , ParBreak

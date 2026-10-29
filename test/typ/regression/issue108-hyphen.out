@@ -1,6 +1,6 @@
 --- parse tree ---
 [ Code
-    "typ/meta/ref-hyphen.typ"
+    "typ/regression/issue108-hyphen.typ"
     ( line 1 , column 2 )
     (Show
        (Just (Ident (Identifier "ref")))
@@ -9,7 +9,7 @@
           (Block
              (Content
                 [ Code
-                    "typ/meta/ref-hyphen.typ"
+                    "typ/regression/issue108-hyphen.typ"
                     ( line 1 , column 20 )
                     (FuncCall
                        (Ident (Identifier "str"))
@@ -22,7 +22,7 @@
 , Heading 1 [ Text "Hyphen" ]
 , Space
 , Code
-    "typ/meta/ref-hyphen.typ"
+    "typ/regression/issue108-hyphen.typ"
     ( line 2 , column 10 )
     (Label "my-anchor-")
 , ParBreak

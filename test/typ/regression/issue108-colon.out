@@ -2,21 +2,23 @@
 [ Heading 1 [ Text "First" ]
 , Space
 , Code
-    "typ/meta/ref-colon.typ"
+    "typ/regression/issue108-colon.typ"
     ( line 1 , column 9 )
     (Label "my-anchor::")
 , ParBreak
 , Heading 1 [ Text "Second" ]
 , Space
 , Code
-    "typ/meta/ref-colon.typ" ( line 3 , column 10 ) (Label "my-anchor")
+    "typ/regression/issue108-colon.typ"
+    ( line 3 , column 10 )
+    (Label "my-anchor")
 , ParBreak
 , Text "Please"
 , Space
 , Text "see"
 , Space
 , Code
-    "typ/meta/ref-colon.typ"
+    "typ/regression/issue108-colon.typ"
     ( line 5 , column 13 )
     (FuncCall
        (Ident (Identifier "ref")) [ NormalArg (Label "my-anchor::") ])
@@ -27,7 +29,7 @@
 , Text "see"
 , Space
 , Code
-    "typ/meta/ref-colon.typ"
+    "typ/regression/issue108-colon.typ"
     ( line 7 , column 13 )
     (FuncCall
        (Ident (Identifier "ref")) [ NormalArg (Label "my-anchor") ])

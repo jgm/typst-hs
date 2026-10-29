@@ -1,3 +1,0 @@
-"typ/meta/ref-unclosed.typ" (line 4, column 1):
-unexpected end of input
-expecting "*/", "//", "/*", new-line, "=", "\\", "*", "_", "$", "-", "+", digit, "/", "http://", "https://", letter or digit, "```", "`", "~", ".", "'", "\"", "<", "@", "#" or unclosed delimiter at"typ/meta/ref-unclosed.typ" (line 3, column 22)
