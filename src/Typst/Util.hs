@@ -20,6 +20,7 @@ where
 
 import Control.Monad (foldM)
 import Control.Monad.Reader (ReaderT (runReaderT), asks)
+import qualified Data.List as List
 import qualified Data.Map as M
 import qualified Data.Map.Ordered as OM
 import qualified Data.Sequence as Seq
@@ -156,7 +157,7 @@ allArgs :: Monad m => ReaderT Arguments (MP m) [Val]
 allArgs = asks positional
 
 makeSymbolMap :: [Sym] -> M.Map Identifier Symbol
-makeSymbolMap = foldl' go mempty
+makeSymbolMap = List.foldl' go mempty
   where
     go :: M.Map Identifier Symbol -> Sym -> M.Map Identifier Symbol
     go m (Sym{ symName = name,
