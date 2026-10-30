@@ -133,13 +133,6 @@ document(body: { text(body: [
 ]), 
                  text(body: [
 ]), 
-                 text(body: [❌(]), 
-                 text(body: [8]), 
-                 text(body: [ /= ]), 
-                 text(body: [7]), 
-                 text(body: [)]), 
-                 text(body: [
-]), 
                  text(body: [✅]), 
                  text(body: [
 ]), 
@@ -161,9 +154,8 @@ document(body: { text(body: [
                  text(body: [✅]), 
                  text(body: [
 ]), 
-                 text(body: [❌(]), 
-                 text(body: [true]), 
-                 text(body: [ /= ]), 
-                 text(body: [false]), 
-                 text(body: [)]), 
+                 text(body: [✅]), 
+                 text(body: [
+]), 
+                 text(body: [✅]), 
                  parbreak() })
