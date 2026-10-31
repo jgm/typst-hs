@@ -29,7 +29,7 @@ import qualified Data.Text as T
 import qualified Data.Text.Encoding as TE
 import qualified Data.Vector as V
 import GHC.Generics (Generic)
-import System.FilePath (takeBaseName, takeFileName, takeDirectory, (</>))
+import System.FilePath (takeBaseName, makeRelative, takeDirectory, (</>))
 import Text.Parsec
 import Typst.Bind (destructuringBind, doBind)
 import Typst.Constructors (getConstructor)
@@ -1079,7 +1079,7 @@ loadModule modname = do
                      then pure dir'
                      else findPkgRoot (takeDirectory dir')
             pkgroot <- findPkgRoot (takeDirectory fp')
-            pure ( takeFileName fp',
+            pure ( makeRelative pkgroot fp',
                    Identifier
                     (T.pack $ takeWhile (/= ':') . takeBaseName $
                        T.unpack modname),
