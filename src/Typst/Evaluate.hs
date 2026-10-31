@@ -29,8 +29,7 @@ import qualified Data.Text as T
 import qualified Data.Text.Encoding as TE
 import qualified Data.Vector as V
 import GHC.Generics (Generic)
-import System.FilePath (replaceFileName, takeBaseName,
-                        takeFileName, takeDirectory, (</>))
+import System.FilePath (takeBaseName, takeFileName, takeDirectory, (</>))
 import Text.Parsec
 import Typst.Bind (destructuringBind, doBind)
 import Typst.Constructors (getConstructor)
@@ -1061,7 +1060,7 @@ findPackageEntryPoint modname = do
   case Toml.decode tomlString of
     Toml.Failure e -> fail (unlines ("Failure loading typst.toml" : e))
     Toml.Success _warnings cfg -> -- ignores warnings like unused keys in TOML
-      pure (replaceFileName tomlPath (entrypoint (package cfg)))
+      pure (takeDirectory tomlPath </> entrypoint (package cfg))
 
 loadModule :: Monad m => Text
            -> MP m (Seq Content, (Identifier, M.Map Identifier Val))
