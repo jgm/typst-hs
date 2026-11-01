@@ -21,6 +21,7 @@ import Control.Monad.Reader (lift, ReaderT)
 import qualified Data.Aeson as Aeson
 import qualified Data.ByteString.Lazy as BL
 import qualified Data.Csv as Csv
+import qualified Data.List.NonEmpty as NE
 import qualified Data.Map as M
 import qualified Data.Map.Ordered as OM
 import Data.Maybe (mapMaybe)
@@ -30,7 +31,7 @@ import Data.Text (Text)
 import qualified Data.Text as T
 import qualified Data.Text.Encoding as TE
 import qualified Data.Vector as V
-import qualified Data.Yaml as Yaml
+import qualified Yamlet
 import Text.Parsec (getPosition, getState, updateState, runParserT)
 import Text.Read (readMaybe)
 import qualified Text.XML as XML
@@ -710,8 +711,8 @@ dataLoading =
     ( "yaml",
       makeFunction $ do
         bs <- getFileOrBytes
-        case Yaml.decodeEither' (BL.toStrict bs) of
-          Left e -> fail $ show e
+        case Yamlet.decode (BL.toStrict bs) of
+          Left es -> fail $ unlines $ map (Yamlet.prettyError "yaml") $ NE.toList es
           Right (v :: Val) -> pure v
     ),
     ( "read",

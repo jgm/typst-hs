@@ -62,7 +62,7 @@ import Data.Functor.Classes (Ord1 (liftCompare))
 import qualified Data.Map as M
 import qualified Data.Map.Ordered as OM
 import Data.Maybe (fromMaybe, isJust, isNothing, catMaybes)
-import Data.Scientific (floatingOrInteger)
+import Data.Scientific (floatingOrInteger, toRealFloat)
 import Data.Sequence (Seq)
 import qualified Data.Sequence as Seq
 import qualified Data.Set as Set
@@ -78,6 +78,15 @@ import qualified Toml.Schema as Toml
 import qualified Toml.Pretty as Toml
 import qualified Text.PrettyPrint as P
 import Text.Read (readMaybe)
+import Yamlet
+  ( FloatValue (..),
+    FromYaml (..),
+    View (..),
+    parseItems,
+    parseNode,
+    typeMismatch,
+    view,
+  )
 import Typst.Regex (RE, makeLiteralRE)
 import Typst.Syntax (Identifier (..), Markup)
 import Data.Time (UTCTime, Day, DiffTime, timeOfDayToTime, localDay, localTimeOfDay)
@@ -164,6 +173,26 @@ instance FromJSON Val where
     pure $ either VFloat VInteger (floatingOrInteger n)
   parseJSON (Aeson.Bool b) = pure $ VBoolean b
   parseJSON Aeson.Null = pure VNone
+
+-- | Like Typst, keeps the order of the keys of a mapping and drops the
+-- keys that are not strings.
+instance FromYaml Val where
+  parseYaml = parseNode $ \n -> case view n of
+    NullView -> pure VNone
+    BoolView b -> pure $ VBoolean b
+    IntView i -> pure $ VInteger i
+    FloatView f -> pure $ VFloat $ case f of
+      Finite s -> toRealFloat s
+      NegativeZero -> -0.0
+      Infinity -> 1 / 0
+      NegativeInfinity -> -1 / 0
+      NaN -> 0 / 0
+    StringView t -> pure $ VString t
+    SequenceView xs -> VArray . V.fromList <$> parseItems parseYaml xs
+    MappingView kvs -> do
+      let (ks, vs) = unzip [(Identifier k, v) | (kn, v) <- kvs, StringView k <- [view kn]]
+      VDict . OM.fromList . zip ks <$> parseItems parseYaml vs
+    AliasView _ -> typeMismatch "a value" n
 
 instance Toml.FromValue Val where
   fromValue = pure . tomlToVal

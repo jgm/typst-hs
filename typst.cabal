@@ -76,7 +76,7 @@ library
                       aeson,
                       scientific,
                       xml-conduit,
-                      yaml,
+                      yamlet >= 1.0 && < 2,
                       toml-parser ^>= 2.0.0.0,
                       regex-tdfa,
                       array,
