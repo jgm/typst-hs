@@ -83,3 +83,40 @@ jobs:
       run: |
           cabal test --disable-optimization ${{ matrix.versions.cabalopts }}
 
+  windows:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v7
+
+    # Use the versions of cabal and ghc that are included in the runner image.
+    - name: Update cabal and get versions and store path
+      id:   cabal-store
+      shell: bash
+      run: |
+          cabal update -z
+          echo "ghc=$(ghc --numeric-version)" >> "$GITHUB_OUTPUT"
+          echo "dir=$(cabal path -z --store-dir)" >> "$GITHUB_OUTPUT"
+
+    - name: Compute build plan
+      run: |
+          cabal build --enable-tests --disable-optimization -fexecutable --ghc-option=-Werror --dry-run
+
+    - name: Cache cabal global package db
+      uses: actions/cache@v6
+      with:
+        path: |
+          ${{ steps.cabal-store.outputs.dir }}
+        key: ${{ runner.os }}-ghc-${{ steps.cabal-store.outputs.ghc }}-cabal-${{ secrets.CACHE_VERSION }}-${{ hashFiles('dist-newstyle/cache/plan.json') }}
+        restore-keys: |
+          ${{ runner.os }}-ghc-${{ steps.cabal-store.outputs.ghc }}-cabal-${{ secrets.CACHE_VERSION }}-
+
+    - name: Build
+      run: |
+          cabal build --enable-tests --disable-optimization -fexecutable --ghc-option=-Werror
+
+    - name: Test
+      run: |
+          cabal test --disable-optimization --ghc-option=-Werror
+
