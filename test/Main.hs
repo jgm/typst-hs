@@ -9,6 +9,7 @@ import qualified Data.Text as T
 import qualified Data.Text.Encoding as TE
 import Data.Text.IO as TIO
 import System.FilePath (replaceExtension)
+import System.Info (os)
 import Test.Tasty (TestTree, Timeout (..), defaultMain, localOption, testGroup)
 import Test.Tasty.Golden (findByExtension, goldenVsStringDiff)
 import Text.Show.Pretty (ppShow)
@@ -41,7 +42,11 @@ goldenTests = do
   inputs <- findByExtension [".typ"] "typ"
   pure $
     localOption (Timeout 1000000 "1s") $
-      testGroup "golden tests" (map (runTest testParse) inputs)
+      testGroup "golden tests" (map (runTest testParse . map fixSeparator) inputs)
+  where
+    -- Golden files record paths with forward slashes.
+    fixSeparator '\\' = '/'
+    fixSeparator c = c
 
 runTest :: [Markup] -> FilePath -> TestTree
 runTest testParse input =
@@ -53,7 +58,7 @@ runTest testParse input =
 
 writeTest :: [Markup] -> FilePath -> IO BL.ByteString
 writeTest testParse input = do
-  let fromText = BL.fromStrict . TE.encodeUtf8 . (<> "\n")
+  let fromText = BL.fromStrict . TE.encodeUtf8 . nativeNewlines . (<> "\n")
   contents <- TIO.readFile input
   if "// Error"
     `T.isInfixOf` contents
@@ -77,3 +82,9 @@ writeTest testParse input = do
             Right c -> do
               let evalOutput = "--- evaluated ---\n" <> repr (VContent [c])
               pure $ fromText $ parseOutput <> evalOutput
+
+-- Git converts golden files to CRLF when checking them out on Windows.
+nativeNewlines :: T.Text -> T.Text
+nativeNewlines
+  | os == "mingw32" = T.replace "\n" "\r\n"
+  | otherwise = id
