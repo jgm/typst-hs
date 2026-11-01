@@ -7,7 +7,6 @@ import qualified Data.ByteString as BS
 import qualified Data.ByteString.Lazy as BL
 import qualified Data.Text as T
 import qualified Data.Text.Encoding as TE
-import Data.Text.IO as TIO
 import System.FilePath (replaceExtension)
 import System.Info (os)
 import Test.Tasty (TestTree, Timeout (..), defaultMain, localOption, testGroup)
@@ -59,7 +58,7 @@ runTest testParse input =
 writeTest :: [Markup] -> FilePath -> IO BL.ByteString
 writeTest testParse input = do
   let fromText = BL.fromStrict . TE.encodeUtf8 . nativeNewlines . (<> "\n")
-  contents <- TIO.readFile input
+  contents <- TE.decodeUtf8 <$> BS.readFile input
   if "// Error"
     `T.isInfixOf` contents
     || "cycle1.typ"
