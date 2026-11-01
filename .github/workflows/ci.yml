@@ -46,9 +46,9 @@ jobs:
       with:
         path: |
           ${{ steps.cabal-store.outputs.dir }}
-        key: ${{ runner.os }}-appdata-cabal-${{ secrets.CACHE_VERSION }}-${{ hashFiles('cabal.project', '**/*.cabal') }}
+        key: ${{ runner.os }}-ghc-${{ matrix.versions.ghc }}-cabal-${{ secrets.CACHE_VERSION }}-${{ hashFiles('cabal.project', '**/*.cabal') }}
         restore-keys: |
-          ${{ runner.os }}-appdata-cabal-${{ secrets.CACHE_VERSION }}-
+          ${{ runner.os }}-ghc-${{ matrix.versions.ghc }}-cabal-${{ secrets.CACHE_VERSION }}-
 
     - name: Build
       run: |
