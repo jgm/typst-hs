@@ -61,13 +61,17 @@ jobs:
           cabal update -z
           echo "dir=$(cabal path -z --store-dir)" >> "$GITHUB_OUTPUT"
 
+    - name: Compute build plan
+      run: |
+          cabal build --enable-tests --disable-optimization -fexecutable ${{ matrix.versions.cabalopts }} --dry-run
+
     - name: Cache cabal global package db
       id:   cabal-global
       uses: actions/cache@v6
       with:
         path: |
           ${{ steps.cabal-store.outputs.dir }}
-        key: ${{ runner.os }}-ghc-${{ matrix.versions.ghc }}-cabal-${{ secrets.CACHE_VERSION }}-${{ hashFiles('cabal.project', '**/*.cabal') }}
+        key: ${{ runner.os }}-ghc-${{ matrix.versions.ghc }}-cabal-${{ secrets.CACHE_VERSION }}-${{ hashFiles('dist-newstyle/cache/plan.json') }}
         restore-keys: |
           ${{ runner.os }}-ghc-${{ matrix.versions.ghc }}-cabal-${{ secrets.CACHE_VERSION }}-
 
