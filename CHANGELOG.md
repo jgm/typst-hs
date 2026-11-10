@@ -1,13 +1,29 @@
 # Revision history for typst-hs
 
-## Unreleased
+## 0.12.1
 
-  * Fix the GHC 9.14 -Werror build by removing redundant Typeable derivations,
-    unused imports, and shadowed local names.
+  * Tests: read top-level test files as raw bytes. This matches how
+    imports and the executable read files. Previously the tests read
+    them through a text handle, which should strip CRs on Windows.
 
-  * Match Typst shorthand reference lexing: allow colon and dot inside labels,
-    preserve trailing punctuation as text, and fall back to text for bare @
-    markers.
+  * Tests: handle Windows paths and line endings. Golden files record
+    paths with forward slashes, and git converts them to CRLF when
+    checking them out on Windows.
+
+  * Switch to yamlet (#110, Théophile Choutri de Tarlé). This gives us
+    order-preserving mappings, as in typst itself, as well as correct
+    YAML semantics.
+
+  * Identify filepath in package relative to package root (#111).
+    This ensures that when we are interpreting modules that
+    don't reside at the package root, we get the right `evalLocalDir`
+    and resolve relative imports correctly.
+
+  * Fix path of entry point module for imports.
+
+  * Match Typst shorthand reference lexing (#108, Samuel Huang).
+    Require a label character after @, greedily consume internal
+    punctuation, and keep supplement failures fatal.
 
 ## 0.12
 
