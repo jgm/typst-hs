@@ -6,6 +6,7 @@ module Typst.Module.Calc
   )
 where
 
+import Data.Int (Int64)
 import qualified Data.Map as M
 import Data.Maybe (fromMaybe, mapMaybe)
 import Data.Number.Erf (erf)
@@ -147,7 +148,17 @@ calcModule =
           ex <- nthArg 2
           case (base, ex) of
             (VInteger x, VInteger y)
-              | y >= 0 -> pure $ VInteger $ x ^ y
+              | y >= 0 ->
+                  -- as in Typst, the result must fit in 64 bits; this
+                  -- also keeps e.g. pow(2, 100000000) from taking ages
+                  let r = x ^ y
+                      tooLarge = r > toInteger (maxBound :: Int64) ||
+                                 r < toInteger (minBound :: Int64)
+                  in if y > 4294967295
+                        then fail "exponent is too large"
+                        else if (abs x >= 2 && y >= 64) || tooLarge
+                        then fail "the result is too large"
+                        else pure $ VInteger r
             _ -> do
               (base' :: Double) <- fromVal base
               (ex' :: Integer) <- fromVal ex

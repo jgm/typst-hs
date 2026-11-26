@@ -1,0 +1,14 @@
+--- parse tree ---
+[ Code
+    "typ/regression/pow-too-large.typ"
+    ( line 1 , column 2 )
+    (FuncCall
+       (FieldAccess
+          (Ident (Identifier "pow")) (Ident (Identifier "calc")))
+       [ NormalArg (Literal (Int 2))
+       , NormalArg (Literal (Int 100000000))
+       ])
+, ParBreak
+]
+"typ/regression/pow-too-large.typ" (line 1, column 2):
+Module does not have a method "pow" or the result is too large
