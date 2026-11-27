@@ -16,7 +16,7 @@ module Typst.Module.Standard
 where
 
 import Control.Applicative ((<|>))
-import Control.Monad (mplus, unless)
+import Control.Monad (mplus, unless, when)
 import Control.Monad.Reader (lift, ReaderT)
 import qualified Data.Aeson as Aeson
 import qualified Data.ByteString.Lazy as BL
@@ -514,6 +514,8 @@ construct =
         mbsecond <- nthArg 2
         step <- namedArg "step" 1
         inclusive <- namedArg "inclusive" False
+        -- with a zero step, enumFromThenTo never ends
+        when (step == (0 :: Integer)) $ fail "range: step must not be zero"
         pure $
           VArray $
             V.fromList $

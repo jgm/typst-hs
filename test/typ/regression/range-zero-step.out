@@ -1,0 +1,13 @@
+--- parse tree ---
+[ Code
+    "typ/regression/range-zero-step.typ"
+    ( line 1 , column 2 )
+    (FuncCall
+       (Ident (Identifier "range"))
+       [ NormalArg (Literal (Int 1))
+       , KeyValArg (Identifier "step") (Literal (Int 0))
+       ])
+, ParBreak
+]
+"typ/regression/range-zero-step.typ" (line 1, column 2):
+range: step must not be zero
